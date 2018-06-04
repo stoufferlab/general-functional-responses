@@ -9,7 +9,7 @@ study.info <- function(dataname){
 		sep=",",
 		na.strings = c("*", "NA")
 	)
-	googledoc <- googledoc[googledoc$Dataset_Folder == datadir & !is.na(googledoc$Dataset_Folder),]
+	googledoc <- googledoc[googledoc$Dataset_Folder == dataname & !is.na(googledoc$Dataset_Folder),]
 
 	# define the type of experiment
 	if(googledoc[1,"With_Prey_Replacement"] | is.na(googledoc[1,"With_Prey_Replacement"])){
@@ -27,16 +27,26 @@ study.info <- function(dataname){
 		Pminus1 <- FALSE
 	}
 
-	# define the type of experiment
-	if(googledoc[1,"Count_per_Predator"] | is.na(googledoc[1,"Count_per_Predator"])){
-		perpredator <- TRUE
+	# determine whether or not there are P-1 "predators" interfering
+	if(googledoc[1,"Original_or_Means_Compilation"] == "Original"){
+		bootstrap <- FALSE
 	}
 	else{
-		perpredator <- FALSE
+		bootstrap <- TRUE
+	}
+
+	# determine whether or not the study was used by DeLong and Vasseur
+	if(grepl("DeLong",googledoc[1,"PriorUse"])){
+		delong <- TRUE
+	}
+	else{
+		delong <- FALSE
 	}
 
 	rt <- list(
 		expttype=expttype,
-		Pminus1=Pminus1
+		Pminus1=Pminus1,
+		bootstrap=bootstrap,
+		delong=delong
 	)
 }
