@@ -10,14 +10,8 @@ expttype <- this.study$expttype
 Pminus1 <- this.study$Pminus1
 
 # turn into a standard dataframe with standard column names
-d <- rawdata[!is.na(rawdata$n),]
+d <- rawdata[,c('Pred','Prey','Total.killed.mean','Total.killed.se','n')]
 colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n")
-
-# WARNING
-# predation rates here are per predator
-# must scale them and SEs to be absolute measures
-d$Nconsumed.mean <- d$Nconsumed.mean * d$Npredator
-d$Nconsumed.se <- d$Nconsumed.se * d$Npredator
 
 # WARNING: this should probably be bootstrapped properly!
 # bootstrap the experiment

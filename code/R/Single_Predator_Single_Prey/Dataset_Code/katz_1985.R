@@ -10,11 +10,8 @@ expttype <- this.study$expttype
 Pminus1 <- this.study$Pminus1
 
 # turn into a standard dataframe with standard column names
-d <- rawdata
+d <- rawdata[,c('Predators','Prey','Eaten.Total.mean','Eaten.Total.se','n')]
 colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n")
-
-# WARNING: this is a guesstimate!
-d$Nconsumed.se <- 1.0
 
 # WARNING: this should probably be bootstrapped properly!
 # bootstrap the experiment

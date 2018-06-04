@@ -1,4 +1,4 @@
-
+	
 # WARNING: this should probably be bootstrapped properly!
 
 # read in the raw data
@@ -12,7 +12,7 @@ expttype <- this.study$expttype
 Pminus1 <- this.study$Pminus1
 
 # necessary data for analysis
-d <- rawdata
+d <- rawdata[,c('Parasites','Hosts','Parasiized.Total.mean','Parasitized.Total.se','n')]
 colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n")
 
 # bootstrap the experiment

@@ -1,7 +1,7 @@
 
 # read in the simplify the raw data
 datadir <- 'Lang_2012'
-filename <- 'Lang_Interference_FR_Pter_10C.csv'
+filename <- 'Lang_2012_FR_Pter_10C.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # grab some info from the google doc

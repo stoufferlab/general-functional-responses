@@ -1,7 +1,7 @@
 
 # read in the simplify the raw data
 datadir <- 'Kratina_2009'
-filename <- 'Kratina_2009_data.csv'
+filename <- 'Kratina_2009.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # grab some info from the google doc

@@ -10,7 +10,7 @@ expttype <- this.study$expttype
 Pminus1 <- this.study$Pminus1
 
 # turn into a standard dataframe with standard column names
-d <- rawdata
+d <- rawdata[,c("Pred","Prey",'Captures.Total.mean','Captures.Total.se','n')]
 colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n")
 
 # WARNING: this should probably be bootstrapped properly!

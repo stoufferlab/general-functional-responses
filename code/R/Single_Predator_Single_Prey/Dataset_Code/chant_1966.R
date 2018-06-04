@@ -10,7 +10,7 @@ expttype <- this.study$expttype
 Pminus1 <- this.study$Pminus1
 
 # rename to standard column names used in fitting code
-d <- rawdata
+d <- rawdata[,c('Preds','Prey','Eaten')]
 colnames(d) <- c("Npredator", "Nprey", "Nconsumed")
 
 # DEBUG

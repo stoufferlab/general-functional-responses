@@ -1,7 +1,7 @@
 
 # read in the simplify the raw data
 datadir <- 'Pusack_2018'
-filename <- 'Pusack et al. 2018 Data for M Novak.csv'
+filename <- 'Pusack_2018.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # grab some info from the google doc
