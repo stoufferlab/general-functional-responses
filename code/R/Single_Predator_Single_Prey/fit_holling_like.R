@@ -66,41 +66,41 @@ general.NLL = function(attack, handling, interference, phi_numer, phi_denom, ini
 general.NLL.params = function(params, modeltype, initial, killed, predators, time, expttype, Pminus1){
 	if(modeltype == "Holling I"){
 		attack <- params[1]
-		handling <- -20
-		interference <- -20
-		phi_numer <- 20
-		phi_denom <- 20	
+		handling <- log(1E-7)
+		interference <- log(1E-7)
+		phi_numer <- -1 * qlogis(1E-9)
+		phi_denom <- -1 * qlogis(1E-9)
 	}
 
 	if(modeltype == "Holling II"){
 		attack <- params[1]
 		handling <- params[2]
-		interference <- -20
-		phi_numer <- 20
-		phi_denom <- 20	
+		interference <- log(1E-7)
+		phi_numer <- -1 * qlogis(1E-9)
+		phi_denom <- -1 * qlogis(1E-9)
 	}
 
 	if(modeltype == "Beddington-DeAngelis"){
 		attack <- params[1]
 		handling <- params[2]
 		interference <- params[3]
-		phi_numer <- 20
-		phi_denom <- 20	
+		phi_numer <- -1 * qlogis(1E-9)
+		phi_denom <- -1 * qlogis(1E-9)
 	}
 
 	if(modeltype == "Crowley-Martin"){
 		attack <- params[1]
 		handling <- params[2]
 		interference <- params[3]
-		phi_numer <- 20
-		phi_denom <- -20
+		phi_numer <- -1 * qlogis(1E-9)
+		phi_denom <- qlogis(1E-9)
 	}
 
 	if(modeltype == "Stouffer-Novak I"){
 		attack <- params[1]
 		handling <- params[2]
 		interference <- params[3]
-		phi_numer <- 20
+		phi_numer <- -1 * qlogis(1E-9)
 		phi_denom <- params[4]
 	}
 
@@ -109,7 +109,7 @@ general.NLL.params = function(params, modeltype, initial, killed, predators, tim
 		handling <- params[2]
 		interference <- params[3]
 		phi_numer <- params[4]
-		phi_denom <- 20
+		phi_denom <- -1 * qlogis(1E-9)
 	}
 	
 	if(modeltype == "Stouffer-Novak III"){
@@ -144,14 +144,19 @@ ffr.hollingI.nloptr <- nloptr::nloptr(
 ffr.hollingI <- bbmle::mle2(
 	general.NLL,
 	start=list(attack=ffr.hollingI.nloptr$solution[1]),
-	fixed=list(handling=-20,interference=-20, phi_numer=20, phi_denom=20),
+	fixed=list(
+		handling = log(1E-7),
+		interference = log(1E-7),
+		phi_numer = -1 * qlogis(1E-9),
+		phi_denom = -1 * qlogis(1E-9)
+	),
 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
 	# optimizer="nlminb",
 	# lower=c(attack=0, handling=0)
 )
 
 ffr.hollingII.nloptr <- nloptr::nloptr(
-	x0=c(coef(ffr.hollingI)[1],0),
+	x0=c(coef(ffr.hollingI)[1],log(1)),
 	eval_f=general.NLL.params,
 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
 	modeltype="Holling II",
@@ -166,14 +171,18 @@ ffr.hollingII.nloptr <- nloptr::nloptr(
 ffr.hollingII <- bbmle::mle2(
 	general.NLL,
 	start=list(attack=ffr.hollingII.nloptr$solution[1], handling=ffr.hollingII.nloptr$solution[2]),
-	fixed=list(interference=-20, phi_numer=20, phi_denom=20),
+	fixed=list(
+		interference = log(1E-7),
+		phi_numer = -1 * qlogis(1E-9),
+		phi_denom = -1 * qlogis(1E-9)
+	),
 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL),
 	# optimizer="nlminb",
 	# lower=c(attack=0, handling=0)
 )
 
 ffr.bd.nloptr <- nloptr::nloptr(
-	x0=c(coef(ffr.hollingII)[1:2],0),
+	x0=c(coef(ffr.hollingII)[1:2],log(1)),
 	eval_f=general.NLL.params,
 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
 	modeltype="Beddington-DeAngelis",
@@ -188,12 +197,15 @@ ffr.bd.nloptr <- nloptr::nloptr(
 ffr.bd <- bbmle::mle2(
 	general.NLL,
 	start=list(attack=ffr.bd.nloptr$solution[1], handling=ffr.bd.nloptr$solution[2], interference=ffr.bd.nloptr$solution[3]),
-	fixed=list(phi_numer=20, phi_denom=20),
+	fixed=list(
+		phi_numer = -1 * qlogis(1E-9),
+		phi_denom = -1 * qlogis(1E-9)
+	),
 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
 )
 
 ffr.cm.nloptr <- nloptr::nloptr(
-	x0=c(coef(ffr.hollingII)[1:2],0),
+	x0=c(coef(ffr.hollingII)[1:2],log(1)),
 	eval_f=general.NLL.params,
 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
 	modeltype="Crowley-Martin",
@@ -208,14 +220,17 @@ ffr.cm.nloptr <- nloptr::nloptr(
 ffr.cm <- bbmle::mle2(
 	general.NLL,
 	start=list(attack=ffr.cm.nloptr$solution[1], handling=ffr.cm.nloptr$solution[2], interference=ffr.cm.nloptr$solution[3]),
-	fixed=list(phi_numer=20, phi_denom=-20),
+	fixed=list(
+		phi_numer = -1 * qlogis(1E-9),
+		phi_denom = qlogis(1E-9)
+	),
 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL),
 	# optimizer="nlminb",
 	# lower=c(attack=0, handling=0)
 )
 
 ffr.sn1.nloptr <- nloptr::nloptr(
-	x0=c(coef(ffr.hollingII)[1:2],0,0),
+	x0=c(coef(ffr.hollingII)[1:2],log(1),qlogis(0.5)),
 	eval_f=general.NLL.params,
 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
 	modeltype="Stouffer-Novak I",
@@ -230,7 +245,9 @@ ffr.sn1.nloptr <- nloptr::nloptr(
 ffr.sn1 <- bbmle::mle2(
 	general.NLL,
 	start=list(attack=ffr.sn1.nloptr$solution[1], handling=ffr.sn1.nloptr$solution[2], interference=ffr.sn1.nloptr$solution[3], phi_denom=ffr.sn1.nloptr$solution[4]),
-	fixed=list(phi_numer=20),
+	fixed=list(
+		phi_numer = -1 * qlogis(1E-9)
+	),
 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
 )
 
@@ -254,7 +271,7 @@ ffr.sn1 <- bbmle::mle2(
 # )
 
 ffr.sn3.nloptr <- nloptr::nloptr(
-	x0=c(coef(ffr.hollingII)[1:2],0,0,0),
+	x0=c(coef(ffr.hollingII)[1:2],log(1),qlogis(0.5),qlogis(0.5)),
 	eval_f=general.NLL.params,
 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
 	modeltype="Stouffer-Novak III",
@@ -271,4 +288,3 @@ ffr.sn3 <- bbmle::mle2(
 	start=list(attack=ffr.sn3.nloptr$solution[1], handling=ffr.sn3.nloptr$solution[2], interference=ffr.sn3.nloptr$solution[3], phi_numer=ffr.sn3.nloptr$solution[4], phi_denom=ffr.sn3.nloptr$solution[5]),
 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
 )
-
