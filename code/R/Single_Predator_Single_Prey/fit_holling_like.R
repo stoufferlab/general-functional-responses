@@ -36,7 +36,7 @@ general.pred = function(N0, a, h, c, phi_numer, phi_denom, P, T, expttype=c("int
 	return(N)
 }
 
-general.NLL = function(attack, handling, interference, phi_numer, phi_denom, initial, killed, predators, time, expttype, Pminus1){
+general.NLL = function(attack, handling, interference, phi_numer, phi_denom, initial, killed, predators, expttype, Pminus1, time=NULL){
 	# DEBUG we should probably force some of these depending on model type
 	# we use parameter transformations to help improve the fitting and to avoid needing bounded optimization
 	attack <- exp(attack)
@@ -44,6 +44,10 @@ general.NLL = function(attack, handling, interference, phi_numer, phi_denom, ini
 	interference <- exp(interference)
 	phi_numer <- plogis(phi_numer)
 	phi_denom <- plogis(phi_denom)
+
+	if(is.null(time)){
+		time <- 1
+	}
 
 	# expected number consumed
 	Nconsumed <- general.pred(N0=initial, a=attack, h=handling, c=interference, phi_numer=phi_numer, phi_denom=phi_denom, P=predators, T=time, expttype=expttype, Pminus1=Pminus1)
