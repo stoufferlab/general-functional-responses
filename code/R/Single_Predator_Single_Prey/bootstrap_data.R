@@ -4,11 +4,23 @@ bootstrap.data <- function(rawdata, expttype=c("integrated","replacement")){
 	expttype <- match.arg(expttype)
 
 	# generate a container for the data
-	d <- matrix(NA, sum(rawdata$n), 3)
+	if("Time" %in% colnames(rawdata)){
+		d <- matrix(NA, 0, 4)
+	}else{
+		d <- matrix(NA, 0, 3)
+	}
+
+	
 
 	# bootstrap
 	counter <- 1	
 	for(r in 1:nrow(rawdata)){
+		# DEBUG: if the SE is NA then do not sample that set of replicates more than once
+		if(is.na(rawdata[r,"Nconsumed.se"])){
+			rawdata[r,"Nconsumed.se"] <- 0
+			rawdata[r,"n"] <- 1
+		}
+		
 		for( e in 1:rawdata[r,"n"] ){
 			mu <- rawdata[r,"Nconsumed.mean"]
 			sigma <- rawdata[r,"Nconsumed.se"] * sqrt(rawdata[r,"n"])
@@ -29,13 +41,20 @@ bootstrap.data <- function(rawdata, expttype=c("integrated","replacement")){
 				Ne <- rpois(n=1, lambda=lambda)
 			}
 
-			d[counter,] <- c(rawdata[r,"Npredator"],rawdata[r,"Nprey"],Ne)
-			counter <- counter + 1
+			if("Time" %in% colnames(rawdata)){
+				d <- rbind(d, c(rawdata[r,"Npredator"],rawdata[r,"Nprey"],Ne,rawdata[r,"Time"]))
+			}else{
+				d <- rbind(d, c(rawdata[r,"Npredator"],rawdata[r,"Nprey"],Ne))
+			}
 		}
 	}
 	
 	d <- data.frame(d)
-	colnames(d) <- c("Npredator", "Nprey", "Nconsumed")
+	if("Time" %in% colnames(rawdata)){
+		colnames(d) <- c("Npredator", "Nprey", "Nconsumed", "Time")
+	}else{
+		colnames(d) <- c("Npredator", "Nprey", "Nconsumed")
+	}
 
 	return(d)
 }
