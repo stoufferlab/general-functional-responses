@@ -28,7 +28,7 @@ study.info <- function(dataname){
 	}
 
 	# determine whether or not there are P-1 "predators" interfering
-	if(googledoc[1,"Original_or_Means_Compilation"] == "Original"){
+	if(googledoc[1,"Original_Means_Compilation"] == "Original"){
 		bootstrap <- FALSE
 	}
 	else{
@@ -43,10 +43,23 @@ study.info <- function(dataname){
 		delong <- FALSE
 	}
 
+	# determine whether or not the study has predators or parasites
+	if(googledoc[1,"Predator.Parasitoid"] == "Predator"){
+		predator <- TRUE
+	}
+	else{
+		if(googledoc[1,"Predator.Parasitoid"] == "Parasitoid"){
+			predator <- FALSE
+		}else{
+			predator <- NA
+		}
+	}
+
 	rt <- list(
 		expttype=expttype,
 		Pminus1=Pminus1,
 		bootstrap=bootstrap,
-		delong=delong
+		delong=delong,
+		predator=predator
 	)
 }
