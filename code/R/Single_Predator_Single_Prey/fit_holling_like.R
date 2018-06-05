@@ -67,7 +67,7 @@ general.NLL = function(attack, handling, interference, phi_numer, phi_denom, ini
 	return(nll)
 }
 
-general.NLL.params = function(params, modeltype, initial, killed, predators, time, expttype, Pminus1){
+general.NLL.params = function(params, modeltype, initial, killed, predators, expttype, Pminus1, time=NULL){
 	if(modeltype == "Holling I"){
 		attack <- params[1]
 		handling <- log(1E-7)
