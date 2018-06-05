@@ -34,11 +34,15 @@ ratio.dependent.pred = function(N0, a, h, m, P, T, expttype=c("integrated","repl
 	return(N)
 }
 
-ratio.dependent.NLL = function(attack, handling, exponent, initial, killed, predators, time, expttype){
+ratio.dependent.NLL = function(attack, handling, exponent, initial, killed, predators, expttype, time=NULL){
 	# we use parameter transformations to help improve the fitting and to avoid needing bounded optimization
 	attack <- exp(attack)
 	handling <- exp(handling)
 	exponent <- exp(exponent)
+
+	if(is.null(time)){
+		time <- 1
+	}
 	
 	# expected number consumed
 	Nconsumed <- ratio.dependent.pred(N0=initial, a=attack, h=handling, m=exponent, P=predators, T=time, expttype=expttype)
