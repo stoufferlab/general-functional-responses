@@ -212,7 +212,7 @@ general.NLL.same_phi = function(attack_i, handling_i, attack_j, handling_j, phi,
 # )
 
 # read in some test data for the time being
-d <- read.csv("Nachappa_2006.csv")
+d <- read.csv("test_data.csv")
 d <- d[rowSums(is.na(d))==0,]
 
 # fit a TYPE I functional response treating the predator as specialized on both prey
