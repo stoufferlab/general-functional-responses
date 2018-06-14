@@ -48,11 +48,14 @@ ratio.dependent.NLL = function(attack, handling, exponent, initial, killed, pred
 	# expected number consumed
 	Nconsumed <- ratio.dependent.pred(N0=initial, a=attack, h=handling, m=exponent, P=predators, T=time, expttype=expttype)
 
+	# DEBUG if the parameters are not biologically plausible, neither should be the likelihood
+	if(any(Nconsumed < 0 | is.nan(Nconsumed))){
+		return(Inf)
+	}
+
 	# negative log likelihood based on proportion consumed (no replacement)
-	# DEBUG: consider whether binomial or poisson are interchangeable
 	if(expttype=="integrated"){
 		nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
-		# nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
 	}
 
 	# negative log likelihood based on total number consumed (replacement)
