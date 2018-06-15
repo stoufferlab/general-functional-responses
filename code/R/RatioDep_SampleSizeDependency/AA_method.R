@@ -102,6 +102,7 @@ dat <- read.table(header=TRUE, text="
 dat <- round(dat)
 
 ###############################################################################
+######################
 # Fit to the Katz data
 ######################
 nP <- length(unique(dat$P))
@@ -126,5 +127,25 @@ fit.AAM.mle <- bbmle::mle2(
   data=list(initial=dat$N, killed=dat$Neaten, predators=dat$P, expttype='integrated')
 )
 
+summary(fit.AAM.mle)
+
+##############################################################
+# Estimate 'm' as slope of log(a's) ~ log(P's)
+# using "the reciprocal of the variance of y as the weight w."
+##############################################################
+ests <- coef(summary(fit.AAM.mle)) 
+ests.a <- ests[-nrow(ests),1] # Are already log-transformed, so no need to do again
+ests.a.se <- ests[-nrow(ests),2]
+Ps <- unique(attributes(fit.AAM.mle)$data$predators) # grab from fit to ensure Ps are in order corresponding to ests
+w <- diag(vcov(fit.AAM.mle))
+
+# Estimate 'm' as slope
+fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w[-nrow(ests)])
+summary(fit.AAM.lm)
 
 
+plot(ests.a ~ log(Ps), pch=19, ylim=c(min(ests.a-ests.a.se),max(ests.a+ests.a.se)))
+  arrows(log(Ps), ests.a-ests.a.se, log(Ps), ests.a+ests.a.se, code=3, angle=90)
+  abline(fit.AAM.lm)
+
+##############################################################
