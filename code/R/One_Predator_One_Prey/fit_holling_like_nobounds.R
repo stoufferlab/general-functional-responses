@@ -63,7 +63,7 @@ ffr.hollingII <- bbmle::mle2(
 		phi_numer = 1,
 		phi_denom = 1
 	),
-	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL),
+	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL)
 	#skip.hessian = TRUE
 	# optimizer="nlminb",
 	# lower=c(attack=0, handling=0)
