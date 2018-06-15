@@ -78,7 +78,7 @@ AAM.NLL = function(
 
 ###############################################################################
 # Grab the Katz 1985 data (from Arditi & Akcakya paper)
-dat <- read.table(header=TRUE, text="
+Katz <- read.table(header=TRUE, text="
                 P	N	Neaten
                 1	16	2.14
                 1	32	4.14
@@ -97,10 +97,33 @@ dat <- read.table(header=TRUE, text="
                 4	64	8.71
                 4	128	18.0
                 ")
+# Should bootstrap the following.
+dat <- Katz
+dat$Neaten<-rbinom(nrow(dat),size=dat$N,prob=dat$Neaten/dat$N)
 
-# Just for simplicity (so that binomial works)
-dat <- round(dat)
 
+# Grab edwards_1961_Trichogramma-Sitotroga_2 since we get a high 'm' estimate for it (~1.768)
+Edwards <- read.table(header=TRUE, text="
+              P	N	Neaten
+              1	18	1
+              1	32	1
+              1	72	2
+              1	128	6
+              1	200	2
+              10	32	4
+              10	72	20
+              10	128	15
+              10	200	11
+              20	32	8
+              20	72	22
+              20	128	29
+              20	200	37
+              60	32	5
+              60	72	12
+              60	128	14
+              60	200	30
+              ")
+dat <- Edwards
 ###############################################################################
 ######################
 # Fit to the Katz data
@@ -143,9 +166,14 @@ w <- diag(vcov(fit.AAM.mle))
 fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w[-nrow(ests)])
 summary(fit.AAM.lm)
 
+m.est <- coef(fit.AAM.lm)[2]
+m.est.se  <- coef(summary(fit.AAM.lm))[2,2]
 
-plot(ests.a ~ log(Ps), pch=19, ylim=c(min(ests.a-ests.a.se),max(ests.a+ests.a.se)))
-  arrows(log(Ps), ests.a-ests.a.se, log(Ps), ests.a+ests.a.se, code=3, angle=90)
+
+
+plot(ests.a ~ log(Ps), pch=19, ylim=c(min(ests.a-ests.a.se),max(ests.a+ests.a.se)),ylab='log(a)',xlab=('log(P)'))
+  arrows(log(Ps), ests.a-ests.a.se, log(Ps), ests.a+ests.a.se, code=3, angle=90,length=0.1)
   abline(fit.AAM.lm)
+  legend('topright',legend=bquote(m == .(round(m.est,2)) %+-%  .(round(m.est.se,2))),inset=0.1,bty='n')
 
 ##############################################################
