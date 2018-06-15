@@ -13,7 +13,7 @@ holling2 = function(N0, a, h, P, T, expttype=c("integrated","replacement")){
   expttype <- match.arg(expttype)
   
   if(expttype=="integrated"){
-    Neaten <- N0 - (1 / (a * h)) * lamW::lambertW0( (a * h * N0) * exp(-a * (T - h * N0)))
+    Neaten <- N0 - (1 / (a * h)) * lamW::lambertW0( (a * h * N0) * exp(-a * (P *T - h * N0)))
   }
   
   if(expttype=="replacement"){
@@ -26,17 +26,24 @@ holling2 = function(N0, a, h, P, T, expttype=c("integrated","replacement")){
 }
 
 
-# New negative log likelihood
-holling2.NLL = function(
-  attack,
-  handling,
+# Negative log likelihood for mle2
+AAM.NLL = function(
+  params,
   initial,
   killed,
   predators,
   expttype,
-  Pminus1,
   time=NULL
 ){
+  
+  # assuming P-specific attack rates first and handling time last...
+  attack <- params[-length(params)]
+  handling <- params[length(params)]
+  
+ # repeat each 'a' for each 'P' level
+  MM <- model.matrix(~0+as.factor(predators))
+  attack <- MM%*%attack
+  
   # we use parameter transformations to help improve the fitting and to avoid needing bounded optimization
   attack <- exp(attack)
   handling <- exp(handling)
@@ -70,10 +77,9 @@ holling2.NLL = function(
 
 
 ###############################################################################
-
 # Grab the Katz 1985 data (from Arditi & Akcakya paper)
 dat <- read.table(header=TRUE, text="
-                P	N	Eaten
+                P	N	Neaten
                 1	16	2.14
                 1	32	4.14
                 1	64	4.29
@@ -92,14 +98,33 @@ dat <- read.table(header=TRUE, text="
                 4	128	18.0
                 ")
 
-MM<-model.matrix(~0+as.factor(dat$P))
+# Just for simplicity (so that binomial works)
+dat <- round(dat)
+
+###############################################################################
+# Fit to the Katz data
+######################
+nP <- length(unique(dat$P))
+
+fit.AAM.nloptr <- nloptr::nloptr(
+  x0=c(runif(nP),log(1)),
+  eval_f=AAM.NLL,
+  opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
+  initial=dat$N,
+  killed=dat$Neaten,
+  predators=dat$P,
+  time=NULL,
+  expttype="integrated"
+)
+
+AAM.start<-fit.AAM.nloptr$solution
+names(AAM.start) <- parnames(AAM.NLL) <- c(paste0('a',1:nP),'h')
+
+fit.AAM.mle <- bbmle::mle2(
+  AAM.NLL,
+  start=AAM.start,
+  data=list(initial=dat$N, killed=dat$Neaten, predators=dat$P, expttype='integrated')
+)
 
 
-a<-as.vector(1:ncol(MM))
 
-x%*%a
-
-
-
-AA.method <- function(N,P,Neaten)
-  Plevels <- sort(unique(P))
