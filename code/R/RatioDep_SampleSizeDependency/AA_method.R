@@ -160,7 +160,7 @@ ests <- coef(summary(fit.AAM.mle))
 ests.a <- ests[-nrow(ests),1] # Are already log-transformed, so no need to do again
 ests.a.se <- ests[-nrow(ests),2]
 Ps <- unique(attributes(fit.AAM.mle)$data$predators) # grab from fit to ensure Ps are in order corresponding to ests
-w <- diag(vcov(fit.AAM.mle))
+w <- 1/diag(vcov(fit.AAM.mle))
 
 # Estimate 'm' as slope
 fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w[-nrow(ests)])
