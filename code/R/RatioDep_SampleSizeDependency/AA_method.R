@@ -4,6 +4,8 @@
 # (i.e. a 'manipulative experiment'), rather than a set of continuous densities 
 
 library(lamW)
+library(bbmle)
+
 
 #####################################
 # Holling Type II functional response
@@ -73,6 +75,15 @@ AAM.NLL = function(
   }
   
   return(nll)
+}
+
+
+
+##############################################################################
+# Function to determine whether dataset is suitable for Arditi-Akcakaya method.
+okay4AAM<-function(dat,minPlevels=3){
+    ifelse(min(table(dat$P))>minPlevels,out<-TRUE,out<-FALSE)
+    return(out)
 }
 
 
@@ -171,7 +182,7 @@ m.est.se  <- coef(summary(fit.AAM.lm))[2,2]
 
 
 
-plot(ests.a ~ log(Ps), pch=19, ylim=c(min(ests.a-ests.a.se),max(ests.a+ests.a.se)),ylab='log(a)',xlab=('log(P)'))
+plot(ests.a ~ log(Ps), pch=19, ylim=c(min(ests.a-ests.a.se),max(ests.a+ests.a.se)),ylab='log(a)',xlab=('log(P)'), las=1)
   arrows(log(Ps), ests.a-ests.a.se, log(Ps), ests.a+ests.a.se, code=3, angle=90,length=0.1)
   abline(fit.AAM.lm)
   legend('topright',legend=bquote(m == .(round(m.est,2)) %+-%  .(round(m.est.se,2))),inset=0.1,bty='n')
