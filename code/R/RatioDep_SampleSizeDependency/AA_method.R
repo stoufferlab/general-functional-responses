@@ -1,10 +1,10 @@
 # Implement 'Method II' of Arditi & Akcakaya 1990
 
-# Assumes values of P represent discrete levels, with variation in N for each P 
-# (i.e. a 'manipulative experiment'), rather than a set of continuous densities 
+# Assumes values of P represent discrete levels, with variation in N for each P (i.e. a 'manipulative experiment'), rather than a set of continuous densities 
 
-library(lamW)
-library(bbmle)
+require(lamW)
+require(bbmle)
+require(nloptr)
 
 
 #####################################
@@ -64,7 +64,6 @@ AAM.NLL = function(
   }
   
   # negative log likelihood based on proportion consumed (no replacement)
-  # DEBUG: consider whether binomial or poisson are interchangeable
   if(expttype=="integrated"){
     nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
   }
@@ -79,15 +78,16 @@ AAM.NLL = function(
 
 
 
-##############################################################################
+########################################################################
 # Function to determine whether dataset is suitable for Arditi-Akcakaya method.
-okay4AAM<-function(dat,minPlevels=3){
-    ifelse(min(table(dat$P))>minPlevels,out<-TRUE,out<-FALSE)
-    return(out)
+okay4AAM<-function(N,P,minNlevels=3,minPlevels=3){
+    mns<-dim(table(N,P))
+    if(mns[1]>minNlevels & mns[2]>minPlevels)
+      return(TRUE)
+    else(return(FALSE))
 }
 
-
-###############################################################################
+########################################################################
 # Grab the Katz 1985 data (from Arditi & Akcakya paper)
 Katz <- read.table(header=TRUE, text="
                 P	N	Neaten
@@ -135,10 +135,12 @@ Edwards <- read.table(header=TRUE, text="
               60	200	30
               ")
 dat <- Edwards
-###############################################################################
+#######################################################################
 ######################
-# Fit to the Katz data
+# Fit data
 ######################
+okay4AAM(dat$N,dat$P)
+
 nP <- length(unique(dat$P))
 
 fit.AAM.nloptr <- nloptr::nloptr(
@@ -161,7 +163,7 @@ fit.AAM.mle <- bbmle::mle2(
   data=list(initial=dat$N, killed=dat$Neaten, predators=dat$P, expttype='integrated')
 )
 
-summary(fit.AAM.mle)
+# summary(fit.AAM.mle)
 
 ##############################################################
 # Estimate 'm' as slope of log(a's) ~ log(P's)
@@ -171,10 +173,11 @@ ests <- coef(summary(fit.AAM.mle))
 ests.a <- ests[-nrow(ests),1] # Are already log-transformed, so no need to do again
 ests.a.se <- ests[-nrow(ests),2]
 Ps <- unique(attributes(fit.AAM.mle)$data$predators) # grab from fit to ensure Ps are in order corresponding to ests
-w <- 1/diag(vcov(fit.AAM.mle))
+# Regn weights
+w <- 1/diag(vcov(fit.AAM.mle))[1:length(ests.a)]
 
 # Estimate 'm' as slope
-fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w[-nrow(ests)])
+fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w)
 summary(fit.AAM.lm)
 
 m.est <- coef(fit.AAM.lm)[2]
