@@ -59,6 +59,7 @@ library(lamW)
 # Simulation independent variables to vary over:
   Itns = 5 # Number of iterations for each combination of R, P and case
   R.s = c(1:10,15,20,25,30,40,50,75,100,150,200,250) # Levels of replication
+  P.min = 1 # Lowest predator density to start series with
   P.n = 4 # Number of predator density levels
   P.b = 2:7# Log-base for predator density series
   qr.s = c(1,0.5) # desired mean of skew normal distribution 
@@ -108,7 +109,7 @@ rtsn <- function(n=1, xi=1, omega=0, alpha=0, min=-Inf, max=Inf){
 # Logarithmic sequences (for creating predator abundance sequences of different log-base)
 # (Start with P=2 so as not to run into problem of partial indivdiual when P=1)
 # as.integer(round(...)) is needed because integers are needed to denote sample size (n) and R won't necessarily show that you don't have an integer, causing sample size to be rounded down!!!
-log.seq<-function(base=2,length=5,min=2){as.integer(round(base^(seq(from=log(min,base),length=length))))}
+log.seq<-function(base=2,length=5,min=1){as.integer(round(base^(seq(from=log(min,base),length=length))))}
 
 # ~~~~~~~~~~~
 # Implement a version of the Arditi-Akcakaya method of estimating 'm'
@@ -209,16 +210,16 @@ SN <- expand.grid(qr.bar=qr.s, sigma2=sigma2, alpha=alpha)
   SN.cases$caseName <- c('1.Full.NoVar','2.Partial.NoVar','3.Full.Var','4.Full.SkewRightTailLeft','5.Full.SkewLeftTailRight')
 
 # Create sets of predator densities
-P.s <- mapply(log.seq,base=P.b,length=P.n)
+P.s <- mapply(log.seq,base=P.b,length=P.n,min=P.min)
   P.s <- matrix(unlist(P.s), ncol=length(P.b))
   colnames(P.s) <- P.s[nrow(P.s),] # name series according to their max predator density
 
 # Alternative 1
-P.s <- mapply(seq, from=seq(2,10,by=2), length=P.n, by=seq(2,10,by=2))
+P.s <- mapply(seq, from=seq(P.min,10,by=2), length=P.n, by=seq(2,10,by=2))
    colnames(P.s) <- P.s[nrow(P.s),] # name series according to their max predator density
 
 # Alternative 2
-P.s <- mapply(seq, from=2, length=P.n, by=seq(2,6))
+P.s <- mapply(seq, from=P.min, length=P.n, by=seq(2,6))
 colnames(P.s) <- P.s[nrow(P.s),] # name series according to their max predator density
    
 # ##############################################################################
