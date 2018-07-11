@@ -1,15 +1,26 @@
-# Implement 'Method II' of Arditi & Akcakaya 1990
-
-# Assumes values of P represent discrete levels, with variation in N for each P (i.e. a 'manipulative experiment'), rather than a set of continuous densities 
-
+# Implement 'Method II' of Arditi & Akcakaya 1990.
+# The method fits a type II functional response to each predator level assuming a common handling time (i.e. it estimates an attack rate for each level), then regresses the log-transformed attack rates on log-transformed predator levels to estimate 'm', weighting each predator level by the inverse of its attack rate's uncertainty (variance).
+#######################################################################
 require(lamW)
 require(bbmle)
 require(nloptr)
+#######################################################################
+# ~~~~~~~~~~~~~~~~
+# Helper functions
+# ~~~~~~~~~~~~~~~~
+# Function to determine whether dataset is suitable for Arditi-Akcakaya method.  The method assumes values of P represent discrete (hence most likely integer) levels with variation in N for each level (rather than a set of continuous predator densities).  The data also needs to have at least 2 predator levels as well as at least 3 prey densities for each level (since type II is assumed).
+okay4AAM<-function(N,P,minNlevels=3,minPlevels=3){
+  tbl<-table(N,P)
+  mns<-apply(tbl>0,2,sum)
+  if(all(c(P==floor(P), min(mns)>minNlevels, length(mns)>minPlevels)))
+    return(TRUE)
+  else(return(FALSE))
+}
 
-
-#####################################
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Holling Type II functional response
-#####################################
+# (Simplified from other likelihood scripts)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Predicted number of prey consumed
 holling2 = function(N0, a, h, P, T, expttype=c("integrated","replacement")){
   expttype <- match.arg(expttype)
@@ -27,8 +38,9 @@ holling2 = function(N0, a, h, P, T, expttype=c("integrated","replacement")){
   return(Neaten)
 }
 
-
-# Negative log likelihood for mle2
+# ~~~~~~~~~~~~~~~~~~~~~~~
+# Negative log likelihood
+# ~~~~~~~~~~~~~~~~~~~~~~~
 AAM.NLL = function(
   params,
   initial,
@@ -76,118 +88,139 @@ AAM.NLL = function(
   return(nll)
 }
 
+#######################################################################
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Main function for Arditi & Akcakaya method
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AAmethod<-function(N,P,Neaten,expttype,return.plot=FALSE){
+    
+  nP <- length(unique(P))
+  
+  fit.AAM.nloptr <- nloptr::nloptr(
+    x0=c(runif(nP),log(1)), # random starting values
+    eval_f=AAM.NLL,
+    opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
+    initial=N,
+    killed=Neaten,
+    predators=P,
+    time=NULL,
+    expttype=expttype
+  )
+  
+  AAM.start<-fit.AAM.nloptr$solution
+  names(AAM.start) <- parnames(AAM.NLL) <- c(paste0('a',1:nP),'h')
+  
+  # Refit with mle with nloptr starting estimates 
+  # (for convenience to get errors)
+  fit.AAM.mle <- bbmle::mle2(
+    AAM.NLL,
+    start=AAM.start,
+    data=list(initial=N, killed=Neaten, predators=P, expttype=expttype)
+  )
+  
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # Estimate 'm' as slope of log(a's) ~ log(P's)
+  # using "the reciprocal of the variance of y as the weight w."
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ests <- coef(summary(fit.AAM.mle))
+  ests.a <- ests[1:nP,1]
+  Ps <- unique(attributes(fit.AAM.mle)$data$predators) # grab from fit to ensure Ps are in order corresponding to ests
+  w <- 1/diag(vcov(fit.AAM.mle))[1:nP]   # Regn weights
 
-
-########################################################################
-# Function to determine whether dataset is suitable for Arditi-Akcakaya method.
-okay4AAM<-function(N,P,minNlevels=3,minPlevels=3){
-    mns<-dim(table(N,P))
-    if(mns[1]>minNlevels & mns[2]>minPlevels)
-      return(TRUE)
-    else(return(FALSE))
+  # Estimates are already log-transformed by likelihood function
+  fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w)
+  ests.m <- coef(summary(fit.AAM.lm))
+    rownames(ests.m) <- c('a0','m')
+  
+  # Combine estimates into a single output
+  out.ests <- rbind(ests,ests.m)
+  
+  out <- list(estimates=out.ests, Ps=Ps, fit.a=fit.AAM.mle, fit.m=fit.AAM.lm)
+  return(out)
 }
 
-########################################################################
-# Grab the Katz 1985 data (from Arditi & Akcakya paper)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Convenience plotting function for Arditi & Akcakaya method
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+plot.AAmethod<-function(AAmethod.out){
+  Ps <- AAmethod.out$Ps
+  nP <- length(Ps)
+  ests.a <- AAmethod.out$estimates[1:nP,1]
+  ests.a.se <- AAmethod.out$estimates[1:nP,2]
+  m.est <- AAmethod.out$estimates['m',1]
+  m.est.se <- AAmethod.out$estimates['m',2]
+  
+  plot(ests.a ~ log(Ps), pch=19, ylim=c(min(ests.a-ests.a.se), max(ests.a+ests.a.se)), ylab='log(a)',xlab=('log(P)'), las=1)
+  arrows(log(Ps), ests.a-ests.a.se, log(Ps), ests.a+ests.a.se, code=3, angle=90, length=0.1)
+  abline(AAmethod.out$fit.m)
+  legend('topright', legend=bquote(m==.(round(m.est,2))%+-%.(round(m.est.se,2))), inset=0.1, bty='n')
+}
+
+##############################################################
+##############################################################
+# ~~~~~~~~~~~~~~~~~
+# Test on some data
+# ~~~~~~~~~~~~~~~~~
+# Katz 1985 data (from Arditi & Akcakya paper)
 Katz <- read.table(header=TRUE, text="
-                P	N	Neaten
-                1	16	2.14
-                1	32	4.14
-                1	64	4.29
-                1	128	4.57
-                2	16	1.29
-                2	32	8.29
-                2	64	8.14
-                2	128	9.14
-                3	16	1.71
-                3	32	6.43
-                3	64	7.86
-                3	128	13.57
-                4	16	2.29
-                4	32	7.29
-                4	64	8.71
-                4	128	18.0
-                ")
-# Should bootstrap the following.
-dat <- Katz
-dat$Neaten<-rbinom(nrow(dat),size=dat$N,prob=dat$Neaten/dat$N)
+                   P	N	Neaten
+                   1	16	2.14
+                   1	32	4.14
+                   1	64	4.29
+                   1	128	4.57
+                   2	16	1.29
+                   2	32	8.29
+                   2	64	8.14
+                   2	128	9.14
+                   3	16	1.71
+                   3	32	6.43
+                   3	64	7.86
+                   3	128	13.57
+                   4	16	2.29
+                   4	32	7.29
+                   4	64	8.71
+                   4	128	18.0
+                   ")
 
-
-# Grab edwards_1961_Trichogramma-Sitotroga_2 since we get a high 'm' estimate for it (~1.768)
+# edwards_1961_Trichogramma-Sitotroga_2
+# we get a high 'm' estimate for it (~1.768)
 Edwards <- read.table(header=TRUE, text="
-              P	N	Neaten
-              1	18	1
-              1	32	1
-              1	72	2
-              1	128	6
-              1	200	2
-              10	32	4
-              10	72	20
-              10	128	15
-              10	200	11
-              20	32	8
-              20	72	22
-              20	128	29
-              20	200	37
-              60	32	5
-              60	72	12
-              60	128	14
-              60	200	30
-              ")
-dat <- Edwards
-#######################################################################
-######################
-# Fit data
-######################
+                      P	N	Neaten
+                      1	18	1
+                      1	32	1
+                      1	72	2
+                      1	128	6
+                      1	200	2
+                      10	32	4
+                      10	72	20
+                      10	128	15
+                      10	200	11
+                      20	32	8
+                      20	72	22
+                      20	128	29
+                      20	200	37
+                      60	32	5
+                      60	72	12
+                      60	128	14
+                      60	200	30
+                      ")
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dat <- Katz # Should be bootstrapped, but just do one draw for test
+dat$Neaten<-rbinom(nrow(dat),size=dat$N,prob=dat$Neaten/dat$N) 
+
 okay4AAM(dat$N,dat$P)
+katz.out <- AAmethod(dat$N,dat$P,dat$Neaten,'integrated',TRUE)
+plot.AAmethod(katz.out)
 
-nP <- length(unique(dat$P))
+# ~~~~~~~~~~~~~
+dat <- Edwards
 
-fit.AAM.nloptr <- nloptr::nloptr(
-  x0=c(runif(nP),log(1)),
-  eval_f=AAM.NLL,
-  opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-  initial=dat$N,
-  killed=dat$Neaten,
-  predators=dat$P,
-  time=NULL,
-  expttype="integrated"
-)
+okay4AAM(dat$N,dat$P)
+edwards.out <- AAmethod(dat$N,dat$P,dat$Neaten,'integrated',TRUE)
+plot.AAmethod(edwards.out)
 
-AAM.start<-fit.AAM.nloptr$solution
-names(AAM.start) <- parnames(AAM.NLL) <- c(paste0('a',1:nP),'h')
-
-fit.AAM.mle <- bbmle::mle2(
-  AAM.NLL,
-  start=AAM.start,
-  data=list(initial=dat$N, killed=dat$Neaten, predators=dat$P, expttype='integrated')
-)
-
-# summary(fit.AAM.mle)
-
-##############################################################
-# Estimate 'm' as slope of log(a's) ~ log(P's)
-# using "the reciprocal of the variance of y as the weight w."
-##############################################################
-ests <- coef(summary(fit.AAM.mle)) 
-ests.a <- ests[-nrow(ests),1] # Are already log-transformed, so no need to do again
-ests.a.se <- ests[-nrow(ests),2]
-Ps <- unique(attributes(fit.AAM.mle)$data$predators) # grab from fit to ensure Ps are in order corresponding to ests
-# Regn weights
-w <- 1/diag(vcov(fit.AAM.mle))[1:length(ests.a)]
-
-# Estimate 'm' as slope
-fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w)
-summary(fit.AAM.lm)
-
-m.est <- coef(fit.AAM.lm)[2]
-m.est.se  <- coef(summary(fit.AAM.lm))[2,2]
+###################################################################
+###################################################################
+###################################################################
 
 
-
-plot(ests.a ~ log(Ps), pch=19, ylim=c(min(ests.a-ests.a.se),max(ests.a+ests.a.se)),ylab='log(a)',xlab=('log(P)'), las=1)
-  arrows(log(Ps), ests.a-ests.a.se, log(Ps), ests.a+ests.a.se, code=3, angle=90,length=0.1)
-  abline(fit.AAM.lm)
-  legend('topright',legend=bquote(m == .(round(m.est,2)) %+-%  .(round(m.est.se,2))),inset=0.1,bty='n')
-
-##############################################################
