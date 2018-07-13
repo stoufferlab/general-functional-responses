@@ -320,6 +320,6 @@ dat[,-c(1:12)] <- apply(dat[,-c(1:12)],2,exp)
 dat <- merge(SN.cases,dat) # Merge case names in
 
 # Export results
-save(dat,file='output_Sim/Simulation_dat.Rdata')
+save(dat,file='../../../results/R/RatioDep_SampleSizeDependency/results_Sim/Simulation_dat.Rdata')
 
 # ################################################################

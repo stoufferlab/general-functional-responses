@@ -1,7 +1,7 @@
 # ~~~~~~~~~~~~
 # Plot results of simulation
 # ~~~~~~~~~~~~
-load(file='output_Sim/Simulation_dat.Rdata')
+load(file='../../../results/R/RatioDep_SampleSizeDependency/results_Sim/Simulation_dat.Rdata')
 
 # Rearrange models to enable use of facets
 dat.AA <- dat[,c(1:14,15:18)]
