@@ -8,11 +8,11 @@ require(nloptr)
 # ~~~~~~~~~~~~~~~~
 # Helper functions
 # ~~~~~~~~~~~~~~~~
-# Function to determine whether dataset is suitable for Arditi-Akcakaya method.  The method assumes values of P represent discrete (hence most likely integer) levels with variation in N for each level (rather than a set of continuous predator densities).  The data also needs to have at least 2 predator levels as well as at least 3 prey densities for each level (since type II is assumed).
+# Function to determine whether dataset is suitable for Arditi-Akcakaya method.  The method assumes each level of P has variation in N; the data  needs to have at least 2 predator levels as well as at least 3 prey densities for each level (since type II is assumed).
 okay4AAM<-function(N,P,minNlevels=3,minPlevels=3){
-  tbl<-table(N,P)
-  mns<-apply(tbl>0,2,sum)
-  if(all(c(P==floor(P), min(mns)>minNlevels, length(mns)>minPlevels)))
+  tbl <- table(N,P)
+  mns <- apply(tbl>0,2,sum)
+  if(all(c(mns>minNlevels, length(mns)>minPlevels)))
     return(TRUE)
   else(return(FALSE))
 }
