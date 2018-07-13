@@ -9,8 +9,8 @@ require(nloptr)
 # Helper functions
 # ~~~~~~~~~~~~~~~~
 # Function to determine whether dataset is suitable for Arditi-Akcakaya method.  The method assumes each level of P has variation in N; the data  needs to have at least 2 predator levels as well as at least 3 prey densities for each level (since type II is assumed).
-okay4AAM<-function(N,P,minNlevels=3,minPlevels=3){
-  tbl <- table(N,P)
+okay4AAM<-function(d,minNlevels=3,minPlevels=3){
+  tbl <- table(d$Nprey,d$Npredator)
   mns <- apply(tbl>0,2,sum)
   if(all(c(mns>minNlevels, length(mns)>minPlevels)))
     return(TRUE)
@@ -23,6 +23,7 @@ okay4AAM<-function(N,P,minNlevels=3,minPlevels=3){
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Predicted number of prey consumed
 holling2 = function(N0, a, h, P, T, expttype=c("integrated","replacement")){
+  
   expttype <- match.arg(expttype)
   
   if(expttype=="integrated"){
@@ -92,17 +93,17 @@ AAM.NLL = function(
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main function for Arditi & Akcakaya method
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-AAmethod<-function(N,P,Neaten,expttype,return.plot=FALSE){
+AAmethod<-function(d,expttype){
     
-  nP <- length(unique(P))
+  nP <- length(unique(d$Npredator))
   
   fit.AAM.nloptr <- nloptr::nloptr(
     x0=c(runif(nP),log(1)), # random starting values
     eval_f=AAM.NLL,
     opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-    initial=N,
-    killed=Neaten,
-    predators=P,
+    initial=d$Nprey,
+    killed=d$Nconsumed,
+    predators=d$Npredator,
     time=NULL,
     expttype=expttype
   )
@@ -115,7 +116,7 @@ AAmethod<-function(N,P,Neaten,expttype,return.plot=FALSE){
   fit.AAM.mle <- bbmle::mle2(
     AAM.NLL,
     start=AAM.start,
-    data=list(initial=N, killed=Neaten, predators=P, expttype=expttype)
+    data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, expttype=expttype)
   )
   
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -163,7 +164,7 @@ plot.AAmethod<-function(AAmethod.out){
 # ~~~~~~~~~~~~~~~~~
 # Katz 1985 data (from Arditi & Akcakya paper)
 Katz <- read.table(header=TRUE, text="
-                   P	N	Neaten
+                   Npredator	Nprey	Nconsumed
                    1	16	2.14
                    1	32	4.14
                    1	64	4.29
@@ -185,7 +186,7 @@ Katz <- read.table(header=TRUE, text="
 # edwards_1961_Trichogramma-Sitotroga_2
 # we get a high 'm' estimate for it (~1.768)
 Edwards <- read.table(header=TRUE, text="
-                      P	N	Neaten
+                      Npredator	Nprey	Nconsumed
                       1	18	1
                       1	32	1
                       1	72	2
@@ -206,17 +207,17 @@ Edwards <- read.table(header=TRUE, text="
                       ")
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 dat <- Katz # Should be bootstrapped, but just do one draw for test
-dat$Neaten<-rbinom(nrow(dat),size=dat$N,prob=dat$Neaten/dat$N) 
+dat$Nconsumed<-rbinom(nrow(dat),size=dat$Nprey,prob=dat$Nconsumed/dat$Nprey) 
 
-okay4AAM(dat$N,dat$P)
-katz.out <- AAmethod(dat$N,dat$P,dat$Neaten,'integrated',TRUE)
+okay4AAM(dat)
+katz.out <- AAmethod(dat,'integrated')
 plot.AAmethod(katz.out)
 
 # ~~~~~~~~~~~~~
 dat <- Edwards
 
-okay4AAM(dat$N,dat$P)
-edwards.out <- AAmethod(dat$N,dat$P,dat$Neaten,'integrated',TRUE)
+okay4AAM(dat)
+edwards.out <- AAmethod(dat,'integrated')
 plot.AAmethod(edwards.out)
 
 ###################################################################
