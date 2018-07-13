@@ -1,10 +1,13 @@
 
 # specify where the data files are located
-dropboxdir <- '../../../dropbox_data/Data'
+dropboxdir <- '../../../dropbox_data/Data' # Stouffer
+dropboxdir <- '~/Dropbox/Research/Projects/GenFuncResp/Data'
+
 
 # a few utility functions
 source('study_info.R')
 source('bootstrap_data.R')
+source('AA_method.R')
 
 # cobble together a master list of things to analyze (yes, this is very clunky right now)
 datasets <- list.files('./Dataset_Code',full.names=TRUE)
@@ -42,6 +45,7 @@ for(i in 1:length(datasets)){
 
 	# try({
 	source('fit_holling_like_nobounds.R')
+	ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
 
 	# # DEBUG initial estimate of attack rate in Hassell-Varley
 	# # NOTE: optimization is on log-transformed values
@@ -60,17 +64,19 @@ for(i in 1:length(datasets)){
 		"Holling Type II" = ffr.hollingII,
 		# "Beddington-DeAngelis" = ffr.bd,
 		# "Crowley-Martin" = ffr.cm,
-		"Stouffer-Novak I" = ffr.sn1
+		"Stouffer-Novak I" = ffr.sn1,
 		# "Stouffer-Novak Numer" = ffr.sn2,
 		# "Stouffer-Novak III" = ffr.sn3
 		# "Hassell-Varley" = ffr.hv,
 		# "Arditi-Ginzburg" = ffr.ag,
-		# "Arditi-Akcakaya" = ffr.aa
+		# "Arditi-Akcakaya" = ffr.aa,
+		"Arditi-Akcakaya Method 2" = fit.AAmethod
 	)
 
 	# })
 
 	source('plot_phi_denom.R')
+	plot.AAmethod(fit.AAmethod)
 	# break
 }
 
