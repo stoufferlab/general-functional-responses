@@ -1,7 +1,7 @@
 
 # specify where the data files are located
 dropboxdir <- '../../../dropbox_data/Data' # Stouffer
-dropboxdir <- '~/Dropbox/Research/Projects/GenFuncResp/Data'
+dropboxdir <- '~/Dropbox/Research/Projects/GenFuncResp/Data' # Novak
 
 
 # a few utility functions
