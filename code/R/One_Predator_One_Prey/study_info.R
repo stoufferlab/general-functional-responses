@@ -27,7 +27,7 @@ study.info <- function(dataname){
 		Pminus1 <- FALSE
 	}
 
-	# determine whether or not there are P-1 "predators" interfering
+	# does dataset contain (some) means that need to be bootstraped
 	if(googledoc[1,"Original_Means_Compilation"] == "Original"){
 		bootstrap <- FALSE
 	}

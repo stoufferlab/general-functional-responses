@@ -7,11 +7,11 @@ dropboxdir <- '~/Dropbox/Research/Projects/GenFuncResp/Data' # Novak
 # a few utility functions
 source('study_info.R')
 source('bootstrap_data.R')
-source('AA_method.R')
+source('../LogLikelihoods/AA_method.R')
 
 # cobble together a master list of things to analyze (yes, this is very clunky right now)
-datasets <- list.files('./Dataset_Code',full.names=TRUE)
-datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
+datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
+datasets <- grep("zzz", datasets, invert=TRUE, value=TRUE)
 
 # for all of the above go through and fit all holling-like and ratio-dependent-like FRs
 ffr.fits <- list()
@@ -80,7 +80,6 @@ for(i in 1:length(datasets)){
 	# break
 }
 
-XX
 
 ##########################################
 # some heinous plotting code appears below

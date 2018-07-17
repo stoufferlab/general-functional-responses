@@ -157,71 +157,71 @@ plot.AAmethod<-function(AAmethod.out){
   legend('topright', legend=bquote(m==.(round(m.est,2))%+-%.(round(m.est.se,2))), inset=0.1, bty='n')
 }
 
-##############################################################
-##############################################################
-# ~~~~~~~~~~~~~~~~~
-# Test on some data
-# ~~~~~~~~~~~~~~~~~
-# Katz 1985 data (from Arditi & Akcakya paper)
-Katz <- read.table(header=TRUE, text="
-                   Npredator	Nprey	Nconsumed
-                   1	16	2.14
-                   1	32	4.14
-                   1	64	4.29
-                   1	128	4.57
-                   2	16	1.29
-                   2	32	8.29
-                   2	64	8.14
-                   2	128	9.14
-                   3	16	1.71
-                   3	32	6.43
-                   3	64	7.86
-                   3	128	13.57
-                   4	16	2.29
-                   4	32	7.29
-                   4	64	8.71
-                   4	128	18.0
-                   ")
-
-# edwards_1961_Trichogramma-Sitotroga_2
-# we get a high 'm' estimate for it (~1.768)
-Edwards <- read.table(header=TRUE, text="
-                      Npredator	Nprey	Nconsumed
-                      1	18	1
-                      1	32	1
-                      1	72	2
-                      1	128	6
-                      1	200	2
-                      10	32	4
-                      10	72	20
-                      10	128	15
-                      10	200	11
-                      20	32	8
-                      20	72	22
-                      20	128	29
-                      20	200	37
-                      60	32	5
-                      60	72	12
-                      60	128	14
-                      60	200	30
-                      ")
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-dat <- Katz # Should be bootstrapped, but just do one draw for test
-dat$Nconsumed<-rbinom(nrow(dat),size=dat$Nprey,prob=dat$Nconsumed/dat$Nprey) 
-
-okay4AAM(dat)
-katz.out <- AAmethod(dat,'integrated')
-plot.AAmethod(katz.out)
-
-# ~~~~~~~~~~~~~
-dat <- Edwards
-
-okay4AAM(dat)
-edwards.out <- AAmethod(dat,'integrated')
-plot.AAmethod(edwards.out)
-
-###################################################################
-###################################################################
-###################################################################
-
-
+# ##############################################################
+# ##############################################################
+# # ~~~~~~~~~~~~~~~~~
+# # Test on some data
+# # ~~~~~~~~~~~~~~~~~
+# # Katz 1985 data (from Arditi & Akcakya paper)
+# Katz <- read.table(header=TRUE, text="
+#                    Npredator	Nprey	Nconsumed
+#                    1	16	2.14
+#                    1	32	4.14
+#                    1	64	4.29
+#                    1	128	4.57
+#                    2	16	1.29
+#                    2	32	8.29
+#                    2	64	8.14
+#                    2	128	9.14
+#                    3	16	1.71
+#                    3	32	6.43
+#                    3	64	7.86
+#                    3	128	13.57
+#                    4	16	2.29
+#                    4	32	7.29
+#                    4	64	8.71
+#                    4	128	18.0
+#                    ")
+# 
+# # edwards_1961_Trichogramma-Sitotroga_2
+# # we get a high 'm' estimate for it (~1.768)
+# Edwards <- read.table(header=TRUE, text="
+#                       Npredator	Nprey	Nconsumed
+#                       1	18	1
+#                       1	32	1
+#                       1	72	2
+#                       1	128	6
+#                       1	200	2
+#                       10	32	4
+#                       10	72	20
+#                       10	128	15
+#                       10	200	11
+#                       20	32	8
+#                       20	72	22
+#                       20	128	29
+#                       20	200	37
+#                       60	32	5
+#                       60	72	12
+#                       60	128	14
+#                       60	200	30
+#                       ")
+# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# dat <- Katz # Should be bootstrapped, but just do one draw for test
+# dat$Nconsumed<-rbinom(nrow(dat),size=dat$Nprey,prob=dat$Nconsumed/dat$Nprey) 
+# 
+# okay4AAmethod(dat)
+# katz.out <- AAmethod(dat,'integrated')
+# plot.AAmethod(katz.out)
+# 
+# # ~~~~~~~~~~~~~
+# dat <- Edwards
+# 
+# okay4AAmethod(dat)
+# edwards.out <- AAmethod(dat,'integrated')
+# plot.AAmethod(edwards.out)
+# 
+# ###################################################################
+# ###################################################################
+# ###################################################################
+# 
+# 
