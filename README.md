@@ -1,1 +1,0 @@
-# general-functional-responses
