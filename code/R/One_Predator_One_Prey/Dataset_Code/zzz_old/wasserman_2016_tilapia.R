@@ -1,7 +1,7 @@
 
 # read in the simplify the raw data
 datadir <- 'Wasserman_2016'
-filename <- 'Wasserman_2016.csv'
+filename <- 'Wasserman_2016_ti.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # tidy up some column names (was more useful when still using stan)

@@ -47,9 +47,12 @@ done <- datasets2use[inhand %in% written]
 needed <- datasets2use[!inhand %in% written] # May include filenames with typos!
 needfix <- scriptfiles[!written %in% inhand]
 
-print(done)
-print(needed)
-print(needfix)
+length(done)
+  print(done)
+length(needfix)
+  print(needfix)
+length(needed)
+  print(needed)
 
 ################################################################################
 ################################################################################
