@@ -1,25 +1,47 @@
-
+rm(list = ls())
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # specify where the data files are located
 dropboxdir <- '../../../dropbox_data/Data' # Stouffer
 dropboxdir <- '~/Dropbox/Research/Projects/GenFuncResp/Data' # Novak
-
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # a few utility functions
 source('study_info.R')
 source('bootstrap_data.R')
 source('../LogLikelihoods/AA_method.R')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # library(devtools)
 # devtools::install_github("bbolker/broom")
-library(broom) # for summarizing bootstrap fits
+library(broom) # for tidy()
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mytidy <- function(fit){ 
+  tfit <- tidy(fit)
+  terms <- tfit$term
+  tfit$term <- NULL
+  out <- matrix(as.numeric(unlist(tfit)), nrow=nrow(tfit), ncol=ncol(tfit), byrow=TRUE)
+  rownames(out) <- terms
+  colnames(out) <- colnames(tfit)
+  out
+}
 
+make.array <- function(ffr.fit,boot.reps){
+  t.ffr.fit <- mytidy(ffr.fit)
+  out <- array(NA, dim=c(dim(t.ffr.fit), boot.reps))
+  dimnames(out) <- dimnames(t.ffr.fit)
+  out
+}
+
+summarize.boots <- function(x){
+  c(mean=mean(x), quantile(x,c(0.025,0.975)))
+}
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# cobble together a master list of things to analyze (yes, this is very clunky right now)
+# master list of datasets
 datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
 datasets <- grep("zzz", datasets, invert=TRUE, value=TRUE)
 
-# for all of the above go through and fit all holling-like and ratio-dependent-like FRs
-ffr.fits <- list()
+
+ffr.fits <- vector('list', length(datasets))
 for(i in 1:length(datasets)){
 	message(datasets[i])
 
@@ -35,178 +57,125 @@ for(i in 1:length(datasets)){
 	# print(d$Time)
 
 	# Do data need to be bootstrapped?
+	d.orig <- d
 	if("Nconsumed.mean" %in% colnames(d)){
-	  d.orig <- d
 	  boot.reps <- 3
+	  d <- bootstrap.data(d.orig, expttype)
 	} else{boot.reps <- 1}
 	
 	#############################################
 	# fit all the functional response models
-	# should turn these into functions for sure
-	#############################################	  
-	ffr.fits[[datasets[i]]] <- vector('list', boot.reps)
+	# NOTE: optimization is on log-transformed values
+	#############################################	 
 	
-	for(b in 1:boot.reps){
-    if(b > 1){
-	    d <- bootstrap.data(d.orig, expttype)
+  # Initial estimate of attack rate in Holling Type I
+  # x0.hl <- c(attack=log(0.01))
+	NP <- d$Npredator*d$Nprey
+	x0.hl <- c(attack=log(coef(lm(d$Nconsumed~0+NP))))
+  
+  # try({
+	# for initial fits to produce dimensions for containers
+  source('fit_holling_like_nobounds.R')
+  ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
+
+	# Containers for estimates
+	  boots.HT.I <- make.array(ffr.hollingI, boot.reps)
+	  boots.HT.II <- make.array(ffr.hollingII, boot.reps)
+	  # boots.BD <- make.array(ffr.bd, boot.reps)
+	  # boots.CM <- make.array(ffr.cm, boot.reps)
+	  # boots.SN.I <- make.array(ffr.sn1, boot.reps)
+	  # boots.SN.Numer <- make.array(ffr.sn2, boot.reps)
+	  # boots.SN.III <- make.array(ffr.sn3, boot.reps)
+	  # boots.HV <- make.array(ffr.hv, boot.reps)
+	  # boots.AG <- make.array(ffr.ag, boot.reps)
+	  # boots.AA <- make.array(ffr.aa, boot.reps)
+	  if(okay4AAmethod(d)){
+	    boots.AA2 <- array(NA, dim=c(dim(fit.AAmethod$estimates), boot.reps))
+	    dimnames(boots.AA2)[c(1,2)] <- dimnames(fit.AAmethod$estimates)
     }
-  	# DEBUG initial estimate of attack rate in Holling Type I
-  	# NOTE: optimization is on log-transformed values
-  	x0.hl <- c(attack=log(0.01))
+	  
+  	for(b in 1:boot.reps){
+  	  if("Nconsumed.mean" %in% colnames(d.orig)){
+  	  d <- bootstrap.data(d.orig, expttype)
+  	  }
+    	x0.hl <- c(attack=log(0.01))
+    
+    	source('fit_holling_like_nobounds.R')
+    	ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
+    	
+  	  boots.HT.I[,,b] <- mytidy(ffr.hollingI)
+  	  boots.HT.II[,,b] <- mytidy(ffr.hollingII)
+  	  # boots.BD[,,b] <- mytidy(ffr.bd)
+  	  # boots.CM[,,b] <- mytidy(ffr.cm)
+  	  # boots.SN.I[,,b] <- mytidy(ffr.sn1)
+  	  # boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
+  	  # boots.SN.III[,,b] <- mytidy(ffr.sn3)
+  	  # boots.HV[,,b] <- mytidy(ffr.hv)
+  	  # boots.AG[,,b] <- mytidy(ffr.ag)
+  	  # boots.AA[,,b] <- mytidy(ffr.aa)
+  	  if(okay4AAmethod(d)){ boots.AA2[,,b] <- fit.AAmethod$estimates  }
+  	}
+	  
+	  # ~~~~~~~~~~~~~~~~~~~~
+	  # Summarize bootstraps
+	  # ~~~~~~~~~~~~~~~~~~~~
+	  HT.I.ests <- as.array(apply(boots.HT.I,c(1,2), summarize.boots))
+	  HT.II.ests <- as.array(apply(boots.HT.II,c(1,2), summarize.boots))
+# 	  BD.ests <- as.array(apply(boots.BD,c(1,2), summarize.boots))
+#   	CM.ests <- as.array(apply(boots.CM,c(1,2), summarize.boots))
+# 	  SN.I.ests <- as.array(apply(boots.SN.I,c(1,2), summarize.boots))
+# 	  SN.Numer.ests <- as.array(apply(boots.SN.Numer,c(1,2), summarize.boots))
+# 	  SN.III.ests <- as.array(apply(boots.SN.III,c(1,2), summarize.boots))
+# 	  HV.ests <- as.array(apply(boots.HV,c(1,2), summarize.boots))	  
+# 	  AG.ests <- as.array(apply(boots.AG,c(1,2), summarize.boots))
+# 	  AA.ests <- as.array(apply(boots.AA,c(1,2), summarize.boots))
+	  if(okay4AAmethod(d)){ 
+	    AA2.ests <- as.array(apply(boots.AA2,c(1,2), summarize.boots))
+	 } else{AA2.ests <- NA}
+	  
   
-  	# try({
-  	source('fit_holling_like_nobounds.R')
-  	ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
-  
-  	# # DEBUG initial estimate of attack rate in Hassell-Varley
-  	# # NOTE: optimization is on log-transformed values
-  	# x0.rd <- c(attack=log(0.01),exponent=log(1))
-  	# source('fit_ratio_dependent.R')
-  
-  	# save the fits and some data aspects to a "convenient" list
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# save the (last) fits and some data aspects
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	ffr.fits[[datasets[i]]] <- list(
+  	study.info = c(data=d,
+  	               this.study,
+  	               sample.size = nrow(d),
+  	               Pminus1 = Pminus1,
+  	               datadir = datadir),
+		fits = c(Holling.Type.I = ffr.hollingI,
+		          Holling.Type.II = ffr.hollingI,
+          		# Beddington.DeAngelis = ffr.bd,
+          		# Crowley.Martin = ffr.cm,
+          		# Stouffer.Novak.I = ffr.sn1,
+          		# Stouffer.Novak.Numer = ffr.sn2,
+          		# Stouffer.Novak.III = ffr.sn3,
+          		# Hassell.Varley = ffr.hv,
+          		# Arditi.Ginzburg = ffr.ag,
+          		# Arditi.Akcakaya = ffr.aa,
+          		Arditi.Akcakaya.Method.2 = fit.AAmethod),
+		estimates = list(
+		              Holling.Type.I = HT.I.ests,
+		              Holling.Type.II = HT.II.ests,
+		              # Beddington.DeAngelis = BD.ests,
+		              # Crowley.Martin = CM.ests,
+		              # Stouffer.Novak.I = SN.I.ests,
+		              # Stouffer.Novak.Numer = SN.Numer.ests,
+		              # Stouffer.Novak.III = SN.III.ests,
+		              # Hassell.Varley = HV.ests,
+		              # AArditi.Ginzburg = G.ests,
+		              # Arditi.Akcakaya = AA.ests,
+		              Arditi.Akcakaya.Method.2 = AA2.ests)
+	)
+	# })
 
-  	ffr.fits[[datasets[i]]][[b]] <- list(
-    	study.info =    c(data=d,
-    	                     this.study,
-    	                    sample.size = nrow(d),
-    	                    Pminus1 = Pminus1,
-    	                    datadir = datadir),
-  		Holling.Type.I = list(fit=ffr.hollingI, estimates=tidy(ffr.hollingI)),
-  		Holling.Type.II = list(fit=ffr.hollingI, estimates=tidy(ffr.hollingI)),
-  		# Beddington.DeAngelis = list(fit=ffr.bd, estimates=tidy(ffr.bd)),
-  		# Crowley.Martin = list(fit=ffr.cm, estimates=tidy(ffr.cm)),
-  		Stouffer.Novak.I = list(fit=ffr.sn1, estimates=tidy(ffr.sn1)),
-  		# Stouffer.Novak.Numer = list(fit=ffr.sn2, estimates=tidy(ffr.sn2)),
-  		# Stouffer.Novak.III = list(fit=ffr.sn3, estimates=tidy(ffr.sn3)),
-  		# Hassell.Varley = list(fit=ffr.hv, estimates=tidy(ffr.hv)),
-  		# Arditi.Ginzburg = list(fit=ffr.ag, estimates=tidy(ffr.ag)),
-  		# Arditi.Akcakaya = list(fit=ffr.aa, estimates=tidy(ffr.aa)),
-  		Arditi.Akcakaya.Method.2 = fit.AAmethod
-  	)
-  
-  	# })
-  
-  	# source('plot_phi_denom.R')
-  	# plot.AAmethod(fit.AAmethod)
-  	# break
-	}
-	}
-
-# ~~~~~~~~~~~~~~~~~~~~
-# Summarize bootstraps
-# ~~~~~~~~~~~~~~~~~~~~
-for(i in 1:length(datasets)){
-  fits <- ffr.fits[[datasets[i]]]
-  fitsb <- fits[[1]]
+	# source('plot_phi_denom.R')
+	# plot.AAmethod(fit.AAmethod)
+	# break
 }
 
-# test <- list(A = list(a = c(a = 10, `2` = 20, `3` = 30, `4` = 72),
-#                        b = c(`1` = 15, `2` = 9, `3` = 7)),
-#              B = list(a = c(A = 11, B = 12, C = 13),
-#                        b = c(X = 14, Y = 15, Z = 16)))
-# sapply(test, function(x) x[['b']])
-
-x<-data.frame(t(sapply(fits, function(x) x$Holling.Type.I$estimates)))
+save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 
 
 
-
-
-
-
-
-
-
-
-
-##########################################
-# some heinous plotting code appears below
-##########################################
-
-source('plot_coefs.R') # Function is missing from Git
-
-# sort by sample size?
-if(TRUE){
-	studies <- names(sort(sapply(ffr.fits, function(x) x[["sample.size"]])))
-	ffr.fits <- ffr.fits[studies]
-}
-
-ffr.fits.delong <- ffr.fits[unlist(lapply(ffr.fits, function(x) x$study.info$delong))]
-
-# prepare some plots of the fits
-# DEBUG work on the confidence intervals aspect
-# par(mfrow=c(2,2))
-
-plot.coefs(ffr.fits,
-	"Stouffer-Novak I",
-	"phi_denom",
-	plot.SEs=FALSE,
-	ilink=identity,
-	xlab="Effect of foraging on interfering",
-	ylab="Dataset",
-	xlim=c(-4,4)
-)
-
-# # plot.coefs(ffr.fits,
-# # 	"Beddington-DeAngelis"
-# # 	"interference",
-# # 	plot.SEs=TRUE,
-# # 	ilink=exp,
-# # 	xlab="Beddington-DeAngelis Interference",
-# # 	# ylab="Dataset"
-# # )
-
-# plot.coefs(ffr.fits,
-# 	"Hassell-Varley",
-# 	"exponent",
-# 	plot.SEs=TRUE,
-# 	ilink=exp,
-# 	xlab="Hassell-Varley Exponent",
-# 	ylab="",
-# 	xlim=c(0,4)
-# )
-
-plot.coefs(ffr.fits,
-	"Arditi-Akcakaya",
-	"handling",
-	plot.SEs=TRUE,
-	ilink=exp,
-	xlab="Arditi-Akcakaya Handling Time",
-	ylab="Dataset",
-	xlim=c(0,1)
-)
-
-plot.coefs(ffr.fits,
-	"Arditi-Akcakaya",
-	"exponent",
-	plot.SEs=TRUE,
-	ilink=exp,
-	xlab="Arditi-Akcakaya Exponent",
-	ylab=""#,
-	# xlim=c(0,4)
-)
-
-
-plot.coefs(ffr.fits.delong,
-	"Arditi-Akcakaya",
-	"handling",
-	plot.SEs=TRUE,
-	ilink=exp,
-	xlab="Arditi-Akcakaya Handling Time",
-	ylab="Dataset",
-	xlim=c(0,1)
-)
-
-plot.coefs(ffr.fits.delong,
-	"Arditi-Akcakaya",
-	"exponent",
-	plot.SEs=TRUE,
-	ilink=exp,
-	xlab="Arditi-Akcakaya Exponent",
-	ylab=""#,
-	# xlim=c(0,4)
-)
-
-# leftovers are hit tv series
-# print(AICtab(ffr.hollingI, ffr.hollingII, ffr.bd, ffr.cm, ffr.sn1, ffr.sn2, ffr.sn3, weights=TRUE))

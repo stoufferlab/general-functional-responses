@@ -135,6 +135,7 @@ AAmethod<-function(d,expttype){
   
   # Combine estimates into a single output
   out.ests <- rbind(ests,ests.m)
+  colnames(out.ests) <- c('estimate','std.error','statistic','p.value') # for consistency with other nLL fitting output
   
   out <- list(estimates=out.ests, Ps=Ps, fit.a=fit.AAM.mle, fit.m=fit.AAM.lm)
   return(out)
