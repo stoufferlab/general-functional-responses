@@ -33,9 +33,9 @@ make.array <- function(ffr.fit,boot.reps){
 summarize.boots <- function(x){
   c(mean=mean(x), quantile(x,c(0.025,0.975)))
 }
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # master list of datasets
 datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
 datasets <- grep("zzz", datasets, invert=TRUE, value=TRUE)
