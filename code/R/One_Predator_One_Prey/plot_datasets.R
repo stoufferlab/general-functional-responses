@@ -18,7 +18,7 @@ datasets <- grep("zzz", datasets, invert=TRUE, value=TRUE)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 pdf('../../../results/R/OnePredOnePrey_DatasetPlots.pdf',height=10,width=6)
-par(mfrow=c(5,2), mar=c(3,3,1.5,0.5), cex=0.8, cex.axis=0.8, las=1, mgp=c(1.5,0.1,0), tcl=-0.1, pch=21)
+par(mfrow=c(8,4), mar=c(3,3,1.5,0.5), cex=0.6, cex.axis=0.8, cex.main=0.8, las=1, mgp=c(1.5,0.1,0), tcl=-0.1, pch=21)
 for(i in 1:length(datasets)){
   message(datasets[i])
   source(datasets[i]) # loads the data into data frame 'd'
@@ -28,10 +28,18 @@ for(i in 1:length(datasets)){
   d$Col <- rbPal(10)[as.numeric(cut(d$Npredator, breaks = 10))]
   
   d$Ratio <- d$Nprey/d$Npredator
+  if("Nconsumed.mean" %in% colnames(d)){
+    d$Nconsumed.pPred.mean <- d$Nconsumed.mean/d$Npredator
+    d$Nconsumed.pPred.se <- d$Nconsumed.se/d$Npredator
+  }else{
+    d$Nconsumed.pPred <- d$Nconsumed/d$Npredator
+  }
+  
   title <- sub('./Dataset_Code/','',datasets[i])
   title <- sub('.R','',title)
   
   if("Nconsumed.mean" %in% colnames(d)){
+    # ~~~~~~ Total eaten
     ylims <- c(0, max(d$Nconsumed.mean+d$Nconsumed.se))
     
     xlims <- c(0, max(d$Nprey))
@@ -41,9 +49,19 @@ for(i in 1:length(datasets)){
     xlims <- c(0, max(d$Ratio))
     plot(d$Nconsumed.mean~d$Ratio, xlab='Prey/Pred', ylab='Eaten', bg=d$Col, xlim=xlims, ylim=ylims, main=title)
     suppressWarnings(arrows(d$Ratio,d$Nconsumed.mean-d$Nconsumed.se, d$Ratio,d$Nconsumed.mean+d$Nconsumed.se, length=0.05, angle=90, code=3))
+    
+    # ~~~~~~ Eaten per predator
+    xlims <- c(0, max(d$Nprey))
+    plot(d$Nconsumed.pPred.mean~d$Nprey, xlab='Prey', ylab='Eaten/Pred', bg=d$Col, xlim=xlims, ylim=ylims, main=title)
+    suppressWarnings(arrows(d$Nprey,d$Nconsumed.pPred.mean-d$Nconsumed.pPred.se, d$Nprey,d$Nconsumed.pPred.mean+d$Nconsumed.pPred.se, length=0.05, angle=90, code=3))
+    
+    xlims <- c(0, max(d$Ratio))
+    plot(d$Nconsumed.pPred.mean~d$Ratio, xlab='Prey/Pred', ylab='Eaten/Pred', bg=d$Col, xlim=xlims, ylim=ylims, main=title)
+    suppressWarnings(arrows(d$Ratio,d$Nconsumed.pPred.mean-d$Nconsumed.pPred.se, d$Ratio,d$Nconsumed.pPred.mean+d$Nconsumed.pPred.se, length=0.05, angle=90, code=3))
   }
   
   else{
+    # ~~~~~~ Total eaten
     ylims <- c(0, max(d$Nconsumed))
     
     xlims <- c(0, max(d$Nprey))
@@ -51,6 +69,15 @@ for(i in 1:length(datasets)){
     
     xlims <- c(0, max(d$Ratio))
     plot(d$Nconsumed~d$Ratio, xlab='Prey/Pred', ylab='Eaten', bg=d$Col, xlim=xlims, ylim=ylims, main=title)
+    
+    # ~~~~~~ Eaten per predator
+    ylims <- c(0, max(d$Nconsumed.pPred))
+    
+    xlims <- c(0, max(d$Nprey))
+    plot(d$Nconsumed.pPred~d$Nprey, xlab='Prey', ylab='Eaten/Pred', bg=d$Col, xlim=xlims, ylim=ylims, main=title)
+    
+    xlims <- c(0, max(d$Ratio))
+    plot(d$Nconsumed.pPred~d$Ratio, xlab='Prey/Pred', ylab='Eaten/Pred', bg=d$Col, xlim=xlims, ylim=ylims, main=title)
   }
 }
 dev.off()
