@@ -8,7 +8,12 @@ source('bootstrap_data.R')
 
 # cobble together a master list of things to analyze (yes, this is very clunky right now)
 datasets <- list.files('./Dataset_Code',full.names=TRUE)
-datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
+
+# remove template files which don't actually read data
+datasets <- grep("^template",datasets,invert=TRUE,value=TRUE)
+
+# remove zzz files which are placeholders while a dataset is being cleaned/incorporated
+datasets <- grep("^zzz",datasets,invert=TRUE,value=TRUE)
 
 # for all of the above go through and fit all holling-like and ratio-dependent-like FRs
 ffr.fits <- list()
