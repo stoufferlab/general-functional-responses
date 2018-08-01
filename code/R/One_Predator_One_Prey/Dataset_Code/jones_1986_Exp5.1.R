@@ -5,5 +5,5 @@ filename <- 'Jones_1986_Exp5.1.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # turn into a standard dataframe with standard column names
-d <- rawdata[,c('Parasitoids','Hosts','NumberParasitized.mean','NumberParasitized.se','n')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n")
+d <- rawdata[,c('Parasitoids','Hosts','Attacked')]
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed")
