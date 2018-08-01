@@ -1,10 +1,9 @@
 
 # read in the simplify the raw data
-datadir <- 'Wasserman_2016'
-filename <- 'Wasserman_2016_bg.csv'
+datadir <- 'Blowes_2017'
+filename <- 'Blowes_2017_Cc.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # rename to standard column names used in fitting code
-d <- rawdata[,c("Pred", "Prey", "Prey.Eaten")]
+d <- rawdata[,c('Pred','Prey','Bites')]
 colnames(d) <- c("Npredator", "Nprey", "Nconsumed")
-
