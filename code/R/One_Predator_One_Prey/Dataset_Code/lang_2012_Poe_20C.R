@@ -1,7 +1,7 @@
 
 # read in the raw data
 datadir <- 'Lang_2012'
-filename <- 'Lang_2012_FR_Poe_20C.csv'
+filename <- 'Lang_2012_Poe_20C.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # rename to standard column names used in fitting code
