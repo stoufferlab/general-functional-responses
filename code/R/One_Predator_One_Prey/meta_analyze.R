@@ -20,7 +20,7 @@ mytidy <- function(fit){
   tfit <- tidy(fit)
   terms <- tfit$term
   tfit$term <- NULL
-  out <- matrix(as.numeric(unlist(tfit)), nrow=nrow(tfit), ncol=ncol(tfit), byrow=TRUE)
+  out <- matrix(as.numeric(unlist(tfit)), nrow=nrow(tfit), ncol=ncol(tfit), byrow=FALSE)
   rownames(out) <- terms
   colnames(out) <- colnames(tfit)
   out
@@ -46,9 +46,12 @@ datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
 datasets <- grep("^template",datasets,invert=TRUE,value=TRUE)
 
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
-datasets <- grep("^zzz",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
+# create a container for the things that get fit
 ffr.fits <- vector('list', length(datasets))
+names(ffr.fits) <- datasets
+
 for(i in 1:length(datasets)){
 	message(datasets[i])
 
@@ -90,7 +93,7 @@ for(i in 1:length(datasets)){
 	  boots.HT.II <- make.array(ffr.hollingII, boot.reps)
 	  # boots.BD <- make.array(ffr.bd, boot.reps)
 	  # boots.CM <- make.array(ffr.cm, boot.reps)
-	  # boots.SN.I <- make.array(ffr.sn1, boot.reps)
+	  boots.SN.I <- make.array(ffr.sn1, boot.reps)
 	  # boots.SN.Numer <- make.array(ffr.sn2, boot.reps)
 	  # boots.SN.III <- make.array(ffr.sn3, boot.reps)
 	  # boots.HV <- make.array(ffr.hv, boot.reps)
@@ -114,7 +117,7 @@ for(i in 1:length(datasets)){
   	  boots.HT.II[,,b] <- mytidy(ffr.hollingII)
   	  # boots.BD[,,b] <- mytidy(ffr.bd)
   	  # boots.CM[,,b] <- mytidy(ffr.cm)
-  	  # boots.SN.I[,,b] <- mytidy(ffr.sn1)
+  	  boots.SN.I[,,b] <- mytidy(ffr.sn1)
   	  # boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
   	  # boots.SN.III[,,b] <- mytidy(ffr.sn3)
   	  # boots.HV[,,b] <- mytidy(ffr.hv)
@@ -130,7 +133,7 @@ for(i in 1:length(datasets)){
 	  HT.II.ests <- as.array(apply(boots.HT.II,c(1,2), summarize.boots))
 # 	  BD.ests <- as.array(apply(boots.BD,c(1,2), summarize.boots))
 #   	CM.ests <- as.array(apply(boots.CM,c(1,2), summarize.boots))
-# 	  SN.I.ests <- as.array(apply(boots.SN.I,c(1,2), summarize.boots))
+	  SN.I.ests <- as.array(apply(boots.SN.I,c(1,2), summarize.boots))
 # 	  SN.Numer.ests <- as.array(apply(boots.SN.Numer,c(1,2), summarize.boots))
 # 	  SN.III.ests <- as.array(apply(boots.SN.III,c(1,2), summarize.boots))
 # 	  HV.ests <- as.array(apply(boots.HV,c(1,2), summarize.boots))	  
@@ -145,34 +148,39 @@ for(i in 1:length(datasets)){
 	# save the (last) fits and some data aspects
 	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	ffr.fits[[datasets[i]]] <- list(
-  	study.info = c(data=d,
-  	               this.study,
-  	               sample.size = nrow(d),
-  	               Pminus1 = Pminus1,
-  	               datadir = datadir),
-		fits = c(Holling.Type.I = ffr.hollingI,
-		          Holling.Type.II = ffr.hollingI,
-          		# Beddington.DeAngelis = ffr.bd,
-          		# Crowley.Martin = ffr.cm,
-          		# Stouffer.Novak.I = ffr.sn1,
-          		# Stouffer.Novak.Numer = ffr.sn2,
-          		# Stouffer.Novak.III = ffr.sn3,
-          		# Hassell.Varley = ffr.hv,
-          		# Arditi.Ginzburg = ffr.ag,
-          		# Arditi.Akcakaya = ffr.aa,
-          		Arditi.Akcakaya.Method.2 = fit.AAmethod),
+  		study.info = c(
+  			data=d,
+  	        this.study,
+  	        sample.size = nrow(d),
+  	        Pminus1 = Pminus1,
+  	        datadir = datadir
+  	    ),
+		fits = c(
+			Holling.Type.I = ffr.hollingI,
+		    Holling.Type.II = ffr.hollingI,
+          	# Beddington.DeAngelis = ffr.bd,
+          	# Crowley.Martin = ffr.cm,
+          	Stouffer.Novak.I = ffr.sn1
+          	# Stouffer.Novak.Numer = ffr.sn2,
+          	# Stouffer.Novak.III = ffr.sn3,
+          	# Hassell.Varley = ffr.hv,
+          	# Arditi.Ginzburg = ffr.ag,
+          	# Arditi.Akcakaya = ffr.aa,
+          	# Arditi.Akcakaya.Method.2 = fit.AAmethod
+        ),
 		estimates = list(
-		              Holling.Type.I = HT.I.ests,
-		              Holling.Type.II = HT.II.ests,
-		              # Beddington.DeAngelis = BD.ests,
-		              # Crowley.Martin = CM.ests,
-		              # Stouffer.Novak.I = SN.I.ests,
-		              # Stouffer.Novak.Numer = SN.Numer.ests,
-		              # Stouffer.Novak.III = SN.III.ests,
-		              # Hassell.Varley = HV.ests,
-		              # AArditi.Ginzburg = G.ests,
-		              # Arditi.Akcakaya = AA.ests,
-		              Arditi.Akcakaya.Method.2 = AA2.ests)
+		    Holling.Type.I = HT.I.ests,
+		    Holling.Type.II = HT.II.ests,
+		    # Beddington.DeAngelis = BD.ests,
+		    # Crowley.Martin = CM.ests,
+		    Stouffer.Novak.I = SN.I.ests
+		    # Stouffer.Novak.Numer = SN.Numer.ests,
+		    # Stouffer.Novak.III = SN.III.ests,
+		    # Hassell.Varley = HV.ests,
+		    # AArditi.Ginzburg = G.ests,
+		    # Arditi.Akcakaya = AA.ests,
+		    # Arditi.Akcakaya.Method.2 = AA2.ests)
+		)
 	)
 	# })
 
