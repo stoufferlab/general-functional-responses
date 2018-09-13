@@ -21,7 +21,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, exp
 		if(h==0){
 			N <- N0 * (1 - exp(-a * P * T))
 		}else{
-			h <- h * (1 + (1 - phi_numer * phi_denom) * a * h * c * P_interfering)
+			h <- h * (1 + (1 - phi_numer * phi_denom) * c * P_interfering)
 			Q <- (1 + c * P_interfering)
 			X <- (1 + (1 - phi_numer) * c * P_interfering)
 			N <- N0 - (Q / (a * h)) * lamW::lambertW0(((a * h * N0)/ Q) * exp(- (a / Q) * (X * P * T - h * N0)))
