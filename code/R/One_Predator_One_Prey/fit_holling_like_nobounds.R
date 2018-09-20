@@ -14,238 +14,267 @@ source('../LogLikelihoods/holling_like_one_predator_one_prey_unbounded.R')
 # series of functional response fits
 #####################################
 
-ffr.hollingI.nloptr <- nloptr::nloptr(
-	x0=x0.hl,
-	eval_f=holling.like.1pred.1prey.NLL,
-	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-	modeltype="Holling I",
-	initial=d$Nprey,
-	killed=d$Nconsumed,
-	predators=d$Npredator,
-	time=d$Time,
-	expttype=expttype,
-	Pminus1=Pminus1
-)
+fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.control=list(), ...){
+	# estimate starting value from the data using linear regression
+	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
 
-ffr.hollingI <- bbmle::mle2(
-	holling.like.1pred.1prey.NLL,
-	vecpar=TRUE,
-	start=list(attack=ffr.hollingI.nloptr$solution[1]),
-	fixed=list(
-		handling = 0,
-		interference = 0,
-		phi_numer = 1,
-		phi_denom = 1
-	),
-	data=list(
+	# fit Holling Type I via MLE with above starting parameter value
+	fit.via.sbplx <- nloptr::sbplx(
+		x0 = x0,
+		fn = holling.like.1pred.1prey.NLL,
 		modeltype="Holling I",
 		initial=d$Nprey,
 		killed=d$Nconsumed,
 		predators=d$Npredator,
 		time=d$Time,
-		expttype=expttype,
-		Pminus1=Pminus1
+		expttype=s$expttype,
+		Pminus1=s$Pminus1,
+		control = nloptr.control,
+		...
 	)
-	#skip.hessian = TRUE
-	# optimizer="nlminb",
-	# lower=c(attack=0, handling=0)
-)
 
-ffr.hollingII.nloptr <- nloptr::nloptr(
-	x0=c(coef(ffr.hollingI)[1],log(1)),
-	eval_f=holling.like.1pred.1prey.NLL,
-	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-	modeltype="Holling II",
-	initial=d$Nprey,
-	killed=d$Nconsumed,
-	predators=d$Npredator,
-	time=d$Time,
-	expttype=expttype,
-	Pminus1=Pminus1
-)
-
-ffr.hollingII <- bbmle::mle2(
-	holling.like.1pred.1prey.NLL,
-	vecpar=TRUE,
-	start=list(
-		attack=ffr.hollingII.nloptr$solution[1],
-		handling=ffr.hollingII.nloptr$solution[2]
-	),
-	fixed=list(
-		interference = 0,
-		phi_numer = 1,
-		phi_denom = 1
-	),
-	data=list(modeltype="Holling II", initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1)
-	#skip.hessian = TRUE
-	# optimizer="nlminb",
-	# lower=c(attack=0, handling=0)
-)
-
-# ffr.bd.nloptr <- nloptr::nloptr(
-# 	x0=c(coef(ffr.hollingII)[1:2],log(1)),
-# 	eval_f=holling.like.1pred.1prey.NLL.params,
-# 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-# 	modeltype="Beddington-DeAngelis",
-# 	initial=d$Nprey,
-# 	killed=d$Nconsumed,
-# 	predators=d$Npredator,
-# 	time=d$Time,
-# 	expttype=expttype,
-# 	Pminus1=Pminus1
-# )
-
-# ffr.bd <- bbmle::mle2(
-# 	holling.like.1pred.1prey.NLL,
-# 	start=list(attack=ffr.bd.nloptr$solution[1], handling=ffr.bd.nloptr$solution[2], interference=ffr.bd.nloptr$solution[3]),
-# 	fixed=list(
-# 		phi_numer = 1,
-# 		phi_denom = 1
-# 	),
-# 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
-# 	#skip.hessian = TRUE
-# )
-
-# ffr.cm.nloptr <- nloptr::nloptr(
-# 	x0=c(coef(ffr.hollingII)[1:2],log(1)),
-# 	eval_f=holling.like.1pred.1prey.NLL.params,
-# 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-# 	modeltype="Crowley-Martin",
-# 	initial=d$Nprey,
-# 	killed=d$Nconsumed,
-# 	predators=d$Npredator,
-# 	time=d$Time,
-# 	expttype=expttype,
-# 	Pminus1=Pminus1
-# )
-
-# ffr.cm <- bbmle::mle2(
-# 	holling.like.1pred.1prey.NLL,
-# 	start=list(attack=ffr.cm.nloptr$solution[1], handling=ffr.cm.nloptr$solution[2], interference=ffr.cm.nloptr$solution[3]),
-# 	fixed=list(
-# 		phi_numer = 1,
-# 		phi_denom = 0
-# 	),
-# 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL),
-# 	#skip.hessian = TRUE
-# 	# optimizer="nlminb",
-# 	# lower=c(attack=0, handling=0)
-# )
-
-# optimize with nloptr
-
-ffr.sn1.nloptr <- nloptr::nloptr(
-	x0=c(coef(ffr.hollingII)[1:2],log(1),0.5),
-	eval_f=holling.like.1pred.1prey.NLL,
-	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-	modeltype="Stouffer-Novak I",
-	initial=d$Nprey,
-	killed=d$Nconsumed,
-	predators=d$Npredator,
-	time=d$Time,
-	expttype=expttype,
-	Pminus1=Pminus1
-)
-
-# WARNING THIS IS FOR TESTING ONLY
-# ffr.sn1.nloptr$solution <- c(coef(ffr.hollingII)[1:2],log(1),0.5)
-
-# use mle2 because it has handy machinery
-
-ffr.sn1 <- bbmle::mle2(
-	holling.like.1pred.1prey.NLL,
-	vecpar=TRUE,
-	start=list(
-		attack=ffr.sn1.nloptr$solution[1],
-		handling=ffr.sn1.nloptr$solution[2],
-		interference=ffr.sn1.nloptr$solution[3],
-		phi_denom=ffr.sn1.nloptr$solution[4]
-	),
-	fixed=list(
-		phi_numer = 1
-	),
-	data=list(
-		modeltype="Stouffer-Novak I",
-		initial=d$Nprey,
-		killed=d$Nconsumed,
-		predators=d$Npredator,
-		time=d$Time,
-		expttype=expttype,
-		Pminus1=Pminus1
-	),
-	skip.hessian = TRUE
-)
-
-# try to get closer with mle2 by using the parscale argument, and keep the hessian for confidence intervals
-
-ffr.sn1 <- bbmle::mle2(
-	holling.like.1pred.1prey.NLL,
-	vecpar=TRUE,
-	start=list(
-		attack=coef(ffr.sn1)[1],
-		handling=coef(ffr.sn1)[2],
-		interference=coef(ffr.sn1)[3],
-		phi_denom=coef(ffr.sn1)[5]
-	),
-	fixed=list(
-		phi_numer = 1
-	),
-	data=list(
-		modeltype="Stouffer-Novak I",
-		initial=d$Nprey,
-		killed=d$Nconsumed,
-		predators=d$Npredator,
-		time=d$Time,
-		expttype=expttype,
-		Pminus1=Pminus1
-	),
-	control=list(
-		# trace=TRUE,
-		# maxit=5000,
-		parscale=abs(coef(ffr.sn1)[c(1:3,5)])
+	# refit with mle2 since this also estimates the covariance matrix for the parameters
+	fit.via.mle2 <- bbmle::mle2(
+		minuslogl = holling.like.1pred.1prey.NLL,
+		start = list(
+			attack = fit.via.sbplx$par[1]
+		),
+		fixed = list(
+			handling = -Inf,
+			interference = -Inf,
+			phi_numer = 1,
+			phi_denom = 1
+		),
+		data = list(
+			modeltype="Holling I",
+			initial=d$Nprey,
+			killed=d$Nconsumed,
+			predators=d$Npredator,
+			time=d$Time,
+			expttype=s$expttype,
+			Pminus1=s$Pminus1
+		),
+		vecpar = TRUE,
+		control = mle2.control,
+		...
 	)
-)
 
+	if(modeltype == "Holling I"){
+		return(fit.via.mle2)
+	}
+	# code to fit subsequent models
+	else{
+		# fit Holling II first
+		start <- list(
+			attack = coef(fit.via.mle2)["attack"],
+			handling = log(1)
+		)
+		fixed <- list(
+			interference = 0,
+			phi_numer = 1,
+			phi_denom = 1
+		)
 
-# # DEBUG keeps failing for some datasets
-# ffr.sn2.nloptr <- nloptr::nloptr(
-# 	x0=c(coef(ffr.hollingII)[1:2],log(1),0.5),
-# 	eval_f=holling.like.1pred.1prey.NLL.params,
-# 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-# 	initial=d$Nprey,
-# 	killed=d$Nconsumed,
-# 	predators=d$Npredator,
-# 	time=d$Time,
-# 	expttype=expttype,
-# 	Pminus1=Pminus1
-# )
+		# fit the more complex model with sbplx first
+		fit.via.sbplx <- nloptr::sbplx(
+			x0 = unlist(start),
+			fn = holling.like.1pred.1prey.NLL,
+			modeltype = "Holling II",
+			initial = d$Nprey,
+			killed = d$Nconsumed,
+			predators = d$Npredator,
+			time = d$Time,
+			expttype = s$expttype,
+			Pminus1 = s$Pminus1,
+			control = nloptr.control,
+			...
+		)
 
-# ffr.sn2 <- bbmle::mle2(
-# 	holling.like.1pred.1prey.NLL,
-# 	start=list(attack=ffr.sn2.nloptr$solution[1], handling=ffr.sn2.nloptr$solution[2], interference=ffr.sn2.nloptr$solution[3], phi_numer=ffr.sn2.nloptr$solution[4]),
-# 	fixed=list(
-# 		phi_denom=1
-# 	),
-# 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
-# 	#skip.hessian = TRUE
-# )
+		mle2.start <- as.list(fit.via.sbplx$par)
+		names(mle2.start) <- names(start)
 
-# ffr.sn3.nloptr <- nloptr::nloptr(
-# 	x0=c(coef(ffr.hollingII)[1:2],log(1),0.5,0.5),
-# 	eval_f=holling.like.1pred.1prey.NLL.params,
-# 	opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
-# 	modeltype="Stouffer-Novak III",
-# 	initial=d$Nprey,
-# 	killed=d$Nconsumed,
-# 	predators=d$Npredator,
-# 	time=d$Time,
-# 	expttype=expttype,
-# 	Pminus1=Pminus1
-# )
+		# refit with mle2 since this also estimates the covariance matrix for the parameters
+		fit.via.mle2 <- bbmle::mle2(
+			minuslogl = holling.like.1pred.1prey.NLL,
+			start = mle2.start,
+			fixed = fixed,
+			data = list(
+				modeltype = "Holling II",
+				initial = d$Nprey,
+				killed = d$Nconsumed,
+				predators = d$Npredator,
+				time = d$Time,
+				expttype = s$expttype,
+				Pminus1 = s$Pminus1
+			),
+			vecpar = TRUE,
+			control = mle2.control
+		)
 
-# ffr.sn3 <- bbmle::mle2(
-# 	holling.like.1pred.1prey.NLL,
-# 	start=list(attack=ffr.sn3.nloptr$solution[1], handling=ffr.sn3.nloptr$solution[2], interference=ffr.sn3.nloptr$solution[3], phi_numer=ffr.sn3.nloptr$solution[4], phi_denom=ffr.sn3.nloptr$solution[5]),
-# 	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
-# 	#skip.hessian = TRUE
-# )
+		if(modeltype == "Holling II"){
+			return(fit.via.mle2)
+		}else{
+			if(modeltype == "Beddington-DeAngelis"){
+				start <- list(
+					attack = coef(fit.via.mle2)["attack"],
+					handling = log(1), #coef(fit.via.mle2)["handling"],
+					interference = log(1)
+				)
+				fixed <- list(
+					phi_numer = 1,
+					phi_denom = 1
+				)
+			}
+
+			if(modeltype == "Crowley-Martin"){
+				start <- list(
+					attack = coef(fit.via.mle2)["attack"],
+					handling = log(1), #coef(fit.via.mle2)["handling"],
+					interference = log(1)
+				)
+				fixed <- list(
+					phi_numer = 1,
+					phi_denom = 0
+				)
+			}
+
+			if(modeltype == "Stouffer-Novak I"){
+				start <- list(
+					attack = coef(fit.via.mle2)["attack"],
+					handling = log(1), #coef(fit.via.mle2)["handling"],
+					interference = log(1),
+					phi_denom = 1
+				)
+				fixed <- list(
+					phi_numer = 1
+				)
+			}
+
+			if(modeltype == "Stouffer-Novak II"){
+				start <- list(
+					attack = coef(fit.via.mle2)["attack"],
+					handling = log(1), #coef(fit.via.mle2)["handling"],
+					interference = log(1),
+					phi_numer = 1
+				)
+				fixed <- list(
+					phi_denom = 1
+				)
+				# lower <- c(0,0,0)
+			}
+
+			if(modeltype == "Stouffer-Novak III"){
+				start <- list(
+					attack = coef(fit.via.mle2)["attack"],
+					handling = log(1), #coef(fit.via.mle2)["handling"],
+					interference = log(1),
+					phi_numer = 1,
+					phi_denom = 1
+				)
+				fixed <- list()
+				# lower <- c(0,0,0)
+			}
+
+			# fit the more complex model with sbplx first
+			fit.via.sbplx <- nloptr::sbplx(
+				x0 = unlist(start),
+				fn = holling.like.1pred.1prey.NLL,
+				modeltype = modeltype,
+				initial = d$Nprey,
+				killed = d$Nconsumed,
+				predators = d$Npredator,
+				time = d$Time,
+				expttype = s$expttype,
+				Pminus1 = s$Pminus1,
+				control = nloptr.control,
+				...
+			)
+
+			# convert nloptr estimation to list of starting values
+			mle2.start <- as.list(fit.via.sbplx$par)
+			names(mle2.start) <- names(start)
+
+			# refit with mle2 since this also estimates the covariance matrix for the parameters
+			fit.via.mle2 <- bbmle::mle2(
+				minuslogl = holling.like.1pred.1prey.NLL,
+				start = mle2.start,
+				fixed = fixed,
+				data = list(
+					modeltype = modeltype,
+					initial = d$Nprey,
+					killed = d$Nconsumed,
+					predators = d$Npredator,
+					time = d$Time,
+					expttype = s$expttype,
+					Pminus1 = s$Pminus1
+				),
+				vecpar = TRUE,
+				
+			)
+
+			# # DEBUG to solve some issues with the fitting
+			# # if we couldn't get the SEs correctly, try a few more things
+			# print(is.na(sqrt(diag(fit.via.mle2@vcov))))
+			# if(any(is.nan(sqrt(diag(fit.via.mle2@vcov))) | is.na(sqrt(diag(fit.via.mle2@vcov))))){
+			# 	# refit with mle2 since this also estimates the covariance matrix for the parameters
+			# 	fit.via.mle2 <- bbmle::mle2(
+			# 		minuslogl = holling.like.1pred.1prey.NLL,
+			# 		start = mle2.start,
+			# 		fixed = fixed,
+			# 		data = list(
+			# 			modeltype = modeltype,
+			# 			initial = d$Nprey,
+			# 			killed = d$Nconsumed,
+			# 			predators = d$Npredator,
+			# 			time = d$Time,
+			# 			expttype = s$expttype,
+			# 			Pminus1 = s$Pminus1
+			# 		),
+			# 		vecpar = TRUE,
+			# 		control = mle2.control,
+			# 		method="Nelder-Mead"
+			# 	)
+
+			# 	print(attr(fit.via.mle2, "vcov"))
+
+			# 	hess <- numDeriv::hessian(
+			# 		func = holling.like.1pred.1prey.NLL,
+			# 		x = fit.via.mle2@coef,
+			# 		modeltype = modeltype,
+			# 		initial = d$Nprey,
+			# 		killed = d$Nconsumed,
+			# 		predators = d$Npredator,
+			# 		time = d$Time,
+			# 		expttype = s$expttype,
+			# 		Pminus1 = s$Pminus1
+			# 	)
+			# 	print(hess)
+
+			# 	fit.via.mle2@vcov <- MASS::ginv(hess)
+			# 	# print(hess)
+			# 	print(fit.via.mle2@vcov)
+
+			# }
+
+			
+			# 	# fit the model with cobyla first
+			# 	fit.via.cobyla <- nloptr::cobyla(
+			# 		x0 = unlist(cobyla.start),
+			# 		fn = holling.like.1pred.1prey.NLL,
+			# 		# lower = lower,
+			# 		# upper = upper,
+			# 		modeltype = modeltype,
+			# 		initial = d$Nprey,
+			# 		killed = d$Nconsumed,
+			# 		predators = d$Npredator,
+			# 		time = d$Time,
+			# 		expttype = s$expttype,
+			# 		Pminus1 = s$Pminus1,
+			# 		control = nloptr.control,
+			# 		...
+			# 	)
+
+			return(fit.via.mle2)
+		}
+	}
+}
