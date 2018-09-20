@@ -77,7 +77,7 @@ for(i in 1:length(datasets)){
 		# Do data need to be bootstrapped? If so, save the raw data frame d as d.org.
 		d.orig <- d
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 50
+			boot.reps <- 2
 			d <- bootstrap.data(d.orig, this.study$expttype)
 		}else{
 			boot.reps <- 1
@@ -86,17 +86,18 @@ for(i in 1:length(datasets)){
 		# for initial fits to produce dimensions for containers
 		ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
 		ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
-		# ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
-		# ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
+		ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
+		ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
+		ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
 	  	# source('fit_holling_like_nobounds.R')
 	  	# ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
 
 		# Containers for estimates
 		boots.HT.I <- make.array(ffr.hollingI, boot.reps)
 		boots.HT.II <- make.array(ffr.hollingII, boot.reps)
-		# boots.BD <- make.array(ffr.bd, boot.reps)
-		# boots.CM <- make.array(ffr.cm, boot.reps)
-		# boots.SN.I <- make.array(ffr.sn1, boot.reps)
+		boots.BD <- make.array(ffr.bd, boot.reps)
+		boots.CM <- make.array(ffr.cm, boot.reps)
+		boots.SN.I <- make.array(ffr.sn1, boot.reps)
 		# boots.SN.Numer <- make.array(ffr.sn2, boot.reps)
 		# boots.SN.III <- make.array(ffr.sn3, boot.reps)
 		# boots.HV <- make.array(ffr.hv, boot.reps)
@@ -115,13 +116,16 @@ for(i in 1:length(datasets)){
 	    	# source('fit_holling_like_nobounds.R')
 	    	fit.hollingI <- fit.holling.like(d, this.study, "Holling I")
 			ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
+			ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
+			ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
+			ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
 	    	# ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
 	    	
 			boots.HT.I[,,b] <- mytidy(ffr.hollingI)
 			boots.HT.II[,,b] <- mytidy(ffr.hollingII)
-			# boots.BD[,,b] <- mytidy(ffr.bd)
-			# boots.CM[,,b] <- mytidy(ffr.cm)
-			# boots.SN.I[,,b] <- mytidy(ffr.sn1)
+			boots.BD[,,b] <- mytidy(ffr.bd)
+			boots.CM[,,b] <- mytidy(ffr.cm)
+			boots.SN.I[,,b] <- mytidy(ffr.sn1)
 			# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
 			# boots.SN.III[,,b] <- mytidy(ffr.sn3)
 			# boots.HV[,,b] <- mytidy(ffr.hv)
@@ -135,9 +139,9 @@ for(i in 1:length(datasets)){
 		# ~~~~~~~~~~~~~~~~~~~~
 		HT.I.ests <- as.array(apply(boots.HT.I, c(1,2), summarize.boots))
 		HT.II.ests <- as.array(apply(boots.HT.II, c(1,2), summarize.boots))
-		# BD.ests <- as.array(apply(boots.BD, c(1,2), summarize.boots))
-		# CM.ests <- as.array(apply(boots.CM, c(1,2), summarize.boots))
-		# SN.I.ests <- as.array(apply(boots.SN.I, c(1,2), summarize.boots))
+		BD.ests <- as.array(apply(boots.BD, c(1,2), summarize.boots))
+		CM.ests <- as.array(apply(boots.CM, c(1,2), summarize.boots))
+		SN.I.ests <- as.array(apply(boots.SN.I, c(1,2), summarize.boots))
 		# SN.Numer.ests <- as.array(apply(boots.SN.Numer,c(1,2), summarize.boots))
 		# # SN.III.ests <- as.array(apply(boots.SN.III,c(1,2), summarize.boots))
 		# HV.ests <- as.array(apply(boots.HV,c(1,2), summarize.boots))	  
@@ -161,10 +165,10 @@ for(i in 1:length(datasets)){
 	  	    ),
 			fits = c(
 				Holling.Type.I = ffr.hollingI,
-			    Holling.Type.II = ffr.hollingII
-	          	# Beddington.DeAngelis = ffr.bd,
-	          	# Crowley.Martin = ffr.cm,
-	          	# Stouffer.Novak.I = ffr.sn1
+				Holling.Type.II = ffr.hollingII,
+				Beddington.DeAngelis = ffr.bd,
+				Crowley.Martin = ffr.cm,
+				Stouffer.Novak.I = ffr.sn1
 	          	# Stouffer.Novak.Numer = ffr.sn2,
 	          	# Stouffer.Novak.III = ffr.sn3,
 	          	# Hassell.Varley = ffr.hv,
@@ -174,10 +178,10 @@ for(i in 1:length(datasets)){
 	        ),
 			estimates = list(
 			    Holling.Type.I = HT.I.ests,
-			    Holling.Type.II = HT.II.ests
-			    # Beddington.DeAngelis = BD.ests,
-			    # Crowley.Martin = CM.ests,
-			    # Stouffer.Novak.I = SN.I.ests
+			    Holling.Type.II = HT.II.ests,
+			    Beddington.DeAngelis = BD.ests,
+			    Crowley.Martin = CM.ests,
+			    Stouffer.Novak.I = SN.I.ests
 			    # Stouffer.Novak.Numer = SN.Numer.ests,
 			    # Stouffer.Novak.III = SN.III.ests,
 			    # Hassell.Varley = HV.ests,
