@@ -55,11 +55,16 @@ study.info <- function(dataname){
 		}
 	}
 
+	# determine whether or not the data can be fit by the holling-like and/or ratio-dependent codes
+	runswith <- as.character(googledoc[1,"RunsWith"])
+
+	# put all the info we need into a list
 	rt <- list(
 		expttype=expttype,
 		Pminus1=Pminus1,
 		bootstrap=bootstrap,
 		delong=delong,
-		predator=predator
+		predator=predator,
+		runswith=runswith
 	)
 }
