@@ -21,13 +21,36 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, exp
 		if(h==0){
 			N <- N0 * (1 - exp(-a * P * T))
 		}else{
-			h <- h * (1 + (1 - phi_numer * phi_denom) * c * P_interfering)
+			heff <- h * (1 + (1 - phi_numer * phi_denom) * c * P_interfering)
 			Q <- (1 + c * P_interfering)
 			X <- (1 + (1 - phi_numer) * c * P_interfering)
-			N <- N0 - (Q / (a * h)) * lamW::lambertW0(((a * h * N0)/ Q) * exp(- (a / Q) * (X * P * T - h * N0)))
+			N <- N0 - (Q / (a * heff)) * lamW::lambertW0(((a * heff * N0)/ Q) * exp(- (a / Q) * (X * P * T - heff * N0)))
+			
+			# sometimes the argument in the exponential passed to lambertW0 causes it to blow up
+			if(any(is.infinite(N))){
+				# the explicit result of the analytical integration without solving for N implictly
+				ffff <- function(N, N0, P, T, a, heff, Q, X){
+					dN <- Q * log((N0 - N)/N0) - a * heff * N
+					dt <- - a * X * P * T
+					dN - dt
+				}
+				# sometimes the time argument is a constant and not a vector
+				if(length(T)==1){
+					T <- rep(T, length(N0))
+				}
+				# check which predictions are non-sensical
+				for(i in 1:length(N0)){
+					if(is.infinite(N[i])){
+						# we need to solve the transcendental equation directly
+						nn <- uniroot(ffff, lower=0, upper=N0[i], N0=N0[i], P=P[i], T=T[i], a=a, heff=heff[i], Q=Q[i], X=X[i])
+						N[i] <- nn$root
+					}
+				}
+			}
 		}
 	}
 
+	# in a world with replacement everything is hunky dory
 	if(expttype=="replacement"){
 		numer <- (a * N0 * (1 + (1 - phi_numer) * c * P_interfering))
 		denom <- (1 + a * h * N0 + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * N0)
@@ -36,66 +59,6 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, exp
 
 	return(N)
 }
-
-# # negative log likelihood for data predicted by a ratio-dependent-like functional response
-# holling.like.1pred.1prey.NLL = function(
-# 	attack,
-# 	handling,
-# 	interference,
-# 	phi_numer,
-# 	phi_denom,
-# 	initial,
-# 	killed,
-# 	predators,
-# 	expttype,
-# 	Pminus1,
-# 	# phi_link=c('identity', 'logit'),
-# 	time=NULL
-# ){
-# 	# phi_link <- match.arg(phi_link)
-# 	# DEBUG we should probably force some of these here depending on model type instead of (below)
-
-# 	# we use parameter transformations to help improve the fitting and to avoid needing bounded optimization
-# 	attack <- exp(attack)
-# 	handling <- exp(handling)
-# 	interference <- exp(interference)
-
-# 	# # at times we will constrain these parameters to be [0,1]
-# 	# phi_numer <- switch(phi_link,
-# 	# 	identity = identity(phi_numer),
-# 	# 	logit = plogis(phi_numer)
-# 	# )
-# 	# phi_denom <- switch(phi_link,
-# 	# 	identity = identity(phi_denom),
-# 	# 	logit = plogis(phi_denom)
-# 	# )
-
-# 	# if no times are specified then normalize to time=1
-# 	if(is.null(time)){
-# 		time <- 1
-# 	}
-
-# 	# expected number consumed given data and parameters
-# 	Nconsumed <- holling.like.1pred.1prey(N0=initial, a=attack, h=handling, c=interference, phi_numer=phi_numer, phi_denom=phi_denom, P=predators, T=time, expttype=expttype, Pminus1=Pminus1)
-
-# 	# DEBUG if the parameters are not biologically plausible, neither should be the likelihood
-# 	if(any(Nconsumed < 0 | is.nan(Nconsumed))){
-# 		return(Inf)
-# 	}
-
-# 	# negative log likelihood based on proportion consumed (no replacement)
-# 	# DEBUG: consider whether binomial or poisson are interchangeable
-# 	if(expttype=="integrated"){
-# 		nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
-# 	}
-
-# 	# negative log likelihood based on total number consumed (replacement)
-# 	if(expttype=="replacement"){
-# 		nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
-# 	}
-
-# 	return(nll)
-# }
 
 # convenience function for these holling-like models that will allow the use of nloptr instead of mle2
 holling.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, predators, expttype, Pminus1, time=NULL){
@@ -164,18 +127,18 @@ holling.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, pred
 	Nconsumed <- holling.like.1pred.1prey(N0=initial, a=attack, h=handling, c=interference, phi_numer=phi_numer, phi_denom=phi_denom, P=predators, T=time, expttype=expttype, Pminus1=Pminus1)
 
 	# DEBUG if the parameters are not biologically plausible, neither should be the likelihood
-	if(any(Nconsumed < 0 | is.nan(Nconsumed))){
-		return(Inf)
-	}
+	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
+		nll <- Inf
+	}else{
+		# negative log likelihood based on proportion consumed (no replacement)
+		if(expttype=="integrated"){
+			nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
+		}
 
-	# negative log likelihood based on proportion consumed (no replacement)
-	if(expttype=="integrated"){
-		nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
-	}
-
-	# negative log likelihood based on total number consumed (replacement)
-	if(expttype=="replacement"){
-		nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
+		# negative log likelihood based on total number consumed (replacement)
+		if(expttype=="replacement"){
+			nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
+		}
 	}
 
 	return(nll)
