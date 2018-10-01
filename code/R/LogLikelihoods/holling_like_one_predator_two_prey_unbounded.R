@@ -75,8 +75,14 @@ holling.like.1pred.2prey = function(Ni, ai, hi, Nj, aj, hj, phi_ij, phi_ji, P, T
 	return(Ne)
 }
 
-holling.like.1pred.2prey.NLL = function(attack_i, handling_i, attack_j, handling_j, phi_ij, phi_ji, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, expttype, time=rep(1,length(Ni))){
-	# DEBUG we should probably force some of these here depending on model type
+holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, expttype, time=rep(1,length(Ni))){
+	attack_i <- params[1]
+	handling_i <- params[2]
+	attack_j <- params[3]
+	handling_j <- params[4]
+	phi_ij <- params[5]
+	phi_ji <- params[6]
+
 	# we use parameter transformations to help improve the fitting and to avoid needing bounded optimization
 	# standard Holling Type II parameters
 	attack_i <- exp(attack_i)
