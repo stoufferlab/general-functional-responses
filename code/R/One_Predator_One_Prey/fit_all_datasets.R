@@ -8,10 +8,10 @@ dropboxdir <- switch(
 )
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # a few utility functions
-source('study_info.R')
-source('bootstrap_data.R')
-source('../LogLikelihoods/AA_method.R')
-source('fit_holling_like_nobounds.R')
+source('../lib/study_info.R')
+source('../lib/bootstrap_data.R')
+source('../lib/AA_method.R')
+source('../lib/holling_method_one_predator_one_prey.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,6 +54,9 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # create a container for the things that get fit
 ffr.fits <- list()
+
+# # DEBUG: for testing only
+# datasets <- c("./Dataset_Code/vucetich_2002_isleroyale_whole2014.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -200,3 +203,6 @@ for(i in 1:length(datasets)){
 
 # save the mega container which includes all FR fits
 save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+
+# # generate a quick and dirty plot of the phi_denom parameters of the SNI model
+# source('plot_phi_denom.R')
