@@ -298,53 +298,56 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			handling_j = log(1)
 		)
 
-		# fit Holling Type II Generalist Generalist with above starting parameter values
-		hollingII.via.sbplx <- nloptr::sbplx(
-			x0 = unlist(start),
-			fn = holling.like.1pred.2prey.NLL,
-			Ni = d$Nprey1,
-			Nj = d$Nprey2,
-			Ni_consumed = d$Nconsumed1,
-			Nj_consumed = d$Nconsumed2,
-			Npredators = d$Npredator,
-			replacement = s$replacement,
-			modeltype = "Holling II Generalist Generalist",
-			control = nloptr.control #,
-			# ...
-		)
+		# DEBUG sometimes Holling Type I doesn't provide the best starting guess for the more complex models
+		# DEBUG we should think about whether or not there are better options to make sure we can be confident about the final fits
 
-		mle2.start <- as.list(hollingII.via.sbplx$par)
-		names(mle2.start) <- names(start)
+		# # fit Holling Type II Generalist Generalist with above starting parameter values
+		# hollingII.via.sbplx <- nloptr::sbplx(
+		# 	x0 = unlist(start),
+		# 	fn = holling.like.1pred.2prey.NLL,
+		# 	Ni = d$Nprey1,
+		# 	Nj = d$Nprey2,
+		# 	Ni_consumed = d$Nconsumed1,
+		# 	Nj_consumed = d$Nconsumed2,
+		# 	Npredators = d$Npredator,
+		# 	replacement = s$replacement,
+		# 	modeltype = "Holling II Generalist Generalist",
+		# 	control = nloptr.control #,
+		# 	# ...
+		# )
 
-		# refit this model with mle2
-		hollingII.via.mle2 <- bbmle::mle2(
-			holling.like.1pred.2prey.NLL,
-			start=mle2.start,
-			data=list(
-				Ni = d$Nprey1,
-				Nj = d$Nprey2,
-				Ni_consumed = d$Nconsumed1,
-				Nj_consumed = d$Nconsumed2,
-				Npredators = d$Npredator,
-				replacement = s$replacement,
-				modeltype = "Holling II Generalist Generalist"
-			),
-			vecpar = TRUE,
-			eval.only = TRUE,
-			control = mle2.control #,
-			# ...
-		)
+		# mle2.start <- as.list(hollingII.via.sbplx$par)
+		# names(mle2.start) <- names(start)
 
-		if(modeltype == "Holling II Generalist Generalist"){
-			print(hollingII.via.mle2@coef)
-			return(hollingII.via.mle2)
-		}else{
-			start <- list(
-				attack_i = coef(hollingII.via.mle2)["attack_i"],
-				attack_j = coef(hollingII.via.mle2)["attack_j"],
-				handling_i = coef(hollingII.via.mle2)["handling_i"],
-				handling_j = coef(hollingII.via.mle2)["handling_j"]
-			)
+		# # refit this model with mle2
+		# hollingII.via.mle2 <- bbmle::mle2(
+		# 	holling.like.1pred.2prey.NLL,
+		# 	start=mle2.start,
+		# 	data=list(
+		# 		Ni = d$Nprey1,
+		# 		Nj = d$Nprey2,
+		# 		Ni_consumed = d$Nconsumed1,
+		# 		Nj_consumed = d$Nconsumed2,
+		# 		Npredators = d$Npredator,
+		# 		replacement = s$replacement,
+		# 		modeltype = "Holling II Generalist Generalist"
+		# 	),
+		# 	vecpar = TRUE,
+		# 	eval.only = TRUE,
+		# 	control = mle2.control #,
+		# 	# ...
+		# )
+
+		# if(modeltype == "Holling II Generalist Generalist"){
+		# 	print(hollingII.via.mle2@coef)
+		# 	return(hollingII.via.mle2)
+		# }else{
+		# 	start <- list(
+		# 		attack_i = coef(hollingII.via.mle2)["attack_i"],
+		# 		attack_j = coef(hollingII.via.mle2)["attack_j"],
+		# 		handling_i = coef(hollingII.via.mle2)["handling_i"],
+		# 		handling_j = coef(hollingII.via.mle2)["handling_j"]
+		# 	)
 
 			if(modeltype == "Holling II Hybrid Specialist" | modeltype == "Holling II Hybrid Generalist" | modeltype == "Holling II Hybrid Hybrid"){
 				start$phi_ij <- 0.5
@@ -419,6 +422,6 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			)
 
 			return(refit.via.mle2)
-		}
+		# }
 	}
 }
