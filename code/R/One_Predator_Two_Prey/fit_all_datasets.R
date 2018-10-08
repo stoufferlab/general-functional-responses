@@ -4,7 +4,7 @@ rm(list = ls())
 dropboxdir <- switch(
 	Sys.getenv("LOGNAME"),
 	stouffer = '../../../dropbox_data/Data',
-	MARKTOUPDATETHIS = '~/Dropbox/Research/Projects/GenFuncResp/Data'
+	marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
 )
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # a few utility functions
