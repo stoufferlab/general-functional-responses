@@ -38,7 +38,7 @@ make.array <- function(ffr.fit,boot.reps){
 }
 
 summarize.boots <- function(x){
-  c(mean=mean(x), quantile(x,c(0.025,0.975),na.rm=TRUE))
+  c(mean=mean(x, na.rm=TRUE), quantile(x,c(0.025,0.16,0.5,0.84,0.975),na.rm=TRUE), n=sum(!is.na(x)))
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,7 +56,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 ffr.fits <- list()
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/vucetich_2002_isleroyale_whole2014.R")
+# datasets <- c("./Dataset_Code/blowes_2017_Cb.R","./Dataset_Code/walde_1984.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -80,8 +80,8 @@ for(i in 1:length(datasets)){
 		# Do data need to be bootstrapped? If so, save the raw data frame d as d.org.
 		d.orig <- d
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 2
-			d <- bootstrap.data(d.orig, this.study$expttype)
+			boot.reps <- 250
+			d <- bootstrap.data(d.orig, this.study$response)
 		}else{
 			boot.reps <- 1
 		}
@@ -113,7 +113,7 @@ for(i in 1:length(datasets)){
 		  
 	  	for(b in 1:boot.reps){
 			if("Nconsumed.mean" %in% colnames(d.orig)){
-	  			d <- bootstrap.data(d.orig, this.study$expttype)
+	  			d <- bootstrap.data(d.orig, this.study$response)
 	  	  	}
 	    
 	    	# source('fit_holling_like_nobounds.R')
@@ -179,6 +179,13 @@ for(i in 1:length(datasets)){
 	          	# Arditi.Akcakaya = ffr.aa,
 	          	# Arditi.Akcakaya.Method.2 = fit.AAmethod
 	        ),
+	        # boots = list(
+			# 	Holling.TypeI = boots.HT.I,
+			# 	Holling.TypeII = boots.HT.II,
+			# 	Beddington.DeAngelis = boots.BD,
+			# 	Crowley.Martin = boots.CM,
+			# 	Stouffer.Novak.I = boots.SN.I
+			# ),
 			estimates = list(
 			    Holling.Type.I = HT.I.ests,
 			    Holling.Type.II = HT.II.ests,
@@ -196,13 +203,14 @@ for(i in 1:length(datasets)){
 	# })
 	}
 
-	# source('plot_phi_denom.R')
-	# plot.AAmethod(fit.AAmethod)
 	# break
 }
 
 # save the mega container which includes all FR fits
 save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
-# # generate a quick and dirty plot of the phi_denom parameters of the SNI model
-# source('plot_phi_denom.R')
+# generate a quick and dirty plot of the phi_denom parameters of the SNI model
+dev.new()
+source('plot_phi_denom.R')
+dev.copy2pdf(file="../../../results/R/OnePredOnePrey_PhiDenom.pdf")
+dev.off()
