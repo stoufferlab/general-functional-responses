@@ -1,8 +1,8 @@
 
 # generate boostrapped data from a set of means and SEs of experimental observations
-bootstrap.data <- function(rawdata, expttype=c("integrated","replacement")){
-	# make sure that the expttype variable is valid
-	expttype <- match.arg(expttype)
+bootstrap.data <- function(rawdata, response=c("Binomial","Poisson")){
+	# make sure that the response variable is valid
+	response <- match.arg(response)
 
 	# determine the "names" of all prey present
 	prey <- grep("[.]mean$", colnames(rawdata), value=TRUE)
@@ -42,7 +42,7 @@ bootstrap.data <- function(rawdata, expttype=c("integrated","replacement")){
 						mean=rawdata[r,paste0("Nconsumed",i,".mean")],
 						se=rawdata[r,paste0("Nconsumed",i,".se")],
 						n=rawdata[r,"n"],
-						expttype=expttype,
+						response=response,
 						Nprey=rawdata[r,paste0("Nprey",i)]
 					)
 				)
@@ -89,12 +89,12 @@ bootstrap.data <- function(rawdata, expttype=c("integrated","replacement")){
 }
 
 # sample a number consumed given mean, se, n, and Nprey (which is necessary for non-replacement studies)
-fr.sample <- function(mean, se, n, expttype=c("integrated", "replacement"), Nprey=NULL){
-	# make sure that the expttype variable is valid
-	expttype <- match.arg(expttype)
+fr.sample <- function(mean, se, n, response=c("Binomial","Poisson"), Nprey=NULL){
+	# make sure that the response variable is valid
+	response <- match.arg(response)
 
 	# we require Nprey for non-replacement since they are proportion of a total which must be specified
-	if(is.null(Nprey) && expttype == "integrated"){
+	if(is.null(Nprey) && response == "Binomial"){
 		stop("fr.sample requires Nprey argument for non-replacement experiment types")
 	}
 
@@ -102,7 +102,7 @@ fr.sample <- function(mean, se, n, expttype=c("integrated", "replacement"), Npre
 	mu <- mean
 	sigma <- se * sqrt(n)
 
-	if(expttype=="integrated"){
+	if(response=="Binomial"){
 		# calculate the proportion of prey consumed; do not divide by zero prey since no prey available means no prey consumed!
 		prob <- ifelse(
 			Nprey==0,
@@ -121,7 +121,7 @@ fr.sample <- function(mean, se, n, expttype=c("integrated", "replacement"), Npre
 		)
 	}
 
-	if(expttype=="replacement"){
+	if(response=="Poisson"){
 		# calculate the expected number consumed given the rate of consumption
 		lambda <- rnorm(n=1, mean=mu, sd=sigma)
 

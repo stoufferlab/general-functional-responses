@@ -34,13 +34,11 @@ odeintr::compile_sys(
 
 # predict the number of prey consumed in a replacement or integrated experiment
 # for a single predator with multiple prey species and potential "handling-time exchangability" between those prey
-holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T, expttype=c("integrated","replacement")){
-	expttype <- match.arg(expttype)
-
+holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T, replacement){
 	# print(c(ai=ai, aj=aj, hi=hi, hj=hj, phi_ij=phi_ij, phi_ji=phi_ji))
 
 	# continuous replacement of consumed prey
-	if(expttype=="replacement"){
+	if(replacement){
 		# there is a common demoninator for both species
 		denom <- (1 + ai * hi * Ni) * (1 + aj * hj * Nj) - phi_ij * phi_ji * ai * hi * Ni * aj * hj * Nj
 
@@ -64,10 +62,12 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 
 		# combined predicted number of prey consumed across both prey species
 		Neaten <- cbind(Ni_e, Nj_e)
+
+		return(Neaten)
 	}
 
 	# non-replacement of consumed prey
-	if(expttype=="integrated"){
+	if(!replacement){
 		# DEBUG to speed up this can be broken down into identical replicates based on initial abundances since the prediction of the model is the same for the same 'treatment' conditions
 		Neaten <- matrix(NA, nrow=length(Ni), ncol=2)
 		for(i in seq.int(length(Ni))){
@@ -78,6 +78,7 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 			hl_1pred_2prey_set_params(ai=ai, aj=aj, hi=hi, hj=hj, phi_ij=phi_ij, phi_ji=phi_ji, P=P[i])
 
 			# calculate the final number of prey integrating the odes
+			# note that the dynamic model (defined above) does not permit "negative" consumption
 			Nfinal <- hl_1pred_2prey(N0, T[i], T[i]/1000.)
 
 			# we technically only need the last row since this is the final "abundance"
@@ -86,12 +87,14 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 			# the number consumed is the difference between what we started with and what is left
 			Neaten[i,] <- N0 - Nfinal
 		}
+
+		return(Neaten)
 	}
 
-	return(Neaten)
+	stop()
 }
 
-holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, expttype, modeltype, time=rep(1,length(Ni))){
+holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, time=rep(1,length(Ni))){
 	if(modeltype=="Holling I"){
 		attack_i <- exp(params[1])
 		attack_j <- exp(params[2])
@@ -196,7 +199,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		Nj=Nj,
 		P=Npredators,
 		T=time,
-		expttype=expttype
+		replacement=replacement
 	)
 
 	# disallow biologically implausible predictions
@@ -204,19 +207,21 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		return(Inf)
 	}
 
-	# negative log likelihood based on proportion consumed (no replacement)
-	if(expttype=="integrated"){
-		nll <- -sum(dbinom(Ni_consumed, prob=pmax(0,Nconsumed[,1]/Ni,na.rm=TRUE), size=Ni, log=TRUE))
-		nll <- nll - sum(dbinom(Nj_consumed, prob=pmax(0,Nconsumed[,2]/Nj,na.rm=TRUE), size=Nj, log=TRUE))
-	}
-
 	# negative log likelihood based on total number consumed (replacement)
-	if(expttype=="replacement"){
+	if(replacement){
 		nll <- -sum(dpois(Ni_consumed, Nconsumed[,1], log=TRUE))
 		nll <- nll - sum(dpois(Nj_consumed, Nconsumed[,2], log=TRUE))
+		return(nll)
 	}
 
-	return(nll)
+	# negative log likelihood based on proportion consumed (no replacement)
+	if(!replacement){
+		nll <- -sum(dbinom(Ni_consumed, prob=pmax(0, ifelse(Ni == 0, 0, Nconsumed[,1] / Ni)), size=Ni, log=TRUE))
+		nll <- nll - sum(dbinom(Nj_consumed, prob=pmax(0, ifelse(Nj == 0, 0, Nconsumed[,2] / Nj)), size=Nj, log=TRUE))
+		return(nll)
+	}
+
+	stop()
 }
 
 # holling.like.1pred.2prey.NLL.same_phi = function(attack_i, handling_i, attack_j, handling_j, phi, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, expttype, time=rep(1,length(Ni))){
@@ -252,7 +257,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 		Ni_consumed = d$Nconsumed1,
 		Nj_consumed = d$Nconsumed2,
 		Npredators = d$Npredator,
-		expttype = s$expttype,
+		replacement = s$replacement,
 		modeltype = "Holling I",
 		control = nloptr.control #,
 		# ...
@@ -273,7 +278,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			Ni_consumed = d$Nconsumed1,
 			Nj_consumed = d$Nconsumed2,
 			Npredators = d$Npredator,
-			expttype = s$expttype,
+			replacement = s$replacement,
 			modeltype = "Holling I"
 		),
 		vecpar = TRUE,
@@ -302,7 +307,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			Ni_consumed = d$Nconsumed1,
 			Nj_consumed = d$Nconsumed2,
 			Npredators = d$Npredator,
-			expttype = "integrated",
+			replacement = s$replacement,
 			modeltype = "Holling II Generalist Generalist",
 			control = nloptr.control #,
 			# ...
@@ -321,7 +326,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				Ni_consumed = d$Nconsumed1,
 				Nj_consumed = d$Nconsumed2,
 				Npredators = d$Npredator,
-				expttype = "integrated",
+				replacement = s$replacement,
 				modeltype = "Holling II Generalist Generalist"
 			),
 			vecpar = TRUE,
@@ -358,7 +363,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				Ni_consumed = d$Nconsumed1,
 				Nj_consumed = d$Nconsumed2,
 				Npredators = d$Npredator,
-				expttype = s$expttype,
+				replacement = s$replacement,
 				modeltype = modeltype,
 				control = nloptr.control #,
 				# ...
@@ -377,7 +382,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					Ni_consumed = d$Nconsumed1,
 					Nj_consumed = d$Nconsumed2,
 					Npredators = d$Npredator,
-					expttype = s$expttype,
+					replacement = s$replacement,
 					modeltype = modeltype
 				),
 				vecpar = TRUE,
@@ -406,7 +411,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					Ni_consumed = d$Nconsumed1,
 					Nj_consumed = d$Nconsumed2,
 					Npredators = d$Npredator,
-					expttype = s$expttype,
+					replacement = s$replacement,
 					modeltype = modeltype
 				),
 				vecpar = TRUE,
