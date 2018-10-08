@@ -60,17 +60,20 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 ffr.fits <- list()
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/vucetich_2002_isleroyale_whole2014.R")
+datasets <- c("./Dataset_Code/Nachappa_2006.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
 	# loads the data into data frame 'd' and specifies data-specific parameters
 	source(datasets[i])
 
+	# save a copy of the raw data in case we need it for bootstrapping
+	d.orig <- d
+
 	# grab some info from the google doc
 	this.study <- study.info(datadir)
 
-	if(!grepl("T", this.study$runswith)){
+	if(!grepl("H", this.study$runswith)){
 		message(paste0("No to ",datasets[i]))
 	}else{
 		# print out which dataset is being analyzed
@@ -81,50 +84,21 @@ for(i in 1:length(datasets)){
 		# NOTE: optimization is on log-transformed values
 		#############################################	 
 
-		# Do data need to be bootstrapped? If so, save the raw data frame d as d.org.
-		d.orig <- d
+		# Do data need to be bootstrapped?
 		if("Nconsumed1.mean" %in% colnames(d)){
-			boot.reps <- 2
-			d <- bootstrap.data(d.orig, this.study$response)
+			boot.reps <- 1
 		}else{
 			boot.reps <- 1
 		}
 
-		# for initial fits to produce dimensions for containers
-		ffr.hollingI <- fit.holling.like(d, s=this.study, modeltype="Holling I")
-		ffr.hollingII.specialist.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Specialist")
-		# ffr.hollingII.specialist.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Generalist")
-		# ffr.hollingII.generalist.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Specialist")
-		ffr.hollingII.generalist.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Generalist")
-		# ffr.hollingII.specialist.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Hybrid")
-		# ffr.hollingII.generalist.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Hybrid")
-		# ffr.hollingII.hybrid.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Specialist")
-		# ffr.hollingII.hybrid.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Generalist")
-		ffr.hollingII.hybrid.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Hybrid")
-
-		# # Containers for estimates
-		boots.HT.I <- make.array(ffr.hollingI, boot.reps)
-		boots.HT.II.SS <- make.array(ffr.hollingII.specialist.specialist, boot.reps)
-		boots.HT.II.GG <- make.array(ffr.hollingII.generalist.generalist, boot.reps)
-		boots.HT.II.HH <- make.array(ffr.hollingII.hybrid.hybrid, boot.reps)
-		# boots.BD <- make.array(ffr.bd, boot.reps)
-		# boots.CM <- make.array(ffr.cm, boot.reps)
-		# boots.SN.I <- make.array(ffr.sn1, boot.reps)
-		# # boots.SN.Numer <- make.array(ffr.sn2, boot.reps)
-		# # boots.SN.III <- make.array(ffr.sn3, boot.reps)
-		# # boots.HV <- make.array(ffr.hv, boot.reps)
-		# # boots.AG <- make.array(ffr.ag, boot.reps)
-		# # boots.AA <- make.array(ffr.aa, boot.reps)
-		# # if(okay4AAmethod(d)){
-		# # 	boots.AA2 <- array(NA, dim=c(dim(fit.AAmethod$estimates), boot.reps))
-		# #     dimnames(boots.AA2)[c(1,2)] <- dimnames(fit.AAmethod$estimates)
-	 # 	# }
-		  
 	  	for(b in 1:boot.reps){
 			if(any(grepl("[.]mean$",colnames(d.orig)))){
 				d <- bootstrap.data(d.orig, this.study$response)
 			}
 	    
+	    	# DEBUG: sometimes the fits fail; should we allow the code to skip these and keep on keepin on in that case?
+
+	    	# fit a suite of functional response models
 			ffr.hollingI <- fit.holling.like(d, s=this.study, modeltype="Holling I")
 			ffr.hollingII.specialist.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Specialist")
 			# ffr.hollingII.specialist.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Generalist")
@@ -136,54 +110,32 @@ for(i in 1:length(datasets)){
 			# ffr.hollingII.hybrid.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Generalist")
 			ffr.hollingII.hybrid.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Hybrid")
 
-	 #    	# source('fit_holling_like_nobounds.R')
-	 #    	fit.hollingI <- fit.holling.like(d, this.study, "Holling I")
-		# 	ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
-		# 	ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
-		# 	ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
-		# 	ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
-	 #    	# ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
-	    	
+			# create containers for the parameter estimates
+			if(b == 1){
+				boots.HT.I <- make.array(ffr.hollingI, boot.reps)
+				boots.HT.II.SS <- make.array(ffr.hollingII.specialist.specialist, boot.reps)
+				boots.HT.II.GG <- make.array(ffr.hollingII.generalist.generalist, boot.reps)
+				boots.HT.II.HH <- make.array(ffr.hollingII.hybrid.hybrid, boot.reps)
+			}
+
+			# add fits to the containers
 			boots.HT.I[,,b] <- mytidy(ffr.hollingI)
 		 	boots.HT.II.SS[,,b] <- mytidy(ffr.hollingII.specialist.specialist)
 		 	boots.HT.II.GG[,,b] <- mytidy(ffr.hollingII.generalist.generalist)
 		 	boots.HT.II.HH[,,b] <- mytidy(ffr.hollingII.hybrid.hybrid)
-		# 	boots.BD[,,b] <- mytidy(ffr.bd)
-		# 	boots.CM[,,b] <- mytidy(ffr.cm)
-		# 	boots.SN.I[,,b] <- mytidy(ffr.sn1)
-		# 	# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
-		# 	# boots.SN.III[,,b] <- mytidy(ffr.sn3)
-		# 	# boots.HV[,,b] <- mytidy(ffr.hv)
-		# 	# boots.AG[,,b] <- mytidy(ffr.ag)
-		# 	# boots.AA[,,b] <- mytidy(ffr.aa)
-		# 	# if(okay4AAmethod(d)){ boots.AA2[,,b] <- fit.AAmethod$estimates  }
-		  
-			# # ~~~~~~~~~~~~~~~~~~~~
-			# # Summarize bootstraps
-			# # ~~~~~~~~~~~~~~~~~~~~
-			HT.I.ests <- as.array(apply(boots.HT.I, c(1,2), summarize.boots))
-			HT.II.SS.ests <- as.array(apply(boots.HT.II.SS, c(1,2), summarize.boots))
-			HT.II.GG.ests <- as.array(apply(boots.HT.II.GG, c(1,2), summarize.boots))
-			HT.II.HH.ests <- as.array(apply(boots.HT.II.HH, c(1,2), summarize.boots))
-			# HT.II.ests <- as.array(apply(boots.HT.II, c(1,2), summarize.boots))
-			# BD.ests <- as.array(apply(boots.BD, c(1,2), summarize.boots))
-			# CM.ests <- as.array(apply(boots.CM, c(1,2), summarize.boots))
-			# SN.I.ests <- as.array(apply(boots.SN.I, c(1,2), summarize.boots))
-			# # SN.Numer.ests <- as.array(apply(boots.SN.Numer,c(1,2), summarize.boots))
-			# # # SN.III.ests <- as.array(apply(boots.SN.III,c(1,2), summarize.boots))
-			# # HV.ests <- as.array(apply(boots.HV,c(1,2), summarize.boots))	  
-			# # AG.ests <- as.array(apply(boots.AG,c(1,2), summarize.boots))
-			# # AA.ests <- as.array(apply(boots.AA,c(1,2), summarize.boots))
-			# # if(okay4AAmethod(d)){ 
-			# #     AA2.ests <- as.array(apply(boots.AA2,c(1,2), summarize.boots))
-			# # }else{
-			# # 	AA2.ests <- NA
-			# # }
-		}
+		 }
+
+		# ~~~~~~~~~~~~~~~~~~~~
+		# Summarize bootstraps
+		# ~~~~~~~~~~~~~~~~~~~~
+		HT.I.ests <- as.array(apply(boots.HT.I, c(1,2), summarize.boots))
+		HT.II.SS.ests <- as.array(apply(boots.HT.II.SS, c(1,2), summarize.boots))
+		HT.II.GG.ests <- as.array(apply(boots.HT.II.GG, c(1,2), summarize.boots))
+		HT.II.HH.ests <- as.array(apply(boots.HT.II.HH, c(1,2), summarize.boots))
   
-	 #  	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		# # save the (last) fits and some data aspects
-		# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	  	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# save the (last) fits and some data aspects
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		ffr.fits[[datasets[i]]] <- list(
 	  		study.info = c(
 	  			datadir = datadir,
@@ -216,8 +168,6 @@ for(i in 1:length(datasets)){
 				Holling.Type.I = HT.I.ests
 			)
 		)
-
-		break
 	}
 
 	# source('plot_phi_denom.R')
