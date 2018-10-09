@@ -5,5 +5,5 @@ filename <- 'Elliot_2003_Perm.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # turn into a standard dataframe with standard column names
-d <- rawdata[,c('Preds','Prey','PreyEatenTotal.Mean','PreyEatenTotal.SE','n')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", 'n')
+d <- rawdata[,c('Preds','Prey','PreyEatenTotal.Mean','PreyEatenTotal.SE','n', 'Time')]
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", 'n', 'Time')
