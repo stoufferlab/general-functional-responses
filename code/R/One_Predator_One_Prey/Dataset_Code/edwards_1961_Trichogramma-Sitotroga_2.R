@@ -5,5 +5,5 @@ filename <- 'Edwards_1961_Trichogramma-Sitotroga_2.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # rename to standard column names used in fitting code
-d <- rawdata[,c('Parasites','Hosts','Parasitized')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed")
+d <- rawdata[,c('Parasites','Hosts','Parasitized','Time')]
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed",'Time')

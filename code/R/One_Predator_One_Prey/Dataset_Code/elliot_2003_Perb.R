@@ -9,5 +9,5 @@ rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 # colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n")
 
 # No SEs given, so treat means as raw data
-d <- rawdata[,c('Preds','Prey','PreyEatenTotal.Mean')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed")
+d <- rawdata[,c('Preds','Prey','PreyEatenTotal.Mean','Time')]
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed",'Time')

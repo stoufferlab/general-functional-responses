@@ -5,5 +5,5 @@ filename <- 'Elliot_2005_Instar2.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # rename to standard column names used in fitting code
-d <- rawdata[,c('Preds','Prey','TotalEaten')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed")
+d <- rawdata[,c('Preds','Prey','TotalEaten','Time')]
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed",'Time')
