@@ -56,7 +56,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 ffr.fits <- list()
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/vonWesternhagen_1976_Fig2_2hrs.R","./Dataset_Code/vonWesternhagen_1976_Fig2_4hrs.R","./Dataset_Code/vonWesternhagen_1976_Fig2_8hrs.R")
+# datasets <- c("./Dataset_Code/Prokopenko_2017.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -82,13 +82,23 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 250
+			boot.reps <- 200
 		}else{
 			boot.reps <- 1
 		}
 
+		library(progress)
+		pb <- progress_bar$new(
+			format = "  bootstrapping [:bar] :percent eta: :eta",
+			total = boot.reps,
+			show_after = 0,
+			force = TRUE,
+			clear = FALSE
+		)
+
 		# perform boot.reps fits depending on the nature of the data
-	  	for(b in 1:boot.reps){
+		b <- 1
+	  	while(b <= boot.reps){
 	  		# generate bootstrapped data if necessary
 			if("Nconsumed.mean" %in% colnames(d.orig)){
 	  			d <- bootstrap.data(d.orig, this.study$response)
@@ -96,34 +106,42 @@ for(i in 1:length(datasets)){
 
 	  	  	# DEBUG sometimes the fits fail for bootstrapped data; we could just skip that replicate and continue on?
 	    	# fit a series of functional response models
-	    	ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
-			ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
-			ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
-			ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
-			ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
-	    	# ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
+	    	success <- try({
+	    		ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
+				ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
+				ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
+				ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
+				ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
+	    		# ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
+	    	})
 	    	
-	    	if(b == 1){
-	    		# Containers for parameter estimates
-				boots.HT.I <- make.array(ffr.hollingI, boot.reps)
-				boots.HT.II <- make.array(ffr.hollingII, boot.reps)
-				boots.BD <- make.array(ffr.bd, boot.reps)
-				boots.CM <- make.array(ffr.cm, boot.reps)
-				boots.SN.I <- make.array(ffr.sn1, boot.reps)
-	    	}
+	    	if(!inherits(success, "try-error")){
+		    	if(b == 1){
+		    		# Containers for parameter estimates
+					boots.HT.I <- make.array(ffr.hollingI, boot.reps)
+					boots.HT.II <- make.array(ffr.hollingII, boot.reps)
+					boots.BD <- make.array(ffr.bd, boot.reps)
+					boots.CM <- make.array(ffr.cm, boot.reps)
+					boots.SN.I <- make.array(ffr.sn1, boot.reps)
+		    	}
 
-	    	# add the parameters for this fit to the array of fits
-			boots.HT.I[,,b] <- mytidy(ffr.hollingI)
-			boots.HT.II[,,b] <- mytidy(ffr.hollingII)
-			boots.BD[,,b] <- mytidy(ffr.bd)
-			boots.CM[,,b] <- mytidy(ffr.cm)
-			boots.SN.I[,,b] <- mytidy(ffr.sn1)
-			# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
-			# boots.SN.III[,,b] <- mytidy(ffr.sn3)
-			# boots.HV[,,b] <- mytidy(ffr.hv)
-			# boots.AG[,,b] <- mytidy(ffr.ag)
-			# boots.AA[,,b] <- mytidy(ffr.aa)
-			# if(okay4AAmethod(d)){ boots.AA2[,,b] <- fit.AAmethod$estimates  }
+		    	# add the parameters for this fit to the array of fits
+				boots.HT.I[,,b] <- mytidy(ffr.hollingI)
+				boots.HT.II[,,b] <- mytidy(ffr.hollingII)
+				boots.BD[,,b] <- mytidy(ffr.bd)
+				boots.CM[,,b] <- mytidy(ffr.cm)
+				boots.SN.I[,,b] <- mytidy(ffr.sn1)
+				# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
+				# boots.SN.III[,,b] <- mytidy(ffr.sn3)
+				# boots.HV[,,b] <- mytidy(ffr.hv)
+				# boots.AG[,,b] <- mytidy(ffr.ag)
+				# boots.AA[,,b] <- mytidy(ffr.aa)
+				# if(okay4AAmethod(d)){ boots.AA2[,,b] <- fit.AAmethod$estimates  }
+
+				pb$tick()
+
+				b <- b + 1
+			}
 	  	}
 	  
 		# ~~~~~~~~~~~~~~~~~~~~
