@@ -5,5 +5,6 @@ filename <- 'Crowley_1989.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # turn into a standard dataframe with standard column names
-d <- rawdata[,c('Pred','Prey','Nconsumed.Total.Mean','Nconsumed.Total.SE','n')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n")
+d <- rawdata[,c('Pred','Prey','Nconsumed.Total.Mean','Nconsumed.Total.SE','n','Time')]
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n",'Time')
+

@@ -8,8 +8,11 @@
 rm(list = ls())
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # specify where the data files are located
-dropboxdir <- '../../../dropbox_data/Data' # Stouffer
-dropboxdir <- '~/Dropbox/Research/Projects/GenFuncResp/Data' # Novak
+dropboxdir <- switch(
+  Sys.getenv("LOGNAME"),
+  stouffer = '../../../dropbox_data/Data',
+  marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
+)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # master list of datasets
 datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)

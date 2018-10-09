@@ -5,5 +5,5 @@ filename <- 'Krylov_1992i.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # turn into a standard dataframe with standard column names
-d <- rawdata[,c('Preds','Prey','TotalPreyEatenPer24hrs','TotalPreyEatenPer24hrs.SE','n')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n")
+d <- rawdata[,c('Preds','Prey','TotalPreyEatenPer24hrs','TotalPreyEatenPer24hrs.SE','n','Time')]
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n",'Time')
