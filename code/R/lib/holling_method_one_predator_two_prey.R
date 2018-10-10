@@ -287,7 +287,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 	)
 
 	if(modeltype == "Holling I"){
-		print(hollingI.via.mle2@coef)
+		# print(hollingI.via.mle2@coef)
 		return(hollingI.via.mle2)
 	}else{
 		# if moving to a more complex model, fit a specialist-specialist holling type II as the next starting point
@@ -394,7 +394,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				# ...
 			)
 
-			print(fit.via.mle2@coef)
+			# print(fit.via.mle2@coef)
 			return(fit.via.mle2)
 
 			# convert mle2 estimation to list of starting values
