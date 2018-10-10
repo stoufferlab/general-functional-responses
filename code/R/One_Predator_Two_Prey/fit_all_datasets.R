@@ -10,7 +10,6 @@ dropboxdir <- switch(
 # a few utility functions
 source('../lib/study_info.R')
 source('../lib/bootstrap_data.R')
-# source('../LogLikelihoods/AA_method.R')
 source('../lib/holling_method_one_predator_two_prey.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -60,7 +59,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 ffr.fits <- list()
 
 # # DEBUG: for testing only
-datasets <- c("./Dataset_Code/Nachappa_2006.R")
+# datasets <- c("./Dataset_Code/Iyer_1996_Br.R","./Dataset_Code/Iyer_1996_Bp.R","./Dataset_Code/Iyer_1996_Bc.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -86,12 +85,22 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed1.mean" %in% colnames(d)){
-			boot.reps <- 1
+			boot.reps <- 100
 		}else{
 			boot.reps <- 1
 		}
 
-	  	for(b in 1:boot.reps){
+		library(progress)
+		pb <- progress_bar$new(
+			format = "  bootstrapping [:bar] :percent eta: :eta",
+			total = boot.reps,
+			show_after = 0,
+			force = TRUE,
+			clear = FALSE
+		)
+
+		b <- 1
+	  	while(b <= boot.reps){
 			if(any(grepl("[.]mean$",colnames(d.orig)))){
 				d <- bootstrap.data(d.orig, this.study$response)
 			}
@@ -99,30 +108,37 @@ for(i in 1:length(datasets)){
 	    	# DEBUG: sometimes the fits fail; should we allow the code to skip these and keep on keepin on in that case?
 
 	    	# fit a suite of functional response models
-			ffr.hollingI <- fit.holling.like(d, s=this.study, modeltype="Holling I")
-			ffr.hollingII.specialist.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Specialist")
-			# ffr.hollingII.specialist.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Generalist")
-			# ffr.hollingII.generalist.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Specialist")
-			ffr.hollingII.generalist.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Generalist")
-			# ffr.hollingII.specialist.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Hybrid")
-			# ffr.hollingII.generalist.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Hybrid")
-			# ffr.hollingII.hybrid.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Specialist")
-			# ffr.hollingII.hybrid.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Generalist")
-			ffr.hollingII.hybrid.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Hybrid")
+	    	success <- try({
+				ffr.hollingI <- fit.holling.like(d, s=this.study, modeltype="Holling I")
+				ffr.hollingII.SS <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Specialist")
+				# ffr.hollingII.specialist.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Generalist")
+				# ffr.hollingII.generalist.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Specialist")
+				ffr.hollingII.GG <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Generalist")
+				# ffr.hollingII.specialist.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Hybrid")
+				# ffr.hollingII.generalist.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Hybrid")
+				# ffr.hollingII.hybrid.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Specialist")
+				# ffr.hollingII.hybrid.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Generalist")
+				ffr.hollingII.HH <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Hybrid")
+			})
 
-			# create containers for the parameter estimates
-			if(b == 1){
-				boots.HT.I <- make.array(ffr.hollingI, boot.reps)
-				boots.HT.II.SS <- make.array(ffr.hollingII.specialist.specialist, boot.reps)
-				boots.HT.II.GG <- make.array(ffr.hollingII.generalist.generalist, boot.reps)
-				boots.HT.II.HH <- make.array(ffr.hollingII.hybrid.hybrid, boot.reps)
-			}
+	    	if(!inherits(success, "try-error")){
+				# create containers for the parameter estimates
+				if(b == 1){
+					boots.HT.I <- make.array(ffr.hollingI, boot.reps)
+					boots.HT.II.SS <- make.array(ffr.hollingII.SS, boot.reps)
+					boots.HT.II.GG <- make.array(ffr.hollingII.GG, boot.reps)
+					boots.HT.II.HH <- make.array(ffr.hollingII.HH, boot.reps)
+				}
 
-			# add fits to the containers
-			boots.HT.I[,,b] <- mytidy(ffr.hollingI)
-		 	boots.HT.II.SS[,,b] <- mytidy(ffr.hollingII.specialist.specialist)
-		 	boots.HT.II.GG[,,b] <- mytidy(ffr.hollingII.generalist.generalist)
-		 	boots.HT.II.HH[,,b] <- mytidy(ffr.hollingII.hybrid.hybrid)
+				# add fits to the containers
+				boots.HT.I[,,b] <- mytidy(ffr.hollingI)
+			 	boots.HT.II.SS[,,b] <- mytidy(ffr.hollingII.SS)
+			 	boots.HT.II.GG[,,b] <- mytidy(ffr.hollingII.GG)
+			 	boots.HT.II.HH[,,b] <- mytidy(ffr.hollingII.HH)
+
+			 	pb$tick()
+			 	b <- b + 1
+			 }
 		 }
 
 		# ~~~~~~~~~~~~~~~~~~~~
@@ -144,15 +160,15 @@ for(i in 1:length(datasets)){
 	  	        data=d
 	  	    ),
 			fits = c(
-				Holling.Type.II.Specialist.Specialist = ffr.hollingII.specialist.specialist,
+				Holling.Type.II.Specialist.Specialist = ffr.hollingII.SS,
 				# Holling.Type.II.Specialist.Generalist = ffr.hollingII.specialist.generalist,
 				# Holling.Type.II.Generalist.Specialist = ffr.hollingII.generalist.specialist,
-				Holling.Type.II.Generalist.Generalist = ffr.hollingII.generalist.generalist,
+				Holling.Type.II.Generalist.Generalist = ffr.hollingII.GG,
 				# Holling.Type.II.Specialist.Hybrid = ffr.hollingII.specialist.hybrid,
 				# Holling.Type.II.Generalist.Hybrid = ffr.hollingII.generalist.hybrid,
 				# Holling.Type.II.Hybrid.Specialist = ffr.hollingII.hybrid.specialist,
 				# Holling.Type.II.Hybrid.Generalist = ffr.hollingII.hybrid.generalist,
-				Holling.Type.II.Hybrid.Hybrid = ffr.hollingII.hybrid.hybrid,
+				Holling.Type.II.Hybrid.Hybrid = ffr.hollingII.HH,
 				Holling.Type.I = ffr.hollingI
 	        ),
 			estimates = list(
@@ -175,8 +191,8 @@ for(i in 1:length(datasets)){
 	# break
 }
 
-# # save the mega container which includes all FR fits
-# save(ffr.fits,file='../../../results/R/ffr.fits_OnePredTwoPrey.Rdata')
+# save the mega container which includes all FR fits
+save(ffr.fits,file='../../../results/R/ffr.fits_OnePredTwoPrey.Rdata')
 
 # # generate a quick and dirty plot of the phi_denom parameters of the SNI model
 # source('plot_phi_denom.R')
