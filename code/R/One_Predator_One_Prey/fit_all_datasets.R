@@ -139,7 +139,6 @@ for(i in 1:length(datasets)){
 				# if(okay4AAmethod(d)){ boots.AA2[,,b] <- fit.AAmethod$estimates  }
 
 				pb$tick()
-
 				b <- b + 1
 			}
 	  	}
