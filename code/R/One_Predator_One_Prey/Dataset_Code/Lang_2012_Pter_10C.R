@@ -7,7 +7,3 @@ rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 # rename to standard column names used in fitting code
 d <- rawdata[,c("PredNo", "Initial", "Killed",'Time')]
 colnames(d) <- c("Npredator", "Nprey", "Nconsumed",'Time')
-
-# WARNING
-# non-integer numbers consumed
-d <- d[round(d$Nconsumed)==d$Nconsumed,]
