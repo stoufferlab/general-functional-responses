@@ -28,78 +28,81 @@ plot.coefs <- function(ffr.fits, modeltype, parameter, plot.SEs=FALSE, ilink=ide
 	for(nn in names(ffr.fits)){
 		x <- ffr.fits[[nn]]
 
+		# color points depending on predator/parasitoid
+		col <- ifelse(x$study.info$predator, "black", "red")	
+
 		# the median estimate is easy to determine regardless of the type of data
 		mm <- x$estimates[[modeltype]]["50%",parameter,"estimate"]
 
-		if(mm < xlim[1]){
-			arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66)
+		# cheeky upper and lower bounds in the absence of SE information
+		lb <- mm
+		ub <- mm
+
+		# different ways to estimate the SEs from the model(s)
+		if(plot.SEs){
+			# if we did not need to bootstrap the data				
+			if(x$estimates[[modeltype]]["n",1,1] == 1){
+				# estimate the profile confidence interval in first instance
+				cf <- try(confint(x$fits[[modeltype]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
+				
+				# seems like the profiling code was successful
+				if(!inherits(cf, "try-error")){
+					# best case equals solid line
+					lty <- "solid"
+
+					lb <- cf[parameter,1]
+					ub <- cf[parameter,2]
+
+					# sometimes we profile things but still get NA intervals
+					lb <- ifelse(is.na(lb), xlim[1], lb)
+					ub <- ifelse(is.na(ub), xlim[2], ub)
+				}else{
+					# use the quadratic assumption?
+
+					# quadratic approximation equals dashed line
+					lty <- "dashed"
+
+					# get the SEs directly from the model output
+					se <- coef(summary(x$fits[[modeltype]]))[parameter,"Std. Error"]
+					lb <- ifelse(is.na(se), xlim[1], mm - se)
+					ub <- ifelse(is.na(se), xlim[2], mm + se)
+				}
+			}else{
+				# we bootstrapped the data and will use the quantiles of those fits to match +/- 1 SE
+				
+				# bootstrapped is always dotted line
+				# dotted
+				lty <- "dotted"
+
+				# use the central interval equivalent to one SD as the bounds
+				lb <- x$estimates[[modeltype]]["16%",parameter,"estimate"]
+				ub <- x$estimates[[modeltype]]["84%",parameter,"estimate"]
+			}
+
+			# don't plot off the figure
+			lb <- ifelse(lb < xlim[1], xlim[1], lb)
+			ub <- ifelse(ub > xlim[2], xlim[2], ub)
+		}
+
+		if(mm > xlim[1] & mm < xlim[2]){
+			# draw the error bars
+			segments(ilink(lb), i, ilink(ub), i, col=col, lty=lty)
+
+			# arrow up the limiting cases
+			if(lb==xlim[1]){
+				arrows(xlim[1], i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+			}
+			if(ub==xlim[2]){
+				arrows(xlim[2], i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+			}
+			
+			# plot the actual mean estimate
+			points(y=c(i),x=c(ilink(mm)),col=col,bg=col,pch=21)
 		}else{
 			if(mm > xlim[2]){
-				arrows(xlim[2]-delta.arrow, i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66)
+				arrows(xlim[2]-delta.arrow, i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
 			}else{
-				if(plot.SEs){
-					# # xx <- try({
-					# 	p0 <- profile(x[[modeltype]], try_harder=TRUE)
-					# 	cnfint <- confint(p0, level=25, try_harder=TRUE)
-					# 	# print(class(cnfint))
-					# 	lb <- cnfint[parameter,1]
-					# 	ub <- cnfint[parameter,2]
-					# # })
-					# xx <- 0
-
-					# if we did not need to bootstrap the data				
-					if(x$estimates[[modeltype]]["n",1,1] == 1){
-						cf <- try(confint(x$fits[[modeltype]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
-						
-						if(!inherits(cf, "try-error")){
-							lb <- cf[parameter,1]
-							ub <- cf[parameter,2]
-
-							# sometimes we profile things but still get NA intervals
-							lb <- ifelse(is.na(lb), xlim[1], lb)
-							ub <- ifelse(is.na(ub), xlim[2], ub)
-
-							# red
-							col <- "black"
-						}else{
-							# use the quadratic assumption?
-							se <- coef(summary(x$fits[[modeltype]]))[parameter,"Std. Error"]
-							lb <- ifelse(is.na(se), xlim[1], mm - se)
-							ub <- ifelse(is.na(se), xlim[2], mm + se)
-
-							# gree
-							col <- "red"
-						}
-					}else{
-						# blue
-						col <- "blue"
-
-						# use the central interval equivalent to one SD as the bounds
-						lb <- x$estimates[[modeltype]]["16%",parameter,"estimate"]
-						ub <- x$estimates[[modeltype]]["84%",parameter,"estimate"]
-					}
-
-					# don't plot off the figure
-					lb <- ifelse(lb < xlim[1], xlim[1], lb)
-					ub <- ifelse(ub > xlim[2], xlim[2], ub)
-					
-					# draw the error bars
-					segments(ilink(lb), i, ilink(ub), i, col=col)
-
-					# print(lb)
-					# print(xlim[1])
-
-					# arrow up the limiting cases
-					if(lb==xlim[1]){
-						arrows(xlim[1], i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col)
-					}
-					if(ub==xlim[2]){
-						arrows(xlim[2], i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col)
-					}
-				}
-
-				# plot the actual mean estimate
-				points(y=c(i),x=c(ilink(mm)),col=col,bg=col,pch=21)
+				arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col)
 			}
 		}
 
