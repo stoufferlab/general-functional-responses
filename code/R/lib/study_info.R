@@ -11,17 +11,6 @@ study.info <- function(dataname){
 	)
 	googledoc <- googledoc[googledoc$Dataset_Folder == dataname & !is.na(googledoc$Dataset_Folder),]
 
-	# define the type of experiment
-	if(googledoc[1,"With_Prey_Replacement"] | is.na(googledoc[1,"With_Prey_Replacement"])){
-		replacement <- TRUE
-	}
-	else{
-		replacement <- FALSE
-	}
-
-	# keep track of the response variable to be modelled
-	response <- as.character(googledoc[1,"Response_Type"])
-
 	# determine whether or not there are P-1 "predators" interfering
 	if(googledoc[1,"Predator_Density_or_Count"] == "Count"){
 		Pminus1 <- TRUE
@@ -58,17 +47,32 @@ study.info <- function(dataname){
 		}
 	}
 
+	# define the type of experiment
+	if(googledoc[1,"With_Prey_Replacement"]){
+		replacement <- TRUE
+	}
+	else{
+		if(!predator && googledoc[1,"Parasitoid_Type"] == "Non-discriminating"){
+			replacement <- TRUE
+		}else{
+			replacement <- FALSE
+		}
+	}
+
 	# determine whether or not the data can be fit by the holling-like and/or ratio-dependent codes
 	runswith <- as.character(googledoc[1,"RunsWith"])
 
+	# scrape the time units so that we can put everything on a common temporal scale
+	timeunits <- as.character(googledoc[1,"TimeUnits"])
+
 	# put all the info we need into a list
 	rt <- list(
-		replacement=replacement,
 		Pminus1=Pminus1,
 		bootstrap=bootstrap,
 		delong=delong,
 		predator=predator,
+		replacement=replacement,
 		runswith=runswith,
-		response=response
+		timeunits=timeunits
 	)
 }
