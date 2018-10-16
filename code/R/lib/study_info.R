@@ -13,11 +13,14 @@ study.info <- function(dataname){
 
 	# define the type of experiment
 	if(googledoc[1,"With_Prey_Replacement"] | is.na(googledoc[1,"With_Prey_Replacement"])){
-		expttype <- "replacement"
+		replacement <- TRUE
 	}
 	else{
-		expttype <- "integrated"
+		replacement <- FALSE
 	}
+
+	# keep track of the response variable to be modelled
+	response <- as.character(googledoc[1,"Response_Type"])
 
 	# determine whether or not there are P-1 "predators" interfering
 	if(googledoc[1,"Predator_Density_or_Count"] == "Count"){
@@ -60,11 +63,12 @@ study.info <- function(dataname){
 
 	# put all the info we need into a list
 	rt <- list(
-		expttype=expttype,
+		replacement=replacement,
 		Pminus1=Pminus1,
 		bootstrap=bootstrap,
 		delong=delong,
 		predator=predator,
-		runswith=runswith
+		runswith=runswith,
+		response=response
 	)
 }

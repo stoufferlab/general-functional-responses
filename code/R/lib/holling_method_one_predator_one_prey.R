@@ -9,8 +9,8 @@ library(bbmle)
 library(nloptr)
 
 # predicted number of species consumed given parameters of a holling-like functional response
-holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, expttype=c("integrated","replacement"), Pminus1=c(TRUE,FALSE)){
-	expttype <- match.arg(expttype)
+holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, replacement, Pminus1=c(TRUE,FALSE)){
+	# replacement <- match.arg(replacement)
 
 	# if only P-1 individuals interference with predators that are doing the feeding
 	if(Pminus1){
@@ -19,7 +19,16 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, exp
 		P_interfering <- P
 	}
 
-	if(expttype=="integrated"){
+	# in a world with replacement everything is hunky dory
+	if(replacement){
+		numer <- (a * N0 * (1 + (1 - phi_numer) * c * P_interfering))
+		denom <- (1 + a * h * N0 + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * N0)
+		N <- (numer / denom) * P * T
+		return(N)
+	}
+
+	# without replacement we often need to solve trancendental equations
+	if(!replacement){
 		if(h==0){
 			N <- N0 * (1 - exp(-a * P * T))
 		}else{
@@ -50,20 +59,14 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, exp
 				}
 			}
 		}
+		return(N)
 	}
 
-	# in a world with replacement everything is hunky dory
-	if(expttype=="replacement"){
-		numer <- (a * N0 * (1 + (1 - phi_numer) * c * P_interfering))
-		denom <- (1 + a * h * N0 + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * N0)
-		N <- (numer / denom) * P * T
-	}
-
-	return(N)
+	stop()
 }
 
 # negative log likelihood for holling-like models given parameters and requisite data
-holling.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, predators, expttype, Pminus1, time=NULL){
+holling.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, predators, replacement, Pminus1, time=NULL){
 	if(modeltype == "Holling I"){
 		attack <- exp(params[1])
 		handling <- 0
@@ -126,24 +129,27 @@ holling.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, pred
 	}
 
 	# expected number consumed given data and parameters
-	Nconsumed <- holling.like.1pred.1prey(N0=initial, a=attack, h=handling, c=interference, phi_numer=phi_numer, phi_denom=phi_denom, P=predators, T=time, expttype=expttype, Pminus1=Pminus1)
+	Nconsumed <- holling.like.1pred.1prey(N0=initial, a=attack, h=handling, c=interference, phi_numer=phi_numer, phi_denom=phi_denom, P=predators, T=time, replacement=replacement, Pminus1=Pminus1)
 
 	# DEBUG if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
 		nll <- Inf
+		return(nll)
 	}else{
 		# negative log likelihood based on proportion consumed (no replacement)
-		if(expttype=="integrated"){
+		if(!replacement){
 			nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
+			return(nll)
 		}
 
 		# negative log likelihood based on total number consumed (replacement)
-		if(expttype=="replacement"){
+		if(replacement){
 			nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
+			return(nll)
 		}
 	}
 
-	return(nll)
+	stop()
 }
 
 # needed by mle2 to pass named parameters in the right order
@@ -171,7 +177,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 		killed=d$Nconsumed,
 		predators=d$Npredator,
 		time=d$Time,
-		expttype=s$expttype,
+		replacement=s$replacement,
 		Pminus1=s$Pminus1,
 		control = nloptr.control,
 		...
@@ -189,7 +195,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			killed=d$Nconsumed,
 			predators=d$Npredator,
 			time=d$Time,
-			expttype=s$expttype,
+			replacement=s$replacement,
 			Pminus1=s$Pminus1
 		),
 		vecpar = TRUE,
@@ -217,7 +223,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			killed = d$Nconsumed,
 			predators = d$Npredator,
 			time = d$Time,
-			expttype = s$expttype,
+			replacement = s$replacement,
 			Pminus1 = s$Pminus1,
 			control = nloptr.control,
 			...
@@ -236,7 +242,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				killed = d$Nconsumed,
 				predators = d$Npredator,
 				time = d$Time,
-				expttype = s$expttype,
+				replacement = s$replacement,
 				Pminus1 = s$Pminus1
 			),
 			vecpar = TRUE,
@@ -299,7 +305,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				killed = d$Nconsumed,
 				predators = d$Npredator,
 				time = d$Time,
-				expttype = s$expttype,
+				replacement = s$replacement,
 				Pminus1 = s$Pminus1,
 				control = nloptr.control,
 				...
@@ -319,7 +325,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					killed = d$Nconsumed,
 					predators = d$Npredator,
 					time = d$Time,
-					expttype = s$expttype,
+					replacement = s$replacement,
 					Pminus1 = s$Pminus1
 				),
 				vecpar = TRUE,
@@ -358,7 +364,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					killed = d$Nconsumed,
 					predators = d$Npredator,
 					time = d$Time,
-					expttype = s$expttype,
+					replacement = s$replacement,
 					Pminus1 = s$Pminus1
 				),
 				vecpar = TRUE,

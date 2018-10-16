@@ -34,13 +34,11 @@ odeintr::compile_sys(
 
 # predict the number of prey consumed in a replacement or integrated experiment
 # for a single predator with multiple prey species and potential "handling-time exchangability" between those prey
-holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T, expttype=c("integrated","replacement")){
-	expttype <- match.arg(expttype)
-
+holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T, replacement){
 	# print(c(ai=ai, aj=aj, hi=hi, hj=hj, phi_ij=phi_ij, phi_ji=phi_ji))
 
 	# continuous replacement of consumed prey
-	if(expttype=="replacement"){
+	if(replacement){
 		# there is a common demoninator for both species
 		denom <- (1 + ai * hi * Ni) * (1 + aj * hj * Nj) - phi_ij * phi_ji * ai * hi * Ni * aj * hj * Nj
 
@@ -64,10 +62,12 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 
 		# combined predicted number of prey consumed across both prey species
 		Neaten <- cbind(Ni_e, Nj_e)
+
+		return(Neaten)
 	}
 
 	# non-replacement of consumed prey
-	if(expttype=="integrated"){
+	if(!replacement){
 		# DEBUG to speed up this can be broken down into identical replicates based on initial abundances since the prediction of the model is the same for the same 'treatment' conditions
 		Neaten <- matrix(NA, nrow=length(Ni), ncol=2)
 		for(i in seq.int(length(Ni))){
@@ -78,6 +78,7 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 			hl_1pred_2prey_set_params(ai=ai, aj=aj, hi=hi, hj=hj, phi_ij=phi_ij, phi_ji=phi_ji, P=P[i])
 
 			# calculate the final number of prey integrating the odes
+			# note that the dynamic model (defined above) does not permit "negative" consumption
 			Nfinal <- hl_1pred_2prey(N0, T[i], T[i]/1000.)
 
 			# we technically only need the last row since this is the final "abundance"
@@ -86,12 +87,14 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 			# the number consumed is the difference between what we started with and what is left
 			Neaten[i,] <- N0 - Nfinal
 		}
+
+		return(Neaten)
 	}
 
-	return(Neaten)
+	stop()
 }
 
-holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, expttype, modeltype, time=rep(1,length(Ni))){
+holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, time=rep(1,length(Ni))){
 	if(modeltype=="Holling I"){
 		attack_i <- exp(params[1])
 		attack_j <- exp(params[2])
@@ -196,7 +199,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		Nj=Nj,
 		P=Npredators,
 		T=time,
-		expttype=expttype
+		replacement=replacement
 	)
 
 	# disallow biologically implausible predictions
@@ -204,19 +207,21 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		return(Inf)
 	}
 
-	# negative log likelihood based on proportion consumed (no replacement)
-	if(expttype=="integrated"){
-		nll <- -sum(dbinom(Ni_consumed, prob=pmax(0,Nconsumed[,1]/Ni,na.rm=TRUE), size=Ni, log=TRUE))
-		nll <- nll - sum(dbinom(Nj_consumed, prob=pmax(0,Nconsumed[,2]/Nj,na.rm=TRUE), size=Nj, log=TRUE))
-	}
-
 	# negative log likelihood based on total number consumed (replacement)
-	if(expttype=="replacement"){
+	if(replacement){
 		nll <- -sum(dpois(Ni_consumed, Nconsumed[,1], log=TRUE))
 		nll <- nll - sum(dpois(Nj_consumed, Nconsumed[,2], log=TRUE))
+		return(nll)
 	}
 
-	return(nll)
+	# negative log likelihood based on proportion consumed (no replacement)
+	if(!replacement){
+		nll <- -sum(dbinom(Ni_consumed, prob=pmax(0, ifelse(Ni == 0, 0, Nconsumed[,1] / Ni)), size=Ni, log=TRUE))
+		nll <- nll - sum(dbinom(Nj_consumed, prob=pmax(0, ifelse(Nj == 0, 0, Nconsumed[,2] / Nj)), size=Nj, log=TRUE))
+		return(nll)
+	}
+
+	stop()
 }
 
 # holling.like.1pred.2prey.NLL.same_phi = function(attack_i, handling_i, attack_j, handling_j, phi, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, expttype, time=rep(1,length(Ni))){
@@ -252,7 +257,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 		Ni_consumed = d$Nconsumed1,
 		Nj_consumed = d$Nconsumed2,
 		Npredators = d$Npredator,
-		expttype = s$expttype,
+		replacement = s$replacement,
 		modeltype = "Holling I",
 		control = nloptr.control #,
 		# ...
@@ -273,7 +278,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			Ni_consumed = d$Nconsumed1,
 			Nj_consumed = d$Nconsumed2,
 			Npredators = d$Npredator,
-			expttype = s$expttype,
+			replacement = s$replacement,
 			modeltype = "Holling I"
 		),
 		vecpar = TRUE,
@@ -282,7 +287,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 	)
 
 	if(modeltype == "Holling I"){
-		print(hollingI.via.mle2@coef)
+		# print(hollingI.via.mle2@coef)
 		return(hollingI.via.mle2)
 	}else{
 		# if moving to a more complex model, fit a specialist-specialist holling type II as the next starting point
@@ -293,53 +298,56 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			handling_j = log(1)
 		)
 
-		# fit Holling Type II Generalist Generalist with above starting parameter values
-		hollingII.via.sbplx <- nloptr::sbplx(
-			x0 = unlist(start),
-			fn = holling.like.1pred.2prey.NLL,
-			Ni = d$Nprey1,
-			Nj = d$Nprey2,
-			Ni_consumed = d$Nconsumed1,
-			Nj_consumed = d$Nconsumed2,
-			Npredators = d$Npredator,
-			expttype = "integrated",
-			modeltype = "Holling II Generalist Generalist",
-			control = nloptr.control #,
-			# ...
-		)
+		# DEBUG sometimes Holling Type I doesn't provide the best starting guess for the more complex models
+		# DEBUG we should think about whether or not there are better options to make sure we can be confident about the final fits
 
-		mle2.start <- as.list(hollingII.via.sbplx$par)
-		names(mle2.start) <- names(start)
+		# # fit Holling Type II Generalist Generalist with above starting parameter values
+		# hollingII.via.sbplx <- nloptr::sbplx(
+		# 	x0 = unlist(start),
+		# 	fn = holling.like.1pred.2prey.NLL,
+		# 	Ni = d$Nprey1,
+		# 	Nj = d$Nprey2,
+		# 	Ni_consumed = d$Nconsumed1,
+		# 	Nj_consumed = d$Nconsumed2,
+		# 	Npredators = d$Npredator,
+		# 	replacement = s$replacement,
+		# 	modeltype = "Holling II Generalist Generalist",
+		# 	control = nloptr.control #,
+		# 	# ...
+		# )
 
-		# refit this model with mle2
-		hollingII.via.mle2 <- bbmle::mle2(
-			holling.like.1pred.2prey.NLL,
-			start=mle2.start,
-			data=list(
-				Ni = d$Nprey1,
-				Nj = d$Nprey2,
-				Ni_consumed = d$Nconsumed1,
-				Nj_consumed = d$Nconsumed2,
-				Npredators = d$Npredator,
-				expttype = "integrated",
-				modeltype = "Holling II Generalist Generalist"
-			),
-			vecpar = TRUE,
-			eval.only = TRUE,
-			control = mle2.control #,
-			# ...
-		)
+		# mle2.start <- as.list(hollingII.via.sbplx$par)
+		# names(mle2.start) <- names(start)
 
-		if(modeltype == "Holling II Generalist Generalist"){
-			print(hollingII.via.mle2@coef)
-			return(hollingII.via.mle2)
-		}else{
-			start <- list(
-				attack_i = coef(hollingII.via.mle2)["attack_i"],
-				attack_j = coef(hollingII.via.mle2)["attack_j"],
-				handling_i = coef(hollingII.via.mle2)["handling_i"],
-				handling_j = coef(hollingII.via.mle2)["handling_j"]
-			)
+		# # refit this model with mle2
+		# hollingII.via.mle2 <- bbmle::mle2(
+		# 	holling.like.1pred.2prey.NLL,
+		# 	start=mle2.start,
+		# 	data=list(
+		# 		Ni = d$Nprey1,
+		# 		Nj = d$Nprey2,
+		# 		Ni_consumed = d$Nconsumed1,
+		# 		Nj_consumed = d$Nconsumed2,
+		# 		Npredators = d$Npredator,
+		# 		replacement = s$replacement,
+		# 		modeltype = "Holling II Generalist Generalist"
+		# 	),
+		# 	vecpar = TRUE,
+		# 	eval.only = TRUE,
+		# 	control = mle2.control #,
+		# 	# ...
+		# )
+
+		# if(modeltype == "Holling II Generalist Generalist"){
+		# 	print(hollingII.via.mle2@coef)
+		# 	return(hollingII.via.mle2)
+		# }else{
+		# 	start <- list(
+		# 		attack_i = coef(hollingII.via.mle2)["attack_i"],
+		# 		attack_j = coef(hollingII.via.mle2)["attack_j"],
+		# 		handling_i = coef(hollingII.via.mle2)["handling_i"],
+		# 		handling_j = coef(hollingII.via.mle2)["handling_j"]
+		# 	)
 
 			if(modeltype == "Holling II Hybrid Specialist" | modeltype == "Holling II Hybrid Generalist" | modeltype == "Holling II Hybrid Hybrid"){
 				start$phi_ij <- 0.5
@@ -358,7 +366,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				Ni_consumed = d$Nconsumed1,
 				Nj_consumed = d$Nconsumed2,
 				Npredators = d$Npredator,
-				expttype = s$expttype,
+				replacement = s$replacement,
 				modeltype = modeltype,
 				control = nloptr.control #,
 				# ...
@@ -377,7 +385,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					Ni_consumed = d$Nconsumed1,
 					Nj_consumed = d$Nconsumed2,
 					Npredators = d$Npredator,
-					expttype = s$expttype,
+					replacement = s$replacement,
 					modeltype = modeltype
 				),
 				vecpar = TRUE,
@@ -386,7 +394,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				# ...
 			)
 
-			print(fit.via.mle2@coef)
+			# print(fit.via.mle2@coef)
 			return(fit.via.mle2)
 
 			# convert mle2 estimation to list of starting values
@@ -406,7 +414,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					Ni_consumed = d$Nconsumed1,
 					Nj_consumed = d$Nconsumed2,
 					Npredators = d$Npredator,
-					expttype = s$expttype,
+					replacement = s$replacement,
 					modeltype = modeltype
 				),
 				vecpar = TRUE,
@@ -414,6 +422,6 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			)
 
 			return(refit.via.mle2)
-		}
+		# }
 	}
 }

@@ -38,7 +38,7 @@ make.array <- function(ffr.fit,boot.reps){
 }
 
 summarize.boots <- function(x){
-  c(mean=mean(x), quantile(x,c(0.025,0.975),na.rm=TRUE))
+  c(mean=mean(x, na.rm=TRUE), quantile(x,c(0.025,0.16,0.5,0.84,0.975),na.rm=TRUE), n=sum(!is.na(x)))
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,12 +56,15 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 ffr.fits <- list()
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/vucetich_2002_isleroyale_whole2014.R")
+# datasets <- c("./Dataset_Code/Prokopenko_2017.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
 	# loads the data into data frame 'd' and specifies data-specific parameters
 	source(datasets[i])
+
+	# save original data in case we need to bootstrap it
+	d.orig <- d
 
 	# grab some info from the google doc
 	this.study <- study.info(datadir)
@@ -77,64 +80,67 @@ for(i in 1:length(datasets)){
 		# print out which dataset is being analyzed
 		message(paste0("Yes to ",datasets[i]))
 
-		# Do data need to be bootstrapped? If so, save the raw data frame d as d.org.
-		d.orig <- d
+		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 2
-			d <- bootstrap.data(d.orig, this.study$expttype)
+			boot.reps <- 200
 		}else{
 			boot.reps <- 1
 		}
 
-		# for initial fits to produce dimensions for containers
-		ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
-		ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
-		ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
-		ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
-		ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
-	  	# source('fit_holling_like_nobounds.R')
-	  	# ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
+		library(progress)
+		pb <- progress_bar$new(
+			format = "  bootstrapping [:bar] :percent eta: :eta",
+			total = boot.reps,
+			show_after = 0,
+			force = TRUE,
+			clear = FALSE
+		)
 
-		# Containers for estimates
-		boots.HT.I <- make.array(ffr.hollingI, boot.reps)
-		boots.HT.II <- make.array(ffr.hollingII, boot.reps)
-		boots.BD <- make.array(ffr.bd, boot.reps)
-		boots.CM <- make.array(ffr.cm, boot.reps)
-		boots.SN.I <- make.array(ffr.sn1, boot.reps)
-		# boots.SN.Numer <- make.array(ffr.sn2, boot.reps)
-		# boots.SN.III <- make.array(ffr.sn3, boot.reps)
-		# boots.HV <- make.array(ffr.hv, boot.reps)
-		# boots.AG <- make.array(ffr.ag, boot.reps)
-		# boots.AA <- make.array(ffr.aa, boot.reps)
-		# if(okay4AAmethod(d)){
-		# 	boots.AA2 <- array(NA, dim=c(dim(fit.AAmethod$estimates), boot.reps))
-		#     dimnames(boots.AA2)[c(1,2)] <- dimnames(fit.AAmethod$estimates)
-	 	# }
-		  
-	  	for(b in 1:boot.reps){
+		# perform boot.reps fits depending on the nature of the data
+		b <- 1
+	  	while(b <= boot.reps){
+	  		# generate bootstrapped data if necessary
 			if("Nconsumed.mean" %in% colnames(d.orig)){
-	  			d <- bootstrap.data(d.orig, this.study$expttype)
+	  			d <- bootstrap.data(d.orig, this.study$response)
 	  	  	}
-	    
-	    	# source('fit_holling_like_nobounds.R')
-	    	fit.hollingI <- fit.holling.like(d, this.study, "Holling I")
-			ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
-			ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
-			ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
-			ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
-	    	# ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
+
+	  	  	# DEBUG sometimes the fits fail for bootstrapped data; we could just skip that replicate and continue on?
+	    	# fit a series of functional response models
+	    	success <- try({
+	    		ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
+				ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
+				ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
+				ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
+				ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
+	    		# ifelse(okay4AAmethod(d), fit.AAmethod <- AAmethod(d,expttype), fit.AAmethod <- NA)
+	    	})
 	    	
-			boots.HT.I[,,b] <- mytidy(ffr.hollingI)
-			boots.HT.II[,,b] <- mytidy(ffr.hollingII)
-			boots.BD[,,b] <- mytidy(ffr.bd)
-			boots.CM[,,b] <- mytidy(ffr.cm)
-			boots.SN.I[,,b] <- mytidy(ffr.sn1)
-			# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
-			# boots.SN.III[,,b] <- mytidy(ffr.sn3)
-			# boots.HV[,,b] <- mytidy(ffr.hv)
-			# boots.AG[,,b] <- mytidy(ffr.ag)
-			# boots.AA[,,b] <- mytidy(ffr.aa)
-			# if(okay4AAmethod(d)){ boots.AA2[,,b] <- fit.AAmethod$estimates  }
+	    	if(!inherits(success, "try-error")){
+		    	if(b == 1){
+		    		# Containers for parameter estimates
+					boots.HT.I <- make.array(ffr.hollingI, boot.reps)
+					boots.HT.II <- make.array(ffr.hollingII, boot.reps)
+					boots.BD <- make.array(ffr.bd, boot.reps)
+					boots.CM <- make.array(ffr.cm, boot.reps)
+					boots.SN.I <- make.array(ffr.sn1, boot.reps)
+		    	}
+
+		    	# add the parameters for this fit to the array of fits
+				boots.HT.I[,,b] <- mytidy(ffr.hollingI)
+				boots.HT.II[,,b] <- mytidy(ffr.hollingII)
+				boots.BD[,,b] <- mytidy(ffr.bd)
+				boots.CM[,,b] <- mytidy(ffr.cm)
+				boots.SN.I[,,b] <- mytidy(ffr.sn1)
+				# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
+				# boots.SN.III[,,b] <- mytidy(ffr.sn3)
+				# boots.HV[,,b] <- mytidy(ffr.hv)
+				# boots.AG[,,b] <- mytidy(ffr.ag)
+				# boots.AA[,,b] <- mytidy(ffr.aa)
+				# if(okay4AAmethod(d)){ boots.AA2[,,b] <- fit.AAmethod$estimates  }
+
+				pb$tick()
+				b <- b + 1
+			}
 	  	}
 	  
 		# ~~~~~~~~~~~~~~~~~~~~
@@ -179,6 +185,13 @@ for(i in 1:length(datasets)){
 	          	# Arditi.Akcakaya = ffr.aa,
 	          	# Arditi.Akcakaya.Method.2 = fit.AAmethod
 	        ),
+	        # boots = list(
+			# 	Holling.TypeI = boots.HT.I,
+			# 	Holling.TypeII = boots.HT.II,
+			# 	Beddington.DeAngelis = boots.BD,
+			# 	Crowley.Martin = boots.CM,
+			# 	Stouffer.Novak.I = boots.SN.I
+			# ),
 			estimates = list(
 			    Holling.Type.I = HT.I.ests,
 			    Holling.Type.II = HT.II.ests,
@@ -196,13 +209,14 @@ for(i in 1:length(datasets)){
 	# })
 	}
 
-	# source('plot_phi_denom.R')
-	# plot.AAmethod(fit.AAmethod)
 	# break
 }
 
 # save the mega container which includes all FR fits
 save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
-# # generate a quick and dirty plot of the phi_denom parameters of the SNI model
-# source('plot_phi_denom.R')
+# generate a quick and dirty plot of the phi_denom parameters of the SNI model
+dev.new()
+source('plot_phi_denom.R')
+dev.copy2pdf(file="../../../results/R/OnePredOnePrey_PhiDenom.pdf")
+dev.off()
