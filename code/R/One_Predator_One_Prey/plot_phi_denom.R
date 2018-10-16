@@ -38,6 +38,9 @@ plot.coefs <- function(ffr.fits, modeltype, parameter, plot.SEs=FALSE, ilink=ide
 		lb <- mm
 		ub <- mm
 
+		# make all lines the equivalent for now
+		lty <- "solid"
+
 		# different ways to estimate the SEs from the model(s)
 		if(plot.SEs){
 			# if we did not need to bootstrap the data				
@@ -102,7 +105,7 @@ plot.coefs <- function(ffr.fits, modeltype, parameter, plot.SEs=FALSE, ilink=ide
 			if(mm > xlim[2]){
 				arrows(xlim[2]-delta.arrow, i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
 			}else{
-				arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col)
+				arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
 			}
 		}
 
