@@ -1,9 +1,6 @@
 
 # generate boostrapped data from a set of means and SEs of experimental observations
-bootstrap.data <- function(rawdata, response=c("Binomial","Poisson")){
-	# make sure that the response variable is valid
-	response <- match.arg(response)
-
+bootstrap.data <- function(rawdata, replacement){
 	# determine the "names" of all prey present
 	prey <- grep("[.]mean$", colnames(rawdata), value=TRUE)
 	prey <- gsub("[.]mean$", "", prey)
@@ -42,7 +39,7 @@ bootstrap.data <- function(rawdata, response=c("Binomial","Poisson")){
 						mean=rawdata[r,paste0("Nconsumed",i,".mean")],
 						se=rawdata[r,paste0("Nconsumed",i,".se")],
 						n=rawdata[r,"n"],
-						response=response,
+						replacement=replacement,
 						Nprey=rawdata[r,paste0("Nprey",i)]
 					)
 				)
@@ -89,12 +86,9 @@ bootstrap.data <- function(rawdata, response=c("Binomial","Poisson")){
 }
 
 # sample a number consumed given mean, se, n, and Nprey (which is necessary for non-replacement studies)
-fr.sample <- function(mean, se, n, response=c("Binomial","Poisson"), Nprey=NULL){
-	# make sure that the response variable is valid
-	response <- match.arg(response)
-
+fr.sample <- function(mean, se, n, replacement, Nprey=NULL){
 	# we require Nprey for non-replacement since they are proportion of a total which must be specified
-	if(is.null(Nprey) && response == "Binomial"){
+	if(is.null(Nprey) && !replacement){
 		stop("fr.sample requires Nprey argument for non-replacement experiment types")
 	}
 
@@ -102,7 +96,7 @@ fr.sample <- function(mean, se, n, response=c("Binomial","Poisson"), Nprey=NULL)
 	mu <- mean
 	sigma <- se * sqrt(n)
 
-	if(response=="Binomial"){
+	if(!replacement){
 		# calculate the proportion of prey consumed; do not divide by zero prey since no prey available means no prey consumed!
 		prob <- ifelse(
 			Nprey==0,
@@ -119,9 +113,7 @@ fr.sample <- function(mean, se, n, response=c("Binomial","Poisson"), Nprey=NULL)
 				size=Nprey,
 				p=prob
 		)
-	}
-
-	if(response=="Poisson"){
+	}else{
 		# calculate the expected number consumed given the rate of consumption
 		lambda <- rnorm(n=1, mean=mu, sd=sigma)
 
