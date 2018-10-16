@@ -59,18 +59,29 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 ffr.fits <- list()
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/Iyer_1996_Br.R","./Dataset_Code/Iyer_1996_Bp.R","./Dataset_Code/Iyer_1996_Bc.R")
+# datasets <- c("./Dataset_Code/Buckel_2000_large.R","./Dataset_Code/zzz_Buckel_2000_small.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
 	# loads the data into data frame 'd' and specifies data-specific parameters
 	source(datasets[i])
 
-	# save a copy of the raw data in case we need it for bootstrapping
-	d.orig <- d
-
 	# grab some info from the google doc
 	this.study <- study.info(datadir)
+
+	# put all datasets into terms of hours
+	if(!is.null(d$Time)){
+		d$Time <- switch(this.study$timeunits,
+			Seconds = d$Time / 3600.,
+			Minutes = d$Time / 60.,
+			Hours = d$Time,
+			Days = d$Time * 24,
+			Unavailable = rep(NA, nrow(d))
+		)
+	}
+
+	# save a copy of the raw data in case we need it for bootstrapping
+	d.orig <- d
 
 	if(!grepl("H", this.study$runswith)){
 		message(paste0("No to ",datasets[i]))
@@ -102,7 +113,7 @@ for(i in 1:length(datasets)){
 		b <- 1
 	  	while(b <= boot.reps){
 			if(any(grepl("[.]mean$",colnames(d.orig)))){
-				d <- bootstrap.data(d.orig, this.study$response)
+				d <- bootstrap.data(d.orig, this.study$replacement)
 			}
 	    
 	    	# DEBUG: sometimes the fits fail; should we allow the code to skip these and keep on keepin on in that case?
