@@ -63,11 +63,22 @@ for(i in 1:length(datasets)){
 	# loads the data into data frame 'd' and specifies data-specific parameters
 	source(datasets[i])
 
-	# save original data in case we need to bootstrap it
-	d.orig <- d
-
 	# grab some info from the google doc
 	this.study <- study.info(datadir)
+
+	# put all datasets into terms of hours
+	if(!is.null(d$Time)){
+		d$Time <- switch(this.study$timeunits,
+			Seconds = d$Time / 3600.,
+			Minutes = d$Time / 60.,
+			Hours = d$Time,
+			Days = d$Time * 24,
+			Unavailable = rep(NA, nrow(d))
+		)
+	}
+
+	# save original data in case we need to bootstrap it
+	d.orig <- d
 
 	#############################################
 	# fit all the functional response models
@@ -101,7 +112,7 @@ for(i in 1:length(datasets)){
 	  	while(b <= boot.reps){
 	  		# generate bootstrapped data if necessary
 			if("Nconsumed.mean" %in% colnames(d.orig)){
-	  			d <- bootstrap.data(d.orig, this.study$response)
+	  			d <- bootstrap.data(d.orig, this.study$replacement)
 	  	  	}
 
 	  	  	# DEBUG sometimes the fits fail for bootstrapped data; we could just skip that replicate and continue on?
