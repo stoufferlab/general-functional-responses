@@ -32,7 +32,7 @@ bootstrap.data <- function(rawdata, replacement){
 					Na, rawdata[r,paste0("Nprey",i)]
 				)
 
-				# sample number of eaten prey
+				# sample number of eaten prey ( fr.sample() defined below )
 				Ne <- c(
 					Ne,
 					fr.sample(
@@ -45,7 +45,7 @@ bootstrap.data <- function(rawdata, replacement){
 				)
 			}
 
-			# add the requisite infoto the new row
+			# add the requisite info to the new row
 			new.row <- c(
 				rawdata[r,"Npredator"],
 				Na,

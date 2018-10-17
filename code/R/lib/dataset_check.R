@@ -5,9 +5,11 @@ require(RCurl)
 options(stringsAsFactors=FALSE)
 
 # specify where the data files are located
-dropboxdir <- '../../../dropbox_data/Data' # Stouffer
-dropboxdir <- '~/Dropbox/Research/Projects/GenFuncResp/Data' # Novak
-
+dropboxdir <- switch(
+  Sys.getenv("LOGNAME"),
+  stouffer = '../../../dropbox_data/Data',
+  marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
+)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Find the folders that should have usable datasets in them
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,11 +56,6 @@ length(needfix)
 length(needed)
   print(needed)
 
-# Okay to ignore:
-# Chan_2017_coyote - use for multi-prey analysis
-# Chan_2017_lynx - use for multi-prey analysis
-# Tschanz_2007 - contains both predator-variation and multi-prey (could split like Chan)
-# Sand_2007 - contains both predator-variation and multi-prey (could split like Chan)
   
 ################################################################################
 ################################################################################
