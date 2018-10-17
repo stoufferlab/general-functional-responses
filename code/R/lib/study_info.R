@@ -48,14 +48,18 @@ study.info <- function(dataname){
 	}
 
 	# define the type of experiment
-	if(googledoc[1,"With_Prey_Replacement"]){
-		replacement <- TRUE
-	}
-	else{
-		if(!predator && googledoc[1,"Parasitoid_Type"] == "Non-discriminating"){
+	if(is.na(googledoc[1,"With_Prey_Replacement"])){
+		replacement <- NA
+	}else{
+		if(googledoc[1,"With_Prey_Replacement"]){
 			replacement <- TRUE
-		}else{
-			replacement <- FALSE
+		}
+		else{
+			if(!predator && googledoc[1,"Parasitoid_Type"] == "Non-discriminating"){
+				replacement <- TRUE
+			}else{
+				replacement <- FALSE
+			}
 		}
 	}
 
