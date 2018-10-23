@@ -8,37 +8,29 @@ library(nloptr)
 # generalizable functional responses
 ###############################
 
-# WARNING: consider the P-1 implications below!
-general.pred = function(N0, a, h, c, phi_numer, phi_denom, P, T, expttype=c("integrated","replacement"), Pminus1=c(TRUE,FALSE)){
+general.pred = function(N0, a, h, m, P, T, expttype=c("integrated","replacement")){
 	expttype <- match.arg(expttype)
-	# Pminus1 <- match.arg(Pminus1)
 
-	# DEBUG make sure this carries through	
-	if(Pminus1){
-		P_interfering <- P - 1
-	}else{
-		P_interfering <- P
-	}
-
+	# In contrast to Holling-type, P_interfering is always P for ratio models
+	
 	if(expttype=="integrated"){
-		h <- h * (1 + (1 - phi_numer * phi_denom) * a * h * c * P_interfering)
-		Q <- (1 + c * P_interfering)
-		X <- (1 + (1 - phi_numer) * c * P_interfering)
-		N <- N0 - (Q / (a * h)) * lamW::lambertW0(((a * h * N0)/ Q) * exp(- (a / Q) * (X * P * T - h * N0)))
+	  # h <- h * (1 + (1 - phi_numer * phi_denom) * a * h * c * P_interfering)
+	  # Q <- (1 + c * P_interfering)
+	  # X <- (1 + (1 - phi_numer) * c * P_interfering)
+	  # N <- N0 - (Q / (a * h)) * lamW::lambertW0(((a * h * N0)/ Q) * exp(- (a / Q) * (X * P * T - h * N0)))
 	}
 
 	if(expttype=="replacement"){
-		numer <- (a * N0 * (1 + (1 - phi_numer) * c * P_interfering))
-		denom <- (1 + a * h * N0 + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * N0)
-		N <- (numer / denom) * P * T
+		# numer <- a * N0 * (P ^ -m)
+		# denom <- 1 + a * h * N0 * (P ^ -m)
+		# N <- (numer / denom) * P * T
 	}
 	
 	return(N)
 }
 
-general.NLL = function(attack, handling, exponent, initial, killed, predators, expttype, Pminus1, time=NULL){
-	# DEBUG we should probably force some of these depending on model type
-	# we use parameter transformations to help improve the fitting and to avoid needing bounded optimization
+general.NLL = function(attack, handling, exponent, initial, killed, predators, expttype, time=NULL){
+  
 	attack <- exp(attack)
 	handling <- exp(handling)
 	exponent <- exp(exponent)
@@ -48,7 +40,7 @@ general.NLL = function(attack, handling, exponent, initial, killed, predators, e
 	}
 
 	# expected number consumed
-	Nconsumed <- general.pred(N0=initial, a=attack, h=handling, m=exponent, P=predators, T=time, expttype=expttype, Pminus1=Pminus1)
+	Nconsumed <- general.pred(N0=initial, a=attack, h=handling, m=exponent, P=predators, T=time, expttype=expttype)
 
 	# negative log likelihood based on proportion consumed (no replacement)
 	if(expttype=="integrated"){
@@ -63,7 +55,7 @@ general.NLL = function(attack, handling, exponent, initial, killed, predators, e
 	return(nll)
 }
 
-general.NLL.params = function(params, modeltype, initial, killed, predators, expttype, Pminus1, time=NULL){
+general.NLL.params = function(params, modeltype, initial, killed, predators, expttype, time=NULL){
 	if(modeltype == "Holling I"){
 		attack <- params[1]
 		handling <- log(1E-7)
@@ -79,20 +71,19 @@ general.NLL.params = function(params, modeltype, initial, killed, predators, exp
   if(modeltype == "Ratio I"){
     attack <- params[1]
     handling <- log(1E-7)
-    exponent <- qlogis(1E-9)
+    exponent <- 0
   }
   
   if(modeltype == "Ratio II"){
 		attack <- params[1]
 		handling <- params[2]
-		exponent <- qlogis(1E-9)
+		exponent <- 0
 	}
 
 	if(modeltype == "Hassell-Varley I"){
 		attack <- params[1]
 		handling <- log(1E-7)
 		exponent <- params[2]
-
 	}
 	
 	if(modeltype == "Hassell-Varley II"){
@@ -101,7 +92,7 @@ general.NLL.params = function(params, modeltype, initial, killed, predators, exp
 		exponent <- params[3]
 	}
 
-	nll <- general.NLL(attack=attack, handling=handling, exponent=exponent, initial=initial, killed=killed, predators=predators, time=time, expttype=expttype, Pminus1=Pminus1)
+	nll <- general.NLL(attack=attack, handling=handling, exponent=exponent, initial=initial, killed=killed, predators=predators, time=time, expttype=expttype)
 	return(nll)
 }
 
@@ -118,8 +109,7 @@ ffr.hollingI.nloptr <- nloptr::nloptr(
 	killed=d$Nconsumed,
 	predators=d$Npredator,
 	time=d$Time,
-	expttype=expttype,
-	Pminus1=Pminus1
+	expttype=expttype
 )
 
 ffr.hollingI <- bbmle::mle2(
@@ -127,13 +117,9 @@ ffr.hollingI <- bbmle::mle2(
 	start=list(attack=ffr.hollingI.nloptr$solution[1]),
 	fixed=list(
 		handling = log(1E-7),
-		interference = log(1E-7),
-		phi_numer = -1 * qlogis(1E-9),
-		phi_denom = -1 * qlogis(1E-9)
+		exponent = log(1E-7)
 	),
-	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1)
-	# optimizer="nlminb",
-	# lower=c(attack=0, handling=0)
+	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype)
 )
 
 ffr.hollingII.nloptr <- nloptr::nloptr(
@@ -145,21 +131,16 @@ ffr.hollingII.nloptr <- nloptr::nloptr(
 	killed=d$Nconsumed,
 	predators=d$Npredator,
 	time=d$Time,
-	expttype=expttype,
-	Pminus1=Pminus1
+	expttype=expttype
 )
 
 ffr.hollingII <- bbmle::mle2(
 	general.NLL,
 	start=list(attack=ffr.hollingII.nloptr$solution[1], handling=ffr.hollingII.nloptr$solution[2]),
 	fixed=list(
-		interference = log(1E-7),
-		phi_numer = -1 * qlogis(1E-9),
-		phi_denom = -1 * qlogis(1E-9)
+		exponent = log(1E-7)
 	),
-	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL)
-	# optimizer="nlminb",
-	# lower=c(attack=0, handling=0)
+	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, params=NULL)
 )
 
 ffr.ratioI.nloptr <- nloptr::nloptr(
@@ -171,8 +152,7 @@ ffr.ratioI.nloptr <- nloptr::nloptr(
   killed=d$Nconsumed,
   predators=d$Npredator,
   time=d$Time,
-  expttype=expttype,
-  Pminus1=Pminus1
+  expttype=expttype
 )
 
 ffr.ratioI <- bbmle::mle2(
@@ -180,11 +160,9 @@ ffr.ratioI <- bbmle::mle2(
   start=list(attack=ffr.ratioI.nloptr$solution[1]),
   fixed=list(
     handling = log(1E-7),
-    exponent = log(1E-7)
+    exponent = 0
   ),
-  data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1)
-  # optimizer="nlminb",
-  # lower=c(attack=0, handling=0)
+  data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype)
 )
 
 ffr.ratioII.nloptr <- nloptr::nloptr(
@@ -196,19 +174,16 @@ ffr.ratioII.nloptr <- nloptr::nloptr(
   killed=d$Nconsumed,
   predators=d$Npredator,
   time=d$Time,
-  expttype=expttype,
-  Pminus1=Pminus1
+  expttype=expttype
 )
 
 ffr.ratioII <- bbmle::mle2(
   general.NLL,
   start=list(attack=ffr.ratioII.nloptr$solution[1], handling=ffr.ratioII.nloptr$solution[2]),
   fixed=list(
-    exponent = log(1E-7)
+    exponent = 0
   ),
-  data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL)
-  # optimizer="nlminb",
-  # lower=c(attack=0, handling=0)
+  data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, params=NULL)
 )
 
 ffr.HVI.nloptr <- nloptr::nloptr(
@@ -220,8 +195,7 @@ ffr.HVI.nloptr <- nloptr::nloptr(
   killed=d$Nconsumed,
   predators=d$Npredator,
   time=d$Time,
-  expttype=expttype,
-  Pminus1=Pminus1
+  expttype=expttype
 )
 
 ffr.HVI <- bbmle::mle2(
@@ -230,9 +204,7 @@ ffr.HVI <- bbmle::mle2(
   fixed=list(
     handling = log(1E-7)
   ),
-  data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1)
-  # optimizer="nlminb",
-  # lower=c(attack=0, handling=0)
+  data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype)
 )
 
 ffr.HVII.nloptr <- nloptr::nloptr(
@@ -244,8 +216,7 @@ ffr.HVII.nloptr <- nloptr::nloptr(
   killed=d$Nconsumed,
   predators=d$Npredator,
   time=d$Time,
-  expttype=expttype,
-  Pminus1=Pminus1
+  expttype=expttype
 )
 
 ffr.HVII <- bbmle::mle2(
@@ -254,7 +225,5 @@ ffr.HVII <- bbmle::mle2(
   # fixed=list(
   #   
   # ),
-  data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL)
-  # optimizer="nlminb",
-  # lower=c(attack=0, handling=0)
+  data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, params=NULL)
 )
