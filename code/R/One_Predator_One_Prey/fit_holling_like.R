@@ -154,7 +154,7 @@ ffr.hollingI <- bbmle::mle2(
 		phi_numer = -1 * qlogis(1E-9),
 		phi_denom = -1 * qlogis(1E-9)
 	),
-	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
+	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1)
 	# optimizer="nlminb",
 	# lower=c(attack=0, handling=0)
 )
@@ -180,7 +180,7 @@ ffr.hollingII <- bbmle::mle2(
 		phi_numer = -1 * qlogis(1E-9),
 		phi_denom = -1 * qlogis(1E-9)
 	),
-	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL),
+	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL)
 	# optimizer="nlminb",
 	# lower=c(attack=0, handling=0)
 )
@@ -228,7 +228,7 @@ ffr.cm <- bbmle::mle2(
 		phi_numer = -1 * qlogis(1E-9),
 		phi_denom = qlogis(1E-9)
 	),
-	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL),
+	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1, params=NULL)
 	# optimizer="nlminb",
 	# lower=c(attack=0, handling=0)
 )
@@ -252,7 +252,7 @@ ffr.sn1 <- bbmle::mle2(
 	fixed=list(
 		phi_numer = -1 * qlogis(1E-9)
 	),
-	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1),
+	data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, expttype=expttype, Pminus1=Pminus1)
 )
 
 # DEBUG keeps failing for some datasets
