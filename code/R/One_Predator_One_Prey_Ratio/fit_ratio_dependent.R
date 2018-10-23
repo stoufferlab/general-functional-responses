@@ -11,19 +11,16 @@ library(nloptr)
 general.pred = function(N0, a, h, m, P, T, expttype=c("integrated","replacement")){
 	expttype <- match.arg(expttype)
 
-	# In contrast to Holling-type, P_interfering is always P for ratio models
+	# In contrast to Holling-type, P_interfering is always P for ratio-dependent models
 	
 	if(expttype=="integrated"){
-	  # h <- h * (1 + (1 - phi_numer * phi_denom) * a * h * c * P_interfering)
-	  # Q <- (1 + c * P_interfering)
-	  # X <- (1 + (1 - phi_numer) * c * P_interfering)
-	  # N <- N0 - (Q / (a * h)) * lamW::lambertW0(((a * h * N0)/ Q) * exp(- (a / Q) * (X * P * T - h * N0)))
+	  N <- N0 - ((P ^ m) / (a * h)) * lamW::lambertW0((a * h * N0 * (P ^ (-m))) * exp(a * (P ^ (1 - m)) * T - h * N0))
 	}
 
 	if(expttype=="replacement"){
-		# numer <- a * N0 * (P ^ -m)
-		# denom <- 1 + a * h * N0 * (P ^ -m)
-		# N <- (numer / denom) * P * T
+		numer <- a * N0
+		denom <-  (P ^ m) + a * h * N0
+		N <- (numer / denom) * P * T
 	}
 	
 	return(N)
