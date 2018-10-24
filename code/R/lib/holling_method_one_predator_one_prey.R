@@ -164,6 +164,7 @@ parnames(holling.like.1pred.1prey.NLL) <- c(
 
 # given data (d), study info (s), and modeltype (e.g., "Holling I"), fit functional response data
 fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.control=list(), ...){
+
 	# estimate starting value from the data using linear regression
 	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
 	names(x0) <- "attack"

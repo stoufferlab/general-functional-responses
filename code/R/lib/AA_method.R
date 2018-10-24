@@ -22,15 +22,13 @@ okay4AAmethod<-function(d,minNlevels=3,minPlevels=3){
 # (Simplified from other likelihood scripts)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Predicted number of prey consumed
-holling2 = function(N0, a, h, P, T, expttype=c("integrated","replacement")){
+holling2 = function(N0, a, h, P, T, replacement){
   
-  expttype <- match.arg(expttype)
-  
-  if(expttype=="integrated"){
+  if(!replacement){
     Neaten <- N0 - (1 / (a * h)) * lamW::lambertW0( (a * h * N0) * exp(-a * (P *T - h * N0)))
   }
   
-  if(expttype=="replacement"){
+  if(replacement){
     numer <- (a * N0)
     denom <- (1 + a * h * N0)
     Neaten <- (numer / denom) * P * T
@@ -47,7 +45,7 @@ AAM.NLL = function(
   initial,
   killed,
   predators,
-  expttype,
+  replacement,
   time=NULL
 ){
   
@@ -69,7 +67,7 @@ AAM.NLL = function(
   }
   
   # expected number consumed given data and parameters
-  Nconsumed <- holling2(N0=initial, a=attack, h=handling, P=predators, T=time, expttype=expttype)
+  Nconsumed <- holling2(N0=initial, a=attack, h=handling, P=predators, T=time, replacement=replacement)
   
   # DEBUG if the parameters are not biologically plausible, neither should be the likelihood
   if(any(Nconsumed < 0 | is.nan(Nconsumed))){
@@ -77,12 +75,12 @@ AAM.NLL = function(
   }
   
   # negative log likelihood based on proportion consumed (no replacement)
-  if(expttype=="integrated"){
+  if(!replacement){
     nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
   }
   
   # negative log likelihood based on total number consumed (replacement)
-  if(expttype=="replacement"){
+  if(replacement){
     nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
   }
   
@@ -93,7 +91,7 @@ AAM.NLL = function(
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Main function for Arditi & Akcakaya method
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-AAmethod<-function(d,expttype){
+AAmethod<-function(d,replacement){
     
   nP <- length(unique(d$Npredator))
   
@@ -105,7 +103,7 @@ AAmethod<-function(d,expttype){
     killed=d$Nconsumed,
     predators=d$Npredator,
     time=NULL,
-    expttype=expttype
+    replacement=replacement
   )
   
   AAM.start<-fit.AAM.nloptr$solution
@@ -116,7 +114,7 @@ AAmethod<-function(d,expttype){
   fit.AAM.mle <- bbmle::mle2(
     AAM.NLL,
     start=AAM.start,
-    data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, expttype=expttype)
+    data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, replacement=replacement)
   )
   
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
