@@ -93,7 +93,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 200
+			boot.reps <- 250
 		}else{
 			boot.reps <- 1
 		}
@@ -225,9 +225,3 @@ for(i in 1:length(datasets)){
 
 # save the mega container which includes all FR fits
 save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
-
-# generate a quick and dirty plot of the phi_denom parameters of the SNI model
-dev.new()
-source('plot_phi_denom.R')
-dev.copy2pdf(file="../../../results/R/OnePredOnePrey_PhiDenom.pdf")
-dev.off()

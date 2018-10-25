@@ -129,6 +129,9 @@ if(FALSE){
 # DEBUG work on the confidence intervals aspect
 # par(mfrow=c(2,2))
 
+# generate a quick and dirty plot of the phi_denom parameters of the SNI model
+dev.new()
+
 plot.coefs(ffr.fits[how.to.order], #[36:40],
 	"Stouffer.Novak.I",
 	"phi_denom",
@@ -136,5 +139,8 @@ plot.coefs(ffr.fits[how.to.order], #[36:40],
 	ilink=identity,
 	xlab="Effect of feeding on interfering",
 	ylab="Dataset",
-	xlim=c(-2,2)
+	xlim=c(-10,10)
 )
+
+dev.copy2pdf(file="../../../results/R/OnePredOnePrey_PhiDenom.pdf")
+dev.off()
