@@ -17,6 +17,7 @@ ratio.like.1pred.1prey = function(N0, a, h, m, P, T, replacement){
 	  numer <- (a * N0)
 	  denom <- (P ^ m + a * h * N0)
 	  N <- (numer / denom) * P * T
+	  return(N)
 	}
 
 	# without replacement we often need to solve trancendental equations
