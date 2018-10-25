@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    166878,       4100]
-NotebookOptionsPosition[    156362,       3899]
-NotebookOutlinePosition[    156723,       3915]
-CellTagsIndexPosition[    156680,       3912]
+NotebookDataLength[    212291,       5134]
+NotebookOptionsPosition[    201508,       4929]
+NotebookOutlinePosition[    201869,       4945]
+CellTagsIndexPosition[    201826,       4942]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -497,6 +497,101 @@ Cell[BoxData[
              "\"\<Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\), \
 \!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\))\>\""}], "\[IndentingNewLine]", 
             "}"}]}]}], "]"}], "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "0"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "0"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "sH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "1"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "1"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "mH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s12"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s12"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", "eq"}], " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s12"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s21"}]}], 
+              "}"}]}]}], "}"}], ",", " ", 
+          RowBox[{"(*", " ", 
+           RowBox[{"Int", "-", "neq"}], " ", "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SubscriptBox["N", "2"], ",", "0", ",", "10"}], "}"}], ",", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(N\), \(2\)]\)\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(F\), \(1\)]\)\>\""}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "300"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"PlotLegends", "\[Rule]", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+            "\"\<sH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=0)\>\"", ",", 
+             "\[IndentingNewLine]", 
+             "\"\<mH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=1)\>\"", ",", 
+             "\[IndentingNewLine]", 
+             "\"\<Int-eq (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=\[Phi])\>\"", ",", 
+             "\[IndentingNewLine]", 
+             "\"\<Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\), \
+\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\))\>\""}], "\[IndentingNewLine]", 
+            "}"}]}]}], "]"}], "\[IndentingNewLine]", "}"}], ",", 
        "\[IndentingNewLine]", 
        RowBox[{"{", "\[IndentingNewLine]", 
         RowBox[{"Plot3D", "[", 
@@ -559,6 +654,7 @@ Cell[BoxData[
             "\"\<\!\(\*SubscriptBox[\(N\), \(1\)]\)\>\"", ",", 
              "\"\<\!\(\*SubscriptBox[\(N\), \(2\)]\)\>\"", ",", 
              "\"\<\!\(\*SubscriptBox[\(F\), \(1\)]\)\>\""}], "}"}]}], ",", 
+          " ", 
           RowBox[{"ImageSize", "\[Rule]", "400"}], ",", "\[IndentingNewLine]", 
           RowBox[{"PlotLegends", "\[Rule]", 
            RowBox[{"{", "\[IndentingNewLine]", 
@@ -637,16 +733,26 @@ Cell[BoxData[
      "10", ",", 
      RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
    "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[CapitalNu]1", ",", "2", ",", 
+       "\"\<\!\(\*SubscriptBox[\(N\), \(1\)]\)\>\""}], "}"}], ",", "0", ",", 
+     "10", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
    RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "\[IndentingNewLine]", 
   "]"}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQB2IQrf/m73vnd68dH4W9YXEB0sXFL3hB9KuFucogOmG9
+1:eJxTTMoPSmViYGCQAmIQrf/m73vnd68dH4W9YXEB0sXFL3hB9KuFucogOmG9
 kCaI3sszwRRET9rPZAWiPfK224Doaf4pWSBaRXpzNoheG/2rCETfaWUqBsuv
 u1ABpie5d4JoA+mNvSA6qISrD0RfmL1mEogOUQ+bDKK3aNssAdE8vkH7wead
 8zsGos0ig8H0ofb5l0F02dKj10B0uP/VPFcgXVTZ2w+iuaoezwLR0948XQii
 E+5uXwuify/yOQqi33VrnQLRrkV550D0g/mHr4DolgdF10F0JHvMbRC935z7
 Lli8919UOsgdvq4xIPqfo1gGiDY42p0Hop//P1YMonP7gqpAtGyx9CQQfS7r
-5lQQvUun41QGkD6x/eRpEA0AJMDQjQ==
+5lQQvUun41QGkD6x/eRpEL3uqLtA3nuguFaJDIieMKNBC0TzL79kCKL/1L+3
+BtH9Lh8dQTQAvqvrOQ==
   
   "],ExpressionUUID->"456a255e-7afe-4dd8-bbdd-688ea3a58e5b"],
 
@@ -656,10 +762,10 @@ Cell[BoxData[
    DynamicModuleBox[{$CellContext`s12$$ = 0.8, $CellContext`s21$$ = 
     0.5, $CellContext`\[Alpha]$$ = 1, $CellContext`\[Beta]$$ = 
     1, $CellContext`\[Eta]1$$ = 1, $CellContext`\[Eta]2$$ = 
-    1, $CellContext`\[CapitalNu]2$$ = 2, Typeset`show$$ = True, 
-    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
+    1, $CellContext`\[CapitalNu]1$$ = 2, $CellContext`\[CapitalNu]2$$ = 2, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`\[Alpha]$$], 1, "a"}, 0, 2}, {{
        Hold[$CellContext`\[Beta]$$], 1, "b"}, 0, 2}, {{
        Hold[$CellContext`\[Eta]1$$], 1, "\!\(\*SubscriptBox[\(h\), \(1\)]\)"},
@@ -671,27 +777,33 @@ Cell[BoxData[
        Hold[$CellContext`s21$$], 0.5, 
        "\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)"}, -2, 2}, {{
        Hold[$CellContext`\[CapitalNu]2$$], 2, 
-       "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}, 0, 10}}, Typeset`size$$ = {
-    685., {315.91754150390625`, 323.08245849609375`}}, Typeset`update$$ = 0, 
+       "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}, 0, 10}, {{
+       Hold[$CellContext`\[CapitalNu]1$$], 2, 
+       "\!\(\*SubscriptBox[\(N\), \(1\)]\)"}, 0, 10}}, Typeset`size$$ = {
+    685., {444.41754150390625`, 451.58245849609375`}}, Typeset`update$$ = 0, 
     Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`\[Alpha]$250802$$ = 0, $CellContext`\[Beta]$250803$$ = 
-    0, $CellContext`\[Eta]1$250804$$ = 0, $CellContext`\[Eta]2$250805$$ = 
-    0, $CellContext`s12$250806$$ = 0, $CellContext`s21$250807$$ = 
-    0, $CellContext`\[CapitalNu]2$250808$$ = 0}, 
+    True, $CellContext`\[Alpha]$430960$$ = 0, $CellContext`\[Beta]$430961$$ = 
+    0, $CellContext`\[Eta]1$430962$$ = 0, $CellContext`\[Eta]2$430963$$ = 
+    0, $CellContext`s12$430964$$ = 0, $CellContext`s21$430965$$ = 
+    0, $CellContext`\[CapitalNu]2$430966$$ = 
+    0, $CellContext`\[CapitalNu]1$430967$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`s12$$ = 0.8, $CellContext`s21$$ = 
         0.5, $CellContext`\[Alpha]$$ = 1, $CellContext`\[Beta]$$ = 
         1, $CellContext`\[Eta]1$$ = 1, $CellContext`\[Eta]2$$ = 
-        1, $CellContext`\[CapitalNu]2$$ = 2}, "ControllerVariables" :> {
-        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$250802$$, 0], 
-        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$250803$$, 0], 
-        Hold[$CellContext`\[Eta]1$$, $CellContext`\[Eta]1$250804$$, 0], 
-        Hold[$CellContext`\[Eta]2$$, $CellContext`\[Eta]2$250805$$, 0], 
-        Hold[$CellContext`s12$$, $CellContext`s12$250806$$, 0], 
-        Hold[$CellContext`s21$$, $CellContext`s21$250807$$, 0], 
+        1, $CellContext`\[CapitalNu]1$$ = 2, $CellContext`\[CapitalNu]2$$ = 
+        2}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$430960$$, 0], 
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$430961$$, 0], 
+        Hold[$CellContext`\[Eta]1$$, $CellContext`\[Eta]1$430962$$, 0], 
+        Hold[$CellContext`\[Eta]2$$, $CellContext`\[Eta]2$430963$$, 0], 
+        Hold[$CellContext`s12$$, $CellContext`s12$430964$$, 0], 
+        Hold[$CellContext`s21$$, $CellContext`s21$430965$$, 0], 
         Hold[$CellContext`\[CapitalNu]2$$, \
-$CellContext`\[CapitalNu]2$250808$$, 0]}, 
+$CellContext`\[CapitalNu]2$430966$$, 0], 
+        Hold[$CellContext`\[CapitalNu]1$$, \
+$CellContext`\[CapitalNu]1$430967$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -739,6 +851,45 @@ $CellContext`\[CapitalNu]2$250808$$, 0]},
 \(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=\[Phi])", 
               "Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\), \
 \!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\))"}]}, {
+           Plot[{
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 0, 
+               Subscript[$CellContext`\[Phi], 21] -> 0}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 1, 
+               Subscript[$CellContext`\[Phi], 21] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s12$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s12$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s12$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s21$$}]}, {
+             Subscript[N, 2], 0, 10}, 
+            AxesLabel -> {
+             "\!\(\*SubscriptBox[\(N\), \(2\)]\)", 
+              "\!\(\*SubscriptBox[\(F\), \(1\)]\)"}, ImageSize -> 300, 
+            PlotRange -> {All, {0, 1}}, 
+            PlotLegends -> {
+             "sH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=0)", 
+              "mH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=1)", 
+              "Int-eq (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=\[Phi])", 
+              "Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\), \
+\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\))"}]}, {
            Plot3D[{
              ReplaceAll[
               ReplaceAll[$CellContext`X, $CellContext`subparms], {
@@ -767,6 +918,7 @@ $CellContext`\[CapitalNu]2$250808$$, 0]},
 \(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=0)", 
               "mH (\!\(\*SubscriptBox[\(\[Phi]\), \
 \(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=1)", 
+              
               "Int-eq (\!\(\*SubscriptBox[\(\[Phi]\), \
 \(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=\[Phi])", 
               "Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\), \
@@ -785,9 +937,11 @@ $CellContext`\[CapitalNu]2$250808$$, 0]},
           "\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)"}, -2, 2, Appearance -> 
          "Labeled"}, {{$CellContext`\[CapitalNu]2$$, 2, 
           "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}, 0, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`\[CapitalNu]1$$, 2, 
+          "\!\(\*SubscriptBox[\(N\), \(1\)]\)"}, 0, 10, Appearance -> 
          "Labeled"}}, "Options" :> {ControlPlacement -> Left}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{1111., {352., 360.}},
+     ImageSizeCache->{1111., {481., 488.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -798,17 +952,11 @@ $CellContext`\[CapitalNu]2$250808$$, 0]},
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{
-  3.748801673667273*^9, 3.7488017148182583`*^9, {3.7488017608629227`*^9, 
-   3.748801828700577*^9}, {3.74880191890212*^9, 3.7488019432914143`*^9}, {
-   3.748801983442873*^9, 3.7488019909972143`*^9}, {3.748802069919991*^9, 
-   3.74880209243676*^9}, 3.7488021375302477`*^9, {3.74880222201188*^9, 
-   3.74880223735165*^9}, {3.7488022700337067`*^9, 3.748802282261964*^9}, 
-   3.748870884530751*^9, 3.748871032035059*^9, 3.748871124124061*^9, {
-   3.748871326914832*^9, 3.748871344479376*^9}, {3.748872639603675*^9, 
-   3.748872659049903*^9}, 
-   3.748873879310071*^9},ExpressionUUID->"c5f5fe22-21f6-4a93-864e-\
-1fe1f2f9f00a"]
+ CellChangeTimes->{{3.7494089758433847`*^9, 3.7494089976256*^9}, {
+   3.749409147351357*^9, 3.749409168570549*^9}, {3.7494092501150293`*^9, 
+   3.7494092984358263`*^9}, 
+   3.749410392469545*^9},ExpressionUUID->"d147cf04-e071-48d3-bad5-\
+a5e1b934e7d8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -827,104 +975,729 @@ Cell[BoxData[
        RowBox[{
         SubscriptBox["h", "2"], "\[Rule]", " ", "\[Eta]2"}]}], "}"}]}], ";", 
     "\[IndentingNewLine]", "\[IndentingNewLine]", 
-    RowBox[{"Plot", "[", 
-     RowBox[{
+    RowBox[{"Grid", "[", 
+     RowBox[{"{", 
       RowBox[{"{", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{
+        RowBox[{"Plot", "[", 
          RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "2"], " ", "\[Rule]", " ", "\[CapitalNu]2"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
            RowBox[{
-            SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "0"}], ",", " ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "0"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "0"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "sH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "1"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "1"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "mH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s12a"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s21"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", 
+              RowBox[{"eq", " ", "negative"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s12b"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s21"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", 
+              RowBox[{"eq", " ", "small"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s12c"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s21"}]}], 
+              "}"}]}]}], "    ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Int", "-", 
+             RowBox[{"eq", " ", "large"}]}], " ", "*)"}], 
+           "\[IndentingNewLine]", "}"}], ",", " ", "\[IndentingNewLine]", 
+          RowBox[{"{", 
            RowBox[{
-            SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "0"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", "sH", " ", "*)"}], "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "2"], " ", "\[Rule]", " ", "\[CapitalNu]2"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "1"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "1"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", "mH", " ", "*)"}], "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "2"], " ", "\[Rule]", " ", "\[CapitalNu]2"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s0"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s0"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"Int", "-", 
-          RowBox[{"eq", " ", "negative"}]}], " ", "*)"}], 
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "2"], " ", "\[Rule]", " ", "\[CapitalNu]2"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s1"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s1"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"Int", "-", 
-          RowBox[{"eq", " ", "small"}]}], " ", "*)"}], "\[IndentingNewLine]", 
-        
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "2"], " ", "\[Rule]", " ", "\[CapitalNu]2"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s2"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s2"}]}], "}"}]}]}],
-        "    ", 
-       RowBox[{"(*", " ", 
-        RowBox[{"Int", "-", 
-         RowBox[{"eq", " ", "large"}]}], " ", "*)"}], "\[IndentingNewLine]", 
-       "}"}], ",", " ", "\[IndentingNewLine]", 
-      RowBox[{"{", 
-       RowBox[{
-        SubscriptBox["N", "1"], ",", "0", ",", "10"}], "}"}], ",", 
-      RowBox[{"AxesLabel", "\[Rule]", 
-       RowBox[{"{", 
-        RowBox[{
-        "\"\<\!\(\*SubscriptBox[\(N\), \(1\)]\)\>\"", ",", 
-         "\"\<\!\(\*SubscriptBox[\(F\), \(1\)]\)\>\""}], "}"}]}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "300"}], ",", "\[IndentingNewLine]", 
-      RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"{", "\[IndentingNewLine]", 
-        RowBox[{
-        "\"\<sH (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)=\!\(\*SubscriptBox[\
-\(\[Phi]\), \(21\)]\)=0)\>\"", ",", "\[IndentingNewLine]", 
-         "\"\<mH (\!\(\*SubscriptBox[\(\[Phi]\), \
+            SubscriptBox["N", "1"], ",", "0", ",", "10"}], "}"}], ",", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(N\), \(1\)]\)\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(F\), \(1\)]\)\>\""}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "300"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"PlotLegends", "\[Rule]", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+            "\"\<sH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=0)\>\"", ",", 
+             "\[IndentingNewLine]", 
+             "\"\<mH (\!\(\*SubscriptBox[\(\[Phi]\), \
 \(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=1)\>\"", ",", 
-         "\[IndentingNewLine]", "\"\<Int-eq (\[Phi] neg)\>\"", ",", 
-         "\[IndentingNewLine]", "\"\<Int-eq (\[Phi] small)\>\"", ",", 
-         "\[IndentingNewLine]", "\"\<Int-eq (\[Phi] large)\>\""}], 
-        "\[IndentingNewLine]", "}"}]}]}], "]"}]}], ",", "\[IndentingNewLine]",
-    "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             "\"\<Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\) neg)\>\"",
+              ",", "\[IndentingNewLine]", 
+             "\"\<Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\) \
+small)\>\"", ",", "\[IndentingNewLine]", 
+             "\"\<Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\) \
+large)\>\""}], "\[IndentingNewLine]", "}"}]}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "0"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "0"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "sH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "1"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "1"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "mH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s12a"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s21"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", 
+              RowBox[{"eq", " ", "negative"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s12b"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s21"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", 
+              RowBox[{"eq", " ", "small"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s12c"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s21"}]}], 
+              "}"}]}]}], "    ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Int", "-", 
+             RowBox[{"eq", " ", "large"}]}], " ", "*)"}], 
+           "\[IndentingNewLine]", "}"}], ",", " ", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SubscriptBox["N", "2"], ",", "0", ",", "10"}], "}"}], ",", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(N\), \(2\)]\)\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(F\), \(1\)]\)\>\""}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "300"}]}], "]"}]}], 
+       "\[IndentingNewLine]", "}"}], "}"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]", ",", "1", ",", "\"\<a\>\""}], "}"}], ",", "0", ",", 
+     "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Beta]", ",", "1", ",", "\"\<b\>\""}], "}"}], ",", "0", ",", 
+     "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[Eta]1", ",", "1", ",", 
+       "\"\<\!\(\*SubscriptBox[\(h\), \(1\)]\)\>\""}], "}"}], ",", "0", ",", 
+     "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[Eta]2", ",", "1", ",", 
+       "\"\<\!\(\*SubscriptBox[\(h\), \(2\)]\)\>\""}], "}"}], ",", "0", ",", 
+     "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "s21", ",", "0.5", ",", 
+       "\"\<\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)\>\""}], "}"}], ",", "0", 
+     ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"s12a", ",", 
+       RowBox[{"-", "0.2"}], ",", 
+       "\"\<\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)\>\""}], "}"}], ",", 
+     RowBox[{"-", "2"}], ",", "0", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "s12b", ",", "0.5", ",", 
+       "\"\<\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)\>\""}], "}"}], ",", "0", 
+     ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "s12c", ",", "1.15", ",", 
+       "\"\<\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)\>\""}], "}"}], ",", "1", 
+     ",", "2", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[CapitalNu]2", ",", "2", ",", 
+       "\"\<\!\(\*SubscriptBox[\(N\), \(2\)]\)\>\""}], "}"}], ",", "0", ",", 
+     "10", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[CapitalNu]1", ",", "2", ",", 
+       "\"\<\!\(\*SubscriptBox[\(N\), \(1\)]\)\>\""}], "}"}], ",", "0", ",", 
+     "10", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwd0FsoQwEYB/DTUppreZAaLZcSHkhDLWSxyG11MJmRRFtmh86RjWeXpDNr
+2oQHuT25R1HSytpiD2vNZQnlGrF44EHYOP/z8PWr/1df/77k9h6yU0AQRAo3
+MDsQfC99e5XdKQNhZZwM8xwNX+b1qbBtIy4DHkSZ86DFLpDCCmq3ENoUHV0w
+TbStg2vN3zS8GhYw/H7da+S1lI/BHNEWC8m+CBP0zq5aYH26chLuZBUuwaga
+0s7f89S6YH5THe/h6NwJ7F92nsNGxRkl56QH2AkYMXg/A22Bx3nYdr27Bn8W
+qp3wbTzTDeU05YE3c45TOHRD+2FTuPoS2gsir/mcDak06FEjV8OQLF4Lc5zj
+FHz6czFQbyIHYRIjskBP14UVCtPZBi3nV+yjEkrMe81QXSRugaoVg07L/09I
+w7KEfQNsNwanoDHGvAndEpcDkj7/EfydHjuGD/dDH/r3V1nrn4qgOKelI0JY
+kuDgNbiLKyGhSayCuYuZvfAzWdwPI3tiR2H37bEVdpjYWaio8vH+AzN/LrY=
+
+  "],ExpressionUUID->"43ebd153-4d38-4285-ab2f-c0282cec0994"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`s12a$$ = -0.2, $CellContext`s12b$$ = 
+    0.5, $CellContext`s12c$$ = 1.15, $CellContext`s21$$ = 
+    0.5, $CellContext`\[Alpha]$$ = 1, $CellContext`\[Beta]$$ = 
+    1, $CellContext`\[Eta]1$$ = 1, $CellContext`\[Eta]2$$ = 
+    1, $CellContext`\[CapitalNu]1$$ = 2, $CellContext`\[CapitalNu]2$$ = 2, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`\[Alpha]$$], 1, "a"}, 0, 2}, {{
+       Hold[$CellContext`\[Beta]$$], 1, "b"}, 0, 2}, {{
+       Hold[$CellContext`\[Eta]1$$], 1, "\!\(\*SubscriptBox[\(h\), \(1\)]\)"},
+       0, 2}, {{
+       Hold[$CellContext`\[Eta]2$$], 1, "\!\(\*SubscriptBox[\(h\), \(2\)]\)"},
+       0, 2}, {{
+       Hold[$CellContext`s21$$], 0.5, 
+       "\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)"}, 0, 2}, {{
+       Hold[$CellContext`s12a$$], -0.2, 
+       "\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)"}, -2, 0}, {{
+       Hold[$CellContext`s12b$$], 0.5, 
+       "\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)"}, 0, 1}, {{
+       Hold[$CellContext`s12c$$], 1.15, 
+       "\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)"}, 1, 2}, {{
+       Hold[$CellContext`\[CapitalNu]2$$], 2, 
+       "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}, 0, 10}, {{
+       Hold[$CellContext`\[CapitalNu]1$$], 2, 
+       "\!\(\*SubscriptBox[\(N\), \(1\)]\)"}, 0, 10}}, Typeset`size$$ = {
+    954., {115.91754150390625`, 123.08245849609375`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$434431$$ = 0, $CellContext`\[Beta]$434432$$ = 
+    0, $CellContext`\[Eta]1$434433$$ = 0, $CellContext`\[Eta]2$434434$$ = 
+    0, $CellContext`s21$434435$$ = 0, $CellContext`s12a$434436$$ = 
+    0, $CellContext`s12b$434437$$ = 0, $CellContext`s12c$434438$$ = 
+    0, $CellContext`\[CapitalNu]2$434439$$ = 
+    0, $CellContext`\[CapitalNu]1$434440$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`s12a$$ = -0.2, $CellContext`s12b$$ = 
+        0.5, $CellContext`s12c$$ = 1.15, $CellContext`s21$$ = 
+        0.5, $CellContext`\[Alpha]$$ = 1, $CellContext`\[Beta]$$ = 
+        1, $CellContext`\[Eta]1$$ = 1, $CellContext`\[Eta]2$$ = 
+        1, $CellContext`\[CapitalNu]1$$ = 2, $CellContext`\[CapitalNu]2$$ = 
+        2}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$434431$$, 0], 
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$434432$$, 0], 
+        Hold[$CellContext`\[Eta]1$$, $CellContext`\[Eta]1$434433$$, 0], 
+        Hold[$CellContext`\[Eta]2$$, $CellContext`\[Eta]2$434434$$, 0], 
+        Hold[$CellContext`s21$$, $CellContext`s21$434435$$, 0], 
+        Hold[$CellContext`s12a$$, $CellContext`s12a$434436$$, 0], 
+        Hold[$CellContext`s12b$$, $CellContext`s12b$434437$$, 0], 
+        Hold[$CellContext`s12c$$, $CellContext`s12c$434438$$, 0], 
+        Hold[$CellContext`\[CapitalNu]2$$, \
+$CellContext`\[CapitalNu]2$434439$$, 0], 
+        Hold[$CellContext`\[CapitalNu]1$$, \
+$CellContext`\[CapitalNu]1$434440$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`subparms = {$CellContext`a -> $CellContext`\
+\[Alpha]$$, $CellContext`b -> $CellContext`\[Beta]$$, 
+          Subscript[$CellContext`h, 1] -> $CellContext`\[Eta]1$$, 
+          Subscript[$CellContext`h, 2] -> $CellContext`\[Eta]2$$}; Grid[{{
+           Plot[{
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 0, 
+               Subscript[$CellContext`\[Phi], 21] -> 0}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 1, 
+               Subscript[$CellContext`\[Phi], 21] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s12a$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s21$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s12b$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s21$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s12c$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s21$$}]}, {
+             Subscript[N, 1], 0, 10}, 
+            AxesLabel -> {
+             "\!\(\*SubscriptBox[\(N\), \(1\)]\)", 
+              "\!\(\*SubscriptBox[\(F\), \(1\)]\)"}, ImageSize -> 300, 
+            PlotLegends -> {
+             "sH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=0)", 
+              "mH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=1)", 
+              "Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\) neg)", 
+              "Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\) small)", 
+              "Int-neq (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\) large)"}], 
+           Plot[{
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 0, 
+               Subscript[$CellContext`\[Phi], 21] -> 0}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 1, 
+               Subscript[$CellContext`\[Phi], 21] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s12a$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s21$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s12b$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s21$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s12c$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s21$$}]}, {
+             Subscript[N, 2], 0, 10}, 
+            AxesLabel -> {
+             "\!\(\*SubscriptBox[\(N\), \(2\)]\)", 
+              "\!\(\*SubscriptBox[\(F\), \(1\)]\)"}, ImageSize -> 300]}}]), 
+      "Specifications" :> {{{$CellContext`\[Alpha]$$, 1, "a"}, 0, 2, 
+         Appearance -> "Labeled"}, {{$CellContext`\[Beta]$$, 1, "b"}, 0, 2, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`\[Eta]1$$, 1, 
+          "\!\(\*SubscriptBox[\(h\), \(1\)]\)"}, 0, 2, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Eta]2$$, 1, 
+          "\!\(\*SubscriptBox[\(h\), \(2\)]\)"}, 0, 2, Appearance -> 
+         "Labeled"}, {{$CellContext`s21$$, 0.5, 
+          "\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)"}, 0, 2, Appearance -> 
+         "Labeled"}, {{$CellContext`s12a$$, -0.2, 
+          "\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)"}, -2, 0, Appearance -> 
+         "Labeled"}, {{$CellContext`s12b$$, 0.5, 
+          "\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)"}, 0, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`s12c$$, 1.15, 
+          "\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)"}, 1, 2, Appearance -> 
+         "Labeled"}, {{$CellContext`\[CapitalNu]2$$, 2, 
+          "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}, 0, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`\[CapitalNu]1$$, 2, 
+          "\!\(\*SubscriptBox[\(N\), \(1\)]\)"}, 0, 10, Appearance -> 
+         "Labeled"}}, "Options" :> {ControlPlacement -> Left}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1355., {162., 170.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.748873350554192*^9, 3.748873410767885*^9}, {
+   3.7488736295494537`*^9, 3.74887372589434*^9}, 3.7488737633472567`*^9, 
+   3.748873834732437*^9, 3.7494086591264277`*^9, 3.749408773740616*^9, 
+   3.749408847886388*^9, {3.749409961877158*^9, 3.7494099688415203`*^9}, 
+   3.74941001712659*^9, 
+   3.749410409259027*^9},ExpressionUUID->"59b0d767-2210-4edc-a5b2-\
+eb25856e5b0a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"subparms", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", "\[Rule]", " ", "\[Alpha]"}], ",", 
+       RowBox[{"b", "\[Rule]", " ", "\[Beta]"}], ",", " ", 
+       RowBox[{
+        SubscriptBox["h", "1"], "\[Rule]", " ", "\[Eta]1"}], ",", "  ", 
+       RowBox[{
+        SubscriptBox["h", "2"], "\[Rule]", " ", "\[Eta]2"}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"Grid", "[", 
+     RowBox[{"{", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "0"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "0"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "sH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "1"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "1"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "mH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s0"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s0"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", 
+              RowBox[{"neq", " ", "negative"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s1"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s1"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", 
+              RowBox[{"neq", " ", "small"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "2"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]2"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s2"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s2"}]}], 
+              "}"}]}]}], "    ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Int", "-", 
+             RowBox[{"neq", " ", "large"}]}], " ", "*)"}], 
+           "\[IndentingNewLine]", "}"}], ",", " ", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SubscriptBox["N", "1"], ",", "0", ",", "10"}], "}"}], ",", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(N\), \(1\)]\)\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(F\), \(1\)]\)\>\""}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "300"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"PlotLegends", "\[Rule]", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+            "\"\<sH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=0)\>\"", ",", 
+             "\[IndentingNewLine]", 
+             "\"\<mH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=1)\>\"", ",", 
+             "\[IndentingNewLine]", "\"\<Int-eq (\[Phi] neg)\>\"", ",", 
+             "\[IndentingNewLine]", "\"\<Int-eq (\[Phi] small)\>\"", ",", 
+             "\[IndentingNewLine]", "\"\<Int-eq (\[Phi] large)\>\""}], 
+            "\[IndentingNewLine]", "}"}]}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "0"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "0"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "sH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "1"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "1"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", "mH", " ", "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s0"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s0"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", 
+              RowBox[{"eq", " ", "negative"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s1"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s1"}]}], 
+              "}"}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Int", "-", 
+              RowBox[{"eq", " ", "small"}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "1"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]1"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "12"], "\[Rule]", " ", "s2"}], ",", 
+               " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "21"], "\[Rule]", " ", "s2"}]}], 
+              "}"}]}]}], "    ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Int", "-", 
+             RowBox[{"eq", " ", "large"}]}], " ", "*)"}], 
+           "\[IndentingNewLine]", "}"}], ",", " ", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            SubscriptBox["N", "2"], ",", "0", ",", "10"}], "}"}], ",", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(N\), \(2\)]\)\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(F\), \(1\)]\)\>\""}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "300"}]}], "]"}]}], 
+       "\[IndentingNewLine]", "}"}], "}"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
@@ -988,19 +1761,29 @@ Cell[BoxData[
      "10", ",", 
      RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
    "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[CapitalNu]1", ",", "2", ",", 
+       "\"\<\!\(\*SubscriptBox[\(N\), \(1\)]\)\>\""}], "}"}], ",", "0", ",", 
+     "10", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
    RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "\[IndentingNewLine]", 
   "]"}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJwd0F0oQwEYBuC1lDZDuZAaSdTChV0MpblYtrgwq4NpP2otsrZ21Dmy2TVp
-rTPryISLNXHF/ERNSStri12s5W+JlWgRa26Fjb3n4uup96uvt6/JPE1M8nk8
-Xn1pYEeu8NmX/1A8a3NlypI0/VYJ34P2Zmjar2mFZyJfJ2Qj/B44QIbl0K+Z
-sMIW8ZENhgzfFHxc4NPcfi/l5GT73VAqPmQgMSP0wtTGLgtHJNpleNwu34Ii
-NRHh7iWH4rBLN8x5vhi4hrPbsTs4prklVSWpOWYJCl0v69CfywahKRMOwZ/N
-wRjMe9oSUEWRSfgUiN7A+ScqDXXlxgcY6a7IcDlT1E+hh1plhEVFrQVKYx4S
-vv7FaWj3Ei7YQItZmLTer0CBhBm1lPyqzmqhzHdigMbexnGo33HYLNz/BBRU
-1p06oNlZWIXOKt8BTMjiUUhcpS/g75r7Ev4DOqX7Lw==
+1:eJwd0FsoQwEYB/DTUhpDeZAaIWrhgQe3FrJY5FoHkxlp0S7aUefIZs8urbVZ
+E8LDmnhyj6KklbVlS0uuyVbLiFg8eBGG8z8PX7/6f/X178tRDpODPIIgstmB
+RdHYe+3bq+ReFo2rY2WY5yT44tTlwv6t1Hx4JLCVQruLJ4YN1H4lnGsb0MI8
+4e4Q3Oj5omFwgsdw+80zA6e93gSLhTsWSI4kWOHZ0roddohkM3CvsHIFClpI
+F3cv0OqFZd3tnMdTjgs4uuq5hl1tV5SUlR6zTMMEY2QRzkUfnbA/tL8Bv5eb
+PfDNXOCHUpoKwLDDfQnHw/QN7I5X3EFXeWKIyy2/chV6tEgV8FeSpobFHjMF
+n/68DNRZSSPMZIR2GNDezkK+yNKpZv1MeZTBEttBD1RUZfVC+Zp+SM39j0/D
+uvRDPVQaYvPQkGzbhv4SrxuS5zcn8GfB5IMPkfEP3furpO9PTlCsC+JJPqxJ
+d3Pq/dWNkFBlNMGgT6OBpxVbnP+QYh4u
   
-  "],ExpressionUUID->"43ebd153-4d38-4285-ab2f-c0282cec0994"],
+  "],ExpressionUUID->"5177b581-4bc2-4fe8-a9f9-e4f82d5763b5"],
 
 Cell[BoxData[
  TagBox[
@@ -1008,10 +1791,11 @@ Cell[BoxData[
    DynamicModuleBox[{$CellContext`s0$$ = -0.2, $CellContext`s1$$ = 
     0.5, $CellContext`s2$$ = 1.15, $CellContext`\[Alpha]$$ = 
     1, $CellContext`\[Beta]$$ = 1, $CellContext`\[Eta]1$$ = 
-    1, $CellContext`\[Eta]2$$ = 1, $CellContext`\[CapitalNu]2$$ = 2, 
-    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+    1, $CellContext`\[Eta]2$$ = 1, $CellContext`\[CapitalNu]1$$ = 
+    2, $CellContext`\[CapitalNu]2$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`\[Alpha]$$], 1, "a"}, 0, 2}, {{
        Hold[$CellContext`\[Beta]$$], 1, "b"}, 0, 2}, {{
        Hold[$CellContext`\[Eta]1$$], 1, "\!\(\*SubscriptBox[\(h\), \(1\)]\)"},
@@ -1022,29 +1806,34 @@ Cell[BoxData[
        Hold[$CellContext`s1$$], 0.5, "\[Phi]"}, 0, 1}, {{
        Hold[$CellContext`s2$$], 1.15, "\[Phi]"}, 1, 2}, {{
        Hold[$CellContext`\[CapitalNu]2$$], 2, 
-       "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}, 0, 10}}, Typeset`size$$ = {
-    548., {110., 116.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`\[Alpha]$232440$$ = 
-    0, $CellContext`\[Beta]$232441$$ = 0, $CellContext`\[Eta]1$232442$$ = 
-    0, $CellContext`\[Eta]2$232443$$ = 0, $CellContext`s0$232444$$ = 
-    0, $CellContext`s1$232445$$ = 0, $CellContext`s2$232446$$ = 
-    0, $CellContext`\[CapitalNu]2$232447$$ = 0}, 
+       "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}, 0, 10}, {{
+       Hold[$CellContext`\[CapitalNu]1$$], 2, 
+       "\!\(\*SubscriptBox[\(N\), \(1\)]\)"}, 0, 10}}, Typeset`size$$ = {
+    934., {115.91754150390625`, 123.08245849609375`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$440052$$ = 0, $CellContext`\[Beta]$440053$$ = 
+    0, $CellContext`\[Eta]1$440054$$ = 0, $CellContext`\[Eta]2$440055$$ = 
+    0, $CellContext`s0$440056$$ = 0, $CellContext`s1$440057$$ = 
+    0, $CellContext`s2$440058$$ = 0, $CellContext`\[CapitalNu]2$440059$$ = 
+    0, $CellContext`\[CapitalNu]1$440060$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`s0$$ = -0.2, $CellContext`s1$$ = 
         0.5, $CellContext`s2$$ = 1.15, $CellContext`\[Alpha]$$ = 
         1, $CellContext`\[Beta]$$ = 1, $CellContext`\[Eta]1$$ = 
-        1, $CellContext`\[Eta]2$$ = 1, $CellContext`\[CapitalNu]2$$ = 2}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$232440$$, 0], 
-        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$232441$$, 0], 
-        Hold[$CellContext`\[Eta]1$$, $CellContext`\[Eta]1$232442$$, 0], 
-        Hold[$CellContext`\[Eta]2$$, $CellContext`\[Eta]2$232443$$, 0], 
-        Hold[$CellContext`s0$$, $CellContext`s0$232444$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$232445$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$232446$$, 0], 
+        1, $CellContext`\[Eta]2$$ = 1, $CellContext`\[CapitalNu]1$$ = 
+        2, $CellContext`\[CapitalNu]2$$ = 2}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$440052$$, 0], 
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$440053$$, 0], 
+        Hold[$CellContext`\[Eta]1$$, $CellContext`\[Eta]1$440054$$, 0], 
+        Hold[$CellContext`\[Eta]2$$, $CellContext`\[Eta]2$440055$$, 0], 
+        Hold[$CellContext`s0$$, $CellContext`s0$440056$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$440057$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$440058$$, 0], 
         Hold[$CellContext`\[CapitalNu]2$$, \
-$CellContext`\[CapitalNu]2$232447$$, 0]}, 
+$CellContext`\[CapitalNu]2$440059$$, 0], 
+        Hold[$CellContext`\[CapitalNu]1$$, \
+$CellContext`\[CapitalNu]1$440060$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -1053,47 +1842,83 @@ $CellContext`\[CapitalNu]2$232447$$, 0]},
       "Body" :> ($CellContext`subparms = {$CellContext`a -> $CellContext`\
 \[Alpha]$$, $CellContext`b -> $CellContext`\[Beta]$$, 
           Subscript[$CellContext`h, 1] -> $CellContext`\[Eta]1$$, 
-          Subscript[$CellContext`h, 2] -> $CellContext`\[Eta]2$$}; Plot[{
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
-           Subscript[$CellContext`\[Phi], 12] -> 0, 
-            Subscript[$CellContext`\[Phi], 21] -> 0}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
-           Subscript[$CellContext`\[Phi], 12] -> 1, 
-            Subscript[$CellContext`\[Phi], 21] -> 1}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
-           Subscript[$CellContext`\[Phi], 12] -> $CellContext`s0$$, 
-            Subscript[$CellContext`\[Phi], 21] -> $CellContext`s0$$}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
-           Subscript[$CellContext`\[Phi], 12] -> $CellContext`s1$$, 
-            Subscript[$CellContext`\[Phi], 21] -> $CellContext`s1$$}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
-           Subscript[$CellContext`\[Phi], 12] -> $CellContext`s2$$, 
-            Subscript[$CellContext`\[Phi], 21] -> $CellContext`s2$$}]}, {
-          Subscript[N, 1], 0, 10}, 
-         AxesLabel -> {
-          "\!\(\*SubscriptBox[\(N\), \(1\)]\)", 
-           "\!\(\*SubscriptBox[\(F\), \(1\)]\)"}, ImageSize -> 300, 
-         PlotLegends -> {
-          "sH (\!\(\*SubscriptBox[\(\[Phi]\), \(12\)]\)=\!\(\*SubscriptBox[\(\
-\[Phi]\), \(21\)]\)=0)", 
-           "mH (\!\(\*SubscriptBox[\(\[Phi]\), \
+          Subscript[$CellContext`h, 2] -> $CellContext`\[Eta]2$$}; Grid[{{
+           Plot[{
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 0, 
+               Subscript[$CellContext`\[Phi], 21] -> 0}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 1, 
+               Subscript[$CellContext`\[Phi], 21] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s0$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s0$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s1$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s1$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 2] -> $CellContext`\[CapitalNu]2$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s2$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s2$$}]}, {
+             Subscript[N, 1], 0, 10}, 
+            AxesLabel -> {
+             "\!\(\*SubscriptBox[\(N\), \(1\)]\)", 
+              "\!\(\*SubscriptBox[\(F\), \(1\)]\)"}, ImageSize -> 300, 
+            PlotLegends -> {
+             "sH (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=0)", 
+              "mH (\!\(\*SubscriptBox[\(\[Phi]\), \
 \(12\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(21\)]\)=1)", "Int-eq (\[Phi] neg)",
-            "Int-eq (\[Phi] small)", "Int-eq (\[Phi] large)"}]), 
+               "Int-eq (\[Phi] small)", "Int-eq (\[Phi] large)"}], 
+           Plot[{
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 0, 
+               Subscript[$CellContext`\[Phi], 21] -> 0}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> 1, 
+               Subscript[$CellContext`\[Phi], 21] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s0$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s0$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s1$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s1$$}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[N, 1] -> $CellContext`\[CapitalNu]1$$], {
+              Subscript[$CellContext`\[Phi], 12] -> $CellContext`s2$$, 
+               Subscript[$CellContext`\[Phi], 21] -> $CellContext`s2$$}]}, {
+             Subscript[N, 2], 0, 10}, 
+            AxesLabel -> {
+             "\!\(\*SubscriptBox[\(N\), \(2\)]\)", 
+              "\!\(\*SubscriptBox[\(F\), \(1\)]\)"}, ImageSize -> 300]}}]), 
       "Specifications" :> {{{$CellContext`\[Alpha]$$, 1, "a"}, 0, 2, 
          Appearance -> "Labeled"}, {{$CellContext`\[Beta]$$, 1, "b"}, 0, 2, 
          Appearance -> 
@@ -1106,9 +1931,11 @@ $CellContext`\[CapitalNu]2$232447$$, 0]},
          "Labeled"}, {{$CellContext`s2$$, 1.15, "\[Phi]"}, 1, 2, Appearance -> 
          "Labeled"}, {{$CellContext`\[CapitalNu]2$$, 2, 
           "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}, 0, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`\[CapitalNu]1$$, 2, 
+          "\!\(\*SubscriptBox[\(N\), \(1\)]\)"}, 0, 10, Appearance -> 
          "Labeled"}}, "Options" :> {ControlPlacement -> Left}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{944., {145., 153.}},
+     ImageSizeCache->{1330., {152., 160.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -1119,10 +1946,9 @@ $CellContext`\[CapitalNu]2$232447$$, 0]},
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.748873350554192*^9, 3.748873410767885*^9}, {
-   3.7488736295494537`*^9, 3.74887372589434*^9}, 3.7488737633472567`*^9, 
-   3.748873834732437*^9},ExpressionUUID->"4ad829d6-9c4b-4a7d-94d0-\
-0b4580384854"]
+ CellChangeTimes->{
+  3.749410421590912*^9},ExpressionUUID->"0610a8a0-b211-41cf-86dd-\
+38478d6ecab3"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -2595,7 +3421,6 @@ Cell[BoxData[
               "}"}]}]}], "}"}], ",", " ", 
           RowBox[{"(*", " ", 
            RowBox[{"Stouffer", "-", 
-            RowBox[{"N", "*", " ", "Stouffer"}], "-", 
             RowBox[{"Novak", " ", "II"}]}], " ", "*)"}], 
           "\[IndentingNewLine]", 
           RowBox[{"{", 
@@ -2702,8 +3527,9 @@ Cell[BoxData[
    3.748870426134482*^9}, {3.748870464927588*^9, 3.748870650991115*^9}, {
    3.74887068402029*^9, 3.748870698396248*^9}, {3.7488707470986547`*^9, 
    3.7488707681776047`*^9}, {3.748870830172946*^9, 3.748870848156836*^9}, {
-   3.7488739240364933`*^9, 3.7488739501238747`*^9}, 
-   3.748883512679731*^9},ExpressionUUID->"69f9098c-5f7b-49c6-82e8-\
+   3.7488739240364933`*^9, 3.7488739501238747`*^9}, 3.748883512679731*^9, {
+   3.7494100545378647`*^9, 
+   3.749410055177425*^9}},ExpressionUUID->"69f9098c-5f7b-49c6-82e8-\
 619cfdb073ba"],
 
 Cell[BoxData[
@@ -2919,128 +3745,263 @@ Cell[BoxData[
        RowBox[{
         SubscriptBox["h", "ij"], "\[Rule]", " ", "\[Eta]"}]}], "}"}]}], ";", 
     "\[IndentingNewLine]", "\[IndentingNewLine]", 
-    RowBox[{"Plot", "[", 
-     RowBox[{
+    RowBox[{"Grid", "[", 
+     RowBox[{"{", 
       RowBox[{"{", "\[IndentingNewLine]", 
        RowBox[{
-        RowBox[{
+        RowBox[{"Plot", "[", 
          RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "j"], " ", "\[Rule]", " ", "\[CapitalNu]j"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
            RowBox[{
-            SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "1"}], ",", " ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "j"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]j"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "1"}], ",", " ", 
+               
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "0"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Holling", " ", "Type", " ", "II"}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "j"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]j"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "1"}], ",", " ", 
+               
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Beddington", "-", "DeAngelis"}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "j"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]j"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "0"}], ",", " ", 
+               
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Crowley", "-", "Martin"}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "j"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]j"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s0"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Stouffer", "-", 
+              RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Negative"}], " ", 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "j"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]j"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s1"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Stouffer", "-", 
+              RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Small"}], " ", 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "j"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]j"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s2"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], 
+              "}"}]}]}], "  ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Stouffer", "-", 
+             RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Large"}], " ", 
+            "*)"}], "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+          
+          RowBox[{"{", 
            RowBox[{
-            SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "0"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"Holling", " ", "Type", " ", "II"}], " ", "*)"}], 
-        "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "j"], " ", "\[Rule]", " ", "\[CapitalNu]j"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "1"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"Beddington", "-", "DeAngelis"}], " ", "*)"}], 
-        "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "j"], " ", "\[Rule]", " ", "\[CapitalNu]j"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "0"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"Crowley", "-", "Martin"}], " ", "*)"}], 
-        "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "j"], " ", "\[Rule]", " ", "\[CapitalNu]j"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s0"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"Stouffer", "-", 
-          RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Negative"}], " ", 
-         "*)"}], "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "j"], " ", "\[Rule]", " ", "\[CapitalNu]j"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s1"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}], 
-        ",", " ", 
-        RowBox[{"(*", " ", 
-         RowBox[{"Stouffer", "-", 
-          RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Small"}], " ", "*)"}], 
-        "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"X", "/.", "subparms"}], "/.", 
-          RowBox[{
-           SubscriptBox["N", "j"], " ", "\[Rule]", " ", "\[CapitalNu]j"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{
-            SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s2"}], ",", " ", 
-           RowBox[{
-            SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}]}], 
-       "  ", 
-       RowBox[{"(*", " ", 
-        RowBox[{"Stouffer", "-", 
-         RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Large"}], " ", "*)"}], 
-       "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
-      RowBox[{"{", 
-       RowBox[{
-        SubscriptBox["N", "i"], ",", "0", ",", "10"}], "}"}], ",", 
-      RowBox[{"AxesLabel", "\[Rule]", 
-       RowBox[{"{", 
-        RowBox[{
-        "\"\<\!\(\*SubscriptBox[\(N\), \(i\)]\)\>\"", ",", 
-         "\"\<\!\(\*SubscriptBox[\(F\), \(i\)]\)\>\""}], "}"}]}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "300"}], ",", "\[IndentingNewLine]", 
-      RowBox[{"PlotLegends", "\[Rule]", 
-       RowBox[{"{", "\[IndentingNewLine]", 
-        RowBox[{
-        "\"\<H (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=1, \
+            SubscriptBox["N", "i"], ",", "0", ",", "10"}], "}"}], ",", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(N\), \(i\)]\)\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(F\), \(i\)]\)\>\""}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "300"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"PlotLegends", "\[Rule]", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+            "\"\<H (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=1, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=0)\>\"", ",", "\[IndentingNewLine]", 
-         "\"\<BD (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=\!\(\*SubscriptBox[\
-\(\[Phi]\), \(n\)]\)=1)\>\"", ",", "\[IndentingNewLine]", 
-         "\"\<CM (\!\(\*SubscriptBox[\(\[Phi]\), \(1\)]\)=0, \
+             "\"\<BD (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(d\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)\>\"", ",", 
+             "\[IndentingNewLine]", 
+             "\"\<CM (\!\(\*SubscriptBox[\(\[Phi]\), \(1\)]\)=0, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)\>\"", ",", "\[IndentingNewLine]", 
-         "\"\<SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Neg, \
+             "\"\<SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Neg, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)\>\"", ",", "\[IndentingNewLine]", 
-         "\"\<SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Small, \
+             "\"\<SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Small, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)\>\"", ",", "\[IndentingNewLine]", 
-         "\"\<SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Large, \
+             
+             "\"\<SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Large, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)\>\""}], "\[IndentingNewLine]", 
-        "}"}]}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+            "}"}]}]}], "]"}], "\[IndentingNewLine]", ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"{", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "i"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]i"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "1"}], ",", " ", 
+               
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "0"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Holling", " ", "Type", " ", "II"}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "i"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]i"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "1"}], ",", " ", 
+               
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Beddington", "-", "DeAngelis"}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "i"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]i"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "0"}], ",", " ", 
+               
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Crowley", "-", "Martin"}], " ", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "i"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]i"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s0"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Stouffer", "-", 
+              RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Negative"}], " ", 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "i"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]i"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s1"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], "}"}]}],
+             ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{"Stouffer", "-", 
+              RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Small"}], " ", 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"X", "/.", "subparms"}], "/.", 
+              RowBox[{
+               SubscriptBox["N", "i"], " ", "\[Rule]", " ", 
+               "\[CapitalNu]i"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                SubscriptBox["\[Phi]", "1"], "\[Rule]", " ", "s2"}], ",", " ", 
+               RowBox[{
+                SubscriptBox["\[Phi]", "2"], "\[Rule]", " ", "1"}]}], 
+              "}"}]}]}], "  ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Stouffer", "-", 
+             RowBox[{"Novak", " ", "I"}], " ", "-", " ", "Large"}], " ", 
+            "*)"}], "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+          
+          RowBox[{"{", 
+           RowBox[{
+            SubscriptBox["N", "j"], ",", "0", ",", "10"}], "}"}], ",", 
+          RowBox[{"AxesLabel", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<\!\(\*SubscriptBox[\(N\), \(j\)]\)\>\"", ",", 
+             "\"\<\!\(\*SubscriptBox[\(F\), \(i\)]\)\>\""}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "300"}]}], "]"}]}], 
+       "\[IndentingNewLine]", "}"}], "}"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
@@ -3102,17 +4063,26 @@ Cell[BoxData[
      "10", ",", 
      RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
    "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\[CapitalNu]i", ",", "5", ",", 
+       "\"\<\!\(\*SubscriptBox[\(N\), \(i\)]\)\>\""}], "}"}], ",", "0", ",", 
+     "10", ",", 
+     RowBox[{"Appearance", "\[Rule]", " ", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
    RowBox[{"ControlPlacement", "\[Rule]", "Left"}]}], "\[IndentingNewLine]", 
   "]"}]], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGCQBmIQrf/m73vnd68dH4W9YXEB0sXFL3hB9KuFucogOmG9
+1:eJxTTMoPSmViYGCQAWIQrf/m73vnd68dH4W9YXEB0sXFL3hB9KuFucogOmG9
 kCaI3sszwRRET9rPZAWiPfK224Doaf4pWSBaRXpzNoheG/2rCETfaWUqBsuv
 u1ABpie5d4JoA+mNvSA6qISrD0RfmL1mEogOUQ+bDKK3aNssAdE8vkH7wead
 8zsGos0ig8H0uq2HroPtS70Jpl213xSlAel379hbQfSHQJlOEP3va1gXiJ4v
 b8mcDqTDVcq5QTTbxrlCIPqTQogwiL6/7LEkiH6R7i4Dok+v61IE0Wt9XZRB
 9Nl1shog2nx7vD2YXtbgDKIF1vm4gmg9jWRvEP1hHasfiD7WcTQUrI+FNQJE
 f9FqvJEBpE98O3wbRP+pX5mQC1Jn+joRRDO0rswA0TaTrtWB6Jb6la0gWuKc
-dj+IVt5jPRlEf9arnAaiAcPk7MU=
+dj+IVt5jPRlEf9arnAaiH/UFb8p7/9rx1JP3h0A0AO5T96w=
   
   "],ExpressionUUID->"0784b1d5-6224-4f52-a785-1b4f92e422b5"],
 
@@ -3122,10 +4092,11 @@ Cell[BoxData[
    DynamicModuleBox[{$CellContext`s0$$ = -0.8, $CellContext`s1$$ = 
     0.75, $CellContext`s2$$ = 1.15, $CellContext`\[Alpha]$$ = 
     1, $CellContext`\[Beta]$$ = 1, $CellContext`\[Delta]$$ = 
-    1, $CellContext`\[Eta]$$ = 1, $CellContext`\[CapitalNu]j$$ = 5, 
-    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+    1, $CellContext`\[Eta]$$ = 1, $CellContext`\[CapitalNu]i$$ = 
+    5, $CellContext`\[CapitalNu]j$$ = 5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`\[Alpha]$$], 1, "a"}, 0, 2}, {{
        Hold[$CellContext`\[Beta]$$], 1, "b"}, 0, 2}, {{
        Hold[$CellContext`\[Delta]$$], 1, "d"}, 0, 2}, {{
@@ -3135,29 +4106,35 @@ Cell[BoxData[
        Hold[$CellContext`s1$$], 0.75, "\[Phi]"}, 0, 1}, {{
        Hold[$CellContext`s2$$], 1.15, "\[Phi]"}, 1, 2}, {{
        Hold[$CellContext`\[CapitalNu]j$$], 5, 
-       "\!\(\*SubscriptBox[\(N\), \(j\)]\)"}, 0, 10}}, Typeset`size$$ = {
-    594., {117., 124.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`\[Alpha]$98126$$ = 
-    0, $CellContext`\[Beta]$98127$$ = 0, $CellContext`\[Delta]$98128$$ = 
-    0, $CellContext`\[Eta]$98129$$ = 0, $CellContext`s0$98130$$ = 
-    0, $CellContext`s1$98131$$ = 0, $CellContext`s2$98132$$ = 
-    0, $CellContext`\[CapitalNu]j$98133$$ = 0}, 
+       "\!\(\*SubscriptBox[\(N\), \(j\)]\)"}, 0, 10}, {{
+       Hold[$CellContext`\[CapitalNu]i$$], 5, 
+       "\!\(\*SubscriptBox[\(N\), \(i\)]\)"}, 0, 10}}, Typeset`size$$ = {
+    980., {116.91754150390625`, 124.08245849609375`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[Alpha]$415901$$ = 0, $CellContext`\[Beta]$415902$$ = 
+    0, $CellContext`\[Delta]$415903$$ = 0, $CellContext`\[Eta]$415904$$ = 
+    0, $CellContext`s0$415905$$ = 0, $CellContext`s1$415906$$ = 
+    0, $CellContext`s2$415907$$ = 0, $CellContext`\[CapitalNu]j$415908$$ = 
+    0, $CellContext`\[CapitalNu]i$415909$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`s0$$ = -0.8, $CellContext`s1$$ = 
         0.75, $CellContext`s2$$ = 1.15, $CellContext`\[Alpha]$$ = 
         1, $CellContext`\[Beta]$$ = 1, $CellContext`\[Delta]$$ = 
-        1, $CellContext`\[Eta]$$ = 1, $CellContext`\[CapitalNu]j$$ = 5}, 
-      "ControllerVariables" :> {
-        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$98126$$, 0], 
-        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$98127$$, 0], 
-        Hold[$CellContext`\[Delta]$$, $CellContext`\[Delta]$98128$$, 0], 
-        Hold[$CellContext`\[Eta]$$, $CellContext`\[Eta]$98129$$, 0], 
-        Hold[$CellContext`s0$$, $CellContext`s0$98130$$, 0], 
-        Hold[$CellContext`s1$$, $CellContext`s1$98131$$, 0], 
-        Hold[$CellContext`s2$$, $CellContext`s2$98132$$, 0], 
-        Hold[$CellContext`\[CapitalNu]j$$, $CellContext`\[CapitalNu]j$98133$$,
-          0]}, "OtherVariables" :> {
+        1, $CellContext`\[Eta]$$ = 1, $CellContext`\[CapitalNu]i$$ = 
+        5, $CellContext`\[CapitalNu]j$$ = 5}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Alpha]$$, $CellContext`\[Alpha]$415901$$, 0], 
+        Hold[$CellContext`\[Beta]$$, $CellContext`\[Beta]$415902$$, 0], 
+        Hold[$CellContext`\[Delta]$$, $CellContext`\[Delta]$415903$$, 0], 
+        Hold[$CellContext`\[Eta]$$, $CellContext`\[Eta]$415904$$, 0], 
+        Hold[$CellContext`s0$$, $CellContext`s0$415905$$, 0], 
+        Hold[$CellContext`s1$$, $CellContext`s1$415906$$, 0], 
+        Hold[$CellContext`s2$$, $CellContext`s2$415907$$, 0], 
+        Hold[$CellContext`\[CapitalNu]j$$, \
+$CellContext`\[CapitalNu]j$415908$$, 0], 
+        Hold[$CellContext`\[CapitalNu]i$$, \
+$CellContext`\[CapitalNu]i$415909$$, 0]}, 
+      "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
         Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
@@ -3167,60 +4144,114 @@ Cell[BoxData[
           Subscript[$CellContext`d, $CellContext`j] -> \
 $CellContext`\[Delta]$$, 
           Subscript[$CellContext`h, $CellContext`ij] -> \
-$CellContext`\[Eta]$$}; Plot[{
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
-           Subscript[$CellContext`\[Phi], 1] -> 1, 
-            Subscript[$CellContext`\[Phi], 2] -> 0}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
-           Subscript[$CellContext`\[Phi], 1] -> 1, 
-            Subscript[$CellContext`\[Phi], 2] -> 1}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
-           Subscript[$CellContext`\[Phi], 1] -> 0, 
-            Subscript[$CellContext`\[Phi], 2] -> 1}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
-           Subscript[$CellContext`\[Phi], 1] -> $CellContext`s0$$, 
-            Subscript[$CellContext`\[Phi], 2] -> 1}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
-           Subscript[$CellContext`\[Phi], 1] -> $CellContext`s1$$, 
-            Subscript[$CellContext`\[Phi], 2] -> 1}], 
-          ReplaceAll[
-           ReplaceAll[
-            ReplaceAll[$CellContext`X, $CellContext`subparms], 
-            Subscript[N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
-           Subscript[$CellContext`\[Phi], 1] -> $CellContext`s2$$, 
-            Subscript[$CellContext`\[Phi], 2] -> 1}]}, {
-          Subscript[N, $CellContext`i], 0, 10}, 
-         AxesLabel -> {
-          "\!\(\*SubscriptBox[\(N\), \(i\)]\)", 
-           "\!\(\*SubscriptBox[\(F\), \(i\)]\)"}, ImageSize -> 300, 
-         PlotLegends -> {
-          "H (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=1, \
+$CellContext`\[Eta]$$}; Grid[{{
+           Plot[{
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
+              Subscript[$CellContext`\[Phi], 1] -> 1, 
+               Subscript[$CellContext`\[Phi], 2] -> 0}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
+              Subscript[$CellContext`\[Phi], 1] -> 1, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
+              Subscript[$CellContext`\[Phi], 1] -> 0, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
+              Subscript[$CellContext`\[Phi], 1] -> $CellContext`s0$$, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
+              Subscript[$CellContext`\[Phi], 1] -> $CellContext`s1$$, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`j] -> $CellContext`\[CapitalNu]j$$], {
+              Subscript[$CellContext`\[Phi], 1] -> $CellContext`s2$$, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}]}, {
+             Subscript[N, $CellContext`i], 0, 10}, 
+            AxesLabel -> {
+             "\!\(\*SubscriptBox[\(N\), \(i\)]\)", 
+              "\!\(\*SubscriptBox[\(F\), \(i\)]\)"}, ImageSize -> 300, 
+            PlotLegends -> {
+             "H (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=1, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=0)", 
-           "BD (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=\!\(\*SubscriptBox[\(\
-\[Phi]\), \(n\)]\)=1)", 
-           "CM (\!\(\*SubscriptBox[\(\[Phi]\), \(1\)]\)=0, \
+              "BD (\!\(\*SubscriptBox[\(\[Phi]\), \
+\(d\)]\)=\!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)", 
+              "CM (\!\(\*SubscriptBox[\(\[Phi]\), \(1\)]\)=0, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)", 
-           "SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Neg, \
+              "SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Neg, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)", 
-           "SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Small, \
+              "SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Small, \
 \!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)", 
-           "SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Large, \
-\!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)"}]), 
+              "SN1 (\!\(\*SubscriptBox[\(\[Phi]\), \(d\)]\)=Large, \
+\!\(\*SubscriptBox[\(\[Phi]\), \(n\)]\)=1)"}], 
+           Plot[{
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`i] -> $CellContext`\[CapitalNu]i$$], {
+              Subscript[$CellContext`\[Phi], 1] -> 1, 
+               Subscript[$CellContext`\[Phi], 2] -> 0}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`i] -> $CellContext`\[CapitalNu]i$$], {
+              Subscript[$CellContext`\[Phi], 1] -> 1, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`i] -> $CellContext`\[CapitalNu]i$$], {
+              Subscript[$CellContext`\[Phi], 1] -> 0, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`i] -> $CellContext`\[CapitalNu]i$$], {
+              Subscript[$CellContext`\[Phi], 1] -> $CellContext`s0$$, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`i] -> $CellContext`\[CapitalNu]i$$], {
+              Subscript[$CellContext`\[Phi], 1] -> $CellContext`s1$$, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}], 
+             ReplaceAll[
+              ReplaceAll[
+               ReplaceAll[$CellContext`X, $CellContext`subparms], 
+               Subscript[
+                N, $CellContext`i] -> $CellContext`\[CapitalNu]i$$], {
+              Subscript[$CellContext`\[Phi], 1] -> $CellContext`s2$$, 
+               Subscript[$CellContext`\[Phi], 2] -> 1}]}, {
+             Subscript[N, $CellContext`j], 0, 10}, 
+            AxesLabel -> {
+             "\!\(\*SubscriptBox[\(N\), \(j\)]\)", 
+              "\!\(\*SubscriptBox[\(F\), \(i\)]\)"}, ImageSize -> 300]}}]), 
       "Specifications" :> {{{$CellContext`\[Alpha]$$, 1, "a"}, 0, 2, 
          Appearance -> "Labeled"}, {{$CellContext`\[Beta]$$, 1, "b"}, 0, 2, 
          Appearance -> "Labeled"}, {{$CellContext`\[Delta]$$, 1, "d"}, 0, 2, 
@@ -3232,9 +4263,11 @@ $CellContext`\[Eta]$$}; Plot[{
          "Labeled"}, {{$CellContext`s2$$, 1.15, "\[Phi]"}, 1, 2, Appearance -> 
          "Labeled"}, {{$CellContext`\[CapitalNu]j$$, 5, 
           "\!\(\*SubscriptBox[\(N\), \(j\)]\)"}, 0, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`\[CapitalNu]i$$, 5, 
+          "\!\(\*SubscriptBox[\(N\), \(i\)]\)"}, 0, 10, Appearance -> 
          "Labeled"}}, "Options" :> {ControlPlacement -> Left}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{988., {153., 160.}},
+     ImageSizeCache->{1374., {153., 161.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -3245,12 +4278,9 @@ $CellContext`\[Eta]$$}; Plot[{
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{
-  3.748883220613493*^9, {3.748883307591919*^9, 3.748883346224625*^9}, 
-   3.748883449739944*^9, {3.748883538052244*^9, 3.748883581006363*^9}, {
-   3.7488836125518007`*^9, 
-   3.748883638116494*^9}},ExpressionUUID->"45c61c8c-b29a-49a6-8b2e-\
-c5f3b57d5dfb"]
+ CellChangeTimes->{3.749410278217725*^9, 
+  3.749410329621817*^9},ExpressionUUID->"4ed309d3-f315-40e9-8ce5-\
+66d947b268a1"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -3897,8 +4927,8 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1272, 1364},
-WindowMargins->{{460, Automatic}, {Automatic, 0}},
+WindowSize->{1741, 1340},
+WindowMargins->{{Automatic, 359}, {Automatic, 0}},
 FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
 10, 2017)",
 StyleDefinitions->"Default.nb"
@@ -3920,7 +4950,7 @@ Cell[711, 25, 158, 3, 39, "Subsubtitle",ExpressionUUID->"e03a57c8-90cd-412c-96d1
 Cell[CellGroupData[{
 Cell[894, 32, 330, 8, 41, "Item",ExpressionUUID->"c0812275-a66d-4b60-9603-38e1215f9af1"],
 Cell[1227, 42, 379, 7, 40, "Item",ExpressionUUID->"44779658-21fd-41a9-82d8-bc1a5635b5f3"],
-Cell[1609, 51, 428, 8, 67, "Item",ExpressionUUID->"bd2b6c0e-522b-4008-9012-5555b735b414"]
+Cell[1609, 51, 428, 8, 40, "Item",ExpressionUUID->"bd2b6c0e-522b-4008-9012-5555b735b414"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -3956,148 +4986,152 @@ Cell[11972, 345, 221, 5, 37, "Input",ExpressionUUID->"2e2c2bf4-8228-4bf3-a0b5-5a
 Cell[12196, 352, 1173, 36, 61, "Output",ExpressionUUID->"6a68e587-765f-43c7-abc7-306dc549444d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13406, 393, 10566, 257, 1078, "Input",ExpressionUUID->"456a255e-7afe-4dd8-bbdd-688ea3a58e5b"],
-Cell[23975, 652, 8533, 158, 735, "Output",ExpressionUUID->"c5f5fe22-21f6-4a93-864e-1fe1f2f9f00a"]
+Cell[13406, 393, 14974, 363, 1442, "Input",ExpressionUUID->"456a255e-7afe-4dd8-bbdd-688ea3a58e5b"],
+Cell[28383, 758, 10601, 200, 992, "Output",ExpressionUUID->"d147cf04-e071-48d3-bad5-a5e1b934e7d8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[32545, 815, 7322, 187, 766, "Input",ExpressionUUID->"43ebd153-4d38-4285-ab2f-c0282cec0994"],
-Cell[39870, 1004, 6526, 120, 321, "Output",ExpressionUUID->"4ad829d6-9c4b-4a7d-94d0-0b4580384854"]
+Cell[39021, 963, 12819, 325, 1052, "Input",ExpressionUUID->"43ebd153-4d38-4285-ab2f-c0282cec0994"],
+Cell[51843, 1290, 9955, 182, 355, "Output",ExpressionUUID->"59b0d767-2210-4edc-a5b2-eb25856e5b0a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[61835, 1477, 12207, 308, 1026, "Input",ExpressionUUID->"5177b581-4bc2-4fe8-a9f9-e4f82d5763b5"],
+Cell[74045, 1787, 8818, 163, 335, "Output",ExpressionUUID->"0610a8a0-b211-41cf-86dd-38478d6ecab3"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[46457, 1131, 363, 8, 127, "Subchapter",ExpressionUUID->"ea344ec0-3c9c-4a33-b884-e8feadd22646"],
-Cell[46823, 1141, 4118, 106, 168, "Input",ExpressionUUID->"79d28aa9-aa52-4d9f-a732-2b4478ab160e"],
+Cell[82924, 1957, 363, 8, 127, "Subchapter",ExpressionUUID->"ea344ec0-3c9c-4a33-b884-e8feadd22646"],
+Cell[83290, 1967, 4118, 106, 168, "Input",ExpressionUUID->"79d28aa9-aa52-4d9f-a732-2b4478ab160e"],
 Cell[CellGroupData[{
-Cell[50966, 1251, 305, 8, 121, "Subsubsection",ExpressionUUID->"430fc41d-e24e-4ba7-984a-4c2b559cbaa1"],
+Cell[87433, 2077, 305, 8, 121, "Subsubsection",ExpressionUUID->"430fc41d-e24e-4ba7-984a-4c2b559cbaa1"],
 Cell[CellGroupData[{
-Cell[51296, 1263, 981, 25, 64, "Input",ExpressionUUID->"d58b2f18-ec5b-464d-9297-534e97530170"],
-Cell[52280, 1290, 448, 12, 62, "Output",ExpressionUUID->"d39021ce-06ab-44e3-8580-e3cd637a0b10"]
+Cell[87763, 2089, 981, 25, 64, "Input",ExpressionUUID->"d58b2f18-ec5b-464d-9297-534e97530170"],
+Cell[88747, 2116, 448, 12, 62, "Output",ExpressionUUID->"d39021ce-06ab-44e3-8580-e3cd637a0b10"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[52777, 1308, 266, 7, 121, "Subsubsection",ExpressionUUID->"6c9569d7-aca1-450e-a4a7-adac5ee2d984"],
+Cell[89244, 2134, 266, 7, 121, "Subsubsection",ExpressionUUID->"6c9569d7-aca1-450e-a4a7-adac5ee2d984"],
 Cell[CellGroupData[{
-Cell[53068, 1319, 1026, 25, 64, "Input",ExpressionUUID->"1524c50c-1eea-490b-a843-e62342ba6571"],
-Cell[54097, 1346, 624, 17, 62, "Output",ExpressionUUID->"51853366-5899-4710-87ad-a677ec31fa85"]
+Cell[89535, 2145, 1026, 25, 64, "Input",ExpressionUUID->"1524c50c-1eea-490b-a843-e62342ba6571"],
+Cell[90564, 2172, 624, 17, 62, "Output",ExpressionUUID->"51853366-5899-4710-87ad-a677ec31fa85"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[54770, 1369, 356, 7, 89, "Subsubsection",ExpressionUUID->"673163a5-0766-4b09-b10c-624c3e9edde6"],
+Cell[91237, 2195, 356, 7, 89, "Subsubsection",ExpressionUUID->"673163a5-0766-4b09-b10c-624c3e9edde6"],
 Cell[CellGroupData[{
-Cell[55151, 1380, 1569, 35, 116, "Input",ExpressionUUID->"fa768ea1-f2e0-4088-b5b5-8df37587b115"],
-Cell[56723, 1417, 2524, 73, 69, "Output",ExpressionUUID->"fecdbc71-5794-4032-983b-afb9a8f2e722"],
-Cell[59250, 1492, 1030, 26, 38, "Output",ExpressionUUID->"ffa7eb4f-fa50-4fa2-9a9d-fb23021aff7f"],
-Cell[60283, 1520, 1891, 51, 44, "Output",ExpressionUUID->"34d05220-064f-41f5-a3a7-2e9790e638d7"]
+Cell[91618, 2206, 1569, 35, 116, "Input",ExpressionUUID->"fa768ea1-f2e0-4088-b5b5-8df37587b115"],
+Cell[93190, 2243, 2524, 73, 69, "Output",ExpressionUUID->"fecdbc71-5794-4032-983b-afb9a8f2e722"],
+Cell[95717, 2318, 1030, 26, 38, "Output",ExpressionUUID->"ffa7eb4f-fa50-4fa2-9a9d-fb23021aff7f"],
+Cell[96750, 2346, 1891, 51, 44, "Output",ExpressionUUID->"34d05220-064f-41f5-a3a7-2e9790e638d7"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[62211, 1576, 1860, 43, 142, "Input",ExpressionUUID->"27e826fd-ae3c-4aac-b29f-9d7f0c7577bc"],
-Cell[64074, 1621, 2191, 62, 69, "Output",ExpressionUUID->"58020550-b565-432d-888b-bc81d525518a"],
-Cell[66268, 1685, 1666, 45, 42, "Output",ExpressionUUID->"7c423a1b-36cc-4101-9ad3-badaf8e88f0b"],
-Cell[67937, 1732, 1637, 44, 44, "Output",ExpressionUUID->"5c032e95-fbe7-4069-b4ea-bea4289c749c"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[69647, 1784, 217, 4, 86, "Chapter",ExpressionUUID->"dae067c3-da75-4948-835f-7f7c3d539a77"],
-Cell[CellGroupData[{
-Cell[69889, 1792, 409, 9, 127, "Subchapter",ExpressionUUID->"b469fd3d-697a-4a3b-84e3-fd3b84778030"],
-Cell[CellGroupData[{
-Cell[70323, 1805, 317, 5, 41, "Item",ExpressionUUID->"581da9ec-ac62-40c3-8641-1678d11ac5d8"],
-Cell[70643, 1812, 621, 15, 44, "Item",ExpressionUUID->"132ed639-61bd-4946-a111-478cb2a81c43"],
-Cell[71267, 1829, 2193, 42, 40, "Item",ExpressionUUID->"7cf05093-228d-4664-ad20-d8ddb450c115"]
-}, Open  ]],
-Cell[73475, 1874, 3076, 74, 121, "Input",ExpressionUUID->"6ccbde30-1b2b-413e-81c2-26b0d15d0b1c"],
-Cell[CellGroupData[{
-Cell[76576, 1952, 545, 11, 89, "Subsubsection",ExpressionUUID->"76206f77-cac5-43aa-8bc7-1bcb65d3163c"],
-Cell[CellGroupData[{
-Cell[77146, 1967, 735, 18, 64, "Input",ExpressionUUID->"1c1e5793-3f79-433a-98a0-5acbd2b25675"],
-Cell[77884, 1987, 792, 17, 65, "Output",ExpressionUUID->"124b399f-467c-4808-a2df-2af5de469f38"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[78725, 2010, 538, 10, 89, "Subsubsection",ExpressionUUID->"0e994950-84db-40dc-bf28-fc28bbed3a45"],
-Cell[CellGroupData[{
-Cell[79288, 2024, 633, 16, 64, "Input",ExpressionUUID->"711a580c-a67e-4529-a8a5-c6298e72e153"],
-Cell[79924, 2042, 756, 18, 65, "Output",ExpressionUUID->"324f0bd4-2db7-42b3-9a02-137187d5d9e0"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[80729, 2066, 812, 14, 121, "Subsubsection",ExpressionUUID->"51bdbb74-81a4-4a41-a3d3-67e7bd824203"],
-Cell[CellGroupData[{
-Cell[81566, 2084, 685, 17, 64, "Input",ExpressionUUID->"86b60348-ae53-4df3-a103-9acbe0aa048d"],
-Cell[82254, 2103, 934, 23, 67, "Output",ExpressionUUID->"50948a7d-6e08-43d0-97a4-43ea9d21a934"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[83237, 2132, 998, 16, 89, "Subsubsection",ExpressionUUID->"fab3738c-7667-45fc-8ec9-5379fd5366ee"],
-Cell[CellGroupData[{
-Cell[84260, 2152, 978, 22, 64, "Input",ExpressionUUID->"45d2eff6-2e2a-4da9-bfa0-c66359a848f5"],
-Cell[85241, 2176, 1238, 30, 80, "Output",ExpressionUUID->"2bf244c9-9fa6-4988-a067-4618187bf732"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[86528, 2212, 989, 16, 89, "Subsubsection",ExpressionUUID->"ad656515-b8bd-41aa-a44d-fc910db06e4b"],
-Cell[CellGroupData[{
-Cell[87542, 2232, 1028, 23, 64, "Input",ExpressionUUID->"8c29a0a0-7544-41e6-b51c-e4bd2eb4f771"],
-Cell[88573, 2257, 1451, 36, 84, "Output",ExpressionUUID->"6f0909e7-ff54-4f78-be7d-05514e371c90"]
-}, Open  ]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[90073, 2299, 831, 14, 89, "Subsubsection",ExpressionUUID->"12342cd2-9169-49e3-ac15-dbfb5fcb2d8d"],
-Cell[CellGroupData[{
-Cell[90929, 2317, 272, 6, 37, "Input",ExpressionUUID->"855c26fc-acee-4159-99c0-2c6cbb86ea0c"],
-Cell[91204, 2325, 1085, 33, 84, "Output",ExpressionUUID->"f7a27da6-ebc5-4196-ada7-444c220441db"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[92326, 2363, 14455, 343, 1262, "Input",ExpressionUUID->"69f9098c-5f7b-49c6-82e8-619cfdb073ba"],
-Cell[106784, 2708, 10359, 194, 740, "Output",ExpressionUUID->"3573c99a-046f-42c8-a5db-ef2e913971eb"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[117180, 2907, 8361, 209, 827, "Input",ExpressionUUID->"0784b1d5-6224-4f52-a785-1b4f92e422b5"],
-Cell[125544, 3118, 7183, 134, 336, "Output",ExpressionUUID->"45c61c8c-b29a-49a6-8b2e-c5f3b57d5dfb"]
+Cell[98678, 2402, 1860, 43, 142, "Input",ExpressionUUID->"27e826fd-ae3c-4aac-b29f-9d7f0c7577bc"],
+Cell[100541, 2447, 2191, 62, 69, "Output",ExpressionUUID->"58020550-b565-432d-888b-bc81d525518a"],
+Cell[102735, 2511, 1666, 45, 42, "Output",ExpressionUUID->"7c423a1b-36cc-4101-9ad3-badaf8e88f0b"],
+Cell[104404, 2558, 1637, 44, 44, "Output",ExpressionUUID->"5c032e95-fbe7-4069-b4ea-bea4289c749c"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[132800, 3260, 200, 3, 86, "Chapter",ExpressionUUID->"e08a4984-7954-4c0c-a112-888ff0ba1cb4"],
+Cell[106114, 2610, 217, 4, 86, "Chapter",ExpressionUUID->"dae067c3-da75-4948-835f-7f7c3d539a77"],
 Cell[CellGroupData[{
-Cell[133025, 3267, 465, 9, 127, "Subchapter",ExpressionUUID->"0b32a304-8a7c-4de9-8cd3-8e69cf18d020"],
+Cell[106356, 2618, 409, 9, 127, "Subchapter",ExpressionUUID->"b469fd3d-697a-4a3b-84e3-fd3b84778030"],
 Cell[CellGroupData[{
-Cell[133515, 3280, 299, 4, 40, "Item",ExpressionUUID->"12ce431e-93ea-465f-b013-1c081d060ea8"],
-Cell[133817, 3286, 267, 4, 40, "Item",ExpressionUUID->"49c7d369-0fa2-4e4a-9dc7-ee10be6c096b"],
-Cell[134087, 3292, 230, 4, 40, "Item",ExpressionUUID->"d35a894a-134c-4ed6-b8eb-db41fd9b10da"],
-Cell[134320, 3298, 248, 4, 40, "Item",ExpressionUUID->"03ec809a-72de-4fd4-8da7-50b560ec9579"]
+Cell[106790, 2631, 317, 5, 41, "Item",ExpressionUUID->"581da9ec-ac62-40c3-8641-1678d11ac5d8"],
+Cell[107110, 2638, 621, 15, 44, "Item",ExpressionUUID->"132ed639-61bd-4946-a111-478cb2a81c43"],
+Cell[107734, 2655, 2193, 42, 40, "Item",ExpressionUUID->"7cf05093-228d-4664-ad20-d8ddb450c115"]
 }, Open  ]],
-Cell[134583, 3305, 5942, 152, 220, "Input",ExpressionUUID->"396b93c8-cb96-4261-83cd-36dbb5387e3c"],
+Cell[109942, 2700, 3076, 74, 121, "Input",ExpressionUUID->"6ccbde30-1b2b-413e-81c2-26b0d15d0b1c"],
 Cell[CellGroupData[{
-Cell[140550, 3461, 419, 8, 56, "Subsubsection",ExpressionUUID->"66a9127c-4ea2-420c-9fe7-35369f3b5ed2"],
+Cell[113043, 2778, 545, 11, 89, "Subsubsection",ExpressionUUID->"76206f77-cac5-43aa-8bc7-1bcb65d3163c"],
 Cell[CellGroupData[{
-Cell[140994, 3473, 765, 18, 64, "Input",ExpressionUUID->"b82ace92-c9fc-46c7-a94c-04ed1e90f86c"],
-Cell[141762, 3493, 1752, 52, 64, "Output",ExpressionUUID->"27a33944-f785-4d8c-9652-c7a2ce48d08a"]
+Cell[113613, 2793, 735, 18, 64, "Input",ExpressionUUID->"1c1e5793-3f79-433a-98a0-5acbd2b25675"],
+Cell[114351, 2813, 792, 17, 65, "Output",ExpressionUUID->"124b399f-467c-4808-a2df-2af5de469f38"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[143563, 3551, 359, 6, 56, "Subsubsection",ExpressionUUID->"3f3fe6a0-c692-4a09-a4dd-a5edf00b302e"],
+Cell[115192, 2836, 538, 10, 89, "Subsubsection",ExpressionUUID->"0e994950-84db-40dc-bf28-fc28bbed3a45"],
 Cell[CellGroupData[{
-Cell[143947, 3561, 815, 19, 64, "Input",ExpressionUUID->"aaf7fdb5-993b-4e47-8834-e4bd309131fc"],
-Cell[144765, 3582, 794, 22, 63, "Output",ExpressionUUID->"cf1777ff-6078-42fd-9318-726b4463641e"]
+Cell[115755, 2850, 633, 16, 64, "Input",ExpressionUUID->"711a580c-a67e-4529-a8a5-c6298e72e153"],
+Cell[116391, 2868, 756, 18, 65, "Output",ExpressionUUID->"324f0bd4-2db7-42b3-9a02-137187d5d9e0"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[145608, 3610, 400, 7, 56, "Subsubsection",ExpressionUUID->"ce79d619-9f76-49e3-a2fd-628c1b10b9a4"],
+Cell[117196, 2892, 812, 14, 89, "Subsubsection",ExpressionUUID->"51bdbb74-81a4-4a41-a3d3-67e7bd824203"],
 Cell[CellGroupData[{
-Cell[146033, 3621, 1108, 24, 64, "Input",ExpressionUUID->"7532439e-edd0-494c-bc60-42c6f460a8d2"],
-Cell[147144, 3647, 3169, 87, 69, "Output",ExpressionUUID->"d1ee3e59-95e4-4955-8a53-a1f5fe467e98"]
+Cell[118033, 2910, 685, 17, 64, "Input",ExpressionUUID->"86b60348-ae53-4df3-a103-9acbe0aa048d"],
+Cell[118721, 2929, 934, 23, 67, "Output",ExpressionUUID->"50948a7d-6e08-43d0-97a4-43ea9d21a934"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[150362, 3740, 381, 6, 56, "Subsubsection",ExpressionUUID->"8c3f1981-d6ec-44c1-b1b6-608794eaf824"],
+Cell[119704, 2958, 998, 16, 89, "Subsubsection",ExpressionUUID->"fab3738c-7667-45fc-8ec9-5379fd5366ee"],
 Cell[CellGroupData[{
-Cell[150768, 3750, 851, 14, 37, "Input",ExpressionUUID->"71be03d5-4c4a-4839-9375-d706d9e36cb9"],
-Cell[151622, 3766, 4688, 127, 93, "Output",ExpressionUUID->"5346bcdb-fc08-49ea-9522-93bae6c60bed"]
+Cell[120727, 2978, 978, 22, 64, "Input",ExpressionUUID->"45d2eff6-2e2a-4da9-bfa0-c66359a848f5"],
+Cell[121708, 3002, 1238, 30, 66, "Output",ExpressionUUID->"2bf244c9-9fa6-4988-a067-4618187bf732"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[122995, 3038, 989, 16, 89, "Subsubsection",ExpressionUUID->"ad656515-b8bd-41aa-a44d-fc910db06e4b"],
+Cell[CellGroupData[{
+Cell[124009, 3058, 1028, 23, 64, "Input",ExpressionUUID->"8c29a0a0-7544-41e6-b51c-e4bd2eb4f771"],
+Cell[125040, 3083, 1451, 36, 70, "Output",ExpressionUUID->"6f0909e7-ff54-4f78-be7d-05514e371c90"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[126540, 3125, 831, 14, 89, "Subsubsection",ExpressionUUID->"12342cd2-9169-49e3-ac15-dbfb5fcb2d8d"],
+Cell[CellGroupData[{
+Cell[127396, 3143, 272, 6, 37, "Input",ExpressionUUID->"855c26fc-acee-4159-99c0-2c6cbb86ea0c"],
+Cell[127671, 3151, 1085, 33, 70, "Output",ExpressionUUID->"f7a27da6-ebc5-4196-ada7-444c220441db"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[128793, 3189, 14452, 343, 1262, "Input",ExpressionUUID->"69f9098c-5f7b-49c6-82e8-619cfdb073ba"],
+Cell[143248, 3534, 10359, 194, 740, "Output",ExpressionUUID->"3573c99a-046f-42c8-a5db-ef2e913971eb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[153644, 3733, 14204, 353, 1203, "Input",ExpressionUUID->"0784b1d5-6224-4f52-a785-1b4f92e422b5"],
+Cell[167851, 4088, 10022, 194, 337, "Output",ExpressionUUID->"4ed309d3-f315-40e9-8ce5-66d947b268a1"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[177946, 4290, 200, 3, 86, "Chapter",ExpressionUUID->"e08a4984-7954-4c0c-a112-888ff0ba1cb4"],
+Cell[CellGroupData[{
+Cell[178171, 4297, 465, 9, 127, "Subchapter",ExpressionUUID->"0b32a304-8a7c-4de9-8cd3-8e69cf18d020"],
+Cell[CellGroupData[{
+Cell[178661, 4310, 299, 4, 40, "Item",ExpressionUUID->"12ce431e-93ea-465f-b013-1c081d060ea8"],
+Cell[178963, 4316, 267, 4, 40, "Item",ExpressionUUID->"49c7d369-0fa2-4e4a-9dc7-ee10be6c096b"],
+Cell[179233, 4322, 230, 4, 40, "Item",ExpressionUUID->"d35a894a-134c-4ed6-b8eb-db41fd9b10da"],
+Cell[179466, 4328, 248, 4, 40, "Item",ExpressionUUID->"03ec809a-72de-4fd4-8da7-50b560ec9579"]
+}, Open  ]],
+Cell[179729, 4335, 5942, 152, 220, "Input",ExpressionUUID->"396b93c8-cb96-4261-83cd-36dbb5387e3c"],
+Cell[CellGroupData[{
+Cell[185696, 4491, 419, 8, 56, "Subsubsection",ExpressionUUID->"66a9127c-4ea2-420c-9fe7-35369f3b5ed2"],
+Cell[CellGroupData[{
+Cell[186140, 4503, 765, 18, 64, "Input",ExpressionUUID->"b82ace92-c9fc-46c7-a94c-04ed1e90f86c"],
+Cell[186908, 4523, 1752, 52, 64, "Output",ExpressionUUID->"27a33944-f785-4d8c-9652-c7a2ce48d08a"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[188709, 4581, 359, 6, 56, "Subsubsection",ExpressionUUID->"3f3fe6a0-c692-4a09-a4dd-a5edf00b302e"],
+Cell[CellGroupData[{
+Cell[189093, 4591, 815, 19, 64, "Input",ExpressionUUID->"aaf7fdb5-993b-4e47-8834-e4bd309131fc"],
+Cell[189911, 4612, 794, 22, 63, "Output",ExpressionUUID->"cf1777ff-6078-42fd-9318-726b4463641e"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[190754, 4640, 400, 7, 56, "Subsubsection",ExpressionUUID->"ce79d619-9f76-49e3-a2fd-628c1b10b9a4"],
+Cell[CellGroupData[{
+Cell[191179, 4651, 1108, 24, 64, "Input",ExpressionUUID->"7532439e-edd0-494c-bc60-42c6f460a8d2"],
+Cell[192290, 4677, 3169, 87, 44, "Output",ExpressionUUID->"d1ee3e59-95e4-4955-8a53-a1f5fe467e98"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[195508, 4770, 381, 6, 56, "Subsubsection",ExpressionUUID->"8c3f1981-d6ec-44c1-b1b6-608794eaf824"],
+Cell[CellGroupData[{
+Cell[195914, 4780, 851, 14, 37, "Input",ExpressionUUID->"71be03d5-4c4a-4839-9375-d706d9e36cb9"],
+Cell[196768, 4796, 4688, 127, 69, "Output",ExpressionUUID->"5346bcdb-fc08-49ea-9522-93bae6c60bed"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
