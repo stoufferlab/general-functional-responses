@@ -31,8 +31,8 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # create a container for the things that get fit
 ffr.fits <- list()
 
-# DEBUG: for testing only
-datasets <- c("./Dataset_Code/Chant_1966.R")
+# # DEBUG: for testing only
+# datasets <- c("./Dataset_Code/Chant_1966.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -70,7 +70,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 250
+			boot.reps <- 10
 		}else{
 			boot.reps <- 1
 		}
@@ -110,14 +110,14 @@ for(i in 1:length(datasets)){
     				ffr.ag <- fit.ratio.like(d, this.study, "Arditi-Ginzburg")
     				ffr.hv <- fit.ratio.like(d, this.study, "Hassell-Varley")
     				ffr.aa <- fit.ratio.like(d, this.study, "Arditi-Akcakaya")
-  	    		# if(okay4AAmethod(d)){ ffr.aam <- AAmethod(d,this.study$replacement)}
+  	    			# if(okay4AAmethod(d)){ ffr.aam <- AAmethod(d,this.study$replacement)}
   				}
 	    	})
 	    	
 	    	if(!inherits(success, "try-error")){
 		    	if(b == 1){
 		    		# creates containers for parameter estimates using first rep as a template
-		    		boots.HT.I <- boots.HT.II <- boots.BD <- boots.CM <- boots.SN.I <- array(NA, c(1,1))
+		    		boots.HT.I <- boots.HT.II <- boots.BD <- boots.CM <- boots.SN.I <- array(NA, c(1,1,boot.reps))
 		    		if(grepl("H", this.study$runswith)){
 	  					boots.HT.I <- make.array(ffr.hollingI, boot.reps)
 	  					boots.HT.II <- make.array(ffr.hollingII, boot.reps)
@@ -126,18 +126,18 @@ for(i in 1:length(datasets)){
 	  					boots.SN.I <- make.array(ffr.sn1, boot.reps)
 	  				}
   					
-  					boots.R <- boots.AG <- boots.HV <- boots.AA <- boots.AAm <- array(NA,c(1,1))
+  					boots.R <- boots.AG <- boots.HV <- boots.AA <- boots.AAm <- array(NA,c(1,1,boot.reps))
     				if(grepl("R", this.study$runswith)){
       					boots.R <- make.array(ffr.ratio, boot.reps)
       					boots.AG <- make.array(ffr.ag, boot.reps)
       					boots.HV <- make.array(ffr.hv, boot.reps)
       					boots.AA <- make.array(ffr.aa, boot.reps)
-      					boots.AAm <- make.array(ffr.aam, boot.reps)  
+      					# boots.AAm <- make.array(ffr.aam, boot.reps)  
     				}
 		      	}
 
 		    	# add the parameters for this rep to the array of fits
-		    	boots.HT.I[,,b] <- boots.HT.II[,,b] <- boots.BD[,,b] <- boots.CM[,,b] <- boots.SN.I[,,b] <- NA
+		    	boots.HT.I[,,b] <- boots.HT.II[,,b] <- boots.BD[,,b] <- boots.CM[,,b] <- boots.SN.I[,,b] <- NA #array(NA, c(1,1))
 				if(grepl("H", this.study$runswith)){
 					boots.HT.I[,,b] <- mytidy(ffr.hollingI)
 					boots.HT.II[,,b] <- mytidy(ffr.hollingII)
@@ -148,7 +148,7 @@ for(i in 1:length(datasets)){
 					# boots.SN.III[,,b] <- mytidy(ffr.sn3)
 				}
 				
-				boots.R[,,b] <- boots.AG[,,b] <- boots.HV[,,b] <- boots.AA[,,b] <- boots.AAm[,,b] <- NA
+				boots.R[,,b] <- boots.AG[,,b] <- boots.HV[,,b] <- boots.AA[,,b] <- boots.AAm[,,b] <- NA #array(NA, c(1,1))
 				if(grepl("R", this.study$runswith)){
 	  				boots.R[,,b] <- mytidy(ffr.ratio)
 	  				boots.AG[,,b] <- mytidy(ffr.ag)
@@ -234,8 +234,8 @@ for(i in 1:length(datasets)){
 			    Ratio = R.ests,
 			    Arditi.Ginzburg = AG.ests,
 			    Hassell.Varley = HV.ests,
-			    Arditi.Akcakaya = AA.ests,
-			    Arditi.Akcakaya.Method.2 = AAm.ests
+			    Arditi.Akcakaya = AA.ests
+			    # Arditi.Akcakaya.Method.2 = AAm.ests
 			)
 		)
 	# })
