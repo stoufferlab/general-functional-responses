@@ -183,7 +183,6 @@ plot.AAmethod<-function(AAmethod.out){
 #                    ")
 # 
 # # edwards_1961_Trichogramma-Sitotroga_2
-# # we get a high 'm' estimate for it (~1.768)
 # Edwards <- read.table(header=TRUE, text="
 #                       Npredator	Nprey	Nconsumed
 #                       1	18	1
@@ -205,22 +204,22 @@ plot.AAmethod<-function(AAmethod.out){
 #                       60	200	30
 #                       ")
 # # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# dat <- Katz # Should be bootstrapped, but just do one draw for test
-# dat$Nconsumed<-rbinom(nrow(dat),size=dat$Nprey,prob=dat$Nconsumed/dat$Nprey) 
+# dat <- Katz
+# # Note: Should be bootstrapped, but just do one draw for test
+# dat$Nconsumed<-rbinom(nrow(dat),size=dat$Nprey,prob=dat$Nconsumed/dat$Nprey)
 # 
 # okay4AAmethod(dat)
-# katz.out <- AAmethod(dat,'integrated')
+# katz.out <- AAmethod(dat, replacement=FALSE)
 # plot.AAmethod(katz.out)
 # 
 # # ~~~~~~~~~~~~~
 # dat <- Edwards
-# 
 # okay4AAmethod(dat)
-# edwards.out <- AAmethod(dat,'integrated')
+# edwards.out <- AAmethod(dat, replacement=FALSE)
 # plot.AAmethod(edwards.out)
-# 
-# ###################################################################
-# ###################################################################
-# ###################################################################
-# 
-# 
+
+###################################################################
+###################################################################
+###################################################################
+
+

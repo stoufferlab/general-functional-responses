@@ -10,8 +10,8 @@ dropboxdir <- switch(
 # a few utility functions
 source('../lib/study_info.R')
 source('../lib/bootstrap_data.R')
-source('../lib/AA_method.R')
 source('../lib/mytidySumm.R')
+source('../lib/AA_method.R')
 source('../lib/holling_method_one_predator_one_prey.R')
 source('../lib/ratio_method_one_predator_one_prey.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -32,7 +32,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 ffr.fits <- list()
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/Chant_1966.R")
+datasets <- c("./Dataset_Code/Katz_1985.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -62,7 +62,8 @@ for(i in 1:length(datasets)){
 	#############################################	 
 
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
-	if(!grepl("H|R", this.study$runswith)){ 
+	if(!grepl("RM", this.study$runswith)){ 
+	# if(!grepl("H|R", this.study$runswith)){ 
 		message(paste0("No to ",datasets[i]))
 	}else{
 		# print out which dataset is being analyzed
@@ -97,7 +98,7 @@ for(i in 1:length(datasets)){
 	    	success <- try({
 	    		ffr.hollingI <- ffr.hollingII <- ffr.bd <- ffr.cm <- ffr.sn1 <- array(NA,c(1,1))
 	    		if(grepl("H", this.study$runswith)){
-	  	    		ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
+	  	    	ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
 	  				ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
 	  				ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
 	  				ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
@@ -110,7 +111,7 @@ for(i in 1:length(datasets)){
     				ffr.ag <- fit.ratio.like(d, this.study, "Arditi-Ginzburg")
     				ffr.hv <- fit.ratio.like(d, this.study, "Hassell-Varley")
     				ffr.aa <- fit.ratio.like(d, this.study, "Arditi-Akcakaya")
-  	    			# if(okay4AAmethod(d)){ ffr.aam <- AAmethod(d,this.study$replacement)}
+  	    			if(okay4AAmethod(d)){ ffr.aam <- AAmethod(d,this.study$replacement)}
   				}
 	    	})
 	    	
@@ -132,7 +133,7 @@ for(i in 1:length(datasets)){
       					boots.AG <- make.array(ffr.ag, boot.reps)
       					boots.HV <- make.array(ffr.hv, boot.reps)
       					boots.AA <- make.array(ffr.aa, boot.reps)
-      					# boots.AAm <- make.array(ffr.aam, boot.reps)  
+      					boots.AAm <- make.array(ffr.aam$estimates, boot.reps)
     				}
 		      	}
 
@@ -154,7 +155,7 @@ for(i in 1:length(datasets)){
 	  				boots.AG[,,b] <- mytidy(ffr.ag)
 	  				boots.HV[,,b] <- mytidy(ffr.hv)
 	  				boots.AA[,,b] <- mytidy(ffr.aa)
-	  				# if(okay4AAmethod(d)){ boots.AAm[,,b] <- fit.aam$estimates  }
+	  				if(okay4AAmethod(d)){ boots.AAm[,,b] <- fit.aam$estimates  }
 				}
 
 				# update the progress bar
