@@ -9,7 +9,7 @@ library(bbmle)
 library(nloptr)
 
 # predicted number of species consumed given parameters of a holling-like functional response
-holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, replacement, Pminus1=c(TRUE,FALSE)){
+holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, replacement, Pminus1=c(TRUE,FALSE), overrideTranscendental=FALSE){
 	# replacement <- match.arg(replacement)
 
 	# if only P-1 individuals interference with predators that are doing the feeding
@@ -38,7 +38,8 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, rep
 			N <- N0 - (Q / (a * heff)) * lamW::lambertW0(((a * heff * N0)/ Q) * exp(- (a / Q) * (X * P * T - heff * N0)))
 			
 			# sometimes the argument in the exponential passed to lambertW0 causes it to blow up
-			if(any(is.infinite(N))){
+			if(!overrideTranscendental){
+			  if(any(is.infinite(N))){
 				# the explicit result of the analytical integration without solving for N implictly
 				ffff <- function(N, N0, P, T, a, heff, Q, X){
 					dN <- Q * log((N0 - N)/N0) - a * heff * N
@@ -57,6 +58,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, rep
 						N[i] <- nn$root
 					}
 				}
+			  }
 			}
 		}
 		return(N)
