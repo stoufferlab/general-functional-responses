@@ -1,9 +1,12 @@
-# Implement 'Method II' of Arditi & Akcakaya 1990.
-# The method fits a type II functional response to each predator level assuming a common handling time (i.e. it estimates an attack rate for each level), then regresses the log-transformed attack rates on log-transformed predator levels to estimate 'm', weighting each predator level by the inverse of its attack rate's uncertainty (variance).
+#######################################################################
+# Implementation of 'Method II' of Arditi & Akcakaya 1990.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# The method fits a type II functional response to each predator level assuming a common handling time (i.e. it estimates an attack rate for each level), then regresses the log-transformed attack rates on log-transformed predator levels to estimate 'm', weighting each predator level by the inverse of its attack rate estimate's uncertainty (variance).
 #######################################################################
 require(lamW)
 require(bbmle)
 require(nloptr)
+source('../lib/holling_method_one_predator_one_prey.R') # to fit Holling Type 2
 #######################################################################
 # ~~~~~~~~~~~~~~~~
 # Helper functions
@@ -17,39 +20,19 @@ okay4AAmethod<-function(d,minNlevels=3,minPlevels=3){
   else(return(FALSE))
 }
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Holling Type II functional response
-# (Simplified from other likelihood scripts)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Predicted number of prey consumed
-holling2 = function(N0, a, h, P, T, replacement){
-  
-  if(!replacement){
-    Neaten <- N0 - (1 / (a * h)) * lamW::lambertW0( (a * h * N0) * exp(-a * (P *T - h * N0)))
-  }
-  
-  if(replacement){
-    numer <- (a * N0)
-    denom <- (1 + a * h * N0)
-    Neaten <- (numer / denom) * P * T
-  }
-  
-  return(Neaten)
-}
-
-# ~~~~~~~~~~~~~~~~~~~~~~~
-# Negative log likelihood
-# ~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Negative log likelihood for AAMethod2
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 AAM.NLL = function(
   params,
   initial,
   killed,
   predators,
-  replacement,
-  time=NULL
+  time,
+  replacement
 ){
   
-  # assuming P-specific attack rates first and handling time last...
+  # P-specific attack rates first and overall handling time last...
   attack <- params[-length(params)]
   handling <- params[length(params)]
   
@@ -66,10 +49,12 @@ AAM.NLL = function(
     time <- 1
   }
   
-  # expected number consumed given data and parameters
-  Nconsumed <- holling2(N0=initial, a=attack, h=handling, P=predators, T=time, replacement=replacement)
+  # Expected number consumed given data and parameters
+  # The method assumes Holling Type II functional response at each predator abundance level
+  # Use holling.like.1pred.1prey() and reduce to Holling type 2
+  Nconsumed <- holling.like.1pred.1prey(N0=initial, a=attack, h=handling, c=0, phi_numer=1, phi_denom=1, P=predators, T=time, replacement=replacement, Pminus1=FALSE, overrideTranscendental=TRUE)
   
-  # DEBUG if the parameters are not biologically plausible, neither should be the likelihood
+  # If the parameters are not biologically plausible, neither should be the likelihood
   if(any(Nconsumed < 0 | is.nan(Nconsumed))){
     return(Inf)
   }
@@ -94,19 +79,33 @@ AAM.NLL = function(
 AAmethod<-function(d,replacement){
     
   nP <- length(unique(d$Npredator))
+  xa0 <- log(coef(lm(d$Nconsumed ~ I(d$Nprey*d$Npredator)))[2])
+  xh0 <- log(1/quantile(d$Nconsumed,0.9))
   
-  fit.AAM.nloptr <- nloptr::nloptr(
-    x0=c(runif(nP),log(1)), # random starting values
-    eval_f=AAM.NLL,
-    opts=list(print_level=0, algorithm='NLOPT_LN_SBPLX', maxeval=1E5),
+  fit.AAM.sbplx <- nloptr::sbplx(
+    x0=c(rep(xa0,nP),xh0),
+    fn=AAM.NLL,
     initial=d$Nprey,
     killed=d$Nconsumed,
     predators=d$Npredator,
-    time=NULL,
+    time=d$Time,
     replacement=replacement
   )
   
-  AAM.start<-fit.AAM.nloptr$solution
+  if(!is.null(fit.AAM.sbplx$message)){
+     fit.AAM.sbplx <- nloptr::sbplx(
+      x0=c(rnorm(nP,xa0,0.05),xh0), # add noise starting values
+      fn=AAM.NLL,
+      initial=d$Nprey,
+      killed=d$Nconsumed,
+      predators=d$Npredator,
+      time=d$Time,
+      replacement=replacement,
+      control=list(maxeval=2000, xtol_rel=1e-8)
+    )
+  }
+  
+  AAM.start<-fit.AAM.sbplx$par
   names(AAM.start) <- parnames(AAM.NLL) <- c(paste0('a',1:nP),'h')
   
   # Refit with mle with nloptr starting estimates 
@@ -114,7 +113,8 @@ AAmethod<-function(d,replacement){
   fit.AAM.mle <- bbmle::mle2(
     AAM.NLL,
     start=AAM.start,
-    data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, replacement=replacement)
+    data=list(initial=d$Nprey, killed=d$Nconsumed, predators=d$Npredator, time=d$Time, replacement=replacement),
+    vecpar=TRUE
   )
   
   # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,13 +124,29 @@ AAmethod<-function(d,replacement){
   ests <- coef(summary(fit.AAM.mle))
   ests.a <- ests[1:nP,1]
   Ps <- unique(attributes(fit.AAM.mle)$data$predators) # grab from fit to ensure Ps are in order corresponding to ests
-  w <- 1/diag(vcov(fit.AAM.mle))[1:nP]   # Regn weights
+  
+  # Determine weights for each estimate
+  w <- 1/diag(vcov(fit.AAM.mle))[1:nP]
+  
+  # In some cases the variance of the estimates cannot be estimated (resulting either in 0 or NA for the std. error)
+  # For these estimates, set weights equal (if none of the SEs can be estimates) or 
+  # use the weights of the estimates with the largest variance (lowest weight)
+  dg <- diag(vcov(fit.AAM.mle))[1:nP]
+  if(all(dg<0 | is.na(dg))){
+    dg<-rep(1,length(dg))
+    w <- 1/dg
+  }
+  if(any(dg<0 | is.na(dg))){
+    dg[dg<=0|is.na(dg)] <-  max(dg[dg>0|!is.na(dg)],na.rm=T)
+    w <- 1/dg
+  }
 
-  # Estimates are already log-transformed by likelihood function
+  
+  # est.a estimates are already log-transformed by likelihood function
   fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w)
   ests.m <- coef(summary(fit.AAM.lm))
-    rownames(ests.m) <- c('a0','m')
-  
+  rownames(ests.m) <- c('a0','m')
+
   # Combine estimates into a single output
   out.ests <- rbind(ests,ests.m)
   colnames(out.ests) <- c('estimate','std.error','statistic','p.value') # for consistency with other nLL fitting output
@@ -203,21 +219,38 @@ plot.AAmethod<-function(AAmethod.out){
 #                       60	128	14
 #                       60	200	30
 #                       ")
-# # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# 
+# 
+# dropboxdir <- switch(
+#   Sys.getenv("LOGNAME"),
+#   stouffer = '../../../dropbox_data/Data',
+#   marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
+# )
+# source("./Dataset_Code/Elliot_2005_Instar5.R")
+# Elliot<-d
+
+# # # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # dat <- Katz
+# dat$Time<-1
 # # Note: Should be bootstrapped, but just do one draw for test
 # dat$Nconsumed<-rbinom(nrow(dat),size=dat$Nprey,prob=dat$Nconsumed/dat$Nprey)
-# 
 # okay4AAmethod(dat)
 # katz.out <- AAmethod(dat, replacement=FALSE)
 # plot.AAmethod(katz.out)
 # 
-# # ~~~~~~~~~~~~~
+# #  ~~~~~~~~~~~~~
+# 
 # dat <- Edwards
 # okay4AAmethod(dat)
 # edwards.out <- AAmethod(dat, replacement=FALSE)
 # plot.AAmethod(edwards.out)
 
+# #  ~~~~~~~~~~~~~
+
+# dat <- Elliot
+# okay4AAmethod(dat)
+# elliot.out <- AAmethod(dat, replacement=TRUE)
+# plot.AAmethod(elliot.out)
 ###################################################################
 ###################################################################
 ###################################################################

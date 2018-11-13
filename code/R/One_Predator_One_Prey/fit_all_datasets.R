@@ -28,11 +28,14 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
+# # DEBUG: for testing only
+# datasets <- c("./Dataset_Code/Katz_1985.R")
+# datasets <- c("./Dataset_Code/Blowes_2017_Cb.R")
+# datasets <- c("./Dataset_Code/Edwards_1961_Trichogramma-Sitotroga_2.R")
+# datasets <- c('./Dataset_Code/Jones_1986_Exp4.1n2.R')
+
 # create a container for the things that get fit
 ffr.fits <- list()
-
-# # DEBUG: for testing only
-datasets <- c("./Dataset_Code/Katz_1985.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -62,7 +65,7 @@ for(i in 1:length(datasets)){
 	#############################################	 
 
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
-	if(!grepl("RM", this.study$runswith)){ 
+	if(!grepl("R", this.study$runswith)){ 
 	# if(!grepl("H|R", this.study$runswith)){ 
 		message(paste0("No to ",datasets[i]))
 	}else{
@@ -71,7 +74,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 250
+			boot.reps <- 3 # 250
 		}else{
 			boot.reps <- 1
 		}
@@ -111,7 +114,9 @@ for(i in 1:length(datasets)){
     				ffr.ag <- fit.ratio.like(d, this.study, "Arditi-Ginzburg")
     				ffr.hv <- fit.ratio.like(d, this.study, "Hassell-Varley")
     				ffr.aa <- fit.ratio.like(d, this.study, "Arditi-Akcakaya")
-  	    			if(okay4AAmethod(d)){ ffr.aam <- AAmethod(d,this.study$replacement)}
+  	    		if(okay4AAmethod(d)){
+  	    		   ffr.aam <- AAmethod(d,this.study$replacement)
+  	    		}
   				}
 	    	})
 	    	
@@ -133,7 +138,9 @@ for(i in 1:length(datasets)){
       					boots.AG <- make.array(ffr.ag, boot.reps)
       					boots.HV <- make.array(ffr.hv, boot.reps)
       					boots.AA <- make.array(ffr.aa, boot.reps)
-      					boots.AAm <- make.array(ffr.aam$estimates, boot.reps)
+      					if(okay4AAmethod(d)){
+      					  boots.AAm <- make.array(ffr.aam$estimates, boot.reps)
+    					  }
     				}
 		      	}
 
@@ -155,7 +162,9 @@ for(i in 1:length(datasets)){
 	  				boots.AG[,,b] <- mytidy(ffr.ag)
 	  				boots.HV[,,b] <- mytidy(ffr.hv)
 	  				boots.AA[,,b] <- mytidy(ffr.aa)
-	  				if(okay4AAmethod(d)){ boots.AAm[,,b] <- fit.aam$estimates  }
+	  				if(okay4AAmethod(d)){ 
+	  				    boots.AAm[,,b] <- ffr.aam$estimate
+	  				}
 				}
 
 				# update the progress bar
@@ -184,9 +193,9 @@ for(i in 1:length(datasets)){
 	  		AG.ests <- as.array(apply(boots.AG,c(1,2), summarize.boots))
 	  		HV.ests <- as.array(apply(boots.HV,c(1,2), summarize.boots))
 	  		AA.ests <- as.array(apply(boots.AA,c(1,2), summarize.boots))
-	    		# if(okay4AAmethod(d)){
-    		#     AAm.ests <- as.array(apply(boots.AAm,c(1,2), summarize.boots))
-    		# }
+        if(okay4AAmethod(d)){
+            AAm.ests <- as.array(apply(boots.AAm,c(1,2), summarize.boots))
+        }
 		}
 	  	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		# save the (last) fits and some data aspects
@@ -209,21 +218,21 @@ for(i in 1:length(datasets)){
 				Ratio = ffr.ratio,
 				Arditi.Ginzburg = ffr.ag,
 				Hassell.Varley = ffr.hv,
-				Arditi.Akcakaya = ffr.aa
-				# Arditi.Akcakaya.Method.2 = fit.aam
+				Arditi.Akcakaya = ffr.aa,
+				Arditi.Akcakaya.Method.2 = ffr.aam
 			),
-      		# boots = list(
-			# 	Holling.TypeI = boots.HT.I,
-			# 	Holling.TypeII = boots.HT.II,
-			# 	Beddington.DeAngelis = boots.BD,
-			# 	Crowley.Martin = boots.CM,
-			# 	Stouffer.Novak.I = boots.SN.I
-			# 	Ratio = boots.R
-			#   Arditi.Ginzburg = boots.AG,
-			#   Hassell.Varley = boots.HV,
-			#   Arditi.Akcakaya = boots.AA,
-			#   Arditi.Akcakaya.Method.2 = boots.AAm
-			#   ),
+      boots = list(
+      	Holling.TypeI = boots.HT.I,
+      	Holling.TypeII = boots.HT.II,
+      	Beddington.DeAngelis = boots.BD,
+      	Crowley.Martin = boots.CM,
+      	Stouffer.Novak.I = boots.SN.I,
+      	Ratio = boots.R,
+        Arditi.Ginzburg = boots.AG,
+        Hassell.Varley = boots.HV,
+        Arditi.Akcakaya = boots.AA,
+        Arditi.Akcakaya.Method.2 = boots.AAm
+        ),
 			estimates = list(
 			    Holling.Type.I = HT.I.ests,
 			    Holling.Type.II = HT.II.ests,
@@ -235,8 +244,8 @@ for(i in 1:length(datasets)){
 			    Ratio = R.ests,
 			    Arditi.Ginzburg = AG.ests,
 			    Hassell.Varley = HV.ests,
-			    Arditi.Akcakaya = AA.ests
-			    # Arditi.Akcakaya.Method.2 = AAm.ests
+			    Arditi.Akcakaya = AA.ests,
+			    Arditi.Akcakaya.Method.2 = AAm.ests
 			)
 		)
 	# })
