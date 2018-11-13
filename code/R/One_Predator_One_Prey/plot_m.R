@@ -10,17 +10,17 @@ load('../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 # generate a quick and dirty plot of the phi_denom parameters of the SNI model
 dev.new()
 
-fit.order <- order.of.fits(ffr.fits, model="Stouffer.Novak.I", parm="phi_denom" , order=TRUE)
+fit.order <- order.of.fits(ffr.fits, model="Arditi-Akcakaya", parm="m" , order=FALSE)
 
 plot.coefs(ffr.fits[fit.order], #[36:40],
-	"Stouffer.Novak.I",
-	"phi_denom",
-	plot.SEs=TRUE,
-	ilink=identity,
-	xlab="Effect of feeding on interfering",
-	ylab="Dataset",
-	xlim=c(-10,10)
+   "Arditi-Akcakaya",
+   "m",
+   plot.SEs=TRUE,
+   ilink=identity,
+   xlab="Interference rate",
+   ylab="Dataset",
+   xlim=c(0,5)
 )
 
-dev.copy2pdf(file="../../../results/R/OnePredOnePrey_PhiDenom.pdf")
+dev.copy2pdf(file="../../../results/R/OnePredOnePrey_m.pdf")
 dev.off()

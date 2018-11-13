@@ -112,3 +112,14 @@ plot.coefs <- function(ffr.fits, modeltype, parameter, plot.SEs=FALSE, ilink=ide
     i <- i + 1
   }
 }
+
+
+# Function to sort fits by magnitude of focal parameter point estimates
+order.of.fits<-function(ffr.fits, model="Stouffer.Novak.I", parm="phi_denom", order=FALSE){
+  if(order){
+    foc.parms <- unlist(lapply(ffr.fits, function(x) coef(x$fits[[model]])[parm]))
+    how.to.order <- order(foc.parms)
+  }else{
+    how.to.order <- 1:length(ffr.fits)
+  }
+}
