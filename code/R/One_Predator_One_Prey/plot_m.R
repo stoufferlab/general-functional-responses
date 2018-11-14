@@ -16,7 +16,7 @@ plot.coefs(ffr.fits[fit.order], #[36:40],
    "Arditi.Akcakaya",
    "exponent",
    plot.SEs=TRUE,
-   ilink=exp,
+   ilink=identity,
    xlab="Arditi-Akcakaya interference rate (m)",
    ylab="Dataset",
    xlim=c(0,3)
