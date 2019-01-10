@@ -1,12 +1,35 @@
+# Function to sort fits by magnitude of focal parameter point estimates
+order.of.fits<-function(ffr.fits, model, parm, order=FALSE){
+  if(order){
+    foc.parms <- unlist(lapply(ffr.fits, function(x) coef(x$fits[[model]])[parm]))
+    how.to.order <- order(foc.parms)
+  }else{
+    how.to.order <- 1:length(ffr.fits)
+  }
+}
 
-# source('plot_coefs.R')
+# Function to plot focal parameter estimates across all fitted datasets
+plot.coefs <- function(
+                ffr.fits, 
+                model=c('Holling.Type.I','Holling.Type.II','Beddington.DeAngelis','Crowley.Martin',
+                        'Stouffer.Novak.I','Ratio','Arditi.Ginzburg','Hassell.Varley','Arditi.Akcakaya',
+                        'Arditi.Akcakaya.Method.2'),
+                parameter=c('attack','handling','interference','phi_denom','exponent'),  # add others later as needed
+                ilink=identity,
+                plot.SEs=FALSE,
+                display.outlier.ests=FALSE,
+                xlim=NULL, ... ){
 
+  model <- match.arg(model)
+  parameter <- match.arg(parameter)
+  ilink <- match.fun(ilink)
 
-plot.coefs <- function(ffr.fits, modeltype, parameter, plot.SEs=FALSE, ilink=identity, xlim=NULL, ... ){
   # scaffold of a plot that doesn't actually show anything
   plot(
     y = 1:length(ffr.fits),
-    x = unlist(lapply(ffr.fits, function(x){ilink(coef(x$fits[[modeltype]])[parameter])})),
+    # do we really need this if type='n' anyway?
+    # x = unlist(lapply(ffr.fits, function(x){ilink(coef(x$fits[[model]])[parameter])})), 
+    x = 1:length(ffr.fits),
     type='n',
     yaxt='n',
     xlim=xlim,
@@ -32,7 +55,7 @@ plot.coefs <- function(ffr.fits, modeltype, parameter, plot.SEs=FALSE, ilink=ide
     col <- ifelse(x$study.info$predator, "black", "red")	
     
     # the median estimate is easy to determine regardless of the type of data
-    mm <- x$estimates[[modeltype]]["50%",parameter,"estimate"]
+    mm <- x$estimates[[model]]["50%",parameter,"estimate"]
     
     # cheeky upper and lower bounds in the absence of SE information
     lb <- mm
@@ -41,48 +64,66 @@ plot.coefs <- function(ffr.fits, modeltype, parameter, plot.SEs=FALSE, ilink=ide
     # make all lines the equivalent for now
     lty <- "solid"
     
-    # different ways to estimate the SEs from the model(s)
+    # if the point estimate is out of bounds don't even bother trying to profile its uncertainty
+    if(mm < xlim[1] | mm > xlim[2]){
+      if(mm > xlim[2]){
+        arrows(xlim[2]-delta.arrow, i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+        if(display.outlier.ests){
+            text(xlim[2]-delta.arrow,i,round(mm,1),pos=2,cex=0.7*par()$cex)
+        }
+      }else{
+        arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+        if(display.outlier.ests){
+          text(xlim[1]+delta.arrow,i,round(mm,1),pos=4,cex=0.7*par()$cex)
+        }
+      }
+    }else{
+    
+    # Three ways to estimate intervals
     if(plot.SEs){
-      # if we did not need to bootstrap the data				
-      if(x$estimates[[modeltype]]["n",1,1] == 1){
-        # estimate the profile confidence interval in first instance
-        cf <- try(confint(x$fits[[modeltype]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
+      
+      # if we did not bootstrap then try profile or approximate	
+      if(x$estimates[[model]]["n",1,1] == 1){
         
-        # seems like the profiling code was successful
+        # (1) estimate the profile confidence interval
+            # do so for all model parameters because doing so for focal parameter can cause errors.
+        cf <- try(confint(x$fits[[model]],try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
+        
+        # if profiling code was successful
         if(!inherits(cf, "try-error")){
-          # best case equals solid line
+          
+          # best case is solid line
           lty <- "solid"
           
           lb <- cf[parameter,1]
           ub <- cf[parameter,2]
           
-          # sometimes we profile things but still get NA intervals
+          # sometimes we profile things but still get NA intervals, so stretch interval(s) to extremes of plot
           lb <- ifelse(is.na(lb), xlim[1], lb)
           ub <- ifelse(is.na(ub), xlim[2], ub)
         }else{
-          # use the quadratic assumption?
-          
-          # quadratic approximation equals dashed line
+          # (2) if profiling was not successful then assume quadratic approximation
+         
+          # quadratic approximation is dashed line
           lty <- "dashed"
           
           # get the SEs directly from the model output
-          se <- coef(summary(x$fits[[modeltype]]))[parameter,"Std. Error"]
+          se <- coef(summary(x$fits[[model]]))[parameter,"Std. Error"]
           lb <- ifelse(is.na(se), xlim[1], mm - se)
           ub <- ifelse(is.na(se), xlim[2], mm + se)
         }
       }else{
-        # we bootstrapped the data and will use the quantiles of those fits to match +/- 1 SE
+        # (3) if we bootstrapped then use the quantiles
         
-        # bootstrapped is always dotted line
-        # dotted
+        # bootstrapped is dotted line
         lty <- "dotted"
         
         # use the central interval equivalent to one SD as the bounds
-        lb <- x$estimates[[modeltype]]["16%",parameter,"estimate"]
-        ub <- x$estimates[[modeltype]]["84%",parameter,"estimate"]
+        lb <- x$estimates[[model]]["16%",parameter,"estimate"]
+        ub <- x$estimates[[model]]["84%",parameter,"estimate"]
       }
       
-      # don't plot off the figure
+      # For any of the above, don't plot off the figure
       lb <- ifelse(lb < xlim[1], xlim[1], lb)
       ub <- ifelse(ub > xlim[2], xlim[2], ub)
     }
@@ -101,25 +142,8 @@ plot.coefs <- function(ffr.fits, modeltype, parameter, plot.SEs=FALSE, ilink=ide
       
       # plot the actual mean estimate
       points(y=c(i),x=c(ilink(mm)),col=col,bg=col,pch=21)
-    }else{
-      if(mm > xlim[2]){
-        arrows(xlim[2]-delta.arrow, i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
-      }else{
-        arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
-      }
     }
-    
+    }
     i <- i + 1
-  }
-}
-
-
-# Function to sort fits by magnitude of focal parameter point estimates
-order.of.fits<-function(ffr.fits, model, parm, order=FALSE){
-  if(order){
-    foc.parms <- unlist(lapply(ffr.fits, function(x) coef(x$fits[[model]])[parm]))
-    how.to.order <- order(foc.parms)
-  }else{
-    how.to.order <- 1:length(ffr.fits)
   }
 }
