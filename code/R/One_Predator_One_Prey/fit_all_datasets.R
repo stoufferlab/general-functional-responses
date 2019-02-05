@@ -29,10 +29,16 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/Katz_1985.R")
-# datasets <- c("./Dataset_Code/Blowes_2017_Cb.R")
-# datasets <- c("./Dataset_Code/Edwards_1961_Trichogramma-Sitotroga_2.R")
-# datasets <- c('./Dataset_Code/Jones_1986_Exp4.1n2.R')
+# datasets <- c("./Dataset_Code/Kfir_1983.R")  # Occasional Hessian problem
+# datasets <- c("./Dataset_Code/Salt_1974.R") # Occasional convergence issue for sn1 and Hessian issue for AA2method
+# datasets <- c("./Dataset_Code/Mansour_1991.R") # non-finite finite-difference value [2]
+# datasets <- c("./Dataset_Code/vonWesternhagen_1976_Fig2_2hrs.R") # problem for AA2method
+# datasets <- c("./Dataset_Code/vonWesternhagen_1976_Fig2_4hrs.R") # problem for AA2method
+# datasets <- c("./Dataset_Code/vonWesternhagen_1976_Fig2_8hrs.R") # problem for AA2method
+# datasets <- c("./Dataset_Code/Mertz_1968.R") # AA2method
+# datasets <- c("./Dataset_Code/Wasserman_2016_ti.R") # AA2method
+
+
 
 # create a container for the things that get fit
 ffr.fits <- list()
@@ -74,7 +80,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 3 # 250
+			boot.reps <- 5 # 250
 		}else{
 			boot.reps <- 1
 		}

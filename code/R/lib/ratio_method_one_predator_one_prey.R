@@ -123,7 +123,8 @@ parnames(ratio.like.1pred.1prey.NLL) <- c(
 fit.ratio.like <- function(d, s, modeltype, nloptr.control=list(), mle2.control=list(), ...){
   
 	# estimate starting value from the data using linear regression
-	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey / d$Npredator))))  # could cancel P, but left in for clarity
+	# x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey / d$Npredator))))  # could cancel P, but left in for clarity
+	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
 	names(x0) <- "attack"
 	
 	# fit Ratio ("Type I") via MLE with above starting parameter value
