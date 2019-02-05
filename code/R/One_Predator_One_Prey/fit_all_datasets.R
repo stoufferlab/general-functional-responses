@@ -29,10 +29,8 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/Katz_1985.R")
-# datasets <- c("./Dataset_Code/Blowes_2017_Cb.R")
-# datasets <- c("./Dataset_Code/Edwards_1961_Trichogramma-Sitotroga_2.R")
-# datasets <- c('./Dataset_Code/Jones_1986_Exp4.1n2.R')
+datasets <- c("./Dataset_Code/Mertz_1968.R")
+
 
 # create a container for the things that get fit
 ffr.fits <- list()
@@ -65,7 +63,7 @@ for(i in 1:length(datasets)){
 	#############################################	 
 
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
-	if(!grepl("R", this.study$runswith)){ 
+	if(!grepl("RT", this.study$runswith)){ 
 	# if(!grepl("H|R", this.study$runswith)){ 
 		message(paste0("No to ",datasets[i]))
 	}else{
@@ -74,7 +72,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 3 # 250
+			boot.reps <- 3# 250
 		}else{
 			boot.reps <- 1
 		}
