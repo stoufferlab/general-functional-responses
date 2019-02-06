@@ -29,6 +29,7 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # # DEBUG: for testing only
+<<<<<<< HEAD
 # datasets <- c("./Dataset_Code/Kfir_1983.R")  # Occasional Hessian problem
 # datasets <- c("./Dataset_Code/Salt_1974.R") # Occasional convergence issue for sn1 and Hessian issue for AA2method
 # datasets <- c("./Dataset_Code/Mansour_1991.R") # non-finite finite-difference value [2]
@@ -38,6 +39,9 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # datasets <- c("./Dataset_Code/Mertz_1968.R") # AA2method
 # datasets <- c("./Dataset_Code/Wasserman_2016_ti.R") # AA2method
 
+=======
+datasets <- c("./Dataset_Code/Mertz_1968.R")
+>>>>>>> e824e984cfc8ef93fa814dd6373e2d9df93e33cf
 
 
 # create a container for the things that get fit
@@ -71,7 +75,7 @@ for(i in 1:length(datasets)){
 	#############################################	 
 
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
-	if(!grepl("R", this.study$runswith)){ 
+	if(!grepl("RT", this.study$runswith)){ 
 	# if(!grepl("H|R", this.study$runswith)){ 
 		message(paste0("No to ",datasets[i]))
 	}else{
@@ -80,7 +84,11 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
+<<<<<<< HEAD
 			boot.reps <- 5 # 250
+=======
+			boot.reps <- 3# 250
+>>>>>>> e824e984cfc8ef93fa814dd6373e2d9df93e33cf
 		}else{
 			boot.reps <- 1
 		}
