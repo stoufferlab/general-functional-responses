@@ -1,4 +1,6 @@
 rm(list = ls())
+sinkMessages <- TRUE # set to FALSE if you want to match messages in real time 
+# or TRUE to have them silently saved to file instead.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # specify where the data files are located
 dropboxdir <- switch(
@@ -29,23 +31,18 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # # DEBUG: for testing only
-<<<<<<< HEAD
 # datasets <- c("./Dataset_Code/Kfir_1983.R")  # Occasional Hessian problem
-# datasets <- c("./Dataset_Code/Salt_1974.R") # Occasional convergence issue for sn1 and Hessian issue for AA2method
-# datasets <- c("./Dataset_Code/Mansour_1991.R") # non-finite finite-difference value [2]
-# datasets <- c("./Dataset_Code/vonWesternhagen_1976_Fig2_2hrs.R") # problem for AA2method
-# datasets <- c("./Dataset_Code/vonWesternhagen_1976_Fig2_4hrs.R") # problem for AA2method
-# datasets <- c("./Dataset_Code/vonWesternhagen_1976_Fig2_8hrs.R") # problem for AA2method
-# datasets <- c("./Dataset_Code/Mertz_1968.R") # AA2method
-# datasets <- c("./Dataset_Code/Wasserman_2016_ti.R") # AA2method
-
-=======
-datasets <- c("./Dataset_Code/Mertz_1968.R")
->>>>>>> e824e984cfc8ef93fa814dd6373e2d9df93e33cf
 
 
 # create a container for the things that get fit
 ffr.fits <- list()
+
+# start capturing the progress and warning messages
+if(sinkMessages){
+  options(warn=1)
+  Mesgs <- file('../../../results/R/ffr.fit_LOG.txt', open='wt')
+  sink(Mesgs, type="message")
+}
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -75,7 +72,7 @@ for(i in 1:length(datasets)){
 	#############################################	 
 
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
-	if(!grepl("RT", this.study$runswith)){ 
+	if(!grepl("R", this.study$runswith)){ 
 	# if(!grepl("H|R", this.study$runswith)){ 
 		message(paste0("No to ",datasets[i]))
 	}else{
@@ -84,11 +81,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-<<<<<<< HEAD
-			boot.reps <- 5 # 250
-=======
-			boot.reps <- 3# 250
->>>>>>> e824e984cfc8ef93fa814dd6373e2d9df93e33cf
+			boot.reps <- 250
 		}else{
 			boot.reps <- 1
 		}
@@ -270,3 +263,12 @@ for(i in 1:length(datasets)){
 
 # save the mega container which includes all FR fits
 save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+
+if(sinkMessages){
+  sink(type="message")
+  close(Mesgs)
+  options(warn=0)
+  readLines("../../../results/R/ffr.fit_LOG.txt")
+}
+
+
