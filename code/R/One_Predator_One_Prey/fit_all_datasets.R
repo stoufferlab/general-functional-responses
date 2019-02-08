@@ -40,7 +40,7 @@ ffr.fits <- list()
 # start capturing the progress and warning messages
 if(sinkMessages){
   options(warn=1)
-  Mesgs <- file('../../../results/R/ffr.fit_LOG.txt', open='wt')
+  Mesgs <- file('../../../results/R/ffr.fits_OnePredOnePrey_LOG.txt', open='wt')
   sink(Mesgs, type="message")
 }
 
@@ -72,8 +72,8 @@ for(i in 1:length(datasets)){
 	#############################################	 
 
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
-	if(!grepl("R", this.study$runswith)){ 
-	# if(!grepl("H|R", this.study$runswith)){ 
+	# if(!grepl("R", this.study$runswith)){ 
+	if(!grepl("H|R", this.study$runswith)){
 		message(paste0("No to ",datasets[i]))
 	}else{
 		# print out which dataset is being analyzed
@@ -268,7 +268,7 @@ if(sinkMessages){
   sink(type="message")
   close(Mesgs)
   options(warn=0)
-  readLines("../../../results/R/ffr.fit_LOG.txt")
+  readLines("../../../results/R/ffr.fits_OnePredOnePrey_LOG.txt")
 }
 
 
