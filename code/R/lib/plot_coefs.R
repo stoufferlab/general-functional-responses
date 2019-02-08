@@ -25,6 +25,7 @@ plot.coefs <- function(
                 display.outlier.ests=FALSE,
                 xlim=NULL,
                 labels=FALSE,
+                vertLines=c(0,1),
                 ... ){
 
   model <- match.arg(model)
@@ -59,7 +60,7 @@ plot.coefs <- function(
   axis(side=2, at=1:length(ffr.fits), labels=labels, cex.axis=0.5)
   
   # mark where the existing models fall
-  abline(v=c(0,1), lty=2, col='grey')
+  abline(v=vertLines, lty=2, col='grey')
 
   # length of arrows to indicate values off the plot
   delta.arrow <- 0.1
