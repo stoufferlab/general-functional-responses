@@ -1,8 +1,8 @@
-source('../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
-source('../lib/holling_method_one_predator_one_prey.R')
-source('../lib/ratio_method_one_predator_one_prey.R')
+source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
+source('../../lib/holling_method_one_predator_one_prey.R')
+source('../../lib/ratio_method_one_predator_one_prey.R')
 
-load('../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -15,7 +15,7 @@ n <- length(ffr.fits)
 # Creswell (last of datasets when ordered by sample size) wasn't run for Holling type, so remove
 ffr.fits[[n]] <- NULL
 
-pdf('../../../results/R/OnePredOnePrey_BD_int.pdf',height=6,width=5)
+pdf('../../../../results/R/OnePredOnePrey_BD_int.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
   plot.coefs(
      ffr.fits,
@@ -43,7 +43,7 @@ names(parm)<-sub('./Dataset_Code/','',names(parm))
 names(parm)<-sub('.R.exponent','',names(parm))
 names(parm) <- paste0(names(parm), ' (',SS,')')
 
-pdf('../../../results/R/OnePredOnePrey_BD_int_xy.pdf',height=3,width=4)
+pdf('../../../../results/R/OnePredOnePrey_BD_int_xy.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
 ylim <- c(0,5.5)
 plot(parm~SS,
@@ -82,7 +82,7 @@ names(parm)<-sub('./Dataset_Code/','',names(parm))
 names(parm)<-sub('.R.exponent','',names(parm))
 names(parm) <- paste0(names(parm), ' (',SS,')')
 
-pdf('../../../results/R/OnePredOnePrey_BD_int-ah_xy.pdf',height=3,width=4)
+pdf('../../../../results/R/OnePredOnePrey_BD_int-ah_xy.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
 ylim <- c(1E-1,1E5)
 plot(parm~SS,
