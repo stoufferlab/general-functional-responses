@@ -197,7 +197,7 @@ plot.AAmethod<-function(AAmethod.out){
 #                    4	64	8.71
 #                    4	128	18.0
 #                    ")
-# 
+
 # # edwards_1961_Trichogramma-Sitotroga_2
 # Edwards <- read.table(header=TRUE, text="
 #                       Npredator	Nprey	Nconsumed

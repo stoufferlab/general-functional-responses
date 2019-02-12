@@ -21,6 +21,7 @@ plot.coefs <- function(
                         'Arditi.Akcakaya.Method.2'),
                 parameter=c('attack','handling','interference','phi_denom','exponent'),  # add others later as needed
                 ilink=identity,
+                point.est=c('median','mean'),
                 plot.SEs=FALSE,
                 display.outlier.ests=FALSE,
                 xlim=NULL,
@@ -31,9 +32,11 @@ plot.coefs <- function(
   model <- match.arg(model)
   parameter <- match.arg(parameter)
   ilink <- match.fun(ilink)
+  point.est <- match.arg(point.est)
+  point.est <- ifelse(point.est=='median', '50%', point.est)
 
   if(is.null(xlim)){
-    ests <- unlist(lapply(ffr.fits, function(x) x$estimates[[model]]["50%",parameter,"estimate"]))
+    ests <- unlist(lapply(ffr.fits, function(x) x$estimates[[model]][point.est, parameter, "estimate"]))
     xlim <- range(ilink(ests))
   }
   
@@ -77,8 +80,8 @@ plot.coefs <- function(
     # make all lines the equivalent for now
     lty <- "solid"
     
-    # the median estimate is easy to determine regardless of the type of data
-    mm <- x$estimates[[model]]["50%",parameter,"estimate"]
+    # extract point estimate (the median estimate is easy to determine regardless of the type of data so should be default)
+    mm <- x$estimates[[model]][point.est,parameter,"estimate"]
     mm.link <- ilink(mm)
     
     # cheeky upper and lower bounds in the absence of SE information
@@ -102,65 +105,64 @@ plot.coefs <- function(
     
     # Three ways to estimate intervals
     if(plot.SEs){
-      
-      # if we did not bootstrap then try profile or approximate	
-      if(x$estimates[[model]]["n",1,1] == 1){ # (1) estimate the profile confidence interval
-            # do so for all model parameters because doing so for focal parameter can cause errors.
-        cf <- try(confint(x$fits[[model]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
-        
-        # if profiling code was successful
-        if(!inherits(cf, "try-error")){
+        # if we did not bootstrap or apply AA2 method then try (1) profile or (2) approximate	
+        if(x$estimates[[model]]["n",1,1] == 1 & model!='Arditi.Akcakaya.Method.2'){ # (1) estimate the profile confidence interval
+              # do so for all model parameters because doing so for focal parameter can cause errors.
+          cf <- try(confint(x$fits[[model]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
           
-          # best case is solid line
-          lty <- "solid"
+          # if profiling code was successful
+          if(!inherits(cf, "try-error")){
+            
+            # best case is solid line
+            lty <- "solid"
+            
+            lb <- cf[parameter,1]
+            ub <- cf[parameter,2]
+  
+          }else{# (2) if profiling was not successful then assume quadratic approximation
+           
+            # quadratic approximation is dashed line
+            lty <- "dashed"
+            
+            # get the SEs directly from the model output
+            se <- coef(summary(x$fits[[model]]))[parameter,"Std. Error"]
+            lb <- mm - se
+            ub <- mm + se
+          }
+        }else{# (3) if we bootstrapped or used AA2 then use the quantiles
           
-          lb <- cf[parameter,1]
-          ub <- cf[parameter,2]
-
-        }else{# (2) if profiling was not successful then assume quadratic approximation
-         
-          # quadratic approximation is dashed line
-          lty <- "dashed"
+          # bootstrapped is dotted line
+          lty <- "dotted"
           
-          # get the SEs directly from the model output
-          se <- coef(summary(x$fits[[model]]))[parameter,"Std. Error"]
-          lb <- mm - se
-          ub <- mm + se
+          # use the central interval equivalent to one SD as the bounds
+          lb <- x$estimates[[model]]["16%",parameter,"estimate"]
+          ub <- x$estimates[[model]]["84%",parameter,"estimate"]
         }
-      }else{# (3) if we bootstrapped then use the quantiles
         
-        # bootstrapped is dotted line
-        lty <- "dotted"
+        lb.link <- ilink(lb)
+        ub.link <- ilink(ub)
         
-        # use the central interval equivalent to one SD as the bounds
-        lb <- x$estimates[[model]]["16%",parameter,"estimate"]
-        ub <- x$estimates[[model]]["84%",parameter,"estimate"]
+        # sometimes se is NA or we profile things but still get NA intervals, so stretch interval(s) to extremes of plot
+        lb.link <- ifelse(is.na(lb.link), xlim[1], lb.link)
+        ub.link <- ifelse(is.na(ub.link), xlim[2], ub.link)
+        
+        # For any of the above, don't plot off the figure
+        lb.link <- ifelse(lb.link < xlim[1], xlim[1], lb.link)
+        ub.link <- ifelse(ub.link > xlim[2], xlim[2], ub.link)
+      
+      
+      if(mm.link > xlim[1] & mm.link < xlim[2]){
+        # draw the error bars
+        segments(lb.link, i, ub.link, i, col=col, lty=lty)
+        
+        # arrow up the limiting cases
+        if(lb.link <= xlim[1] & parameter!='exponent'){
+          arrows(xlim[1], i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+        }
+        if(ub.link >= xlim[2]){
+          arrows(xlim[2], i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+        }
       }
-      
-      lb.link <- ilink(lb)
-      ub.link <- ilink(ub)
-      
-      # sometimes se is NA or we profile things but still get NA intervals, so stretch interval(s) to extremes of plot
-      lb.link <- ifelse(is.na(lb.link), xlim[1], lb.link)
-      ub.link <- ifelse(is.na(ub.link), xlim[2], ub.link)
-      
-      # For any of the above, don't plot off the figure
-      lb.link <- ifelse(lb.link < xlim[1], xlim[1], lb.link)
-      ub.link <- ifelse(ub.link > xlim[2], xlim[2], ub.link)
-    
-    
-    if(mm.link > xlim[1] & mm.link < xlim[2]){
-      # draw the error bars
-      segments(lb.link, i, ub.link, i, col=col, lty=lty)
-      
-      # arrow up the limiting cases
-      if(lb.link <= xlim[1] & parameter!='exponent'){
-        arrows(xlim[1], i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
-      }
-      if(ub.link >= xlim[2]){
-        arrows(xlim[2], i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
-      }
-    }
     }
       # plot the actual estimate
       points(y=i, x=mm.link,

@@ -22,6 +22,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      model="Beddington.DeAngelis",
      parameter="interference",
      ilink=exp,
+     point.est='median',
      plot.SEs=TRUE,
      display.outlier.ests=TRUE,
      xlab="Beddington-DeAngelis interference rate (c)",
