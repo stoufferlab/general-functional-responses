@@ -147,7 +147,7 @@ plot.coefs <- function(
       # For any of the above, don't plot off the figure
       lb.link <- ifelse(lb.link < xlim[1], xlim[1], lb.link)
       ub.link <- ifelse(ub.link > xlim[2], xlim[2], ub.link)
-    }
+    
     
     if(mm.link > xlim[1] & mm.link < xlim[2]){
       # draw the error bars
@@ -160,11 +160,12 @@ plot.coefs <- function(
       if(ub.link >= xlim[2]){
         arrows(xlim[2], i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
       }
-      
+    }
+    }
       # plot the actual estimate
       points(y=i, x=mm.link,
              col=col,bg=col,pch=21)
-    }
+    
     }
     i <- i + 1
   }
