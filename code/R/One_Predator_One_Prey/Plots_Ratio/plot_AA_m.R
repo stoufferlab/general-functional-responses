@@ -36,7 +36,7 @@ m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",
 parm <- exp(m)
 
 names(parm)<-sub('./Dataset_Code/','',names(parm))
-names(parm)<-sub('.R.exponent','',names(parm))
+names(parm)<-sub('.R','',names(parm))
 names(parm) <- paste0(names(parm), ' (',SS,')')
 
 pdf('../../../../results/R/OnePredOnePrey_AA_m_xy.pdf',height=3,width=4)
