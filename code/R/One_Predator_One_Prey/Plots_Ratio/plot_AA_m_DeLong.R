@@ -1,0 +1,42 @@
+source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
+source('../../lib/holling_method_one_predator_one_prey.R')
+source('../../lib/ratio_method_one_predator_one_prey.R')
+
+load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Studies considered by DeLong and Vasseur
+ffr.fits <- ffr.fits[unlist(lapply(ffr.fits, function(x) x$study.info$delong))]
+fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
+ffr.fits <- ffr.fits[fit.order]
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
+m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",'exponent',"estimate"]))
+
+labels <- names(SS)
+labels<-sub('./Dataset_Code/','',labels)
+labels<-sub('.R','',labels)
+labels <- paste0(labels, ' (',SS,')')
+
+names(SS) <- labels
+names(m) <- labels
+
+
+
+dat <- read.csv('DeLong_AA_m.csv')
+
+
+pdf('../../../../results/R/OnePredOnePrey_AA_DeLong_m_xy.pdf',height=3,width=4)
+par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
+plot(dat$nObs,
+     dat$DeLongM,
+     type='n',
+     xlab='Sample size (n)',
+     ylab='DeLong & Vasseur\nArditi-Akcakaya interference rate (m)')
+abline(h=c(0,1),lty=2,col='grey')
+points(dat$nObs,
+       dat$DeLongM,
+       pch=21, bg='grey')
+dev.off()
