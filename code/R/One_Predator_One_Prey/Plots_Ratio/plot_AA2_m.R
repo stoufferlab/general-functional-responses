@@ -19,13 +19,14 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      ffr.fits,
      model="Arditi.Akcakaya.Method.2",
      parameter="exponent",
-     ilink=exp,
+     ilink=identity,
      plot.SEs=TRUE,
      point.est='median',
      display.outlier.ests=TRUE,
      xlab="Arditi-Akcakaya interference rate (m) (Method 2)",
      ylab="",
-     labels=TRUE
+     labels=TRUE,
+     xlim=c(-0.5,1.6)
   )
 dev.off()
 
@@ -34,7 +35,7 @@ dev.off()
 SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 m2 <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya.Method.2']]["50%",'exponent',"estimate"]))
 
-parm <- exp(m2)
+parm <- m2 
 
 names(parm)<-sub('./Dataset_Code/','',names(parm))
 names(parm)<-sub('.R.exponent','',names(parm))
@@ -42,7 +43,7 @@ names(parm) <- paste0(names(parm), ' (',SS,')')
 
 pdf('../../../../results/R/OnePredOnePrey_AA2_m_xy.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
-ylim <- c(0,1.7)
+ylim <- c(0,1.6)
 plot(parm~SS,
      ylim=ylim,
      type='n',
@@ -57,28 +58,38 @@ dev.off()
 
 pdf('../../../../results/R/OnePredOnePrey_AA2_m_hist.pdf',height=2.5,width=4)
 par(mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i',xaxs='i')
-  hist(parm[parm<5],breaks=50,
+  hist(parm[parm<2],
+       breaks=50,
        xlab='Arditi-Akcakaya interference rate (m) (AA2)',
        main='',
        col='grey',
-       ylim=c(0,6.5),
-       xlim=c(0,1.7))
-  abline(v=1,lty=3,lwd=1,col='black')
+       ylim=c(0,3.5),
+       xlim=c(-0.6,1.6))
+  abline(v=c(0,1),lty=3,lwd=1,col='black')
   box(lwd=1,bty='l')
 dev.off()
 
 # Compare AA2 estimates to those of non-AA2 method
 m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",'exponent',"estimate"]))
 
+m <- exp(m)
+
 pdf('../../../../results/R/OnePredOnePrey_AA2_m_vs_AA_m.pdf',height=3,width=3)
-par(pty='s',mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7)
-plot(exp(m),exp(m2),
-     type='n',
-     xlab='Maximum likelihood estimate',
-     ylab='AA Method 2 estimate')
-abline(0,1,lty=2,col='grey')
-points(exp(m),
-       exp(m2),
-       pch=21, 
-       bg='grey')
+par(pty='s',mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i', xaxs='i')
+  xylim<-c(-0.5,1.5)
+  plot(m,m2,
+       type='n',
+       xlim=xylim,
+       ylim=xylim,
+       xlab='Maximum likelihood estimate',
+       ylab='AA Method 2 estimate')
+  abline(0,1,lty=2,col='grey')
+  box(lwd=1)
+  points(m,
+         m2,
+         pch=21, 
+         bg='grey')
+  arrows(m[m2>xylim[2]], 0.95*xylim[2], m[m2>xylim[2]], 0.99*xylim[2], length=0.02)
+  text(m[m2>xylim[2]], 0.93*xylim[2],round(m2[m2>xylim[2]],1),cex=0.7)
 dev.off()     
+
