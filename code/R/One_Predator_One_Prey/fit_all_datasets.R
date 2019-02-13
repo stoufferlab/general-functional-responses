@@ -204,57 +204,57 @@ for(i in 1:length(datasets)){
             AAm.ests <- as.array(apply(boots.AAm,c(1,2), summarize.boots))
         }
 		}
-	  	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		# save the (last) fits and some data aspects
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		ffr.fits[[datasets[i]]] <- list(
-	  		study.info = c(
-	  			datadir = datadir,
-	  			sample.size = nrow(d),
-	  			data=d,
-	  	        this.study  	        
-	  	    ),
+	  	study.info = c(
+            	  			datadir = datadir,
+            	  			sample.size = nrow(d),
+            	  			data=d.orig,
+            	  	    this.study  	        
+          	  	    ),
 			fits = c(
-  				Holling.Type.I = ffr.hollingI,
-  				Holling.Type.II = ffr.hollingII,
-  				Beddington.DeAngelis = ffr.bd,
-  				Crowley.Martin = ffr.cm,
-  				Stouffer.Novak.I = ffr.sn1,
-        		# Stouffer.Novak.Numer = ffr.sn2,
-        		# Stouffer.Novak.III = ffr.sn3,
-				Ratio = ffr.ratio,
-				Arditi.Ginzburg = ffr.ag,
-				Hassell.Varley = ffr.hv,
-				Arditi.Akcakaya = ffr.aa,
-				Arditi.Akcakaya.Method.2 = ffr.aam
-			),
+        				Holling.Type.I = ffr.hollingI,
+        				Holling.Type.II = ffr.hollingII,
+        				Beddington.DeAngelis = ffr.bd,
+        				Crowley.Martin = ffr.cm,
+        				Stouffer.Novak.I = ffr.sn1,
+              		# Stouffer.Novak.Numer = ffr.sn2,
+              		# Stouffer.Novak.III = ffr.sn3,
+        				Ratio = ffr.ratio,
+        				Arditi.Ginzburg = ffr.ag,
+        				Hassell.Varley = ffr.hv,
+        				Arditi.Akcakaya = ffr.aa,
+        				Arditi.Akcakaya.Method.2 = ffr.aam
+			        ),
       boots = list(
-      	Holling.TypeI = boots.HT.I,
-      	Holling.TypeII = boots.HT.II,
-      	Beddington.DeAngelis = boots.BD,
-      	Crowley.Martin = boots.CM,
-      	Stouffer.Novak.I = boots.SN.I,
-      	Ratio = boots.R,
-        Arditi.Ginzburg = boots.AG,
-        Hassell.Varley = boots.HV,
-        Arditi.Akcakaya = boots.AA,
-        Arditi.Akcakaya.Method.2 = boots.AAm
-        ),
+                  	Holling.TypeI = boots.HT.I,
+                  	Holling.TypeII = boots.HT.II,
+                  	Beddington.DeAngelis = boots.BD,
+                  	Crowley.Martin = boots.CM,
+                  	Stouffer.Novak.I = boots.SN.I,
+                  	Ratio = boots.R,
+                    Arditi.Ginzburg = boots.AG,
+                    Hassell.Varley = boots.HV,
+                    Arditi.Akcakaya = boots.AA,
+                    Arditi.Akcakaya.Method.2 = boots.AAm
+                  ),
 			estimates = list(
-			    Holling.Type.I = HT.I.ests,
-			    Holling.Type.II = HT.II.ests,
-			    Beddington.DeAngelis = BD.ests,
-			    Crowley.Martin = CM.ests,
-			    Stouffer.Novak.I = SN.I.ests,
-			    # Stouffer.Novak.Numer = SN.Numer.ests,
-			    # Stouffer.Novak.III = SN.III.ests,
-			    Ratio = R.ests,
-			    Arditi.Ginzburg = AG.ests,
-			    Hassell.Varley = HV.ests,
-			    Arditi.Akcakaya = AA.ests,
-			    Arditi.Akcakaya.Method.2 = AAm.ests
-			)
-		)
+              			    Holling.Type.I = HT.I.ests,
+              			    Holling.Type.II = HT.II.ests,
+              			    Beddington.DeAngelis = BD.ests,
+              			    Crowley.Martin = CM.ests,
+              			    Stouffer.Novak.I = SN.I.ests,
+              			    # Stouffer.Novak.Numer = SN.Numer.ests,
+              			    # Stouffer.Novak.III = SN.III.ests,
+              			    Ratio = R.ests,
+              			    Arditi.Ginzburg = AG.ests,
+              			    Hassell.Varley = HV.ests,
+              			    Arditi.Akcakaya = AA.ests,
+              			    Arditi.Akcakaya.Method.2 = AAm.ests
+            		    	)
+	          )
 	# })
 	}
 
