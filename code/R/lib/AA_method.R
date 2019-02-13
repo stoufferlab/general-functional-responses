@@ -141,11 +141,11 @@ AAmethod<-function(d,replacement){
     w <- 1/dg
   }
 
-  
   # est.a estimates are already log-transformed by likelihood function
   fit.AAM.lm <- lm(ests.a ~ log(Ps), weights=w)
   ests.m <- coef(summary(fit.AAM.lm))
   rownames(ests.m) <- c('a0','exponent')
+  ests.m[2,1] <- -ests.m[2,1] # negate estimated (negative slope) exponent for interpretation
 
   # Combine estimates into a single output
   out.ests <- rbind(ests,ests.m)
@@ -163,7 +163,7 @@ plot.AAmethod<-function(AAmethod.out){
   nP <- length(Ps)
   ests.a <- AAmethod.out$estimates[1:nP,1]
   ests.a.se <- AAmethod.out$estimates[1:nP,2]
-  m.est <- AAmethod.out$estimates['exponent',1]
+  m.est <- - AAmethod.out$estimates['exponent',1] # renegate
   m.est.se <- AAmethod.out$estimates['exponent',2]
   
   plot(ests.a ~ log(Ps), pch=19, ylim=c(min(ests.a-ests.a.se), max(ests.a+ests.a.se)), ylab='log(a)',xlab=('log(P)'), las=1)
@@ -230,13 +230,13 @@ plot.AAmethod<-function(AAmethod.out){
 # Elliot<-d
 
 # # # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# dat <- Katz
-# dat$Time<-1
-# # Note: Should be bootstrapped, but just do one draw for test
-# dat$Nconsumed<-rbinom(nrow(dat),size=dat$Nprey,prob=dat$Nconsumed/dat$Nprey)
-# okay4AAmethod(dat)
-# katz.out <- AAmethod(dat, replacement=FALSE)
-# plot.AAmethod(katz.out)
+dat <- Katz
+dat$Time<-1
+# Note: Should be bootstrapped, but just do one draw for test
+dat$Nconsumed<-rbinom(nrow(dat),size=dat$Nprey,prob=dat$Nconsumed/dat$Nprey)
+okay4AAmethod(dat)
+katz.out <- AAmethod(dat, replacement=FALSE)
+plot.AAmethod(katz.out)
 # 
 # #  ~~~~~~~~~~~~~
 # 

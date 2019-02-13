@@ -81,7 +81,7 @@ plot.coefs <- function(
     lty <- "solid"
     
     # extract point estimate (the median estimate is easy to determine regardless of the type of data so should be default)
-    mm <- x$estimates[[model]][point.est,parameter,"estimate"]
+    mm <- x$estimates[[model]][point.est, parameter, "estimate"]
     mm.link <- ilink(mm)
     
     # cheeky upper and lower bounds in the absence of SE information
@@ -105,10 +105,17 @@ plot.coefs <- function(
     
     # Three ways to estimate intervals
     if(plot.SEs){
-        # if we did not bootstrap or apply AA2 method then try (1) profile or (2) approximate	
-        if(x$estimates[[model]]["n",1,1] == 1 & model!='Arditi.Akcakaya.Method.2'){ # (1) estimate the profile confidence interval
-              # do so for all model parameters because doing so for focal parameter can cause errors.
-          cf <- try(confint(x$fits[[model]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
+        # if we did not bootstrap then try (1) profile or (2) approximate	
+        if(x$estimates[[model]]["n",1,1] == 1){ # (1) estimate the profile confidence interval
+              # do so for all model parameters because doing so for focal parameter can cause errors
+          
+          if(model!='Arditi.Akcakaya.Method.2'){
+             cf <- try(confint(x$fits[[model]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
+          }else{
+            cf <- 'a'
+            class(cf) <- 'try-error'
+            print(cf)
+          }
           
           # if profiling code was successful
           if(!inherits(cf, "try-error")){
@@ -119,17 +126,21 @@ plot.coefs <- function(
             lb <- cf[parameter,1]
             ub <- cf[parameter,2]
   
-          }else{# (2) if profiling was not successful then assume quadratic approximation
+          }else{# (2) if profiling was not successful or AA2 method was usedthen assume quadratic approximation
            
             # quadratic approximation is dashed line
             lty <- "dashed"
             
             # get the SEs directly from the model output
-            se <- coef(summary(x$fits[[model]]))[parameter,"Std. Error"]
+            if(model=='Arditi.Akcakaya.Method.2'){
+              se <- x$estimates$Arditi.Akcakaya.Method.2[,,'std.error'][point.est,parameter]
+            }else{
+              se <- coef(summary(x$fits[[model]]))[parameter,"Std. Error"]
+            }
             lb <- mm - se
             ub <- mm + se
           }
-        }else{# (3) if we bootstrapped or used AA2 then use the quantiles
+        }else{# (3) if we bootstrapped then use the quantiles
           
           # bootstrapped is dotted line
           lty <- "dotted"
