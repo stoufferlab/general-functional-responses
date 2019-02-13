@@ -2,7 +2,7 @@ source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 
-# load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
