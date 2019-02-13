@@ -68,7 +68,7 @@ for(i in 1:length(datasets)){
 
 	#############################################
 	# fit all the functional response models
-	# NOTE: optimization is on log-transformed values
+	# NOTE: optimization is on log-transformed values for some of the parameters
 	#############################################	 
 
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
@@ -81,7 +81,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 250
+			boot.reps <-250
 		}else{
 			boot.reps <- 1
 		}
@@ -129,7 +129,11 @@ for(i in 1:length(datasets)){
 	    	
 	    	if(!inherits(success, "try-error")){
 		    	if(b == 1){
-		    		# creates containers for parameter estimates using first rep as a template
+		    	  # create containers for all bootstrap fits using first rep as a template
+		    	  fits.HT.I <- fits.HT.II <- fits.BD <- fits.CM <- fits.SN.I <- vector("list",boot.reps)
+		    	  fits.R <- fits.AG <- fits.HV <- fits.AA <- fits.AAm <- vector("list",boot.reps)
+		    	  
+		    	  # create containers for parameter estimates using first rep as a template
 		    		boots.HT.I <- boots.HT.II <- boots.BD <- boots.CM <- boots.SN.I <- array(NA, c(1,1,boot.reps))
 		    		if(grepl("H", this.study$runswith)){
 	  					boots.HT.I <- make.array(ffr.hollingI, boot.reps)
@@ -151,28 +155,48 @@ for(i in 1:length(datasets)){
     				}
 		      	}
 
-		    	# add the parameters for this rep to the array of fits
-		    	boots.HT.I[,,b] <- boots.HT.II[,,b] <- boots.BD[,,b] <- boots.CM[,,b] <- boots.SN.I[,,b] <- NA #array(NA, c(1,1))
-				if(grepl("H", this.study$runswith)){
-					boots.HT.I[,,b] <- mytidy(ffr.hollingI)
-					boots.HT.II[,,b] <- mytidy(ffr.hollingII)
-					boots.BD[,,b] <- mytidy(ffr.bd)
-					boots.CM[,,b] <- mytidy(ffr.cm)
-					boots.SN.I[,,b] <- mytidy(ffr.sn1)
-					# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
-					# boots.SN.III[,,b] <- mytidy(ffr.sn3)
-				}
+	    	  # Save the fits for this rep
+	    	  if(grepl("H", this.study$runswith)){
+	    	    fits.HT.I[[b]] <- ffr.hollingI
+	    	    fits.HT.II[[b]] <- ffr.hollingII
+	    	    fits.BD[[b]] <- ffr.bd
+	    	    fits.CM[[b]] <- ffr.cm
+	    	    fits.SN.I[[b]] <- ffr.sn1
+	    	  }
+	    	  if(grepl("R", this.study$runswith)){
+	    	    fits.R[[b]] <- ffr.ratio
+	    	    fits.AG[[b]] <- ffr.ag
+	    	    fits.HV[[b]] <- ffr.hv
+	    	    fits.AA[[b]] <- ffr.aa
+	    	    fits.AAm[[b]] <-
+	    	    if(okay4AAmethod(d)){ 
+    	    	    fits.AAm[[b]] <- ffr.aam
+    	    	  }
+	    	  }
+	    	  
+	    	  
+		    	# Save the estimates for this rep to the array of estimates
+		    	boots.HT.I[,,b] <- boots.HT.II[,,b] <- boots.BD[,,b] <- boots.CM[,,b] <- boots.SN.I[,,b] <- NA
+  				if(grepl("H", this.study$runswith)){
+  					boots.HT.I[,,b] <- mytidy(ffr.hollingI)
+  					boots.HT.II[,,b] <- mytidy(ffr.hollingII)
+  					boots.BD[,,b] <- mytidy(ffr.bd)
+  					boots.CM[,,b] <- mytidy(ffr.cm)
+  					boots.SN.I[,,b] <- mytidy(ffr.sn1)
+  					# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
+  					# boots.SN.III[,,b] <- mytidy(ffr.sn3)
+  				}
 				
-				boots.R[,,b] <- boots.AG[,,b] <- boots.HV[,,b] <- boots.AA[,,b] <- boots.AAm[,,b] <- NA #array(NA, c(1,1))
-				if(grepl("R", this.study$runswith)){
-	  				boots.R[,,b] <- mytidy(ffr.ratio)
-	  				boots.AG[,,b] <- mytidy(ffr.ag)
-	  				boots.HV[,,b] <- mytidy(ffr.hv)
-	  				boots.AA[,,b] <- mytidy(ffr.aa)
-	  				if(okay4AAmethod(d)){ 
-	  				    boots.AAm[,,b] <- ffr.aam$estimate
-	  				}
-				}
+  				boots.R[,,b] <- boots.AG[,,b] <- boots.HV[,,b] <- boots.AA[,,b] <- boots.AAm[,,b] <- NA 
+  				if(grepl("R", this.study$runswith)){
+  	  				boots.R[,,b] <- mytidy(ffr.ratio)
+  	  				boots.AG[,,b] <- mytidy(ffr.ag)
+  	  				boots.HV[,,b] <- mytidy(ffr.hv)
+  	  				boots.AA[,,b] <- mytidy(ffr.aa)
+  	  				if(okay4AAmethod(d)){ 
+  	  				    boots.AAm[,,b] <- ffr.aam$estimate
+  	  				}
+  				}
 
 				# update the progress bar
 				pb$tick()
@@ -204,9 +228,10 @@ for(i in 1:length(datasets)){
             AAm.ests <- as.array(apply(boots.AAm,c(1,2), summarize.boots))
         }
 		}
-	  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		# save the (last) fits and some data aspects
-		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		
+	  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# save study info, the fits, bootstrap estimates and estimate summaries
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		ffr.fits[[datasets[i]]] <- list(
 	  	study.info = c(
             	  			datadir = datadir,
@@ -214,19 +239,19 @@ for(i in 1:length(datasets)){
             	  			data=d.orig,
             	  	    this.study  	        
           	  	    ),
-			fits = c(
-        				Holling.Type.I = ffr.hollingI,
-        				Holling.Type.II = ffr.hollingII,
-        				Beddington.DeAngelis = ffr.bd,
-        				Crowley.Martin = ffr.cm,
-        				Stouffer.Novak.I = ffr.sn1,
-              		# Stouffer.Novak.Numer = ffr.sn2,
-              		# Stouffer.Novak.III = ffr.sn3,
-        				Ratio = ffr.ratio,
-        				Arditi.Ginzburg = ffr.ag,
-        				Hassell.Varley = ffr.hv,
-        				Arditi.Akcakaya = ffr.aa,
-        				Arditi.Akcakaya.Method.2 = ffr.aam
+			fits = list(
+        				Holling.Type.I = fits.HT.I,
+        				Holling.Type.II = fits.HT.II,
+        				Beddington.DeAngelis = fits.BD,
+        				Crowley.Martin = fits.CM,
+        				Stouffer.Novak.I = fits.SN.I,
+            		# Stouffer.Novak.II = fits.SN.II,
+            		# Stouffer.Novak.III = fits.SN.III,
+        				Ratio = fits.R,
+        				Arditi.Ginzburg = fits.AG,
+        				Hassell.Varley = fits.HV,
+        				Arditi.Akcakaya = fits.AA,
+        				Arditi.Akcakaya.Method.2 = fits.AAm
 			        ),
       boots = list(
                   	Holling.TypeI = boots.HT.I,
@@ -234,6 +259,8 @@ for(i in 1:length(datasets)){
                   	Beddington.DeAngelis = boots.BD,
                   	Crowley.Martin = boots.CM,
                   	Stouffer.Novak.I = boots.SN.I,
+                  	# Stouffer.Novak.II = boots.SN.II,
+                  	# Stouffer.Novak.III = boots.SN.III,
                   	Ratio = boots.R,
                     Arditi.Ginzburg = boots.AG,
                     Hassell.Varley = boots.HV,
@@ -261,8 +288,8 @@ for(i in 1:length(datasets)){
 	# break
 }
 
-# save the mega container which includes all FR fits
-save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+# save the mega container
+# save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 if(sinkMessages){
   sink(type="message")
