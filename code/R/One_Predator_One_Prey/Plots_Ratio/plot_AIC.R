@@ -2,7 +2,7 @@ source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 
-load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+# load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
@@ -10,14 +10,24 @@ ffr.fits <- ffr.fits[fit.order]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 
-AIC.H1 <- unlist(lapply(ffr.fits, function(x) AIC(logLik(x$fits[['Holling.Type.I']]))))
-AIC.H2 <- unlist(lapply(ffr.fits, function(x) AIC(logLik(x$fits[['Holling.Type.II']]))))
-AIC.R <- unlist(lapply(ffr.fits, function(x) AIC(logLik(x$fits[['Ratio']]))))
-AIC.AG <- unlist(lapply(ffr.fits, function(x) AIC(logLik(x$fits[['Arditi.Ginzburg']]))))
-AIC.HV <- unlist(lapply(ffr.fits, function(x) AIC(logLik(x$fits[['Hassell.Varley']]))))
-AIC.AA <- unlist(lapply(ffr.fits, function(x) AIC(logLik(x$fits[['Arditi.Akcakaya']]))))
-AIC.BD <- unlist(lapply(ffr.fits, function(x) AIC(logLik(x$fits[['Beddington.DeAngelis']]))))
-AIC.CM <- unlist(lapply(ffr.fits, function(x) AIC(logLik(x$fits[['Crowley.Martin']]))))
+# Summarize mean of AIC estimates across bootstrapped fits 
+AIC.H1 <- unlist(lapply(ffr.fits, function(x){ 
+  mean(unlist(lapply(  x$fits[['Holling.Type.I']],       function(y){AIC(logLik(y))}  )))   }))
+AIC.H2 <- unlist(lapply(ffr.fits, function(x){ 
+  mean(unlist(lapply(  x$fits[['Holling.Type.II']],      function(y){AIC(logLik(y))}  )))   }))
+AIC.R <- unlist(lapply(ffr.fits, function(x){ 
+  mean(unlist(lapply(  x$fits[['Ratio']],                function(y){AIC(logLik(y))}  )))   }))
+AIC.AG <- unlist(lapply(ffr.fits, function(x){ 
+  mean(unlist(lapply(  x$fits[['Arditi.Ginzburg']],      function(y){AIC(logLik(y))}  )))   }))
+AIC.HV <- unlist(lapply(ffr.fits, function(x){ 
+  mean(unlist(lapply(  x$fits[['Hassell.Varley']],       function(y){AIC(logLik(y))}  )))   }))
+AIC.AA <- unlist(lapply(ffr.fits, function(x){ 
+  mean(unlist(lapply(  x$fits[['Arditi.Akcakaya']],      function(y){AIC(logLik(y))}  )))   }))
+AIC.BD <- unlist(lapply(ffr.fits, function(x){ 
+  mean(unlist(lapply(  x$fits[['Beddington.DeAngelis']], function(y){AIC(logLik(y))}  )))   }))
+AIC.CM <- unlist(lapply(ffr.fits, function(x){ 
+  mean(unlist(lapply(  x$fits[['Crowley.Martin']],       function(y){AIC(logLik(y))}  )))   }))
+  
 
 AICs <- data.frame(AIC.H1, AIC.H2, AIC.R, AIC.AG, AIC.HV, AIC.AA, AIC.BD, AIC.CM)
 
@@ -32,8 +42,6 @@ dAICs <- AICs - minAICs
 
 rnkAICs <- t(apply(AICs, 1, order, decreasing=T))
 colnames(rnkAICs) <- colnames(AICs)
-
-
 
 #~~~~~~~~~~~
 # Rank order
