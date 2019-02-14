@@ -106,15 +106,15 @@ plot.coefs <- function(
     # Three ways to estimate intervals
     if(plot.SEs){
         # if we did not bootstrap then try (1) profile or (2) approximate	
-        if(x$estimates[[model]]["n",1,1] == 1){ # (1) estimate the profile confidence interval
-              # do so for all model parameters because doing so for focal parameter can cause errors
+        if(x$estimates[[model]]["n",1,1] == 1){ 
           
+          # (1) estimate the profile confidence interval
+              # do so for all model parameters because doing so for focal parameter can cause errors
           if(model!='Arditi.Akcakaya.Method.2'){
              cf <- try(confint(x$fits[[model]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
           }else{
-            cf <- 'a'
+            cf <- TRUE
             class(cf) <- 'try-error'
-            print(cf)
           }
           
           # if profiling code was successful
@@ -126,8 +126,11 @@ plot.coefs <- function(
             lb <- cf[parameter,1]
             ub <- cf[parameter,2]
   
-          }else{# (2) if profiling was not successful or AA2 method was usedthen assume quadratic approximation
-           
+          }
+          # (2) if profiling is unsuccessful or super wide, or AA2 method was used, then assume quadratic approximation
+          print(ub)
+          if(inherits(cf, "try-error")){# ub is currently NA        | ilink(ub) > xlim[2]){
+
             # quadratic approximation is dashed line
             lty <- "dashed"
             
