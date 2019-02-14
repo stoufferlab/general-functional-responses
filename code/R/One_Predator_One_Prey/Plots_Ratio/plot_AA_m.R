@@ -6,15 +6,13 @@ load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# subset to include only studies considered by DeLong and Vasseur
-# ffr.fits.delong <- ffr.fits[unlist(lapply(ffr.fits, function(x) x$study.info$delong))]
-
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
+ffr.fits <- ffr.fits[fit.order]
 
 pdf('../../../../results/R/OnePredOnePrey_AA_m.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
   plot.coefs(
-     ffr.fits[fit.order],
+     ffr.fits,
      model="Arditi.Akcakaya",
      parameter="exponent",
      ilink=exp,

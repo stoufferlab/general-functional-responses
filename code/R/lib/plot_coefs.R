@@ -126,10 +126,8 @@ plot.coefs <- function(
             lb <- cf[parameter,1]
             ub <- cf[parameter,2]
   
-          }
-          # (2) if profiling is unsuccessful or super wide, or AA2 method was used, then assume quadratic approximation
-          print(ub)
-          if(inherits(cf, "try-error")){# ub is currently NA        | ilink(ub) > xlim[2]){
+          }else{
+          # (2) if profiling is unsuccessful or AA2 method was used then assume quadratic approximation
 
             # quadratic approximation is dashed line
             lty <- "dashed"
