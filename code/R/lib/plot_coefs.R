@@ -1,11 +1,13 @@
 # Function to sort fits by magnitude of focal parameter point estimates
-order.of.fits<-function(ffr.fits, order=FALSE, model=NULL, order.parm=NULL){
+order.of.fits<-function(ffr.fits, order=FALSE, model=NULL, order.parm=NULL, point.est=c('median','mean')){
+  point.est <- match.arg(point.est)
+  point.est <- ifelse(point.est=='median', '50%', point.est)
   if(order){
     if(order.parm=='Sample size'){
       foc.parms <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
       how.to.order <- order(foc.parms)
     }else{
-        foc.parms <- unlist(lapply(ffr.fits, function(x) coef(x$fits[[model]])[order.parm]))
+        foc.parms <- unlist(lapply(ffr.fits, function(x) x$estimates[[model]][point.est, order.parm, "estimate"]))
         how.to.order <- order(foc.parms)
       }
     }else{
