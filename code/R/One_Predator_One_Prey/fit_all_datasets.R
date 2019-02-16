@@ -260,8 +260,8 @@ for(i in 1:length(datasets)){
           	  	  Arditi.Akcakaya = ffr.aa
           	  	),
       boots = list(
-                  	Holling.TypeI = boots.hollingI,
-                  	Holling.TypeII = boots.hollingII,
+                  	Holling.Type.I = boots.hollingI,
+                  	Holling.Type.II = boots.hollingII,
                   	Beddington.DeAngelis = boots.bd,
                   	Crowley.Martin = boots.cm,
                   	Stouffer.Novak.I = boots.sn1,
@@ -274,8 +274,8 @@ for(i in 1:length(datasets)){
                     Arditi.Akcakaya.Method.2 = boots.aam
                   ),
 	  	AIC = list(
-            	  	  Holling.TypeI = AIC.hollingI,
-            	  	  Holling.TypeII = AIC.hollingII,
+            	  	  Holling.Type.I = AIC.hollingI,
+            	  	  Holling.Type.II = AIC.hollingII,
             	  	  Beddington.DeAngelis = AIC.bd,
             	  	  Crowley.Martin = AIC.cm,
             	  	  Stouffer.Novak.I = AIC.sn1,
