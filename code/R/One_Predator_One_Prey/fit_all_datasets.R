@@ -31,7 +31,7 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/Kfir_1983.R")  # Occasional Hessian problem
+datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
 
 
 # create mega container for the things that get fit 
@@ -130,9 +130,9 @@ for(i in 1:length(datasets)){
 	    	if(!inherits(success, "try-error")){
 		    	if(b == 1){
 		    	  # create containers for AIC values of all bootstrap fits
-		    	  AIC.hollingI <- AIC.hollingII <- AIC.bd <- AIC.cm <- AIC.sn1 <- vector("list",boot.reps)
-		    	  # AIC.sn2 <- AIC.sn3 <- vector("list",boot.reps)
-		    	  AIC.ratio <- AIC.ag <- AIC.hv <- AIC.aa <- vector("list",boot.reps)
+		    	  aic.hollingI <- aic.hollingII <- aic.bd <- aic.cm <- aic.sn1 <- vector("numeric",boot.reps)
+		    	  # aic.sn2 <- aic.sn3 <- vector("list",boot.reps)
+		    	  aic.ratio <- aic.ag <- aic.hv <- aic.aa <- vector("numeric",boot.reps)
 		    	  
 		    	  # create containers for parameter estimates using first rep as a template
 		    		boots.hollingI <- boots.hollingII <- boots.bd <- array(NA, c(1,1,boot.reps))
@@ -163,19 +163,19 @@ for(i in 1:length(datasets)){
 
 	    	  # Save the AIC values for the rep
 	    	  if(grepl("H", this.study$runswith)){
-	    	    AIC.hollingI[[b]] <- AIC(ffr.hollingI)
-	    	    AIC.hollingII[[b]] <- AIC(ffr.hollingII)
-	    	    AIC.bd[[b]] <- AIC(ffr.bd)
-	    	    AIC.cm[[b]] <- AIC(ffr.cm)
-	    	    AIC.sn1[[b]] <- AIC(ffr.sn1)
-	    	    # AIC.sn2[[b]] <- AIC(ffr.sn2)
-	    	    # AIC.sn3[[b]] <- AIC(ffr.sn3)
+	    	    aic.hollingI[[b]] <- AIC(ffr.hollingI)
+	    	    aic.hollingII[[b]] <- AIC(ffr.hollingII)
+	    	    aic.bd[[b]] <- AIC(ffr.bd)
+	    	    aic.cm[[b]] <- AIC(ffr.cm)
+	    	    aic.sn1[[b]] <- AIC(ffr.sn1)
+	    	    # aic.sn2[[b]] <- AIC(ffr.sn2)
+	    	    # aic.sn3[[b]] <- AIC(ffr.sn3)
 	    	  }
 	    	  if(grepl("R", this.study$runswith)){
-	    	    AIC.ratio[[b]] <- AIC(ffr.ratio)
-	    	    AIC.ag[[b]] <- AIC(ffr.ag)
-	    	    AIC.hv[[b]] <- AIC(ffr.hv)
-	    	    AIC.aa[[b]] <- AIC(ffr.aa)
+	    	    aic.ratio[[b]] <- AIC(ffr.ratio)
+	    	    aic.ag[[b]] <- AIC(ffr.ag)
+	    	    aic.hv[[b]] <- AIC(ffr.hv)
+	    	    aic.aa[[b]] <- AIC(ffr.aa)
 	    	  }
 	    	  
 	    	  
@@ -223,6 +223,14 @@ for(i in 1:length(datasets)){
 			ests.sn1 <- as.array(apply(boots.sn1, c(1,2), summarize.boots))
 			# ests.sn2 <- as.array(apply(boots.sn2,c(1,2), summarize.boots))
 			# ests.sn3 <- as.array(apply(boots.sn3,c(1,2), summarize.boots))
+			
+			AIC.hollingI <- summarize.boots(aic.hollingI)
+			AIC.hollingII <- summarize.boots(aic.hollingI)
+			AIC.bd <- summarize.boots(aic.bd)
+			AIC.cm <- summarize.boots(aic.cm)
+			AIC.sn1 <- summarize.boots(aic.sn1)
+			# AIC.sn2 <- summarize.boots(aic.sn2)
+			# AIC.sn3 <- summarize.boots(aic.sn3)
 		}
 		
 	  ests.ratio <- ests.ag <- ests.hv <- ests.aa <- ests.aam <- NA
@@ -234,6 +242,11 @@ for(i in 1:length(datasets)){
         if(okay4AAmethod(d)){
             ests.aam <- as.array(apply(boots.aam,c(1,2), summarize.boots))
         }
+	  		
+	  		AIC.ratio <- summarize.boots(aic.ratio)
+	  		AIC.ag <- summarize.boots(aic.ag)
+	  		AIC.hv <- summarize.boots(aic.hv)
+	  		AIC.aa <- summarize.boots(aic.aa)
 		}
 		
 	  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
