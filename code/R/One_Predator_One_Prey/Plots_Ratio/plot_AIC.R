@@ -10,29 +10,22 @@ ffr.fits <- ffr.fits[fit.order]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 
+
 # Summarize mean of AIC estimates across bootstrapped fits 
-AIC.H1 <- unlist(lapply(ffr.fits, function(x){ 
-  mean(unlist(lapply(  x$fits[['Holling.Type.I']],       function(y){AIC(logLik(y))}  )))   }))
-AIC.H2 <- unlist(lapply(ffr.fits, function(x){ 
-  mean(unlist(lapply(  x$fits[['Holling.Type.II']],      function(y){AIC(logLik(y))}  )))   }))
-AIC.R <- unlist(lapply(ffr.fits, function(x){ 
-  mean(unlist(lapply(  x$fits[['Ratio']],                function(y){AIC(logLik(y))}  )))   }))
-AIC.AG <- unlist(lapply(ffr.fits, function(x){ 
-  mean(unlist(lapply(  x$fits[['Arditi.Ginzburg']],      function(y){AIC(logLik(y))}  )))   }))
-AIC.HV <- unlist(lapply(ffr.fits, function(x){ 
-  mean(unlist(lapply(  x$fits[['Hassell.Varley']],       function(y){AIC(logLik(y))}  )))   }))
-AIC.AA <- unlist(lapply(ffr.fits, function(x){ 
-  mean(unlist(lapply(  x$fits[['Arditi.Akcakaya']],      function(y){AIC(logLik(y))}  )))   }))
-AIC.BD <- unlist(lapply(ffr.fits, function(x){ 
-  mean(unlist(lapply(  x$fits[['Beddington.DeAngelis']], function(y){AIC(logLik(y))}  )))   }))
-AIC.CM <- unlist(lapply(ffr.fits, function(x){ 
-  mean(unlist(lapply(  x$fits[['Crowley.Martin']],       function(y){AIC(logLik(y))}  )))   }))
-  
+AIC.H1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.Type.I'][[1]]['50%']}))
+AIC.H2 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.Type.II'][[1]]['50%']}))
+AIC.R <- unlist(lapply(ffr.fits, function(x){ x$AIC['Ratio'][[1]]['50%']}))
+AIC.AG <- unlist(lapply(ffr.fits, function(x){ x$AIC['Arditi.Ginzburg'][[1]]['50%']}))
+AIC.HV <- unlist(lapply(ffr.fits, function(x){ x$AIC['Hassell.Varley'][[1]]['50%']}))
+AIC.AA <- unlist(lapply(ffr.fits, function(x){ x$AIC['Arditi.Akcakaya'][[1]]['50%']}))
+AIC.BD <- unlist(lapply(ffr.fits, function(x){ x$AIC['Beddington.DeAngelis'][[1]]['50%']}))
+AIC.CM <- unlist(lapply(ffr.fits, function(x){ x$AIC['Crowley.Martin'][[1]]['50%']}))
+
 
 AICs <- data.frame(AIC.H1, AIC.H2, AIC.R, AIC.AG, AIC.HV, AIC.AA, AIC.BD, AIC.CM)
 
-rownames(AICs)<-sub('./Dataset_Code/','', rownames(AICs))
-rownames(AICs)<-sub('.R','', rownames(AICs))
+rownames(AICs)<-sub('..Dataset_Code.','', rownames(AICs))
+rownames(AICs)<-sub('.R.50%','', rownames(AICs))
 rownames(AICs) <- paste0(rownames(AICs), ' (',SS,')')
 colnames(AICs) <- sub('AIC.', '', colnames(AICs))
 
@@ -81,3 +74,4 @@ for(m in 1:ncol(dAICs)){
 }  
 
 legend('bottomright',legend=colnames(dAICs),pch=21, pt.bg=Mcols, col=Mcols)
+
