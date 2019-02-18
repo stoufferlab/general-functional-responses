@@ -31,7 +31,7 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # # DEBUG: for testing only
-datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
+# datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
 
 
 # create mega container for the things that get fit 
