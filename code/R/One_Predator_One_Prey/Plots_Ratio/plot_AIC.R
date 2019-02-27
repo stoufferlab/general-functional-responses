@@ -39,6 +39,7 @@ colnames(rnkAICs) <- colnames(AICs)
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
+library(RColorBrewer)
 pdf('../../../../results/R/OnePredOnePrey_AIC_ranks.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
   plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
@@ -49,7 +50,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
        ylab='')
   axis(side=2, at=1:nrow(rnkAICs), labels=rownames(rnkAICs), cex.axis=0.5, las=2)
   
-  Mcols <- rainbow(ncol(rnkAICs))
+  Mcols <- brewer.pal(ncol(rnkAICs),'Set3')
   for(m in 1:ncol(rnkAICs)){
     points(rnkAICs[,m], 1:nrow(rnkAICs), type='p', pch=21, col=Mcols[m], bg=Mcols[m])
   }  
