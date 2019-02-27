@@ -18,10 +18,21 @@ order.of.fits<-function(ffr.fits, order=FALSE, model=NULL, order.parm=NULL, poin
 # Function to plot focal parameter estimates across all fitted datasets
 plot.coefs <- function(
                 ffr.fits, 
-                model=c('Holling.Type.I','Holling.Type.II','Beddington.DeAngelis','Crowley.Martin',
-                        'Stouffer.Novak.I','Ratio','Arditi.Ginzburg','Hassell.Varley','Arditi.Akcakaya',
+                model=c('Holling.Type.I',
+                        'Holling.Type.II',
+                        'Beddington.DeAngelis',
+                        'Crowley.Martin',
+                        'Stouffer.Novak.I',
+                        'Ratio',
+                        'Arditi.Ginzburg',
+                        'Hassell.Varley',
+                        'Arditi.Akcakaya',
                         'Arditi.Akcakaya.Method.2'),
-                parameter=c('attack','handling','interference','phi_denom','exponent'),  # add others later as needed
+                parameter=c('attack',
+                            'handling',
+                            'interference',
+                            'phi_denom',
+                            'exponent'),  # add others later as needed
                 ilink=identity,
                 point.est=c('median','mean'),
                 plot.SEs=FALSE,
