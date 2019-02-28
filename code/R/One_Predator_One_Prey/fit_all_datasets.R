@@ -129,6 +129,11 @@ for(i in 1:length(datasets)){
 	    	
 	    	if(!inherits(success, "try-error")){
 		    	if(b == 1){
+		    	  # create containers for log likelihood values of all bootstrap fits
+		    	  ll.hollingI <- ll.hollingII <- ll.bd <- ll.cm <- ll.sn1 <- vector("numeric",boot.reps)
+		    	  # ll.sn2 <- ll.sn3 <- vector("list",boot.reps)
+		    	  ll.ratio <- ll.ag <- ll.hv <- ll.aa <- vector("numeric",boot.reps)
+		    	  
 		    	  # create containers for AIC values of all bootstrap fits
 		    	  aic.hollingI <- aic.hollingII <- aic.bd <- aic.cm <- aic.sn1 <- vector("numeric",boot.reps)
 		    	  # aic.sn2 <- aic.sn3 <- vector("list",boot.reps)
@@ -163,6 +168,14 @@ for(i in 1:length(datasets)){
 
 	    	  # Save the AIC values for the rep
 	    	  if(grepl("H", this.study$runswith)){
+	    	    ll.hollingI[[b]] <- logLik(ffr.hollingI)
+	    	    ll.hollingII[[b]] <- logLik(ffr.hollingII)
+	    	    ll.bd[[b]] <- logLik(ffr.bd)
+	    	    ll.cm[[b]] <- logLik(ffr.cm)
+	    	    ll.sn1[[b]] <- logLik(ffr.sn1)
+	    	    # ll.sn2[[b]] <- logLik(ffr.sn2)
+	    	    # ll.sn3[[b]] <- logLik(ffr.sn3)
+	    	    
 	    	    aic.hollingI[[b]] <- AIC(ffr.hollingI)
 	    	    aic.hollingII[[b]] <- AIC(ffr.hollingII)
 	    	    aic.bd[[b]] <- AIC(ffr.bd)
@@ -172,6 +185,11 @@ for(i in 1:length(datasets)){
 	    	    # aic.sn3[[b]] <- AIC(ffr.sn3)
 	    	  }
 	    	  if(grepl("R", this.study$runswith)){
+	    	    ll.ratio[[b]] <- logLik(ffr.ratio)
+	    	    ll.ag[[b]] <- logLik(ffr.ag)
+	    	    ll.hv[[b]] <- logLik(ffr.hv)
+	    	    ll.aa[[b]] <- logLik(ffr.aa)
+	    	    
 	    	    aic.ratio[[b]] <- AIC(ffr.ratio)
 	    	    aic.ag[[b]] <- AIC(ffr.ag)
 	    	    aic.hv[[b]] <- AIC(ffr.hv)
@@ -224,6 +242,14 @@ for(i in 1:length(datasets)){
 			# ests.sn2 <- as.array(apply(boots.sn2,c(1,2), summarize.boots))
 			# ests.sn3 <- as.array(apply(boots.sn3,c(1,2), summarize.boots))
 			
+			LL.hollingI <- summarize.boots(ll.hollingI)
+			LL.hollingII <- summarize.boots(ll.hollingI)
+			LL.bd <- summarize.boots(ll.bd)
+			LL.cm <- summarize.boots(ll.cm)
+			LL.sn1 <- summarize.boots(ll.sn1)
+			# LL.sn2 <- summarize.boots(ll.sn2)
+			# LL.sn3 <- summarize.boots(ll.sn3)
+			
 			AIC.hollingI <- summarize.boots(aic.hollingI)
 			AIC.hollingII <- summarize.boots(aic.hollingI)
 			AIC.bd <- summarize.boots(aic.bd)
@@ -242,6 +268,11 @@ for(i in 1:length(datasets)){
         if(okay4AAmethod(d)){
             ests.aam <- as.array(apply(boots.aam,c(1,2), summarize.boots))
         }
+	  		
+	  		LL.ratio <- summarize.boots(ll.ratio)
+	  		LL.ag <- summarize.boots(ll.ag)
+	  		LL.hv <- summarize.boots(ll.hv)
+	  		LL.aa <- summarize.boots(ll.aa)
 	  		
 	  		AIC.ratio <- summarize.boots(aic.ratio)
 	  		AIC.ag <- summarize.boots(aic.ag)
@@ -286,6 +317,19 @@ for(i in 1:length(datasets)){
                     Arditi.Akcakaya = boots.aa,
                     Arditi.Akcakaya.Method.2 = boots.aam
                   ),
+	  	LL = list(
+          	  	  Holling.Type.I = LL.hollingI,
+          	  	  Holling.Type.II = LL.hollingII,
+          	  	  Beddington.DeAngelis = LL.bd,
+          	  	  Crowley.Martin = LL.cm,
+          	  	  Stouffer.Novak.I = LL.sn1,
+          	  	  # Stouffer.Novak.II = LL.sn2,
+          	  	  # Stouffer.Novak.III = LL.sn3,
+          	  	  Ratio = LL.ratio,
+          	  	  Arditi.Ginzburg = LL.ag,
+          	  	  Hassell.Varley = LL.hv,
+          	  	  Arditi.Akcakaya = LL.aa
+	  	),
 	  	AIC = list(
             	  	  Holling.Type.I = AIC.hollingI,
             	  	  Holling.Type.II = AIC.hollingII,
