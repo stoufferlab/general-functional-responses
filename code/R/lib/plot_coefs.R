@@ -35,6 +35,8 @@ plot.coefs <- function(
                             'exponent'),  # add others later as needed
                 ilink=identity,
                 point.est=c('median','mean'),
+                color.factor=c('None','Parasitoids','Replacement'),
+                color.vector=NULL,
                 plot.SEs=FALSE,
                 display.outlier.ests=FALSE,
                 xlim=NULL,
@@ -46,7 +48,9 @@ plot.coefs <- function(
   parameter <- match.arg(parameter)
   ilink <- match.fun(ilink)
   point.est <- match.arg(point.est)
-  point.est <- ifelse(point.est=='median', '50%', point.est)
+    point.est <- ifelse(point.est=='median', '50%', point.est)
+  color.factor <- match.arg(color.factor)
+  color.vector <- color.vector
 
   if(is.null(xlim)){
     ests <- unlist(lapply(ffr.fits, function(x) x$estimates[[model]][point.est, parameter, "estimate"]))
@@ -56,8 +60,6 @@ plot.coefs <- function(
   # scaffold of a plot that doesn't actually show anything
   plot(
     y = 1:length(ffr.fits),
-    # do we really need this if type='n' anyway?
-    # x = unlist(lapply(ffr.fits, function(x){ilink(coef(x$fits[[model]])[parameter])})), 
     x = 1:length(ffr.fits),
     type='n',
     yaxt='n',
@@ -84,12 +86,22 @@ plot.coefs <- function(
   # plot these bad boys 
   # (Note: This determines intervals on estimated scale before plotting on backtransformed scale)
   i <- 1
-  for(nn in names(ffr.fits)){
+  for(i in 1:length(ffr.fits)){
+    nn <- names(ffr.fits)[i]
     x <- ffr.fits[[nn]]
     
-    # color points depending on predator/parasitoid
-    col <- ifelse(x$study.info$predator, "black", "red")	
-    
+    # color points depending on factor or vector of choice
+    col <- 'black'
+    if(!color.factor=='None'){
+      if(color.factor=='Parasitoids' & !x$study.info$predator){
+        col <- 'red'  }
+      if(color.factor=='Replacement' & x$study.info$replacement){
+        col <- 'red'  }
+    }
+    if(length(color.vector)==length(ffr.fits)){  # note that this overrides color.factor
+      col <- color.vector[i]
+    }
+
     # make all lines the equivalent for now
     lty <- "solid"
     

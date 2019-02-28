@@ -1,4 +1,5 @@
 source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
+source('../../lib/depletion_check.R') 
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 
@@ -8,6 +9,11 @@ load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
 ffr.fits <- ffr.fits[fit.order]
+
+# fraction of replicates in which significant depletion occurred (in non-replacement datasets)
+col.vec<-rep('black',length(ffr.fits))
+depleted <- unlist(lapply(ffr.fits, depletion.check, cutoff=0.7))
+col.vec[depleted>0] <- 'red'
 
 pdf('../../../../results/R/OnePredOnePrey_AA_m.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
@@ -19,6 +25,8 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      point.est='median',
      plot.SEs=TRUE,
      display.outlier.ests=TRUE,
+     color.factor='None', # 'None', 'Parasitoids' or 'Replacement'
+     color.vector=col.vec, # delete or specify above plot()
      xlab="Arditi-Akcakaya interference rate (m)",
      ylab="",
      labels=TRUE,
@@ -34,7 +42,7 @@ m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",
 parm <- exp(m)
 
 names(parm)<-sub('./Dataset_Code/','',names(parm))
-names(parm)<-sub('.R','',names(parm))
+names(parm)<-sub('.{2}$','',names(parm))
 names(parm) <- paste0(names(parm), ' (',SS,')')
 
 pdf('../../../../results/R/OnePredOnePrey_AA_m_xy.pdf',height=3,width=4)
