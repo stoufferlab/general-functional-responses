@@ -164,7 +164,6 @@ plot_obsVfit <- function(ffr.fit,
   }
   abline(0,1)
   points(eaten, Nconsumed.predicted)
-  legend('topleft', legend=bquote(R^2==.(round(R2,2))), bty='n',inset=0,cex=0.8)
-  # legend('bottomright',legend=bquote(LL==.(round(LL,1))), bty='n',inset=0,cex=0.8)
+  legend('bottomright', legend=bquote(R^2==.(round(R2,2))), bty='n',inset=0,cex=0.8)
   title(title,cex=0.5,line=1)
 }

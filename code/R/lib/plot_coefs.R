@@ -70,7 +70,7 @@ plot.coefs <- function(
   if(labels){
     labels <- names(sample.sizes)
     labels<-sub('./Dataset_Code/','',labels)
-    labels<-sub('.R','',labels)
+    labels<-sub('.{2}$','',labels)
     labels <- paste0(labels, ' (',sample.sizes,')')
   }
   axis(side=2, at=1:length(ffr.fits), labels=labels, cex.axis=0.5)
