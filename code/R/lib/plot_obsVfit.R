@@ -26,9 +26,9 @@ plot_obsVfit <- function(ffr.fit,
   }
   Pminus1 <- ffr.fit$study.info$Pminus1
   
-  if(ffr.fit$study.info$bootstrap){
+  if(!is.null(ffr.fit$study.info$data.Nconsumed.se)){ # can't use bootstrap to specify since some bootstrapped data don't have SE values and were hence treated as data.
     eaten <- ffr.fit$study.info$data.Nconsumed.mean
-    eaten.se <- P <- ffr.fit$study.info$data.Nconsumed.se
+    eaten.se <- ffr.fit$study.info$data.Nconsumed.se
   }else{
     eaten <- ffr.fit$study.info$data.Nconsumed
     eaten.se <- NA
@@ -146,8 +146,8 @@ plot_obsVfit <- function(ffr.fit,
   
   R2 <- cor(eaten, Nconsumed.predicted)^2
   
-  # extract NLL from (last) fit
-  NLL <- logLik(ffr.fit$fits[[modeltype]])
+  # extract LL from (last) fit
+  LL <- logLik(ffr.fit$fits[[modeltype]])
   
   rng <- range(c(eaten, Nconsumed.predicted))
   par(pty='s')
@@ -160,11 +160,11 @@ plot_obsVfit <- function(ffr.fit,
   if(ffr.fit$study.info$bootstrap){
     arrows(eaten-eaten.se, Nconsumed.predicted, 
            eaten+eaten.se, Nconsumed.predicted, 
-           angle=90, length=0.05, code=3)
+           angle=90, length=0.02, code=3)
   }
   abline(0,1)
   points(eaten, Nconsumed.predicted)
-  legend('topleft', legend=bquote(R^2==.(round(R2,2))), bty='n')
-  legend('bottomright',legend=bquote(NLL==.(round(NLL,1))), bty='n')
-  title(title)
+  legend('topleft', legend=bquote(R^2==.(round(R2,2))), bty='n',inset=0,cex=0.8)
+  # legend('bottomright',legend=bquote(LL==.(round(LL,1))), bty='n',inset=0,cex=0.8)
+  title(title,cex=0.5,line=1)
 }
