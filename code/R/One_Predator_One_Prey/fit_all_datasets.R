@@ -243,7 +243,7 @@ for(i in 1:length(datasets)){
 			# ests.sn3 <- as.array(apply(boots.sn3,c(1,2), summarize.boots))
 			
 			LL.hollingI <- summarize.boots(ll.hollingI)
-			LL.hollingII <- summarize.boots(ll.hollingI)
+			LL.hollingII <- summarize.boots(ll.hollingII)
 			LL.bd <- summarize.boots(ll.bd)
 			LL.cm <- summarize.boots(ll.cm)
 			LL.sn1 <- summarize.boots(ll.sn1)
@@ -251,7 +251,7 @@ for(i in 1:length(datasets)){
 			# LL.sn3 <- summarize.boots(ll.sn3)
 			
 			AIC.hollingI <- summarize.boots(aic.hollingI)
-			AIC.hollingII <- summarize.boots(aic.hollingI)
+			AIC.hollingII <- summarize.boots(aic.hollingII)
 			AIC.bd <- summarize.boots(aic.bd)
 			AIC.cm <- summarize.boots(aic.cm)
 			AIC.sn1 <- summarize.boots(aic.sn1)
