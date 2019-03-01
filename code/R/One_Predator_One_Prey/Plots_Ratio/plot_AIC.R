@@ -11,7 +11,6 @@ ffr.fits <- ffr.fits[fit.order]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 
-
 # Grab summary of AIC estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
 
