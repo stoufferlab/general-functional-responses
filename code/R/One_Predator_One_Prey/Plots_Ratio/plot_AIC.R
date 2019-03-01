@@ -14,6 +14,7 @@ SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 
 # Grab summary of AIC estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
+
 AIC.H1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.Type.I'][[1]][stat]}))
 AIC.H2 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.Type.II'][[1]][stat]}))
 AIC.R <- unlist(lapply(ffr.fits, function(x){ x$AIC['Ratio'][[1]][stat]}))
@@ -36,7 +37,7 @@ minAICs <- apply(AICs, 1, min)
 
 dAICs <- AICs - minAICs
 
-rnkAICs <- t(apply(AICs, 1, order, decreasing=T))
+rnkAICs <- t(apply(dAICs, 1, rank, ties.method='first'))
 colnames(rnkAICs) <- colnames(AICs)
 
 #~~~~~~~~~~~
@@ -44,20 +45,36 @@ colnames(rnkAICs) <- colnames(AICs)
 #~~~~~~~~~~~
 Mcols <- brewer.pal(ncol(rnkAICs),'Set3')
 
-pdf('../../../../results/R/OnePredOnePrey_AIC_ranks.pdf',height=6,width=5)
-par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
+pdf('../../../../results/R/OnePredOnePrey_AIC_ranks.pdf',height=6,width=2.25)
+par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
   plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
        type='n', yaxt='n',
        xlim=c(1,ncol(rnkAICs)),
        ylim=c(0,nrow(rnkAICs)+1),
        xlab='Model rank by AIC',
-       ylab='')
-  axis(side=2, at=1:nrow(rnkAICs), labels=rownames(rnkAICs), cex.axis=0.5, las=2)
+       ylab='',
+       axes=F)
+  rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4],col = "grey30")
+  axis(2, at=1:nrow(rnkAICs), labels=rownames(rnkAICs), cex.axis=0.5, las=2)
+  axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
+  box(lwd=1)
+  
+  # Which models have delta-AIC within X of best-performing model?
+  # (Could use either of the next sections depending on preference)
+  xats <-table(which(dAICs<2,arr.ind=T)[,1])+0.5
+  yats <- 0:(length(xats))+0.5
+  segments(xats,yats[-length(yats)],xats,yats[-1],col='white')
+  segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='white')
 
+  pxats<-c(1,rep(xats,each=2),1)
+  pyats<-rep(0:(length(xats)),each=2)+0.5
+  polygon(pxats,pyats,col='grey40',border=NA)
+  
   for(m in 1:ncol(rnkAICs)){
     points(rnkAICs[,m], 1:nrow(rnkAICs), type='p', pch=21, col=Mcols[m], bg=Mcols[m])
   }  
-  legend('bottomright',legend=colnames(rnkAICs),pch=21, pt.bg=Mcols, col=Mcols, bg='white')
+  par(xpd=TRUE)
+  legend(-8,nrow(rnkAICs)+6,legend=colnames(rnkAICs),pch=21, pt.bg=Mcols, col='black', bg='white', horiz=T,pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()
 
 #~~~~~
