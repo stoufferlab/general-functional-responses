@@ -59,9 +59,12 @@ par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
   box(lwd=1)
   
+
   # Which models have delta-AIC within X of best-performing model?
   # (Could use either of the next sections depending on preference)
   xats <-table(which(dAICs<2,arr.ind=T)[,1])+0.5
+
+  xats <-table(which(dAICs<3,arr.ind=T)[,1])+0.5
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='white')
   segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='white')
