@@ -59,11 +59,10 @@ par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
   box(lwd=1)
   
 
-  # Which models have delta-AICc within X of best-performing model?
+  # Which models have delta-AICc within X=2 of best-performing model?
   # (Could use either of the next sections depending on preference)
-  xats <-table(which(dAICcs<2,arr.ind=T)[,1])+0.5
-
-  xats <-table(which(dAICcs<3,arr.ind=T)[,1])+0.5
+  delAICcutoff <- 2
+  xats <-table(which(dAICcs < delAICcutoff, arr.ind=T)[,1])+0.5
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='white')
   segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='white')
@@ -78,6 +77,21 @@ par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
   par(xpd=TRUE)
   legend(-8,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),pch=21, pt.bg=Mcols, col='black', bg='white', horiz=T,pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()
+
+# Count times each model is in each rank
+Cnt<-apply(rnkAICcs,2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
+Cnt
+round(prop.table(Cnt,2)*100,1)
+# Concl:  AA is ranked 1st most frequently, followed by CM and BD.
+# AA and BD are nearly always within top three
+
+# Of the times that AA is ranked first, how often are BD and CM  within X AICc units?
+cnt<-apply(dAICcs[rnkAICcs[,6]==1,7:8] < delAICcutoff, 2, sum)
+cnt
+Cnt[1,'AA']
+cnt/Cnt[1,'AA']
+# Concl: BD is within 2 dAICc units > 1/2 the time, and CM is > 1/4 of the time
+
 
 #~~~~~
 # dAICc
