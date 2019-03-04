@@ -62,6 +62,13 @@ for(i in 1:length(datasets)){
 			Unavailable = rep(NA, nrow(d))
 		)
 	}
+	
+	# grab sample size
+	if("n" %in% colnames(d)){
+	  sample.size <- sum(d$n)
+	}else{
+	  sample.size <- nrow(d)
+	}
 
 	# save original data in case we need to bootstrap it
 	d.orig <- d
@@ -286,7 +293,7 @@ for(i in 1:length(datasets)){
 		ffr.fits[[datasets[i]]] <- list(
 	  	study.info = c(
             	  			datadir = datadir,
-            	  			sample.size = nrow(d.orig),
+            	  			sample.size = sample.size,
             	  			data=d.orig,
             	  	    this.study  	        
           	  	    ),
