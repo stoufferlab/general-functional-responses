@@ -63,13 +63,6 @@ for(i in 1:length(datasets)){
 		)
 	}
 	
-	# grab sample size
-	if("n" %in% colnames(d)){
-	  sample.size <- sum(d$n)
-	}else{
-	  sample.size <- nrow(d)
-	}
-
 	# save original data in case we need to bootstrap it
 	d.orig <- d
 
@@ -293,7 +286,7 @@ for(i in 1:length(datasets)){
 		ffr.fits[[datasets[i]]] <- list(
 	  	study.info = c(
             	  			datadir = datadir,
-            	  			sample.size = sample.size,
+            	  			sample.size = nrow(d),
             	  			data=d.orig,
             	  	    this.study  	        
           	  	    ),
