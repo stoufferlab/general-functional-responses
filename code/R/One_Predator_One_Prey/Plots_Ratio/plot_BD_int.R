@@ -36,9 +36,9 @@ dev.off()
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Alternative / additional summary plots
 SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
-int <- unlist(lapply(ffr.fits, function(x) x$estimates[['Beddington.DeAngelis']]["50%",'interference',"estimate"]))
+parm <- unlist(lapply(ffr.fits, function(x) x$estimates[['Beddington.DeAngelis']]["50%",'interference',"estimate"]))
 
-parm <- exp(int)
+parm <- exp(parm)
 
 names(parm)<-sub('./Dataset_Code/','',names(parm))
 names(parm)<-sub('.R.exponent','',names(parm))

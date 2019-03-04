@@ -32,9 +32,9 @@ dev.off()
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Alternative / additional summary plots
 SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
-m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Hassell.Varley']]["50%",'exponent',"estimate"]))
+parm <- unlist(lapply(ffr.fits, function(x) x$estimates[['Hassell.Varley']]["50%",'exponent',"estimate"]))
 
-parm <- exp(m)
+parm <- exp(parm)
 
 names(parm)<-sub('./Dataset_Code/','',names(parm))
 names(parm)<-sub('.{2}$','',names(parm))
