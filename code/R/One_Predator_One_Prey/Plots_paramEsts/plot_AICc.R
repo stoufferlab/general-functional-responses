@@ -5,6 +5,10 @@ source('../../lib/ratio_method_one_predator_one_prey.R')
 load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 library(RColorBrewer)
+
+library(Hmisc) # for LaTeX table export
+options(xdvicmd='open')
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
 ffr.fits <- ffr.fits[fit.order]
@@ -47,6 +51,10 @@ dAICcs <- AICcs - minAICcs
 rnkAICcs <- t(apply(dAICcs, 1, rank, ties.method='first'))
 colnames(rnkAICcs) <- colnames(AICcs)
 
+
+# Define delta AICc cut-off for "indistinguishably well performing" models
+delAICcutoff <- 2
+
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
@@ -66,8 +74,7 @@ par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
   
 
   # Which models have delta-AICc within X=2 of best-performing model?
-  # (Could use either of the next sections depending on preference)
-  delAICcutoff <- 2
+  # (Could use either of the next chunks depending on preference)
   xats <-table(which(dAICcs < delAICcutoff, arr.ind=T)[,1])+0.5
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='black') # white 
@@ -86,13 +93,33 @@ dev.off()
 
 
 
-
+# ~~~~~~~~~
 # Count times each model is in each rank
 Cnt<-apply(rnkAICcs,2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
 Cnt
-round(prop.table(Cnt,2)*100,1)
+pCnt <- round(prop.table(Cnt,2)*100,1)
+pCnt
 # Concl:  AA is ranked 1st most frequently, followed by CM and BD.
-# AA and BD are nearly always within top three
+
+
+# ~~~~~~~~~
+# Either pass counts or combine counts and proportions before exporting table
+tab_Cnt <- Cnt
+
+# bCnt <- paste0(Cnt,' (',pCnt,')')
+# bCnt[Cnt==0] <- 0
+# tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
+
+
+wd <- getwd()
+setwd('../../../../results/R/')
+
+latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by AICc.')
+
+# latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by AICc.')
+
+setwd(wd)
+# ~~~~~~~~~
 
 # Of the times that AA is ranked first, how often are BD and CM  within X AICc units?
 cnt<-apply(dAICcs[rnkAICcs[,ncol(rnkAICcs)]==1,3:4] < delAICcutoff, 2, sum)
@@ -107,9 +134,17 @@ cnt
 cnt/Cnt[1,'AA']
 # Concl: BD or CM are within 2 dAICc units ~60% of the time
 
-#~~~~~
+# What about for datasets that have a sample size of at least X?
+SScut <- 50
+Cnt<-apply(rnkAICcs[SS>=SScut,],2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
+Cnt
+pCnt <- round(prop.table(Cnt,2)*100,1)
+pCnt
+
+
+#~~~~~~
 # dAICc
-#~~~~~
+#~~~~~~
 plot(1:nrow(dAICcs), 1:nrow(dAICcs),
      type='n', yaxt='n',
      # xlim=c(0,max(dAICcs)),
