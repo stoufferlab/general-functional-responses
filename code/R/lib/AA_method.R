@@ -133,12 +133,14 @@ AAmethod<-function(d,replacement){
   # use the weights of the estimates with the largest variance (lowest weight)
   dg <- diag(vcov(fit.AAM.mle))[1:nP]
   if(all(dg<0 | is.na(dg))){
-    dg<-rep(1,length(dg))
+    dg<-rep(1,length(dg)) # set all weights equal
     w <- 1/dg
+    warning('AAMethod2: Unweighted regression used..')
   }
   if(any(dg<0 | is.na(dg))){
-    dg[dg<=0|is.na(dg)] <-  max(dg[dg>0|!is.na(dg)],na.rm=T)
+    dg[dg<=0|is.na(dg)] <-  max(dg[dg>0|!is.na(dg)],na.rm=T) * 2 # replace twice the largest estimated variance
     w <- 1/dg
+    warning('AAMethod2: Twice the largest variance estimate substituted.')
   }
 
   # est.a estimates are already log-transformed by likelihood function
