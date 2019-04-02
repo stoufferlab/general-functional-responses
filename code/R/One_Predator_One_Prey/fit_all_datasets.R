@@ -1,6 +1,7 @@
 rm(list = ls())
-sinkMessages <- TRUE # set to FALSE if you want to match messages in real time 
+# set to FALSE if you want to match messages in real time 
 # or TRUE to have them silently saved to file instead.
+sinkMessages <- TRUE
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # specify where the data files are located
 dropboxdir <- switch(
@@ -32,27 +33,28 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # # DEBUG: for testing only
 # datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
-
+# datasets <- c("./Dataset_Code/Elliot_2003_Din.R")
 
 # create mega container for the things that get fit 
 ffr.ests <- ffr.fits <- list()
 
-# start capturing the progress and warning messages
-if(sinkMessages){
-  options(warn=1)
-  Mesgs <- file('../../../results/R/ffr.fits_OnePredOnePrey_LOG.txt', open='wt')
-  sink(Mesgs, type="message")
-}
-
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
-	# loads the data into data frame 'd' and specifies data-specific parameters
-	source(datasets[i])
 
-	# grab some info from the google doc
+  # loads the data into data frame 'd' and specifies data-specific parameters
+  source(datasets[i])
+  
+  # start capturing the progress and warning messages  
+  if(sinkMessages){
+    options(warn=1) # provide more than just the base info level
+    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/ffr.fits_OnePredOnePrey_', datadir, '_ErrorLog.txt'), open='wt')
+    sink(Mesgs, type="message")
+  }
+
+	# grab info from the google doc
 	this.study <- study.info(datadir)
-
-	# put all datasets into terms of hours
+	
+	# tranform data into terms of hours
 	if(!is.null(d$Time)){
 		d$Time <- switch(this.study$timeunits,
 			Seconds = d$Time / 3600.,
@@ -359,17 +361,18 @@ for(i in 1:length(datasets)){
             		    	)
 	          )
 	}
+	
+	if(sinkMessages){
+	  sink(type="message")
+	  close(Mesgs)
+	  options(warn=0)
+	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/ffr.fits_OnePredOnePrey_', datadir, '_ErrorLog.txt'))
+	}
 
 }
 
 # save the mega container
-save(ffr.fits,file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
-
-if(sinkMessages){
-  sink(type="message")
-  close(Mesgs)
-  options(warn=0)
-  readLines("../../../results/R/ffr.fits_OnePredOnePrey_LOG.txt")
-}
+save(ffr.fits, 
+     file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 
