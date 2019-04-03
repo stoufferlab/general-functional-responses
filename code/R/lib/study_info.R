@@ -71,6 +71,7 @@ study.info <- function(dataname){
 
 	# put all the info we need into a list
 	rt <- list(
+	  dataname=dataname,
 		Pminus1=Pminus1,
 		bootstrap=bootstrap,
 		delong=delong,
