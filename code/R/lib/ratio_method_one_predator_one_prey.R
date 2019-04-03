@@ -48,7 +48,6 @@ ratio.like.1pred.1prey = function(N0, a, h, m, P, T, replacement, integrate=TRUE
 	    N <- N0 * (1 - exp(-a * T * P ^ (1 - m)))
 		}else{# For all other models...
 		  if(integrate){  # solve by direct integration
-		    # DEBUG to speed up this can be broken down into identical replicates based on initial abundances since the prediction of the model is the same for the same 'treatment' conditions
 		    N <- numeric(length(N0))
 		    for(i in seq.int(length(N0))){
 		      
@@ -130,7 +129,26 @@ ratio.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, predat
 	}
 
 	# expected number consumed given data and parameters
-	Nconsumed <- ratio.like.1pred.1prey(N0=initial, a=attack, h=handling, m=exponent, P=predators, T=time, replacement=replacement)
+  
+	# Nconsumed <- ratio.like.1pred.1prey(N0=initial, 
+	#                                     a=attack, 
+	#                                     h=handling, 
+	#                                     m=exponent, 
+	#                                     P=predators, 
+	#                                     T=time, 
+	#                                     replacement=replacement)
+  
+  # reduce to unique data rows to speed up. There's probably an even faster way, but...
+  d.ori <- data.frame(initial, predators, time)
+  d.uniq <- unique(d.ori)
+  Nconsumed.uniq <- ratio.like.1pred.1prey(N0 = d.uniq$initial, 
+                                           a = attack, 
+                                           h = handling, 
+                                           m = exponent, 
+                                           P = d.uniq$predators, 
+                                           T = d.uniq$time, 
+                                           replacement = replacement)
+   Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
 
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){

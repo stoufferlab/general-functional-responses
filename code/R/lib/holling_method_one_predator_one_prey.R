@@ -59,7 +59,6 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 			N <- N0 * (1 - exp(-a * P * T))
 		}else{ # For all other models...
   		  if(integrate){  # solve by direct integration
-  		    # DEBUG to speed up this can be broken down into identical replicates based on initial abundances since the prediction of the model is the same for the same 'treatment' conditions
   		    N <- numeric(length(N0))
   		    for(i in seq.int(length(N0))){
   
@@ -180,7 +179,31 @@ holling.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, pred
 	}
 
 	# expected number consumed given data and parameters
-	Nconsumed <- holling.like.1pred.1prey(N0=initial, a=attack, h=handling, c=interference, phi_numer=phi_numer, phi_denom=phi_denom, P=predators, T=time, replacement=replacement, Pminus1=Pminus1)
+	# Nconsumed <- holling.like.1pred.1prey(N0=initial, 
+	#                                       a=attack, 
+	#                                       h=handling, 
+	#                                       c=interference, 
+	#                                       phi_numer=phi_numer, 
+	#                                       phi_denom=phi_denom, 
+	#                                       P=predators, 
+	#                                       T=time, 
+	#                                       replacement=replacement, 
+	#                                       Pminus1=Pminus1)
+	
+	# reduce to unique data rows to speed up. There's probably an even faster way, but...
+	d.ori <- data.frame(initial, predators, time)
+	d.uniq <- unique(d.ori)
+	Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
+	                                           a=attack, 
+	                                           h=handling, 
+	                                           c=interference, 
+	                                           phi_numer=phi_numer, 
+	                                           phi_denom=phi_denom, 
+	                                           P=d.uniq$predators, 
+	                                           T=d.uniq$time, 
+	                                           replacement=replacement, 
+	                                           Pminus1=Pminus1)
+	Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
 
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
