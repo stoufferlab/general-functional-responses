@@ -37,6 +37,8 @@ plot.coefs <- function(
                 point.est=c('median','mean'),
                 color.factor=c('None','Parasitoids','Replacement'),
                 color.vector=NULL,
+                pch.factor=c('None','Parasitoids','Replacement'),
+                pch.vector=NULL,
                 plot.SEs=FALSE,
                 display.outlier.ests=FALSE,
                 xlim=NULL,
@@ -51,6 +53,8 @@ plot.coefs <- function(
     point.est <- ifelse(point.est=='median', '50%', point.est)
   color.factor <- match.arg(color.factor)
   color.vector <- color.vector
+  pch.factor <- match.arg(pch.factor)
+  pch.vector <- pch.vector
 
   if(is.null(xlim)){
     ests <- unlist(lapply(ffr.fits, function(x) x$estimates[[model]][point.est, parameter, "estimate"]))
@@ -100,6 +104,23 @@ plot.coefs <- function(
     }
     if(length(color.vector)==length(ffr.fits)){  # note that this overrides color.factor
       col <- color.vector[i]
+    }
+    
+    # set pch of points depending on factor or vector of choice
+    pch <- 19
+    bg <- col
+    if(!pch.factor=='None'){
+      if(pch.factor=='Parasitoids' & !x$study.info$predator){
+        pch <- 21
+        bg <- 'white'
+        }
+      if(pch.factor=='Replacement' & x$study.info$replacement){
+        pch <- 21
+        bg <- 'white'
+        }
+    }
+    if(length(pch.vector)==length(ffr.fits)){  # note that this overrides pchor.factor
+      pch <- pch.vector[i]
     }
 
     # make all lines the equivalent for now
@@ -203,7 +224,7 @@ plot.coefs <- function(
     }
       # plot the actual estimate
       points(y=i, x=mm.link,
-             col=col,bg=col,pch=21)
+             col=col, pch=pch, bg=bg)
     
     }
     i <- i + 1
