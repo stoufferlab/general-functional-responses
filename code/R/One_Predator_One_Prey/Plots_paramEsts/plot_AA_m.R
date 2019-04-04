@@ -27,6 +27,8 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      display.outlier.ests=TRUE,
      color.factor='None', # 'None', 'Parasitoids' or 'Replacement'
      # color.vector=col.vec, # delete or specify above plot()
+     pch.factor='Parasitoids', # 'None', 'Parasitoids' or 'Replacement'
+     # pch.vector=col.vec, # delete or specify above plot()
      xlab="Arditi-Akcakaya interference rate (m)",
      ylab="",
      labels=TRUE,
