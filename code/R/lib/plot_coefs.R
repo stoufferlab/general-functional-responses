@@ -87,6 +87,16 @@ plot.coefs <- function(
   # length of arrows to indicate values off the plot
   delta.arrow <- 0.1
   
+  # create a progress bar that shows how far along the bootstrapping is
+  # require(progress)
+  # pb <- progress_bar$new(
+  #   format = "  bootstrapping [:bar] :percent eta: :eta",
+  #   total = boot.reps,
+  #   show_after = 0,
+  #   force = TRUE,
+  #   clear = FALSE
+  # )
+  
   # plot these bad boys 
   # (Note: This determines intervals on estimated scale before plotting on backtransformed scale)
   i <- 1
@@ -227,6 +237,10 @@ plot.coefs <- function(
              col=col, pch=pch, bg=bg)
     
     }
+    
+    # update the progress bar
+    # pb$tick()
+    
     i <- i + 1
   }
 }

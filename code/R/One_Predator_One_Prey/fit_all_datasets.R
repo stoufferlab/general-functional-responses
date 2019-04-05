@@ -15,8 +15,8 @@ source('../lib/study_info.R')
 source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/AA_method.R')
-source('../lib/holling_method_one_predator_one_prey.R')
-source('../lib/ratio_method_one_predator_one_prey.R')
+source('../lib/holling_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
+source('../lib/ratio_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 library(progress)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,6 +34,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # # DEBUG: for testing only
 # datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
 # datasets <- c("./Dataset_Code/Elliot_2003_Din.R")
+datasets <- c("./Dataset_Code/Elliot_2005_Instar2.R")
 
 # create mega container for the things that get fit 
 ffr.ests <- ffr.fits <- list()
