@@ -88,14 +88,14 @@ plot.coefs <- function(
   delta.arrow <- 0.1
   
   # create a progress bar that shows how far along the bootstrapping is
-  # require(progress)
-  # pb <- progress_bar$new(
-  #   format = "  bootstrapping [:bar] :percent eta: :eta",
-  #   total = boot.reps,
-  #   show_after = 0,
-  #   force = TRUE,
-  #   clear = FALSE
-  # )
+  require(progress)
+  pb <- progress_bar$new(
+    format = "  profiling intervals for each data set [:bar] :percent eta: :eta",
+    total = length(ffr.fits),
+    show_after = 0,
+    force = TRUE,
+    clear = FALSE
+  )
   
   # plot these bad boys 
   # (Note: This determines intervals on estimated scale before plotting on backtransformed scale)
@@ -129,7 +129,7 @@ plot.coefs <- function(
         bg <- 'white'
         }
     }
-    if(length(pch.vector)==length(ffr.fits)){  # note that this overrides pchor.factor
+    if(length(pch.vector)==length(ffr.fits)){  # note that this overrides pch.factor
       pch <- pch.vector[i]
     }
 
@@ -147,14 +147,18 @@ plot.coefs <- function(
     # if the point estimate is out of bounds don't even bother trying to profile its uncertainty
     if(mm.link < xlim[1] | mm.link > xlim[2]){
       if(mm.link > xlim[2]){
-        arrows(xlim[2]-delta.arrow, i, xlim[2]+delta.arrow, i,length=delta.arrow*0.66, col=col, lty=lty)
+        arrows(xlim[2]-delta.arrow, i, xlim[2]+delta.arrow, i,
+               length=delta.arrow*0.66, col=col, lty=lty)
         if(display.outlier.ests){
-            text(xlim[2]-delta.arrow,i,round(mm.link,1), pos=2,cex=0.7*par()$cex)
+            text(xlim[2]-delta.arrow, i, round(mm.link,1), 
+                 pos=2, cex=0.7*par()$cex)
         }
       }else{
-        arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+        arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, 
+               length=delta.arrow*0.66, col=col, lty=lty)
         if(display.outlier.ests){
-            text(xlim[1]+delta.arrow,i,round(mm.link,1), pos=4,cex=0.7*par()$cex)
+            text(xlim[1]+delta.arrow, i, round(mm.link,1), 
+                 pos=4,cex=0.7*par()$cex)
         }
       }
     }else{
@@ -162,13 +166,21 @@ plot.coefs <- function(
     # Three ways to estimate intervals
     if(plot.SEs){
         # if we did not bootstrap then try (1) profile or (2) approximate	
-        if(x$estimates[[model]]["n",1,1] == 1){ 
+        if(x$estimates[[model]]["n",1,1] == 1){
           
           # (1) estimate the profile confidence interval
               # do so for all model parameters because doing so for focal parameter can cause errors
           if(model!='Arditi.Akcakaya.Method.2'){
-             cf <- try(confint(x$fits[[model]], try_harder=TRUE, level=0.68, tol.newmin=Inf, quietly=TRUE))
-          }else{
+             cf <- try(confint(x$fits[[model]], 
+                               try_harder=TRUE, 
+                               level=0.68, 
+                               tol.newmin=Inf, 
+                               quietly=TRUE))
+             if(all(is.na(cf[parameter,]))){ # if profiling failed for focal parameter
+               cf <- TRUE
+               class(cf) <- 'try-error'
+             }
+          }else{ # if profiling failed in general
             cf <- TRUE
             class(cf) <- 'try-error'
           }
@@ -225,10 +237,12 @@ plot.coefs <- function(
         
         # arrow up the limiting cases
         if(lb.link <= xlim[1] & parameter!='exponent'){
-          arrows(xlim[1], i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+          arrows(xlim[1], i, xlim[1]-delta.arrow, i, 
+                 length=delta.arrow*0.66, col=col, lty=lty)
         }
         if(ub.link >= xlim[2]){
-          arrows(xlim[2], i, xlim[2]+delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
+          arrows(xlim[2], i, xlim[2]+delta.arrow, i, 
+                 length=delta.arrow*0.66, col=col, lty=lty)
         }
       }
     }
@@ -239,7 +253,7 @@ plot.coefs <- function(
     }
     
     # update the progress bar
-    # pb$tick()
+    pb$tick()
     
     i <- i + 1
   }

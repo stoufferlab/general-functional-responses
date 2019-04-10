@@ -10,10 +10,17 @@ load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
 ffr.fits <- ffr.fits[fit.order]
 
-# fraction of replicates in which significant depletion occurred (in non-replacement datasets)
-col.vec<-rep('black',length(ffr.fits))
+
+# data sets in which depletion occurred in over x% of replicates (non-replacement datasets)
 depleted <- unlist(lapply(ffr.fits, depletion.check, cutoff=0.7))
-col.vec[depleted>0] <- 'red'
+# data sets on parasitoids
+parasitoids <- unlist(lapply(ffr.fits, function(x){!x$study.info$predator}))
+
+pch.vec<-rep(19,length(ffr.fits))
+pch.vec[parasitoids] <- 1
+pch.vec[depleted>0 & parasitoids] <- 0
+pch.vec[depleted>0 & !parasitoids] <- 15
+
 
 pdf('../../../../results/R/OnePredOnePrey_AA_m.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
@@ -25,15 +32,21 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      point.est='median',
      plot.SEs=TRUE,
      display.outlier.ests=TRUE,
-     color.factor='None', # 'None', 'Parasitoids' or 'Replacement'
+     # color.factor='None', # 'None', 'Parasitoids' or 'Replacement'
      # color.vector=col.vec, # delete or specify above plot()
-     pch.factor='Parasitoids', # 'None', 'Parasitoids' or 'Replacement'
-     # pch.vector=col.vec, # delete or specify above plot()
+     # pch.factor='None', # 'None', 'Parasitoids' or 'Replacement'
+     pch.vector=pch.vec, # delete or specify above plot()
      xlab="Arditi-Akcakaya interference rate (m)",
      ylab="",
      labels=TRUE,
      xlim=c(0,5)
   )
+  legend('topright', 
+         legend=c('Predator', 'Parasitoid', 'Replacement', 'Non-replacement', 'Profiled', 'Approximated','Bootstrapped'),
+         pch=c(19,1,19,15,NA,NA,NA), 
+         lty=c(NA,NA,NA,NA,'solid','dashed','dotted'),
+         inset=0.05,
+         cex=0.8)
 dev.off()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
