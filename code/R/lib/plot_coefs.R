@@ -176,10 +176,10 @@ plot.coefs <- function(
                                level=0.68, 
                                tol.newmin=Inf, 
                                quietly=TRUE))
-             if(all(is.na(cf[parameter,]))){ # if profiling failed for focal parameter
-               cf <- TRUE
-               class(cf) <- 'try-error'
-             }
+             # if(all(is.na(cf[parameter,]))){ # if profiling failed for focal parameter
+             #   cf <- TRUE
+             #   class(cf) <- 'try-error'
+             # }
           }else{ # if profiling failed in general
             cf <- TRUE
             class(cf) <- 'try-error'
