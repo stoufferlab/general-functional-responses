@@ -28,7 +28,7 @@ names(m) <- labels
 dat <- read.csv('DeLong_AA_m.csv')
 
 
-pdf('../../../../results/R/OnePredOnePrey_AA_m_xy_DeLong.pdf',height=3,width=4)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_xy_DeLong.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
 plot(dat$nObs,
      dat$DeLongM,

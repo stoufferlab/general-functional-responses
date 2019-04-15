@@ -15,7 +15,7 @@ n <- length(ffr.fits)
 # Creswell (last of datasets when ordered by sample size) wasn't run for Holling type, so remove
 ffr.fits[[n]] <- NULL
 
-pdf('../../../../results/R/OnePredOnePrey_BD_int.pdf',height=6,width=5)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_BD_int.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
   plot.coefs(
      ffr.fits,

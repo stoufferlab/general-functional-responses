@@ -22,7 +22,7 @@ pch.vec[depleted>0 & parasitoids] <- 0
 pch.vec[depleted>0 & !parasitoids] <- 15
 
 
-pdf('../../../../results/R/OnePredOnePrey_AA_m.pdf',height=6,width=5)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
   plot.coefs(
      ffr.fits,
@@ -60,7 +60,7 @@ names(parm)<-sub('./Dataset_Code/','',names(parm))
 names(parm)<-sub('.{2}$','',names(parm))
 names(parm) <- paste0(names(parm), ' (',SS,')')
 
-pdf('../../../../results/R/OnePredOnePrey_AA_m_xy.pdf',height=3,width=4)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_xy.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
 ylim <- c(0,5)
 plot(parm~SS,
@@ -77,7 +77,7 @@ points(SS,parm,
 dev.off()
 
 
-pdf('../../../../results/R/OnePredOnePrey_AA_m_hist.pdf',height=2.5,width=4)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_hist.pdf',height=2.5,width=4)
 par(mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i',xaxs='i')
   hist(parm[parm<5],breaks=50,
        xlab='Arditi-Akcakaya interference rate (m)',

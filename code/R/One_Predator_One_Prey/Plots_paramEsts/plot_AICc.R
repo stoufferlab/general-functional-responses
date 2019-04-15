@@ -58,7 +58,7 @@ delAICcutoff <- 2
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
-pdf('../../../../results/R/OnePredOnePrey_AICc_ranks.pdf',height=6,width=2.25)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',height=6,width=2.25)
 par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
   plot(1:nrow(rnkAICcs), 1:nrow(rnkAICcs),
        type='n', yaxt='n',
@@ -112,7 +112,7 @@ tab_Cnt <- Cnt
 
 
 wd <- getwd()
-setwd('../../../../results/R/')
+setwd('../../../../results/R/OnePredOnePrey_figs/')
 
 latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by AICc.')
 

@@ -25,7 +25,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-pdf('../../../results/R/OnePredOnePrey_DatasetPlots.pdf',height=10,width=6)
+pdf('../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_DatasetPlots.pdf',height=10,width=6)
 par(mfrow=c(8,4), mar=c(3,3,1.5,0.5), cex=0.6, cex.axis=0.8, cex.main=0.8, las=1, mgp=c(1.5,0.1,0), tcl=-0.1, pch=21)
 for(i in 1:length(datasets)){
   message(datasets[i])

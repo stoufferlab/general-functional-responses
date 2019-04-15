@@ -13,7 +13,7 @@ col.vec<-rep('black',length(ffr.fits))
 depleted <- unlist(lapply(ffr.fits, depletion.check, cutoff=0.7))
 col.vec[depleted>0] <- 'red'
 
-pdf(file="../../../../results/R/OnePredOnePrey_SN1_PhiDenom.pdf",height=6,width=5)
+pdf(file="../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_SN1_PhiDenom.pdf",height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
 plot.coefs(
   ffr.fits,

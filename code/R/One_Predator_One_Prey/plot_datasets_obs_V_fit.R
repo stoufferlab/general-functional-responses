@@ -14,7 +14,7 @@ ffr.fits <- ffr.fits[rev(fit.order)]
 n <- length(ffr.fits)
 models <- c('Holling.Type.I','Holling.Type.II','Ratio','Arditi.Akcakaya','Beddington.DeAngelis')
 
-pdf(file="../../../results/R/OnePredOnePrey_obsVfit.pdf",height=2.5,width=8, onefile = T)
+pdf(file="../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_obsVfit.pdf",height=2.5,width=8, onefile = T)
 par(mar=c(2,3,0.5,0.5), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.5)
 par(mfcol=c(1, length(models)))
 for(i in 1:length(ffr.fits)){
