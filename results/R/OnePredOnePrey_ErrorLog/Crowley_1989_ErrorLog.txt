@@ -1,0 +1,160 @@
+Yes to Crowley_1989
+Error in optim(par = c(attack = 705.252905082732, handling = 0.654995413780792,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta: 22m  bootstrapping [>--------------------------------------------------]   1% eta: 32m  bootstrapping [>--------------------------------------------------]   2% eta: 35m  bootstrapping [>--------------------------------------------------]   2% eta: 38m  bootstrapping [>--------------------------------------------------]   2% eta: 39m  bootstrapping [>--------------------------------------------------]   3% eta: 39m  bootstrapping [=>-------------------------------------------------]   3% eta: 40m  bootstrapping [=>-------------------------------------------------]   4% eta: 40m  bootstrapping [=>-------------------------------------------------]   4% eta: 41m  bootstrapping [=>-------------------------------------------------]   5% eta: 41m  bootstrapping [==>------------------------------------------------]   5% eta: 41m  bootstrapping [==>------------------------------------------------]   6% eta: 41m  bootstrapping [==>------------------------------------------------]   7% eta: 41m  bootstrapping [===>-----------------------------------------------]   7% eta: 41m  bootstrapping [===>-----------------------------------------------]   8% eta: 42mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   9% eta: 42mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [====>----------------------------------------------]   9% eta: 42mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [====>----------------------------------------------]  10% eta: 42m  bootstrapping [====>----------------------------------------------]  10% eta: 41m  bootstrapping [=====>---------------------------------------------]  11% eta: 41mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [=====>---------------------------------------------]  11% eta: 42m  bootstrapping [=====>---------------------------------------------]  12% eta: 41mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======>--------------------------------------------]  13% eta: 41m  bootstrapping [======>--------------------------------------------]  14% eta: 41m  bootstrapping [======>--------------------------------------------]  14% eta: 40m  bootstrapping [=======>-------------------------------------------]  15% eta: 40m  bootstrapping [=======>-------------------------------------------]  16% eta: 40mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [========>------------------------------------------]  17% eta: 39m  bootstrapping [========>------------------------------------------]  18% eta: 39m  bootstrapping [=========>-----------------------------------------]  19% eta: 38mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [=========>-----------------------------------------]  20% eta: 38m  bootstrapping [==========>----------------------------------------]  21% eta: 38m  bootstrapping [==========>----------------------------------------]  22% eta: 38m  bootstrapping [==========>----------------------------------------]  22% eta: 37mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [===========>---------------------------------------]  23% eta: 37m  bootstrapping [===========>---------------------------------------]  24% eta: 37mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========>---------------------------------------]  24% eta: 36m  bootstrapping [============>--------------------------------------]  25% eta: 36mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============>--------------------------------------]  26% eta: 36mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  27% eta: 35m  bootstrapping [=============>-------------------------------------]  28% eta: 35m  bootstrapping [==============>------------------------------------]  29% eta: 34mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [==============>------------------------------------]  30% eta: 34mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [===============>-----------------------------------]  30% eta: 34m  bootstrapping [===============>-----------------------------------]  31% eta: 34m  bootstrapping [===============>-----------------------------------]  31% eta: 33m  bootstrapping [===============>-----------------------------------]  32% eta: 33m  bootstrapping [================>----------------------------------]  32% eta: 33mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [================>----------------------------------]  33% eta: 33mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [================>----------------------------------]  33% eta: 32m  bootstrapping [================>----------------------------------]  34% eta: 32m  bootstrapping [=================>---------------------------------]  34% eta: 32m  bootstrapping [=================>---------------------------------]  35% eta: 32m  bootstrapping [=================>---------------------------------]  35% eta: 31m  bootstrapping [=================>---------------------------------]  36% eta: 31mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  36% eta: 31m  bootstrapping [==================>--------------------------------]  37% eta: 31m  bootstrapping [==================>--------------------------------]  37% eta: 30m  bootstrapping [==================>--------------------------------]  38% eta: 30mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [===================>-------------------------------]  38% eta: 30m  bootstrapping [===================>-------------------------------]  39% eta: 30m  bootstrapping [===================>-------------------------------]  39% eta: 29m  bootstrapping [===================>-------------------------------]  40% eta: 29mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [====================>------------------------------]  40% eta: 29m  bootstrapping [====================>------------------------------]  41% eta: 29m  bootstrapping [====================>------------------------------]  41% eta: 28m  bootstrapping [====================>------------------------------]  42% eta: 28m  bootstrapping [=====================>-----------------------------]  42% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  43% eta: 28mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [=====================>-----------------------------]  43% eta: 27m  bootstrapping [=====================>-----------------------------]  44% eta: 27m  bootstrapping [======================>----------------------------]  44% eta: 27m  bootstrapping [======================>----------------------------]  45% eta: 27m  bootstrapping [======================>----------------------------]  45% eta: 26m  bootstrapping [======================>----------------------------]  46% eta: 26m  bootstrapping [=======================>---------------------------]  46% eta: 26m  bootstrapping [=======================>---------------------------]  47% eta: 26m  bootstrapping [=======================>---------------------------]  47% eta: 25m  bootstrapping [=======================>---------------------------]  48% eta: 25m  bootstrapping [========================>--------------------------]  48% eta: 25mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  49% eta: 25mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  49% eta: 24m  bootstrapping [========================>--------------------------]  50% eta: 24mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  50% eta: 24mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [=========================>-------------------------]  51% eta: 24mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  52% eta: 23m  bootstrapping [==========================>------------------------]  52% eta: 23m  bootstrapping [==========================>------------------------]  53% eta: 23m  bootstrapping [==========================>------------------------]  54% eta: 22m  bootstrapping [===========================>-----------------------]  54% eta: 22mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  55% eta: 22mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===========================>-----------------------]  56% eta: 21m  bootstrapping [============================>----------------------]  56% eta: 21m  bootstrapping [============================>----------------------]  57% eta: 21m  bootstrapping [============================>----------------------]  58% eta: 20m  bootstrapping [=============================>---------------------]  58% eta: 20m  bootstrapping [=============================>---------------------]  59% eta: 20mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [=============================>---------------------]  60% eta: 19m  bootstrapping [==============================>--------------------]  60% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  61% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  62% eta: 19m  bootstrapping [===============================>-------------------]  62% eta: 18mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [===============================>-------------------]  63% eta: 18mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===============================>-------------------]  64% eta: 18m  bootstrapping [================================>------------------]  64% eta: 17m  bootstrapping [================================>------------------]  65% eta: 17mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  66% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  66% eta: 16m  bootstrapping [=================================>-----------------]  67% eta: 16m  bootstrapping [=================================>-----------------]  68% eta: 16m  bootstrapping [==================================>----------------]  68% eta: 15m  bootstrapping [==================================>----------------]  69% eta: 15m  bootstrapping [==================================>----------------]  70% eta: 15mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===================================>---------------]  70% eta: 14m  bootstrapping [===================================>---------------]  71% eta: 14m  bootstrapping [====================================>--------------]  72% eta: 14m  bootstrapping [====================================>--------------]  72% eta: 13m  bootstrapping [====================================>--------------]  73% eta: 13mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(attack = 705.103932501135, handling = 0.654974631952843,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta: 12m  bootstrapping [=====================================>-------------]  75% eta: 12mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [======================================>------------]  76% eta: 12m  bootstrapping [======================================>------------]  76% eta: 11mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [======================================>------------]  77% eta: 11m  bootstrapping [=======================================>-----------]  78% eta: 11m  bootstrapping [=======================================>-----------]  78% eta: 10mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [=======================================>-----------]  79% eta: 10mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [========================================>----------]  80% eta: 10m  bootstrapping [========================================>----------]  80% eta:  9m  bootstrapping [========================================>----------]  81% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  82% eta:  9m  bootstrapping [=========================================>---------]  83% eta:  8mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==========================================>--------]  84% eta:  8mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [==========================================>--------]  85% eta:  7m  bootstrapping [===========================================>-------]  86% eta:  7m  bootstrapping [===========================================>-------]  87% eta:  6mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [============================================>------]  88% eta:  6mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [============================================>------]  89% eta:  5mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [=============================================>-----]  90% eta:  5mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=============================================>-----]  91% eta:  4m  bootstrapping [==============================================>----]  91% eta:  4m  bootstrapping [==============================================>----]  92% eta:  4m  bootstrapping [==============================================>----]  93% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===============================================>---]  93% eta:  3m  bootstrapping [===============================================>---]  94% eta:  3m  bootstrapping [===============================================>---]  95% eta:  3m  bootstrapping [================================================>--]  95% eta:  2m  bootstrapping [================================================>--]  96% eta:  2m  bootstrapping [================================================>--]  97% eta:  2m  bootstrapping [=================================================>-]  97% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta:  1m  bootstrapping [=================================================>-]  98% eta: 47s  bootstrapping [=================================================>-]  99% eta: 35s  bootstrapping [==================================================>]  99% eta: 23s  bootstrapping [==================================================>] 100% eta: 12sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================================================] 100% eta:  0s

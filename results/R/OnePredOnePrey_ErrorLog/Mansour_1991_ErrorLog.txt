@@ -1,0 +1,23 @@
+Yes to Mansour_1991
+Error in optim(par = c(attack = -1.93071168009158), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -1.86469636560928), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -1.83097419360477), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -2.32154208408094), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -2.07817684777067), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -1.69154892903213), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -2.06604116802318), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -1.7464970067861), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -2.14695545641999), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -2.12432583248314), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -2.19610545941649), fn = function (p)  : 
+  initial value in 'vmmin' is not finite

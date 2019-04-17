@@ -1,0 +1,19 @@
+Yes to Lang_2012_Poe_10C
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(attack = -4.96197918907842), fn = function (p)  : 
+  initial value in 'vmmin' is not finite

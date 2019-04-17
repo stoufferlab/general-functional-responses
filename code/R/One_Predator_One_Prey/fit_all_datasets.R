@@ -31,13 +31,47 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
-# # DEBUG: for testing only
+# remove problem datasets
+datasets <- grep("Eveleigh",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Griffen",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Hossie",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Johnson",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Jones",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Katz",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Jones",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Krylov",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Lang",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Long",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Mansour",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Mertz",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Stier",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Uttley",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("vonWesternhagen",datasets,invert=TRUE,value=TRUE)
+datasets <- grep("Wasserman",datasets,invert=TRUE,value=TRUE)
+
+
+
+# check to see which datasets have been fit (and thus on't bother refitting them)
+datasets.fitted <- list.files('../../../results/R/OnePredOnePrey_fits/', full.names=FALSE, include.dirs=FALSE)
+datasets.fitted <- gsub('*data$','',datasets.fitted)
+datasets <- datasets[!gsub('./Dataset_Code/','',datasets)%in%datasets.fitted]
+
+# select focal dataset for testing
 # datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
 # datasets <- c("./Dataset_Code/Elliot_2003_Din.R")
-datasets <- c("./Dataset_Code/Elliot_2005_Instar2.R")
+# datasets <- c("./Dataset_Code/Elliot_2005_Instar2.R")
 
-# create mega container for the things that get fit 
-ffr.ests <- ffr.fits <- list()
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Let's start analyzing!
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+datasetsNames <- sub('*./Dataset_Code/','', datasets)
+datasetsNames <- sub('*.R$','', datasetsNames)
+
+# create mega container for the things that get fit
+# ffr.fits <- list()
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -48,7 +82,7 @@ for(i in 1:length(datasets)){
   # start capturing the progress and warning messages  
   if(sinkMessages){
     options(warn=1) # provide more than just the base info level
-    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/ffr.fits_OnePredOnePrey_', datadir, '_ErrorLog.txt'), open='wt')
+    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsNames[i], '_ErrorLog.txt'), open='wt')
     sink(Mesgs, type="message")
   }
 
@@ -77,10 +111,10 @@ for(i in 1:length(datasets)){
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
 	# if(!grepl("R", this.study$runswith)){ 
 	if(!grepl("H|R", this.study$runswith)){
-		message(paste0("No to ",datasets[i]))
+		message(paste0("No to ",datasetsNames[i]))
 	}else{
 		# print out which dataset is being analyzed
-		message(paste0("Yes to ",datasets[i]))
+		message(paste0("Yes to ",datasetsNames[i]))
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
@@ -286,13 +320,15 @@ for(i in 1:length(datasets)){
 	  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		# save study info, the (last) fits, bootstrap estimates and estimate summaries
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		ffr.fits[[datasets[i]]] <- list(
-	  	study.info = c(
-            	  			datadir = datadir,
-            	  			sample.size = nrow(d),
-            	  			data=d.orig,
-            	  	    this.study  	        
-          	  	    ),
+		# ffr.fits[[datasets[i]]] <- list(
+		ffr.fit <- list(
+	    study.info = c(
+  	                datasetName = datasetsNames[i],
+          	  			datadir = datadir,
+          	  			sample.size = nrow(d),
+          	  			data=d.orig,
+          	  	    this.study  	        
+        	  	    ),
 	  	fits = list(
           	  	  Holling.Type.I = ffr.hollingI,
           	  	  Holling.Type.II = ffr.hollingII,
@@ -367,13 +403,18 @@ for(i in 1:length(datasets)){
 	  sink(type="message")
 	  close(Mesgs)
 	  options(warn=0)
-	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/ffr.fits_OnePredOnePrey_', datadir, '_ErrorLog.txt'))
+	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsNames[i], '_ErrorLog.txt'))
 	}
+	
+	# Save the data set fit
+	save(ffr.fit, 
+	     file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsNames[i],'.Rdata'))
+	
 
 }
 
 # save the mega container
-save(ffr.fits, 
-     file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+# save(ffr.fits, 
+#      file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
 
 
