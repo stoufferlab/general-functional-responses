@@ -14,7 +14,8 @@ source('../lib/holling_method_one_predator_two_prey.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ####################################
-registerDoParallel(cores=7)
+library(doParallel)
+registerDoParallel(cores=6)
 ####################################
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,6 +58,20 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # create a container for the things that get fit
 ffr.fits <- list()
+
+# define the models which are to be fit
+which.models <- c(
+	"Holling I",
+	"Holling II Specialist Specialist",
+	"Holling II Specialist Generalist",
+	"Holling II Generalist Specialist",
+	"Holling II Generalist Generalist",
+	"Holling II Specialist Hybrid",
+	"Holling II Generalist Hybrid",
+	"Holling II Hybrid Specialist",
+	"Holling II Hybrid Generalist",
+	"Holling II Hybrid Hybrid"
+)
 
 # # DEBUG: for testing only
 # datasets <- c("./Dataset_Code/Buckel_2000_large.R","./Dataset_Code/zzz_Buckel_2000_small.R")
@@ -101,67 +116,70 @@ for(i in 1:length(datasets)){
 			boot.reps <- 1
 		}
 
-		library(progress)
-		pb <- progress_bar$new(
-			format = "  bootstrapping [:bar] :percent eta: :eta",
-			total = boot.reps,
-			show_after = 0,
-			force = TRUE,
-			clear = FALSE
-		)
+		# library(progress)
 
-		b <- 1
-	  	while(b <= boot.reps){
-			if(any(grepl("[.]mean$",colnames(d.orig)))){
-				d <- bootstrap.data(d.orig, this.study$replacement)
+		# fit all model formulations separately
+		locals <- list()
+		for(modeltype in which.models){
+			# pb <- progress::progress_bar$new(
+			# 	format = "  :modeltype [:bar] :percent eta: :eta",
+			# 	total = boot.reps,
+			# 	show_after = 0,
+			# 	force = TRUE,
+			# 	clear = FALSE
+			# )
+			# pb$tick(0, tokens = list(modeltype = modeltype))
+
+			message(paste0(" ",modeltype," "),appendLF=FALSE)
+			# we will perform all fits boot.reps different times
+			local.fits <- foreach(b=1:boot.reps) %dopar% {
+				# some fits don't work due to wonkiness in the data so we'll just plow forward when that happens
+				bad.fit <- TRUE
+		  		while(bad.fit){
+					if(any(grepl("[.]mean$",colnames(d.orig)))){
+						d <- bootstrap.data(d.orig, this.study$replacement)
+					}
+		    
+					# attempt to fit the model and abort if the fit fails for some reason	    	
+			    	local.fit <- try(
+			    		fit.holling.like(d, s=this.study, modeltype=modeltype)
+					)
+
+			    	if(!inherits(local.fit, "try-error")){
+			    		bad.fit <- FALSE
+			    	}
+			    }
+			    message(".",appendLF=FALSE)
+			    # pb$tick(tokens = list(modeltype = modeltype))
+
+			    local.fit
 			}
-	    
-	    	# DEBUG: sometimes the fits fail; should we allow the code to skip these and keep on keepin on in that case?
 
-	    	# fit a suite of functional response models
-	    	success <- try({
-				ffr.hollingI <- fit.holling.like(d, s=this.study, modeltype="Holling I")
-				ffr.hollingII.SS <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Specialist")
-				# ffr.hollingII.specialist.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Generalist")
-				# ffr.hollingII.generalist.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Specialist")
-				ffr.hollingII.GG <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Generalist")
-				# ffr.hollingII.specialist.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Specialist Hybrid")
-				# ffr.hollingII.generalist.hybrid <- fit.holling.like(d, s=this.study, modeltype="Holling II Generalist Hybrid")
-				# ffr.hollingII.hybrid.specialist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Specialist")
-				# ffr.hollingII.hybrid.generalist <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Generalist")
-				ffr.hollingII.HH <- fit.holling.like(d, s=this.study, modeltype="Holling II Hybrid Hybrid")
-			})
+			# pb$finished()
+			# we made it out of the loop somewhat miraculously
+			message(paste0(" Finished"))
 
-	    	if(!inherits(success, "try-error")){
-				# create containers for the parameter estimates
-				if(b == 1){
-					boots.HT.I <- make.array(ffr.hollingI, boot.reps)
-					boots.HT.II.SS <- make.array(ffr.hollingII.SS, boot.reps)
-					boots.HT.II.GG <- make.array(ffr.hollingII.GG, boot.reps)
-					boots.HT.II.HH <- make.array(ffr.hollingII.HH, boot.reps)
-				}
+			# create container for the parameter estimates
+			local.boots <- make.array(local.fits[[1]], boot.reps)
 
-				# add fits to the containers
-				boots.HT.I[,,b] <- mytidy(ffr.hollingI)
-			 	boots.HT.II.SS[,,b] <- mytidy(ffr.hollingII.SS)
-			 	boots.HT.II.GG[,,b] <- mytidy(ffr.hollingII.GG)
-			 	boots.HT.II.HH[,,b] <- mytidy(ffr.hollingII.HH)
+			# scrape out the parameter estimates
+			for(b in 1:boot.reps){
+				local.boots[,,b] <- mytidy(local.fits[[b]])
+			}
 
-			 	pb$tick()
-			 	b <- b + 1
-			 }
-		 }
+			# ~~~~~~~~~~~~~~~~~~~~
+			# Summarize bootstraps
+			# ~~~~~~~~~~~~~~~~~~~~
+			local.ests <- apply(local.boots, c(1,2), summarize.boots)
 
-		# ~~~~~~~~~~~~~~~~~~~~
-		# Summarize bootstraps
-		# ~~~~~~~~~~~~~~~~~~~~
-		HT.I.ests <- as.array(apply(boots.HT.I, c(1,2), summarize.boots))
-		HT.II.SS.ests <- as.array(apply(boots.HT.II.SS, c(1,2), summarize.boots))
-		HT.II.GG.ests <- as.array(apply(boots.HT.II.GG, c(1,2), summarize.boots))
-		HT.II.HH.ests <- as.array(apply(boots.HT.II.HH, c(1,2), summarize.boots))
-  
+			# pb$terminate()
+
+			# save the key stuff
+			locals[[modeltype]] <- list(fit=local.fits[[1]], ests=local.ests)
+		}
+
 	  	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		# save the (last) fits and some data aspects
+		# save the (last) fits, bootstraps summaries, and some data aspects
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		ffr.fits[[datasets[i]]] <- list(
 	  		study.info = c(
@@ -170,30 +188,8 @@ for(i in 1:length(datasets)){
 	  	        # this.study,
 	  	        data=d
 	  	    ),
-			fits = c(
-				Holling.Type.II.Specialist.Specialist = ffr.hollingII.SS,
-				# Holling.Type.II.Specialist.Generalist = ffr.hollingII.specialist.generalist,
-				# Holling.Type.II.Generalist.Specialist = ffr.hollingII.generalist.specialist,
-				Holling.Type.II.Generalist.Generalist = ffr.hollingII.GG,
-				# Holling.Type.II.Specialist.Hybrid = ffr.hollingII.specialist.hybrid,
-				# Holling.Type.II.Generalist.Hybrid = ffr.hollingII.generalist.hybrid,
-				# Holling.Type.II.Hybrid.Specialist = ffr.hollingII.hybrid.specialist,
-				# Holling.Type.II.Hybrid.Generalist = ffr.hollingII.hybrid.generalist,
-				Holling.Type.II.Hybrid.Hybrid = ffr.hollingII.HH,
-				Holling.Type.I = ffr.hollingI
-	        ),
-			estimates = list(
-			    Holling.Type.II.Specialist.Specialist = HT.II.SS.ests,
-				# Holling.Type.II.Specialist.Generalist = ffr.hollingII.specialist.generalist,
-				# Holling.Type.II.Generalist.Specialist = ffr.hollingII.generalist.specialist,
-				Holling.Type.II.Generalist.Generalist = HT.II.GG.ests,
-				# Holling.Type.II.Specialist.Hybrid = ffr.hollingII.specialist.hybrid,
-				# Holling.Type.II.Generalist.Hybrid = ffr.hollingII.generalist.hybrid,
-				# Holling.Type.II.Hybrid.Specialist = ffr.hollingII.hybrid.specialist,
-				# Holling.Type.II.Hybrid.Generalist = ffr.hollingII.hybrid.generalist,
-				Holling.Type.II.Hybrid.Hybrid = HT.II.HH.ests,
-				Holling.Type.I = HT.I.ests
-			)
+			fits = lapply(locals, function(x) x$fit),
+			estimates = lapply(locals, function(x) x$ests)
 		)
 	}
 
