@@ -7,9 +7,9 @@
 library(bbmle)
 # library(deSolve)
 library(odeintr)
-library(doParallel); registerDoParallel(cores=1)
+# library(doParallel); registerDoParallel(cores=1)
 
-# define the ode in C++ format
+# define the ode in C++ format to use odeintr
 holling.like.1pred.2prey.sys = '
 	// hybrid functional response for one predator two prey
 	dxdt[0] = -P * (ai * x[0] * (1 + (1 - phi_ij) * aj * hj * x[1])) / ((1 + ai * hi * x[0]) * (1 + aj * hj * x[1]) - phi_ij * phi_ji * ai * hi * x[0] * aj * hj * x[1]);
@@ -257,6 +257,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 		Ni_consumed = d$Nconsumed1,
 		Nj_consumed = d$Nconsumed2,
 		Npredators = d$Npredator,
+		time=d$Time,
 		replacement = s$replacement,
 		modeltype = "Holling I",
 		control = nloptr.control #,
@@ -278,6 +279,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			Ni_consumed = d$Nconsumed1,
 			Nj_consumed = d$Nconsumed2,
 			Npredators = d$Npredator,
+			time=d$Time,
 			replacement = s$replacement,
 			modeltype = "Holling I"
 		),
@@ -366,6 +368,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				Ni_consumed = d$Nconsumed1,
 				Nj_consumed = d$Nconsumed2,
 				Npredators = d$Npredator,
+				time=d$Time,
 				replacement = s$replacement,
 				modeltype = modeltype,
 				control = nloptr.control #,
@@ -385,6 +388,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					Ni_consumed = d$Nconsumed1,
 					Nj_consumed = d$Nconsumed2,
 					Npredators = d$Npredator,
+					time=d$Time,
 					replacement = s$replacement,
 					modeltype = modeltype
 				),
@@ -414,6 +418,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					Ni_consumed = d$Nconsumed1,
 					Nj_consumed = d$Nconsumed2,
 					Npredators = d$Npredator,
+					time=d$Time,
 					replacement = s$replacement,
 					modeltype = modeltype
 				),
