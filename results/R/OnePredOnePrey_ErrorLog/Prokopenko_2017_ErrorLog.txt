@@ -1,0 +1,5 @@
+Yes to Prokopenko_2017
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in AAmethod(d, this.study$replacement) :
+  AAMethod2: Twice the largest variance estimate substituted.
+  bootstrapping [===================================================] 100% eta:  0s

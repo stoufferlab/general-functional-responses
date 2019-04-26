@@ -17,9 +17,6 @@ mytidy <- function(fit){
 }
 
 make.array <- function(ffr.fit, boot.reps){
-  # if(typeof(ffr.fit)=='logical'){
-  #   return(ffr.fit)
-  # }
   if(typeof(ffr.fit)=='S4'){
     ffr.fit <- mytidy(ffr.fit)
   }

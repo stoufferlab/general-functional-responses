@@ -1,0 +1,408 @@
+Yes to Katz_1985
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=16].
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = list(attack = ratio.via.sbplx$par[1]),  :
+  couldn't invert Hessian
+
