@@ -66,12 +66,8 @@ datasets <- datasets[!gsub('./Dataset_Code/','',datasets)%in%datasets.fitted]
 # Let's start analyzing!
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 datasetsNames <- sub('*./Dataset_Code/','', datasets)
 datasetsNames <- sub('*.R$','', datasetsNames)
-
-# create mega container for the things that get fit
-# ffr.fits <- list()
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -413,8 +409,8 @@ for(i in 1:length(datasets)){
 
 }
 
-# save the mega container
-# save(ffr.fits, 
-#      file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
-
+# save a mega container
+ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits/')
+save(ffr.fits,
+     file='../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 
