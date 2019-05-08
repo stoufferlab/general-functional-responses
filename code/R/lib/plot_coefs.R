@@ -15,7 +15,7 @@ order.of.fits<-function(ffr.fits, order=FALSE, model=NULL, order.parm=NULL, poin
     }
 }
 
-# Function to plot focal parameter estimates across all fitted datasets
+# Function to plot focal parameter estimates and associated intervals across all fitted datasets.
 plot.coefs <- function(
                 ffr.fits, 
                 model=c('Holling.Type.I',
