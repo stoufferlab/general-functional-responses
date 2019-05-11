@@ -96,7 +96,3 @@ set_params<-function(model=c('Holling I',
     assign('exponent', exp(params[3]), envir = .GlobalEnv)
   }
 }
-##############
-
-params=c(1,2)
-set_params('Holling II',params)
