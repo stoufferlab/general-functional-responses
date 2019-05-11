@@ -56,7 +56,7 @@ plot.coefs <- function(
                 plot.SEs=FALSE,
                 display.outlier.ests=FALSE,
                 xlim=NULL,
-                labels=FALSE,
+                labels=NULL,
                 vertLines=c(0,1),
                 ... ){
 
@@ -93,17 +93,11 @@ plot.coefs <- function(
     type='n',
     yaxt='n',
     xlim=xlim,
+    ann=FALSE,
     ...
   )
   
   # tick marks to indicate different data sets
-  sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
-  if(labels){
-    labels <- names(sample.sizes)
-    labels<-sub('./Dataset_Code/','',labels)
-    labels<-sub('.{2}$','',labels)
-    labels <- paste0(labels, ' (',sample.sizes,')')
-  }
   axis(side=2, at=1:length(ffr.fits), labels=labels, cex.axis=0.5)
   
   # mark where the existing models fall
@@ -114,8 +108,7 @@ plot.coefs <- function(
   
   # plot these bad boys 
   for(i in 1:length(ffr.fits)){
-    nn <- names(ffr.fits)[i]
-    x <- ffr.fits[[nn]]
+    x <- ffr.fits[[i]]
     
     # color points depending on factor or vector of choice
     col <- 'black'
