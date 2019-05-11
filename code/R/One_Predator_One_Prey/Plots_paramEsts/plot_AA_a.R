@@ -3,7 +3,7 @@ source('../../lib/depletion_check.R')
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 
-load('../../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
+load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
