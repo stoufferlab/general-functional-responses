@@ -14,24 +14,27 @@ library(odeintr)
 #############################################
 
 # For integration method, define the ode in C++ format
-ratio.like.1pred.1prey.sys = '
-  // ratio-dependent-family of functional responses for one predator one prey
-  dxdt[0] = -P * (a * x[0]) / (pow(P , m) + a * h * x[0]);
-  
-  // consumption rate cannot be positive
-  if(dxdt[0] > 0) dxdt[0] = 0;
-'
-
-# compile the above C++ code into something we can run in R
-odeintr::compile_sys(
-  "ratio_1pred_1prey",
-  ratio.like.1pred.1prey.sys,
-  pars = c("a", "h", "m", "P") #,
-  # method = "bsd"
-)
+# ratio.like.1pred.1prey.sys = '
+#   // ratio-dependent-family of functional responses for one predator one prey
+#   dxdt[0] = -P * (a * x[0]) / (pow(P , m) + a * h * x[0]);
+#   
+#   // consumption rate cannot be positive
+#   if(dxdt[0] > 0) dxdt[0] = 0;
+# '
+# 
+# # compile the above C++ code into something we can run in R
+# odeintr::compile_sys(
+#   "ratio_1pred_1prey",
+#   ratio.like.1pred.1prey.sys,
+#   pars = c("a", "h", "m", "P") #,
+#   # method = "bsd"
+# )
 
 # predicted number of species consumed given parameters of a ratio-dependent family functional response
-ratio.like.1pred.1prey = function(N0, a, h, m, P, T, replacement, integrate=TRUE){
+ratio.like.1pred.1prey = function(N0, a, h, m, P, T, 
+                                  replacement, 
+                                  integrate=FALSE,
+                                  overrideTranscendental=FALSE){
 
 	# in a world with replacement everything is hunky dory
 	if(replacement){
@@ -68,26 +71,28 @@ ratio.like.1pred.1prey = function(N0, a, h, m, P, T, replacement, integrate=TRUE
     		  N <- N0 - (Q / (a * h)) * lamW::lambertW0(((a * h * N0) / Q) * exp(- (a / Q) * (P * T - h * N0)))
     			
     			# sometimes the argument in the exponential passed to lambertW0 causes it to blow up
-    			if(any(is.infinite(N))){
-    				# the explicit result of the analytical integration without solving for N implictly
-    				ffff <- function(N, N0, P, T, a, h, Q){
-    					dN <- Q * log((N0 - N) / N0) - a * h * N
-    					dt <- - a * P * T
-    					dN - dt
-    				}
-    				# sometimes the time argument is a constant and not a vector
-    				if(length(T)==1){
-    					T <- rep(T, length(N0))
-    				}
-    				# check which predictions are non-sensical
-    				for(i in 1:length(N0)){
-    					if(is.infinite(N[i])){
-    						# we need to solve the transcendental equation directly
-    						nn <- uniroot(ffff, lower=0, upper=N0[i], N0=N0[i], P=P[i], T=T[i], a=a, h=h, Q=Q[i])
-    						N[i] <- nn$root
-    					}
-    				}
-    			}
+    		  if(!overrideTranscendental){
+      			if(any(is.infinite(N))){
+      				# the explicit result of the analytical integration without solving for N implictly
+      				ffff <- function(N, N0, P, T, a, h, Q){
+      					dN <- Q * log((N0 - N) / N0) - a * h * N
+      					dt <- - a * P * T
+      					dN - dt
+      				}
+      				# sometimes the time argument is a constant and not a vector
+      				if(length(T)==1){
+      					T <- rep(T, length(N0))
+      				}
+      				# check which predictions are non-sensical
+      				for(i in 1:length(N0)){
+      					if(is.infinite(N[i])){
+      						# we need to solve the transcendental equation directly
+      						nn <- uniroot(ffff, lower=0, upper=N0[i], N0=N0[i], P=P[i], T=T[i], a=a, h=h, Q=Q[i])
+      						N[i] <- nn$root
+      					}
+      				}
+      			}
+    		  }
 		  }
 		}
 		return(N)
@@ -97,7 +102,13 @@ ratio.like.1pred.1prey = function(N0, a, h, m, P, T, replacement, integrate=TRUE
 }
 
 # negative log likelihood for ratio-like models given parameters and requisite data
-ratio.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, predators, replacement, time=NULL){
+ratio.like.1pred.1prey.NLL = function(params, 
+                                      modeltype, 
+                                      initial, 
+                                      killed, 
+                                      predators, 
+                                      replacement, 
+                                      time=NULL){
 	if(modeltype == "Ratio"){
 		attack <- exp(params[1])
 		handling <- 0
@@ -183,7 +194,11 @@ parnames(ratio.like.1pred.1prey.NLL) <- c(
 )
 
 # given data (d), study info (s), and modeltype (e.g., "Ratio I"), fit functional response data
-fit.ratio.like <- function(d, s, modeltype, nloptr.control=list(), mle2.control=list(), ...){
+fit.ratio.like <- function(d, s, 
+                           modeltype, 
+                           nloptr.control=list(), 
+                           mle2.control=list(), 
+                           ...){
   
 	# estimate starting value from the data using linear regression
 	# x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey / d$Npredator))))  # could cancel P, but left in for clarity
