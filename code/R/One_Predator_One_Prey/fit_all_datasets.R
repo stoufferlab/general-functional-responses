@@ -15,6 +15,7 @@ source('../lib/study_info.R')
 source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/AA_method.R')
+source('../lib/set_params.R')
 source('../lib/holling_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 source('../lib/ratio_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

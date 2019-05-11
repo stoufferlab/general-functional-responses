@@ -109,29 +109,8 @@ ratio.like.1pred.1prey.NLL = function(params,
                                       predators, 
                                       replacement, 
                                       time=NULL){
-	if(modeltype == "Ratio"){
-		attack <- exp(params[1])
-		handling <- 0
-		exponent <- 1
-	}
-
-	if(modeltype == "Arditi-Ginzburg"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		exponent <- 1
-	}
-
-  if(modeltype == "Hassell-Varley"){
-    attack <- exp(params[1])
-    handling <- 0
-    exponent <- exp(params[2])
-  }
   
-  if(modeltype == "Arditi-Akcakaya"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    exponent <- exp(params[3])
-  }
+	set_params(modeltype, params)
 
 
 	# if no times are specified then normalize to time=1

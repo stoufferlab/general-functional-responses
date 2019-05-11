@@ -124,61 +124,7 @@ holling.like.1pred.1prey.NLL = function(params,
                                         replacement, 
                                         Pminus1, 
                                         time=NULL){
-	if(modeltype == "Holling I"){
-		attack <- exp(params[1])
-		handling <- 0
-		interference <- 0
-		phi_numer <- 1
-		phi_denom <- 1
-	}
-
-	if(modeltype == "Holling II"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- 0
-		phi_numer <- 1
-		phi_denom <- 1
-	}
-
-	if(modeltype == "Beddington-DeAngelis"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- 1
-		phi_denom <- 1
-	}
-
-	if(modeltype == "Crowley-Martin"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- 1
-		phi_denom <- 0
-	}
-
-	if(modeltype == "Stouffer-Novak I"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- 1
-		phi_denom <- params[4]
-	}
-
-	if(modeltype == "Stouffer-Novak II"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- params[4]
-		phi_denom <- 1
-	}
-	
-	if(modeltype == "Stouffer-Novak III"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- params[4]
-		phi_denom <- params[5]
-	}
+  set_params(modeltype, params)
 
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){
