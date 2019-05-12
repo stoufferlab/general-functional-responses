@@ -13,28 +13,28 @@ library(odeintr)
 #############################################
 
 # For integration method, define the ode in C++ format
-holling.like.1pred.1prey.sys = '
-  // generalized functional response for one predator one prey
-    dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
-  
-  // consumption rate cannot be positive
-    if(dxdt[0] > 0) dxdt[0] = 0;
-'
-
-# compile the above C++ code into something we can run in R
-odeintr::compile_sys(
-  "hl_1pred_1prey",
-  holling.like.1pred.1prey.sys,
-  pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering") #,
-  # method = "bsd"
-)
+# holling.like.1pred.1prey.sys = '
+#   // generalized functional response for one predator one prey
+#     dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
+#   
+#   // consumption rate cannot be positive
+#     if(dxdt[0] > 0) dxdt[0] = 0;
+# '
+# 
+# # compile the above C++ code into something we can run in R
+# odeintr::compile_sys(
+#   "hl_1pred_1prey",
+#   holling.like.1pred.1prey.sys,
+#   pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering") #,
+#   # method = "bsd"
+# )
 
 
 # predicted number of species consumed given parameters of a holling-like functional response
 holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, 
                                     replacement, 
                                     Pminus1=c(TRUE,FALSE),
-                                    integrate=TRUE,
+                                    integrate=FALSE,
                                     overrideTranscendental=FALSE){
 
 	# if only P-1 individuals interference with predators that are doing the feeding
@@ -116,62 +116,15 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 }
 
 # negative log likelihood for holling-like models given parameters and requisite data
-holling.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, predators, replacement, Pminus1, time=NULL){
-	if(modeltype == "Holling I"){
-		attack <- exp(params[1])
-		handling <- 0
-		interference <- 0
-		phi_numer <- 1
-		phi_denom <- 1
-	}
-
-	if(modeltype == "Holling II"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- 0
-		phi_numer <- 1
-		phi_denom <- 1
-	}
-
-	if(modeltype == "Beddington-DeAngelis"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- 1
-		phi_denom <- 1
-	}
-
-	if(modeltype == "Crowley-Martin"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- 1
-		phi_denom <- 0
-	}
-
-	if(modeltype == "Stouffer-Novak I"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- 1
-		phi_denom <- params[4]
-	}
-
-	if(modeltype == "Stouffer-Novak II"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- params[4]
-		phi_denom <- 1
-	}
-	
-	if(modeltype == "Stouffer-Novak III"){
-		attack <- exp(params[1])
-		handling <- exp(params[2])
-		interference <- exp(params[3])
-		phi_numer <- params[4]
-		phi_denom <- params[5]
-	}
+holling.like.1pred.1prey.NLL = function(params,
+                                        modeltype, 
+                                        initial, 
+                                        killed, 
+                                        predators, 
+                                        replacement, 
+                                        Pminus1, 
+                                        time=NULL){
+  set_params(modeltype, params)
 
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){
@@ -179,31 +132,31 @@ holling.like.1pred.1prey.NLL = function(params, modeltype, initial, killed, pred
 	}
 
 	# expected number consumed given data and parameters
-	# Nconsumed <- holling.like.1pred.1prey(N0=initial, 
-	#                                       a=attack, 
-	#                                       h=handling, 
-	#                                       c=interference, 
-	#                                       phi_numer=phi_numer, 
-	#                                       phi_denom=phi_denom, 
-	#                                       P=predators, 
-	#                                       T=time, 
-	#                                       replacement=replacement, 
-	#                                       Pminus1=Pminus1)
+	Nconsumed <- holling.like.1pred.1prey(N0=initial,
+	                                      a=attack,
+	                                      h=handling,
+	                                      c=interference,
+	                                      phi_numer=phi_numer,
+	                                      phi_denom=phi_denom,
+	                                      P=predators,
+	                                      T=time,
+	                                      replacement=replacement,
+	                                      Pminus1=Pminus1)
 	
 	# reduce to unique data rows to speed up. There's probably an even faster way, but...
-	d.ori <- data.frame(initial, predators, time)
-	d.uniq <- unique(d.ori)
-	Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
-	                                           a=attack, 
-	                                           h=handling, 
-	                                           c=interference, 
-	                                           phi_numer=phi_numer, 
-	                                           phi_denom=phi_denom, 
-	                                           P=d.uniq$predators, 
-	                                           T=d.uniq$time, 
-	                                           replacement=replacement, 
-	                                           Pminus1=Pminus1)
-	Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
+	# d.ori <- data.frame(initial, predators, time)
+	# d.uniq <- unique(d.ori)
+	# Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
+	#                                            a=attack, 
+	#                                            h=handling, 
+	#                                            c=interference, 
+	#                                            phi_numer=phi_numer, 
+	#                                            phi_denom=phi_denom, 
+	#                                            P=d.uniq$predators, 
+	#                                            T=d.uniq$time, 
+	#                                            replacement=replacement, 
+	#                                            Pminus1=Pminus1)
+	# Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
 
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
@@ -241,7 +194,11 @@ parnames(holling.like.1pred.1prey.NLL) <- c(
 )
 
 # given data (d), study info (s), and modeltype (e.g., "Holling I"), fit functional response data
-fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.control=list(), ...){
+fit.holling.like <- function(d, s, 
+                             modeltype, 
+                             nloptr.control=list(), 
+                             mle2.control=list(), 
+                             ...){
 
 	# estimate starting value from the data using linear regression
 	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
