@@ -96,7 +96,7 @@ plot.coefs <- function(
   )
   
   # tick marks to indicate different data sets
-  axis(side=2, at=1:length(ffr.fits), labels=labels, cex.axis=0.5)
+  axis(side=2, at=1:length(ffr.fits), labels=labels, cex.axis=0.5, las=1)
   
   # mark where the existing models fall
   abline(v=vertLines, lty=2, col='grey')
