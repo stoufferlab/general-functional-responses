@@ -7,11 +7,11 @@ source('../../lib/ratio_method_one_predator_one_prey.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 
-ffr.fits <- profile_coefs(ffr.fits[c(1:2)], 
+ffr.fits <- profile_coefs(ffr.fits, 
                           model='Arditi.Akcakaya',
                           point.est='median')
 
-# save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
+save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
 # load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -53,7 +53,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      labels=labels,
      xlim=c(0,5)
   )
-  legend('topright', 
+  legend('right', 
          legend=c('Predator', 'Parasitoid', 'Replacement', 'Non-replacement', 'Profiled', 'Approximated','Bootstrapped'),
          pch=c(19,1,19,15,NA,NA,NA), 
          lty=c(NA,NA,NA,NA,'solid','dashed','dotted'),
