@@ -1,440 +1,10 @@
 Yes to Uttley_1980_IschN1
-Error in optim(par = c(attack = -3.3111201944021), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.36918042713349), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31639201863907), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.39869531680158), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.73358872418807), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.72916753224527), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.7198432140368), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.67435283736997), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33437040110005), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31593936648304), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.44792195953214), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.88103814352739), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30163919317598), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.44488682853633), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.44738447139384), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.32649731514318), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.40197732067023), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31589506227446), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.64494113658094), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.45060129705367), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31893182584906), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.34977108013593), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.62302510184262), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.6839891614723), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.76395844201104), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.38142196094844), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.42192187388502), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.35209217923938), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30433832394395), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.39747454067021), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.45736879104215), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.78782519615701), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33313007711584), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.28328620194198), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.40437550072234), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.65671286890371), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.6658589818959), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.69207293910229), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.76568701865266), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.67650036526939), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.29858264515339), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.36040543066686), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.29391887036001), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.34790393569909), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.65402699835742), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31785341329582), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.41673155676465), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.48931063405838), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.67228298352627), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.79059914414001), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33906948968965), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.3352573079961), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.36088845105121), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.66184154536412), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.43208904638886), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30937893011207), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.35089841404988), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.32293744338558), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.73160119485016), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.34287307942598), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.29053856903711), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33056537232511), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.39915790127426), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.2437597220536), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30454475452139), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.6787122144083), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.49628870126039), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.48212928458447), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.28264359594139), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.39569202227799), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.64030090858194), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.35874110470827), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.32040112819135), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.6585078738367), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33892002705173), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.6433849417484), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.72171469085656), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31615445705766), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.29853516854911), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.64725643519589), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.39250550077559), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.75934949828035), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.71372223597575), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.44475051964276), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.75301228258719), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.72156627178674), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.42248719076251), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.39987164748401), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.74252058674129), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.48000959185969), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.68869597931283), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30082740096998), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.40223861217031), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.72805960069051), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.23920366724911), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.32152783339939), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33281540107515), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33241044354676), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.81977510721452), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33830761835248), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.35164361944924), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30856130227024), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.43005142872199), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.32979844710818), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.68905051788978), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.36045103764899), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31031141181684), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.74680044897447), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.40646095307228), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.35946488002079), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.28348514149899), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.28359482089113), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.65193729815316), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.26523611905667), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.36776457488045), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.35822390151493), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.26374792469627), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.71782608840431), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.68437352128822), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.69359168727797), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.25260595589523), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.44771842240499), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.74971938998327), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.73150141348478), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.42329586828039), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.74808628306699), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.27663678208312), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.37877717189408), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.74904354797501), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.47046959626005), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31930362654309), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.39969740750833), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.66970789145364), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.70512708557735), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.32141436854988), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.42881477461182), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.46397685093981), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.50204723858391), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.71964332899902), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.3872800060387), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.66440971182767), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33142547592483), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.44510560954922), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.72922924923763), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.25338989778824), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.36185989603279), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31570472955708), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.64255588069652), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.70667429203752), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.28460293153233), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.75000180066995), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.72333660743078), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.38077700600559), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.3299143505654), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.61840461045954), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.66538132996511), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.34929931111823), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.42854114273618), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.36833556081262), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.58895083654781), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.80489311111753), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33584734276436), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30544273507556), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.29865431735788), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.8431894739893), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.790437049891), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.41647522973363), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.7747527824033), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.71701553139498), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.34360385807891), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.71460639810734), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.32092042029337), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.68595829863301), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.6994693477804), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31480441197246), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.4189504338769), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.27713876281149), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31934397060984), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.65741126959751), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.29895613927636), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.65201147926698), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.35460730690407), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.71997664326057), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.29959498735694), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.3675443709781), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.72068918748509), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31700742122001), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.29994850634823), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.65152147416315), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.71963602439944), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30377408028578), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.43499765061411), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.79755268015142), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31909508936742), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.40128723414378), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.68377612041292), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33343651179937), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30664094090486), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30802422928542), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.67081743395351), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.33224757604023), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30365920254788), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.42955998133747), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.66321273858791), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.67129788110723), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.71099017699791), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.31569319544437), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.37376234326466), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.37913884564434), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.40893254585232), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.37693623843177), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.28236972994667), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.28090207898073), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.30587698417773), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.40873345985684), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.38707052132103), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.45868476698741), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.37348146135705), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -3.35107630201925), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-
+  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta:  7m  bootstrapping [>--------------------------------------------------]   1% eta:  9m  bootstrapping [>--------------------------------------------------]   2% eta: 10m  bootstrapping [>--------------------------------------------------]   2% eta: 11m  bootstrapping [>--------------------------------------------------]   3% eta: 12m  bootstrapping [=>-------------------------------------------------]   3% eta: 12m  bootstrapping [=>-------------------------------------------------]   4% eta: 12m  bootstrapping [=>-------------------------------------------------]   5% eta: 12m  bootstrapping [==>------------------------------------------------]   5% eta: 12m  bootstrapping [==>------------------------------------------------]   6% eta: 12m  bootstrapping [==>------------------------------------------------]   7% eta: 12m  bootstrapping [===>-----------------------------------------------]   7% eta: 12m  bootstrapping [===>-----------------------------------------------]   8% eta: 12m  bootstrapping [===>-----------------------------------------------]   9% eta: 12m  bootstrapping [====>----------------------------------------------]   9% eta: 12m  bootstrapping [====>----------------------------------------------]  10% eta: 12m  bootstrapping [=====>---------------------------------------------]  11% eta: 12m  bootstrapping [=====>---------------------------------------------]  12% eta: 12mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [======>--------------------------------------------]  13% eta: 12mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [======>--------------------------------------------]  14% eta: 12m  bootstrapping [======>--------------------------------------------]  14% eta: 11m  bootstrapping [=======>-------------------------------------------]  15% eta: 11m  bootstrapping [=======>-------------------------------------------]  16% eta: 11m  bootstrapping [========>------------------------------------------]  17% eta: 11m  bootstrapping [========>------------------------------------------]  18% eta: 11m  bootstrapping [=========>-----------------------------------------]  19% eta: 11m  bootstrapping [=========>-----------------------------------------]  20% eta: 11m  bootstrapping [==========>----------------------------------------]  21% eta: 11m  bootstrapping [==========>----------------------------------------]  22% eta: 11m  bootstrapping [===========>---------------------------------------]  23% eta: 10m  bootstrapping [===========>---------------------------------------]  24% eta: 10m  bootstrapping [============>--------------------------------------]  25% eta: 10m  bootstrapping [============>--------------------------------------]  26% eta: 10m  bootstrapping [=============>-------------------------------------]  27% eta: 10m  bootstrapping [=============>-------------------------------------]  28% eta: 10m  bootstrapping [==============>------------------------------------]  29% eta: 10m  bootstrapping [==============>------------------------------------]  30% eta: 10m  bootstrapping [===============>-----------------------------------]  30% eta:  9m  bootstrapping [===============>-----------------------------------]  31% eta:  9m  bootstrapping [===============>-----------------------------------]  32% eta:  9m  bootstrapping [================>----------------------------------]  32% eta:  9m  bootstrapping [================>----------------------------------]  33% eta:  9m  bootstrapping [================>----------------------------------]  34% eta:  9m  bootstrapping [=================>---------------------------------]  34% eta:  9m  bootstrapping [=================>---------------------------------]  35% eta:  9m  bootstrapping [=================>---------------------------------]  36% eta:  9m  bootstrapping [==================>--------------------------------]  36% eta:  9m  bootstrapping [==================>--------------------------------]  37% eta:  9m  bootstrapping [==================>--------------------------------]  38% eta:  9m  bootstrapping [==================>--------------------------------]  38% eta:  8mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [===================>-------------------------------]  38% eta:  8m  bootstrapping [===================>-------------------------------]  39% eta:  8m  bootstrapping [===================>-------------------------------]  40% eta:  8m  bootstrapping [====================>------------------------------]  40% eta:  8m  bootstrapping [====================>------------------------------]  41% eta:  8m  bootstrapping [====================>------------------------------]  42% eta:  8m  bootstrapping [=====================>-----------------------------]  42% eta:  8m  bootstrapping [=====================>-----------------------------]  43% eta:  8m  bootstrapping [=====================>-----------------------------]  44% eta:  8m  bootstrapping [======================>----------------------------]  44% eta:  8m  bootstrapping [======================>----------------------------]  45% eta:  8m  bootstrapping [======================>----------------------------]  45% eta:  7m  bootstrapping [======================>----------------------------]  46% eta:  7m  bootstrapping [=======================>---------------------------]  46% eta:  7m  bootstrapping [=======================>---------------------------]  47% eta:  7m  bootstrapping [=======================>---------------------------]  48% eta:  7m  bootstrapping [========================>--------------------------]  48% eta:  7m  bootstrapping [========================>--------------------------]  49% eta:  7m  bootstrapping [========================>--------------------------]  50% eta:  7m  bootstrapping [=========================>-------------------------]  50% eta:  7m  bootstrapping [=========================>-------------------------]  51% eta:  7m  bootstrapping [=========================>-------------------------]  52% eta:  7m  bootstrapping [==========================>------------------------]  52% eta:  7m  bootstrapping [==========================>------------------------]  53% eta:  6m  bootstrapping [==========================>------------------------]  54% eta:  6m  bootstrapping [===========================>-----------------------]  54% eta:  6mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [===========================>-----------------------]  55% eta:  6m  bootstrapping [===========================>-----------------------]  56% eta:  6m  bootstrapping [============================>----------------------]  56% eta:  6m  bootstrapping [============================>----------------------]  57% eta:  6m  bootstrapping [============================>----------------------]  58% eta:  6m  bootstrapping [=============================>---------------------]  58% eta:  6m  bootstrapping [=============================>---------------------]  59% eta:  6m  bootstrapping [=============================>---------------------]  60% eta:  6m  bootstrapping [==============================>--------------------]  60% eta:  5m  bootstrapping [==============================>--------------------]  61% eta:  5m  bootstrapping [==============================>--------------------]  62% eta:  5m  bootstrapping [===============================>-------------------]  62% eta:  5m  bootstrapping [===============================>-------------------]  63% eta:  5m  bootstrapping [===============================>-------------------]  64% eta:  5m  bootstrapping [================================>------------------]  64% eta:  5m  bootstrapping [================================>------------------]  65% eta:  5m  bootstrapping [================================>------------------]  66% eta:  5m  bootstrapping [=================================>-----------------]  66% eta:  5m  bootstrapping [=================================>-----------------]  67% eta:  5m  bootstrapping [=================================>-----------------]  67% eta:  4m  bootstrapping [=================================>-----------------]  68% eta:  4m  bootstrapping [==================================>----------------]  68% eta:  4m  bootstrapping [==================================>----------------]  69% eta:  4m  bootstrapping [==================================>----------------]  70% eta:  4m  bootstrapping [===================================>---------------]  70% eta:  4m  bootstrapping [===================================>---------------]  71% eta:  4m  bootstrapping [====================================>--------------]  72% eta:  4m  bootstrapping [====================================>--------------]  73% eta:  4m  bootstrapping [=====================================>-------------]  74% eta:  4m  bootstrapping [=====================================>-------------]  75% eta:  3m  bootstrapping [======================================>------------]  76% eta:  3m  bootstrapping [======================================>------------]  77% eta:  3m  bootstrapping [=======================================>-----------]  78% eta:  3m  bootstrapping [=======================================>-----------]  79% eta:  3m  bootstrapping [========================================>----------]  80% eta:  3m  bootstrapping [========================================>----------]  81% eta:  3m  bootstrapping [=========================================>---------]  82% eta:  3m  bootstrapping [=========================================>---------]  82% eta:  2m  bootstrapping [=========================================>---------]  83% eta:  2m  bootstrapping [==========================================>--------]  84% eta:  2m  bootstrapping [==========================================>--------]  85% eta:  2m  bootstrapping [===========================================>-------]  86% eta:  2m  bootstrapping [===========================================>-------]  87% eta:  2m  bootstrapping [============================================>------]  88% eta:  2m  bootstrapping [============================================>------]  89% eta:  2m  bootstrapping [============================================>------]  89% eta:  1m  bootstrapping [=============================================>-----]  90% eta:  1m  bootstrapping [=============================================>-----]  91% eta:  1m  bootstrapping [==============================================>----]  91% eta:  1m  bootstrapping [==============================================>----]  92% eta:  1m  bootstrapping [==============================================>----]  93% eta:  1m  bootstrapping [===============================================>---]  93% eta:  1m  bootstrapping [===============================================>---]  94% eta:  1m  bootstrapping [===============================================>---]  94% eta: 49s  bootstrapping [===============================================>---]  94% eta: 46s  bootstrapping [===============================================>---]  95% eta: 43s  bootstrapping [================================================>--]  95% eta: 39s  bootstrapping [================================================>--]  96% eta: 36s  bootstrapping [================================================>--]  96% eta: 33s  bootstrapping [================================================>--]  96% eta: 30s  bootstrapping [================================================>--]  97% eta: 26s  bootstrapping [=================================================>-]  97% eta: 23s  bootstrapping [=================================================>-]  98% eta: 20s  bootstrapping [=================================================>-]  98% eta: 16s  bootstrapping [=================================================>-]  98% eta: 13s  bootstrapping [=================================================>-]  99% eta: 10s  bootstrapping [==================================================>]  99% eta:  7s  bootstrapping [==================================================>] 100% eta:  3s  bootstrapping [===================================================] 100% eta:  0s

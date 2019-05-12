@@ -1,92 +1,2 @@
 Yes to Eveleigh_1982_Adeg_adult_merged
-Error in optim(par = c(attack = -2.12810055397789), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.03958113781047), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.11390299854043), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.29967432036676), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.13336613520563), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.28699203064881), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.29137345813241), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.12243874406134), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.32050750165546), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.30837000012844), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.07990785769981), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.3089981677421), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.35180762732452), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.28353715258159), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.11323084512064), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.28853478585683), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.11427073973178), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.10390543772658), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.36529076801804), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.08708805115233), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.32927588278126), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.08511011558464), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.14751159302506), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.09060601524849), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.29465135976449), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.0723259260957), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.31576358631859), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.09755048719385), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.07414305055329), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.1188288973612), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.10672882735391), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.11145003646731), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.08536381433715), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.10979449416946), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.05693727826986), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.108765950456), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.05453289437824), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.13722907474779), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.28852264606126), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.12999066861149), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.0367401064831), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.11174668667784), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.06932709364231), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.27399952308186), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -2.07700076145398), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-
+  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta:  7m  bootstrapping [>--------------------------------------------------]   1% eta:  9m  bootstrapping [>--------------------------------------------------]   2% eta: 10m  bootstrapping [>--------------------------------------------------]   2% eta: 11m  bootstrapping [>--------------------------------------------------]   3% eta: 11m  bootstrapping [=>-------------------------------------------------]   3% eta: 12m  bootstrapping [=>-------------------------------------------------]   4% eta: 12m  bootstrapping [=>-------------------------------------------------]   5% eta: 12m  bootstrapping [==>------------------------------------------------]   5% eta: 12m  bootstrapping [==>------------------------------------------------]   6% eta: 12m  bootstrapping [==>------------------------------------------------]   7% eta: 12m  bootstrapping [===>-----------------------------------------------]   7% eta: 12m  bootstrapping [===>-----------------------------------------------]   8% eta: 12m  bootstrapping [===>-----------------------------------------------]   9% eta: 12m  bootstrapping [====>----------------------------------------------]   9% eta: 12m  bootstrapping [====>----------------------------------------------]  10% eta: 12m  bootstrapping [=====>---------------------------------------------]  11% eta: 12m  bootstrapping [=====>---------------------------------------------]  12% eta: 12m  bootstrapping [======>--------------------------------------------]  13% eta: 12m  bootstrapping [======>--------------------------------------------]  13% eta: 11m  bootstrapping [======>--------------------------------------------]  14% eta: 11m  bootstrapping [=======>-------------------------------------------]  15% eta: 11m  bootstrapping [=======>-------------------------------------------]  16% eta: 11m  bootstrapping [========>------------------------------------------]  17% eta: 11m  bootstrapping [========>------------------------------------------]  18% eta: 11m  bootstrapping [=========>-----------------------------------------]  19% eta: 11m  bootstrapping [=========>-----------------------------------------]  20% eta: 11m  bootstrapping [==========>----------------------------------------]  21% eta: 11m  bootstrapping [==========>----------------------------------------]  22% eta: 11m  bootstrapping [===========>---------------------------------------]  23% eta: 11m  bootstrapping [===========>---------------------------------------]  23% eta: 10m  bootstrapping [===========>---------------------------------------]  24% eta: 10m  bootstrapping [============>--------------------------------------]  25% eta: 10m  bootstrapping [============>--------------------------------------]  26% eta: 10m  bootstrapping [=============>-------------------------------------]  27% eta: 10m  bootstrapping [=============>-------------------------------------]  28% eta: 10m  bootstrapping [==============>------------------------------------]  29% eta: 10m  bootstrapping [==============>------------------------------------]  30% eta: 10m  bootstrapping [===============>-----------------------------------]  30% eta: 10m  bootstrapping [===============>-----------------------------------]  31% eta: 10m  bootstrapping [===============>-----------------------------------]  32% eta:  9m  bootstrapping [================>----------------------------------]  32% eta:  9m  bootstrapping [================>----------------------------------]  33% eta:  9m  bootstrapping [================>----------------------------------]  34% eta:  9m  bootstrapping [=================>---------------------------------]  34% eta:  9m  bootstrapping [=================>---------------------------------]  35% eta:  9m  bootstrapping [=================>---------------------------------]  36% eta:  9m  bootstrapping [==================>--------------------------------]  36% eta:  9m  bootstrapping [==================>--------------------------------]  37% eta:  9m  bootstrapping [==================>--------------------------------]  38% eta:  9m  bootstrapping [===================>-------------------------------]  38% eta:  9m  bootstrapping [===================>-------------------------------]  39% eta:  8m  bootstrapping [===================>-------------------------------]  40% eta:  8m  bootstrapping [====================>------------------------------]  40% eta:  8m  bootstrapping [====================>------------------------------]  41% eta:  8m  bootstrapping [====================>------------------------------]  42% eta:  8m  bootstrapping [=====================>-----------------------------]  42% eta:  8m  bootstrapping [=====================>-----------------------------]  43% eta:  8m  bootstrapping [=====================>-----------------------------]  44% eta:  8m  bootstrapping [======================>----------------------------]  44% eta:  8m  bootstrapping [======================>----------------------------]  45% eta:  8m  bootstrapping [======================>----------------------------]  46% eta:  8m  bootstrapping [======================>----------------------------]  46% eta:  7m  bootstrapping [=======================>---------------------------]  46% eta:  7m  bootstrapping [=======================>---------------------------]  47% eta:  7m  bootstrapping [=======================>---------------------------]  48% eta:  7m  bootstrapping [========================>--------------------------]  48% eta:  7m  bootstrapping [========================>--------------------------]  49% eta:  7m  bootstrapping [========================>--------------------------]  50% eta:  7m  bootstrapping [=========================>-------------------------]  50% eta:  7m  bootstrapping [=========================>-------------------------]  51% eta:  7m  bootstrapping [=========================>-------------------------]  52% eta:  7m  bootstrapping [==========================>------------------------]  52% eta:  7m  bootstrapping [==========================>------------------------]  53% eta:  7m  bootstrapping [==========================>------------------------]  53% eta:  6m  bootstrapping [==========================>------------------------]  54% eta:  6m  bootstrapping [===========================>-----------------------]  54% eta:  6m  bootstrapping [===========================>-----------------------]  55% eta:  6m  bootstrapping [===========================>-----------------------]  56% eta:  6m  bootstrapping [============================>----------------------]  56% eta:  6m  bootstrapping [============================>----------------------]  57% eta:  6m  bootstrapping [============================>----------------------]  58% eta:  6m  bootstrapping [=============================>---------------------]  58% eta:  6m  bootstrapping [=============================>---------------------]  59% eta:  6m  bootstrapping [=============================>---------------------]  60% eta:  6m  bootstrapping [==============================>--------------------]  60% eta:  6m  bootstrapping [==============================>--------------------]  60% eta:  5m  bootstrapping [==============================>--------------------]  61% eta:  5m  bootstrapping [==============================>--------------------]  62% eta:  5m  bootstrapping [===============================>-------------------]  62% eta:  5m  bootstrapping [===============================>-------------------]  63% eta:  5m  bootstrapping [===============================>-------------------]  64% eta:  5m  bootstrapping [================================>------------------]  64% eta:  5m  bootstrapping [================================>------------------]  65% eta:  5m  bootstrapping [================================>------------------]  66% eta:  5m  bootstrapping [=================================>-----------------]  66% eta:  5m  bootstrapping [=================================>-----------------]  67% eta:  5m  bootstrapping [=================================>-----------------]  68% eta:  4m  bootstrapping [==================================>----------------]  68% eta:  4m  bootstrapping [==================================>----------------]  69% eta:  4m  bootstrapping [==================================>----------------]  70% eta:  4m  bootstrapping [===================================>---------------]  70% eta:  4m  bootstrapping [===================================>---------------]  71% eta:  4m  bootstrapping [====================================>--------------]  72% eta:  4m  bootstrapping [====================================>--------------]  73% eta:  4m  bootstrapping [=====================================>-------------]  74% eta:  4m  bootstrapping [=====================================>-------------]  75% eta:  3m  bootstrapping [======================================>------------]  76% eta:  3m  bootstrapping [======================================>------------]  77% eta:  3m  bootstrapping [=======================================>-----------]  78% eta:  3m  bootstrapping [=======================================>-----------]  79% eta:  3m  bootstrapping [========================================>----------]  80% eta:  3m  bootstrapping [========================================>----------]  81% eta:  3m  bootstrapping [=========================================>---------]  82% eta:  3m  bootstrapping [=========================================>---------]  82% eta:  2m  bootstrapping [=========================================>---------]  83% eta:  2m  bootstrapping [==========================================>--------]  84% eta:  2m  bootstrapping [==========================================>--------]  85% eta:  2m  bootstrapping [===========================================>-------]  86% eta:  2m  bootstrapping [===========================================>-------]  87% eta:  2m  bootstrapping [============================================>------]  88% eta:  2m  bootstrapping [============================================>------]  89% eta:  2m  bootstrapping [============================================>------]  89% eta:  1m  bootstrapping [=============================================>-----]  90% eta:  1m  bootstrapping [=============================================>-----]  91% eta:  1m  bootstrapping [==============================================>----]  91% eta:  1m  bootstrapping [==============================================>----]  92% eta:  1m  bootstrapping [==============================================>----]  93% eta:  1m  bootstrapping [===============================================>---]  93% eta:  1m  bootstrapping [===============================================>---]  94% eta:  1m  bootstrapping [===============================================>---]  94% eta: 50s  bootstrapping [===============================================>---]  94% eta: 46s  bootstrapping [===============================================>---]  95% eta: 43s  bootstrapping [================================================>--]  95% eta: 40s  bootstrapping [================================================>--]  96% eta: 37s  bootstrapping [================================================>--]  96% eta: 33s  bootstrapping [================================================>--]  96% eta: 30s  bootstrapping [================================================>--]  97% eta: 27s  bootstrapping [=================================================>-]  97% eta: 23s  bootstrapping [=================================================>-]  98% eta: 20s  bootstrapping [=================================================>-]  98% eta: 17s  bootstrapping [=================================================>-]  98% eta: 13s  bootstrapping [=================================================>-]  99% eta: 10s  bootstrapping [==================================================>]  99% eta:  7s  bootstrapping [==================================================>] 100% eta:  3s  bootstrapping [===================================================] 100% eta:  0s

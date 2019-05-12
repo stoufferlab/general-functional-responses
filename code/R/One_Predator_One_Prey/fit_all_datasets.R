@@ -16,6 +16,7 @@ source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/AA_method.R')
 source('../lib/set_params.R')
+source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 source('../lib/ratio_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -32,30 +33,11 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
-# remove problem datasets
-datasets <- grep("Eveleigh",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Griffen",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Hossie",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Johnson",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Jones",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Katz",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Jones",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Krylov",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Lang",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Long",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Mansour",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Mertz",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Stier",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Uttley",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("vonWesternhagen",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Wasserman",datasets,invert=TRUE,value=TRUE)
-
-
 
 # check to see which datasets have been fit (and thus on't bother refitting them)
-datasets.fitted <- list.files('../../../results/R/OnePredOnePrey_fits/', full.names=FALSE, include.dirs=FALSE)
-datasets.fitted <- gsub('*data$','',datasets.fitted)
-datasets <- datasets[!gsub('./Dataset_Code/','',datasets)%in%datasets.fitted]
+# datasets.fitted <- list.files('../../../results/R/OnePredOnePrey_fits/', full.names=FALSE, include.dirs=FALSE)
+# datasets.fitted <- gsub('*data$','',datasets.fitted)
+# datasets <- datasets[!gsub('./Dataset_Code/','',datasets)%in%datasets.fitted]
 
 # select focal dataset for testing
 # datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem

@@ -1,116 +1,86 @@
 Yes to Huffaker_1982
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta: 19m  bootstrapping [>--------------------------------------------------]   1% eta: 25m  bootstrapping [>--------------------------------------------------]   2% eta: 29m  bootstrapping [>--------------------------------------------------]   2% eta: 31m  bootstrapping [>--------------------------------------------------]   2% eta: 32m  bootstrapping [>--------------------------------------------------]   3% eta: 33mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   3% eta: 33m  bootstrapping [=>-------------------------------------------------]   4% eta: 34m  bootstrapping [=>-------------------------------------------------]   5% eta: 34m  bootstrapping [==>------------------------------------------------]   5% eta: 34m  bootstrapping [==>------------------------------------------------]   6% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==>------------------------------------------------]   7% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   7% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   8% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   9% eta: 35m  bootstrapping [====>----------------------------------------------]   9% eta: 35m  bootstrapping [====>----------------------------------------------]  10% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====>---------------------------------------------]  11% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====>---------------------------------------------]  12% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======>--------------------------------------------]  13% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======>--------------------------------------------]  14% eta: 33mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  15% eta: 33m  bootstrapping [=======>-------------------------------------------]  16% eta: 33mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  17% eta: 32mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  18% eta: 32mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========>-----------------------------------------]  19% eta: 32mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========>-----------------------------------------]  20% eta: 32m  bootstrapping [=========>-----------------------------------------]  20% eta: 31mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========>----------------------------------------]  21% eta: 31m  bootstrapping [==========>----------------------------------------]  22% eta: 31m  bootstrapping [===========>---------------------------------------]  23% eta: 30mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  24% eta: 30mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============>--------------------------------------]  25% eta: 30m  bootstrapping [============>--------------------------------------]  25% eta: 29mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============>--------------------------------------]  26% eta: 29mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  27% eta: 29mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  28% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============>------------------------------------]  29% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============>------------------------------------]  30% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  30% eta: 27mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  31% eta: 27m  bootstrapping [===============>-----------------------------------]  32% eta: 27mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  32% eta: 27m  bootstrapping [================>----------------------------------]  33% eta: 27m  bootstrapping [================>----------------------------------]  33% eta: 26m  bootstrapping [================>----------------------------------]  34% eta: 26mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  34% eta: 26m  bootstrapping [=================>---------------------------------]  35% eta: 26mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  36% eta: 25m  bootstrapping [==================>--------------------------------]  36% eta: 25mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  37% eta: 25m  bootstrapping [==================>--------------------------------]  38% eta: 25mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  38% eta: 24mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  39% eta: 24m  bootstrapping [===================>-------------------------------]  40% eta: 24mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================>------------------------------]  40% eta: 24m  bootstrapping [====================>------------------------------]  41% eta: 24m  bootstrapping [====================>------------------------------]  41% eta: 23m  bootstrapping [====================>------------------------------]  42% eta: 23mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  42% eta: 23m  bootstrapping [=====================>-----------------------------]  43% eta: 23mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  44% eta: 22mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  44% eta: 22mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  45% eta: 22mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  46% eta: 22m  bootstrapping [=======================>---------------------------]  46% eta: 21m  bootstrapping [=======================>---------------------------]  47% eta: 21mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  48% eta: 21mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  48% eta: 21mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  49% eta: 20m  bootstrapping [========================>--------------------------]  50% eta: 20mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  50% eta: 20m  bootstrapping [=========================>-------------------------]  51% eta: 20mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  51% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  52% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  52% eta: 19m  bootstrapping [==========================>------------------------]  53% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  54% eta: 19m  bootstrapping [===========================>-----------------------]  54% eta: 18mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  55% eta: 18mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  56% eta: 18m  bootstrapping [============================>----------------------]  56% eta: 18m  bootstrapping [============================>----------------------]  56% eta: 17m  bootstrapping [============================>----------------------]  57% eta: 17m  bootstrapping [============================>----------------------]  58% eta: 17m  bootstrapping [=============================>---------------------]  58% eta: 17m  bootstrapping [=============================>---------------------]  59% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  59% eta: 16m  bootstrapping [=============================>---------------------]  60% eta: 16m  bootstrapping [==============================>--------------------]  60% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================>--------------------]  61% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================>--------------------]  62% eta: 15m  bootstrapping [===============================>-------------------]  62% eta: 15m  bootstrapping [===============================>-------------------]  63% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  64% eta: 15m  bootstrapping [================================>------------------]  64% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  65% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  66% eta: 14m  bootstrapping [=================================>-----------------]  66% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  66% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  67% eta: 13m  bootstrapping [=================================>-----------------]  68% eta: 13m  bootstrapping [==================================>----------------]  68% eta: 13m  bootstrapping [==================================>----------------]  69% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  69% eta: 12m  bootstrapping [==================================>----------------]  70% eta: 12m  bootstrapping [===================================>---------------]  70% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================>---------------]  71% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  72% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  73% eta: 11m  bootstrapping [=====================================>-------------]  74% eta: 11m  bootstrapping [=====================================>-------------]  74% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  75% eta: 10m  bootstrapping [======================================>------------]  76% eta: 10m  bootstrapping [======================================>------------]  76% eta:  9m  bootstrapping [======================================>------------]  77% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  78% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  79% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  79% eta:  8m  bootstrapping [========================================>----------]  80% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  81% eta:  8m  bootstrapping [=========================================>---------]  82% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  83% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  84% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  84% eta:  6m  bootstrapping [==========================================>--------]  85% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  86% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  86% eta:  5m  bootstrapping [===========================================>-------]  87% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  88% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  89% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  90% eta:  4m  bootstrapping [=============================================>-----]  91% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================================>----]  91% eta:  4m  bootstrapping [==============================================>----]  92% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================================>----]  93% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  93% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  94% eta:  3m  bootstrapping [===============================================>---]  94% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  95% eta:  2m  bootstrapping [================================================>--]  95% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  96% eta:  2m  bootstrapping [================================================>--]  96% eta:  1m  bootstrapping [================================================>--]  97% eta:  1m  bootstrapping [=================================================>-]  97% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  98% eta:  1m  bootstrapping [=================================================>-]  98% eta: 48sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  98% eta: 38sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  99% eta: 29s  bootstrapping [==================================================>]  99% eta: 19s  bootstrapping [==================================================>] 100% eta: 10sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================================] 100% eta:  0s
+  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta:  1m  bootstrapping [>--------------------------------------------------]   1% eta:  2m  bootstrapping [>--------------------------------------------------]   2% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [>--------------------------------------------------]   3% eta:  2m  bootstrapping [=>-------------------------------------------------]   3% eta:  2m  bootstrapping [=>-------------------------------------------------]   4% eta:  3m  bootstrapping [=>-------------------------------------------------]   5% eta:  3m  bootstrapping [==>------------------------------------------------]   5% eta:  3m  bootstrapping [==>------------------------------------------------]   6% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==>------------------------------------------------]   7% eta:  3m  bootstrapping [===>-----------------------------------------------]   7% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===>-----------------------------------------------]   8% eta:  3m  bootstrapping [===>-----------------------------------------------]   9% eta:  3m  bootstrapping [====>----------------------------------------------]   9% eta:  3m  bootstrapping [====>----------------------------------------------]  10% eta:  3m  bootstrapping [=====>---------------------------------------------]  11% eta:  3m  bootstrapping [=====>---------------------------------------------]  12% eta:  3m  bootstrapping [=====>---------------------------------------------]  12% eta:  2m  bootstrapping [======>--------------------------------------------]  13% eta:  2m  bootstrapping [======>--------------------------------------------]  14% eta:  2m  bootstrapping [=======>-------------------------------------------]  15% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=======>-------------------------------------------]  16% eta:  2m  bootstrapping [========>------------------------------------------]  17% eta:  2m  bootstrapping [========>------------------------------------------]  18% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=========>-----------------------------------------]  19% eta:  2m  bootstrapping [=========>-----------------------------------------]  20% eta:  2m  bootstrapping [==========>----------------------------------------]  21% eta:  2m  bootstrapping [==========>----------------------------------------]  22% eta:  2m  bootstrapping [===========>---------------------------------------]  23% eta:  2m  bootstrapping [===========>---------------------------------------]  24% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [============>--------------------------------------]  25% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [============>--------------------------------------]  26% eta:  2m  bootstrapping [=============>-------------------------------------]  27% eta:  2m  bootstrapping [=============>-------------------------------------]  28% eta:  2m  bootstrapping [==============>------------------------------------]  29% eta:  2m  bootstrapping [==============>------------------------------------]  30% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===============>-----------------------------------]  30% eta:  2m  bootstrapping [===============>-----------------------------------]  31% eta:  2m  bootstrapping [===============>-----------------------------------]  32% eta:  2m  bootstrapping [================>----------------------------------]  32% eta:  2m  bootstrapping [================>----------------------------------]  33% eta:  2m  bootstrapping [================>----------------------------------]  34% eta:  2m  bootstrapping [=================>---------------------------------]  34% eta:  2m  bootstrapping [=================>---------------------------------]  35% eta:  2m  bootstrapping [=================>---------------------------------]  36% eta:  2m  bootstrapping [==================>--------------------------------]  36% eta:  2m  bootstrapping [==================>--------------------------------]  37% eta:  2m  bootstrapping [==================>--------------------------------]  38% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===================>-------------------------------]  38% eta:  2m  bootstrapping [===================>-------------------------------]  39% eta:  2m  bootstrapping [===================>-------------------------------]  40% eta:  2m  bootstrapping [====================>------------------------------]  40% eta:  2m  bootstrapping [====================>------------------------------]  41% eta:  2m  bootstrapping [====================>------------------------------]  42% eta:  2m  bootstrapping [=====================>-----------------------------]  42% eta:  2m  bootstrapping [=====================>-----------------------------]  43% eta:  2m  bootstrapping [=====================>-----------------------------]  44% eta:  2m  bootstrapping [======================>----------------------------]  44% eta:  2m  bootstrapping [======================>----------------------------]  45% eta:  2m  bootstrapping [======================>----------------------------]  46% eta:  2m  bootstrapping [=======================>---------------------------]  46% eta:  2m  bootstrapping [=======================>---------------------------]  47% eta:  2m  bootstrapping [=======================>---------------------------]  48% eta:  2m  bootstrapping [========================>--------------------------]  48% eta:  1m  bootstrapping [========================>--------------------------]  49% eta:  1m  bootstrapping [========================>--------------------------]  50% eta:  1m  bootstrapping [=========================>-------------------------]  50% eta:  1m  bootstrapping [=========================>-------------------------]  51% eta:  1m  bootstrapping [=========================>-------------------------]  52% eta:  1m  bootstrapping [==========================>------------------------]  52% eta:  1m  bootstrapping [==========================>------------------------]  53% eta:  1m  bootstrapping [==========================>------------------------]  54% eta:  1m  bootstrapping [===========================>-----------------------]  54% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===========================>-----------------------]  55% eta:  1m  bootstrapping [===========================>-----------------------]  56% eta:  1m  bootstrapping [============================>----------------------]  56% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [============================>----------------------]  57% eta:  1m  bootstrapping [============================>----------------------]  58% eta:  1m  bootstrapping [=============================>---------------------]  58% eta:  1m  bootstrapping [=============================>---------------------]  59% eta:  1m  bootstrapping [=============================>---------------------]  60% eta:  1m  bootstrapping [==============================>--------------------]  60% eta:  1m  bootstrapping [==============================>--------------------]  61% eta:  1m  bootstrapping [==============================>--------------------]  62% eta:  1m  bootstrapping [===============================>-------------------]  62% eta:  1m  bootstrapping [===============================>-------------------]  63% eta:  1m  bootstrapping [===============================>-------------------]  64% eta:  1m  bootstrapping [================================>------------------]  64% eta:  1m  bootstrapping [================================>------------------]  65% eta:  1m  bootstrapping [================================>------------------]  66% eta:  1m  bootstrapping [=================================>-----------------]  66% eta:  1m  bootstrapping [=================================>-----------------]  67% eta:  1m  bootstrapping [=================================>-----------------]  68% eta:  1m  bootstrapping [==================================>----------------]  68% eta:  1m  bootstrapping [==================================>----------------]  69% eta:  1m  bootstrapping [==================================>----------------]  70% eta:  1m  bootstrapping [===================================>---------------]  70% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===================================>---------------]  71% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [====================================>--------------]  72% eta: 50s  bootstrapping [====================================>--------------]  72% eta: 49s  bootstrapping [====================================>--------------]  72% eta: 48s  bootstrapping [====================================>--------------]  73% eta: 47s  bootstrapping [=====================================>-------------]  74% eta: 46s  bootstrapping [=====================================>-------------]  74% eta: 45s  bootstrapping [=====================================>-------------]  75% eta: 44sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=====================================>-------------]  75% eta: 43s  bootstrapping [======================================>------------]  76% eta: 43s  bootstrapping [======================================>------------]  76% eta: 42s  bootstrapping [======================================>------------]  76% eta: 41s  bootstrapping [======================================>------------]  77% eta: 41s  bootstrapping [======================================>------------]  77% eta: 40s  bootstrapping [=======================================>-----------]  78% eta: 39s  bootstrapping [=======================================>-----------]  78% eta: 38sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=======================================>-----------]  79% eta: 37s  bootstrapping [=======================================>-----------]  79% eta: 36s  bootstrapping [========================================>----------]  80% eta: 36s  bootstrapping [========================================>----------]  80% eta: 35s  bootstrapping [========================================>----------]  80% eta: 34s  bootstrapping [========================================>----------]  81% eta: 34s  bootstrapping [========================================>----------]  81% eta: 33s  bootstrapping [=========================================>---------]  82% eta: 32s  bootstrapping [=========================================>---------]  82% eta: 31s  bootstrapping [=========================================>---------]  83% eta: 30s  bootstrapping [=========================================>---------]  83% eta: 29s  bootstrapping [==========================================>--------]  84% eta: 29s  bootstrapping [==========================================>--------]  84% eta: 28s  bootstrapping [==========================================>--------]  84% eta: 27s  bootstrapping [==========================================>--------]  85% eta: 27s  bootstrapping [==========================================>--------]  85% eta: 26s  bootstrapping [===========================================>-------]  86% eta: 25s  bootstrapping [===========================================>-------]  86% eta: 24sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===========================================>-------]  87% eta: 23s  bootstrapping [===========================================>-------]  87% eta: 22s  bootstrapping [============================================>------]  88% eta: 22s  bootstrapping [============================================>------]  88% eta: 21s  bootstrapping [============================================>------]  88% eta: 20s  bootstrapping [============================================>------]  89% eta: 20s  bootstrapping [============================================>------]  89% eta: 19s  bootstrapping [=============================================>-----]  90% eta: 18sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=============================================>-----]  90% eta: 17s  bootstrapping [=============================================>-----]  91% eta: 16s  bootstrapping [==============================================>----]  91% eta: 15s  bootstrapping [==============================================>----]  92% eta: 15s  bootstrapping [==============================================>----]  92% eta: 14s  bootstrapping [==============================================>----]  92% eta: 13s  bootstrapping [==============================================>----]  93% eta: 13s  bootstrapping [===============================================>---]  93% eta: 12sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===============================================>---]  94% eta: 11s  bootstrapping [===============================================>---]  94% eta: 10s  bootstrapping [===============================================>---]  95% eta:  9sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [================================================>--]  95% eta:  8s  bootstrapping [================================================>--]  96% eta:  8s  bootstrapping [================================================>--]  96% eta:  7sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [================================================>--]  96% eta:  6s  bootstrapping [================================================>--]  97% eta:  6s  bootstrapping [=================================================>-]  97% eta:  5s  bootstrapping [=================================================>-]  98% eta:  4s  bootstrapping [=================================================>-]  98% eta:  3s  bootstrapping [=================================================>-]  99% eta:  2s  bootstrapping [==================================================>]  99% eta:  1sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==================================================>] 100% eta:  1s  bootstrapping [===================================================] 100% eta:  0s
