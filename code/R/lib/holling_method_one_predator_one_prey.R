@@ -10,6 +10,9 @@ library(bbmle)
 library(nloptr)
 library(lamW)
 library(odeintr)
+
+sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, include.dirs=TRUE)
+source(sp)
 #############################################
 
 # For integration method, define the ode in C++ format
