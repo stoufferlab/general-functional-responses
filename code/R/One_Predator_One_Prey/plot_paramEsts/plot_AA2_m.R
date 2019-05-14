@@ -1,17 +1,33 @@
-source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
+source('../../lib/plot_coefs.R')
+source('../../lib/depletion_check.R') 
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Remove datasets where AA2 method was NOT successfully applied
 noAA2 <- unlist(lapply(ffr.fits, function(x) is.na(x$estimates['Arditi.Akcakaya.Method.2'])))
 ffr.fits[which(noAA2)] <- NULL
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ffr.fits <- profile_coefs(ffr.fits, 
+                          model='Arditi.Akcakaya.Method.2',
+                          point.est='median',
+                          printWarnings = TRUE)
+
+save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA2.Rdata')
+# load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA2.Rdata')
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya.Method.2", order.parm="Sample size")
 ffr.fits <- ffr.fits[fit.order]
+
+labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
+labels<-gsub('_',' ',labels)
+sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
+labels <- paste0(labels, ' (',sample.sizes,')')
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
@@ -24,35 +40,28 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      point.est='median',
      display.outlier.ests=TRUE,
      xlab="Arditi-Akcakaya interference rate (m) (Method 2)",
-     ylab="",
-     labels=TRUE,
+     labels=labels,
      xlim=c(-0.5,1.6)
   )
 dev.off()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Additional summary plots
-SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 m2 <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya.Method.2']]["50%",'exponent',"estimate"]))
-
 parm <- m2 
-
-names(parm)<-sub('./Dataset_Code/','',names(parm))
-names(parm)<-sub('.R.exponent','',names(parm))
-names(parm) <- paste0(names(parm), ' (',SS,')')
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m_xy.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
-ylim <- c(0,1.6)
-plot(parm~SS,
-     ylim=ylim,
-     type='n',
-     log='x', 
-     xlab='Sample size (n)', 
-     ylab='Arditi-Akcakaya interference rate (m) (AA2)')
-abline(h=c(0,1),lty=2,col='grey')
-points(SS,parm,
-       pch=21, bg='grey')
+  ylim <- c(0,1.6)
+  plot(parm~sample.sizes,
+       ylim=ylim,
+       type='n',
+       log='x', 
+       xlab='Sample size (n)', 
+       ylab='Arditi-Akcakaya interference rate (m) (AA2)')
+  abline(h=c(0,1),lty=2,col='grey')
+  points(sample.sizes, parm,
+         pch=21, bg='grey')
 dev.off()
 
 
@@ -69,10 +78,18 @@ par(mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i',xaxs='i
   box(lwd=1,bty='l')
 dev.off()
 
+##################################################
 # Compare AA2 estimates to those of non-AA2 method
-m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",'exponent',"estimate"]))
+##################################################
+load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 
+# Remove datasets where AA2 method was NOT successfully applied
+noAA2 <- unlist(lapply(ffr.fits, function(x) is.na(x$estimates['Arditi.Akcakaya.Method.2'])))
+ffr.fits[which(noAA2)] <- NULL
+
+m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",'exponent',"estimate"]))
 m <- exp(m)
+m2 <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya.Method.2']]["50%",'exponent',"estimate"]))
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m_vs_AA_m.pdf',height=3,width=3)
 par(pty='s',mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i', xaxs='i')
