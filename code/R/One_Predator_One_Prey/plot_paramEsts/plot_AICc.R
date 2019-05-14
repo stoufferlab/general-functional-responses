@@ -2,18 +2,21 @@ source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 
-load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
-
 library(RColorBrewer)
-
 library(Hmisc) # for LaTeX table export
 options(xdvicmd='open')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
+load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
 ffr.fits <- ffr.fits[fit.order]
+
+labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
+labels<-gsub('_',' ',labels)
+sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
+labels <- paste0(labels, ' (',sample.sizes,')')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
-SS <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 
 # Grab summary of AICc estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
@@ -29,28 +32,17 @@ AICc.AA <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Akcakaya'][[1]][s
 
 AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.R, AICc.AG, AICc.HV, AICc.AA)
 
-rownames(AICcs)<-sub('..Dataset_Code.','', rownames(AICcs))
-rownames(AICcs)<-sub('.R.50%','', rownames(AICcs))
-rownames(AICcs)<-sub('.R.mean','', rownames(AICcs))
-rownames(AICcs) <- paste0(rownames(AICcs), ' (',SS,')')
 colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
 
 # Define color of each model
 colnames(AICcs)
-# Mcols <- c(colorRampPalette(c(rgb(1,0,0,0.5), rgb(1,0,0,1)), alpha = TRUE)(4), 
-           # colorRampPalette(c(rgb(0,0,1,0.5), rgb(0,0,1,1)), alpha = TRUE)(4))
 CR<-brewer.pal(n = 8, name = 'RdBu')
 Mcols <- c(CR[5:8],CR[4:1])
-# Mcols <- c(colorRampPalette(c('red', ' blue'), alpha = TRUE)(4), 
-#            colorRampPalette(c('green', 'blue'), alpha = TRUE)(4))
 
 minAICcs <- apply(AICcs, 1, min)
-
 dAICcs <- AICcs - minAICcs
-
 rnkAICcs <- t(apply(dAICcs, 1, rank, ties.method='first'))
 colnames(rnkAICcs) <- colnames(AICcs)
-
 
 # Define delta AICc cut-off for "indistinguishably well performing" models
 delAICcutoff <- 2
@@ -68,11 +60,10 @@ par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
        ylab='',
        axes=F)
   rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
-  axis(2, at=1:nrow(rnkAICcs), labels=rownames(rnkAICcs), cex.axis=0.5, las=2)
+  axis(2, at=1:nrow(rnkAICcs), labels=labels, cex.axis=0.5, las=2)
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
   box(lwd=1)
   
-
   # Which models have delta-AICc within X=2 of best-performing model?
   # (Could use either of the next chunks depending on preference)
   xats <-table(which(dAICcs < delAICcutoff, arr.ind=T)[,1])+0.5
@@ -85,10 +76,14 @@ par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
   polygon(pxats,pyats,col='grey90',border=NA) # grey40
   
   for(m in 1:ncol(rnkAICcs)){
-    points(rnkAICcs[,m], 1:nrow(rnkAICcs), type='p', pch=21, col='black', bg=Mcols[m], cex=1, lwd=0.2)
+    points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
+           type='p', pch=21, col='black', 
+           bg=Mcols[m], cex=1, lwd=0.2)
   }  
   par(xpd=TRUE)
-  legend(-8,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),pch=21, pt.bg=Mcols, col='black', bg='white', horiz=T,pt.cex=1.1,cex=0.6, ncol=2, title='Model')
+  legend(-8,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
+         pch=21,pt.bg=Mcols, col='black', bg='white',
+          horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()
 
 
@@ -136,7 +131,7 @@ cnt/Cnt[1,'AA']
 
 # What about for datasets that have a sample size of at least X?
 SScut <- 50
-Cnt<-apply(rnkAICcs[SS>=SScut,],2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
+Cnt<-apply(rnkAICcs[sample.sizes>=SScut,],2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
 Cnt
 pCnt <- round(prop.table(Cnt,2)*100,1)
 pCnt
@@ -152,7 +147,7 @@ plot(1:nrow(dAICcs), 1:nrow(dAICcs),
      xlab='Model delta-AICc',
      ylab=''
 )
-axis(side=2, at=1:nrow(dAICcs), labels=rownames(dAICcs), cex.axis=0.5, las=2)
+axis(side=2, at=1:nrow(dAICcs), labels=labels, cex.axis=0.5, las=2)
 
 Mcols <- rainbow(ncol(dAICcs))
 for(m in 1:ncol(dAICcs)){
