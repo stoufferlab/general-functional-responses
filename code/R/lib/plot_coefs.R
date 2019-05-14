@@ -63,7 +63,7 @@ plot.coefs <- function(
                 display.outlier.ests=FALSE,
                 xlim=NULL,
                 labels=NULL,
-                vertLines=c(0,1),
+                vertLines=NULL,
                 ... ){
   
   if(plot.SEs & is.null(ffr.fits[[1]]$profile)){
@@ -95,15 +95,12 @@ plot.coefs <- function(
     ...
   )
   
-  # tick marks to indicate different data sets
+  # tick marks and labels to indicate different data sets
   axis(side=2, at=1:length(ffr.fits), labels=labels, cex.axis=0.5, las=1)
   
   # mark where the existing models fall
   abline(v=vertLines, lty=2, col='grey')
 
-  # length of arrows to indicate values off the plot
-  delta.arrow <- 0.1
-  
   # plot these bad boys 
   for(i in 1:length(ffr.fits)){
     x <- ffr.fits[[i]]
@@ -144,20 +141,37 @@ plot.coefs <- function(
     # make all lines the equivalent for now
     lty <- "solid"
 
+    # Function for number reformatting
+    format.number <-function(number){
+      if(number<0.001){
+        result <- format(number , nsmall=0, scientific=TRUE)
+      }else if(number<1){
+        result <- format(round(number,3),nsmall = 3)
+      }else if(number < 100){
+        result <-  round(number, 2)
+      }else{
+        result <- format(signif(number,3) , nsmall=0, scientific=TRUE)
+      }
+      return(result)
+    }
+    
+    # length of arrows to indicate values off the plot
+    delta.arrow <- 0.02*diff(xlim)
+    
     # if the point estimate is out of bounds don't even bother with its uncertainty
     if(mm.link < xlim[1] | mm.link > xlim[2]){
       if(mm.link > xlim[2]){
-        arrows(xlim[2]-delta.arrow, i, xlim[2]+delta.arrow, i,
-               length=delta.arrow*0.66, col=col, lty=lty)
+        arrows(xlim[2]-delta.arrow, i, par("usr")[2], i,
+               length=0.05, col=col, lty=lty)
         if(display.outlier.ests){
-            text(xlim[2]-delta.arrow, i, round(mm.link,1), 
+            text(xlim[2]-delta.arrow, i, format.number(mm.link), 
                  pos=2, cex=0.7*par()$cex)
         }
       }else{
-        arrows(xlim[1]+delta.arrow, i, xlim[1]-delta.arrow, i, 
-               length=delta.arrow*0.66, col=col, lty=lty)
+        arrows(xlim[1]+delta.arrow, i, par("usr")[1], i, 
+               length=0.05, col=col, lty=lty)
         if(display.outlier.ests){
-            text(xlim[1]+delta.arrow, i, round(mm.link,1), 
+            text(xlim[1]+delta.arrow, i, format.number(mm.link), 
                  pos=4,cex=0.7*par()$cex)
         }
       }
@@ -197,12 +211,12 @@ plot.coefs <- function(
         
         # arrow up the limiting cases
         if(lb.link <= xlim[1] & parameter!='exponent'){
-          arrows(xlim[1], i, xlim[1]-delta.arrow, i, 
-                 length=delta.arrow*0.66, col=col, lty=lty)
+          arrows(xlim[1], i, par("usr")[1], i, 
+                 length=0.05, col=col, lty=lty)
         }
         if(ub.link >= xlim[2]){
-          arrows(xlim[2], i, xlim[2]+delta.arrow, i, 
-                 length=delta.arrow*0.66, col=col, lty=lty)
+          arrows(xlim[2], i, par("usr")[2], i,
+                 length=0.05, col=col, lty=lty)
         }
       }
     }
