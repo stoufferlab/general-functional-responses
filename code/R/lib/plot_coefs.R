@@ -144,7 +144,7 @@ plot.coefs <- function(
     # Function for number reformatting
     format.number <-function(number){
       if(number<0.001){
-        result <- format(number , nsmall=0, scientific=TRUE)
+        result <- format(signif(number,3) , nsmall=0, scientific=TRUE)
       }else if(number<1){
         result <- format(round(number,3),nsmall = 3)
       }else if(number < 100){
