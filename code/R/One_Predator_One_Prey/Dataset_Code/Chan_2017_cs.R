@@ -1,7 +1,7 @@
 
 # read in the raw data
 datadir <- 'Chan_2017'
-filename <- 'Chan_2017_coyote_squirrel.csv'
+filename <- 'Chan_2017_cs.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # rename to standard column names used in fitting code

@@ -1,7 +1,7 @@
 
 # read in the simplify the raw data
 datadir <- 'Elliot_2005'
-filename <- 'Elliot_2005_Instar3.csv'
+filename <- 'Elliot_2005_i5.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # rename to standard column names used in fitting code

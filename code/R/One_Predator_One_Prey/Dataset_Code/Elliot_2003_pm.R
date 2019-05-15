@@ -1,7 +1,7 @@
 
 # read in the simplify the raw data
 datadir <- 'Elliot_2003'
-filename <- 'Elliot_2003_Iso.csv'
+filename <- 'Elliot_2003_pm.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # turn into a standard dataframe with standard column names
