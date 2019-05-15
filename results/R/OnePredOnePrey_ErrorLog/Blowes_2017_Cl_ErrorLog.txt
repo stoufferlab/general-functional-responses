@@ -1,4 +1,4 @@
-Yes to Blowes_2017_Cl
+Yes to Blowes_2017_cl
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :

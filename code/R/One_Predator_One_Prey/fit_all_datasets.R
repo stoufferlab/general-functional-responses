@@ -41,8 +41,8 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # select focal dataset for testing
 # datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
-# datasets <- c("./Dataset_Code/Elliot_2003_Din.R")
-# datasets <- c("./Dataset_Code/Elliot_2005_Instar2.R")
+# datasets <- c("./Dataset_Code/Elliot_2003_d.R")
+# datasets <- c("./Dataset_Code/Elliot_2005_i2.R")
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

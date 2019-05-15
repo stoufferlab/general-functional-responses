@@ -1,2 +1,0 @@
-Yes to IsleRoyale_Whole2014
-  bootstrapping [===================================================] 100% eta:  0s

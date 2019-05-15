@@ -1,4 +1,4 @@
-Yes to Blowes_2017_Ct
+Yes to Blowes_2017_ct
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced

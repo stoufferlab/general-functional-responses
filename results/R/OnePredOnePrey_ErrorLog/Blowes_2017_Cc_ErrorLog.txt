@@ -1,4 +1,4 @@
-Yes to Blowes_2017_Cc
+Yes to Blowes_2017_cc
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
   bootstrapping [===================================================] 100% eta:  0s
