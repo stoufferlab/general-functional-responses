@@ -1,18 +1,38 @@
-source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
+source('../../lib/profile_coefs.R')
+source('../../lib/plot_coefs.R')
+source('../../lib/depletion_check.R') 
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ffr.fits <- profile_coefs(ffr.fits, 
+                          model='Stouffer.Novak.I',
+                          point.est='median',
+                          printWarnings = TRUE)
 
+save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
+# load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
 
-fit.order <- order.of.fits(ffr.fits, model="Stouffer.Novak.I", order.parm="phi_denom", order=TRUE, point.est='median')
-ffr.fits<-ffr.fits[fit.order]
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# General data and plot preparations
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order.parm="phi_denom")
+ffr.fits <- ffr.fits[fit.order]
 
 # fraction of replicates in which significant depletion occurred (in non-replacement datasets)
 col.vec<-rep('black',length(ffr.fits))
 depleted <- unlist(lapply(ffr.fits, depletion.check, cutoff=0.7))
 col.vec[depleted>0] <- 'red'
 
+labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
+labels<-gsub('_',' ',labels)
+sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
+labels <- paste0(labels, ' (',sample.sizes,')')
+
+###################################################
+# ~~~~~~~~~~~~~~~~~~ SN1 PhiDenom ~~~~~~~~~~~~~~~~~
+###################################################
 pdf(file="../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_SN1_PhiDenom.pdf",height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
 plot.coefs(
@@ -23,11 +43,10 @@ plot.coefs(
   point.est='median',
   plot.SEs=TRUE,
   display.outlier.ests=TRUE,
-  color.factor='None', # 'None', 'Parasitoids' or 'Replacement'
-  # color.vector=col.vec, # delete or specify above plot()
 	xlab="Effect of feeding on interfering",
-	ylab="",
-  labels=TRUE,
-	xlim=c(-6,6)
+  labels=labels,
+  vertLines = c(0,1),
+	xlim=c(-3,3)
 )
 dev.off()
+
