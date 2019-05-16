@@ -49,26 +49,24 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # Let's start analyzing!
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-datasetsNames <- sub('*./Dataset_Code/','', datasets)
-datasetsNames <- sub('*.R$','', datasetsNames)
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
 
   # loads the data into data frame 'd' and specifies data-specific parameters
   source(datasets[i])
-
+  datasetsName <- sub('.csv','', filename)
+  
+  # grab info from the google doc
+  this.study <- study.info(datadir)
+  
   # start capturing the progress and warning messages  
   if(sinkMessages){
     options(warn=1) # provide more than just the base info level
-    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsNames[i], '_ErrorLog.txt'), open='wt')
+    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'), open='wt')
     sink(Mesgs, type="message")
   }
 
-	# grab info from the google doc
-	this.study <- study.info(datadir)
-	datasetsName <- datasetsNames[i]
-	
 	# tranform data into terms of hours
 	if(!is.null(d$Time)){
 		d$Time <- switch(this.study$timeunits,
@@ -304,7 +302,6 @@ for(i in 1:length(datasets)){
 		ffr.fit <- list(
 	    study.info = c(
   	                datasetName = datasetsName,
-          	  			datadir = datadir,
           	  			sample.size = nrow(d),
           	  			data=d.orig,
           	  	    this.study  	        
