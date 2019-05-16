@@ -211,7 +211,7 @@ fit.holling.like <- function(d, s,
 	hollingI.via.sbplx <- nloptr::sbplx(
 		x0 = x0,
 		fn = holling.like.1pred.1prey.NLL,
-		modeltype="Holling I",
+		modeltype="Holling.I",
 		initial=d$Nprey,
 		killed=d$Nconsumed,
 		predators=d$Npredator,
@@ -229,7 +229,7 @@ fit.holling.like <- function(d, s,
 			attack = hollingI.via.sbplx$par[1]
 		),
 		data = list(
-			modeltype="Holling I",
+			modeltype="Holling.I",
 			initial=d$Nprey,
 			killed=d$Nconsumed,
 			predators=d$Npredator,
@@ -242,7 +242,7 @@ fit.holling.like <- function(d, s,
 		...
 	)
 
-	if(modeltype == "Holling I"){
+	if(modeltype == "Holling.I"){
 		return(hollingI.via.mle2)
 	}
 	# code to fit subsequent models
@@ -257,7 +257,7 @@ fit.holling.like <- function(d, s,
 		hollingII.via.sbplx <- nloptr::sbplx(
 			x0 = unlist(start),
 			fn = holling.like.1pred.1prey.NLL,
-			modeltype = "Holling II",
+			modeltype = "Holling.II",
 			initial = d$Nprey,
 			killed = d$Nconsumed,
 			predators = d$Npredator,
@@ -277,7 +277,7 @@ fit.holling.like <- function(d, s,
 			minuslogl = holling.like.1pred.1prey.NLL,
 			start = mle2.start,
 			data = list(
-				modeltype = "Holling II",
+				modeltype = "Holling.II",
 				initial = d$Nprey,
 				killed = d$Nconsumed,
 				predators = d$Npredator,
@@ -289,10 +289,10 @@ fit.holling.like <- function(d, s,
 			control = mle2.control
 		)
 
-		if(modeltype == "Holling II"){
+		if(modeltype == "Holling.II"){
 			return(hollingII.via.mle2)
 		}else{
-			if(modeltype == "Beddington-DeAngelis"){
+			if(modeltype == "Beddington.DeAngelis"){
 				start <- list(
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
@@ -300,7 +300,7 @@ fit.holling.like <- function(d, s,
 				)
 			}
 
-			if(modeltype == "Crowley-Martin"){
+			if(modeltype == "Crowley.Martin"){
 				start <- list(
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
@@ -308,7 +308,7 @@ fit.holling.like <- function(d, s,
 				)
 			}
 
-			if(modeltype == "Stouffer-Novak I"){
+			if(modeltype == "Stouffer.Novak.I"){
 				start <- list(
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
@@ -317,7 +317,7 @@ fit.holling.like <- function(d, s,
 				)
 			}
 
-			if(modeltype == "Stouffer-Novak II"){
+			if(modeltype == "Stouffer.Novak.II"){
 				start <- list(
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
@@ -326,7 +326,7 @@ fit.holling.like <- function(d, s,
 				)
 			}
 
-			if(modeltype == "Stouffer-Novak III"){
+			if(modeltype == "Stouffer.Novak.III"){
 				start <- list(
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],

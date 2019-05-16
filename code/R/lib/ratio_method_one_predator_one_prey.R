@@ -234,7 +234,7 @@ fit.ratio.like <- function(d, s,
 	  ag.via.sbplx <- nloptr::sbplx(
 	    x0 = unlist(start),
 	    fn = ratio.like.1pred.1prey.NLL,
-	    modeltype = "Arditi-Ginzburg",
+	    modeltype = "Arditi.Ginzburg",
 	    initial = d$Nprey,
 	    killed = d$Nconsumed,
 	    predators = d$Npredator,
@@ -252,7 +252,7 @@ fit.ratio.like <- function(d, s,
 	    minuslogl = ratio.like.1pred.1prey.NLL,
 	    start = mle2.start,
 	    data = list(
-	      modeltype = "Arditi-Ginzburg",
+	      modeltype = "Arditi.Ginzburg",
 	      initial = d$Nprey,
 	      killed = d$Nconsumed,
 	      predators = d$Npredator,
@@ -263,10 +263,10 @@ fit.ratio.like <- function(d, s,
 	    control = mle2.control
 	  )
 	  
-	  if(modeltype == "Arditi-Ginzburg"){
+	  if(modeltype == "Arditi.Ginzburg"){
 	    return(ag.via.mle2)
 	  }else{
-	    if(modeltype == "Hassell-Varley"){
+	    if(modeltype == "Hassell.Varley"){
 	      start <- list(
 	        attack = coef(ratio.via.mle2)["attack"],
 	        # handling = 0,
@@ -274,7 +274,7 @@ fit.ratio.like <- function(d, s,
 	      )
 	    }
 	    
-	    if(modeltype == "Arditi-Akcakaya"){
+	    if(modeltype == "Arditi.Akcakaya"){
 	      start <- list(
 	        attack = coef(ag.via.mle2)["attack"],
 	        handling = log(1),
