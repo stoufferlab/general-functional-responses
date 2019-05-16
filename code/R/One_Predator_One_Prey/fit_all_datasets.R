@@ -57,7 +57,7 @@ for(i in 1:length(datasets)){
 
   # loads the data into data frame 'd' and specifies data-specific parameters
   source(datasets[i])
-  
+
   # start capturing the progress and warning messages  
   if(sinkMessages){
     options(warn=1) # provide more than just the base info level
@@ -67,6 +67,7 @@ for(i in 1:length(datasets)){
 
 	# grab info from the google doc
 	this.study <- study.info(datadir)
+	datasetsName <- datasetsNames[i]
 	
 	# tranform data into terms of hours
 	if(!is.null(d$Time)){
@@ -302,7 +303,7 @@ for(i in 1:length(datasets)){
 		# ffr.fits[[datasets[i]]] <- list(
 		ffr.fit <- list(
 	    study.info = c(
-  	                datasetName = datasetsNames[i],
+  	                datasetName = datasetsName,
           	  			datadir = datadir,
           	  			sample.size = nrow(d),
           	  			data=d.orig,
@@ -385,15 +386,15 @@ for(i in 1:length(datasets)){
 	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsNames[i], '_ErrorLog.txt'))
 	}
 	
-	# Save the data set fit
-	save(ffr.fit, 
+	# Save the data set fit [Note: saveRDS used in order to directly assign when subsequently loading]
+	saveRDS(ffr.fit, 
 	     file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsNames[i],'.Rdata'))
 	
 
 }
 
 # save a mega container
-ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits/')
+ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits')
 save(ffr.fits,
      file='../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 
