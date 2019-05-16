@@ -1,3 +1,8 @@
+
+sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, include.dirs=TRUE)
+source(sp)
+
+
 plot_obsVfit <- function(ffr.fit, 
                          modeltype=c('Holling.Type.I',
                                      'Holling.Type.II',
@@ -40,87 +45,7 @@ plot_obsVfit <- function(ffr.fit,
   # Get the chosen model's predictions
   modeltype <- match.arg(modeltype)
   params <- coef(ffr.fit$fits[[modeltype]])
-  
-  if(modeltype == "Holling.Type.I"){
-    attack <- exp(params[1])
-    handling <- 0
-    interference <- 0
-    phi_numer <- 1
-    phi_denom <- 1
-  }
-  
-  if(modeltype == "Holling.Type.II"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- 0
-    phi_numer <- 1
-    phi_denom <- 1
-  }
-  
-  if(modeltype == "Ratio"){
-    attack <- exp(params[1])
-    handling <- 0
-    exponent <- 1
-  }
-  
-  if(modeltype == "Arditi.Ginzburg"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    exponent <- 1
-  }
-  
-  if(modeltype == "Hassell.Varley"){
-    attack <- exp(params[1])
-    handling <- 0
-    exponent <- exp(params[2])
-  }
-  
-  if(modeltype == "Arditi.Akcakaya"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    exponent <- exp(params[3])
-  }
-  
-  if(modeltype == "Beddington.DeAngelis"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- 1
-    phi_denom <- 1
-  }
-  
-  if(modeltype == "Crowley.Martin"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- 1
-    phi_denom <- 0
-  }
-  
-  if(modeltype == "Stouffer.Novak.I"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- 1
-    phi_denom <- params[4]
-  }
-  
-  if(modeltype == "Stouffer.Novak.II"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- params[4]
-    phi_denom <- 1
-  }
-  
-  if(modeltype == "Stouffer.Novak.III"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- params[4]
-    phi_denom <- params[5]
-  }
-  
+  set_params(modeltype, params)
   
   # expected number consumed given data and parameters
   if(modeltype %in% c('Ratio','Arditi.Ginzburg','Hassell.Varley','Arditi.Akcakaya')){
