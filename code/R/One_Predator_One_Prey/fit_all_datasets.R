@@ -125,19 +125,19 @@ for(i in 1:length(datasets)){
 	    	success <- try({
 	    		ffr.hollingI <- ffr.hollingII <- ffr.bd <- ffr.cm <- ffr.sn1 <- array(NA,c(1,1))
 	    		if(grepl("H", this.study$runswith)){
-	  	    	ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
-	  				ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
-	  				ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
-	  				ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
-	  				ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
+	  	    	ffr.hollingI <- fit.holling.like(d, this.study, "Holling.I")
+	  				ffr.hollingII <- fit.holling.like(d, this.study, "Holling.II")
+	  				ffr.bd <- fit.holling.like(d, this.study, "Beddington.DeAngelis")
+	  				ffr.cm <- fit.holling.like(d, this.study, "Crowley.Martin")
+	  				ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer.Novak.I")
 	  			}
   				
   				ffr.ratio <- ffr.ag <- ffr.hv <- ffr.aa <- ffr.aam <- array(NA,c(1,1))
   				if(grepl("R", this.study$runswith)){
     				ffr.ratio <- fit.ratio.like(d, this.study, "Ratio")
-    				ffr.ag <- fit.ratio.like(d, this.study, "Arditi-Ginzburg")
-    				ffr.hv <- fit.ratio.like(d, this.study, "Hassell-Varley")
-    				ffr.aa <- fit.ratio.like(d, this.study, "Arditi-Akcakaya")
+    				ffr.ag <- fit.ratio.like(d, this.study, "Arditi.Ginzburg")
+    				ffr.hv <- fit.ratio.like(d, this.study, "Hassell.Varley")
+    				ffr.aa <- fit.ratio.like(d, this.study, "Arditi.Akcakaya")
   	    		if(okay4AAmethod(d)){
   	    		   ffr.aam <- AAmethod(d,this.study$replacement)
   	    		}

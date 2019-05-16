@@ -1,3 +1,10 @@
+
+
+# Make set_params() available
+sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, include.dirs=TRUE)
+source(sp)
+
+# Function to plot observered vs. predicted and calculate pseudo-R2 for each data set and model
 plot_obsVfit <- function(ffr.fit, 
                          modeltype=c('Holling.Type.I',
                                      'Holling.Type.II',
@@ -19,13 +26,14 @@ plot_obsVfit <- function(ffr.fit,
   replacement <- ffr.fit$study.info$replacement
   predators <- ffr.fit$study.info$data.Npredator
   initial <- ffr.fit$study.info$data.Nprey
+  Pminus1 <- ffr.fit$study.info$Pminus1
+  
   time <- ffr.fit$study.info$data.Time
-  # if no times are specified then normalize to time=1
+  # if no times are specified then set to time=1
   if(is.null(time)){
     time <- 1
   }
-  Pminus1 <- ffr.fit$study.info$Pminus1
-  
+
   if(!is.null(ffr.fit$study.info$data.Nconsumed.se)){ # can't use bootstrap to specify since some bootstrapped data don't have SE values and were hence treated as data.
     eaten <- ffr.fit$study.info$data.Nconsumed.mean
     eaten.se <- ffr.fit$study.info$data.Nconsumed.se
@@ -41,86 +49,7 @@ plot_obsVfit <- function(ffr.fit,
   modeltype <- match.arg(modeltype)
   params <- coef(ffr.fit$fits[[modeltype]])
   
-  if(modeltype == "Holling.Type.I"){
-    attack <- exp(params[1])
-    handling <- 0
-    interference <- 0
-    phi_numer <- 1
-    phi_denom <- 1
-  }
-  
-  if(modeltype == "Holling.Type.II"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- 0
-    phi_numer <- 1
-    phi_denom <- 1
-  }
-  
-  if(modeltype == "Ratio"){
-    attack <- exp(params[1])
-    handling <- 0
-    exponent <- 1
-  }
-  
-  if(modeltype == "Arditi.Ginzburg"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    exponent <- 1
-  }
-  
-  if(modeltype == "Hassell.Varley"){
-    attack <- exp(params[1])
-    handling <- 0
-    exponent <- exp(params[2])
-  }
-  
-  if(modeltype == "Arditi.Akcakaya"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    exponent <- exp(params[3])
-  }
-  
-  if(modeltype == "Beddington.DeAngelis"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- 1
-    phi_denom <- 1
-  }
-  
-  if(modeltype == "Crowley.Martin"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- 1
-    phi_denom <- 0
-  }
-  
-  if(modeltype == "Stouffer.Novak.I"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- 1
-    phi_denom <- params[4]
-  }
-  
-  if(modeltype == "Stouffer.Novak.II"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- params[4]
-    phi_denom <- 1
-  }
-  
-  if(modeltype == "Stouffer.Novak.III"){
-    attack <- exp(params[1])
-    handling <- exp(params[2])
-    interference <- exp(params[3])
-    phi_numer <- params[4]
-    phi_denom <- params[5]
-  }
-  
+  set_params(modeltype, params)
   
   # expected number consumed given data and parameters
   if(modeltype %in% c('Ratio','Arditi.Ginzburg','Hassell.Varley','Arditi.Akcakaya')){
