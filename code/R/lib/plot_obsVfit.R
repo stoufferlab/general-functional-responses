@@ -17,13 +17,12 @@ plot_obsVfit <- function(ffr.fit,
                                      'Stouffer.Novak.I',
                                      'Stouffer.Novak.II',
                                      'Stouffer.Novak.III'),
-                         title=c('model','dataset'),
+                         title=NULL,
                          ...
 ){
   
   model <- match.arg(model)
-  title <- match.arg(title)
-  
+
   # Get the data in order
   dataset <- ffr.fit$study.info$datadir
   replacement <- ffr.fit$study.info$replacement
@@ -44,10 +43,7 @@ plot_obsVfit <- function(ffr.fit,
     eaten <- ffr.fit$study.info$data.Nconsumed
     eaten.se <- NA
   }
-  if(title=='model'){title <- model}
-  if(title=='dataset'){title <- dataset}
-  
-  
+
   # Get the chosen model's predictions
   params <- coef(ffr.fit$fits[[model]])
   
@@ -56,17 +52,17 @@ plot_obsVfit <- function(ffr.fit,
   # expected number consumed given data and parameters
   if(model %in% c('Ratio','Arditi.Ginzburg','Hassell.Varley','Arditi.Akcakaya')){
     Nconsumed.predicted <- ratio.like.1pred.1prey(N0=initial,
-                                                  a=exp(attack), 
-                                                  h=exp(handling),
-                                                  m=exp(exponent), 
+                                                  a=attack, 
+                                                  h=handling,
+                                                  m=exponent, 
                                                   P=predators, 
                                                   T=time, 
                                                   replacement=replacement)
   }else{
     Nconsumed.predicted <- holling.like.1pred.1prey(N0=initial, 
-                                                    a=exp(attack), 
-                                                    h=exp(handling), 
-                                                    c=exp(interference), 
+                                                    a=attack, 
+                                                    h=handling, 
+                                                    c=interference, 
                                                     phi_numer=phi_numer, 
                                                     phi_denom=phi_denom, 
                                                     P=predators, 
@@ -75,7 +71,7 @@ plot_obsVfit <- function(ffr.fit,
                                                     Pminus1=Pminus1)
   }
   
-  rmse <- ffr.fits$RMSE[[model]]
+  rmse <- ffr.fit$RMSE[[model]]['mean']
   
   # extract LL from (last) fit
   LL <- logLik(ffr.fit$fits[[model]])
@@ -96,5 +92,5 @@ plot_obsVfit <- function(ffr.fit,
   abline(0,1)
   points(eaten, Nconsumed.predicted)
   legend('bottomright', legend=bquote(RMSE==.(round(rmse,1))), bty='n',inset=0,cex=0.8)
-  title(title,cex=0.5,line=1)
+  title(title,cex.main=1,line=1)
 }

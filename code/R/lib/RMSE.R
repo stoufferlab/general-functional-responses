@@ -56,8 +56,6 @@ RMSE <- function(d,
     rm(attack, handling, exponent, envir = .GlobalEnv)
     
   } else {stop("Incorrect model specification in RMSE()")}
-  
-
 
   # Root mean square error
   RMSE <- sqrt(mean((d$Nconsumed-Nconsumed.predicted)^2))
