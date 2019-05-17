@@ -207,13 +207,13 @@ for(i in 1:length(datasets)){
 	    	    # aicc.sn2[[b]] <- AICc(ffr.sn2)
 	    	    # aicc.sn3[[b]] <- AICc(ffr.sn3)
 	    	    
-	    	    rmse.hollingI[[b]] <- RMSE(d, ffr.hollingI, this.study)
-	    	    rmse.hollingII[[b]] <- RMSE(d, ffr.hollingII, this.study)
-	    	    rmse.bd[[b]] <- RMSE(d, ffr.bd, this.study)
-	    	    rmse.cm[[b]] <- RMSE(d, ffr.cm, this.study)
-	    	    rmse.sn1[[b]] <- RMSE(d, ffr.sn1, this.study)
-	    	    # rmse.sn2[[b]] <- RMSE(d, ffr.sn2, this.study)
-	    	    # rmse.sn3[[b]] <- RMSE(d, ffr.sn3, this.study)
+	    	    rmse.hollingI[[b]] <- RMSE(d, ffr.hollingI, this.study,'Holling.I')
+	    	    rmse.hollingII[[b]] <- RMSE(d, ffr.hollingII, this.study, 'Holling.II')
+	    	    rmse.bd[[b]] <- RMSE(d, ffr.bd, this.study, 'Beddington.DeAngelis')
+	    	    rmse.cm[[b]] <- RMSE(d, ffr.cm, this.study, 'Crowley.Martin')
+	    	    rmse.sn1[[b]] <- RMSE(d, ffr.sn1, this.study, 'Stouffer.Novak.I')
+	    	    # rmse.sn2[[b]] <- RMSE(d, ffr.sn2, this.study, 'Stouffer.Novak.II')
+	    	    # rmse.sn3[[b]] <- RMSE(d, ffr.sn3, this.study, 'Stouffer.Novak.III')
 	    	  }
 	    	  if(grepl("R", this.study$runswith)){
 	    	    ll.ratio[[b]] <- logLik(ffr.ratio)
@@ -226,10 +226,10 @@ for(i in 1:length(datasets)){
 	    	    aicc.hv[[b]] <- AICc(ffr.hv)
 	    	    aicc.aa[[b]] <- AICc(ffr.aa)
 	    	    
-	    	    rmse.ratio[[b]] <- RMSE(d, ffr.ratio, this.study, 'Ratio.type')
-	    	    rmse.ag[[b]] <- RMSE(d, ffr.ag, this.study, 'Ratio.type')
-	    	    rmse.hv[[b]] <- RMSE(d, ffr.hv, this.study, 'Ratio.type')
-	    	    rmse.aa[[b]] <- RMSE(d, ffr.aa, this.study, 'Ratio.type')
+	    	    rmse.ratio[[b]] <- RMSE(d, ffr.ratio, this.study, 'Ratio')
+	    	    rmse.ag[[b]] <- RMSE(d, ffr.ag, this.study, 'Arditi.Ginzburg')
+	    	    rmse.hv[[b]] <- RMSE(d, ffr.hv, this.study, 'Hassell.Varley')
+	    	    rmse.aa[[b]] <- RMSE(d, ffr.aa, this.study, 'Arditi.Akcakaya')
 	    	  }
 	    	  
 	    	  

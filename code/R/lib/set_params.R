@@ -2,8 +2,7 @@
 # Note: Most parameter values are exponentiated (to avoid negative values during fitting).
 
 set_params<-function(params,
-                     model=c('Generic',
-                             'Holling.I',
+                     model=c('Holling.I',
                              'Holling.II',
                              'Beddington.DeAngelis',
                              'Crowley.Martin',
@@ -22,18 +21,7 @@ set_params<-function(params,
     stop("Must pass 'params' to set_params()")
   }
   
-  if(model == "Generic"){
-    assign('attack',       exp(params[[1]]), envir = .GlobalEnv)
-    assign('handling',     0, envir = .GlobalEnv)
-    assign('interference', 0, envir = .GlobalEnv)
-    assign('phi_numer',    1, envir = .GlobalEnv)
-    assign('phi_denom',    1, envir = .GlobalEnv)
-    assign('exponent',     1, envir = .GlobalEnv)
-    for(i in 1:length(params)){
-      assign(names(params)[i], params[[i]], envir = .GlobalEnv)
-    }
-    
-  } else  if(model == "Holling.I"){
+  if(model == "Holling.I"){
     assign('attack',       exp(params[1]), envir = .GlobalEnv)
     assign('handling',     0, envir = .GlobalEnv)
     assign('interference', 0, envir = .GlobalEnv)
