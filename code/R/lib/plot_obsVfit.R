@@ -54,17 +54,17 @@ plot_obsVfit <- function(ffr.fit,
   # expected number consumed given data and parameters
   if(modeltype %in% c('Ratio','Arditi.Ginzburg','Hassell.Varley','Arditi.Akcakaya')){
     Nconsumed.predicted <- ratio.like.1pred.1prey(N0=initial,
-                                                  a=attack, 
-                                                  h=handling,
-                                                  m=exponent, 
+                                                  a=exp(attack), 
+                                                  h=exp(handling),
+                                                  m=exp(exponent), 
                                                   P=predators, 
                                                   T=time, 
                                                   replacement=replacement)
   }else{
     Nconsumed.predicted <- holling.like.1pred.1prey(N0=initial, 
-                                                    a=attack, 
-                                                    h=handling, 
-                                                    c=interference, 
+                                                    a=exp(attack), 
+                                                    h=exp(handling), 
+                                                    c=exp(interference), 
                                                     phi_numer=phi_numer, 
                                                     phi_denom=phi_denom, 
                                                     P=predators, 
@@ -73,7 +73,7 @@ plot_obsVfit <- function(ffr.fit,
                                                     Pminus1=Pminus1)
   }
   
-  R2 <- cor(eaten, Nconsumed.predicted)^2
+  rmse <- ffr.fits$RMSE[[modeltype]]
   
   # extract LL from (last) fit
   LL <- logLik(ffr.fit$fits[[modeltype]])
@@ -93,6 +93,6 @@ plot_obsVfit <- function(ffr.fit,
   }
   abline(0,1)
   points(eaten, Nconsumed.predicted)
-  legend('bottomright', legend=bquote(R^2==.(round(R2,2))), bty='n',inset=0,cex=0.8)
+  legend('bottomright', legend=bquote(RMSE==.(round(rmse,1))), bty='n',inset=0,cex=0.8)
   title(title,cex=0.5,line=1)
 }
