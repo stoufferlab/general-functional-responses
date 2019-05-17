@@ -92,10 +92,10 @@ for(i in 1:length(datasets)){
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
 	# if(!grepl("R", this.study$runswith)){ 
 	if(!grepl("H|R", this.study$runswith)){
-		message(paste0("No to ",datasetsNames[i]))
+		message(paste0("No to ",datasetsName))
 	}else{
 		# print out which dataset is being analyzed
-		message(paste0("Yes to ",datasetsNames[i]))
+		message(paste0("Yes to ",datasetsName))
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
