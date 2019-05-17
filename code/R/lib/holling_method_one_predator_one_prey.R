@@ -127,7 +127,7 @@ holling.like.1pred.1prey.NLL = function(params,
                                         replacement, 
                                         Pminus1, 
                                         time=NULL){
-  set_params(modeltype, params)
+  set_params(params, modeltype)
 
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){

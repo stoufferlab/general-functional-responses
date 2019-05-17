@@ -16,6 +16,7 @@ source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/AA_method.R')
 source('../lib/set_params.R')
+source('../lib/RMSE.R')
 source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 source('../lib/ratio_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
@@ -55,10 +56,11 @@ for(i in 1:length(datasets)){
 
   # loads the data into data frame 'd' and specifies data-specific parameters
   source(datasets[i])
-  datasetsName <- sub('.csv','', filename)
   
   # grab info from the google doc
   this.study <- study.info(datadir)
+  
+  datasetsName <- sub('.csv','',filename)
   
   # start capturing the progress and warning messages  
   if(sinkMessages){
@@ -67,6 +69,7 @@ for(i in 1:length(datasets)){
     sink(Mesgs, type="message")
   }
 
+	
 	# tranform data into terms of hours
 	if(!is.null(d$Time)){
 		d$Time <- switch(this.study$timeunits,
@@ -144,17 +147,22 @@ for(i in 1:length(datasets)){
 	    	
 	    	if(!inherits(success, "try-error")){
 		    	if(b == 1){
-		    	  # create containers for log likelihood values of all bootstrap fits
+		    	  # create containers for log likelihood values of all fits
 		    	  ll.hollingI <- ll.hollingII <- ll.bd <- ll.cm <- ll.sn1 <- vector("numeric",boot.reps)
 		    	  # ll.sn2 <- ll.sn3 <- vector("list",boot.reps)
 		    	  ll.ratio <- ll.ag <- ll.hv <- ll.aa <- vector("numeric",boot.reps)
 		    	  
-		    	  # create containers for AICc values of all bootstrap fits
+		    	  # create containers for AICc values of all fits
 		    	  aicc.hollingI <- aicc.hollingII <- aicc.bd <- aicc.cm <- aicc.sn1 <- vector("numeric",boot.reps)
 		    	  # aicc.sn2 <- aicc.sn3 <- vector("list",boot.reps)
 		    	  aicc.ratio <- aicc.ag <- aicc.hv <- aicc.aa <- vector("numeric",boot.reps)
 		    	  
-		    	  # create containers for parameter estimates using first rep as a template
+		    	  # create containers for RMSE values of all fits
+		    	  rmse.hollingI <- rmse.hollingII <- rmse.bd <- rmse.cm <- rmse.sn1 <- vector("numeric",boot.reps)
+		    	  # rmse.sn2 <- rmse.sn3 <- vector("list",boot.reps)
+		    	  rmse.ratio <- rmse.ag <- rmse.hv <- rmse.aa <- vector("numeric",boot.reps)
+		    	  
+		    	  # create containers for parameter estimates using first bootstrap as a template
 		    		boots.hollingI <- boots.hollingII <- boots.bd <- array(NA, c(1,1,boot.reps))
 		    		boots.cm <- boots.sn1 <- array(NA, c(1,1,boot.reps))
 		    		# boots.sn2 <- boots.sn3 <- array(NA, c(1,1,boot.reps))
@@ -198,6 +206,14 @@ for(i in 1:length(datasets)){
 	    	    aicc.sn1[[b]] <- AICc(ffr.sn1)
 	    	    # aicc.sn2[[b]] <- AICc(ffr.sn2)
 	    	    # aicc.sn3[[b]] <- AICc(ffr.sn3)
+	    	    
+	    	    rmse.hollingI[[b]] <- RMSE(d, ffr.hollingI, this.study)
+	    	    rmse.hollingII[[b]] <- RMSE(d, ffr.hollingII, this.study)
+	    	    rmse.bd[[b]] <- RMSE(d, ffr.bd, this.study)
+	    	    rmse.cm[[b]] <- RMSE(d, ffr.cm, this.study)
+	    	    rmse.sn1[[b]] <- RMSE(d, ffr.sn1, this.study)
+	    	    # rmse.sn2[[b]] <- RMSE(d, ffr.sn2, this.study)
+	    	    # rmse.sn3[[b]] <- RMSE(d, ffr.sn3, this.study)
 	    	  }
 	    	  if(grepl("R", this.study$runswith)){
 	    	    ll.ratio[[b]] <- logLik(ffr.ratio)
@@ -209,6 +225,11 @@ for(i in 1:length(datasets)){
 	    	    aicc.ag[[b]] <- AICc(ffr.ag)
 	    	    aicc.hv[[b]] <- AICc(ffr.hv)
 	    	    aicc.aa[[b]] <- AICc(ffr.aa)
+	    	    
+	    	    rmse.ratio[[b]] <- RMSE(d, ffr.ratio, this.study, 'Ratio.type')
+	    	    rmse.ag[[b]] <- RMSE(d, ffr.ag, this.study, 'Ratio.type')
+	    	    rmse.hv[[b]] <- RMSE(d, ffr.hv, this.study, 'Ratio.type')
+	    	    rmse.aa[[b]] <- RMSE(d, ffr.aa, this.study, 'Ratio.type')
 	    	  }
 	    	  
 	    	  
@@ -272,6 +293,14 @@ for(i in 1:length(datasets)){
 			AICc.sn1 <- summarize.boots(aicc.sn1)
 			# AICc.sn2 <- summarize.boots(aicc.sn2)
 			# AICc.sn3 <- summarize.boots(aicc.sn3)
+			
+			RMSE.hollingI <- summarize.boots(rmse.hollingI)
+			RMSE.hollingII <- summarize.boots(rmse.hollingII)
+			RMSE.bd <- summarize.boots(rmse.bd)
+			RMSE.cm <- summarize.boots(rmse.cm)
+			RMSE.sn1 <- summarize.boots(rmse.sn1)
+			# RMSE.sn2 <- summarize.boots(rmse.sn2)
+			# RMSE.sn3 <- summarize.boots(rmse.sn3)
 		}
 		
 	  ests.ratio <- ests.ag <- ests.hv <- ests.aa <- ests.aam <- NA
@@ -293,6 +322,11 @@ for(i in 1:length(datasets)){
 	  		AICc.ag <- summarize.boots(aicc.ag)
 	  		AICc.hv <- summarize.boots(aicc.hv)
 	  		AICc.aa <- summarize.boots(aicc.aa)
+	  		
+	  		RMSE.ratio <- summarize.boots(rmse.ratio)
+	  		RMSE.ag <- summarize.boots(rmse.ag)
+	  		RMSE.hv <- summarize.boots(rmse.hv)
+	  		RMSE.aa <- summarize.boots(rmse.aa)
 		}
 		
 	  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -302,6 +336,7 @@ for(i in 1:length(datasets)){
 		ffr.fit <- list(
 	    study.info = c(
   	                datasetName = datasetsName,
+          	  			datadir = datadir,
           	  			sample.size = nrow(d),
           	  			data=d.orig,
           	  	    this.study  	        
@@ -359,6 +394,19 @@ for(i in 1:length(datasets)){
             	  	  Hassell.Varley = AICc.hv,
             	  	  Arditi.Akcakaya = AICc.aa
 	  	          ),
+	  	RMSE = list(
+          	  	  Holling.Type.I = RMSE.hollingI,
+          	  	  Holling.Type.II = RMSE.hollingII,
+          	  	  Beddington.DeAngelis = RMSE.bd,
+          	  	  Crowley.Martin = RMSE.cm,
+          	  	  Stouffer.Novak.I = RMSE.sn1,
+          	  	  # Stouffer.Novak.II = RMSE.sn2,
+          	  	  # Stouffer.Novak.III = RMSE.sn3,
+          	  	  Ratio = RMSE.ratio,
+          	  	  Arditi.Ginzburg = RMSE.ag,
+          	  	  Hassell.Varley = RMSE.hv,
+          	  	  Arditi.Akcakaya = RMSE.aa
+	  	),
 			estimates = list(
               			    Holling.Type.I = ests.hollingI,
               			    Holling.Type.II = ests.hollingII,
@@ -380,12 +428,12 @@ for(i in 1:length(datasets)){
 	  sink(type="message")
 	  close(Mesgs)
 	  options(warn=0)
-	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsNames[i], '_ErrorLog.txt'))
+	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'))
 	}
 	
-	# Save the data set fit [Note: saveRDS used in order to directly assign when subsequently loading]
+	# Save the data set fit
 	saveRDS(ffr.fit, 
-	     file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsNames[i],'.Rdata'))
+	     file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsName,'.Rdata'))
 	
 
 }
