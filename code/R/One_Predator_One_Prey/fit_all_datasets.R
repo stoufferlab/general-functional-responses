@@ -51,6 +51,9 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+datasetsNames <- sub('*./Dataset_Code/','', datasets)
+datasetsNames <- sub('*.R$','', datasetsNames)
+
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
 
@@ -59,8 +62,7 @@ for(i in 1:length(datasets)){
   
   # grab info from the google doc
   this.study <- study.info(datadir)
-  
-  datasetsName <- sub('.csv','',filename)
+  datasetsName <- datasetsNames[i]
   
   # start capturing the progress and warning messages  
   if(sinkMessages){

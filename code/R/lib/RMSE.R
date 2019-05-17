@@ -15,9 +15,9 @@ RMSE <- function(d,
                          'Arditi.Akcakaya')){
 
   params <- coef(ffr.fit)
-  set_params(params)
   model <- match.arg(model)
-  
+  set_params(params, model)
+
   # expected number consumed given data and parameters
   if(model %in% c('Holling.I',
                   'Holling.II',
@@ -36,6 +36,10 @@ RMSE <- function(d,
                                                     T=d$Time, 
                                                     replacement=study.info$replacement, 
                                                     Pminus1=study.info$Pminus1)
+    
+    # Clean up
+    rm(attack, handling, interference, phi_numer, phi_denom, envir = .GlobalEnv)
+    
   }else if(model %in% c('Ratio',
                         'Arditi.Ginzburg',
                         'Hassell.Varley',
@@ -47,10 +51,13 @@ RMSE <- function(d,
                                                   P=d$Npredator, 
                                                   T=d$Time, 
                                                   replacement=study.info$replacement)
+    
+    # Clean up
+    rm(attack, handling, exponent, envir = .GlobalEnv)
+    
   } else {stop("Incorrect model specification in RMSE()")}
   
-  # Clean up
-  rm(attack, handling, interference, phi_numer, phi_denom, exponent, envir = .GlobalEnv)
+
 
   # Root mean square error
   RMSE <- sqrt(mean((d$Nconsumed-Nconsumed.predicted)^2))
