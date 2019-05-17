@@ -6,9 +6,7 @@ bundle_fits <- function(dir){
                      include.dirs=FALSE)
   bundled_fits <- list()
   for (i in 1:length(fits)){
-    print(fits[i])
     ffr.fit <- readRDS(fits[i])
-    print(ffr.fit$study.info$datasetName)
     bundled_fits[[i]] <- ffr.fit
   }
   return(bundled_fits)
