@@ -6,8 +6,8 @@ source(sp)
 
 # Function to plot observered vs. predicted and calculate pseudo-R2 for each data set and model
 plot_obsVfit <- function(ffr.fit, 
-                         modeltype=c('Holling.Type.I',
-                                     'Holling.Type.II',
+                         model=c('Holling.I',
+                                     'Holling.II',
                                      'Ratio',
                                      'Beddington.DeAngelis',
                                      'Crowley.Martin',
@@ -17,9 +17,12 @@ plot_obsVfit <- function(ffr.fit,
                                      'Stouffer.Novak.I',
                                      'Stouffer.Novak.II',
                                      'Stouffer.Novak.III'),
-                         title=c('modeltype','dataset',NULL),
+                         title=c('model','dataset'),
                          ...
 ){
+  
+  model <- match.arg(model)
+  title <- match.arg(title)
   
   # Get the data in order
   dataset <- ffr.fit$study.info$datadir
@@ -41,18 +44,17 @@ plot_obsVfit <- function(ffr.fit,
     eaten <- ffr.fit$study.info$data.Nconsumed
     eaten.se <- NA
   }
-  if(title=='modeltype'){title <- modeltype}
+  if(title=='model'){title <- model}
   if(title=='dataset'){title <- dataset}
   
   
   # Get the chosen model's predictions
-  modeltype <- match.arg(modeltype)
-  params <- coef(ffr.fit$fits[[modeltype]])
+  params <- coef(ffr.fit$fits[[model]])
   
-  set_params(modeltype, params)
+  set_params(params, model)
   
   # expected number consumed given data and parameters
-  if(modeltype %in% c('Ratio','Arditi.Ginzburg','Hassell.Varley','Arditi.Akcakaya')){
+  if(model %in% c('Ratio','Arditi.Ginzburg','Hassell.Varley','Arditi.Akcakaya')){
     Nconsumed.predicted <- ratio.like.1pred.1prey(N0=initial,
                                                   a=exp(attack), 
                                                   h=exp(handling),
@@ -73,10 +75,10 @@ plot_obsVfit <- function(ffr.fit,
                                                     Pminus1=Pminus1)
   }
   
-  rmse <- ffr.fits$RMSE[[modeltype]]
+  rmse <- ffr.fits$RMSE[[model]]
   
   # extract LL from (last) fit
-  LL <- logLik(ffr.fit$fits[[modeltype]])
+  LL <- logLik(ffr.fit$fits[[model]])
   
   rng <- range(c(eaten, Nconsumed.predicted))
   par(pty='s')

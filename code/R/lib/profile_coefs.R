@@ -1,7 +1,7 @@
 # Function to performing interval profiling on estimated model coefficients for subsequent plotting. Intervals are determined on estimated scale and must be backtransformed to plot on natural scale.  Script applying function it to all datasets follows.
 profile_coefs <- function(ffr.fits,
-                          model=c('Holling.Type.I',
-                                  'Holling.Type.II',
+                          model=c('Holling.I',
+                                  'Holling.II',
                                   'Beddington.DeAngelis',
                                   'Crowley.Martin',
                                   'Stouffer.Novak.I',

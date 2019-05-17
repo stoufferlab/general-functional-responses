@@ -7,7 +7,7 @@ source('../../lib/ratio_method_one_predator_one_prey.R')
 load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ffr.fits <- profile_coefs(ffr.fits, 
-                          model='Holling.Type.II',
+                          model='Holling.II',
                           point.est='median',
                           printWarnings = TRUE)
 
@@ -17,7 +17,7 @@ save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # General data and plot preparations
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Holling.Type.II", order.parm="Sample size")
+fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Holling.II", order.parm="Sample size")
 ffr.fits <- ffr.fits[fit.order]
 
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
@@ -32,7 +32,7 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_H2_a.pdf',height=6
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
 plot.coefs(
   ffr.fits,
-  model="Holling.Type.II",
+  model="Holling.II",
   parameter="attack",
   ilink=exp,
   point.est='median',
@@ -46,7 +46,7 @@ dev.off()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Alternative / additional summary plots
-parm <- unlist(lapply(ffr.fits, function(x) x$estimates[['Holling.Type.II']]["50%",'attack',"estimate"]))
+parm <- unlist(lapply(ffr.fits, function(x) x$estimates[['Holling.II']]["50%",'attack',"estimate"]))
 parm <- exp(parm)
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_H2_a_xy.pdf',height=3,width=4)

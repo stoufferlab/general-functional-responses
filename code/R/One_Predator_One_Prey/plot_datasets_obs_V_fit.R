@@ -1,18 +1,16 @@
 source('../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
 source('../lib/plot_obsVfit.R')
-
 source('../lib/holling_method_one_predator_one_prey.R')
 source('../lib/ratio_method_one_predator_one_prey.R')
 
-load('../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+load('../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
 ffr.fits <- ffr.fits[rev(fit.order)]
 
 n <- length(ffr.fits)
-models <- c('Holling.Type.I','Holling.Type.II','Ratio','Arditi.Akcakaya','Beddington.DeAngelis')
+models <- c('Holling.I','Holling.II','Ratio','Arditi.Akcakaya','Beddington.DeAngelis')
 
 pdf(file="../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_obsVfit.pdf",height=2.5,width=8, onefile = T)
 par(mar=c(2,3,0.5,0.5), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.5)
@@ -23,7 +21,7 @@ for(i in 1:length(ffr.fits)){
   dataset <- gsub('.{2}$','',dataset)
   titles[1] <- paste(dataset,'\n', titles[1])
   for(m in 1:length(models)){
-    plot_obsVfit(ffr.fits[[i]], models[m] ,title=titles[m])
+    plot_obsVfit(ffr.fits[[i]], models[m], title='model')
     mtext(bquote(LL==
                    .(round(ffr.fits[[i]]$LL[[models[m]]]['50%'],1)) 
                     ~ "("*.(round(ffr.fits[[i]]$LL[[models[m]]]['16%'],1))

@@ -40,8 +40,8 @@ order.of.fits<-function(ffr.fits,
 # Function to plot focal parameter estimates and associated intervals across all fitted datasets.
 plot.coefs <- function(
                 ffr.fits=NULL,
-                model=c('Holling.Type.I',
-                        'Holling.Type.II',
+                model=c('Holling.I',
+                        'Holling.II',
                         'Beddington.DeAngelis',
                         'Crowley.Martin',
                         'Stouffer.Novak.I',

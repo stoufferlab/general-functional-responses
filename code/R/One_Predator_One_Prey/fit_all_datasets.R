@@ -344,8 +344,8 @@ for(i in 1:length(datasets)){
           	  	    this.study  	        
         	  	    ),
 	  	fits = list(
-          	  	  Holling.Type.I = ffr.hollingI,
-          	  	  Holling.Type.II = ffr.hollingII,
+          	  	  Holling.I = ffr.hollingI,
+          	  	  Holling.II = ffr.hollingII,
           	  	  Beddington.DeAngelis = ffr.bd,
           	  	  Crowley.Martin = ffr.cm,
           	  	  Stouffer.Novak.I = ffr.sn1,
@@ -357,8 +357,8 @@ for(i in 1:length(datasets)){
           	  	  Arditi.Akcakaya = ffr.aa
           	  	),
       boots = list(
-                  	Holling.Type.I = boots.hollingI,
-                  	Holling.Type.II = boots.hollingII,
+                  	Holling.I = boots.hollingI,
+                  	Holling.II = boots.hollingII,
                   	Beddington.DeAngelis = boots.bd,
                   	Crowley.Martin = boots.cm,
                   	Stouffer.Novak.I = boots.sn1,
@@ -371,8 +371,8 @@ for(i in 1:length(datasets)){
                     Arditi.Akcakaya.Method.2 = boots.aam
                   ),
 	  	LL = list(
-          	  	  Holling.Type.I = LL.hollingI,
-          	  	  Holling.Type.II = LL.hollingII,
+          	  	  Holling.I = LL.hollingI,
+          	  	  Holling.II = LL.hollingII,
           	  	  Beddington.DeAngelis = LL.bd,
           	  	  Crowley.Martin = LL.cm,
           	  	  Stouffer.Novak.I = LL.sn1,
@@ -384,8 +384,8 @@ for(i in 1:length(datasets)){
           	  	  Arditi.Akcakaya = LL.aa
 	  	),
 	  	AICc = list(
-            	  	  Holling.Type.I = AICc.hollingI,
-            	  	  Holling.Type.II = AICc.hollingII,
+            	  	  Holling.I = AICc.hollingI,
+            	  	  Holling.II = AICc.hollingII,
             	  	  Beddington.DeAngelis = AICc.bd,
             	  	  Crowley.Martin = AICc.cm,
             	  	  Stouffer.Novak.I = AICc.sn1,
@@ -397,8 +397,8 @@ for(i in 1:length(datasets)){
             	  	  Arditi.Akcakaya = AICc.aa
 	  	          ),
 	  	RMSE = list(
-          	  	  Holling.Type.I = RMSE.hollingI,
-          	  	  Holling.Type.II = RMSE.hollingII,
+          	  	  Holling.I = RMSE.hollingI,
+          	  	  Holling.II = RMSE.hollingII,
           	  	  Beddington.DeAngelis = RMSE.bd,
           	  	  Crowley.Martin = RMSE.cm,
           	  	  Stouffer.Novak.I = RMSE.sn1,
@@ -410,8 +410,8 @@ for(i in 1:length(datasets)){
           	  	  Arditi.Akcakaya = RMSE.aa
 	  	),
 			estimates = list(
-              			    Holling.Type.I = ests.hollingI,
-              			    Holling.Type.II = ests.hollingII,
+              			    Holling.I = ests.hollingI,
+              			    Holling.II = ests.hollingII,
               			    Beddington.DeAngelis = ests.bd,
               			    Crowley.Martin = ests.cm,
               			    Stouffer.Novak.I = ests.sn1,
