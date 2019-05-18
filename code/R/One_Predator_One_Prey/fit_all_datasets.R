@@ -50,10 +50,6 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # Let's start analyzing!
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-datasetsNames <- sub('*./Dataset_Code/','', datasets)
-datasetsNames <- sub('*.R$','', datasetsNames)
-
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
 
@@ -62,29 +58,8 @@ for(i in 1:length(datasets)){
   
   # grab info from the google doc
   this.study <- study.info(datadir)
-  datasetsName <- datasetsNames[i]
   
-  # start capturing the progress and warning messages  
-  if(sinkMessages){
-    options(warn=1) # provide more than just the base info level
-    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'), open='wt')
-    sink(Mesgs, type="message")
-  }
-
-	
-	# tranform data into terms of hours
-	if(!is.null(d$Time)){
-		d$Time <- switch(this.study$timeunits,
-			Seconds = d$Time / 3600.,
-			Minutes = d$Time / 60.,
-			Hours = d$Time,
-			Days = d$Time * 24,
-			Unavailable = rep(NA, nrow(d))
-		)
-	}
-	
-	# save original data in case we need to bootstrap it
-	d.orig <- d
+  datasetsName <- sub('*.R$','', sub('*./Dataset_Code/','', datasets[i]))
 
 	#############################################
 	# fit all the functional response models
@@ -96,8 +71,30 @@ for(i in 1:length(datasets)){
 	if(!grepl("H|R", this.study$runswith)){
 		message(paste0("No to ",datasetsName))
 	}else{
-		# print out which dataset is being analyzed
-		message(paste0("Yes to ",datasetsName))
+	  
+	  # print out which dataset is being analyzed
+	  message(paste0("Yes to ",datasetsName))
+	  
+	  # start capturing the progress and warning messages  
+	  if(sinkMessages){
+	    options(warn=1) # provide more than just the base info level
+	    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'), open='wt')
+	    sink(Mesgs, type="message")
+	  }
+	  
+	  # tranform data into terms of hours
+	  if(!is.null(d$Time)){
+	    d$Time <- switch(this.study$timeunits,
+	                     Seconds = d$Time / 3600.,
+	                     Minutes = d$Time / 60.,
+	                     Hours = d$Time,
+	                     Days = d$Time * 24,
+	                     Unavailable = rep(NA, nrow(d))
+	    )
+	  }
+	  
+	  # save original data in case we need to bootstrap it
+	  d.orig <- d
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
@@ -424,20 +421,18 @@ for(i in 1:length(datasets)){
               			    Arditi.Akcakaya.Method.2 = ests.aam
             		    	)
 	          )
-	}
-	
-	if(sinkMessages){
-	  sink(type="message")
-	  close(Mesgs)
-	  options(warn=0)
-	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'))
-	}
-	
-	# Save the data set fit
-	saveRDS(ffr.fit, 
-	     file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsName,'.Rdata'))
-	
+		
+		# Save the data set fit
+		saveRDS(ffr.fit, 
+		        file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsName,'.Rdata'))
 
+  	if(sinkMessages){
+  	  sink(type="message")
+  	  close(Mesgs)
+  	  options(warn=0)
+  	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'))
+  	}
+	}
 }
 
 # save a mega container
