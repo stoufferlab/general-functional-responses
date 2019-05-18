@@ -4,12 +4,12 @@ bundle_fits <- function(dir){
                      pattern='.Rdata',
                      full.names=TRUE, 
                      include.dirs=FALSE)
-  bundled_fits <- list()
+  bundled <- list()
   for (i in 1:length(fits)){
-    ffr.fit <- readRDS(fits[i])
-    bundled_fits[[i]] <- ffr.fit
+      ffr.fit <- readRDS(fits[i])
+    bundled[[i]] <- ffr.fit
   }
-  return(bundled_fits)
+  return(bundled)
 }
 # ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits/')
 
