@@ -21,8 +21,8 @@ labels <- paste0(labels, ' (',sample.sizes,')')
 # Grab summary of AICc estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
 
-AICc.H1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.Type.I'][[1]][stat]}))
-AICc.H2 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.Type.II'][[1]][stat]}))
+AICc.H1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.I'][[1]][stat]}))
+AICc.H2 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.II'][[1]][stat]}))
 AICc.BD <- unlist(lapply(ffr.fits, function(x){ x$AICc['Beddington.DeAngelis'][[1]][stat]}))
 AICc.CM <- unlist(lapply(ffr.fits, function(x){ x$AICc['Crowley.Martin'][[1]][stat]}))
 AICc.R <- unlist(lapply(ffr.fits, function(x){ x$AICc['Ratio'][[1]][stat]}))
@@ -31,7 +31,6 @@ AICc.HV <- unlist(lapply(ffr.fits, function(x){ x$AICc['Hassell.Varley'][[1]][st
 AICc.AA <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Akcakaya'][[1]][stat]}))
 
 AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.R, AICc.AG, AICc.HV, AICc.AA)
-
 colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
 
 # Define color of each model
@@ -51,39 +50,39 @@ delAICcutoff <- 2
 # Rank order
 #~~~~~~~~~~~
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',height=6,width=2.25)
-par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
-  plot(1:nrow(rnkAICcs), 1:nrow(rnkAICcs),
-       type='n', yaxt='n',
-       xlim=c(1,ncol(rnkAICcs)),
-       ylim=c(0,nrow(rnkAICcs)+1),
-       xlab='Model rank by AICc',
-       ylab='',
-       axes=F)
-  rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
-  axis(2, at=1:nrow(rnkAICcs), labels=labels, cex.axis=0.5, las=2)
-  axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
-  box(lwd=1)
-  
-  # Which models have delta-AICc within X=2 of best-performing model?
-  # (Could use either of the next chunks depending on preference)
-  xats <-table(which(dAICcs < delAICcutoff, arr.ind=T)[,1])+0.5
-  yats <- 0:(length(xats))+0.5
-  segments(xats,yats[-length(yats)],xats,yats[-1],col='black') # white 
-  segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black') # white
+  par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
+    plot(1:nrow(rnkAICcs), 1:nrow(rnkAICcs),
+         type='n', yaxt='n',
+         xlim=c(1,ncol(rnkAICcs)),
+         ylim=c(0,nrow(rnkAICcs)+1),
+         xlab='Model rank by AICc',
+         ylab='',
+         axes=F)
+    rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
+    axis(2, at=1:nrow(rnkAICcs), labels=labels, cex.axis=0.5, las=2)
+    axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
 
-  pxats<-c(1,rep(xats,each=2),1)
-  pyats<-rep(0:(length(xats)),each=2)+0.5
-  polygon(pxats,pyats,col='grey90',border=NA) # grey40
+    # Which models have delta-AICc within X=2 of best-performing model?
+    # (Could use either of the next chunks depending on preference)
+    xats <-table(which(dAICcs < delAICcutoff, arr.ind=T)[,1])+0.5
+    yats <- 0:(length(xats))+0.5
+    segments(xats,yats[-length(yats)],xats,yats[-1],col='black') # white 
+    segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black') # white
   
-  for(m in 1:ncol(rnkAICcs)){
-    points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
-           type='p', pch=21, col='black', 
-           bg=Mcols[m], cex=1, lwd=0.2)
-  }  
+    pxats<-c(1,rep(xats,each=2),1)
+    pyats<-rep(0:(length(xats)),each=2)+0.5
+    polygon(pxats,pyats,col='grey90',border=NA) # grey40
+    
+    for(m in 1:ncol(rnkAICcs)){
+      points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
+             type='p', pch=21, col='black', 
+             bg=Mcols[m], cex=1, lwd=0.2)
+    }  
+    box(lwd=1)
   par(xpd=TRUE)
-  legend(-8,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
-         pch=21,pt.bg=Mcols, col='black', bg='white',
-          horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
+    legend(-8,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
+           pch=21,pt.bg=Mcols, col='black', bg='white',
+            horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()
 
 

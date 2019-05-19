@@ -1,0 +1,88 @@
+source('../../lib/plot_coefs.R') # for order.of.fits()
+source('../../lib/holling_method_one_predator_one_prey.R')
+source('../../lib/ratio_method_one_predator_one_prey.R')
+
+library(RColorBrewer)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
+ffr.fits <- ffr.fits[fit.order]
+
+labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
+labels<-gsub('_',' ',labels)
+sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
+labels <- paste0(labels, ' (',sample.sizes,')')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Grab summary of RMSE estimates across bootstrapped fits
+stat <- '50%' # use "50%" or "mean"
+
+RMSE.H1 <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Holling.I'][[1]][stat]}))
+RMSE.H2 <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Holling.II'][[1]][stat]}))
+RMSE.BD <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Beddington.DeAngelis'][[1]][stat]}))
+RMSE.CM <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Crowley.Martin'][[1]][stat]}))
+RMSE.R <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Ratio'][[1]][stat]}))
+RMSE.AG <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Arditi.Ginzburg'][[1]][stat]}))
+RMSE.HV <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Hassell.Varley'][[1]][stat]}))
+RMSE.AA <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Arditi.Akcakaya'][[1]][stat]}))
+
+RMSEs <- data.frame(RMSE.H1, RMSE.H2, RMSE.BD, RMSE.CM, RMSE.R, RMSE.AG, RMSE.HV, RMSE.AA)
+colnames(RMSEs) <- sub('RMSE.', '', colnames(RMSEs))
+
+# Define color of each model
+CR<-brewer.pal(n = 8, name = 'RdBu')
+Mcols <- c(CR[5:8],CR[4:1])
+
+minRMSEs <- apply(RMSEs, 1, min)
+dRMSEs <- RMSEs - minRMSEs
+rnkRMSEs <- t(apply(dRMSEs, 1, rank, ties.method='first'))
+colnames(rnkRMSEs) <- colnames(RMSEs)
+
+# Define delta RMSE cut-off for "well performing" models
+# Which models have an RMSE that is less than 1% of the data average
+delRMSEcutoff <- unlist(lapply(ffr.fits, function(x) 0.01*mean(x$study.info$data.Nconsumed)))
+delRMSEcutoff2 <- unlist(lapply(ffr.fits, function(x) 0.01*mean(x$study.info$data.Nconsumed.mean)))
+delRMSEcutoff[which(is.na(delRMSEcutoff))] <- delRMSEcutoff2[which(!is.na(delRMSEcutoff2))]
+
+#~~~~~~~~~~~
+# Rank order
+#~~~~~~~~~~~
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_RMSE_ranks.pdf',height=6,width=2.25)
+  par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
+    plot(1:nrow(rnkRMSEs), 1:nrow(rnkRMSEs),
+         type='n', yaxt='n',
+         xlim=c(1,ncol(rnkRMSEs)),
+         ylim=c(0,nrow(rnkRMSEs)+1),
+         xlab='Model rank by RMSE',
+         ylab='',
+         axes=F)
+    rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
+    axis(2, at=1:nrow(rnkRMSEs), labels=labels, cex.axis=0.5, las=2)
+    axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
+
+    # Which models have "reasonable" delta-RMSE?
+    # (Could use either of the next chunks depending on preference)
+    xats <-table(which(dRMSEs < delRMSEcutoff, arr.ind=T)[,1])+0.5
+    yats <- 0:(length(xats))+0.5
+    segments(xats,yats[-length(yats)],xats,yats[-1],col='black') # white 
+    segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black') # white
+    
+    pxats<-c(1,rep(xats,each=2),1)
+    pyats<-rep(0:(length(xats)),each=2)+0.5
+    polygon(pxats,pyats,col='grey90',border=NA) # grey40
+    
+    for(m in 1:ncol(rnkRMSEs)){
+      points(rnkRMSEs[,m], 1:nrow(rnkRMSEs), 
+             type='p', pch=21, col='black', 
+             bg=Mcols[m], cex=1, lwd=0.2)
+    }
+    box(lwd=1)
+  par(xpd=TRUE)
+    legend(-8,nrow(rnkRMSEs)+6,legend=colnames(rnkRMSEs),
+           pch=21,pt.bg=Mcols, col='black', bg='white',
+           horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
+dev.off()
+
+
+
