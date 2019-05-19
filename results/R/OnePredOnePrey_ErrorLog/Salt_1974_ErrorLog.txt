@@ -1,35 +1,38 @@
-Yes to Salt_1974
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  convergence failure: code=1 (iteration limit 'maxit' reached)
   bootstrapping [---------------------------------------------------]   0% eta:  0sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [---------------------------------------------------]   1% eta:  1m  bootstrapping [>--------------------------------------------------]   1% eta:  2mError in optim(par = c(attack = 4.53811963116126, handling = 1.61708749986874,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [---------------------------------------------------]   1% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [>--------------------------------------------------]   1% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   2% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(attack = 4.83027291181044, handling = 1.78242723103594,  : 
+  non-finite finite-difference value [4]
+  bootstrapping [>--------------------------------------------------]   2% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [>--------------------------------------------------]   3% eta:  3mError in optim(par = c(attack = 4.29739102956766, handling = 1.67647450111725,  : 
   non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [>--------------------------------------------------]   2% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [=>-------------------------------------------------]   3% eta:  3mError in optim(par = c(attack = 4.43297947246412, handling = 1.50255931144796,  : 
+  non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [>--------------------------------------------------]   3% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   3% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -38,86 +41,103 @@ Warning in sqrt(diag(object@vcov)) : NaNs produced
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=>-------------------------------------------------]   5% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==>------------------------------------------------]   5% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==>------------------------------------------------]   6% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==>------------------------------------------------]   7% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==>------------------------------------------------]   7% eta:  3m  bootstrapping [===>-----------------------------------------------]   7% eta:  3m  bootstrapping [===>-----------------------------------------------]   8% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   7% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   8% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===>-----------------------------------------------]   9% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [====>----------------------------------------------]   9% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [====>----------------------------------------------]  10% eta:  3mError in optim(par = c(attack = 4.1258653730906, handling = 1.5135041484683,  : 
-  non-finite finite-difference value [4]
-Error in optim(par = c(attack = 4.53899852392229, handling = 1.5809639733339,  : 
-  non-finite finite-difference value [4]
-Error in optim(par = c(attack = 4.36562009721475, handling = 1.46227244683688,  : 
-  non-finite finite-difference value [4]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====>----------------------------------------------]  10% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(attack = 1.63621985086041, handling = 1.70169100880505,  : 
-  non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=====>---------------------------------------------]  11% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(attack = 4.30315328090345, handling = 1.50643807547836,  : 
+  bootstrapping [=====>---------------------------------------------]  12% eta:  3mError in optim(par = c(attack = 4.06718018779372, handling = 1.47524945854032,  : 
   non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [=====>---------------------------------------------]  12% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [======>--------------------------------------------]  13% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -126,20 +146,24 @@ Warning in sqrt(diag(object@vcov)) : NaNs produced
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Error in optim(par = c(attack = 4.06015984629371, handling = 1.48285084364921,  : 
+  non-finite finite-difference value [4]
+Error in optim(par = c(attack = 4.51397737515958, handling = 1.73001832441166,  : 
+  non-finite finite-difference value [4]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  15% eta:  3mError in optim(par = c(attack = 4.27642598230226, handling = 1.58937798498334,  : 
-  non-finite finite-difference value [4]
-Error in optim(par = c(attack = 2.10171136505589, handling = 1.50252743121673,  : 
-  non-finite finite-difference value [4]
+  bootstrapping [=======>-------------------------------------------]  15% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -150,52 +174,39 @@ Warning in sqrt(diag(object@vcov)) : NaNs produced
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  17% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  17% eta:  3mError in optim(par = c(attack = 4.20906922038685, handling = 1.61190610611949,  : 
-  non-finite finite-difference value [4]
-Error in optim(par = c(attack = 3.80765131893812, handling = 1.65339409334246,  : 
-  non-finite finite-difference value [4]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
   bootstrapping [========>------------------------------------------]  18% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [========>------------------------------------------]  18% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========>-----------------------------------------]  19% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========>-----------------------------------------]  20% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==========>----------------------------------------]  21% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========>-----------------------------------------]  19% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=========>-----------------------------------------]  20% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==========>----------------------------------------]  21% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==========>----------------------------------------]  22% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -206,27 +217,15 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===========>---------------------------------------]  23% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===========>---------------------------------------]  24% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============>--------------------------------------]  25% eta:  2mError in optim(par = c(attack = 4.4533809816178, handling = 1.71583997767855,  : 
-  non-finite finite-difference value [4]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [============>--------------------------------------]  25% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -241,27 +240,25 @@ Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(attack = 4.38826915227693, handling = 1.47547635870308,  : 
+Error in optim(par = c(attack = 4.38469238211028, handling = 1.66826848894032,  : 
   non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=============>-------------------------------------]  27% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  27% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=============>-------------------------------------]  28% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(attack = 4.20511074094491, handling = 1.62121212328324,  : 
+  non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -270,20 +267,22 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============>------------------------------------]  30% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(attack = 3.26856933368609, handling = 1.77778199759261,  : 
+  non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==============>------------------------------------]  30% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  convergence failure: code=1 (iteration limit 'maxit' reached)
   bootstrapping [===============>-----------------------------------]  30% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  31% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  31% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -292,8 +291,32 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  32% eta:  2m  bootstrapping [================>----------------------------------]  33% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [================>----------------------------------]  32% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [================>----------------------------------]  33% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  34% eta:  2mError in optim(par = c(attack = 4.22944426139469, handling = 1.62343821447446,  : 
+  non-finite finite-difference value [4]
+Error in optim(par = c(attack = 4.42975615950636, handling = 1.54653572990397,  : 
+  non-finite finite-difference value [4]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=================>---------------------------------]  34% eta:  2m  bootstrapping [=================>---------------------------------]  35% eta:  2mError in optim(par = c(attack = 4.22087871378439, handling = 1.54566641790831,  : 
+  non-finite finite-difference value [4]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=================>---------------------------------]  36% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -301,143 +324,124 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  34% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=================>---------------------------------]  34% eta:  2m  bootstrapping [=================>---------------------------------]  35% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  36% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  36% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  36% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==================>--------------------------------]  37% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
   bootstrapping [==================>--------------------------------]  38% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  38% eta:  2mError in optim(par = c(attack = 5.85989066461682, handling = 1.542159745551,  : 
-  non-finite finite-difference value [4]
+  bootstrapping [===================>-------------------------------]  38% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===================>-------------------------------]  39% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  40% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  40% eta:  2mError in optim(par = c(attack = 1.81772027346561, handling = 1.61584964246763,  : 
+  bootstrapping [====================>------------------------------]  40% eta:  2m  bootstrapping [====================>------------------------------]  41% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  42% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=====================>-----------------------------]  42% eta:  2mError in optim(par = c(attack = 4.63913462266097, handling = 1.64808630956181,  : 
   non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================>------------------------------]  40% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================>------------------------------]  41% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [====================>------------------------------]  42% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  42% eta:  2m  bootstrapping [=====================>-----------------------------]  43% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  44% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  44% eta:  2mError in optim(par = c(attack = 4.22182624688325, handling = 1.76509549006935,  : 
+  bootstrapping [=====================>-----------------------------]  43% eta:  2m  bootstrapping [=====================>-----------------------------]  44% eta:  2mError in optim(par = c(attack = 4.70552786635967, handling = 1.71057130220068,  : 
   non-finite finite-difference value [4]
-Error in optim(par = c(attack = 1.99436093691113, handling = 1.61460934568928,  : 
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  44% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  45% eta:  2mError in optim(par = c(attack = 5.89323956405004, handling = 1.67363413299487,  : 
   non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  45% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [======================>----------------------------]  46% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  46% eta:  2mError in optim(par = c(attack = 5.59167978319161, handling = 1.61923684194478,  : 
+Error in optim(par = c(attack = 3.27619667729855, handling = 1.64082314925689,  : 
   non-finite finite-difference value [4]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Error in optim(par = c(attack = 3.88012468127774, handling = 1.49570543085212,  : 
+  non-finite finite-difference value [4]
+  bootstrapping [=======================>---------------------------]  46% eta:  2m  bootstrapping [=======================>---------------------------]  47% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  47% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=======================>---------------------------]  48% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(attack = 3.20582097053944, handling = 1.63082632232724,  : 
-  non-finite finite-difference value [4]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  48% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  49% eta:  2mError in optim(par = c(attack = 5.62264833484298, handling = 1.67367662859207,  : 
-  non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  48% eta:  2m  bootstrapping [========================>--------------------------]  49% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
   bootstrapping [========================>--------------------------]  50% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  50% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=========================>-------------------------]  50% eta:  2mError in optim(par = c(attack = 4.1606555176863, handling = 1.6789949158865,  : 
+  non-finite finite-difference value [4]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -445,43 +449,37 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [=========================>-------------------------]  52% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  52% eta:  2mError in optim(par = c(attack = 4.2920191871724, handling = 1.62925299446024,  : 
-  non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  52% eta:  2m  bootstrapping [==========================>------------------------]  52% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==========================>------------------------]  53% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(attack = 4.38537694041915, handling = 1.59738987315335,  : 
-  non-finite finite-difference value [4]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==========================>------------------------]  54% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===========================>-----------------------]  54% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
@@ -490,69 +488,57 @@ Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  56% eta:  1m  bootstrapping [============================>----------------------]  56% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [===========================>-----------------------]  56% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  56% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================>----------------------]  57% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================>----------------------]  58% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [============================>----------------------]  57% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  58% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [============================>----------------------]  58% eta:  1m  bootstrapping [=============================>---------------------]  58% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  59% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  60% eta:  1m  bootstrapping [==============================>--------------------]  60% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  61% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=============================>---------------------]  59% eta:  1mError in optim(par = c(attack = 4.52855417311457, handling = 1.50237135598063,  : 
-  non-finite finite-difference value [4]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  60% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [==============================>--------------------]  62% eta:  1m  bootstrapping [===============================>-------------------]  62% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==============================>--------------------]  60% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==============================>--------------------]  61% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [==============================>--------------------]  62% eta:  1mError in optim(par = c(attack = 3.612471742674, handling = 1.68553264249336,  : 
-  non-finite finite-difference value [4]
-Error in optim(par = c(attack = 4.51649810236184, handling = 1.65099097544413,  : 
-  non-finite finite-difference value [4]
-  bootstrapping [===============================>-------------------]  62% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===============================>-------------------]  63% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  64% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  64% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  64% eta:  1m  bootstrapping [================================>------------------]  64% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -563,71 +549,56 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [================================>------------------]  65% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [================================>------------------]  66% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  66% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(attack = 4.29670607702251, handling = 1.55245231519004,  : 
+  non-finite finite-difference value [4]
+  bootstrapping [================================>------------------]  66% eta:  1mError in optim(par = c(attack = 4.52506868721756, handling = 1.73075365813447,  : 
+  non-finite finite-difference value [4]
+Error in optim(par = c(attack = 3.95315375902043, handling = 1.49601434874944,  : 
+  non-finite finite-difference value [4]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=================================>-----------------]  66% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=================================>-----------------]  67% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  68% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  68% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  68% eta:  1m  bootstrapping [==================================>----------------]  68% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==================================>----------------]  69% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  70% eta:  1m  bootstrapping [===================================>---------------]  70% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================>---------------]  71% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==================================>----------------]  70% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  72% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [===================================>---------------]  70% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [===================================>---------------]  71% eta:  1m  bootstrapping [====================================>--------------]  72% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  73% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(attack = 1.78019887872121, handling = 1.54943725981905,  : 
-  non-finite finite-difference value [4]
-Error in optim(par = c(attack = 3.67811574715542, handling = 1.64587482713479,  : 
-  non-finite finite-difference value [4]
-  bootstrapping [=====================================>-------------]  74% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [====================================>--------------]  73% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================================>--------------]  73% eta: 50sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -637,25 +608,41 @@ Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  74% eta: 48s  bootstrapping [=====================================>-------------]  75% eta: 48sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=====================================>-------------]  75% eta: 47sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [======================================>------------]  76% eta: 46sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [======================================>------------]  76% eta: 45sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=====================================>-------------]  74% eta: 48sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  77% eta: 44sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  77% eta: 43s  bootstrapping [=======================================>-----------]  78% eta: 42sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=====================================>-------------]  74% eta: 47sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  75% eta: 47sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  75% eta: 46sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  76% eta: 45sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [======================================>------------]  76% eta: 44sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  77% eta: 43s  bootstrapping [======================================>------------]  77% eta: 42sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -665,97 +652,123 @@ Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  79% eta: 40sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=======================================>-----------]  78% eta: 40sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=======================================>-----------]  79% eta: 39sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  79% eta: 38sError in optim(par = c(attack = 4.46846527740591, handling = 1.61443165938959,  : 
+  non-finite finite-difference value [4]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
   bootstrapping [========================================>----------]  80% eta: 38sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [========================================>----------]  80% eta: 37sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  81% eta: 36sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [========================================>----------]  80% eta: 36s  bootstrapping [========================================>----------]  81% eta: 35sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [========================================>----------]  81% eta: 35sError in optim(par = c(attack = 4.78773550614482, handling = 1.65097286924633,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  82% eta: 34sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  82% eta: 33sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  82% eta: 32sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  83% eta: 32sError in optim(par = c(attack = 3.29183343778173, handling = 1.71965460314707,  : 
+  non-finite finite-difference value [4]
+Error in optim(par = c(attack = 4.3022977023979, handling = 1.64054770484123,  : 
   non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  83% eta: 31sError in optim(par = c(attack = 4.10618662431094, handling = 1.65791505196097,  : 
+  non-finite finite-difference value [4]
+Error in optim(par = c(attack = 3.21099579255785, handling = 1.62847839174507,  : 
+  non-finite finite-difference value [4]
+Error in optim(par = c(attack = 4.41197555300846, handling = 1.61498246607422,  : 
+  non-finite finite-difference value [4]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==========================================>--------]  84% eta: 30sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=========================================>---------]  82% eta: 35sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  82% eta: 34sError in optim(par = c(attack = 4.32647942463487, handling = 1.47603469449926,  : 
+Error in optim(par = c(attack = 3.27086571797416, handling = 1.73559904980633,  : 
   non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  82% eta: 33s  bootstrapping [=========================================>---------]  83% eta: 32sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==========================================>--------]  84% eta: 29sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  84% eta: 31sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  84% eta: 30s  bootstrapping [==========================================>--------]  84% eta: 29sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  85% eta: 29sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
   bootstrapping [==========================================>--------]  85% eta: 28sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  86% eta: 27sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  86% eta: 27sError in optim(par = c(attack = 4.52713263745747, handling = 1.70412487901976,  : 
+  non-finite finite-difference value [4]
   bootstrapping [===========================================>-------]  86% eta: 26sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  86% eta: 25sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  87% eta: 25s  bootstrapping [===========================================>-------]  87% eta: 24sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  88% eta: 23sError in optim(par = c(attack = 4.30710198142758, handling = 1.66434884522959,  : 
+  non-finite finite-difference value [4]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [============================================>------]  88% eta: 22sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  87% eta: 25sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===========================================>-------]  87% eta: 24s  bootstrapping [============================================>------]  88% eta: 23sWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  88% eta: 22sWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [============================================>------]  89% eta: 21sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -766,94 +779,71 @@ Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  90% eta: 20s  bootstrapping [=============================================>-----]  90% eta: 19s  bootstrapping [=============================================>-----]  90% eta: 18sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=============================================>-----]  90% eta: 19sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================================>-----]  90% eta: 18sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=============================================>-----]  91% eta: 17sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================================>----]  91% eta: 17sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  91% eta: 16sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
   bootstrapping [==============================================>----]  92% eta: 16sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
   bootstrapping [==============================================>----]  92% eta: 15sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  convergence failure: code=1 (iteration limit 'maxit' reached)
   bootstrapping [==============================================>----]  92% eta: 14sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==============================================>----]  93% eta: 13sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [===============================================>---]  93% eta: 13s  bootstrapping [===============================================>---]  94% eta: 12sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [===============================================>---]  93% eta: 13sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  94% eta: 12sError in optim(par = c(attack = 4.1680482086724, handling = 1.47427678213954,  : 
-  non-finite finite-difference value [4]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===============================================>---]  94% eta: 11sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [===============================================>---]  94% eta: 10sError in optim(par = c(attack = 4.19702306049092, handling = 1.6503890729527,  : 
-  non-finite finite-difference value [4]
+  bootstrapping [===============================================>---]  94% eta: 10sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===============================================>---]  95% eta: 10sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [================================================>--]  95% eta:  9sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  95% eta: 10sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  95% eta:  9sWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [================================================>--]  96% eta:  8sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [================================================>--]  96% eta:  7sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  96% eta:  7s  bootstrapping [================================================>--]  97% eta:  6sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  97% eta:  5s  bootstrapping [=================================================>-]  98% eta:  4sWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  98% eta:  3sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=================================================>-]  99% eta:  2sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==================================================>]  99% eta:  1sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [================================================>--]  97% eta:  6sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  97% eta:  5s  bootstrapping [=================================================>-]  98% eta:  4sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================================>] 100% eta:  1sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta:  3s  bootstrapping [=================================================>-]  99% eta:  2sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+  bootstrapping [==================================================>]  99% eta:  1sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================================>] 100% eta:  1sWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===================================================] 100% eta:  0s

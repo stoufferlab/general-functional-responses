@@ -1,10 +1,3 @@
-Yes to Mertz_1968
-Error in optim(par = c(a1 = -6.57868187952695, a2 = -6.50481767294907,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.63024084879098, a2 = -6.53484077652906,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.31647723659445, a2 = -6.34060169265978,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.4384049750822, a2 = -6.28007033552706,  : 
+Error in optim(par = c(a1 = -6.49434579454029, a2 = -6.46289989419584,  : 
   initial value in 'vmmin' is not finite
   bootstrapping [===================================================] 100% eta:  0s

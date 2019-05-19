@@ -1,4 +1,3 @@
-Yes to IsleRoyale_w98
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
