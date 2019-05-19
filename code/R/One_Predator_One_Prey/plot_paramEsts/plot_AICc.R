@@ -37,6 +37,7 @@ colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
 colnames(AICcs)
 CR<-brewer.pal(n = 8, name = 'RdBu')
 Mcols <- c(CR[5:8],CR[4:1])
+Mpch <- c(rep(21,4),rep(22,4))
 
 minAICcs <- apply(AICcs, 1, min)
 dAICcs <- AICcs - minAICcs
@@ -75,13 +76,14 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',he
     
     for(m in 1:ncol(rnkAICcs)){
       points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
-             type='p', pch=21, col='black', 
-             bg=Mcols[m], cex=1, lwd=0.2)
+             type='p',  col='black', 
+             bg=Mcols[m], pch=Mpch[m],
+             cex=1, lwd=0.2)
     }  
     box(lwd=1)
   par(xpd=TRUE)
     legend(-8,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
-           pch=21,pt.bg=Mcols, col='black', bg='white',
+           pch=Mpch, pt.bg=Mcols, col='black', bg='white',
             horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()
 

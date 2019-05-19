@@ -35,7 +35,8 @@ colnames(RMSEs) <- sub('RMSE.', '', colnames(RMSEs))
 # Define color of each model
 CR<-brewer.pal(n = 8, name = 'RdBu')
 Mcols <- c(CR[5:8],CR[4:1])
-
+Mpch <- c(rep(21,4),rep(22,4))
+  
 minRMSEs <- apply(RMSEs, 1, min)
 dRMSEs <- RMSEs - minRMSEs
 rnkRMSEs <- t(apply(dRMSEs, 1, rank, ties.method='first'))
@@ -76,13 +77,14 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_RMSE_ranks.pdf',he
     
     for(m in 1:ncol(rnkRMSEs)){
       points(rnkRMSEs[,m], 1:nrow(rnkRMSEs), 
-             type='p', pch=21, col='black', 
-             bg=Mcols[m], cex=1, lwd=0.2)
+             type='p', col='black', 
+             bg=Mcols[m], pch=Mpch[m],
+             cex=1, lwd=0.2)
     }
     box(lwd=1)
   par(xpd=TRUE)
     legend(-8,nrow(rnkRMSEs)+6,legend=colnames(rnkRMSEs),
-           pch=21,pt.bg=Mcols, col='black', bg='white',
+           pch=Mpch,pt.bg=Mcols, col='black', bg='white',
            horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()
 
