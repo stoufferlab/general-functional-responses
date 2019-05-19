@@ -139,19 +139,19 @@ pCnt
 #~~~~~~
 # dAICc
 #~~~~~~
-plot(1:nrow(dAICcs), 1:nrow(dAICcs),
-     type='n', yaxt='n',
-     # xlim=c(0,max(dAICcs)),
-     xlim=c(0,4),
-     xlab='Model delta-AICc',
-     ylab=''
-)
-axis(side=2, at=1:nrow(dAICcs), labels=labels, cex.axis=0.5, las=2)
-
-Mcols <- rainbow(ncol(dAICcs))
-for(m in 1:ncol(dAICcs)){
-  points(dAICcs[,m], 1:nrow(dAICcs), pch=21, col=Mcols[m], bg=Mcols[m])
-}  
-
-legend('bottomright',legend=colnames(dAICcs),pch=21, pt.bg=Mcols, col=Mcols)
-
+# plot(1:nrow(dAICcs), 1:nrow(dAICcs),
+#      type='n', yaxt='n',
+#      # xlim=c(0,max(dAICcs)),
+#      xlim=c(0,4),
+#      xlab='Model delta-AICc',
+#      ylab=''
+# )
+# axis(side=2, at=1:nrow(dAICcs), labels=labels, cex.axis=0.5, las=2)
+# 
+# Mcols <- rainbow(ncol(dAICcs))
+# for(m in 1:ncol(dAICcs)){
+#   points(dAICcs[,m], 1:nrow(dAICcs), pch=21, col=Mcols[m], bg=Mcols[m])
+# }  
+# 
+# legend('bottomright',legend=colnames(dAICcs),pch=21, pt.bg=Mcols, col=Mcols)
+# 

@@ -3,6 +3,8 @@ source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 
 library(RColorBrewer)
+library(Hmisc) # for LaTeX table export
+options(xdvicmd='open')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -83,6 +85,55 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_RMSE_ranks.pdf',he
            pch=21,pt.bg=Mcols, col='black', bg='white',
            horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()
+
+
+# ~~~~~~~~~
+# Count times each model is in each rank
+Cnt<-apply(rnkRMSEs,2,function(x){table(factor(x,levels=1:ncol(rnkRMSEs)))})
+Cnt
+pCnt <- round(prop.table(Cnt,2)*100,1)
+pCnt
+# Concl:  AA is ranked 1st most frequently, followed by CM and BD.
+
+
+# ~~~~~~~~~
+# Either pass counts or combine counts and proportions before exporting table
+tab_Cnt <- Cnt
+
+# bCnt <- paste0(Cnt,' (',pCnt,')')
+# bCnt[Cnt==0] <- 0
+# tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
+
+
+wd <- getwd()
+setwd('../../../../results/R/OnePredOnePrey_figs/')
+
+latex(tab_Cnt,file='OnePredOnePrey_RMSE_rankings.tex',label='table:RMSE_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by RMSE.')
+
+# latex(tab_Cnt,file='OnePredOnePrey_RMSE_rankings.tex',label='table:RMSE_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by RMSE.')
+
+setwd(wd)
+# ~~~~~~~~~
+
+# Of the times that AA is ranked first, how often are BD and CM  within X RMSE units?
+cnt<-apply(dRMSEs[rnkRMSEs[,ncol(rnkRMSEs)]==1,3:4] < delRMSEcutoff, 2, sum)
+cnt
+Cnt[1,'AA']
+cnt/Cnt[1,'AA']
+# Concl: BD and CM are within cutoff 60% of the time.
+
+# Of times that AA is ranked first, how often are *either* BD and CM within X RMSE units?
+cnt<-sum(apply(dRMSEs[rnkRMSEs[,ncol(rnkRMSEs)]==1,3:4] < delRMSEcutoff, 1, sum)>0)
+cnt
+cnt/Cnt[1,'AA']
+# Concl: BD or CM are within cutoff ~76% of the time
+
+# What about for datasets that have a sample size of at least X?
+SScut <- 50
+Cnt<-apply(rnkRMSEs[sample.sizes>=SScut,],2,function(x){table(factor(x,levels=1:ncol(rnkRMSEs)))})
+Cnt
+pCnt <- round(prop.table(Cnt,2)*100,1)
+pCnt
 
 
 
