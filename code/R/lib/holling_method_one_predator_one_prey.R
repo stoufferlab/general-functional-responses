@@ -145,9 +145,10 @@ holling.like.1pred.1prey.NLL = function(params,
 	#                                       T=time,
 	#                                       replacement=replacement,
 	#                                       Pminus1=Pminus1)
-	
-	# reduce to unique data rows to speed up. There's probably an even faster way, but...
-	d.ori <- data.frame(initial, predators, time)
+
+	# reduce to unique data rows to speed up and then expand again
+	d.ori <- data.frame(predators, initial, time)
+	d.ori$id  <- 1:nrow(d.ori) # needed to reorder predictions after merge
 	d.uniq <- unique(d.ori)
 	Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
 	                                           a=attack,
@@ -159,7 +160,8 @@ holling.like.1pred.1prey.NLL = function(params,
 	                                           T=d.uniq$time,
 	                                           replacement=replacement,
 	                                           Pminus1=Pminus1)
-	Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
+	temp <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq), all.x=TRUE)
+	Nconsumed <- temp$Nconsumed.uniq[order(temp$id)]
 
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){

@@ -131,7 +131,8 @@ ratio.like.1pred.1prey.NLL = function(params,
 	#                                     replacement=replacement)
   
   # reduce to unique data rows to speed up. There's probably an even faster way, but...
-  d.ori <- data.frame(initial, predators, time)
+  d.ori <- data.frame(predators, initial, time)
+  d.ori$id  <- 1:nrow(d.ori) # needed to reorder predictions after merge
   d.uniq <- unique(d.ori)
   Nconsumed.uniq <- ratio.like.1pred.1prey(N0 = d.uniq$initial,
                                            a = attack,
@@ -140,7 +141,8 @@ ratio.like.1pred.1prey.NLL = function(params,
                                            P = d.uniq$predators,
                                            T = d.uniq$time,
                                            replacement = replacement)
-   Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
+  temp <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq), all.x=TRUE)
+  Nconsumed <- temp$Nconsumed.uniq[order(temp$id)]
 
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
