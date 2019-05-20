@@ -135,31 +135,31 @@ holling.like.1pred.1prey.NLL = function(params,
 	}
 
 	# expected number consumed given data and parameters
-	Nconsumed <- holling.like.1pred.1prey(N0=initial,
-	                                      a=attack,
-	                                      h=handling,
-	                                      c=interference,
-	                                      phi_numer=phi_numer,
-	                                      phi_denom=phi_denom,
-	                                      P=predators,
-	                                      T=time,
-	                                      replacement=replacement,
-	                                      Pminus1=Pminus1)
+	# Nconsumed <- holling.like.1pred.1prey(N0=initial,
+	#                                       a=attack,
+	#                                       h=handling,
+	#                                       c=interference,
+	#                                       phi_numer=phi_numer,
+	#                                       phi_denom=phi_denom,
+	#                                       P=predators,
+	#                                       T=time,
+	#                                       replacement=replacement,
+	#                                       Pminus1=Pminus1)
 	
 	# reduce to unique data rows to speed up. There's probably an even faster way, but...
-	# d.ori <- data.frame(initial, predators, time)
-	# d.uniq <- unique(d.ori)
-	# Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
-	#                                            a=attack, 
-	#                                            h=handling, 
-	#                                            c=interference, 
-	#                                            phi_numer=phi_numer, 
-	#                                            phi_denom=phi_denom, 
-	#                                            P=d.uniq$predators, 
-	#                                            T=d.uniq$time, 
-	#                                            replacement=replacement, 
-	#                                            Pminus1=Pminus1)
-	# Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
+	d.ori <- data.frame(initial, predators, time)
+	d.uniq <- unique(d.ori)
+	Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
+	                                           a=attack,
+	                                           h=handling,
+	                                           c=interference,
+	                                           phi_numer=phi_numer,
+	                                           phi_denom=phi_denom,
+	                                           P=d.uniq$predators,
+	                                           T=d.uniq$time,
+	                                           replacement=replacement,
+	                                           Pminus1=Pminus1)
+	Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
 
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
