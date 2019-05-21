@@ -12,7 +12,8 @@ set_params<-function(params,
                              'Ratio',
                              'Arditi.Ginzburg',
                              'Hassell.Varley',
-                             'Arditi.Akcakaya')
+                             'Arditi.Akcakaya'),
+                     overdispersion=FALSE
                      ){
   
   model <- match.arg(model)
@@ -20,75 +21,80 @@ set_params<-function(params,
   if(is.null(params)){
     stop("Must pass 'params' to set_params()")
   }
+  if(!overdispersion){
+    assign('theta', 1E2, envir = .GlobalEnv)
+  }else{
+    assign('theta', params[1], envir = .GlobalEnv)
+  }
   
   if(model == "Holling.I"){
-    assign('attack',       exp(params[1]), envir = .GlobalEnv)
+    assign('attack',       exp(params[2]), envir = .GlobalEnv)
     assign('handling',     0, envir = .GlobalEnv)
     assign('interference', 0, envir = .GlobalEnv)
     assign('phi_numer',    1, envir = .GlobalEnv)
     assign('phi_denom',    1, envir = .GlobalEnv)
     
   } else  if(model == "Holling.II"){
-      assign('attack',       exp(params[1]), envir = .GlobalEnv)
-      assign('handling',     exp(params[2]), envir = .GlobalEnv)
+      assign('attack',       exp(params[2]), envir = .GlobalEnv)
+      assign('handling',     exp(params[3]), envir = .GlobalEnv)
       assign('interference', 0, envir = .GlobalEnv)
       assign('phi_numer',    1, envir = .GlobalEnv)
       assign('phi_denom',    1, envir = .GlobalEnv)
       
   } else  if(model == "Beddington.DeAngelis"){
-      assign('attack',       exp(params[1]), envir = .GlobalEnv)
-      assign('handling',     exp(params[2]), envir = .GlobalEnv)
-      assign('interference', exp(params[3]), envir = .GlobalEnv)
+      assign('attack',       exp(params[2]), envir = .GlobalEnv)
+      assign('handling',     exp(params[3]), envir = .GlobalEnv)
+      assign('interference', exp(params[4]), envir = .GlobalEnv)
       assign('phi_numer',    1, envir = .GlobalEnv)
       assign('phi_denom',    1, envir = .GlobalEnv)
       
   } else  if(model == "Crowley.Martin"){
-      assign('attack',       exp(params[1]), envir = .GlobalEnv)
-      assign('handling',     exp(params[2]), envir = .GlobalEnv)
-      assign('interference', exp(params[3]), envir = .GlobalEnv)
+      assign('attack',       exp(params[2]), envir = .GlobalEnv)
+      assign('handling',     exp(params[3]), envir = .GlobalEnv)
+      assign('interference', exp(params[4]), envir = .GlobalEnv)
       assign('phi_numer',    1, envir = .GlobalEnv)
       assign('phi_denom',    0, envir = .GlobalEnv)
       
   } else  if(model == "Stouffer.Novak.I"){
-      assign('attack',       exp(params[1]), envir = .GlobalEnv)
-      assign('handling',     exp(params[2]), envir = .GlobalEnv)
-      assign('interference', exp(params[3]), envir = .GlobalEnv)
+      assign('attack',       exp(params[2]), envir = .GlobalEnv)
+      assign('handling',     exp(params[3]), envir = .GlobalEnv)
+      assign('interference', exp(params[4]), envir = .GlobalEnv)
       assign('phi_numer',    1, envir = .GlobalEnv)
-      assign('phi_denom',    params[4], envir = .GlobalEnv)
+      assign('phi_denom',    params[5], envir = .GlobalEnv)
       
   } else  if(model == "Stouffer.Novak.II"){
-      assign('attack',       exp(params[1]), envir = .GlobalEnv)
-      assign('handling',     exp(params[2]), envir = .GlobalEnv)
-      assign('interference', exp(params[3]), envir = .GlobalEnv)
-      assign('phi_numer',    params[4], envir = .GlobalEnv)
+      assign('attack',       exp(params[2]), envir = .GlobalEnv)
+      assign('handling',     exp(params[3]), envir = .GlobalEnv)
+      assign('interference', exp(params[4]), envir = .GlobalEnv)
+      assign('phi_numer',    params[5], envir = .GlobalEnv)
       assign('phi_denom',    1, envir = .GlobalEnv)
       
   } else  if(model == "Stouffer.Novak.III"){
-      assign('attack',       exp(params[1]), envir = .GlobalEnv)
-      assign('handling',     exp(params[2]), envir = .GlobalEnv)
-      assign('interference', exp(params[3]), envir = .GlobalEnv)
-      assign('phi_numer',    params[4], envir = .GlobalEnv)
-      assign('phi_denom',    params[5], envir = .GlobalEnv)
+      assign('attack',       exp(params[2]), envir = .GlobalEnv)
+      assign('handling',     exp(params[3]), envir = .GlobalEnv)
+      assign('interference', exp(params[4]), envir = .GlobalEnv)
+      assign('phi_numer',    params[5], envir = .GlobalEnv)
+      assign('phi_denom',    params[6], envir = .GlobalEnv)
       
   } else  if(model == "Ratio"){
-      assign('attack',   exp(params[1]), envir = .GlobalEnv)
+      assign('attack',   exp(params[2]), envir = .GlobalEnv)
       assign('handling', 0, envir = .GlobalEnv)
       assign('exponent', 1, envir = .GlobalEnv)
       
   } else  if(model == "Arditi.Ginzburg"){
-      assign('attack',   exp(params[1]), envir = .GlobalEnv)
-      assign('handling', exp(params[2]), envir = .GlobalEnv)
+      assign('attack',   exp(params[2]), envir = .GlobalEnv)
+      assign('handling', exp(params[3]), envir = .GlobalEnv)
       assign('exponent', 1, envir = .GlobalEnv)
       
   } else  if(model == "Hassell.Varley"){
-      assign('attack',   exp(params[1]), envir = .GlobalEnv)
+      assign('attack',   exp(params[2]), envir = .GlobalEnv)
       assign('handling', 0, envir = .GlobalEnv)
-      assign('exponent', exp(params[2]), envir = .GlobalEnv)
+      assign('exponent', exp(params[3]), envir = .GlobalEnv)
       
   } else  if(model == "Arditi.Akcakaya"){
-      assign('attack',   exp(params[1]), envir = .GlobalEnv)
-      assign('handling', exp(params[2]), envir = .GlobalEnv)
-      assign('exponent', exp(params[3]), envir = .GlobalEnv)
+      assign('attack',   exp(params[2]), envir = .GlobalEnv)
+      assign('handling', exp(params[3]), envir = .GlobalEnv)
+      assign('exponent', exp(params[4]), envir = .GlobalEnv)
       
   } else  stop("Model not correctly specified in set_params()")
 }

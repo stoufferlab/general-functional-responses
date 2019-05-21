@@ -11,6 +11,7 @@ library(bbmle)
 library(nloptr)
 library(lamW)
 library(odeintr)
+library(extraDistr) # for beta-binomial
 
 sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, include.dirs=TRUE)
 source(sp)
@@ -36,7 +37,7 @@ odeintr::compile_sys(
 # predicted number of species consumed given parameters of a ratio-dependent family functional response
 ratio.like.1pred.1prey = function(N0, a, h, m, P, T, 
                                   replacement, 
-                                  integrate=TRUE,
+                                  integrate=FALSE,
                                   overrideTranscendental=FALSE){
 
 	# in a world with replacement everything is hunky dory
