@@ -45,6 +45,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # datasets <- c("./Dataset_Code/Elliot_2003_d.R")
 # datasets <- c("./Dataset_Code/Elliot_2005_i2.R")
 
+datasets <- datasets[1]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Let's start analyzing!
