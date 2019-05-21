@@ -25,6 +25,7 @@ library(progress)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # master list of datasets
 datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
 
@@ -42,6 +43,8 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # select focal dataset for testing
 # datasets <- c("./Dataset_Code/Walde_1984.R")
+
+# datasets=datasets[24]
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,8 +115,8 @@ for(i in 1:length(datasets)){
 
 		# perform boot.reps fits depending on the nature of the data
 		b <- 1
-	  	while(b <= boot.reps){
-	  		# generate bootstrapped data if necessary
+    while(b <= boot.reps){         # if using standard non-parallel environments
+	  	# generate bootstrapped data if necessary
 			if("Nconsumed.mean" %in% colnames(d.orig)){
 	  			d <- bootstrap.data(d.orig, this.study$replacement)
 	  	  	}
@@ -121,13 +124,16 @@ for(i in 1:length(datasets)){
 	  	  # fit a series of functional response models
 	  	  # (sometimes the fits fail for bootstrapped data. we skip that replicate and continue on)
 	    	success <- try({
-	    		ffr.hollingI <- ffr.hollingII <- ffr.bd <- ffr.cm <- ffr.sn1 <- array(NA,c(1,1))
+	    		ffr.hollingI <- ffr.hollingII <- ffr.bd <- ffr.cm <- array(NA,c(1,1))
+	    		# ffr.sn2 <- ffr.sn3 <- array(NA,c(1,1))
 	    		if(grepl("H", this.study$runswith)){
 	  	    	ffr.hollingI <- fit.holling.like(d, this.study, "Holling.I")
 	  				ffr.hollingII <- fit.holling.like(d, this.study, "Holling.II")
 	  				ffr.bd <- fit.holling.like(d, this.study, "Beddington.DeAngelis")
 	  				ffr.cm <- fit.holling.like(d, this.study, "Crowley.Martin")
 	  				ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer.Novak.I")
+	  				# ffr.sn2 <- fit.holling.like(d, this.study, "Stouffer.Novak.II")
+	  				# ffr.sn3 <- fit.holling.like(d, this.study, "Stouffer.Novak.III")
 	  			}
   				
   				ffr.ratio <- ffr.ag <- ffr.hv <- ffr.aa <- ffr.aam <- array(NA,c(1,1))

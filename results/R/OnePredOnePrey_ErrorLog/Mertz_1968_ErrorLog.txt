@@ -1,3 +1,0 @@
-Error in optim(par = c(a1 = -6.49434579454029, a2 = -6.46289989419584,  : 
-  initial value in 'vmmin' is not finite
-  bootstrapping [===================================================] 100% eta:  0s
