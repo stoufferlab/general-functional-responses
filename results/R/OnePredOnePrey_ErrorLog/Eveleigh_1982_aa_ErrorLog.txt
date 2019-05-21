@@ -1,0 +1,42 @@
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+
+trying URL 'https://cran.rstudio.com/bin/macosx/el-capitan/contrib/3.5/extraDistr_1.8.10.tgz'
+Content type 'application/x-gzip' length 2283543 bytes (2.2 MB)
+==================================================
+downloaded 2.2 MB
+
+
+Error in lfactorial(size) : argument "size" is missing, with no default
+
+Error in is.data.frame(x) : object 'd.orig' not found
+Error in set_params(params, modeltype, overdispersion) : 
+  argument "overdispersion" is missing, with no default
+Error: object 'ffr.hollingI' not found
+
+Error: unexpected string constant in:
+"  'theta'
+        'attack'"
+Error: unexpected ',' in "        'handling',"
+Error: unexpected ',' in "        'interference',"
+Error: unexpected ',' in "        'phi_numer',"
+Error: unexpected ',' in "        'phi_denom',"
+Error: unexpected ')' in ")"
+Error in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  : 
+  some named arguments in 'start' are not arguments to the specified log-likelihood function
+Error in c("theta", "attack", "handling", "interference", "phi_numer",  : 
+  argument 7 is empty
+Error in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  : 
+  some named arguments in 'start' are not arguments to the specified log-likelihood function
+Error in c("theta", "attack", "handling", "interference", "phi_numer",  : 
+  argument 7 is empty
+Error in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  : 
+  some named arguments in 'start' are not arguments to the specified log-likelihood function
+Error in c("theta", "attack", "handling", "interference", "phi_numer",  : 
+  argument 7 is empty
+Error in if (any(Nconsumed <= 0) | any(is.nan(Nconsumed))) { : 
+  missing value where TRUE/FALSE needed
