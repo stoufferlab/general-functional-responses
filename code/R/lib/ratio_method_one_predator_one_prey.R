@@ -122,27 +122,27 @@ ratio.like.1pred.1prey.NLL = function(params,
 	}
 
 	# expected number consumed given data and parameters
-	# Nconsumed <- ratio.like.1pred.1prey(N0=initial,
-	#                                     a=attack,
-	#                                     h=handling,
-	#                                     m=exponent,
-	#                                     P=predators,
-	#                                     T=time,
-	#                                     replacement=replacement)
+	Nconsumed <- ratio.like.1pred.1prey(N0=initial,
+	                                    a=attack,
+	                                    h=handling,
+	                                    m=exponent,
+	                                    P=predators,
+	                                    T=time,
+	                                    replacement=replacement)
   
   # reduce to unique data rows to speed up. There's probably an even faster way, but...
-  d.ori <- data.frame(predators, initial, time)
-  d.ori$id  <- 1:nrow(d.ori) # needed to reorder predictions after merge
-  d.uniq <- unique(d.ori)
-  Nconsumed.uniq <- ratio.like.1pred.1prey(N0 = d.uniq$initial,
-                                           a = attack,
-                                           h = handling,
-                                           m = exponent,
-                                           P = d.uniq$predators,
-                                           T = d.uniq$time,
-                                           replacement = replacement)
-  temp <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq), all.x=TRUE)
-  Nconsumed <- temp$Nconsumed.uniq[order(temp$id)]
+  # d.ori <- data.frame(predators, initial, time)
+  # d.ori$id  <- 1:nrow(d.ori) # needed to reorder predictions after merge
+  # d.uniq <- unique(d.ori)
+  # Nconsumed.uniq <- ratio.like.1pred.1prey(N0 = d.uniq$initial,
+  #                                          a = attack,
+  #                                          h = handling,
+  #                                          m = exponent,
+  #                                          P = d.uniq$predators,
+  #                                          T = d.uniq$time,
+  #                                          replacement = replacement)
+  # d.pred <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq), all.x=TRUE)
+  # Nconsumed <- d.pred$Nconsumed.uniq[order(d.pred$id)]
 
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){

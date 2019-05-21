@@ -44,8 +44,8 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # select focal dataset for testing
 # datasets <- c("./Dataset_Code/Walde_1984.R")
 
-# datasets=datasets[24]
-
+datasets=datasets[24]
+# datasets=datasets[12]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Let's start analyzing!
@@ -99,7 +99,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 250
+			boot.reps <- 1
 		}else{
 			boot.reps <- 1
 		}
@@ -147,7 +147,7 @@ for(i in 1:length(datasets)){
   	    		}
   				}
 	    	})
-	    	
+
 	    	if(!inherits(success, "try-error")){
 		    	if(b == 1){
 		    	  # create containers for log likelihood values of all fits
@@ -434,10 +434,10 @@ for(i in 1:length(datasets)){
   	  sink(type="message")
   	  close(Mesgs)
   	  options(warn=0)
-  	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'))
   	}
 	}
 }
+close(Mesgs)
 
 # save a mega container
 ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits')

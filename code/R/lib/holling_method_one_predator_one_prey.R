@@ -63,6 +63,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 		}else{ # For all other models...
   		  if(integrate){  # solve by direct integration
   		    N <- numeric(length(N0))
+  		    
   		    for(i in seq.int(length(N0))){
   
   		      # set parameters within ode solver
@@ -135,33 +136,33 @@ holling.like.1pred.1prey.NLL = function(params,
 	}
 
 	# expected number consumed given data and parameters
-	# Nconsumed <- holling.like.1pred.1prey(N0=initial,
-	#                                       a=attack,
-	#                                       h=handling,
-	#                                       c=interference,
-	#                                       phi_numer=phi_numer,
-	#                                       phi_denom=phi_denom,
-	#                                       P=predators,
-	#                                       T=time,
-	#                                       replacement=replacement,
-	#                                       Pminus1=Pminus1)
+	Nconsumed <- holling.like.1pred.1prey(N0=initial,
+	                                      a=attack,
+	                                      h=handling,
+	                                      c=interference,
+	                                      phi_numer=phi_numer,
+	                                      phi_denom=phi_denom,
+	                                      P=predators,
+	                                      T=time,
+	                                      replacement=replacement,
+	                                      Pminus1=Pminus1)
 
 	# reduce to unique data rows to speed up and then expand again
-	d.ori <- data.frame(predators, initial, time)
-	d.ori$id  <- 1:nrow(d.ori) # needed to reorder predictions after merge
-	d.uniq <- unique(d.ori)
-	Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
-	                                           a=attack,
-	                                           h=handling,
-	                                           c=interference,
-	                                           phi_numer=phi_numer,
-	                                           phi_denom=phi_denom,
-	                                           P=d.uniq$predators,
-	                                           T=d.uniq$time,
-	                                           replacement=replacement,
-	                                           Pminus1=Pminus1)
-	temp <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq), all.x=TRUE)
-	Nconsumed <- temp$Nconsumed.uniq[order(temp$id)]
+	# d.ori <- data.frame(predators, initial, time)
+	# d.ori$id  <- 1:nrow(d.ori) # needed to reorder predictions after merge
+	# d.uniq <- unique(d.ori)
+	# Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
+	#                                            a=attack,
+	#                                            h=handling,
+	#                                            c=interference,
+	#                                            phi_numer=phi_numer,
+	#                                            phi_denom=phi_denom,
+	#                                            P=d.uniq$predators,
+	#                                            T=d.uniq$time,
+	#                                            replacement=replacement,
+	#                                            Pminus1=Pminus1)
+	# d.pred <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq), all.x=TRUE)
+	# Nconsumed <- d.pred$Nconsumed.uniq[order(d.pred$id)]
 
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
