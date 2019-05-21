@@ -17,26 +17,26 @@ source(sp)
 #############################################
 
 # For integration method, define the ode in C++ format
-# ratio.like.1pred.1prey.sys = '
-#   // ratio-dependent-family of functional responses for one predator one prey
-#   dxdt[0] = -P * (a * x[0]) / (pow(P , m) + a * h * x[0]);
-#   
-#   // consumption rate cannot be positive
-#   if(dxdt[0] > 0) dxdt[0] = 0;
-# '
-# 
-# # compile the above C++ code into something we can run in R
-# odeintr::compile_sys(
-#   "ratio_1pred_1prey",
-#   ratio.like.1pred.1prey.sys,
-#   pars = c("a", "h", "m", "P") #,
-#   # method = "bsd"
-# )
+ratio.like.1pred.1prey.sys = '
+  // ratio-dependent-family of functional responses for one predator one prey
+  dxdt[0] = -P * (a * x[0]) / (pow(P , m) + a * h * x[0]);
+
+  // consumption rate cannot be positive
+  if(dxdt[0] > 0) dxdt[0] = 0;
+'
+
+# compile the above C++ code into something we can run in R
+odeintr::compile_sys(
+  "ratio_1pred_1prey",
+  ratio.like.1pred.1prey.sys,
+  pars = c("a", "h", "m", "P"),
+  method = "rk5" # (rk5 recommended by odint developer; see ?compile_sys)
+)
 
 # predicted number of species consumed given parameters of a ratio-dependent family functional response
 ratio.like.1pred.1prey = function(N0, a, h, m, P, T, 
                                   replacement, 
-                                  integrate=FALSE,
+                                  integrate=TRUE,
                                   overrideTranscendental=FALSE){
 
 	# in a world with replacement everything is hunky dory
@@ -61,7 +61,7 @@ ratio.like.1pred.1prey = function(N0, a, h, m, P, T,
 		      ratio_1pred_1prey_set_params(a=a, h=h, m=m, P=P[i])
 		      
 		      # calculate the final number of prey integrating the ode
-		      Nfinal <- ratio_1pred_1prey(N0[i], T[i], T[i]/1000.)
+		      Nfinal <- ratio_1pred_1prey(N0[i], T[i], T[i]/100.)
 		      
 		      # we only need the last row since this is the final "abundance"
 		      Nfinal <- as.numeric(Nfinal[nrow(Nfinal),2])

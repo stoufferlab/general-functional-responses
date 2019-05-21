@@ -16,28 +16,28 @@ source(sp)
 #############################################
 
 # For integration method, define the ode in C++ format
-# holling.like.1pred.1prey.sys = '
-#   // generalized functional response for one predator one prey
-#     dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
-#   
-#   // consumption rate cannot be positive
-#     if(dxdt[0] > 0) dxdt[0] = 0;
-# '
-# 
-# # compile the above C++ code into something we can run in R
-# odeintr::compile_sys(
-#   "hl_1pred_1prey",
-#   holling.like.1pred.1prey.sys,
-#   pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering") #,
-#   # method = "bsd"
-# )
+holling.like.1pred.1prey.sys = '
+  // generalized functional response for one predator one prey
+    dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
+
+  // consumption rate cannot be positive
+    if(dxdt[0] > 0) dxdt[0] = 0;
+'
+
+# compile the above C++ code into something we can run in R
+odeintr::compile_sys(
+  "hl_1pred_1prey",
+  holling.like.1pred.1prey.sys,
+  pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering"),
+  method="rk5" # (rk5 recommended by odint developer; see ?compile_sys)
+)
 
 
 # predicted number of species consumed given parameters of a holling-like functional response
 holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, 
                                     replacement, 
                                     Pminus1=c(TRUE,FALSE),
-                                    integrate=FALSE,
+                                    integrate=TRUE,
                                     overrideTranscendental=FALSE){
 
 	# if only P-1 individuals interference with predators that are doing the feeding
@@ -73,7 +73,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
   		                                P_interfering=P_interfering[i])
   		      
   		      # calculate the final number of prey integrating the ode
-  		      Nfinal <- hl_1pred_1prey(N0[i], T[i], T[i]/1000.)
+  		      Nfinal <- hl_1pred_1prey(N0[i], T[i], T[i]/100.)
   		      
   		      # we only need the last row since this is the final "abundance"
   		      Nfinal <- as.numeric(Nfinal[nrow(Nfinal),2])
