@@ -10,6 +10,7 @@ library(bbmle)
 library(nloptr)
 library(lamW)
 library(odeintr)
+library(emdbook) # for beta-binomial 
 
 sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, include.dirs=TRUE)
 source(sp)
@@ -73,7 +74,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
   		                                P_interfering=P_interfering[i])
   		      
   		      # calculate the final number of prey integrating the ode
-  		      Nfinal <- hl_1pred_1prey(N0[i], T[i], T[i]/1000.)
+  		      Nfinal <- hl_1pred_1prey(N0[i], T[i], T[i]/100.)
   		      
   		      # we only need the last row since this is the final "abundance"
   		      Nfinal <- as.numeric(Nfinal[nrow(Nfinal),2])
@@ -127,6 +128,7 @@ holling.like.1pred.1prey.NLL = function(params,
                                         replacement, 
                                         Pminus1, 
                                         time=NULL){
+  
   set_params(params, modeltype)
 
 	# if no times are specified then normalize to time=1
@@ -168,8 +170,8 @@ holling.like.1pred.1prey.NLL = function(params,
 	}else{
 		# negative log likelihood based on proportion consumed (no replacement)
 		if(!replacement){
-		  # warnings suppressed because direct integration can return prob = 0 or 1, which results in NaNs
-			nll <- suppressWarnings( -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE)) )
+			# nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
+			nll <- -sum(dbetabinom(killed, prob=Nconsumed/initial, size=initial, theta=theta, log=TRUE))
 			if(is.nan(nll)){
 			  nll <- Inf
 			}
@@ -178,7 +180,8 @@ holling.like.1pred.1prey.NLL = function(params,
 
 		# negative log likelihood based on total number consumed (replacement)
 		if(replacement){
-			nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
+			# nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
+			nll <- -sum(dnbinom(killed, mu=Nconsumed, size=theta, log=TRUE))
 			return(nll)
 		}
 	}
@@ -189,6 +192,7 @@ holling.like.1pred.1prey.NLL = function(params,
 # needed by mle2 to pass named parameters in the right order
 # DEBUG there must be a more elegant way to do this "within" the function itself
 parnames(holling.like.1pred.1prey.NLL) <- c(
+  'theta',
 	'attack',
 	'handling',
 	'interference',
@@ -204,12 +208,14 @@ fit.holling.like <- function(d, s,
                              ...){
 
 	# estimate starting value from the data using linear regression
-	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
-	names(x0) <- "attack"
+  start <- list(
+    theta = log(100),
+    attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
+  )
 
 	# fit Holling Type I via MLE with above starting parameter value
 	hollingI.via.sbplx <- nloptr::sbplx(
-		x0 = x0,
+		x0 = unlist(start),
 		fn = holling.like.1pred.1prey.NLL,
 		modeltype="Holling.I",
 		initial=d$Nprey,
@@ -223,11 +229,12 @@ fit.holling.like <- function(d, s,
 	)
 
 	# refit with mle2 since this also estimates the covariance matrix for the parameters
+	mle2.start <- as.list(hollingI.via.sbplx$par)
+	names(mle2.start) <- names(start)
+	
 	hollingI.via.mle2 <- bbmle::mle2(
 		minuslogl = holling.like.1pred.1prey.NLL,
-		start = list(
-			attack = hollingI.via.sbplx$par[1]
-		),
+		start = mle2.start,
 		data = list(
 			modeltype="Holling.I",
 			initial=d$Nprey,
@@ -249,6 +256,7 @@ fit.holling.like <- function(d, s,
 	else{
 		# fit Holling II first
 		start <- list(
+		  theta = log(100),
 			attack = coef(hollingI.via.mle2)["attack"],
 			handling = log(1)
 		)
@@ -294,6 +302,7 @@ fit.holling.like <- function(d, s,
 		}else{
 			if(modeltype == "Beddington.DeAngelis"){
 				start <- list(
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1)
@@ -302,6 +311,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Crowley.Martin"){
 				start <- list(
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1)
@@ -310,6 +320,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.I"){
 				start <- list(
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),
@@ -319,6 +330,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.II"){
 				start <- list(
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),
@@ -328,6 +340,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.III"){
 				start <- list(
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),
