@@ -149,8 +149,7 @@ ratio.like.1pred.1prey.NLL = function(params,
 	}else{
 		# negative log likelihood based on proportion consumed (no replacement)
 		if(!replacement){
-		  # warnings suppressed because direct integration can return prob = 0 or 1, which results in NaNs
-			nll <- suppressWarnings( -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE)) )
+			nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
 			if(is.nan(nll)){
 			  nll <- Inf
 			}
@@ -183,12 +182,13 @@ fit.ratio.like <- function(d, s,
   
 	# estimate starting value from the data using linear regression
 	# x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey / d$Npredator))))  # could cancel P, but left in for clarity
-	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
-	names(x0) <- "attack"
+  start <- list(
+    attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
+  )
 	
 	# fit Ratio ("Type I") via MLE with above starting parameter value
 	ratio.via.sbplx <- nloptr::sbplx(
-		x0 = x0,
+		x0 = unlist(start),
 		fn = ratio.like.1pred.1prey.NLL,
 		modeltype="Ratio",
 		initial=d$Nprey,
@@ -201,11 +201,12 @@ fit.ratio.like <- function(d, s,
 	)
 
 	# refit with mle2 since this also estimates the covariance matrix for the parameters
+	mle2.start <- as.list(ratio.via.sbplx$par)
+	names(mle2.start) <- names(start)
+	
 	ratio.via.mle2 <- bbmle::mle2(
 		minuslogl = ratio.like.1pred.1prey.NLL,
-		start = list(
-			attack = ratio.via.sbplx$par[1]
-		),
+		start = mle2.start,
 		data = list(
 			modeltype="Ratio",
 			initial=d$Nprey,

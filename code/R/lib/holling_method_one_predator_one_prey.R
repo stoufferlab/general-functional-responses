@@ -204,12 +204,13 @@ fit.holling.like <- function(d, s,
                              ...){
 
 	# estimate starting value from the data using linear regression
-	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
-	names(x0) <- "attack"
+  start <- list(
+    attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
+  )
 
 	# fit Holling Type I via MLE with above starting parameter value
 	hollingI.via.sbplx <- nloptr::sbplx(
-		x0 = x0,
+		x0 = unlist(start),
 		fn = holling.like.1pred.1prey.NLL,
 		modeltype="Holling.I",
 		initial=d$Nprey,
@@ -223,11 +224,12 @@ fit.holling.like <- function(d, s,
 	)
 
 	# refit with mle2 since this also estimates the covariance matrix for the parameters
+	mle2.start <- as.list(hollingI.via.sbplx$par)
+	names(mle2.start) <- names(start)
+	
 	hollingI.via.mle2 <- bbmle::mle2(
 		minuslogl = holling.like.1pred.1prey.NLL,
-		start = list(
-			attack = hollingI.via.sbplx$par[1]
-		),
+		start = mle2.start,
 		data = list(
 			modeltype="Holling.I",
 			initial=d$Nprey,
