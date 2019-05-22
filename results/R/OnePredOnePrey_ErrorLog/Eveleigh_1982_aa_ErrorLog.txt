@@ -1,0 +1,15 @@
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+Error in hl_1pred_1prey_set_params(a = a, h = h, c = c, phi_numer = phi_numer,  : 
+  Expecting a single value: [extent=111].
+
