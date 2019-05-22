@@ -1,740 +1,573 @@
-  bootstrapping [---------------------------------------------------]   0% eta:  0sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta:  6mError in optim(par = c(a1 = -2.18326212546222, a2 = 1.20141403853936,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   1% eta: 12mError in optim(par = c(a1 = -1.99807446366294, a2 = 1.36923832936257,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   2% eta: 15m  bootstrapping [>--------------------------------------------------]   2% eta: 14m  bootstrapping [>--------------------------------------------------]   2% eta: 13mError in optim(par = c(a1 = -3.73751416359042, a2 = 1.29037384144138,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 2.08438706515281, a2 = -4.12297724822131,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   3% eta: 16mWarning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+  couldn't invert Hessian
+Warning in AAmethod(d, this.study$replacement) :
+  AAMethod2: Unweighted regression used..
+  bootstrapping [=>-------------------------------------------------]   3% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   4% eta: 15m  bootstrapping [=>-------------------------------------------------]   4% eta: 14mError in optim(par = c(theta = 3.64585927614239, attack = 18.4121600944034,  : 
+  non-finite finite-difference value [3]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   5% eta: 14mError in optim(par = c(a1 = 2.00700055427644, a2 = -3.42619315310306,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.76226144072523, a2 = -3.11705513817173,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [==>------------------------------------------------]   5% eta: 16mError in optim(par = c(a1 = 1.91464761684504, a2 = -2.99952898875128,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [==>------------------------------------------------]   6% eta: 16mError in optim(par = c(a1 = 1.47506835983329, a2 = 1.48756095638249, a3 = -2.90136133519961,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 23.9715044548426, attack = 0.472293929462635,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -1.37829603815221, a2 = 1.78789628369554,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==>------------------------------------------------]   6% eta: 17m  bootstrapping [==>------------------------------------------------]   6% eta: 16m  bootstrapping [==>------------------------------------------------]   7% eta: 16m  bootstrapping [===>-----------------------------------------------]   7% eta: 16mError in optim(par = c(a1 = -2.03746307028516, a2 = 1.41744859343251,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   8% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===>-----------------------------------------------]   8% eta: 15m  bootstrapping [===>-----------------------------------------------]   9% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====>----------------------------------------------]   9% eta: 15m  bootstrapping [====>----------------------------------------------]  10% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====>---------------------------------------------]  11% eta: 14mError in optim(par = c(a1 = -2.75850701113717, a2 = 1.42518750401765,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [=====>---------------------------------------------]  12% eta: 14mError in optim(par = c(a1 = -2.71125525001851, a2 = 1.33041446503363,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======>--------------------------------------------]  13% eta: 14m  bootstrapping [======>--------------------------------------------]  13% eta: 13mError in optim(par = c(a1 = -3.74196551504244, a2 = 1.32723938488585,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======>--------------------------------------------]  14% eta: 14mError in optim(par = c(theta = 4.80570696290098, attack = 11.4244072246028,  : 
+  non-finite finite-difference value [3]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.60651864141799, a2 = 1.62077936710359, a3 = -2.89195387263275,  : 
+  bootstrapping [======>--------------------------------------------]  14% eta: 13mError in optim(par = c(a1 = 2.17389196888814, a2 = -2.23377675398773,  : 
   non-finite finite-difference value [1]
-  bootstrapping [---------------------------------------------------]   1% eta: 10mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -2.52716114523018, a2 = 1.51012824425545,  : 
+Error in optim(par = c(a1 = 1.34148138825115, a2 = -2.71903895626787,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [======>--------------------------------------------]  14% eta: 14mError in optim(par = c(a1 = -2.17135099265603, a2 = -3.57332775001705,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -0.943975102969511, a2 = 1.43569772611768,  : 
+  non-finite finite-difference value [2]
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  15% eta: 14mError in optim(par = c(a1 = -0.637654366282768, a2 = 1.5294144705618,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 1.39611073176536, a2 = -2.01324698445758,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.18919052891089, a2 = -2.90530056577028,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=======>-------------------------------------------]  16% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  16% eta: 14mError in optim(par = c(a1 = 1.28621161741246, a2 = -3.8206811987501, a3 = -2.81540581776714,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  16% eta: 15mError in optim(par = c(a1 = 1.58451948840628, a2 = -3.00701585956599,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  17% eta: 15mError in optim(par = c(a1 = 1.3391888631113, a2 = -2.62849488015904, a3 = -3.01894526575602,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.60036159633223, a2 = 1.61453372602395, a3 = -1.92440351137281,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  18% eta: 15mError in optim(par = c(a1 = -1.66331625217889, a2 = 1.15457043754703,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -3.75990480440601, a2 = 1.56260700999922,  : 
   non-finite finite-difference value [2]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=========>-----------------------------------------]  19% eta: 15mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
-  couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
-  bootstrapping [>--------------------------------------------------]   1% eta: 14mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
-  couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
-  bootstrapping [>--------------------------------------------------]   2% eta: 13mError in optim(par = c(a1 = -39.8135766839004, a2 = -3.07978465731451,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========>-----------------------------------------]  19% eta: 14mError in optim(par = c(a1 = -2.62873144599416, a2 = -48.1846217552526,  : 
   non-finite finite-difference value [6]
-Error in optim(par = c(a1 = -3.12264362495395, a2 = 1.3957822836066, a3 = 1.41898709585817,  : 
+  bootstrapping [=========>-----------------------------------------]  20% eta: 14mError in optim(par = c(a1 = -2.54071939902263, a2 = 1.54323944693151,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -2.74543754220159, a2 = 1.39890983053446,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.40756301250534, a2 = 1.41923382605314, a3 = -4.87740484238916,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========>----------------------------------------]  21% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========>----------------------------------------]  22% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========>---------------------------------------]  23% eta: 13mError in optim(par = c(a1 = 1.51472950770189, a2 = 1.52773084516664, a3 = -2.53375980599174,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========>---------------------------------------]  24% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -2.98770154672565, a2 = 1.44355663785993,  : 
   non-finite finite-difference value [2]
-  bootstrapping [>--------------------------------------------------]   2% eta: 18mError in optim(par = c(a1 = -1.33941577902071, a2 = 1.38895491182615,  : 
+Error in optim(par = c(theta = 3.29793101638904, attack = 1.35194485118938,  : 
   non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [>--------------------------------------------------]   3% eta: 17mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=>-------------------------------------------------]   3% eta: 16m  bootstrapping [=>-------------------------------------------------]   4% eta: 16m  bootstrapping [=>-------------------------------------------------]   4% eta: 15m  bootstrapping [=>-------------------------------------------------]   5% eta: 14mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [==>------------------------------------------------]   5% eta: 14m  bootstrapping [==>------------------------------------------------]   6% eta: 13mError in optim(par = c(a1 = -2.48654563299741, a2 = 1.41880579623953,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============>--------------------------------------]  25% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============>--------------------------------------]  26% eta: 13mError in optim(par = c(a1 = 2.0631219048469, a2 = -2.76893299142505, a3 = -4.88907530104748,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.57297473078221, a2 = 1.58676124215116, a3 = -5.71510702521984,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.88042889890025, a2 = -2.91695273272583,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  27% eta: 13m  bootstrapping [=============>-------------------------------------]  28% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -4.52549993432962, a2 = 1.60169963330158,  : 
   non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.04423399254987, a2 = -2.87992903795742,  : 
+Error in optim(par = c(a1 = 1.75877875554549, a2 = -3.35900224836638,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============>------------------------------------]  29% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============>------------------------------------]  30% eta: 12mError in optim(par = c(a1 = -2.77305004981345, a2 = 1.45448576670756,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [===============>-----------------------------------]  30% eta: 12m  bootstrapping [===============>-----------------------------------]  31% eta: 12m  bootstrapping [===============>-----------------------------------]  32% eta: 12m  bootstrapping [===============>-----------------------------------]  32% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  32% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  33% eta: 11mError in optim(par = c(a1 = 1.88796781267452, a2 = 0.248190662769628,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -1.97818594442778, a2 = 1.34096522919519,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 1.76297907303672, a2 = -2.91569989994653,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 20.5985714032427, attack = 0.45835278635091,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [================>----------------------------------]  34% eta: 11mError in optim(par = c(a1 = 1.7729803608027, a2 = -4.08884146136227, a3 = -3.1646980077014,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=================>---------------------------------]  34% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  35% eta: 11m  bootstrapping [=================>---------------------------------]  36% eta: 11mError in optim(par = c(a1 = -2.15935700997699, a2 = -3.39438533322095,  : 
+  non-finite finite-difference value [3]
+  bootstrapping [==================>--------------------------------]  36% eta: 11m  bootstrapping [==================>--------------------------------]  37% eta: 11mError in optim(par = c(a1 = 1.82868149210757, a2 = -5.35910061212693,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 2.07134493619721, a2 = -2.03129969837583,  : 
+Error in optim(par = c(a1 = 2.05580120307956, a2 = -2.23077747010218,  : 
   non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  38% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  38% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  38% eta: 10mError in optim(par = c(a1 = 1.86016034277099, a2 = 0.960529894324217,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [===================>-------------------------------]  39% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.09744631323256, a2 = -2.57049648450807,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.78382205198678, a2 = 0.814259472662402,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.07578690770013, a2 = -0.560731735111063,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  40% eta: 10mError in optim(par = c(a1 = 1.49324791252644, a2 = 1.50597116615726, a3 = -2.34148785043885,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [====================>------------------------------]  40% eta: 10mError in optim(par = c(a1 = 2.08784832712842, a2 = -1.64617087874472,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [====================>------------------------------]  41% eta: 10mError in optim(par = c(a1 = 1.5712355909382, a2 = 1.58499794801827, a3 = -4.96654540263586,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.94444010333702, a2 = -4.10611647483487,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.63389653487645, a2 = -5.32885242683372,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [====================>------------------------------]  42% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  42% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  43% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  44% eta: 10mError in optim(par = c(a1 = 1.80119559315047, a2 = -3.62486236590108,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -4.48595541017335, a2 = 1.23300025178425,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.07029043115974, a2 = -3.28793835543514,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [======================>----------------------------]  44% eta: 10m  bootstrapping [======================>----------------------------]  45% eta: 10mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.17770502373633, a2 = -3.48011107660548,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 2.19916054036246, a2 = -4.13642937283279,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  46% eta:  9mError in optim(par = c(a1 = 1.7779954677436, a2 = -3.35463719987321, a3 = -4.86975229328836,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -2.80074909083226, a2 = 1.51045549847261,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=======================>---------------------------]  46% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  47% eta:  9mError in optim(par = c(a1 = 2.20494534206432, a2 = -5.41200122887876,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=======================>---------------------------]  48% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  48% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  49% eta:  9mError in optim(par = c(a1 = -1.06445715081035, a2 = 1.50865012245622,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  50% eta:  9m  bootstrapping [=========================>-------------------------]  50% eta:  9m  bootstrapping [=========================>-------------------------]  50% eta:  8mError in optim(par = c(a1 = 1.38650150701265, a2 = -2.50532013296376,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=========================>-------------------------]  51% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Unweighted regression used..
-  bootstrapping [==>------------------------------------------------]   6% eta: 15mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -4.49829883523399, a2 = 1.35829683834132,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.72782694202528, a2 = -3.08584341189272,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [==>------------------------------------------------]   6% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.85235554156344, a2 = 0.94759094848258, a3 = -1.93990786018172,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.75538403391622, a2 = 0.936792638496544,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [==>------------------------------------------------]   7% eta: 17m  bootstrapping [===>-----------------------------------------------]   7% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.02154954646053, a2 = -3.03877037553348,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [===>-----------------------------------------------]   8% eta: 16mError in optim(par = c(a1 = -1.42870231518517, a2 = 1.87978098149089,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.49254198911123, a2 = -1.80270023653742,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.56519914685205, a2 = 1.52573162193667, a3 = -1.6161671688343,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [===>-----------------------------------------------]   9% eta: 17m  bootstrapping [====>----------------------------------------------]   9% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [====>----------------------------------------------]  10% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.93507749307444, a2 = -1.59433608786109,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.23129891967032, a2 = -3.49728508497874,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.51065352181963, a2 = 1.52360162855323, a3 = -3.90773324554664,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.6918604507179, a2 = 1.26801007203193, a3 = -3.99126163221334,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [=====>---------------------------------------------]  11% eta: 16mWarning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
-  couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
-  bootstrapping [=====>---------------------------------------------]  12% eta: 16mError in optim(par = c(a1 = 1.62379625089154, a2 = -3.02837743886794,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
-  couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====>---------------------------------------------]  12% eta: 15mError in optim(par = c(a1 = 1.75982917311989, a2 = -2.91425400992514,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 2.01774449472033, a2 = -3.42955713743379,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.12757546552608, a2 = 1.25736855112599,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -44.8167648750891, a2 = 1.61704704354875,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======>--------------------------------------------]  13% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [======>--------------------------------------------]  14% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.95592329187451, a2 = -1.4205654611697, a3 = -3.30644334942646,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [======>--------------------------------------------]  14% eta: 15mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=======>-------------------------------------------]  15% eta: 15mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.04519013890568, a2 = -3.79763293243738,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=======>-------------------------------------------]  16% eta: 15mError in optim(par = c(a1 = -2.78423177215933, a2 = 1.47705438980457,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [========>------------------------------------------]  17% eta: 15mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.76134430570173, a2 = 1.01912798108422, a3 = -3.59224860523372,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [========>------------------------------------------]  18% eta: 14mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -1.9621485303072, a2 = 1.31093238837199, a3 = -2.1794753076939,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = 2.03332988265183, a2 = -2.74139617132004,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.31991900651482, a2 = 1.51886097566755,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [=========>-----------------------------------------]  19% eta: 15m  bootstrapping [=========>-----------------------------------------]  19% eta: 14m  bootstrapping [=========>-----------------------------------------]  20% eta: 14mError in optim(par = c(a1 = -40.3123668388195, a2 = 1.48990744358238,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.22765258948249, a2 = 1.37775130750377,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.8278943169008, a2 = 0.38660677572453, a3 = -3.12637340575914,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [==========>----------------------------------------]  21% eta: 14m  bootstrapping [==========>----------------------------------------]  22% eta: 14mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.24354937078925, a2 = -2.96100299078011,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.53743699220291, a2 = 1.53560316542318,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -2.84495751276442, a2 = 1.60022444675914,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -3.10480265320612, a2 = 1.36840762715388,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [===========>---------------------------------------]  23% eta: 14mError in optim(par = c(a1 = -2.50754502405035, a2 = 1.47090329080145,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [===========>---------------------------------------]  24% eta: 14mError in optim(par = c(a1 = 1.92765426675222, a2 = -3.67475446275228,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.93391906805757, a2 = 1.28851151789098,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [============>--------------------------------------]  25% eta: 13mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [============>--------------------------------------]  26% eta: 13mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -3.70498477015223, a2 = 0.981970931400839,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.47658065643332, a2 = 1.48909227905526, a3 = -2.27006784815176,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  27% eta: 13mError in optim(par = c(a1 = -3.03487899469216, a2 = 1.25928826973001,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.08969635495138, a2 = -2.45798824747077,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.68454751758569, a2 = 1.58477755792455,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.86299123705244, a2 = 1.41876170061904,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=============>-------------------------------------]  28% eta: 13mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -1.77201928996331, a2 = 1.51236338753591,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.64151614368417, a2 = 1.65628833123416, a3 = -3.25950055124474,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [==============>------------------------------------]  29% eta: 13mError in optim(par = c(a1 = -3.74164225664075, a2 = 1.33760312898158,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.32281812515303, a2 = 1.59728309651948,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [==============>------------------------------------]  30% eta: 13mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = 1.41625791573458, a2 = -3.23762548165354,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [===============>-----------------------------------]  30% eta: 13m  bootstrapping [===============>-----------------------------------]  31% eta: 12mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -2.12797994284618, a2 = 1.49406668232756,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -3.06660839379345, a2 = 1.30915767262049,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [===============>-----------------------------------]  32% eta: 12m  bootstrapping [================>----------------------------------]  32% eta: 12m  bootstrapping [================>----------------------------------]  33% eta: 12mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [================>----------------------------------]  34% eta: 12mError in optim(par = c(attack = 5.24078592473258, handling = 1.63004870946681,  : 
-  non-finite finite-difference value [4]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.42462361648988, a2 = 1.43649797898381, a3 = -3.42789293060507,  : 
+  bootstrapping [=========================>-------------------------]  52% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  52% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  53% eta:  8mError in optim(par = c(a1 = 1.56896500565616, a2 = 0.179449648279242,  : 
   non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  34% eta: 12m  bootstrapping [=================>---------------------------------]  35% eta: 11mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.26135439446387, a2 = -2.81613812770693,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=================>---------------------------------]  36% eta: 11mError in optim(par = c(a1 = -1.73091186722694, a2 = 1.42533611519724,  : 
+  bootstrapping [==========================>------------------------]  54% eta:  8mError in optim(par = c(a1 = -1.87764987580058, a2 = 1.45701516881657,  : 
   non-finite finite-difference value [2]
-  bootstrapping [==================>--------------------------------]  36% eta: 11m  bootstrapping [==================>--------------------------------]  37% eta: 11m  bootstrapping [==================>--------------------------------]  38% eta: 11mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.52719796211205, a2 = 1.54036350402451, a3 = -3.67720014075437,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.53233192510975, a2 = 1.54556568450381, a3 = -3.40266399697532,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.8623700117629, a2 = -1.66631909833274, a3 = -2.39472359318269,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [===================>-------------------------------]  38% eta: 11mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.59437986078476, a2 = -5.3226017824478, a3 = -3.5341305026047,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [===================>-------------------------------]  39% eta: 11mError in optim(par = c(a1 = -1.72034134887264, a2 = 1.40349016058546,  : 
+  bootstrapping [===========================>-----------------------]  54% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  55% eta:  8m  bootstrapping [===========================>-----------------------]  56% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  56% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -1.06771164681242, a2 = 1.37566578367977,  : 
   non-finite finite-difference value [2]
-  bootstrapping [===================>-------------------------------]  40% eta: 11m  bootstrapping [===================>-------------------------------]  40% eta: 10mWarning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
-  couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
-  bootstrapping [====================>------------------------------]  40% eta: 10m  bootstrapping [====================>------------------------------]  41% eta: 10m  bootstrapping [====================>------------------------------]  42% eta: 10m  bootstrapping [=====================>-----------------------------]  42% eta: 10m  bootstrapping [=====================>-----------------------------]  43% eta: 10mError in optim(par = c(a1 = 2.36759850099635, a2 = -1.9841883883505, a3 = -3.11874210080499,  : 
+Error in optim(par = c(a1 = 1.86127703670743, a2 = 1.73476622985307, a3 = -5.10803304266218,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.34246034833168, a2 = 1.35339291850282, a3 = -2.2007472388509,  : 
+  bootstrapping [============================>----------------------]  57% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  58% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  58% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.86943950309838, a2 = 0.564715232899963,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+  bootstrapping [=============================>---------------------]  59% eta:  7m  bootstrapping [=============================>---------------------]  60% eta:  7mError in optim(par = c(a1 = -2.61234869511104, a2 = 1.13412021343379,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -1.02232425557638, a2 = 1.56128994479457,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -2.77346730741217, a2 = 1.45532497453922,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  60% eta:  7m  bootstrapping [==============================>--------------------]  61% eta:  7mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
-  bootstrapping [=====================>-----------------------------]  44% eta: 10m  bootstrapping [=====================>-----------------------------]  44% eta:  9m  bootstrapping [======================>----------------------------]  44% eta:  9mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [======================>----------------------------]  45% eta:  9m  bootstrapping [======================>----------------------------]  46% eta:  9m  bootstrapping [=======================>---------------------------]  46% eta:  9m  bootstrapping [=======================>---------------------------]  47% eta:  9mError in optim(par = c(a1 = 1.87311267192748, a2 = -3.38443152058455,  : 
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==============================>--------------------]  62% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  62% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  63% eta:  6mError in optim(par = c(a1 = -1.87461856302033, a2 = 1.44211767780067,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [===============================>-------------------]  64% eta:  6mError in optim(par = c(a1 = 1.84642157204585, a2 = -3.37604621785795,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.92149554120529, a2 = -2.0285259478351, a3 = -4.75865618602147,  : 
+  bootstrapping [================================>------------------]  64% eta:  6mError in optim(par = c(a1 = 2.00938849571309, a2 = -2.27378847877202,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.45608356849451, a2 = 1.33991100690587,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -2.87851664717672, a2 = 1.00593652392035,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=======================>---------------------------]  48% eta:  9mError in optim(par = c(a1 = -1.5938966735404, a2 = 1.62543117538713, a3 = -2.31506352562349,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [========================>--------------------------]  48% eta:  9mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [========================>--------------------------]  49% eta:  9m  bootstrapping [========================>--------------------------]  49% eta:  8mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.44053556708471, a2 = 1.45260152820219, a3 = -2.08897694614165,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.94254753411141, a2 = -5.37604746426178,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
-  couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
-  bootstrapping [========================>--------------------------]  50% eta:  8m  bootstrapping [=========================>-------------------------]  50% eta:  8mError in optim(par = c(a1 = -1.74175590938698, a2 = 1.44792398525286,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=========================>-------------------------]  51% eta:  8mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.24899095338473, a2 = 1.25894307343403, a3 = -0.76904315405138,  : 
+Error in optim(par = c(a1 = 2.02890786796858, a2 = -2.10975098638779,  : 
   non-finite finite-difference value [1]
-  bootstrapping [=========================>-------------------------]  52% eta:  8m  bootstrapping [==========================>------------------------]  52% eta:  8mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [==========================>------------------------]  53% eta:  8mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [==========================>------------------------]  54% eta:  8mError in optim(par = c(a1 = -2.99964321061747, a2 = 1.5290600427775, a3 = -2.9326446509976,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -0.849220519629464, a2 = 1.49624204725699,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -4.49175942770818, a2 = 1.29323041380644,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [===========================>-----------------------]  54% eta:  8mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.88270145860343, a2 = 0.519167379559555,  : 
+Error in optim(par = c(a1 = 1.66344070511559, a2 = -2.73013195860859,  : 
   non-finite finite-difference value [1]
-  bootstrapping [===========================>-----------------------]  55% eta:  7mError in optim(par = c(a1 = -1.70920745935095, a2 = 1.38068026997409,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.52913013038427, a2 = 2.05721066242971,  : 
+  bootstrapping [================================>------------------]  65% eta:  6mError in optim(par = c(a1 = 2.00238654711401, a2 = -2.68301495402362,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [================================>------------------]  66% eta:  6m  bootstrapping [=================================>-----------------]  66% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  67% eta:  6mError in optim(par = c(a1 = -1.86929673702126, a2 = 1.43141583949647,  : 
   non-finite finite-difference value [2]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.73499988336087, a2 = -3.97435711902592,  : 
+Error in optim(par = c(a1 = 2.01827334884623, a2 = 0.436571402930059,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.73595020925979, a2 = 1.37986565879457,  : 
+Error in optim(par = c(a1 = -1.62890396989696, a2 = -4.06645701802262,  : 
+  non-finite finite-difference value [3]
+Error in optim(par = c(a1 = 1.95403203542298, a2 = -3.1933813927369, a3 = -3.5322537797514,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=================================>-----------------]  68% eta:  6m  bootstrapping [==================================>----------------]  68% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  69% eta:  5mError in optim(par = c(a1 = 2.23847129575344, a2 = -2.97309938000444,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  70% eta:  5mError in optim(par = c(a1 = 1.47966906081958, a2 = 1.49221952919871, a3 = -2.58104185256658,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -3.20567255065814, a2 = 1.52040843946895,  : 
   non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===========================>-----------------------]  56% eta:  7mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.55146112874008, a2 = -5.31579702418816,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================================>---------------]  70% eta:  5mError in optim(par = c(a1 = 2.16306473115893, a2 = -5.40659991279179,  : 
   non-finite finite-difference value [1]
-  bootstrapping [============================>----------------------]  56% eta:  7mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.56757670544855, a2 = 1.58128848586007, a3 = -4.50882723486984,  : 
+  bootstrapping [===================================>---------------]  71% eta:  5mError in optim(par = c(a1 = 1.59507321391552, a2 = 1.39858231190608, a3 = -3.98455331522604,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.77670823989445, a2 = 1.52178276051732,  : 
+Error in optim(par = c(a1 = -38.4402020595637, a2 = 1.33543955070492,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.38293233700515, a2 = 1.39431903705553, a3 = -3.04915250515546,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.50837322616513, a2 = 1.52129164890005, a3 = -2.76117364160539,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================================>--------------]  72% eta:  5mError in optim(par = c(a1 = 1.8835831955703, a2 = -2.45254369850616, a3 = -4.03017394671969,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -1.19359625626508, a2 = 1.31816856918083,  : 
   non-finite finite-difference value [2]
-  bootstrapping [============================>----------------------]  57% eta:  7mError in optim(par = c(a1 = -0.695591171314054, a2 = 1.45699619989743,  : 
+Error in optim(par = c(a1 = -1.36383145576377, a2 = 1.59389477322309,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.60217726771136, a2 = 1.47928678465166,  : 
+Error in optim(par = c(a1 = -48.7826291647232, a2 = 1.19836655220221,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================================>--------------]  73% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta:  5mError in optim(par = c(a1 = 1.42437088561797, a2 = -2.25845172399178,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta:  4mError in optim(par = c(a1 = -3.19711797678599, a2 = 1.50778848526924,  : 
   non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [============================>----------------------]  58% eta:  7m  bootstrapping [=============================>---------------------]  58% eta:  7m  bootstrapping [=============================>---------------------]  59% eta:  7m  bootstrapping [=============================>---------------------]  60% eta:  7mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -1.65867349532311, a2 = 1.52743214473391,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.32863033260664, a2 = -4.99209334775941,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.33093501698494, a2 = 1.51974963206218,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.10751128785056, a2 = -1.95435307338802,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.77959911409339, a2 = 1.39809720358132, a3 = -2.74527449105977,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [==============================>--------------------]  60% eta:  7mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = -3.71928109474523, a2 = 1.10202448681181,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [==============================>--------------------]  61% eta:  7mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.98615034502079, a2 = -1.37959434449697,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [==============================>--------------------]  62% eta:  6m  bootstrapping [===============================>-------------------]  62% eta:  6mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.34176399259515, a2 = 1.35268891080569, a3 = -1.99650435816023,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [===============================>-------------------]  63% eta:  6m  bootstrapping [===============================>-------------------]  64% eta:  6m  bootstrapping [================================>------------------]  64% eta:  6mError in optim(par = c(a1 = 2.10600393314399, a2 = -3.08008767114602,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [================================>------------------]  65% eta:  6m  bootstrapping [================================>------------------]  66% eta:  6m  bootstrapping [=================================>-----------------]  66% eta:  6mError in optim(par = c(a1 = 1.88741293269411, a2 = 0.447393907436121,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=================================>-----------------]  67% eta:  5mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=================================>-----------------]  68% eta:  5mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.7177996838232, a2 = 1.00813907086668, a3 = -4.39075193585633,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [==================================>----------------]  68% eta:  5m  bootstrapping [==================================>----------------]  69% eta:  5mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [==================================>----------------]  70% eta:  5mError in optim(par = c(a1 = -3.31350804559133, a2 = 1.4871647508003, a3 = -2.22418824120254,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.72483016649306, a2 = -3.33791917766603,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [===================================>---------------]  70% eta:  5mError in optim(par = c(a1 = -1.48173108075107, a2 = 1.54636240401166,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [===================================>---------------]  71% eta:  5mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -1.57673978272377, a2 = 1.35453345095061,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [====================================>--------------]  72% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.86436241431615, a2 = -1.91696050921134,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [====================================>--------------]  73% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.72377299165644, a2 = 1.03979036742127, a3 = -3.61328476373519,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=====================================>-------------]  74% eta:  4mError in optim(par = c(a1 = 1.94243831739848, a2 = -3.68064535255747,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 2.14449241180263, a2 = -1.75400304013419,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.06089501588956, a2 = -3.07108710576582,  : 
-  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=====================================>-------------]  75% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.77504136798522, a2 = -3.99637330542598,  : 
+Error in optim(par = c(a1 = 2.07788724520668, a2 = -0.833923939609728,  : 
   non-finite finite-difference value [1]
-  bootstrapping [======================================>------------]  76% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -1.85247572374377, a2 = 1.39773063814111,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [======================================>------------]  77% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=======================================>-----------]  78% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = -1.92659040660675, a2 = 1.2448028802729, a3 = -3.66042225031628,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.51451663015179, a2 = -3.50925339489966,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.54525595152355, a2 = 1.53528958832931,  : 
-  non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = 1.94431845170291, a2 = -1.6035443214554, a3 = -3.66065612582583,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=======================================>-----------]  79% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [========================================>----------]  80% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [========================================>----------]  81% eta:  3m  bootstrapping [=========================================>---------]  82% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.47275520162962, a2 = -5.30332209642035,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.90360947506168, a2 = 1.49285456663707,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  76% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -2.72819858837858, a2 = 1.35475758371382,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.82385751406095, a2 = 1.58280841439227,  : 
+Error in optim(par = c(a1 = 1.82955769049411, a2 = -3.0031163724513, a3 = -3.0209722496053,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -2.36399867283576, a2 = 1.14901629914155,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 1.91478427345576, a2 = -3.1909331477136, a3 = -2.07389649907092,  : 
+Error in optim(par = c(a1 = 2.16918680800282, a2 = -2.93765300032248,  : 
   non-finite finite-difference value [1]
-  bootstrapping [=========================================>---------]  83% eta:  3mError in optim(par = c(a1 = 1.98461281617894, a2 = -3.79142831150699,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  77% eta:  4mError in optim(par = c(a1 = 1.72581757762271, a2 = 1.00259689658603, a3 = -1.97415128139043,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.90383019260051, a2 = 1.50113546003123,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  78% eta:  4mError in optim(par = c(a1 = 2.24336077539247, a2 = -2.46312613742505,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.70344112980362, a2 = 0.952500953341393,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -1.86782316205238, a2 = 1.44335151611632,  : 
   non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = 1.98842890524417, a2 = -2.40473176208366,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [==========================================>--------]  84% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.01717918789348, a2 = -4.57971943945161,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.73147387771565, a2 = 1.26150886881509, a3 = -3.05086499973509,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -3.70273913925553, a2 = 0.948177036876354,  : 
+Error in optim(par = c(a1 = -2.58313245133041, a2 = 1.07673920120937,  : 
   non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+Error in optim(par = c(a1 = 2.03565819337861, a2 = -4.93878061505403,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=======================================>-----------]  79% eta:  4mError in optim(par = c(a1 = 1.86775677346336, a2 = -4.80603543228336,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================================>----------]  80% eta:  4mWarning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Unweighted regression used..
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -1.97346188857163, a2 = 1.58723575579929,  : 
+  bootstrapping [========================================>----------]  80% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================================>----------]  81% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -50.998943860408, a2 = -3.90187555935307,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  82% eta:  3mError in optim(par = c(a1 = -2.5236113866048, a2 = 1.50357724127734, a3 = -2.58681607454859,  : 
   non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  83% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================================>--------]  84% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==========================================>--------]  85% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 2.35089261829348, a2 = -1.81940079549904,  : 
+Error in optim(par = c(a1 = 2.11253190119994, a2 = -3.88442661934829,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [==========================================>--------]  85% eta:  2m  bootstrapping [===========================================>-------]  86% eta:  2m  bootstrapping [===========================================>-------]  87% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.22336787486096, a2 = -1.99386824248401,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [============================================>------]  88% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.23789269382303, a2 = -3.804014908676, a3 = 0.779834367456158,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.50766212906911, a2 = -3.18186633207962,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [============================================>------]  89% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [=============================================>-----]  90% eta:  2mError in optim(par = c(a1 = -1.27233215020884, a2 = 1.32723606943315,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [=============================================>-----]  91% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in log(coef(lm(d$Nconsumed ~ I(d$Nprey * d$Npredator)))[2]) :
-  NaNs produced
-Error in is.nloptr(ret) : x0 contains NA
-  bootstrapping [==============================================>----]  91% eta:  1m  bootstrapping [==============================================>----]  92% eta:  1m  bootstrapping [==============================================>----]  93% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = -51.116599550504, a2 = 1.12761456627649, a3 = 0.404595547736828,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [===============================================>---]  93% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.92373518504714, a2 = -4.56601250861673,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.79266454696031, a2 = -2.16210037355947,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [===============================================>---]  94% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -40.8129900281088, a2 = -3.65668938035342,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -3.73642103927677, a2 = 1.27945668368326,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  86% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -1.66682977271551, a2 = 1.05304627724985,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  87% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  88% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -2.84566023791438, a2 = 1.60165555158899,  : 
   non-finite finite-difference value [2]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-  bootstrapping [===============================================>---]  95% eta:  1mError in optim(par = c(a1 = -2.38228363123999, a2 = -2.35253702087078,  : 
-  non-finite finite-difference value [3]
-Error in optim(par = c(a1 = -0.971611058361489, a2 = 1.47799814177137,  : 
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.06366657755688, a2 = -3.05928349527531,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  89% eta:  2m  bootstrapping [=============================================>-----]  90% eta:  2mError in optim(par = c(a1 = 1.62219970655414, a2 = -2.05066633488097,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 2.16687612728596, a2 = -3.46185637481088,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -2.56049489762785, a2 = 1.58953371695317,  : 
   non-finite finite-difference value [2]
-  bootstrapping [================================================>--]  95% eta: 47sError in optim(par = c(a1 = -1.82303607661822, a2 = 1.6215296781395, a3 = -4.89424913269307,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -51.316805577302, a2 = -3.27590699057728,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -3.74566675700116, a2 = 1.38482526280711,  : 
   non-finite finite-difference value [2]
+  bootstrapping [=============================================>-----]  91% eta:  2m  bootstrapping [==============================================>----]  91% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  92% eta:  1mError in optim(par = c(a1 = -1.23127636485081, a2 = 1.26256363604619,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.0388061336727, a2 = 2.06086384129617, a3 = -3.69162399454282,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.52515288776476, a2 = 1.53829135459794, a3 = -3.83611247523997,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -1.72512851920653, a2 = 1.24141772699283,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Unweighted regression used..
-  bootstrapping [================================================>--]  96% eta: 43sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 1.97427511494409, a2 = -3.41595135306902,  : 
+  bootstrapping [==============================================>----]  93% eta:  1m  bootstrapping [===============================================>---]  93% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  94% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  95% eta:  1m  bootstrapping [================================================>--]  95% eta: 50s  bootstrapping [================================================>--]  96% eta: 46sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 41sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 37sError in optim(par = c(a1 = 1.36561270401381, a2 = -2.48935095308551,  : 
   non-finite finite-difference value [1]
-  bootstrapping [================================================>--]  96% eta: 40s  bootstrapping [================================================>--]  96% eta: 36s  bootstrapping [================================================>--]  97% eta: 32s  bootstrapping [=================================================>-]  97% eta: 28s  bootstrapping [=================================================>-]  98% eta: 24s  bootstrapping [=================================================>-]  98% eta: 20s  bootstrapping [=================================================>-]  98% eta: 16sError in optim(par = c(a1 = -1.82384076095289, a2 = 1.34095556636353,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -2.53121325927917, a2 = 1.52115751110128,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [=================================================>-]  99% eta: 12sError in optim(par = c(a1 = -3.7685116292826, a2 = -2.92579688275696,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = -1.71301529034616, a2 = 1.64898046327868,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [==================================================>]  99% eta:  8s  bootstrapping [==================================================>] 100% eta:  4sError in optim(par = c(a1 = -0.865202914013269, a2 = 1.32696790306634,  : 
-  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  97% eta: 33sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  97% eta: 29sError in optim(par = c(a1 = 1.35021631626392, a2 = -3.21494671416067,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=================================================>-]  98% eta: 25sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta: 21s  bootstrapping [=================================================>-]  98% eta: 17s  bootstrapping [=================================================>-]  99% eta: 12sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================================>]  99% eta:  8sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================================>] 100% eta:  4sError in optim(par = c(theta = 3.54365563885179, attack = 31.2546024736076,  : 
+  non-finite finite-difference value [3]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===================================================] 100% eta:  0s
