@@ -125,14 +125,14 @@ for(i in 1:length(datasets)){
 	  	  # fit a series of functional response models
 	  	  # (sometimes the fits fail for bootstrapped data. we skip that replicate and continue on)
 	    	success <- try({
-	    		ffr.hollingI <- ffr.hollingII <- ffr.bd <- ffr.cm <- array(NA,c(1,1))
+	    		ffr.hollingI <- ffr.hollingII <- ffr.bd <- ffr.cm <- ffr.sn1 <- array(NA,c(1,1))
 	    		# ffr.sn2 <- ffr.sn3 <- array(NA,c(1,1))
 	    		if(grepl("H", this.study$runswith)){
 	  	    	ffr.hollingI <- fit.holling.like(d, this.study, "Holling.I")
 	  				ffr.hollingII <- fit.holling.like(d, this.study, "Holling.II")
 	  				ffr.bd <- fit.holling.like(d, this.study, "Beddington.DeAngelis")
 	  				ffr.cm <- fit.holling.like(d, this.study, "Crowley.Martin")
-	  				ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer.Novak.I")
+	  				# ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer.Novak.I")
 	  				# ffr.sn2 <- fit.holling.like(d, this.study, "Stouffer.Novak.II")
 	  				# ffr.sn3 <- fit.holling.like(d, this.study, "Stouffer.Novak.III")
 	  			}
@@ -176,7 +176,7 @@ for(i in 1:length(datasets)){
 	  					boots.hollingII <- make.array(ffr.hollingII, boot.reps)
 	  					boots.bd <- make.array(ffr.bd, boot.reps)
 	  					boots.cm <- make.array(ffr.cm, boot.reps)
-	  					boots.sn1 <- make.array(ffr.sn1, boot.reps)
+	  					# boots.sn1 <- make.array(ffr.sn1, boot.reps)
 	  					# boots.sn2 <- make.array(ffr.sn2, boot.reps)
 	  					# boots.sn3 <- make.array(ffr.sn3, boot.reps)
 	  				}
@@ -199,7 +199,7 @@ for(i in 1:length(datasets)){
 	    	    ll.hollingII[[b]] <- logLik(ffr.hollingII)
 	    	    ll.bd[[b]] <- logLik(ffr.bd)
 	    	    ll.cm[[b]] <- logLik(ffr.cm)
-	    	    ll.sn1[[b]] <- logLik(ffr.sn1)
+	    	    # ll.sn1[[b]] <- logLik(ffr.sn1)
 	    	    # ll.sn2[[b]] <- logLik(ffr.sn2)
 	    	    # ll.sn3[[b]] <- logLik(ffr.sn3)
 	    	    
@@ -207,7 +207,7 @@ for(i in 1:length(datasets)){
 	    	    aicc.hollingII[[b]] <- AICc(ffr.hollingII)
 	    	    aicc.bd[[b]] <- AICc(ffr.bd)
 	    	    aicc.cm[[b]] <- AICc(ffr.cm)
-	    	    aicc.sn1[[b]] <- AICc(ffr.sn1)
+	    	    # aicc.sn1[[b]] <- AICc(ffr.sn1)
 	    	    # aicc.sn2[[b]] <- AICc(ffr.sn2)
 	    	    # aicc.sn3[[b]] <- AICc(ffr.sn3)
 	    	    
@@ -215,7 +215,7 @@ for(i in 1:length(datasets)){
 	    	    rmse.hollingII[[b]] <- RMSE(d, ffr.hollingII, this.study, 'Holling.II')
 	    	    rmse.bd[[b]] <- RMSE(d, ffr.bd, this.study, 'Beddington.DeAngelis')
 	    	    rmse.cm[[b]] <- RMSE(d, ffr.cm, this.study, 'Crowley.Martin')
-	    	    rmse.sn1[[b]] <- RMSE(d, ffr.sn1, this.study, 'Stouffer.Novak.I')
+	    	    # rmse.sn1[[b]] <- RMSE(d, ffr.sn1, this.study, 'Stouffer.Novak.I')
 	    	    # rmse.sn2[[b]] <- RMSE(d, ffr.sn2, this.study, 'Stouffer.Novak.II')
 	    	    # rmse.sn3[[b]] <- RMSE(d, ffr.sn3, this.study, 'Stouffer.Novak.III')
 	    	  }
@@ -247,7 +247,7 @@ for(i in 1:length(datasets)){
   					boots.hollingII[,,b] <- mytidy(ffr.hollingII)
   					boots.bd[,,b] <- mytidy(ffr.bd)
   					boots.cm[,,b] <- mytidy(ffr.cm)
-  					boots.sn1[,,b] <- mytidy(ffr.sn1)
+  					# boots.sn1[,,b] <- mytidy(ffr.sn1)
   					# boots.SN.Numer[,,b] <- mytidy(ffr.sn2)
   					# boots.SN.III[,,b] <- mytidy(ffr.sn3)
   				}
@@ -278,7 +278,7 @@ for(i in 1:length(datasets)){
 			ests.hollingII <- as.array(apply(boots.hollingII, c(1,2), summarize.boots))
 			ests.bd <- as.array(apply(boots.bd, c(1,2), summarize.boots))
 			ests.cm <- as.array(apply(boots.cm, c(1,2), summarize.boots))
-			ests.sn1 <- as.array(apply(boots.sn1, c(1,2), summarize.boots))
+			# ests.sn1 <- as.array(apply(boots.sn1, c(1,2), summarize.boots))
 			# ests.sn2 <- as.array(apply(boots.sn2,c(1,2), summarize.boots))
 			# ests.sn3 <- as.array(apply(boots.sn3,c(1,2), summarize.boots))
 			
@@ -286,7 +286,7 @@ for(i in 1:length(datasets)){
 			LL.hollingII <- summarize.boots(ll.hollingII)
 			LL.bd <- summarize.boots(ll.bd)
 			LL.cm <- summarize.boots(ll.cm)
-			LL.sn1 <- summarize.boots(ll.sn1)
+			# LL.sn1 <- summarize.boots(ll.sn1)
 			# LL.sn2 <- summarize.boots(ll.sn2)
 			# LL.sn3 <- summarize.boots(ll.sn3)
 			
@@ -294,7 +294,7 @@ for(i in 1:length(datasets)){
 			AICc.hollingII <- summarize.boots(aicc.hollingII)
 			AICc.bd <- summarize.boots(aicc.bd)
 			AICc.cm <- summarize.boots(aicc.cm)
-			AICc.sn1 <- summarize.boots(aicc.sn1)
+			# AICc.sn1 <- summarize.boots(aicc.sn1)
 			# AICc.sn2 <- summarize.boots(aicc.sn2)
 			# AICc.sn3 <- summarize.boots(aicc.sn3)
 			
@@ -302,7 +302,7 @@ for(i in 1:length(datasets)){
 			RMSE.hollingII <- summarize.boots(rmse.hollingII)
 			RMSE.bd <- summarize.boots(rmse.bd)
 			RMSE.cm <- summarize.boots(rmse.cm)
-			RMSE.sn1 <- summarize.boots(rmse.sn1)
+			# RMSE.sn1 <- summarize.boots(rmse.sn1)
 			# RMSE.sn2 <- summarize.boots(rmse.sn2)
 			# RMSE.sn3 <- summarize.boots(rmse.sn3)
 		}
@@ -350,7 +350,7 @@ for(i in 1:length(datasets)){
           	  	  Holling.II = ffr.hollingII,
           	  	  Beddington.DeAngelis = ffr.bd,
           	  	  Crowley.Martin = ffr.cm,
-          	  	  Stouffer.Novak.I = ffr.sn1,
+          	  	  # Stouffer.Novak.I = ffr.sn1,
           	  	  # Stouffer.Novak.II = ffr.sn2,
           	  	  # Stouffer.Novak.III = ffr.sn3,
           	  	  Ratio = ffr.ratio,
@@ -363,7 +363,7 @@ for(i in 1:length(datasets)){
                   	Holling.II = boots.hollingII,
                   	Beddington.DeAngelis = boots.bd,
                   	Crowley.Martin = boots.cm,
-                  	Stouffer.Novak.I = boots.sn1,
+                  	# Stouffer.Novak.I = boots.sn1,
                   	# Stouffer.Novak.II = boots.sn2,
                   	# Stouffer.Novak.III = boots.sn3,
                   	Ratio = boots.ratio,
@@ -377,7 +377,7 @@ for(i in 1:length(datasets)){
           	  	  Holling.II = LL.hollingII,
           	  	  Beddington.DeAngelis = LL.bd,
           	  	  Crowley.Martin = LL.cm,
-          	  	  Stouffer.Novak.I = LL.sn1,
+          	  	  # Stouffer.Novak.I = LL.sn1,
           	  	  # Stouffer.Novak.II = LL.sn2,
           	  	  # Stouffer.Novak.III = LL.sn3,
           	  	  Ratio = LL.ratio,
@@ -390,7 +390,7 @@ for(i in 1:length(datasets)){
             	  	  Holling.II = AICc.hollingII,
             	  	  Beddington.DeAngelis = AICc.bd,
             	  	  Crowley.Martin = AICc.cm,
-            	  	  Stouffer.Novak.I = AICc.sn1,
+            	  	  # Stouffer.Novak.I = AICc.sn1,
             	  	  # Stouffer.Novak.II = AICc.sn2,
             	  	  # Stouffer.Novak.III = AICc.sn3,
             	  	  Ratio = AICc.ratio,
@@ -403,7 +403,7 @@ for(i in 1:length(datasets)){
           	  	  Holling.II = RMSE.hollingII,
           	  	  Beddington.DeAngelis = RMSE.bd,
           	  	  Crowley.Martin = RMSE.cm,
-          	  	  Stouffer.Novak.I = RMSE.sn1,
+          	  	  # Stouffer.Novak.I = RMSE.sn1,
           	  	  # Stouffer.Novak.II = RMSE.sn2,
           	  	  # Stouffer.Novak.III = RMSE.sn3,
           	  	  Ratio = RMSE.ratio,
@@ -416,7 +416,7 @@ for(i in 1:length(datasets)){
               			    Holling.II = ests.hollingII,
               			    Beddington.DeAngelis = ests.bd,
               			    Crowley.Martin = ests.cm,
-              			    Stouffer.Novak.I = ests.sn1,
+              			    # Stouffer.Novak.I = ests.sn1,
               			    # Stouffer.Novak.Numer = ests.sn2,
               			    # Stouffer.Novak.III = ests.sn3,
               			    Ratio = ests.ratio,

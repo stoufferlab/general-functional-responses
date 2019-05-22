@@ -17,21 +17,21 @@ source(sp)
 #############################################
 
 # For integration method, define the ode in C++ format
-holling.like.1pred.1prey.sys = '
-  // generalized functional response for one predator one prey
-    dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
-
-  // consumption rate cannot be positive
-    if(dxdt[0] > 0) dxdt[0] = 0;
-'
-
-# compile the above C++ code into something we can run in R
-odeintr::compile_sys(
-  "hl_1pred_1prey",
-  holling.like.1pred.1prey.sys,
-  pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering"),
-  method="rk5" # (rk5 recommended by odint developer; see ?compile_sys)
-)
+# holling.like.1pred.1prey.sys = '
+#   // generalized functional response for one predator one prey
+#     dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
+#   
+#   // consumption rate cannot be positive
+#     if(dxdt[0] > 0) dxdt[0] = 0;
+# '
+# 
+# # compile the above C++ code into something we can run in R
+# odeintr::compile_sys(
+#   "hl_1pred_1prey",
+#   holling.like.1pred.1prey.sys,
+#   pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering") #,
+#   # method = "bsd"
+# )
 
 
 # predicted number of species consumed given parameters of a holling-like functional response
@@ -128,10 +128,9 @@ holling.like.1pred.1prey.NLL = function(params,
                                         predators, 
                                         replacement, 
                                         Pminus1, 
-                                        time=NULL,
-                                        overdispersion=FALSE){
+                                        time=NULL){
   
-  set_params(params, modeltype, overdispersion)
+  set_params(params, modeltype)
 
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){
@@ -174,12 +173,8 @@ holling.like.1pred.1prey.NLL = function(params,
 	}else{
 		# negative log likelihood based on proportion consumed (no replacement)
 		if(!replacement){
-		  # warnings suppressed because direct integration can return prob = 0 or 1, which results in NaNs
-		  if(!overdispersion){
-  			nll <- suppressWarnings( -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE)) )
-		  }else{
-		    nll <- -sum(dbetabinom(killed, prob=Nconsumed/initial, size=initial, theta=theta, log=TRUE))
-		  }
+			# nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
+			nll <- -sum(dbetabinom(killed, prob=Nconsumed/initial, size=initial, theta=theta, log=TRUE))
 			if(is.nan(nll)){
 			  nll <- Inf
 			}
@@ -188,8 +183,8 @@ holling.like.1pred.1prey.NLL = function(params,
 
 		# negative log likelihood based on total number consumed (replacement)
 		if(replacement){
-			  nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
-		    # nll <- -sum(dnbinom(killed, size=1, mu=0.5, log=TRUE))
+			# nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
+			nll <- -sum(dnbinom(killed, mu=Nconsumed, size=theta, log=TRUE))
 			return(nll)
 		}
 	}
@@ -200,6 +195,7 @@ holling.like.1pred.1prey.NLL = function(params,
 # needed by mle2 to pass named parameters in the right order
 # DEBUG there must be a more elegant way to do this "within" the function itself
 parnames(holling.like.1pred.1prey.NLL) <- c(
+  'theta',
 	'attack',
 	'theta',
 	'handling',
@@ -216,10 +212,10 @@ fit.holling.like <- function(d, s,
                              ...){
 
 	# estimate starting value from the data using linear regression
-	start <- list(
-	  theta = 1E2,
-	  attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
-	)
+  start <- list(
+    theta = log(100),
+    attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
+  )
 
 	# fit Holling Type I via MLE with above starting parameter value
 	hollingI.via.sbplx <- nloptr::sbplx(
@@ -236,10 +232,10 @@ fit.holling.like <- function(d, s,
 		...
 	)
 
+	# refit with mle2 since this also estimates the covariance matrix for the parameters
 	mle2.start <- as.list(hollingI.via.sbplx$par)
 	names(mle2.start) <- names(start)
 	
-	# refit with mle2 since this also estimates the covariance matrix for the parameters
 	hollingI.via.mle2 <- bbmle::mle2(
 		minuslogl = holling.like.1pred.1prey.NLL,
 		start = mle2.start,
@@ -264,7 +260,7 @@ fit.holling.like <- function(d, s,
 	else{
 		# fit Holling II first
 		start <- list(
-		  theta = 1E2,
+		  theta = log(100),
 			attack = coef(hollingI.via.mle2)["attack"],
 			handling = log(1)
 		)
@@ -310,7 +306,7 @@ fit.holling.like <- function(d, s,
 		}else{
 			if(modeltype == "Beddington.DeAngelis"){
 				start <- list(
-				  theta = 1E2,
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1)
@@ -319,7 +315,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Crowley.Martin"){
 				start <- list(
-				  theta = 1E2,
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1)
@@ -328,7 +324,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.I"){
 				start <- list(
-				  theta = 1E2,
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),
@@ -338,7 +334,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.II"){
 				start <- list(
-				  theta = 1E2,
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),
@@ -348,7 +344,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.III"){
 				start <- list(
-				  theta = 1E2,
+				  theta = log(100),
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),

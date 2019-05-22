@@ -11,28 +11,28 @@ library(bbmle)
 library(nloptr)
 library(lamW)
 library(odeintr)
-library(extraDistr) # for beta-binomial
+library(emdbook) # for beta-binomial 
 
 sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, include.dirs=TRUE)
 source(sp)
 #############################################
 
 # For integration method, define the ode in C++ format
-ratio.like.1pred.1prey.sys = '
-  // ratio-dependent-family of functional responses for one predator one prey
-  dxdt[0] = -P * (a * x[0]) / (pow(P , m) + a * h * x[0]);
-
-  // consumption rate cannot be positive
-  if(dxdt[0] > 0) dxdt[0] = 0;
-'
-
-# compile the above C++ code into something we can run in R
-odeintr::compile_sys(
-  "ratio_1pred_1prey",
-  ratio.like.1pred.1prey.sys,
-  pars = c("a", "h", "m", "P"),
-  method = "rk5" # (rk5 recommended by odint developer; see ?compile_sys)
-)
+# ratio.like.1pred.1prey.sys = '
+#   // ratio-dependent-family of functional responses for one predator one prey
+#   dxdt[0] = -P * (a * x[0]) / (pow(P , m) + a * h * x[0]);
+#   
+#   // consumption rate cannot be positive
+#   if(dxdt[0] > 0) dxdt[0] = 0;
+# '
+# 
+# # compile the above C++ code into something we can run in R
+# odeintr::compile_sys(
+#   "ratio_1pred_1prey",
+#   ratio.like.1pred.1prey.sys,
+#   pars = c("a", "h", "m", "P") #,
+#   # method = "bsd"
+# )
 
 # predicted number of species consumed given parameters of a ratio-dependent family functional response
 ratio.like.1pred.1prey = function(N0, a, h, m, P, T, 
@@ -152,8 +152,8 @@ ratio.like.1pred.1prey.NLL = function(params,
 	}else{
 		# negative log likelihood based on proportion consumed (no replacement)
 		if(!replacement){
-		  # warnings suppressed because direct integration can return prob = 0 or 1, which results in NaNs
-			nll <- suppressWarnings( -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE)) )
+			# nll <-  -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
+			nll <- -sum(dbetabinom(killed, prob=Nconsumed/initial, size=initial, theta=theta, log=TRUE))
 			if(is.nan(nll)){
 			  nll <- Inf
 			}
@@ -162,7 +162,8 @@ ratio.like.1pred.1prey.NLL = function(params,
 
 		# negative log likelihood based on total number consumed (replacement)
 		if(replacement){
-			nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
+			# nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
+			nll <- -sum(dnbinom(killed, mu=Nconsumed, size=theta, log=TRUE))
 			return(nll)
 		}
 	}
@@ -172,6 +173,7 @@ ratio.like.1pred.1prey.NLL = function(params,
 
 # needed by mle2 to pass named parameters in the right order
 parnames(ratio.like.1pred.1prey.NLL) <- c(
+  'theta',
 	'attack',
 	'handling',
 	'exponent'
@@ -185,13 +187,14 @@ fit.ratio.like <- function(d, s,
                            ...){
   
 	# estimate starting value from the data using linear regression
-	# x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey / d$Npredator))))  # could cancel P, but left in for clarity
-	x0 <- log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
-	names(x0) <- "attack"
+  start <- list(
+    theta = log(100),
+    attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
+  )
 	
 	# fit Ratio ("Type I") via MLE with above starting parameter value
 	ratio.via.sbplx <- nloptr::sbplx(
-		x0 = x0,
+		x0 = unlist(start),
 		fn = ratio.like.1pred.1prey.NLL,
 		modeltype="Ratio",
 		initial=d$Nprey,
@@ -204,11 +207,12 @@ fit.ratio.like <- function(d, s,
 	)
 
 	# refit with mle2 since this also estimates the covariance matrix for the parameters
+	mle2.start <- as.list(ratio.via.sbplx$par)
+	names(mle2.start) <- names(start)
+	
 	ratio.via.mle2 <- bbmle::mle2(
 		minuslogl = ratio.like.1pred.1prey.NLL,
-		start = list(
-			attack = ratio.via.sbplx$par[1]
-		),
+		start = mle2.start,
 		data = list(
 			modeltype="Ratio",
 			initial=d$Nprey,
@@ -229,6 +233,7 @@ fit.ratio.like <- function(d, s,
 	else{
 	  # fit Arditi-Ginzburg (Ratio type II) first
 	  start <- list(
+	    theta = log(100),
 	    attack = coef(ratio.via.mle2)["attack"],
 	    handling = log(1)
 	  )
@@ -271,6 +276,7 @@ fit.ratio.like <- function(d, s,
 	  }else{
 	    if(modeltype == "Hassell.Varley"){
 	      start <- list(
+	        theta = log(100),
 	        attack = coef(ratio.via.mle2)["attack"],
 	        # handling = 0,
 	        exponent = log(1)
@@ -279,6 +285,7 @@ fit.ratio.like <- function(d, s,
 	    
 	    if(modeltype == "Arditi.Akcakaya"){
 	      start <- list(
+	        theta = log(100),
 	        attack = coef(ag.via.mle2)["attack"],
 	        handling = log(1),
 	        exponent = log(1)
