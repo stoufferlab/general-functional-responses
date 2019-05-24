@@ -159,3 +159,23 @@ par(mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i',xaxs='i
   box(lwd=1,bty='l')
 dev.off()
 
+######################################################
+# ~~~~~~~~~~~~~~~~ AA overdispersion ~~~~~~~~~~~~~~~~~
+######################################################
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_theta.pdf',height=6,width=5)
+par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
+plot.coefs(
+  ffr.fits,
+  model="Arditi.Akcakaya",
+  parameter="theta",
+  ilink=identity,
+  point.est='median',
+  plot.SEs=TRUE,
+  display.outlier.ests=TRUE,
+  xlab=expression(paste("Overdispersion log",(theta))),
+  labels=labels,
+  xlim=c(-2,25),
+  vertLines=log(10)
+)
+dev.off()
+

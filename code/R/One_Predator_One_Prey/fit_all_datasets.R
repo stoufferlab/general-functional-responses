@@ -100,7 +100,7 @@ for(i in 1:length(datasets)){
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
-			boot.reps <- 1
+			boot.reps <- 250
 		}else{
 			boot.reps <- 1
 		}
