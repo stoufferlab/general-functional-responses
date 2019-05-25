@@ -52,7 +52,12 @@ AAM.NLL = function(
   # Expected number consumed given data and parameters
   # The method assumes Holling Type II functional response at each predator abundance level
   # Use holling.like.1pred.1prey() and reduce to Holling type 2
-  Nconsumed <- holling.like.1pred.1prey(N0=initial, a=attack, h=handling, c=0, phi_numer=1, phi_denom=1, P=predators, T=time, replacement=replacement, Pminus1=FALSE, overrideTranscendental=TRUE)
+  Nconsumed <- holling.like.1pred.1prey(N0=initial, a=attack, h=handling, c=0, phi_numer=1, phi_denom=1, P=predators, 
+                                        T=time, 
+                                        replacement=replacement, 
+                                        Pminus1=FALSE,
+                                        integrate=FALSE,
+                                        overrideTranscendental=TRUE)
   
   # If the parameters are not biologically plausible, neither should be the likelihood
   if(any(Nconsumed < 0 | is.nan(Nconsumed))){
