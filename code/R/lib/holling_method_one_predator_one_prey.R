@@ -260,7 +260,7 @@ fit.holling.like <- function(d, s,
 	else{
 		# fit Holling II first
 		start <- list(
-		  theta = log(100),
+		  theta = coef(hollingI.via.mle2)["theta"],
 			attack = coef(hollingI.via.mle2)["attack"],
 			handling = log(1)
 		)
@@ -276,9 +276,8 @@ fit.holling.like <- function(d, s,
 			time = d$Time,
 			replacement = s$replacement,
 			Pminus1 = s$Pminus1,
-			control = nloptr.control
-			# ,
-			# ...
+			control = nloptr.control,
+			...
 		)
 
 		mle2.start <- as.list(hollingII.via.sbplx$par)
@@ -306,7 +305,7 @@ fit.holling.like <- function(d, s,
 		}else{
 			if(modeltype == "Beddington.DeAngelis"){
 				start <- list(
-				  theta = log(100),
+				  theta = coef(hollingII.via.mle2)["theta"],
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1)
@@ -315,7 +314,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Crowley.Martin"){
 				start <- list(
-				  theta = log(100),
+				  theta = coef(hollingII.via.mle2)["theta"],
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1)
@@ -324,7 +323,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.I"){
 				start <- list(
-				  theta = log(100),
+				  theta = coef(hollingII.via.mle2)["theta"],
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),
@@ -334,7 +333,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.II"){
 				start <- list(
-				  theta = log(100),
+				  theta = coef(hollingII.via.mle2)["theta"],
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),
@@ -344,7 +343,7 @@ fit.holling.like <- function(d, s,
 
 			if(modeltype == "Stouffer.Novak.III"){
 				start <- list(
-				  theta = log(100),
+				  theta = coef(hollingII.via.mle2)["theta"],
 					attack = coef(hollingII.via.mle2)["attack"],
 					handling = log(1), #coef(fit.via.mle2)["handling"],
 					interference = log(1),

@@ -233,7 +233,7 @@ fit.ratio.like <- function(d, s,
 	else{
 	  # fit Arditi-Ginzburg (Ratio type II) first
 	  start <- list(
-	    theta = log(100),
+	    theta = coef(ratio.via.mle2)["theta"],
 	    attack = coef(ratio.via.mle2)["attack"],
 	    handling = log(1)
 	  )
@@ -276,16 +276,15 @@ fit.ratio.like <- function(d, s,
 	  }else{
 	    if(modeltype == "Hassell.Varley"){
 	      start <- list(
-	        theta = log(100),
+	        theta = coef(ratio.via.mle2)["theta"],
 	        attack = coef(ratio.via.mle2)["attack"],
-	        # handling = 0,
 	        exponent = log(1)
 	      )
 	    }
 	    
 	    if(modeltype == "Arditi.Akcakaya"){
 	      start <- list(
-	        theta = log(100),
+	        theta = coef(ag.via.mle2)["theta"],
 	        attack = coef(ag.via.mle2)["attack"],
 	        handling = log(1),
 	        exponent = log(1)
