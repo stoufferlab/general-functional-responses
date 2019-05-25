@@ -201,7 +201,7 @@ parnames(holling.like.1pred.1prey.NLL) <- c(
 	'handling',
 	'interference',
 	'phi_numer',
-	'phi_denom',
+	'phi_denom'
 )
 
 # given data (d), study info (s), and modeltype (e.g., "Holling I"), fit functional response data
