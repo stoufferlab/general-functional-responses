@@ -45,7 +45,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # datasets <- c("./Dataset_Code/Elliot_2003_d.R")
 # datasets <- c("./Dataset_Code/Elliot_2005_i2.R")
 
-# datasets <- datasets[1]
+datasets <- datasets[1]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Let's start analyzing!
@@ -435,6 +435,8 @@ for(i in 1:length(datasets)){
   	}
 	}
 }
+sink(type="message")
+close(Mesgs)
 
 # save a mega container
 ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits')
