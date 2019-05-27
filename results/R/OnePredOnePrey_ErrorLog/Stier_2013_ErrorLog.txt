@@ -1,7 +1,356 @@
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================================] 100% eta:  0s
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = 109.417864706356, attack = 137.55086437049,  : 
+  initial value in 'vmmin' is not finite
+
+Yes to Uttley_1980_i1

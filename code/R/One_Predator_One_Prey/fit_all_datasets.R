@@ -35,7 +35,6 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
-
 # check to see which datasets have been fit (and thus on't bother refitting them)
 # datasets.fitted <- list.files('../../../results/R/OnePredOnePrey_fits/', full.names=FALSE, include.dirs=FALSE)
 # datasets.fitted <- gsub('*data$','',datasets.fitted)
@@ -44,9 +43,10 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 # select focal dataset for testing
 # datasets <- c("./Dataset_Code/Walde_1984.R")
 
-datasets=datasets[1]
-# datasets=datasets[24]
-# datasets=datasets[12]
+# datasets=datasets[1]
+
+# Problems: Long, Omkar, (Stier), Wasserman
+datasets <- datasest[-c(60,69,87)]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Let's start analyzing!
@@ -438,6 +438,7 @@ for(i in 1:length(datasets)){
   	}
 	}
 }
+sink(type="message")
 close(Mesgs)
 
 # save a mega container

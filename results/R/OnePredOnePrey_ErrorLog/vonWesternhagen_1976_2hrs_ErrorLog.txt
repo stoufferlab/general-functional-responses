@@ -1,543 +1,2225 @@
-  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta:  6mError in optim(par = c(a1 = -2.18326212546222, a2 = 1.20141403853936,  : 
-  non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [>--------------------------------------------------]   1% eta: 12mError in optim(par = c(a1 = -1.99807446366294, a2 = 1.36923832936257,  : 
+  bootstrapping [---------------------------------------------------]   0% eta:  0sError in optim(par = c(theta = 46.2746805714016, attack = -5.93707029388785,  : 
   non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [>--------------------------------------------------]   2% eta: 15m  bootstrapping [>--------------------------------------------------]   2% eta: 14m  bootstrapping [>--------------------------------------------------]   2% eta: 13mError in optim(par = c(a1 = -3.73751416359042, a2 = 1.29037384144138,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 2.08438706515281, a2 = -4.12297724822131,  : 
+  bootstrapping [---------------------------------------------------]   1% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   1% eta:  9mError in optim(par = c(theta = 3.10050102330741, attack = -2.75843679004054,  : 
   non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [>--------------------------------------------------]   3% eta: 16mWarning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+  bootstrapping [>--------------------------------------------------]   2% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 2.21624725796717, a2 = -2.33019344786965,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [>--------------------------------------------------]   2% eta: 13mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
-  bootstrapping [=>-------------------------------------------------]   3% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.27262307491238, a2 = -4.14615157645924,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.84048216675075, a2 = -1.71396295247701,  : 
+  non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   4% eta: 15m  bootstrapping [=>-------------------------------------------------]   4% eta: 14mError in optim(par = c(theta = 3.64585927614239, attack = 18.4121600944034,  : 
-  non-finite finite-difference value [3]
+  bootstrapping [>--------------------------------------------------]   3% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   3% eta: 16mError in optim(par = c(theta = 54.5969712765435, attack = -3.81278026509617,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 4.10540483703818, attack = 35.4268740785499,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 42.1275107756888, attack = -2.52337557110251,  : 
+  non-finite finite-difference value [1]
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
+  -Inf replaced by maximally negative value
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   5% eta: 14mError in optim(par = c(a1 = 2.00700055427644, a2 = -3.42619315310306,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.76226144072523, a2 = -3.11705513817173,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [==>------------------------------------------------]   5% eta: 16mError in optim(par = c(a1 = 1.91464761684504, a2 = -2.99952898875128,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [==>------------------------------------------------]   6% eta: 16mError in optim(par = c(a1 = 1.47506835983329, a2 = 1.48756095638249, a3 = -2.90136133519961,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(theta = 23.9715044548426, attack = 0.472293929462635,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   4% eta: 16mError in optim(par = c(a1 = -2.20105004744779, a2 = 1.87636454116325,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.37829603815221, a2 = 1.78789628369554,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   4% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -2.50448380760384, a2 = 1.45963789778742,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(theta = 3.5715336806617, attack = -4.00414262179479,  : 
   non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==>------------------------------------------------]   6% eta: 17m  bootstrapping [==>------------------------------------------------]   6% eta: 16m  bootstrapping [==>------------------------------------------------]   7% eta: 16m  bootstrapping [===>-----------------------------------------------]   7% eta: 16mError in optim(par = c(a1 = -2.03746307028516, a2 = 1.41744859343251,  : 
+  bootstrapping [=>-------------------------------------------------]   5% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==>------------------------------------------------]   5% eta: 17mError in optim(par = c(a1 = -2.77060575494361, a2 = 1.44955684629037,  : 
   non-finite finite-difference value [2]
+Error in optim(par = c(theta = 44.4244903943161, attack = -5.71071158935392,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [==>------------------------------------------------]   6% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==>------------------------------------------------]   7% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   7% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
   bootstrapping [===>-----------------------------------------------]   8% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===>-----------------------------------------------]   8% eta: 15m  bootstrapping [===>-----------------------------------------------]   9% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====>----------------------------------------------]   9% eta: 15m  bootstrapping [====>----------------------------------------------]  10% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====>---------------------------------------------]  11% eta: 14mError in optim(par = c(a1 = -2.75850701113717, a2 = 1.42518750401765,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [=====>---------------------------------------------]  12% eta: 14mError in optim(par = c(a1 = -2.71125525001851, a2 = 1.33041446503363,  : 
-  non-finite finite-difference value [2]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======>--------------------------------------------]  13% eta: 14m  bootstrapping [======>--------------------------------------------]  13% eta: 13mError in optim(par = c(a1 = -3.74196551504244, a2 = 1.32723938488585,  : 
-  non-finite finite-difference value [2]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======>--------------------------------------------]  14% eta: 14mError in optim(par = c(theta = 4.80570696290098, attack = 11.4244072246028,  : 
-  non-finite finite-difference value [3]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [======>--------------------------------------------]  14% eta: 13mError in optim(par = c(a1 = 2.17389196888814, a2 = -2.23377675398773,  : 
+Error in optim(par = c(a1 = 2.1824081450833, a2 = -0.650741851089397,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.34148138825115, a2 = -2.71903895626787,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [======>--------------------------------------------]  14% eta: 14mError in optim(par = c(a1 = -2.17135099265603, a2 = -3.57332775001705,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -0.943975102969511, a2 = 1.43569772611768,  : 
-  non-finite finite-difference value [2]
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  15% eta: 14mError in optim(par = c(a1 = -0.637654366282768, a2 = 1.5294144705618,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 1.39611073176536, a2 = -2.01324698445758,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.18919052891089, a2 = -2.90530056577028,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=======>-------------------------------------------]  16% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  16% eta: 14mError in optim(par = c(a1 = 1.28621161741246, a2 = -3.8206811987501, a3 = -2.81540581776714,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  16% eta: 15mError in optim(par = c(a1 = 1.58451948840628, a2 = -3.00701585956599,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  17% eta: 15mError in optim(par = c(a1 = 1.3391888631113, a2 = -2.62849488015904, a3 = -3.01894526575602,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = 1.60036159633223, a2 = 1.61453372602395, a3 = -1.92440351137281,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  18% eta: 15mError in optim(par = c(a1 = -1.66331625217889, a2 = 1.15457043754703,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -3.75990480440601, a2 = 1.56260700999922,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=========>-----------------------------------------]  19% eta: 15mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========>-----------------------------------------]  19% eta: 14mError in optim(par = c(a1 = -2.62873144599416, a2 = -48.1846217552526,  : 
-  non-finite finite-difference value [6]
-  bootstrapping [=========>-----------------------------------------]  20% eta: 14mError in optim(par = c(a1 = -2.54071939902263, a2 = 1.54323944693151,  : 
-  non-finite finite-difference value [2]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = 1.40756301250534, a2 = 1.41923382605314, a3 = -4.87740484238916,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========>----------------------------------------]  21% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========>----------------------------------------]  22% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  23% eta: 13mError in optim(par = c(a1 = 1.51472950770189, a2 = 1.52773084516664, a3 = -2.53375980599174,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  24% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -2.98770154672565, a2 = 1.44355663785993,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(theta = 3.29793101638904, attack = 1.35194485118938,  : 
+Error in optim(par = c(a1 = -0.809183285632652, a2 = 1.52143480836457,  : 
   non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============>--------------------------------------]  25% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============>--------------------------------------]  26% eta: 13mError in optim(par = c(a1 = 2.0631219048469, a2 = -2.76893299142505, a3 = -4.88907530104748,  : 
+  bootstrapping [===>-----------------------------------------------]   8% eta: 17mError in optim(par = c(a1 = 2.29734750226082, a2 = -2.79022543550897,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.57297473078221, a2 = 1.58676124215116, a3 = -5.71510702521984,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.88042889890025, a2 = -2.91695273272583,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  27% eta: 13m  bootstrapping [=============>-------------------------------------]  28% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -4.52549993432962, a2 = 1.60169963330158,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 1.75877875554549, a2 = -3.35900224836638,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============>------------------------------------]  29% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============>------------------------------------]  30% eta: 12mError in optim(par = c(a1 = -2.77305004981345, a2 = 1.45448576670756,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [===============>-----------------------------------]  30% eta: 12m  bootstrapping [===============>-----------------------------------]  31% eta: 12m  bootstrapping [===============>-----------------------------------]  32% eta: 12m  bootstrapping [===============>-----------------------------------]  32% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  32% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  33% eta: 11mError in optim(par = c(a1 = 1.88796781267452, a2 = 0.248190662769628,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.97818594442778, a2 = 1.34096522919519,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 1.76297907303672, a2 = -2.91569989994653,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(theta = 20.5985714032427, attack = 0.45835278635091,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [================>----------------------------------]  34% eta: 11mError in optim(par = c(a1 = 1.7729803608027, a2 = -4.08884146136227, a3 = -3.1646980077014,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=================>---------------------------------]  34% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  35% eta: 11m  bootstrapping [=================>---------------------------------]  36% eta: 11mError in optim(par = c(a1 = -2.15935700997699, a2 = -3.39438533322095,  : 
-  non-finite finite-difference value [3]
-  bootstrapping [==================>--------------------------------]  36% eta: 11m  bootstrapping [==================>--------------------------------]  37% eta: 11mError in optim(par = c(a1 = 1.82868149210757, a2 = -5.35910061212693,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.05580120307956, a2 = -2.23077747010218,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  38% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  38% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  38% eta: 10mError in optim(par = c(a1 = 1.86016034277099, a2 = 0.960529894324217,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [===================>-------------------------------]  39% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.09744631323256, a2 = -2.57049648450807,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.78382205198678, a2 = 0.814259472662402,  : 
-  non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.07578690770013, a2 = -0.560731735111063,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  40% eta: 10mError in optim(par = c(a1 = 1.49324791252644, a2 = 1.50597116615726, a3 = -2.34148785043885,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [====================>------------------------------]  40% eta: 10mError in optim(par = c(a1 = 2.08784832712842, a2 = -1.64617087874472,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [====================>------------------------------]  41% eta: 10mError in optim(par = c(a1 = 1.5712355909382, a2 = 1.58499794801827, a3 = -4.96654540263586,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.94444010333702, a2 = -4.10611647483487,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.63389653487645, a2 = -5.32885242683372,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [====================>------------------------------]  42% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  42% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  43% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  44% eta: 10mError in optim(par = c(a1 = 1.80119559315047, a2 = -3.62486236590108,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -4.48595541017335, a2 = 1.23300025178425,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.07029043115974, a2 = -3.28793835543514,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [======================>----------------------------]  44% eta: 10m  bootstrapping [======================>----------------------------]  45% eta: 10mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.17770502373633, a2 = -3.48011107660548,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 2.19916054036246, a2 = -4.13642937283279,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  46% eta:  9mError in optim(par = c(a1 = 1.7779954677436, a2 = -3.35463719987321, a3 = -4.86975229328836,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.80074909083226, a2 = 1.51045549847261,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=======================>---------------------------]  46% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  47% eta:  9mError in optim(par = c(a1 = 2.20494534206432, a2 = -5.41200122887876,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=======================>---------------------------]  48% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  48% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  49% eta:  9mError in optim(par = c(a1 = -1.06445715081035, a2 = 1.50865012245622,  : 
+Error in optim(par = c(a1 = -1.85627754959016, a2 = 1.40532078671814,  : 
   non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  50% eta:  9m  bootstrapping [=========================>-------------------------]  50% eta:  9m  bootstrapping [=========================>-------------------------]  50% eta:  8mError in optim(par = c(a1 = 1.38650150701265, a2 = -2.50532013296376,  : 
+  bootstrapping [===>-----------------------------------------------]   9% eta: 17mError in optim(par = c(a1 = 1.17620625521795, a2 = -3.68516423038691,  : 
   non-finite finite-difference value [1]
-  bootstrapping [=========================>-------------------------]  51% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====>----------------------------------------------]   9% eta: 17m  bootstrapping [====>----------------------------------------------]  10% eta: 17mError in optim(par = c(theta = 2.8695981717741, attack = 32.3906284410293,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Unweighted regression used..
-  bootstrapping [=========================>-------------------------]  52% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  52% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  53% eta:  8mError in optim(par = c(a1 = 1.56896500565616, a2 = 0.179449648279242,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====>---------------------------------------------]  11% eta: 16mError in optim(par = c(a1 = -0.357221291176393, a2 = 1.41087778160031,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 2.1608581920219, a2 = -4.13152323649572, a3 = -4.70394691515077,  : 
   non-finite finite-difference value [1]
+  bootstrapping [=====>---------------------------------------------]  11% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  54% eta:  8mError in optim(par = c(a1 = -1.87764987580058, a2 = 1.45701516881657,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [===========================>-----------------------]  54% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====>---------------------------------------------]  12% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  55% eta:  8m  bootstrapping [===========================>-----------------------]  56% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================>----------------------]  56% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -1.06771164681242, a2 = 1.37566578367977,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 1.86127703670743, a2 = 1.73476622985307, a3 = -5.10803304266218,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [============================>----------------------]  57% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================>----------------------]  58% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  58% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = 1.86943950309838, a2 = 0.564715232899963,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=============================>---------------------]  59% eta:  7m  bootstrapping [=============================>---------------------]  60% eta:  7mError in optim(par = c(a1 = -2.61234869511104, a2 = 1.13412021343379,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.02232425557638, a2 = 1.56128994479457,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -2.77346730741217, a2 = 1.45532497453922,  : 
+  bootstrapping [=====>---------------------------------------------]  12% eta: 16mError in optim(par = c(a1 = -2.69154932188712, a2 = 1.29107741542263,  : 
   non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================>--------------------]  60% eta:  7m  bootstrapping [==============================>--------------------]  61% eta:  7mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=====>---------------------------------------------]  12% eta: 17m  bootstrapping [======>--------------------------------------------]  13% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [==============================>--------------------]  62% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  62% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  63% eta:  6mError in optim(par = c(a1 = -1.87461856302033, a2 = 1.44211767780067,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [===============================>-------------------]  64% eta:  6mError in optim(par = c(a1 = 1.84642157204585, a2 = -3.37604621785795,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [================================>------------------]  64% eta:  6mError in optim(par = c(a1 = 2.00938849571309, a2 = -2.27378847877202,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = 1.94254753411141, a2 = -5.37604746426178,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 2.02890786796858, a2 = -2.10975098638779,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.66344070511559, a2 = -2.73013195860859,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [================================>------------------]  65% eta:  6mError in optim(par = c(a1 = 2.00238654711401, a2 = -2.68301495402362,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [================================>------------------]  66% eta:  6m  bootstrapping [=================================>-----------------]  66% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  67% eta:  6mError in optim(par = c(a1 = -1.86929673702126, a2 = 1.43141583949647,  : 
-  non-finite finite-difference value [2]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 2.01827334884623, a2 = 0.436571402930059,  : 
+Error in optim(par = c(a1 = 1.6239885815842, a2 = -3.91415176243208, a3 = -2.37041755996457,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.62890396989696, a2 = -4.06645701802262,  : 
+Error in optim(par = c(theta = 50.0969897592291, attack = -0.892932326625341,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.64313375912336, attack = 0.50826580038975,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.42979695796069, a2 = -2.12282845936512,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 22.6026272195889, attack = -3.65825076515685,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======>--------------------------------------------]  13% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======>--------------------------------------------]  14% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 2.12332637874842, a2 = -2.52258336492526,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.06649135934944, a2 = -3.57950948355228,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -1.00883931091096, a2 = 1.31327835085853,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(theta = 41.179455639506, attack = -0.385394626253135,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  15% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.39543848064167, a2 = 1.40696931135369, a3 = -4.33815099639561,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=======>-------------------------------------------]  16% eta: 17mError in optim(par = c(theta = 3.10148222748599, attack = 32.3391699746801,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(a1 = -2.46246916322314, a2 = 1.36455031436779,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -37.8907513074061, a2 = -2.48400368178758,  : 
+  non-finite finite-difference value [6]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  17% eta: 17mError in optim(par = c(a1 = -1.32573623640964, a2 = -5.26779447932376,  : 
   non-finite finite-difference value [3]
-Error in optim(par = c(a1 = 1.95403203542298, a2 = -3.1933813927369, a3 = -3.5322537797514,  : 
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.72531139036352, a2 = -2.21668734844975,  : 
   non-finite finite-difference value [1]
-  bootstrapping [=================================>-----------------]  68% eta:  6m  bootstrapping [==================================>----------------]  68% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  69% eta:  5mError in optim(par = c(a1 = 2.23847129575344, a2 = -2.97309938000444,  : 
+  bootstrapping [========>------------------------------------------]  18% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  18% eta: 16mError in optim(par = c(theta = 47.8713350036881, attack = -5.65575295706361,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.62276034460709, a2 = 1.39203425948833, a3 = -3.09394348907011,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -2.66735315117318, a2 = 1.24292853241895,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [=========>-----------------------------------------]  19% eta: 17mError in optim(par = c(a1 = 2.2696416456016, a2 = -3.16252075354572, a3 = -3.42678882246349,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 2.17173974229149, a2 = -2.23001225740592,  : 
   non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  70% eta:  5mError in optim(par = c(a1 = 1.47966906081958, a2 = 1.49221952919871, a3 = -2.58104185256658,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 6.23398574013569, attack = 27.6037166939829,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -3.20567255065814, a2 = 1.52040843946895,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========>-----------------------------------------]  20% eta: 17mError in optim(par = c(theta = 5.63499772333478, attack = 0.447700377594845,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========>-----------------------------------------]  20% eta: 16mError in optim(par = c(a1 = -2.6644447435032, a2 = 1.84155604500445, a3 = -2.69234611846753,  : 
   non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================>---------------]  70% eta:  5mError in optim(par = c(a1 = 2.16306473115893, a2 = -5.40659991279179,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [===================================>---------------]  71% eta:  5mError in optim(par = c(a1 = 1.59507321391552, a2 = 1.39858231190608, a3 = -3.98455331522604,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -38.4402020595637, a2 = 1.33543955070492,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.38293233700515, a2 = 1.39431903705553, a3 = -3.04915250515546,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.50837322616513, a2 = 1.52129164890005, a3 = -2.76117364160539,  : 
-  non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  72% eta:  5mError in optim(par = c(a1 = 1.8835831955703, a2 = -2.45254369850616, a3 = -4.03017394671969,  : 
-  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -1.19359625626508, a2 = 1.31816856918083,  : 
+  bootstrapping [==========>----------------------------------------]  21% eta: 16mError in optim(par = c(theta = 4.70995520753591, attack = -3.16167371001111,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -1.36383145576377, a2 = 1.59389477322309,  : 
-  non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -48.7826291647232, a2 = 1.19836655220221,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  73% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  74% eta:  5mError in optim(par = c(a1 = 1.42437088561797, a2 = -2.25845172399178,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  74% eta:  4mError in optim(par = c(a1 = -3.19711797678599, a2 = 1.50778848526924,  : 
+Error in optim(par = c(a1 = -0.848796648555683, a2 = 1.39996129011466,  : 
   non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========>----------------------------------------]  22% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 5.1883267838278, attack = 32.255590149024,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 2.16955932121021, a2 = -2.60605436550696,  : 
+  non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  75% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========>---------------------------------------]  23% eta: 16mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = -2.48292793867932, a2 = 1.40221412069888,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 1.57686544634743, a2 = 1.53991543485573, a3 = -2.57917327420935,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -2.47781031118982, a2 = 1.39904942615882,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========>---------------------------------------]  24% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========>---------------------------------------]  24% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============>--------------------------------------]  25% eta: 15mError in optim(par = c(a1 = 2.25741564241383, a2 = -3.81666931596838,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============>--------------------------------------]  26% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -2.60383709827885, a2 = 1.11736306973051,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -2.29089208083045, a2 = 1.45824867171436,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  27% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  28% eta: 15m  bootstrapping [=============>-------------------------------------]  28% eta: 14mError in optim(par = c(a1 = -4.50430454828115, a2 = 1.41576260984101,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -1.29600151490936, a2 = 1.47883539608266,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.88875245195651, a2 = 0.91947437274564, a3 = -4.25145286704319,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.11123831416455, a2 = -3.8023967073938, a3 = -4.9281987441212,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -1.13845162634798, a2 = 1.63599473928131,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============>------------------------------------]  29% eta: 15mError in optim(par = c(theta = 5.36396075623751, attack = 30.6148355691329,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -1.76071164747304, a2 = 1.48779742661635,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 6.52289688364634, attack = -2.50938490110995,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [==============>------------------------------------]  30% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============>------------------------------------]  30% eta: 14mError in optim(par = c(theta = 4.37059904694084, attack = 20.6070497087988,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 6.82027298041107, attack = -2.2734698302715,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(theta = 3.93269736776126, attack = -3.37252687502557,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  30% eta: 14mError in optim(par = c(a1 = -3.20089489745925, a2 = 1.51336660264332,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  31% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  32% eta: 14mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.6268923596162, a2 = 1.5594264020667, a3 = -4.56201278921222,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  32% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  33% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  34% eta: 13mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  34% eta: 13mError in optim(par = c(a1 = 1.74151103459047, a2 = 0.903378007287618,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  35% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.99058619328276, a2 = -2.64457055475902,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 24.9786661551411, attack = 12.8781218903889,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -1.0569049581736, a2 = 1.51415572460436, a3 = -3.3289827987841,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  36% eta: 13mError in optim(par = c(a1 = 1.75287177505043, a2 = -4.08697856526805,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.48477179105743, a2 = 1.49738697204461, a3 = -2.81144962842613,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 4.98705938222835, attack = 31.4465872373209,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  36% eta: 13mError in optim(par = c(a1 = 2.05252671565033, a2 = -3.72486107085287,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
-Error in optim(par = c(a1 = 2.07788724520668, a2 = -0.833923939609728,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  37% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.58838025759483, a2 = 1.46459352196137, a3 = -1.96967380498852,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  38% eta: 13m  bootstrapping [===================>-------------------------------]  38% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  39% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 41.6320882059083, attack = 17.3563309525462,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  40% eta: 12mError in optim(par = c(theta = 4.33022682780051, attack = 32.7668472745896,  : 
   non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  76% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  40% eta: 12mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(theta * (1 - prob), theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in lbeta(size - x + theta * (1 - prob), x + theta * prob) :
+  underflow occurred in 'lgammacor'
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  41% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -2.72819858837858, a2 = 1.35475758371382,  : 
+  bootstrapping [====================>------------------------------]  42% eta: 12mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  42% eta: 11m  bootstrapping [=====================>-----------------------------]  42% eta: 11mError in optim(par = c(a1 = -1.89234797932997, a2 = 1.18206450040303,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 1.82955769049411, a2 = -3.0031163724513, a3 = -3.0209722496053,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.36399867283576, a2 = 1.14901629914155,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  43% eta: 11mError in optim(par = c(a1 = -2.44100875925271, a2 = 1.31670527329518,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 2.16918680800282, a2 = -2.93765300032248,  : 
+Error in optim(par = c(a1 = 1.46992886546742, a2 = -2.94555197084967,  : 
   non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  77% eta:  4mError in optim(par = c(a1 = 1.72581757762271, a2 = 1.00259689658603, a3 = -1.97415128139043,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  78% eta:  4mError in optim(par = c(a1 = 2.24336077539247, a2 = -2.46312613742505,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = 1.70344112980362, a2 = 0.952500953341393,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.86782316205238, a2 = 1.44335151611632,  : 
+Error in optim(par = c(a1 = -1.30200504621343, a2 = 1.55366118697311,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = -2.58313245133041, a2 = 1.07673920120937,  : 
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.70333423552986, a2 = 0.761158285934491,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -2.41681587735003, a2 = 1.26332840892943,  : 
   non-finite finite-difference value [2]
-Error in optim(par = c(a1 = 2.03565819337861, a2 = -4.93878061505403,  : 
-  non-finite finite-difference value [1]
-  bootstrapping [=======================================>-----------]  79% eta:  4mError in optim(par = c(a1 = 1.86775677346336, a2 = -4.80603543228336,  : 
+Error in optim(par = c(a1 = -3.31402503135671, a2 = 1.49220272405133,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  44% eta: 11mError in optim(par = c(theta = 52.7812670601594, attack = -3.23856363627727,  : 
   non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  80% eta:  4mWarning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  44% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  45% eta: 11mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.42033392568879, a2 = 1.43215715861845, a3 = -4.1604695109683,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -40.4957006023635, a2 = 1.43188253448635,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  46% eta: 11mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  46% eta: 11mError in optim(par = c(a1 = 2.10100254357614, a2 = -4.17797969593173,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 4.77588478240939, attack = 4.88163986053901,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  47% eta: 11mError in optim(par = c(a1 = 1.55519748862783, a2 = 1.56873942192348, a3 = -3.09231729141601,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 43.8930613973501, attack = -4.03541319337037,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 5.23294137075983, attack = 8.27412630275731,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.0941377079544, attack = 35.7782770693684,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [=======================>---------------------------]  48% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  48% eta: 10mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  48% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  49% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 46.2289725313587, attack = -5.540953413241,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.56901172450588, a2 = 1.58274275072699, a3 = -0.133171609642629,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.75660339551147, a2 = -4.54286518278914,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  50% eta: 10m  bootstrapping [=========================>-------------------------]  50% eta: 10mError in optim(par = c(theta = 27.9031048509259, attack = -4.07979156550538,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -53.1190587733027, a2 = -2.96491804973251,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 2.98187191113351, attack = 8.14207603073851,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(a1 = -2.43932235623168, a2 = 1.3129651460589, a3 = -3.34944026122413,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  51% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 3.2016424845182, attack = 34.6556417791451,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [=========================>-------------------------]  52% eta: 10m  bootstrapping [==========================>------------------------]  52% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  53% eta:  9mError in optim(par = c(theta = 3.94100380693645, attack = 32.6032311880272,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.52517073106712, attack = -3.07049836195464,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -4.49415353136602, a2 = 1.31741705869312,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [==========================>------------------------]  54% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  54% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  55% eta:  9mError in optim(par = c(a1 = 1.79542179410237, a2 = -2.97873462849069,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 6.01275062821793, attack = 32.911544376213,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [===========================>-----------------------]  56% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  56% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -4.52081643995791, a2 = 1.56260937736295,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -2.77605207973208, a2 = 1.46054113442893,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [============================>----------------------]  57% eta:  9mError in optim(par = c(a1 = -1.87468269606163, a2 = -4.15198175528287,  : 
+  non-finite finite-difference value [6]
+Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Unweighted regression used..
-  bootstrapping [========================================>----------]  80% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  81% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -50.998943860408, a2 = -3.90187555935307,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  58% eta:  8mError in optim(par = c(theta = 49.8636562012918, attack = -5.95486224952333,  : 
   non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  82% eta:  3mError in optim(par = c(a1 = -2.5236113866048, a2 = 1.50357724127734, a3 = -2.58681607454859,  : 
+  bootstrapping [=============================>---------------------]  58% eta:  8mError in optim(par = c(a1 = -3.48919316862865, a2 = -37.9296100309798,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.07449101267121, a2 = -2.68700502137054,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.5564125123439, attack = 35.5291450715529,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.11610979410546, attack = -2.86842291000788,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -0.209561463771142, a2 = 1.50060852559129,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 1.99852970362001, a2 = -2.81410240029519,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.07482547731132, attack = 9.91532483619046,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(a1 = 1.49932983572258, a2 = -4.51799333995085,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  59% eta:  8mError in optim(par = c(a1 = -4.48769053622641, a2 = 1.25124688852178,  : 
   non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 3.31681281673545, attack = 31.240151943514,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(a1 = 2.01082137527305, a2 = -2.56286872435211,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  60% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  60% eta:  8mError in optim(par = c(a1 = 2.05802941277439, a2 = -2.18159298351621,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -2.42239061253822, a2 = -2.06342816494922,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  61% eta:  8mError in optim(par = c(theta = 6.59211122113863, attack = 33.5097655833089,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.46765063429845, a2 = 1.48005033054137, a3 = -4.33873711311317,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -3.09226122200128, a2 = -5.39416472495605,  : 
+  non-finite finite-difference value [3]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  62% eta:  8mError in optim(par = c(a1 = 1.9373229142889, a2 = -2.49347842788411, a3 = -3.97297968964051,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+  couldn't invert Hessian
+Warning in AAmethod(d, this.study$replacement) :
+  AAMethod2: Unweighted regression used..
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  62% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  63% eta:  8mError in optim(par = c(a1 = 2.34395044135939, a2 = -3.84432529362366,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  64% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  64% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  65% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -41.4237353124054, a2 = 1.4100213301023, a3 = -3.33067676859762,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 1.94002196795282, a2 = -2.33134827835385,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  66% eta:  7mError in optim(par = c(theta = 3.38227023676884, attack = 0.546367667937378,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  66% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.53730420258944, a2 = 1.55060437025547, a3 = -4.09337746133116,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -0.958773773141582, a2 = 1.3496089866014,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  67% eta:  7mError in optim(par = c(theta = 24.0058730040268, attack = 6.0866952395088,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  68% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  68% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 2.01884510381667, a2 = -3.42990209946005,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  69% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  70% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================================>---------------]  70% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================================>---------------]  71% eta:  6mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+  couldn't invert Hessian
+Warning in AAmethod(d, this.study$replacement) :
+  AAMethod2: Unweighted regression used..
+Error in optim(par = c(a1 = -1.98976125220885, a2 = 1.98774796162959,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================================>--------------]  72% eta:  6mError in optim(par = c(a1 = 2.11416734993744, a2 = -2.90729269290408,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 40.3910253805924, attack = -3.20424353622229,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = -1.40226834125184, a2 = 1.57870455579923,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.90595154711098, a2 = -2.82179511814547,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 6.10312054012402, attack = 33.5248699001645,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================================>--------------]  73% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.59480882008724, a2 = 1.60890188177494, a3 = -0.653851710543946,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta:  5mError in optim(par = c(theta = 3.06197369543116, attack = 25.9699934434695,  : 
+  initial value in 'vmmin' is not finite
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.770297514845, a2 = 0.873300782060901, a3 = -2.43456506655968,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 23.5685914009291, attack = -2.77477658169151,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(theta = 42.5543058574963, attack = -2.15945207469811,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 3.24144260182717, attack = 32.1267508587932,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [=====================================>-------------]  75% eta:  5m  bootstrapping [======================================>------------]  76% eta:  5mError in optim(par = c(theta = 6.97446039972036, attack = 29.0100752570574,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 2.1879154395556, a2 = -3.78007602695029, a3 = -2.43635800529652,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+  couldn't invert Hessian
+Warning in AAmethod(d, this.study$replacement) :
+  AAMethod2: Unweighted regression used..
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  77% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.16574585601177, a2 = 1.17489939115003, a3 = -3.85897335169355,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 41.1559685214085, attack = -2.70226195860207,  : 
+  non-finite value supplied by optim
+Error in optim(par = c(a1 = -2.48212394844509, a2 = 0.881648459906495,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  78% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  78% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 2.04806452007018, a2 = -3.72305602484547,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  79% eta:  4mError in optim(par = c(a1 = 1.63402726412188, a2 = 1.22650067550375, a3 = -1.90747582496092,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 43.1068396249915, attack = -1.03693197379918,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 2.06264908059687, a2 = -2.22113282950726,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [========================================>----------]  80% eta:  4mError in optim(par = c(a1 = -2.33234863732699, a2 = -47.1973434725842,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 2.11494107752907, a2 = -4.12579816306331,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 2.13987657524045, a2 = -2.18774129990147,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================================>----------]  81% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 4.12372246923955, attack = 14.0134807347009,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 45.1025444222352, attack = -4.21805308290953,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
+  couldn't invert Hessian
+Warning in AAmethod(d, this.study$replacement) :
+  AAMethod2: Unweighted regression used..
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  82% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = 5.14477073105491, attack = 31.3721853911632,  : 
+  non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=========================================>---------]  83% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  84% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  85% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [==========================================>--------]  84% eta:  3mError in optim(par = c(a1 = -1.76940231358758, a2 = 1.21462346811693,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = 1.50809651455283, a2 = 1.52101133983645, a3 = -3.90541222490893,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 1.59289305116275, a2 = -2.5152642647954, a3 = -2.34930227473448,  : 
+  non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 2.11253190119994, a2 = -3.88442661934829,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  86% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -1.66682977271551, a2 = 1.05304627724985,  : 
-  non-finite finite-difference value [2]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  87% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  88% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -2.84566023791438, a2 = 1.60165555158899,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.06366657755688, a2 = -3.05928349527531,  : 
-  non-finite finite-difference value [1]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  89% eta:  2m  bootstrapping [=============================================>-----]  90% eta:  2mError in optim(par = c(a1 = 1.62219970655414, a2 = -2.05066633488097,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 2.16687612728596, a2 = -3.46185637481088,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -2.56049489762785, a2 = 1.58953371695317,  : 
-  non-finite finite-difference value [2]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Error in optim(par = c(a1 = -51.316805577302, a2 = -3.27590699057728,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -3.74566675700116, a2 = 1.38482526280711,  : 
-  non-finite finite-difference value [2]
-  bootstrapping [=============================================>-----]  91% eta:  2m  bootstrapping [==============================================>----]  91% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================================>----]  92% eta:  1mError in optim(par = c(a1 = -1.23127636485081, a2 = 1.26256363604619,  : 
-  non-finite finite-difference value [2]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Error in optim(par = c(a1 = 2.0388061336727, a2 = 2.06086384129617, a3 = -3.69162399454282,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.52515288776476, a2 = 1.53829135459794, a3 = -3.83611247523997,  : 
-  non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -1.72512851920653, a2 = 1.24141772699283,  : 
-  non-finite finite-difference value [2]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -546,28 +2228,167 @@ Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Unweighted regression used..
-  bootstrapping [==============================================>----]  93% eta:  1m  bootstrapping [===============================================>---]  93% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================================>--------]  85% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  94% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  95% eta:  1m  bootstrapping [================================================>--]  95% eta: 50s  bootstrapping [================================================>--]  96% eta: 46sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  96% eta: 41sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  96% eta: 37sError in optim(par = c(a1 = 1.36561270401381, a2 = -2.48935095308551,  : 
+Error in optim(par = c(a1 = 1.44360738525474, a2 = 1.45571070854409, a3 = -3.22083425310521,  : 
   non-finite finite-difference value [1]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  97% eta: 33sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  86% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  97% eta: 29sError in optim(par = c(a1 = 1.35021631626392, a2 = -3.21494671416067,  : 
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  87% eta:  3mError in optim(par = c(a1 = -2.48838372134228, a2 = 1.42297390392365,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(theta = 6.29055785091748, attack = -3.41593597057304,  : 
   non-finite finite-difference value [1]
-  bootstrapping [=================================================>-]  98% eta: 25sWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  98% eta: 21s  bootstrapping [=================================================>-]  98% eta: 17s  bootstrapping [=================================================>-]  99% eta: 12sWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================================>]  99% eta:  8sWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  88% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================================>] 100% eta:  4sError in optim(par = c(theta = 3.54365563885179, attack = 31.2546024736076,  : 
-  non-finite finite-difference value [3]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.58465521521813, a2 = -3.54071202798074,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 43.0289711549135, attack = 2.09151530575557,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -2.72754213885416, a2 = 1.36300949098076,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -1.57266078889207, a2 = 1.57705537502103,  : 
+  non-finite finite-difference value [2]
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  89% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================================>-----]  90% eta:  2mError in optim(par = c(a1 = 1.7820520376185, a2 = 1.58739823031751, a3 = -3.33942108502567,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(a1 = 2.0927690522487, a2 = 0.723544403710176, a3 = -4.00037124626395,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = -0.775751295434987, a2 = 1.3069597031451,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -3.21628099963206, a2 = 1.53598424823972,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(theta = 4.28621347191763, attack = 33.1836225501048,  : 
+  non-finite finite-difference value [1]
+  bootstrapping [=============================================>-----]  91% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  91% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  92% eta:  2mError in optim(par = c(theta = 3.99534624067672, attack = 31.821515399312,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  93% eta:  1mError in optim(par = c(theta = 3.61532127343071, attack = 33.0199635468667,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  93% eta:  1mError in optim(par = c(a1 = -2.57811647111818, a2 = 1.00029514021491,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(a1 = -1.87017010561308, a2 = 1.43316310039768,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  94% eta:  1mError in optim(par = c(a1 = 2.61548222530442, a2 = -1.87552846944757,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 2.15507535947949, a2 = -3.47289905179465,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  95% eta:  1mError in optim(par = c(a1 = -2.53767682011599, a2 = 1.536160623084, a3 = -3.64819591050977,  : 
+  non-finite finite-difference value [2]
+  bootstrapping [================================================>--]  95% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta:  1mError in optim(par = c(a1 = 1.49971985897142, a2 = 1.51252625733366, a3 = -3.43582690583827,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 1.95880877996403, a2 = -1.98253108629309,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 48sError in optim(par = c(a1 = -1.6840156976433, a2 = 1.32990932376645, a3 = -4.82782762515058,  : 
+  non-finite finite-difference value [2]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 44sError in optim(par = c(theta = 6.07488738924347, attack = 31.1467451227795,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  97% eta: 39sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  97% eta: 34sError in optim(par = c(a1 = -1.27528044830682, a2 = 1.49953937001094,  : 
+  non-finite finite-difference value [2]
+Error in optim(par = c(theta = 49.0323139993403, attack = -6.08796083461503,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(a1 = 2.20563138686946, a2 = -2.50498348710177,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 44.3821536061962, attack = 24.565034078678,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta: 29sError in optim(par = c(a1 = -2.55415510034892, a2 = 1.57463888768122,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.50886435957119, a2 = -4.47286842477239,  : 
+  non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=================================================>-]  98% eta: 24sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta: 19sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  99% eta: 15s  bootstrapping [==================================================>]  99% eta: 10sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================================>] 100% eta:  5sError in optim(par = c(a1 = 1.74517605230349, a2 = -4.08627229219542,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 22.6920843390811, attack = 13.5240441358865,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 113.734195837158, attack = -46.2297239880258,  : 
+  non-finite value supplied by optim
+Error in optim(par = c(a1 = -1.74743229854874, a2 = 1.26940514786138,  : 
+  non-finite finite-difference value [2]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.90606142125875, a2 = -1.80775816356034,  : 
+  non-finite finite-difference value [1]
   bootstrapping [===================================================] 100% eta:  0s

@@ -1,0 +1,985 @@
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+Error in optim(par = c(theta = 3.31343538087977, attack = -0.0549038510487091,  : 
+  non-finite finite-difference value [1]
+
