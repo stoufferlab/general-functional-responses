@@ -20,15 +20,21 @@ save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
 ffr.fits <- ffr.fits[fit.order]
 
-# data sets in which depletion occurred in over x% of replicates (non-replacement datasets)
-depleted <- unlist(lapply(ffr.fits, depletion.check, cutoff=0.7))
-# data sets on parasitoids
+# parasitoid data sets
 parasitoids <- unlist(lapply(ffr.fits, function(x){!x$study.info$predator}))
 
+# replacement studies
+replacement <- unlist(lapply(ffr.fits, function(x){!x$study.info$replacement}))
+
+# data sets in which depletion (90% of prey available prey consumed) occurred in over 10% of replicates
+depleted <- unlist(lapply(ffr.fits, depletion.check))
+
 pch.vec<-rep(19,length(ffr.fits))
-pch.vec[parasitoids] <- 1
-pch.vec[depleted>0 & parasitoids] <- 0
-pch.vec[depleted>0 & !parasitoids] <- 15
+pch.vec[parasitoids] <- 15
+pch.vec[!parasitoids & !replacement] <- 1
+pch.vec[!parasitoids & !replacement & depleted] <- 10
+pch.vec[parasitoids & !replacement] <- 0
+pch.vec[parasitoids & !replacement & depleted] <- 7
 
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
 labels<-gsub('_',' ',labels)
@@ -47,21 +53,20 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      ilink=exp,
      plot.SEs=TRUE,
      display.outlier.ests=TRUE,
-     # color.factor='None', # 'None', 'Parasitoids' or 'Replacement'
-     # color.vector=col.vec, # delete or specify above plot()
-     # pch.factor='None', # 'None', 'Parasitoids' or 'Replacement'
-     pch.vector=pch.vec, # delete or specify above plot()
-     xlab="Arditi-Akcakaya interference rate (m)",
+     pch.vector=pch.vec,
+     xlab=expression(paste("Interference rate ",(italic(m)))),
      labels=labels,
      xlim=c(0,5),
      vertLines=c(0,1)
   )
   legend('right', 
-         legend=c('Predator', 'Parasitoid', 'Replacement', 'Non-replacement', 'Profiled', 'Approximated','Bootstrapped'),
-         pch=c(19,1,19,15,NA,NA,NA), 
-         lty=c(NA,NA,NA,NA,'solid','dashed','dotted'),
-         inset=0.05,
-         cex=0.8)
+         legend=c('Predator', 'Parasitoid', NA,
+                  'Replacement', 'Non-replacement', NA,
+                  'No depletion','Depletion',NA,
+                  'Profiled', 'Approximated','Bootstrapped'),
+         pch=c(19,15,NA,19,1,NA,1,10,NA,NA,NA,NA), 
+         lty=c(NA,NA,NA,NA,NA,NA,NA,NA,NA,'solid','dashed','dotted'),
+         inset=0.05)
 dev.off()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,7 +121,8 @@ plot.coefs(
   point.est='median',
   plot.SEs=TRUE,
   display.outlier.ests=TRUE,
-  xlab="Arditi-Akcakaya attack rate (a)",
+  pch.vector=pch.vec,
+  xlab=expression(paste("Attack rate ",(italic(a)))),
   labels=labels,
   xlim=c(0,1)
 )
@@ -164,18 +170,27 @@ dev.off()
 ######################################################
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_theta.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
-plot.coefs(
-  ffr.fits,
-  model="Arditi.Akcakaya",
-  parameter="theta",
-  ilink=identity,
-  point.est='median',
-  plot.SEs=TRUE,
-  display.outlier.ests=TRUE,
-  xlab=expression(paste("Overdispersion log",(theta))),
-  labels=labels,
-  xlim=c(-2,25),
-  vertLines=log(10)
-)
+  plot.coefs(
+    ffr.fits,
+    model="Arditi.Akcakaya",
+    parameter="theta",
+    ilink=identity,
+    point.est='median',
+    plot.SEs=TRUE,
+    display.outlier.ests=TRUE,
+    pch.vector=pch.vec,
+    xlab=expression(paste("Overdispersion log",(italic(theta)))),
+    labels=labels,
+    xlim=c(-2,25),
+    vertLines=c(log(10),log(50))
+  )
+  legend(x=11,y=70,
+         legend=c('Predator', 'Parasitoid', NA,
+                  'Replacement', 'Non-replacement', NA,
+                  'No depletion','Depletion',NA,
+                  'Profiled', 'Approximated','Bootstrapped'),
+         pch=c(19,15,NA,19,1,NA,1,10,NA,NA,NA,NA), 
+         lty=c(NA,NA,NA,NA,NA,NA,NA,NA,NA,'solid','dashed','dotted'),
+         inset=0.05)
 dev.off()
 
