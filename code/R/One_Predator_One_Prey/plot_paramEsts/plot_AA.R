@@ -59,7 +59,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      xlim=c(0,5),
      vertLines=c(0,1)
   )
-  legend('right', 
+  legend(3,70, 
          legend=c('Predator', 'Parasitoid', NA,
                   'Replacement', 'Non-replacement', NA,
                   'No depletion','Depletion',NA,
@@ -165,35 +165,3 @@ par(mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i',xaxs='i
   box(lwd=1,bty='l')
 dev.off()
 
-<<<<<<< HEAD
-=======
-######################################################
-# ~~~~~~~~~~~~~~~~ AA overdispersion ~~~~~~~~~~~~~~~~~
-######################################################
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_theta.pdf',height=6,width=5)
-par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
-  plot.coefs(
-    ffr.fits,
-    model="Arditi.Akcakaya",
-    parameter="theta",
-    ilink=identity,
-    point.est='median',
-    plot.SEs=TRUE,
-    display.outlier.ests=TRUE,
-    pch.vector=pch.vec,
-    xlab=expression(paste("Overdispersion log",(italic(theta)))),
-    labels=labels,
-    xlim=c(-2,25),
-    vertLines=c(log(10),log(50))
-  )
-  legend(x=11,y=70,
-         legend=c('Predator', 'Parasitoid', NA,
-                  'Replacement', 'Non-replacement', NA,
-                  'No depletion','Depletion',NA,
-                  'Profiled', 'Approximated','Bootstrapped'),
-         pch=c(19,15,NA,19,1,NA,1,10,NA,NA,NA,NA), 
-         lty=c(NA,NA,NA,NA,NA,NA,NA,NA,NA,'solid','dashed','dotted'),
-         inset=0.05)
-dev.off()
-
->>>>>>> 2f1b2c1... Clean up plot_AA plots
