@@ -153,7 +153,7 @@ ratio.like.1pred.1prey.NLL = function(params,
 		# negative log likelihood based on proportion consumed (no replacement)
 		if(!replacement){
 			# nll <-  -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
-			nll <- -sum(dbetabinom(killed, prob=Nconsumed/initial, size=initial, theta=theta, log=TRUE))
+			nll <- -sum(dbetabinom(killed, prob=Nconsumed/initial, size=initial, theta=1/theta, log=TRUE))
 			if(is.nan(nll)){
 			  nll <- Inf
 			}
@@ -163,7 +163,7 @@ ratio.like.1pred.1prey.NLL = function(params,
 		# negative log likelihood based on total number consumed (replacement)
 		if(replacement){
 			# nll <- -sum(dpois(killed, Nconsumed, log=TRUE))
-			nll <- -sum(dnbinom(killed, mu=Nconsumed, size=theta, log=TRUE))
+			nll <- -sum(dnbinom(killed, mu=Nconsumed, size=1/theta, log=TRUE))
 			return(nll)
 		}
 	}
@@ -188,7 +188,7 @@ fit.ratio.like <- function(d, s,
   
 	# estimate starting value from the data using linear regression
   start <- list(
-    theta = log(100),
+    theta = 1/log(100),
     attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
   )
 	
