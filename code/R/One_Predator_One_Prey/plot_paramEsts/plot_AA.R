@@ -59,7 +59,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      xlim=c(0,5),
      vertLines=c(0,1)
   )
-  legend('right', 
+  legend(x=2.5,y=59.7, 
          legend=c('Predator', 'Parasitoid', NA,
                   'Replacement', 'Non-replacement', NA,
                   'No depletion','Depletion',NA,
