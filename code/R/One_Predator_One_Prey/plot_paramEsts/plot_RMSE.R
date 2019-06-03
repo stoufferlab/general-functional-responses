@@ -52,7 +52,7 @@ delRMSEcutoff[which(is.na(delRMSEcutoff))] <- delRMSEcutoff2[which(!is.na(delRMS
 # Rank order
 #~~~~~~~~~~~
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_RMSE_ranks.pdf',height=6,width=2.25)
-  par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
+  par(mar=c(3,7,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
     plot(1:nrow(rnkRMSEs), 1:nrow(rnkRMSEs),
          type='n', yaxt='n',
          xlim=c(1,ncol(rnkRMSEs)),
@@ -60,20 +60,19 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_RMSE_ranks.pdf',he
          xlab='Model rank by RMSE',
          ylab='',
          axes=F)
-    rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
+    rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white")
     axis(2, at=1:nrow(rnkRMSEs), labels=labels, cex.axis=0.5, las=2)
     axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
 
     # Which models have "reasonable" delta-RMSE?
-    # (Could use either of the next chunks depending on preference)
     xats <-table(which(dRMSEs < delRMSEcutoff, arr.ind=T)[,1])+0.5
     yats <- 0:(length(xats))+0.5
-    segments(xats,yats[-length(yats)],xats,yats[-1],col='black') # white 
-    segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black') # white
+    segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
+    segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black')
     
-    pxats<-c(1,rep(xats,each=2),1)
+    pxats<-c(0,rep(xats,each=2),0)
     pyats<-rep(0:(length(xats)),each=2)+0.5
-    polygon(pxats,pyats,col='grey90',border=NA) # grey40
+    polygon(pxats,pyats,col='grey90',border=NA)
     
     for(m in 1:ncol(rnkRMSEs)){
       points(rnkRMSEs[,m], 1:nrow(rnkRMSEs), 
@@ -83,7 +82,7 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_RMSE_ranks.pdf',he
     }
     box(lwd=1)
   par(xpd=TRUE)
-    legend(-8,nrow(rnkRMSEs)+6,legend=colnames(rnkRMSEs),
+    legend(-4,nrow(rnkRMSEs)+6,legend=colnames(rnkRMSEs),
            pch=Mpch,pt.bg=Mcols, col='black', bg='white',
            horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()

@@ -51,7 +51,7 @@ delAICcutoff <- 2
 # Rank order
 #~~~~~~~~~~~
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',height=6,width=2.25)
-  par(mar=c(3,9,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
+  par(mar=c(3,7,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
     plot(1:nrow(rnkAICcs), 1:nrow(rnkAICcs),
          type='n', yaxt='n',
          xlim=c(1,ncol(rnkAICcs)),
@@ -64,15 +64,14 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',he
     axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
 
     # Which models have delta-AICc within X=2 of best-performing model?
-    # (Could use either of the next chunks depending on preference)
     xats <-table(which(dAICcs < delAICcutoff, arr.ind=T)[,1])+0.5
     yats <- 0:(length(xats))+0.5
-    segments(xats,yats[-length(yats)],xats,yats[-1],col='black') # white 
-    segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black') # white
+    segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
+    segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black')
   
-    pxats<-c(1,rep(xats,each=2),1)
+    pxats<-c(0,rep(xats,each=2),0)
     pyats<-rep(0:(length(xats)),each=2)+0.5
-    polygon(pxats,pyats,col='grey90',border=NA) # grey40
+    polygon(pxats,pyats,col='grey90',border=NA)
     
     for(m in 1:ncol(rnkAICcs)){
       points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
@@ -82,12 +81,10 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',he
     }  
     box(lwd=1)
   par(xpd=TRUE)
-    legend(-8,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
+    legend(-4,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
            pch=Mpch, pt.bg=Mcols, col='black', bg='white',
             horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
 dev.off()
-
-
 
 # ~~~~~~~~~
 # Count times each model is in each rank
