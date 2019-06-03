@@ -1,564 +1,159 @@
   bootstrapping [---------------------------------------------------]   0% eta:  0sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [---------------------------------------------------]   1% eta: 44m  bootstrapping [>--------------------------------------------------]   1% eta:  1h  bootstrapping [>--------------------------------------------------]   2% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [---------------------------------------------------]   1% eta: 47m  bootstrapping [>--------------------------------------------------]   1% eta:  1h  bootstrapping [>--------------------------------------------------]   2% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [>--------------------------------------------------]   3% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   3% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   4% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   3% eta:  1h  bootstrapping [=>-------------------------------------------------]   4% eta:  1hWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
   bootstrapping [=>-------------------------------------------------]   5% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==>------------------------------------------------]   5% eta:  1h  bootstrapping [==>------------------------------------------------]   6% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==>------------------------------------------------]   7% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   7% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==>------------------------------------------------]   7% eta:  1h  bootstrapping [===>-----------------------------------------------]   7% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===>-----------------------------------------------]   8% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   9% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====>----------------------------------------------]   9% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   9% eta:  1h  bootstrapping [====>----------------------------------------------]   9% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [====>----------------------------------------------]  10% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=====>---------------------------------------------]  11% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=====>---------------------------------------------]  12% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [======>--------------------------------------------]  13% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======>--------------------------------------------]  14% eta:  1hWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=======>-------------------------------------------]  15% eta:  1h  bootstrapping [=======>-------------------------------------------]  16% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  17% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  18% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========>-----------------------------------------]  19% eta:  1hWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========>-----------------------------------------]  20% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========>----------------------------------------]  21% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========>----------------------------------------]  22% eta:  1h  bootstrapping [===========>---------------------------------------]  23% eta:  1hWarning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in uniroot(ffff, lower = 0, upper = N0[i], N0 = N0[i], P = P[i],  :
-  -Inf replaced by maximally negative value
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===========>---------------------------------------]  24% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======>--------------------------------------------]  14% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  15% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  16% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  17% eta:  1h  bootstrapping [========>------------------------------------------]  18% eta:  1h  bootstrapping [=========>-----------------------------------------]  19% eta:  1h  bootstrapping [=========>-----------------------------------------]  20% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========>----------------------------------------]  21% eta:  1h  bootstrapping [==========>----------------------------------------]  22% eta:  1h  bootstrapping [===========>---------------------------------------]  23% eta:  1h  bootstrapping [===========>---------------------------------------]  24% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [============>--------------------------------------]  25% eta:  1h  bootstrapping [============>--------------------------------------]  26% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  27% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  28% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  27% eta:  1h  bootstrapping [=============>-------------------------------------]  28% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==============>------------------------------------]  29% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==============>------------------------------------]  30% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  30% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  31% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  30% eta:  1h  bootstrapping [===============>-----------------------------------]  31% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===============>-----------------------------------]  32% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  32% eta:  1h  bootstrapping [================>----------------------------------]  33% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  33% eta: 50mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  34% eta: 50m  bootstrapping [================>----------------------------------]  34% eta: 49mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  34% eta: 49m  bootstrapping [=================>---------------------------------]  35% eta: 49m  bootstrapping [=================>---------------------------------]  35% eta: 48mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  36% eta: 48mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [================>----------------------------------]  32% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  33% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  34% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  34% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  35% eta:  1hWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  36% eta: 50mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  36% eta: 49m  bootstrapping [==================>--------------------------------]  37% eta: 49m  bootstrapping [==================>--------------------------------]  37% eta: 48m  bootstrapping [==================>--------------------------------]  38% eta: 48m  bootstrapping [===================>-------------------------------]  38% eta: 48m  bootstrapping [===================>-------------------------------]  39% eta: 47mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  40% eta: 46m  bootstrapping [====================>------------------------------]  40% eta: 46m  bootstrapping [====================>------------------------------]  41% eta: 45mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  42% eta: 45mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  42% eta: 44m  bootstrapping [=====================>-----------------------------]  42% eta: 44m  bootstrapping [=====================>-----------------------------]  43% eta: 44mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  36% eta: 48m  bootstrapping [==================>--------------------------------]  37% eta: 47mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  38% eta: 47mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  38% eta: 47mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  39% eta: 46mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  40% eta: 46m  bootstrapping [===================>-------------------------------]  40% eta: 45m  bootstrapping [====================>------------------------------]  40% eta: 45mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================>------------------------------]  41% eta: 45mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================>------------------------------]  42% eta: 44mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  42% eta: 44mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  43% eta: 43mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  44% eta: 43mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  44% eta: 42mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  45% eta: 42m  bootstrapping [======================>----------------------------]  46% eta: 41mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  46% eta: 41mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  44% eta: 43m  bootstrapping [======================>----------------------------]  44% eta: 43m  bootstrapping [======================>----------------------------]  45% eta: 42m  bootstrapping [======================>----------------------------]  46% eta: 42m  bootstrapping [=======================>---------------------------]  46% eta: 41mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=======================>---------------------------]  47% eta: 41mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  47% eta: 40m  bootstrapping [=======================>---------------------------]  48% eta: 40mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  48% eta: 39m  bootstrapping [========================>--------------------------]  48% eta: 39m  bootstrapping [========================>--------------------------]  49% eta: 39m  bootstrapping [========================>--------------------------]  50% eta: 39mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=======================>---------------------------]  48% eta: 40mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  50% eta: 38m  bootstrapping [=========================>-------------------------]  51% eta: 38mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  51% eta: 37mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  52% eta: 37m  bootstrapping [==========================>------------------------]  52% eta: 37m  bootstrapping [==========================>------------------------]  53% eta: 36mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  54% eta: 36mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  54% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  48% eta: 40m  bootstrapping [========================>--------------------------]  49% eta: 39mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [========================>--------------------------]  50% eta: 39m  bootstrapping [=========================>-------------------------]  50% eta: 38m  bootstrapping [=========================>-------------------------]  51% eta: 38mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  51% eta: 37mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=========================>-------------------------]  52% eta: 37mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  52% eta: 37mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  55% eta: 35m  bootstrapping [===========================>-----------------------]  55% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  56% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  53% eta: 36m  bootstrapping [==========================>------------------------]  54% eta: 36m  bootstrapping [===========================>-----------------------]  54% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  55% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  55% eta: 34m  bootstrapping [===========================>-----------------------]  56% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [============================>----------------------]  56% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================>----------------------]  57% eta: 33mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  57% eta: 33mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================>----------------------]  58% eta: 33mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  58% eta: 33mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
   bootstrapping [=============================>---------------------]  58% eta: 32mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  59% eta: 32mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  59% eta: 31mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  60% eta: 31m  bootstrapping [==============================>--------------------]  60% eta: 31m  bootstrapping [==============================>--------------------]  61% eta: 30mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  59% eta: 32m  bootstrapping [=============================>---------------------]  60% eta: 31mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  60% eta: 31m  bootstrapping [==============================>--------------------]  60% eta: 30m  bootstrapping [==============================>--------------------]  61% eta: 30mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
   bootstrapping [==============================>--------------------]  62% eta: 29mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  62% eta: 29mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  63% eta: 29m  bootstrapping [===============================>-------------------]  63% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  64% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  64% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  64% eta: 27m  bootstrapping [================================>------------------]  65% eta: 27mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  62% eta: 29mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===============================>-------------------]  63% eta: 29mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  63% eta: 28m  bootstrapping [===============================>-------------------]  64% eta: 28mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [================================>------------------]  64% eta: 28m  bootstrapping [================================>------------------]  64% eta: 27mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  65% eta: 27mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [================================>------------------]  66% eta: 26mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=================================>-----------------]  66% eta: 26mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=================================>-----------------]  67% eta: 26mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  67% eta: 25m  bootstrapping [=================================>-----------------]  68% eta: 25mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  68% eta: 25mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  68% eta: 24m  bootstrapping [==================================>----------------]  69% eta: 24mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=================================>-----------------]  67% eta: 25m  bootstrapping [=================================>-----------------]  68% eta: 25m  bootstrapping [==================================>----------------]  68% eta: 25mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  68% eta: 24m  bootstrapping [==================================>----------------]  69% eta: 24m  bootstrapping [==================================>----------------]  70% eta: 23mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================================>---------------]  70% eta: 23mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================================>---------------]  71% eta: 23m  bootstrapping [===================================>---------------]  71% eta: 22m  bootstrapping [====================================>--------------]  72% eta: 22m  bootstrapping [====================================>--------------]  72% eta: 21m  bootstrapping [====================================>--------------]  73% eta: 21m  bootstrapping [=====================================>-------------]  74% eta: 20mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  75% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  76% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  76% eta: 18mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  77% eta: 18mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  78% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  79% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================================>----------]  80% eta: 16m  bootstrapping [========================================>----------]  80% eta: 15m  bootstrapping [========================================>----------]  81% eta: 15m  bootstrapping [========================================>----------]  81% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  82% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  83% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================================>--------]  84% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================================>--------]  84% eta: 12m  bootstrapping [==========================================>--------]  85% eta: 12m  bootstrapping [==========================================>--------]  85% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  86% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  86% eta: 10m  bootstrapping [===========================================>-------]  87% eta: 10m  bootstrapping [============================================>------]  88% eta: 10m  bootstrapping [============================================>------]  88% eta:  9m  bootstrapping [============================================>------]  89% eta:  9m  bootstrapping [============================================>------]  89% eta:  8m  bootstrapping [=============================================>-----]  90% eta:  8m  bootstrapping [=============================================>-----]  90% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================================>-----]  91% eta:  7mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [==================================>----------------]  70% eta: 23m  bootstrapping [===================================>---------------]  70% eta: 23mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================>---------------]  71% eta: 22mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  72% eta: 22m  bootstrapping [====================================>--------------]  72% eta: 21m  bootstrapping [====================================>--------------]  73% eta: 21mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  91% eta:  7m  bootstrapping [==============================================>----]  92% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  93% eta:  6m  bootstrapping [===============================================>---]  93% eta:  5m  bootstrapping [===============================================>---]  94% eta:  5m  bootstrapping [===============================================>---]  94% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  95% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  74% eta: 20mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  75% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  76% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  76% eta: 18mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  77% eta: 18mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  78% eta: 17m  bootstrapping [=======================================>-----------]  79% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  80% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  80% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  81% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  82% eta: 14m  bootstrapping [=========================================>---------]  83% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  84% eta: 13m  bootstrapping [==========================================>--------]  84% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  85% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  85% eta: 11m  bootstrapping [===========================================>-------]  86% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  87% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  88% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  88% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  89% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  89% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  90% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  90% eta:  7m  bootstrapping [=============================================>-----]  91% eta:  7m  bootstrapping [==============================================>----]  91% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================================>----]  92% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================================>----]  93% eta:  6m  bootstrapping [===============================================>---]  93% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  94% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  94% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  95% eta:  4m  bootstrapping [================================================>--]  95% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  95% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [================================================>--]  96% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  97% eta:  2m  bootstrapping [=================================================>-]  97% eta:  2m  bootstrapping [=================================================>-]  98% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  97% eta:  2m  bootstrapping [=================================================>-]  97% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=================================================>-]  98% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  98% eta:  1m  bootstrapping [=================================================>-]  99% eta:  1m  bootstrapping [==================================================>]  99% eta: 37sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================================>] 100% eta: 19s  bootstrapping [===================================================] 100% eta:  0s
+  bootstrapping [=================================================>-]  98% eta:  1m  bootstrapping [=================================================>-]  99% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================================>]  99% eta: 37s  bootstrapping [==================================================>] 100% eta: 19s  bootstrapping [===================================================] 100% eta:  0s

@@ -1,60 +1,411 @@
-  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta: 21mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [>--------------------------------------------------]   1% eta: 33m  bootstrapping [>--------------------------------------------------]   2% eta: 40m  bootstrapping [>--------------------------------------------------]   2% eta: 44m  bootstrapping [>--------------------------------------------------]   2% eta: 42m  bootstrapping [>--------------------------------------------------]   3% eta: 43m  bootstrapping [=>-------------------------------------------------]   3% eta: 43mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   4% eta: 44mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   4% eta: 45m  bootstrapping [=>-------------------------------------------------]   5% eta: 44m  bootstrapping [==>------------------------------------------------]   5% eta: 44m  bootstrapping [==>------------------------------------------------]   6% eta: 45m  bootstrapping [==>------------------------------------------------]   6% eta: 46m  bootstrapping [==>------------------------------------------------]   6% eta: 45m  bootstrapping [==>------------------------------------------------]   7% eta: 46m  bootstrapping [===>-----------------------------------------------]   7% eta: 46m  bootstrapping [===>-----------------------------------------------]   8% eta: 45m  bootstrapping [===>-----------------------------------------------]   8% eta: 46m  bootstrapping [===>-----------------------------------------------]   9% eta: 46m  bootstrapping [====>----------------------------------------------]   9% eta: 46m  bootstrapping [====>----------------------------------------------]  10% eta: 47mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====>---------------------------------------------]  11% eta: 47m  bootstrapping [=====>---------------------------------------------]  11% eta: 46m  bootstrapping [=====>---------------------------------------------]  12% eta: 46mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======>--------------------------------------------]  13% eta: 46mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======>--------------------------------------------]  14% eta: 45mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  15% eta: 45m  bootstrapping [=======>-------------------------------------------]  16% eta: 45m  bootstrapping [=======>-------------------------------------------]  16% eta: 44m  bootstrapping [========>------------------------------------------]  17% eta: 44mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  18% eta: 44m  bootstrapping [=========>-----------------------------------------]  19% eta: 44m  bootstrapping [=========>-----------------------------------------]  19% eta: 43m  bootstrapping [=========>-----------------------------------------]  20% eta: 43m  bootstrapping [==========>----------------------------------------]  21% eta: 42mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========>----------------------------------------]  22% eta: 42m  bootstrapping [===========>---------------------------------------]  23% eta: 42mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  23% eta: 41m  bootstrapping [===========>---------------------------------------]  24% eta: 41mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  24% eta: 42mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============>--------------------------------------]  25% eta: 42m  bootstrapping [============>--------------------------------------]  25% eta: 41m  bootstrapping [============>--------------------------------------]  26% eta: 41m  bootstrapping [=============>-------------------------------------]  27% eta: 41m  bootstrapping [=============>-------------------------------------]  27% eta: 40m  bootstrapping [=============>-------------------------------------]  28% eta: 40mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============>------------------------------------]  29% eta: 40m  bootstrapping [==============>------------------------------------]  30% eta: 39m  bootstrapping [===============>-----------------------------------]  30% eta: 39mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  31% eta: 39m  bootstrapping [===============>-----------------------------------]  31% eta: 38m  bootstrapping [===============>-----------------------------------]  32% eta: 38m  bootstrapping [================>----------------------------------]  32% eta: 37m  bootstrapping [================>----------------------------------]  33% eta: 37m  bootstrapping [================>----------------------------------]  34% eta: 36mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  34% eta: 36m  bootstrapping [=================>---------------------------------]  35% eta: 36m  bootstrapping [=================>---------------------------------]  35% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  36% eta: 35m  bootstrapping [==================>--------------------------------]  36% eta: 35m  bootstrapping [==================>--------------------------------]  37% eta: 35mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  37% eta: 34m  bootstrapping [==================>--------------------------------]  38% eta: 34mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  38% eta: 34m  bootstrapping [===================>-------------------------------]  39% eta: 34m  bootstrapping [===================>-------------------------------]  40% eta: 33mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================>------------------------------]  40% eta: 33m  bootstrapping [====================>------------------------------]  41% eta: 33m  bootstrapping [====================>------------------------------]  41% eta: 32m  bootstrapping [====================>------------------------------]  42% eta: 32m  bootstrapping [=====================>-----------------------------]  42% eta: 32m  bootstrapping [=====================>-----------------------------]  43% eta: 32m  bootstrapping [=====================>-----------------------------]  43% eta: 31mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  44% eta: 31mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  44% eta: 31m  bootstrapping [======================>----------------------------]  45% eta: 31m  bootstrapping [======================>----------------------------]  45% eta: 30m  bootstrapping [======================>----------------------------]  46% eta: 30m  bootstrapping [=======================>---------------------------]  46% eta: 30m  bootstrapping [=======================>---------------------------]  47% eta: 30mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  47% eta: 29mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  48% eta: 29m  bootstrapping [========================>--------------------------]  48% eta: 29mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  49% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  50% eta: 28mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  50% eta: 28m  bootstrapping [=========================>-------------------------]  51% eta: 27m  bootstrapping [=========================>-------------------------]  52% eta: 27m  bootstrapping [==========================>------------------------]  52% eta: 27m  bootstrapping [==========================>------------------------]  52% eta: 26m  bootstrapping [==========================>------------------------]  53% eta: 26m  bootstrapping [==========================>------------------------]  54% eta: 26m  bootstrapping [===========================>-----------------------]  54% eta: 26mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  54% eta: 25m  bootstrapping [===========================>-----------------------]  55% eta: 25m  bootstrapping [===========================>-----------------------]  56% eta: 25m  bootstrapping [============================>----------------------]  56% eta: 24mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================>----------------------]  57% eta: 24m  bootstrapping [============================>----------------------]  58% eta: 23m  bootstrapping [=============================>---------------------]  58% eta: 23m  bootstrapping [=============================>---------------------]  59% eta: 23mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  60% eta: 22m  bootstrapping [==============================>--------------------]  60% eta: 22mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================>--------------------]  61% eta: 22m  bootstrapping [==============================>--------------------]  62% eta: 21m  bootstrapping [===============================>-------------------]  62% eta: 21mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  63% eta: 21mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [---------------------------------------------------]   0% eta:  0sWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  63% eta: 20m  bootstrapping [===============================>-------------------]  64% eta: 20mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  64% eta: 20mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  65% eta: 20m  bootstrapping [================================>------------------]  65% eta: 19m  bootstrapping [================================>------------------]  66% eta: 19m  bootstrapping [=================================>-----------------]  66% eta: 19mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  67% eta: 18m  bootstrapping [=================================>-----------------]  68% eta: 18m  bootstrapping [==================================>----------------]  68% eta: 18mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  69% eta: 17m  bootstrapping [==================================>----------------]  70% eta: 17m  bootstrapping [===================================>---------------]  70% eta: 17mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================>---------------]  70% eta: 16m  bootstrapping [===================================>---------------]  71% eta: 16mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  72% eta: 16m  bootstrapping [====================================>--------------]  72% eta: 15m  bootstrapping [====================================>--------------]  73% eta: 15m  bootstrapping [=====================================>-------------]  74% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  74% eta: 14m  bootstrapping [=====================================>-------------]  75% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  76% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  76% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  77% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  78% eta: 12m  bootstrapping [=======================================>-----------]  79% eta: 12m  bootstrapping [========================================>----------]  80% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  81% eta: 11m  bootstrapping [========================================>----------]  81% eta: 10m  bootstrapping [=========================================>---------]  82% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [---------------------------------------------------]   1% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  83% eta: 10m  bootstrapping [=========================================>---------]  83% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  84% eta:  9m  bootstrapping [==========================================>--------]  85% eta:  8m  bootstrapping [===========================================>-------]  86% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  87% eta:  7m  bootstrapping [============================================>------]  88% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  88% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  89% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   1% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  90% eta:  6m  bootstrapping [=============================================>-----]  90% eta:  5m  bootstrapping [=============================================>-----]  91% eta:  5m  bootstrapping [==============================================>----]  91% eta:  5m  bootstrapping [==============================================>----]  92% eta:  5m  bootstrapping [==============================================>----]  92% eta:  4m  bootstrapping [==============================================>----]  93% eta:  4m  bootstrapping [===============================================>---]  93% eta:  4m  bootstrapping [===============================================>---]  94% eta:  4m  bootstrapping [===============================================>---]  94% eta:  3m  bootstrapping [===============================================>---]  95% eta:  3m  bootstrapping [================================================>--]  95% eta:  3m  bootstrapping [================================================>--]  96% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   2% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   2% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  97% eta:  2m  bootstrapping [=================================================>-]  97% eta:  2m  bootstrapping [=================================================>-]  98% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  99% eta: 40s  bootstrapping [==================================================>]  99% eta: 27s  bootstrapping [==================================================>] 100% eta: 13sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   3% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   3% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   4% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -2.78988503992336, attack = 50.8744129738535,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   4% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   5% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==>------------------------------------------------]   5% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==>------------------------------------------------]   6% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==>------------------------------------------------]   7% eta: 15mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   7% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   8% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   9% eta: 14mError in optim(par = c(theta = -3.77747843336235, attack = 2.21333920407657,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====>----------------------------------------------]   9% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====>----------------------------------------------]  10% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -3.6197469934106, attack = 3.16459166258013,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====>---------------------------------------------]  11% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====>---------------------------------------------]  12% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======>--------------------------------------------]  13% eta: 13mError in optim(par = c(theta = -2.99678956924376, attack = 85.0874237490689,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [======>--------------------------------------------]  13% eta: 14mError in optim(par = c(theta = -3.54070374388216, attack = 1.09679864429855,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [======>--------------------------------------------]  14% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  15% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  16% eta: 14mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  16% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  17% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  18% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -2.7550716847005, attack = 109.892711076914,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========>-----------------------------------------]  19% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========>-----------------------------------------]  20% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========>----------------------------------------]  21% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========>----------------------------------------]  22% eta: 13mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -3.41018972589934, attack = 2.03299183076377,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========>---------------------------------------]  23% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========>---------------------------------------]  24% eta: 12mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============>--------------------------------------]  25% eta: 12mError in optim(par = c(theta = -3.03323089286732, attack = 51.6387040755962,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -3.41174424139771, attack = 2.44388250872632,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============>--------------------------------------]  26% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  27% eta: 12mError in optim(par = c(theta = -3.01605827419049, attack = 161.275951725705,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  28% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============>------------------------------------]  29% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============>------------------------------------]  30% eta: 12m  bootstrapping [===============>-----------------------------------]  30% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  31% eta: 12mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  31% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  32% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  32% eta: 11m  bootstrapping [================>----------------------------------]  33% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  34% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  34% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  35% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================>---------------------------------]  36% eta: 11mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  36% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  37% eta: 10mError in optim(par = c(theta = -3.5796074719129, attack = 2.5717015690102,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================>--------------------------------]  38% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  38% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  39% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  40% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  40% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  41% eta: 10mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  42% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  42% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  43% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  44% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  44% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  45% eta:  9mError in optim(par = c(theta = -3.00129154698467, attack = 59.9740070689263,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  46% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  46% eta:  9mError in optim(par = c(theta = -3.02538337341727, attack = 63.9525896545383,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  47% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -2.7303700501569, attack = 84.918942959703,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  48% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  48% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  49% eta:  9mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  49% eta:  8mError in optim(par = c(theta = -3.49775730061303, attack = 1.04910872225785,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  50% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  50% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  51% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  52% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  52% eta:  8mError in optim(par = c(theta = -2.82631201781328, attack = 18.9475005606598,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -3.30774128016695, attack = 1.08613743519903,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  53% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  54% eta:  8m  bootstrapping [===========================>-----------------------]  54% eta:  8mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  55% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  56% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  56% eta:  7mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  57% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -3.0429040693555, attack = 104.420416883787,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [============================>----------------------]  58% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  58% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  59% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  60% eta:  7m  bootstrapping [==============================>--------------------]  60% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -2.63794572281007, attack = 65.3731024137795,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [==============================>--------------------]  61% eta:  7mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  62% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  62% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  63% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  64% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  64% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  65% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  66% eta:  6mError in optim(par = c(theta = -2.81851622797032, attack = 51.5022154422503,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  66% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  67% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  67% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  68% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  68% eta:  5mError in optim(par = c(theta = -2.60850867160017, attack = 81.305398151278,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  69% eta:  5mError in optim(par = c(theta = -2.4420832635521, attack = 130.041844425352,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==================================>----------------]  70% eta:  5mError in optim(par = c(theta = -2.81949020543144, attack = 76.4865160311949,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -3.96479658944827, attack = 2.81033419886096,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -3.67402637462022, attack = 2.77685299128282,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================================>---------------]  70% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================================>---------------]  71% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================================>--------------]  72% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -3.05695486725045, attack = 39.8439326142268,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================================>--------------]  73% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  75% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  76% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -2.80797176647236, attack = 84.2040250088957,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  77% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  78% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  79% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================================>----------]  80% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================================>----------]  80% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================================>----------]  81% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  82% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  83% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================================>--------]  84% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================================>--------]  85% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  86% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  87% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  88% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -3.53236489404915, attack = 1.27580816644281,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  89% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================================>-----]  90% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================================>-----]  91% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  91% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  92% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -2.6488203732233, attack = 99.4209302936167,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -2.7721559376582, attack = 84.0772089775778,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  93% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  93% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  94% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================================>---]  95% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  95% eta: 49sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 45sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 41sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 37sError in optim(par = c(theta = -2.91610354324257, attack = 92.7536352660649,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -2.89332571159712, attack = 49.076825484602,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  97% eta: 33sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  97% eta: 29sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta: 25s  bootstrapping [=================================================>-]  98% eta: 21sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta: 17sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  99% eta: 12s  bootstrapping [==================================================>]  99% eta:  8s  bootstrapping [==================================================>] 100% eta:  4sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===================================================] 100% eta:  0s
