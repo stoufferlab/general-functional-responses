@@ -1,6 +1,6 @@
 
 # read in the simplify the raw data
-datadir <- 'Long_2012a'
+datadir <- 'Long_2012'
 filename <- 'Long_2012a.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 

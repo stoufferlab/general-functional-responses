@@ -1,6 +1,6 @@
 
 # read in the raw data
-datadir <- 'Krylov_1992i'
+datadir <- 'Krylov_1992'
 filename <- 'Krylov_1992i.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
