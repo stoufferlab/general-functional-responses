@@ -34,7 +34,6 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
-
 # check to see which datasets have been fit (and thus on't bother refitting them)
 # datasets.fitted <- list.files('../../../results/R/OnePredOnePrey_fits/', full.names=FALSE, include.dirs=FALSE)
 # datasets.fitted <- gsub('*data$','',datasets.fitted)
@@ -42,10 +41,7 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # select focal dataset for testing
 # datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
-# datasets <- c("./Dataset_Code/Elliot_2003_d.R")
-# datasets <- c("./Dataset_Code/Elliot_2005_i2.R")
-
-datasets <- datasets[1]
+# datasets <- datasets[1]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Let's start analyzing!
