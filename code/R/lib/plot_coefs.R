@@ -188,8 +188,9 @@ plot.coefs <- function(
         lty <- "dotted"    # bootstrapped is dotted line
       }
       
-      lb <- x$profile$cf[parameter,1]
-      ub <- x$profile$cf[parameter,3]
+ 
+      lb <- min(x$profile$cf[parameter,])
+      ub <- max(x$profile$cf[parameter,])
       mm2 <- x$profile$cf[parameter,2]
       
       lb.link <- ilink(lb)
