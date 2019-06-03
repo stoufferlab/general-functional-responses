@@ -45,8 +45,8 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # datasets=datasets[1]
 
-# Problems: Long, Omkar, (Stier), Wasserman
-datasets <- datasest[-c(60,69,87)]
+# Problems: Omkar, Wasserman_bg
+# datasets <- datasest[-c(69,86)]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Let's start analyzing!

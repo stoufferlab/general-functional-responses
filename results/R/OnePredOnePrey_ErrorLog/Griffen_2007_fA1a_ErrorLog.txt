@@ -1,209 +1,142 @@
-  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [>--------------------------------------------------]   1% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [>--------------------------------------------------]   2% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -2.77944844823433, attack = 27.7660980638547,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta:  3m  bootstrapping [>--------------------------------------------------]   1% eta:  4m  bootstrapping [>--------------------------------------------------]   2% eta:  4m  bootstrapping [>--------------------------------------------------]   2% eta:  5mError in optim(par = c(theta = -4.37188272184785, attack = 26.6677611837629,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -3.15678566662006, attack = 26.0344911428047,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [>--------------------------------------------------]   3% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   3% eta:  5m  bootstrapping [=>-------------------------------------------------]   4% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=>-------------------------------------------------]   5% eta:  5m  bootstrapping [==>------------------------------------------------]   5% eta:  5m  bootstrapping [==>------------------------------------------------]   6% eta:  5m  bootstrapping [==>------------------------------------------------]   7% eta:  5m  bootstrapping [===>-----------------------------------------------]   7% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   8% eta:  5mError in optim(par = c(theta = -4.2504280321849, attack = 15.6895519255383,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -2.68609418297052, attack = 29.3638325470333,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [===>-----------------------------------------------]   9% eta:  5m  bootstrapping [====>----------------------------------------------]   9% eta:  5m  bootstrapping [====>----------------------------------------------]  10% eta:  5m  bootstrapping [=====>---------------------------------------------]  11% eta:  5m  bootstrapping [=====>---------------------------------------------]  12% eta:  5m  bootstrapping [======>--------------------------------------------]  13% eta:  5m  bootstrapping [======>--------------------------------------------]  14% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [>--------------------------------------------------]   3% eta:  5mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=>-------------------------------------------------]   3% eta:  6m  bootstrapping [=>-------------------------------------------------]   4% eta:  6mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   4% eta:  5m  bootstrapping [=>-------------------------------------------------]   5% eta:  5m  bootstrapping [==>------------------------------------------------]   5% eta:  5m  bootstrapping [==>------------------------------------------------]   6% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==>------------------------------------------------]   7% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   7% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   8% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  15% eta:  5m  bootstrapping [=======>-------------------------------------------]  16% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  17% eta:  5m  bootstrapping [========>------------------------------------------]  18% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========>-----------------------------------------]  19% eta:  5mError in optim(par = c(theta = -4.10243391902135, attack = 22.5205720874244,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [=========>-----------------------------------------]  20% eta:  5m  bootstrapping [=========>-----------------------------------------]  20% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========>----------------------------------------]  21% eta:  4mError in optim(par = c(theta = -4.22809074008086, attack = 26.1971923088947,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [==========>----------------------------------------]  22% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===>-----------------------------------------------]   9% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====>----------------------------------------------]   9% eta:  5m  bootstrapping [====>----------------------------------------------]  10% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====>---------------------------------------------]  11% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [===========>---------------------------------------]  23% eta:  4m  bootstrapping [===========>---------------------------------------]  24% eta:  4mError in optim(par = c(theta = -3.59235366456256, attack = 29.0131074968174,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [============>--------------------------------------]  25% eta:  4mError in optim(par = c(theta = -3.59749470287149, attack = 28.4156437672965,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====>---------------------------------------------]  12% eta:  5m  bootstrapping [======>--------------------------------------------]  13% eta:  5m  bootstrapping [======>--------------------------------------------]  14% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  15% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  16% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  17% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========>------------------------------------------]  18% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========>-----------------------------------------]  19% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========>-----------------------------------------]  20% eta:  5mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========>----------------------------------------]  21% eta:  5m  bootstrapping [==========>----------------------------------------]  22% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  23% eta:  5mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  24% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============>--------------------------------------]  25% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [============>--------------------------------------]  26% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=============>-------------------------------------]  27% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============>-------------------------------------]  28% eta:  4mError in optim(par = c(theta = -4.39743315698821, attack = 26.2191260824671,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  28% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============>------------------------------------]  29% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============>------------------------------------]  29% eta:  4m  bootstrapping [==============>------------------------------------]  30% eta:  4m  bootstrapping [===============>-----------------------------------]  30% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  31% eta:  4m  bootstrapping [===============>-----------------------------------]  32% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  32% eta:  4m  bootstrapping [================>----------------------------------]  33% eta:  4m  bootstrapping [================>----------------------------------]  34% eta:  4m  bootstrapping [=================>---------------------------------]  34% eta:  4m  bootstrapping [=================>---------------------------------]  35% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============>------------------------------------]  30% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Error in optim(par = c(theta = -3.46314930549415, attack = 28.6526559408905,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [=================>---------------------------------]  36% eta:  4m  bootstrapping [==================>--------------------------------]  36% eta:  4m  bootstrapping [==================>--------------------------------]  37% eta:  4m  bootstrapping [==================>--------------------------------]  38% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  38% eta:  3m  bootstrapping [===================>-------------------------------]  39% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  30% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  31% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  40% eta:  3mError in optim(par = c(theta = -4.1103009698384, attack = 26.3232334314512,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============>-----------------------------------]  32% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  32% eta:  4m  bootstrapping [================>----------------------------------]  33% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================>----------------------------------]  34% eta:  4m  bootstrapping [=================>---------------------------------]  34% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================>---------------------------------]  35% eta:  4m  bootstrapping [=================>---------------------------------]  36% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  36% eta:  4mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [====================>------------------------------]  40% eta:  3m  bootstrapping [====================>------------------------------]  41% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  42% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  42% eta:  3m  bootstrapping [=====================>-----------------------------]  43% eta:  3m  bootstrapping [=====================>-----------------------------]  44% eta:  3mError in optim(par = c(theta = -3.7177967474614, attack = 27.2077557234351,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  37% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  38% eta:  4m  bootstrapping [===================>-------------------------------]  38% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  39% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================>-------------------------------]  40% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================>------------------------------]  40% eta:  4m  bootstrapping [====================>------------------------------]  41% eta:  4m  bootstrapping [====================>------------------------------]  42% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  42% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  43% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================>-----------------------------]  44% eta:  3m  bootstrapping [======================>----------------------------]  44% eta:  3m  bootstrapping [======================>----------------------------]  45% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  46% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================>---------------------------]  46% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=======================>---------------------------]  47% eta:  3m  bootstrapping [=======================>---------------------------]  48% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  48% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  49% eta:  3m  bootstrapping [========================>--------------------------]  50% eta:  3m  bootstrapping [=========================>-------------------------]  50% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================>-------------------------]  51% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [======================>----------------------------]  44% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  45% eta:  3m  bootstrapping [======================>----------------------------]  46% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  46% eta:  3m  bootstrapping [=======================>---------------------------]  47% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  48% eta:  3mError in optim(par = c(theta = -4.01479208044117, attack = 18.0796213997034,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [========================>--------------------------]  48% eta:  3m  bootstrapping [========================>--------------------------]  49% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  50% eta:  3m  bootstrapping [=========================>-------------------------]  50% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  51% eta:  3mError in optim(par = c(theta = -3.9977034628198, attack = 26.1265952228177,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -3.61154578775437, attack = 26.9626094334277,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -2.88642557401797, attack = 25.5392431120238,  : 
+  initial value in 'vmmin' is not finite
   bootstrapping [=========================>-------------------------]  52% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  52% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [==========================>------------------------]  52% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==========================>------------------------]  53% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  54% eta:  3m  bootstrapping [===========================>-----------------------]  54% eta:  3m  bootstrapping [===========================>-----------------------]  55% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [==========================>------------------------]  54% eta:  3m  bootstrapping [===========================>-----------------------]  54% eta:  3m  bootstrapping [===========================>-----------------------]  55% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  56% eta:  3mError in optim(par = c(theta = -3.6121560415122, attack = 2.1387411496157,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [============================>----------------------]  56% eta:  3mError in optim(par = c(theta = -3.06771690069424, attack = 26.2762217669676,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  56% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================>----------------------]  56% eta:  3m  bootstrapping [============================>----------------------]  57% eta:  3m  bootstrapping [============================>----------------------]  58% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================>---------------------]  58% eta:  3mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=============================>---------------------]  59% eta:  3m  bootstrapping [=============================>---------------------]  59% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  57% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  58% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  58% eta:  2m  bootstrapping [=============================>---------------------]  59% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=============================>---------------------]  60% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================>--------------------]  60% eta:  2m  bootstrapping [==============================>--------------------]  61% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================>--------------------]  62% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  62% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  63% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================>-------------------]  64% eta:  2m  bootstrapping [================================>------------------]  64% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  65% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [================================>------------------]  66% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  66% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  67% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  68% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  68% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [==============================>--------------------]  60% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================>--------------------]  61% eta:  2m  bootstrapping [==============================>--------------------]  62% eta:  2mError in optim(par = c(theta = -3.36363791884499, attack = 28.5218537497195,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [===============================>-------------------]  62% eta:  2mError in optim(par = c(theta = -4.43888949175338, attack = 27.2765049291856,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [===============================>-------------------]  63% eta:  2m  bootstrapping [===============================>-------------------]  64% eta:  2m  bootstrapping [================================>------------------]  64% eta:  2m  bootstrapping [================================>------------------]  65% eta:  2mError in optim(par = c(theta = -2.9107483937354, attack = 27.1919084895108,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [================================>------------------]  66% eta:  2m  bootstrapping [=================================>-----------------]  66% eta:  2m  bootstrapping [=================================>-----------------]  67% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================================>----------------]  69% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================>-----------------]  68% eta:  2m  bootstrapping [==================================>----------------]  68% eta:  2m  bootstrapping [==================================>----------------]  69% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==================================>----------------]  70% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================>---------------]  70% eta:  2m  bootstrapping [===================================>---------------]  71% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  72% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [===================================>---------------]  70% eta:  2m  bootstrapping [===================================>---------------]  71% eta:  2m  bootstrapping [====================================>--------------]  72% eta:  2mError in optim(par = c(theta = -2.66865859442564, attack = 2.12059191088346,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [====================================>--------------]  73% eta:  2mError in optim(par = c(theta = -3.19200365946704, attack = 24.5162509829514,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  73% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta:  2m  bootstrapping [=====================================>-------------]  74% eta:  1m  bootstrapping [=====================================>-------------]  75% eta:  1mError in optim(par = c(theta = -3.2083611709549, attack = 25.904989384224,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -3.07544951517232, attack = 20.8572998512121,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  74% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================================>------------]  76% eta:  1mError in optim(par = c(theta = -3.91838744597528, attack = 9.29118432678059,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====================================>-------------]  75% eta:  2mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [======================================>------------]  77% eta:  1m  bootstrapping [=======================================>-----------]  78% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  79% eta:  1mError in optim(par = c(theta = -3.40488604838958, attack = 24.587069907749,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  76% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  77% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  78% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  79% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================================>----------]  80% eta:  1m  bootstrapping [========================================>----------]  81% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [========================================>----------]  80% eta:  1m  bootstrapping [========================================>----------]  81% eta:  1mError in optim(par = c(theta = -4.81784313079876, attack = 27.7326289251358,  : 
+  initial value in 'vmmin' is not finite
   bootstrapping [=========================================>---------]  82% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  83% eta:  1mWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==========================================>--------]  84% eta:  1m  bootstrapping [==========================================>--------]  85% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================================>---------]  83% eta:  1mError in optim(par = c(theta = -3.93576011143347, attack = 27.0866117733852,  : 
+  initial value in 'vmmin' is not finite
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  86% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  86% eta: 50s  bootstrapping [===========================================>-------]  87% eta: 48s  bootstrapping [===========================================>-------]  87% eta: 47s  bootstrapping [============================================>------]  88% eta: 46sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  88% eta: 44s  bootstrapping [============================================>------]  88% eta: 43sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  89% eta: 41sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [============================================>------]  89% eta: 40s  bootstrapping [=============================================>-----]  90% eta: 38sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  90% eta: 37sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  90% eta: 35sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  91% eta: 34sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================================>----]  91% eta: 32s  bootstrapping [==============================================>----]  92% eta: 31s  bootstrapping [==============================================>----]  92% eta: 29sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================================>----]  92% eta: 28s  bootstrapping [==============================================>----]  93% eta: 26sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  93% eta: 25s  bootstrapping [===============================================>---]  94% eta: 23s  bootstrapping [===============================================>---]  94% eta: 22sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  94% eta: 20sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===============================================>---]  95% eta: 19s  bootstrapping [================================================>--]  95% eta: 18s  bootstrapping [================================================>--]  96% eta: 16s  bootstrapping [================================================>--]  96% eta: 15s  bootstrapping [================================================>--]  96% eta: 13s  bootstrapping [================================================>--]  97% eta: 12sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  97% eta: 10s  bootstrapping [=================================================>-]  98% eta:  9s  bootstrapping [=================================================>-]  98% eta:  7s  bootstrapping [=================================================>-]  98% eta:  6s  bootstrapping [=================================================>-]  99% eta:  4s  bootstrapping [==================================================>]  99% eta:  3s  bootstrapping [==================================================>] 100% eta:  1s  bootstrapping [===================================================] 100% eta:  0s
+  bootstrapping [==========================================>--------]  84% eta:  1mError in optim(par = c(theta = -3.55223157358177, attack = 29.658580601785,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================================>--------]  85% eta:  1m  bootstrapping [===========================================>-------]  86% eta:  1mError in optim(par = c(theta = -4.59887931768484, attack = 27.7800671199562,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [===========================================>-------]  86% eta: 49s  bootstrapping [===========================================>-------]  86% eta: 47s  bootstrapping [===========================================>-------]  87% eta: 46s  bootstrapping [===========================================>-------]  87% eta: 44s  bootstrapping [============================================>------]  88% eta: 43s  bootstrapping [============================================>------]  88% eta: 42s  bootstrapping [============================================>------]  88% eta: 40s  bootstrapping [============================================>------]  89% eta: 39s  bootstrapping [============================================>------]  89% eta: 38sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================================>-----]  90% eta: 36s  bootstrapping [=============================================>-----]  90% eta: 35s  bootstrapping [=============================================>-----]  90% eta: 33s  bootstrapping [=============================================>-----]  91% eta: 32s  bootstrapping [==============================================>----]  91% eta: 31sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  92% eta: 29s  bootstrapping [==============================================>----]  92% eta: 28s  bootstrapping [==============================================>----]  92% eta: 26s  bootstrapping [==============================================>----]  93% eta: 25s  bootstrapping [===============================================>---]  93% eta: 24sError in optim(par = c(theta = -3.2018995144336, attack = 25.4985014754441,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [===============================================>---]  94% eta: 22s  bootstrapping [===============================================>---]  94% eta: 21s  bootstrapping [===============================================>---]  94% eta: 19s  bootstrapping [===============================================>---]  95% eta: 18sError in optim(par = c(theta = -3.100349510984, attack = 27.8790032414113,  : 
+  initial value in 'vmmin' is not finite
+Error in optim(par = c(theta = -3.75689225129924, attack = 28.0441859945022,  : 
+  initial value in 'vmmin' is not finite
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  95% eta: 17sError in optim(par = c(theta = -2.78862864380409, attack = 29.7599346270144,  : 
+  initial value in 'vmmin' is not finite
+  bootstrapping [================================================>--]  96% eta: 15s  bootstrapping [================================================>--]  96% eta: 14s  bootstrapping [================================================>--]  96% eta: 13s  bootstrapping [================================================>--]  97% eta: 11s  bootstrapping [=================================================>-]  97% eta: 10s  bootstrapping [=================================================>-]  98% eta:  8sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta:  7sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  98% eta:  6sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  99% eta:  4s  bootstrapping [==================================================>]  99% eta:  3s  bootstrapping [==================================================>] 100% eta:  1s  bootstrapping [===================================================] 100% eta:  0s

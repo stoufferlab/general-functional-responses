@@ -1,30 +1,19 @@
-  bootstrapping [---------------------------------------------------]   0% eta:  0sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [---------------------------------------------------]   1% eta:  2m  bootstrapping [>--------------------------------------------------]   1% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [>--------------------------------------------------]   2% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [---------------------------------------------------]   0% eta:  0s  bootstrapping [---------------------------------------------------]   1% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   1% eta:  3m  bootstrapping [>--------------------------------------------------]   2% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [>--------------------------------------------------]   3% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [=>-------------------------------------------------]   3% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=>-------------------------------------------------]   4% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [>--------------------------------------------------]   3% eta:  4m  bootstrapping [=>-------------------------------------------------]   3% eta:  4m  bootstrapping [=>-------------------------------------------------]   4% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -37,14 +26,11 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [=>-------------------------------------------------]   5% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==>------------------------------------------------]   5% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=>-------------------------------------------------]   5% eta:  4m  bootstrapping [==>------------------------------------------------]   5% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -56,30 +42,15 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [==>------------------------------------------------]   7% eta:  4m  bootstrapping [===>-----------------------------------------------]   7% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==>------------------------------------------------]   7% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [===>-----------------------------------------------]   8% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [===>-----------------------------------------------]   7% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===>-----------------------------------------------]   8% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===>-----------------------------------------------]   9% eta:  4m  bootstrapping [====>----------------------------------------------]   9% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -87,59 +58,28 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
   bootstrapping [====>----------------------------------------------]  10% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=====>---------------------------------------------]  11% eta:  4m  bootstrapping [=====>---------------------------------------------]  12% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [======>--------------------------------------------]  13% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=====>---------------------------------------------]  11% eta:  4m  bootstrapping [=====>---------------------------------------------]  12% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [======>--------------------------------------------]  14% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=======>-------------------------------------------]  15% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======>-------------------------------------------]  16% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [========>------------------------------------------]  17% eta:  4m  bootstrapping [========>------------------------------------------]  18% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=========>-----------------------------------------]  19% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=========>-----------------------------------------]  20% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======>--------------------------------------------]  13% eta:  4m  bootstrapping [======>--------------------------------------------]  14% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======>-------------------------------------------]  15% eta:  4m  bootstrapping [=======>-------------------------------------------]  16% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -153,29 +93,8 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========>----------------------------------------]  21% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==========>----------------------------------------]  22% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  23% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========>---------------------------------------]  24% eta:  4m  bootstrapping [============>--------------------------------------]  25% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [============>--------------------------------------]  26% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [========>------------------------------------------]  17% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========>------------------------------------------]  18% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -188,14 +107,58 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  27% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============>-------------------------------------]  28% eta:  4m  bootstrapping [=============>-------------------------------------]  28% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=========>-----------------------------------------]  19% eta:  4m  bootstrapping [=========>-----------------------------------------]  20% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [==============>------------------------------------]  29% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==========>----------------------------------------]  21% eta:  4m  bootstrapping [==========>----------------------------------------]  22% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===========>---------------------------------------]  23% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===========>---------------------------------------]  24% eta:  4mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============>--------------------------------------]  25% eta:  4m  bootstrapping [============>--------------------------------------]  26% eta:  4m  bootstrapping [=============>-------------------------------------]  27% eta:  4m  bootstrapping [=============>-------------------------------------]  28% eta:  4mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==============>------------------------------------]  29% eta:  4m  bootstrapping [==============>------------------------------------]  29% eta:  3m  bootstrapping [==============>------------------------------------]  30% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  30% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  31% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -203,7 +166,16 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============>------------------------------------]  30% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============>-----------------------------------]  32% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  32% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [================>----------------------------------]  33% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================>----------------------------------]  34% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -215,112 +187,77 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [===============>-----------------------------------]  30% eta:  3m  bootstrapping [===============>-----------------------------------]  31% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=================>---------------------------------]  34% eta:  3m  bootstrapping [=================>---------------------------------]  35% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [===============>-----------------------------------]  32% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [================>----------------------------------]  32% eta:  3m  bootstrapping [================>----------------------------------]  33% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [================>----------------------------------]  34% eta:  3m  bootstrapping [=================>---------------------------------]  34% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=================>---------------------------------]  35% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=================>---------------------------------]  36% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==================>--------------------------------]  36% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [==================>--------------------------------]  36% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==================>--------------------------------]  37% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==================>--------------------------------]  38% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===================>-------------------------------]  38% eta:  3m  bootstrapping [===================>-------------------------------]  39% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===================>-------------------------------]  40% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==================>--------------------------------]  38% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  38% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===================>-------------------------------]  39% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================>------------------------------]  40% eta:  3m  bootstrapping [====================>------------------------------]  41% eta:  3m  bootstrapping [====================>------------------------------]  42% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [===================>-------------------------------]  40% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  40% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================>------------------------------]  41% eta:  3m  bootstrapping [====================>------------------------------]  42% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=====================>-----------------------------]  42% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [=====================>-----------------------------]  43% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=====================>-----------------------------]  44% eta:  3m  bootstrapping [======================>----------------------------]  44% eta:  3m  bootstrapping [======================>----------------------------]  45% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================>----------------------------]  46% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  43% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================>-----------------------------]  44% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  44% eta:  3m  bootstrapping [======================>----------------------------]  45% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [======================>----------------------------]  46% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=======================>---------------------------]  46% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -329,54 +266,8 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [=======================>---------------------------]  47% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=======================>---------------------------]  48% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  48% eta:  3m  bootstrapping [========================>--------------------------]  49% eta:  3m  bootstrapping [========================>--------------------------]  49% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [========================>--------------------------]  50% eta:  2m  bootstrapping [=========================>-------------------------]  50% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=========================>-------------------------]  51% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=========================>-------------------------]  52% eta:  2m  bootstrapping [==========================>------------------------]  52% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==========================>------------------------]  53% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================>------------------------]  54% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  54% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  47% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================>---------------------------]  48% eta:  3mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -384,13 +275,39 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================>-----------------------]  55% eta:  2m  bootstrapping [===========================>-----------------------]  56% eta:  2m  bootstrapping [============================>----------------------]  56% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  48% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================>--------------------------]  49% eta:  3mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [========================>--------------------------]  50% eta:  2m  bootstrapping [=========================>-------------------------]  50% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [=========================>-------------------------]  51% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=========================>-------------------------]  52% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  52% eta:  2m  bootstrapping [==========================>------------------------]  53% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==========================>------------------------]  54% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================>-----------------------]  54% eta:  2m  bootstrapping [===========================>-----------------------]  55% eta:  2m  bootstrapping [===========================>-----------------------]  56% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================>----------------------]  56% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -403,18 +320,7 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [============================>----------------------]  58% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [============================>----------------------]  58% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=============================>---------------------]  58% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -422,45 +328,26 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=============================>---------------------]  59% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=============================>---------------------]  60% eta:  2m  bootstrapping [==============================>--------------------]  60% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==============================>--------------------]  61% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==============================>--------------------]  62% eta:  2m  bootstrapping [===============================>-------------------]  62% eta:  2m  bootstrapping [===============================>-------------------]  63% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===============================>-------------------]  64% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=============================>---------------------]  59% eta:  2m  bootstrapping [=============================>---------------------]  60% eta:  2m  bootstrapping [==============================>--------------------]  60% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================>------------------]  64% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [==============================>--------------------]  61% eta:  2m  bootstrapping [==============================>--------------------]  62% eta:  2m  bootstrapping [===============================>-------------------]  62% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  63% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===============================>-------------------]  64% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================>------------------]  64% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -472,117 +359,78 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [================================>------------------]  66% eta:  2m  bootstrapping [=================================>-----------------]  66% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================>-----------------]  67% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [=================================>-----------------]  67% eta:  2mWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=================================>-----------------]  68% eta:  2m  bootstrapping [==================================>----------------]  68% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [==================================>----------------]  69% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==================================>----------------]  70% eta:  1m  bootstrapping [===================================>---------------]  70% eta:  1m  bootstrapping [===================================>---------------]  71% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [====================================>--------------]  72% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==================================>----------------]  70% eta:  2mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [===================================>---------------]  70% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [====================================>--------------]  73% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [===================================>---------------]  71% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=====================================>-------------]  74% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
+  bootstrapping [====================================>--------------]  72% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [====================================>--------------]  73% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=====================================>-------------]  74% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
   bootstrapping [=====================================>-------------]  75% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [======================================>------------]  76% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [======================================>------------]  77% eta:  1m  bootstrapping [=======================================>-----------]  78% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=======================================>-----------]  79% eta:  1m  bootstrapping [========================================>----------]  80% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [======================================>------------]  76% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [========================================>----------]  81% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [======================================>------------]  77% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=======================================>-----------]  78% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  82% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -590,115 +438,91 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=========================================>---------]  83% eta:  1m  bootstrapping [=========================================>---------]  83% eta: 50sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=======================================>-----------]  79% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [==========================================>--------]  84% eta: 48s  bootstrapping [==========================================>--------]  84% eta: 47s  bootstrapping [==========================================>--------]  84% eta: 46sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [==========================================>--------]  85% eta: 45s  bootstrapping [==========================================>--------]  85% eta: 44sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [========================================>----------]  80% eta:  1mWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [========================================>----------]  81% eta:  1m  bootstrapping [=========================================>---------]  82% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===========================================>-------]  86% eta: 42s  bootstrapping [===========================================>-------]  86% eta: 41sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===========================================>-------]  86% eta: 40s  bootstrapping [===========================================>-------]  87% eta: 39s  bootstrapping [===========================================>-------]  87% eta: 38sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [============================================>------]  88% eta: 37s  bootstrapping [============================================>------]  88% eta: 35sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [============================================>------]  88% eta: 34s  bootstrapping [============================================>------]  89% eta: 33s  bootstrapping [============================================>------]  89% eta: 32sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [=========================================>---------]  83% eta:  1mWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  90% eta: 31s  bootstrapping [=============================================>-----]  90% eta: 29sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=============================================>-----]  90% eta: 28sWarning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=============================================>-----]  91% eta: 27sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==============================================>----]  91% eta: 26s  bootstrapping [==============================================>----]  92% eta: 25sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==============================================>----]  92% eta: 24sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [==============================================>----]  92% eta: 22s  bootstrapping [==============================================>----]  93% eta: 21sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===============================================>---]  93% eta: 20sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===============================================>---]  94% eta: 19sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [===============================================>---]  94% eta: 18s  bootstrapping [===============================================>---]  94% eta: 16s  bootstrapping [===============================================>---]  95% eta: 15sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==========================================>--------]  84% eta: 49s  bootstrapping [==========================================>--------]  84% eta: 48sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [================================================>--]  95% eta: 14s  bootstrapping [================================================>--]  96% eta: 13sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==========================================>--------]  84% eta: 46sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [================================================>--]  96% eta: 12s  bootstrapping [================================================>--]  96% eta: 11sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [==========================================>--------]  85% eta: 45s  bootstrapping [==========================================>--------]  85% eta: 44sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  86% eta: 43s  bootstrapping [===========================================>-------]  86% eta: 42s  bootstrapping [===========================================>-------]  86% eta: 41sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [================================================>--]  97% eta:  9sWarning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [=================================================>-]  97% eta:  8sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [===========================================>-------]  87% eta: 39sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [===========================================>-------]  87% eta: 38s  bootstrapping [============================================>------]  88% eta: 37sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  88% eta: 36sWarning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  88% eta: 35sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [============================================>------]  89% eta: 33s  bootstrapping [============================================>------]  89% eta: 32s  bootstrapping [=============================================>-----]  90% eta: 31s  bootstrapping [=============================================>-----]  90% eta: 30s  bootstrapping [=============================================>-----]  90% eta: 29s  bootstrapping [=============================================>-----]  91% eta: 27s  bootstrapping [==============================================>----]  91% eta: 26s  bootstrapping [==============================================>----]  92% eta: 25sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  92% eta: 24sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [==============================================>----]  92% eta: 23sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+  bootstrapping [==============================================>----]  93% eta: 21s  bootstrapping [===============================================>---]  93% eta: 20s  bootstrapping [===============================================>---]  94% eta: 19s  bootstrapping [===============================================>---]  94% eta: 18s  bootstrapping [===============================================>---]  94% eta: 17sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+  bootstrapping [===============================================>---]  95% eta: 16s  bootstrapping [================================================>--]  95% eta: 14sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 13sWarning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [================================================>--]  96% eta: 12s  bootstrapping [================================================>--]  96% eta: 11s  bootstrapping [================================================>--]  97% eta: 10sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+  bootstrapping [=================================================>-]  97% eta:  8sWarning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [=================================================>-]  98% eta:  7sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -712,10 +536,4 @@ Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.star
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-  bootstrapping [=================================================>-]  98% eta:  5sWarning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = ratio.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-  bootstrapping [=================================================>-]  99% eta:  4s  bootstrapping [==================================================>]  99% eta:  2s  bootstrapping [==================================================>] 100% eta:  1s  bootstrapping [===================================================] 100% eta:  0s
+  bootstrapping [=================================================>-]  98% eta:  5s  bootstrapping [=================================================>-]  99% eta:  4s  bootstrapping [==================================================>]  99% eta:  2s  bootstrapping [==================================================>] 100% eta:  1s  bootstrapping [===================================================] 100% eta:  0s

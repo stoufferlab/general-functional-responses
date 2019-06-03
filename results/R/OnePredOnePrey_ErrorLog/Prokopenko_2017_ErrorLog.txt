@@ -1,10 +1,6 @@
-Error in dimnames(x) <- dn : 
-  length of 'dimnames' [1] not equal to array extent
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Twice the largest variance estimate substituted.
-Error in dimnames(x) <- dn : 
-  length of 'dimnames' [1] not equal to array extent
-Error in lm.wfit(x, y, w, offset = offset, singular.ok = singular.ok,  : 
-  NA/NaN/Inf in 'x'
+Warning in sqrt(diag(object@vcov)) : NaNs produced
+Warning in sqrt(diag(object@vcov)) : NaNs produced
   bootstrapping [===================================================] 100% eta:  0s

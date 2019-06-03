@@ -1,17 +1,5 @@
-Error in optim(par = c(a1 = -6.36035054824481, a2 = -6.30918216355045,  : 
+Error in optim(par = c(a1 = -6.35441916200055, a2 = -6.40372189523944,  : 
   initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.53074568932654, a2 = -6.52947541008597,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.44984260392498, a2 = -6.54090830402771,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.50216087198767, a2 = -6.53071111496871,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.55033825242059, a2 = -6.48153526673774,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.3149941687179, a2 = -6.35076126027936,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.52431261455258, a2 = -6.53082679336573,  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(a1 = -6.55489281724408, a2 = -6.39932578057626,  : 
+Error in optim(par = c(a1 = -6.40272473919045, a2 = -6.42696473164085,  : 
   initial value in 'vmmin' is not finite
   bootstrapping [===================================================] 100% eta:  0s
