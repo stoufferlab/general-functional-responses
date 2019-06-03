@@ -42,8 +42,8 @@ dRMSEs <- RMSEs - minRMSEs
 rnkRMSEs <- t(apply(dRMSEs, 1, rank, ties.method='first'))
 colnames(rnkRMSEs) <- colnames(RMSEs)
 
-# Define delta RMSE cut-off for "well performing" models
-# Which models have an RMSE that is less than 1% of the data average
+# Define delta RMSE cut-off for "well performing" models:
+# Which models have an RMSE that is less than 1% of the data average (repeat for raw and bootstrapped datasets and merge)
 delRMSEcutoff <- unlist(lapply(ffr.fits, function(x) 0.01*mean(x$study.info$data.Nconsumed)))
 delRMSEcutoff2 <- unlist(lapply(ffr.fits, function(x) 0.01*mean(x$study.info$data.Nconsumed.mean)))
 delRMSEcutoff[which(is.na(delRMSEcutoff))] <- delRMSEcutoff2[which(!is.na(delRMSEcutoff2))]
@@ -97,7 +97,6 @@ pCnt <- round(prop.table(Cnt,2)*100,1)
 pCnt
 # Concl:  AA is ranked 1st most frequently, followed by CM and BD.
 
-
 # ~~~~~~~~~
 # Either pass counts or combine counts and proportions before exporting table
 tab_Cnt <- Cnt
@@ -105,7 +104,6 @@ tab_Cnt <- Cnt
 # bCnt <- paste0(Cnt,' (',pCnt,')')
 # bCnt[Cnt==0] <- 0
 # tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
-
 
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_figs/')
@@ -130,6 +128,7 @@ cnt
 cnt/Cnt[1,'AA']
 # Concl: BD or CM are within cutoff ~76% of the time
 
+# ~~~~~~~~~
 # What about for datasets that have a sample size of at least X?
 SScut <- 50
 Cnt<-apply(rnkRMSEs[sample.sizes>=SScut,],2,function(x){table(factor(x,levels=1:ncol(rnkRMSEs)))})
@@ -137,5 +136,20 @@ Cnt
 pCnt <- round(prop.table(Cnt,2)*100,1)
 pCnt
 
+# Either pass counts or combine counts and proportions before exporting table
+tab_Cnt <- Cnt
 
+# bCnt <- paste0(Cnt,' (',pCnt,')')
+# bCnt[Cnt==0] <- 0
+# tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
+
+wd <- getwd()
+setwd('../../../../results/R/OnePredOnePrey_figs/')
+
+latex(tab_Cnt,file='OnePredOnePrey_RMSE_rankings_top50.tex',label='table:RMSE_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by RMSE.')
+
+# latex(tab_Cnt,file='OnePredOnePrey_RMSE_rankings_top50.tex',label='table:RMSE_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by RMSE.')
+
+setwd(wd)
+# ~~~~~~~~~
 

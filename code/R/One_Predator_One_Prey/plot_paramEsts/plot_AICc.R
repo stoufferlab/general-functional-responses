@@ -106,13 +106,12 @@ tab_Cnt <- Cnt
 # bCnt[Cnt==0] <- 0
 # tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
 
-
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_figs/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by AICc.')
+latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
-# latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by AICc.')
+# latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
 setwd(wd)
 # ~~~~~~~~~
@@ -130,6 +129,7 @@ cnt
 cnt/Cnt[1,'AA']
 # Concl: BD or CM are within 2 dAICc units ~60% of the time
 
+# ~~~~~~~~~
 # What about for datasets that have a sample size of at least X?
 SScut <- 50
 Cnt<-apply(rnkAICcs[sample.sizes>=SScut,],2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
@@ -137,6 +137,22 @@ Cnt
 pCnt <- round(prop.table(Cnt,2)*100,1)
 pCnt
 
+# Either pass counts or combine counts and proportions before exporting table
+tab_Cnt <- Cnt
+
+# bCnt <- paste0(Cnt,' (',pCnt,')')
+# bCnt[Cnt==0] <- 0
+# tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
+
+wd <- getwd()
+setwd('../../../../results/R/OnePredOnePrey_figs/')
+
+latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings_top50.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+
+# latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings_top50.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency)  with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+
+setwd(wd)
+# ~~~~~~~~~
 
 #~~~~~~
 # dAICc
