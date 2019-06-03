@@ -146,9 +146,9 @@ tab_Cnt <- Cnt
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_figs/')
 
-latex(tab_Cnt,file='OnePredOnePrey_RMSE_rankings_top50.tex',label='table:RMSE_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by RMSE.')
+latex(tab_Cnt,file='OnePredOnePrey_RMSE_rankings_top50.tex',label='table:RMSE_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by RMSE.')
 
-# latex(tab_Cnt,file='OnePredOnePrey_RMSE_rankings_top50.tex',label='table:RMSE_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by RMSE.')
+# latex(tab_Cnt,file='OnePredOnePrey_RMSE_rankings_top50.tex',label='table:RMSE_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by RMSE.')
 
 setwd(wd)
 # ~~~~~~~~~
