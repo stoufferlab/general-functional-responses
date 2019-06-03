@@ -20,11 +20,6 @@ save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order.parm="phi_denom")
 ffr.fits <- ffr.fits[fit.order]
 
-# fraction of replicates in which significant depletion occurred (in non-replacement datasets)
-col.vec<-rep('black',length(ffr.fits))
-depleted <- unlist(lapply(ffr.fits, depletion.check, cutoff=0.7))
-col.vec[depleted>0] <- 'red'
-
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
 labels<-gsub('_',' ',labels)
 sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
