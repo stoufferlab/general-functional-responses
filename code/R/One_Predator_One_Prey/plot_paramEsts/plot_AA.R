@@ -44,7 +44,23 @@ labels <- paste0(labels, ' (',sample.sizes,')')
 ###################################################
 # ~~~~~~~~~~~~~~~~~~ AA exponent ~~~~~~~~~~~~~~~~~~
 ###################################################
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m.pdf',height=6,width=5)
+cairo_pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m.pdf',height=6,width=5)
+par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
+plot.coefs(
+  ffr.fits,
+  model="Arditi.Akcakaya",
+  parameter="exponent",
+  ilink=exp,
+  plot.SEs=TRUE,
+  display.outlier.ests=TRUE,
+  xlab=expression(paste("Interference rate ",(italic(m)))),
+  labels=labels,
+  xlim=c(0,5),
+  vertLines=c(0,1)
+)
+dev.off()
+
+cairo_pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_v2.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
   plot.coefs(
      ffr.fits,
@@ -52,6 +68,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      parameter="exponent",
      ilink=exp,
      plot.SEs=TRUE,
+     SE.lty=c(1,2,3),
      display.outlier.ests=TRUE,
      pch.vector=pch.vec,
      xlab=expression(paste("Interference rate ",(italic(m)))),
@@ -65,7 +82,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
                   'No depletion','Depletion',NA,
                   'Profiled', 'Approximated','Bootstrapped'),
          pch=c(19,15,NA,19,1,NA,1,10,NA,NA,NA,NA), 
-         lty=c(NA,NA,NA,NA,NA,NA,NA,NA,NA,'solid','dashed','dotted'),
+         lty=c(NA,NA,NA,NA,NA,NA,NA,NA,NA,1,2,3),
          inset=0.05)
 dev.off()
 
