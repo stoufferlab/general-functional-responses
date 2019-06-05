@@ -53,14 +53,13 @@ plot.coefs <- function(
                             'interference',
                             'phi_denom',
                             'exponent',
-                            'theta'),
+                            'theta'),  # add others later as needed
                 ilink=identity,
                 color.factor=c('None','Parasitoids','Replacement'),
                 color.vector=NULL,
                 pch.factor=c('None','Parasitoids','Replacement'),
                 pch.vector=NULL,
                 plot.SEs=FALSE,
-                SE.lty=NULL, # or vector of three lty options
                 point.est=c('median','mean'), # ignored if plot.SEs=TRUE
                 display.outlier.ests=FALSE,
                 xlim=NULL,
@@ -140,10 +139,8 @@ plot.coefs <- function(
     mm <- x$estimates[[model]][point.est, parameter, "estimate"]
     mm.link <- ilink(mm)
     
-    # set SE line types
-    if(is.null(SE.lty)){
-      SE.lty <- rep(1,3)
-    }
+    # make all lines the equivalent for now
+    lty <- "solid"
 
     # Function for number reformatting
     format.number <-function(number){
@@ -163,7 +160,6 @@ plot.coefs <- function(
     delta.arrow <- 0.02*diff(xlim)
     
     # if the point estimate is out of bounds don't even bother with its uncertainty
-    lty <- SE.lty[1]
     if(mm.link < xlim[1] | mm.link > xlim[2]){
       if(mm.link > xlim[2]){
         arrows(xlim[2]-delta.arrow, i, par("usr")[2], i,
@@ -184,15 +180,16 @@ plot.coefs <- function(
     
     if(plot.SEs){
       if(x$profile$method=='profile'){
-        lty <- SE.lty[1]
+        lty <- "solid" # best case is solid line
       }
       if(x$profile$method=='quadratic'){
-        lty <- SE.lty[2]
+        lty <- "dashed"  # quadratic approximation is dashed line
       }
       if(x$profile$method=='bootstrap'){
-        lty <- SE.lty[3]
+        lty <- "dotted"    # bootstrapped is dotted line
       }
       
+ 
       lb <- min(x$profile$cf[parameter,])
       ub <- max(x$profile$cf[parameter,])
       mm2 <- x$profile$cf[parameter,2]

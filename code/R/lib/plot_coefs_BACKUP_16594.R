@@ -52,8 +52,12 @@ plot.coefs <- function(
                             'handling',
                             'interference',
                             'phi_denom',
+<<<<<<< HEAD
+                            'exponent'),  # add others later as needed
+=======
                             'exponent',
                             'theta'),
+>>>>>>> e4517ae... Updat plot_coefs()
                 ilink=identity,
                 color.factor=c('None','Parasitoids','Replacement'),
                 color.vector=NULL,
