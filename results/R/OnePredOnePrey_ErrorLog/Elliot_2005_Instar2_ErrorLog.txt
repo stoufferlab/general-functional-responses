@@ -1,4 +1,0 @@
-Yes to Elliot_2005_Instar2
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================================] 100% eta:  0s

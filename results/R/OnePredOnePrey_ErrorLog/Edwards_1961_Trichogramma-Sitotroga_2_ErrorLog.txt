@@ -1,6 +1,0 @@
-Yes to Edwards_1961_Trichogramma-Sitotroga_2
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-Warning in sqrt(diag(object@vcov)) : NaNs produced
-  bootstrapping [===================================================] 100% eta:  0s

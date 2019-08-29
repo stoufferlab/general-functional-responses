@@ -1,23 +1,3 @@
-Yes to Mertz_1968
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
+Error in optim(par = c(a1 = -6.49434579454029, a2 = -6.46289989419584,  : 
   initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
-Error in optim(par = c(attack = -6.28920108350629), fn = function (p)  : 
-  initial value in 'vmmin' is not finite
+  bootstrapping [===================================================] 100% eta:  0s

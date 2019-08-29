@@ -15,6 +15,9 @@ source('../lib/study_info.R')
 source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/AA_method.R')
+source('../lib/set_params.R')
+source('../lib/RMSE.R')
+source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 source('../lib/ratio_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,77 +34,29 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
-# remove problem datasets
-datasets <- grep("Eveleigh",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Griffen",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Hossie",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Johnson",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Jones",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Katz",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Jones",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Krylov",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Lang",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Long",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Mansour",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Mertz",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Stier",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Uttley",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("vonWesternhagen",datasets,invert=TRUE,value=TRUE)
-datasets <- grep("Wasserman",datasets,invert=TRUE,value=TRUE)
-
-
-
 # check to see which datasets have been fit (and thus on't bother refitting them)
-datasets.fitted <- list.files('../../../results/R/OnePredOnePrey_fits/', full.names=FALSE, include.dirs=FALSE)
-datasets.fitted <- gsub('*data$','',datasets.fitted)
-datasets <- datasets[!gsub('./Dataset_Code/','',datasets)%in%datasets.fitted]
+# datasets.fitted <- list.files('../../../results/R/OnePredOnePrey_fits/', full.names=FALSE, include.dirs=FALSE)
+# datasets.fitted <- gsub('*data$','',datasets.fitted)
+# datasets <- datasets[!gsub('./Dataset_Code/','',datasets)%in%datasets.fitted]
 
 # select focal dataset for testing
 # datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
-# datasets <- c("./Dataset_Code/Elliot_2003_Din.R")
-# datasets <- c("./Dataset_Code/Elliot_2005_Instar2.R")
-
+# datasets <- datasets[1]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Let's start analyzing!
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-datasetsNames <- sub('*./Dataset_Code/','', datasets)
-datasetsNames <- sub('*.R$','', datasetsNames)
-
-# create mega container for the things that get fit
-# ffr.fits <- list()
-
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
 
   # loads the data into data frame 'd' and specifies data-specific parameters
   source(datasets[i])
   
-  # start capturing the progress and warning messages  
-  if(sinkMessages){
-    options(warn=1) # provide more than just the base info level
-    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsNames[i], '_ErrorLog.txt'), open='wt')
-    sink(Mesgs, type="message")
-  }
-
-	# grab info from the google doc
-	this.study <- study.info(datadir)
-	
-	# tranform data into terms of hours
-	if(!is.null(d$Time)){
-		d$Time <- switch(this.study$timeunits,
-			Seconds = d$Time / 3600.,
-			Minutes = d$Time / 60.,
-			Hours = d$Time,
-			Days = d$Time * 24,
-			Unavailable = rep(NA, nrow(d))
-		)
-	}
-	
-	# save original data in case we need to bootstrap it
-	d.orig <- d
+  # grab info from the google doc
+  this.study <- study.info(datadir)
+  
+  datasetsName <- sub('*.R$','', sub('*./Dataset_Code/','', datasets[i]))
 
 	#############################################
 	# fit all the functional response models
@@ -111,10 +66,32 @@ for(i in 1:length(datasets)){
 	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
 	# if(!grepl("R", this.study$runswith)){ 
 	if(!grepl("H|R", this.study$runswith)){
-		message(paste0("No to ",datasetsNames[i]))
+		message(paste0("No to ",datasetsName))
 	}else{
-		# print out which dataset is being analyzed
-		message(paste0("Yes to ",datasetsNames[i]))
+	  
+	  # print out which dataset is being analyzed
+	  message(paste0("Yes to ",datasetsName))
+	  
+	  # start capturing the progress and warning messages  
+	  if(sinkMessages){
+	    options(warn=1) # provide more than just the base info level
+	    Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'), open='wt')
+	    sink(Mesgs, type="message")
+	  }
+	  
+	  # tranform data into terms of hours
+	  if(!is.null(d$Time)){
+	    d$Time <- switch(this.study$timeunits,
+	                     Seconds = d$Time / 3600.,
+	                     Minutes = d$Time / 60.,
+	                     Hours = d$Time,
+	                     Days = d$Time * 24,
+	                     Unavailable = rep(NA, nrow(d))
+	    )
+	  }
+	  
+	  # save original data in case we need to bootstrap it
+	  d.orig <- d
 
 		# Do data need to be bootstrapped?
 		if("Nconsumed.mean" %in% colnames(d)){
@@ -145,19 +122,19 @@ for(i in 1:length(datasets)){
 	    	success <- try({
 	    		ffr.hollingI <- ffr.hollingII <- ffr.bd <- ffr.cm <- ffr.sn1 <- array(NA,c(1,1))
 	    		if(grepl("H", this.study$runswith)){
-	  	    	ffr.hollingI <- fit.holling.like(d, this.study, "Holling I")
-	  				ffr.hollingII <- fit.holling.like(d, this.study, "Holling II")
-	  				ffr.bd <- fit.holling.like(d, this.study, "Beddington-DeAngelis")
-	  				ffr.cm <- fit.holling.like(d, this.study, "Crowley-Martin")
-	  				ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer-Novak I")
+	  	    	ffr.hollingI <- fit.holling.like(d, this.study, "Holling.I")
+	  				ffr.hollingII <- fit.holling.like(d, this.study, "Holling.II")
+	  				ffr.bd <- fit.holling.like(d, this.study, "Beddington.DeAngelis")
+	  				ffr.cm <- fit.holling.like(d, this.study, "Crowley.Martin")
+	  				ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer.Novak.I")
 	  			}
   				
   				ffr.ratio <- ffr.ag <- ffr.hv <- ffr.aa <- ffr.aam <- array(NA,c(1,1))
   				if(grepl("R", this.study$runswith)){
     				ffr.ratio <- fit.ratio.like(d, this.study, "Ratio")
-    				ffr.ag <- fit.ratio.like(d, this.study, "Arditi-Ginzburg")
-    				ffr.hv <- fit.ratio.like(d, this.study, "Hassell-Varley")
-    				ffr.aa <- fit.ratio.like(d, this.study, "Arditi-Akcakaya")
+    				ffr.ag <- fit.ratio.like(d, this.study, "Arditi.Ginzburg")
+    				ffr.hv <- fit.ratio.like(d, this.study, "Hassell.Varley")
+    				ffr.aa <- fit.ratio.like(d, this.study, "Arditi.Akcakaya")
   	    		if(okay4AAmethod(d)){
   	    		   ffr.aam <- AAmethod(d,this.study$replacement)
   	    		}
@@ -166,17 +143,22 @@ for(i in 1:length(datasets)){
 	    	
 	    	if(!inherits(success, "try-error")){
 		    	if(b == 1){
-		    	  # create containers for log likelihood values of all bootstrap fits
+		    	  # create containers for log likelihood values of all fits
 		    	  ll.hollingI <- ll.hollingII <- ll.bd <- ll.cm <- ll.sn1 <- vector("numeric",boot.reps)
 		    	  # ll.sn2 <- ll.sn3 <- vector("list",boot.reps)
 		    	  ll.ratio <- ll.ag <- ll.hv <- ll.aa <- vector("numeric",boot.reps)
 		    	  
-		    	  # create containers for AICc values of all bootstrap fits
+		    	  # create containers for AICc values of all fits
 		    	  aicc.hollingI <- aicc.hollingII <- aicc.bd <- aicc.cm <- aicc.sn1 <- vector("numeric",boot.reps)
 		    	  # aicc.sn2 <- aicc.sn3 <- vector("list",boot.reps)
 		    	  aicc.ratio <- aicc.ag <- aicc.hv <- aicc.aa <- vector("numeric",boot.reps)
 		    	  
-		    	  # create containers for parameter estimates using first rep as a template
+		    	  # create containers for RMSE values of all fits
+		    	  rmse.hollingI <- rmse.hollingII <- rmse.bd <- rmse.cm <- rmse.sn1 <- vector("numeric",boot.reps)
+		    	  # rmse.sn2 <- rmse.sn3 <- vector("list",boot.reps)
+		    	  rmse.ratio <- rmse.ag <- rmse.hv <- rmse.aa <- vector("numeric",boot.reps)
+		    	  
+		    	  # create containers for parameter estimates using first bootstrap as a template
 		    		boots.hollingI <- boots.hollingII <- boots.bd <- array(NA, c(1,1,boot.reps))
 		    		boots.cm <- boots.sn1 <- array(NA, c(1,1,boot.reps))
 		    		# boots.sn2 <- boots.sn3 <- array(NA, c(1,1,boot.reps))
@@ -220,6 +202,14 @@ for(i in 1:length(datasets)){
 	    	    aicc.sn1[[b]] <- AICc(ffr.sn1)
 	    	    # aicc.sn2[[b]] <- AICc(ffr.sn2)
 	    	    # aicc.sn3[[b]] <- AICc(ffr.sn3)
+	    	    
+	    	    rmse.hollingI[[b]] <- RMSE(d, ffr.hollingI, this.study,'Holling.I')
+	    	    rmse.hollingII[[b]] <- RMSE(d, ffr.hollingII, this.study, 'Holling.II')
+	    	    rmse.bd[[b]] <- RMSE(d, ffr.bd, this.study, 'Beddington.DeAngelis')
+	    	    rmse.cm[[b]] <- RMSE(d, ffr.cm, this.study, 'Crowley.Martin')
+	    	    rmse.sn1[[b]] <- RMSE(d, ffr.sn1, this.study, 'Stouffer.Novak.I')
+	    	    # rmse.sn2[[b]] <- RMSE(d, ffr.sn2, this.study, 'Stouffer.Novak.II')
+	    	    # rmse.sn3[[b]] <- RMSE(d, ffr.sn3, this.study, 'Stouffer.Novak.III')
 	    	  }
 	    	  if(grepl("R", this.study$runswith)){
 	    	    ll.ratio[[b]] <- logLik(ffr.ratio)
@@ -231,6 +221,11 @@ for(i in 1:length(datasets)){
 	    	    aicc.ag[[b]] <- AICc(ffr.ag)
 	    	    aicc.hv[[b]] <- AICc(ffr.hv)
 	    	    aicc.aa[[b]] <- AICc(ffr.aa)
+	    	    
+	    	    rmse.ratio[[b]] <- RMSE(d, ffr.ratio, this.study, 'Ratio')
+	    	    rmse.ag[[b]] <- RMSE(d, ffr.ag, this.study, 'Arditi.Ginzburg')
+	    	    rmse.hv[[b]] <- RMSE(d, ffr.hv, this.study, 'Hassell.Varley')
+	    	    rmse.aa[[b]] <- RMSE(d, ffr.aa, this.study, 'Arditi.Akcakaya')
 	    	  }
 	    	  
 	    	  
@@ -294,6 +289,14 @@ for(i in 1:length(datasets)){
 			AICc.sn1 <- summarize.boots(aicc.sn1)
 			# AICc.sn2 <- summarize.boots(aicc.sn2)
 			# AICc.sn3 <- summarize.boots(aicc.sn3)
+			
+			RMSE.hollingI <- summarize.boots(rmse.hollingI)
+			RMSE.hollingII <- summarize.boots(rmse.hollingII)
+			RMSE.bd <- summarize.boots(rmse.bd)
+			RMSE.cm <- summarize.boots(rmse.cm)
+			RMSE.sn1 <- summarize.boots(rmse.sn1)
+			# RMSE.sn2 <- summarize.boots(rmse.sn2)
+			# RMSE.sn3 <- summarize.boots(rmse.sn3)
 		}
 		
 	  ests.ratio <- ests.ag <- ests.hv <- ests.aa <- ests.aam <- NA
@@ -315,6 +318,11 @@ for(i in 1:length(datasets)){
 	  		AICc.ag <- summarize.boots(aicc.ag)
 	  		AICc.hv <- summarize.boots(aicc.hv)
 	  		AICc.aa <- summarize.boots(aicc.aa)
+	  		
+	  		RMSE.ratio <- summarize.boots(rmse.ratio)
+	  		RMSE.ag <- summarize.boots(rmse.ag)
+	  		RMSE.hv <- summarize.boots(rmse.hv)
+	  		RMSE.aa <- summarize.boots(rmse.aa)
 		}
 		
 	  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -323,15 +331,15 @@ for(i in 1:length(datasets)){
 		# ffr.fits[[datasets[i]]] <- list(
 		ffr.fit <- list(
 	    study.info = c(
-  	                datasetName = datasetsNames[i],
+  	                datasetName = datasetsName,
           	  			datadir = datadir,
           	  			sample.size = nrow(d),
           	  			data=d.orig,
           	  	    this.study  	        
         	  	    ),
 	  	fits = list(
-          	  	  Holling.Type.I = ffr.hollingI,
-          	  	  Holling.Type.II = ffr.hollingII,
+          	  	  Holling.I = ffr.hollingI,
+          	  	  Holling.II = ffr.hollingII,
           	  	  Beddington.DeAngelis = ffr.bd,
           	  	  Crowley.Martin = ffr.cm,
           	  	  Stouffer.Novak.I = ffr.sn1,
@@ -343,8 +351,8 @@ for(i in 1:length(datasets)){
           	  	  Arditi.Akcakaya = ffr.aa
           	  	),
       boots = list(
-                  	Holling.Type.I = boots.hollingI,
-                  	Holling.Type.II = boots.hollingII,
+                  	Holling.I = boots.hollingI,
+                  	Holling.II = boots.hollingII,
                   	Beddington.DeAngelis = boots.bd,
                   	Crowley.Martin = boots.cm,
                   	Stouffer.Novak.I = boots.sn1,
@@ -357,8 +365,8 @@ for(i in 1:length(datasets)){
                     Arditi.Akcakaya.Method.2 = boots.aam
                   ),
 	  	LL = list(
-          	  	  Holling.Type.I = LL.hollingI,
-          	  	  Holling.Type.II = LL.hollingII,
+          	  	  Holling.I = LL.hollingI,
+          	  	  Holling.II = LL.hollingII,
           	  	  Beddington.DeAngelis = LL.bd,
           	  	  Crowley.Martin = LL.cm,
           	  	  Stouffer.Novak.I = LL.sn1,
@@ -370,8 +378,8 @@ for(i in 1:length(datasets)){
           	  	  Arditi.Akcakaya = LL.aa
 	  	),
 	  	AICc = list(
-            	  	  Holling.Type.I = AICc.hollingI,
-            	  	  Holling.Type.II = AICc.hollingII,
+            	  	  Holling.I = AICc.hollingI,
+            	  	  Holling.II = AICc.hollingII,
             	  	  Beddington.DeAngelis = AICc.bd,
             	  	  Crowley.Martin = AICc.cm,
             	  	  Stouffer.Novak.I = AICc.sn1,
@@ -382,9 +390,22 @@ for(i in 1:length(datasets)){
             	  	  Hassell.Varley = AICc.hv,
             	  	  Arditi.Akcakaya = AICc.aa
 	  	          ),
+	  	RMSE = list(
+          	  	  Holling.I = RMSE.hollingI,
+          	  	  Holling.II = RMSE.hollingII,
+          	  	  Beddington.DeAngelis = RMSE.bd,
+          	  	  Crowley.Martin = RMSE.cm,
+          	  	  Stouffer.Novak.I = RMSE.sn1,
+          	  	  # Stouffer.Novak.II = RMSE.sn2,
+          	  	  # Stouffer.Novak.III = RMSE.sn3,
+          	  	  Ratio = RMSE.ratio,
+          	  	  Arditi.Ginzburg = RMSE.ag,
+          	  	  Hassell.Varley = RMSE.hv,
+          	  	  Arditi.Akcakaya = RMSE.aa
+	  	),
 			estimates = list(
-              			    Holling.Type.I = ests.hollingI,
-              			    Holling.Type.II = ests.hollingII,
+              			    Holling.I = ests.hollingI,
+              			    Holling.II = ests.hollingII,
               			    Beddington.DeAngelis = ests.bd,
               			    Crowley.Martin = ests.cm,
               			    Stouffer.Novak.I = ests.sn1,
@@ -397,24 +418,24 @@ for(i in 1:length(datasets)){
               			    Arditi.Akcakaya.Method.2 = ests.aam
             		    	)
 	          )
-	}
-	
-	if(sinkMessages){
-	  sink(type="message")
-	  close(Mesgs)
-	  options(warn=0)
-	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsNames[i], '_ErrorLog.txt'))
-	}
-	
-	# Save the data set fit
-	save(ffr.fit, 
-	     file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsNames[i],'.Rdata'))
-	
+		
+		# Save the data set fit
+		saveRDS(ffr.fit, 
+		        file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsName,'.Rdata'))
 
+  	if(sinkMessages){
+  	  sink(type="message")
+  	  close(Mesgs)
+  	  options(warn=0)
+  	  readLines(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'))
+  	}
+	}
 }
+sink(type="message")
+close(Mesgs)
 
-# save the mega container
-# save(ffr.fits, 
-#      file='../../../results/R/ffr.fits_OnePredOnePrey.Rdata')
-
+# save a mega container
+ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits')
+save(ffr.fits,
+     file='../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 

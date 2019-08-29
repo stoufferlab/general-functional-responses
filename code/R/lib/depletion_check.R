@@ -1,4 +1,4 @@
-depletion.check<-function(ffr.fit, cutoff=0.8){
+depletion.check<-function(ffr.fit, fracEaten=0.9, fracRepl=0.1){
   # only bother if non-replacement
   if(!ffr.fit$study.info$replacement){
     return(0)
@@ -9,9 +9,10 @@ depletion.check<-function(ffr.fit, cutoff=0.8){
       eaten <- ffr.fit$study.info$data.Nconsumed.mean
     }
   initial <- ffr.fit$study.info$data.Nprey
-  n.depleted <- sum(eaten/initial > cutoff)
+  n.depleted <- sum(eaten/initial > fracEaten)
   frac.depleted <- n.depleted/length(initial)
-  return(frac.depleted)
+  depleted <- frac.depleted>fracRepl
+  return(depleted)
 }
 
 
