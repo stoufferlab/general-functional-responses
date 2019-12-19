@@ -31,6 +31,10 @@ mytidy <- function(fit){
 	out <- matrix(as.numeric(unlist(tfit)), nrow=nrow(tfit), ncol=ncol(tfit), byrow=FALSE)
 	rownames(out) <- terms
 	colnames(out) <- colnames(tfit)
+	#DEBUG
+	out <- rbind(out, c(AIC(fit),0,0,0))
+	rownames(out)[nrow(out)] <- "AIC"
+	#ENDDEBUG
 	out
 }
 
@@ -63,18 +67,18 @@ ffr.fits <- list()
 which.models <- c(
 	"Holling I",
 	"Holling II Specialist Specialist",
+	# "Holling II Specialist Hybrid",
+	# "Holling II Hybrid Specialist",
 	"Holling II Specialist Generalist",
 	"Holling II Generalist Specialist",
 	"Holling II Generalist Generalist",
-	"Holling II Specialist Hybrid",
-	"Holling II Generalist Hybrid",
-	"Holling II Hybrid Specialist",
-	"Holling II Hybrid Generalist",
+	# "Holling II Generalist Hybrid",
+	# "Holling II Hybrid Generalist",
 	"Holling II Hybrid Hybrid"
 )
 
-# # DEBUG: for testing only
-# datasets <- c("./Dataset_Code/Buckel_2000_large.R","./Dataset_Code/zzz_Buckel_2000_small.R")
+# # # DEBUG: for testing only
+# datasets <- datasets[[6]] #c("./Dataset_Code/Kalinkat_2011_Anch.R") #,"./Dataset_Code/zzz_Buckel_2000_small.R")
 
 # fit everything on a dataset by dataset basis
 for(i in 1:length(datasets)){
@@ -91,7 +95,7 @@ for(i in 1:length(datasets)){
 			Minutes = d$Time / 60.,
 			Hours = d$Time,
 			Days = d$Time * 24,
-			Unavailable = rep(NA, nrow(d))
+			Unavailable = rep(1, nrow(d))
 		)
 	}
 
@@ -130,7 +134,16 @@ for(i in 1:length(datasets)){
 			# )
 			# pb$tick(0, tokens = list(modeltype = modeltype))
 
-			message(paste0(" ",modeltype," "),appendLF=FALSE)
+			if(grepl("Hybrid",modeltype)){
+				link.funcs <- c("identity", "exp")
+			}else{
+				link.funcs <- c("identity")
+			}
+
+			for(lll in link.funcs){
+
+
+			message(paste0(" ",modeltype," ",lll),appendLF=FALSE)
 			# we will perform all fits boot.reps different times
 			local.fits <- foreach(b=1:boot.reps) %dopar% {
 				# some fits don't work due to wonkiness in the data so we'll just plow forward when that happens
@@ -140,10 +153,12 @@ for(i in 1:length(datasets)){
 						d <- bootstrap.data(d.orig, this.study$replacement)
 					}
 		    
-					# attempt to fit the model and abort if the fit fails for some reason	    	
-			    	local.fit <- try(
-			    		fit.holling.like(d, s=this.study, modeltype=modeltype)
-					)
+		    		if(lll=="identity"){
+						# attempt to fit the model and abort if the fit fails for some reason	    	
+			    		local.fit <- try(fit.holling.like(d, s=this.study, modeltype=modeltype))
+			    	}else{
+			    		local.fit <- try(fit.holling.like(d, s=this.study, modeltype=modeltype, phi.transform=exp))
+					}
 
 			    	if(!inherits(local.fit, "try-error")){
 			    		bad.fit <- FALSE
@@ -175,7 +190,8 @@ for(i in 1:length(datasets)){
 			# pb$terminate()
 
 			# save the key stuff
-			locals[[modeltype]] <- list(fit=local.fits[[1]], ests=local.ests)
+			locals[[paste(modeltype, lll)]] <- list(fit=local.fits[[1]], ests=local.ests)
+		}
 		}
 
 	  	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -191,6 +207,7 @@ for(i in 1:length(datasets)){
 			fits = lapply(locals, function(x) x$fit),
 			estimates = lapply(locals, function(x) x$ests)
 		)
+
 	}
 
 	# source('plot_phi_denom.R')
@@ -199,7 +216,7 @@ for(i in 1:length(datasets)){
 }
 
 # save the mega container which includes all FR fits
-save(ffr.fits,file='../../../results/R/ffr.fits_OnePredTwoPrey.Rdata')
+save(ffr.fits,file='../../../results/R/OnePredTwoPrey_ffr.fits.Rdata')
 
 # # generate a quick and dirty plot of the phi_denom parameters of the SNI model
 # source('plot_phi_denom.R')
