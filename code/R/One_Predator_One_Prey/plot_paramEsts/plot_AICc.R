@@ -104,7 +104,7 @@ tab_Cnt <- Cnt
 # tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
 
 wd <- getwd()
-setwd('../../../../results/R/OnePredOnePrey_figs/')
+setwd('../../../../results/R/OnePredOnePrey_tables/')
 
 latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
@@ -142,7 +142,7 @@ tab_Cnt <- Cnt
 # tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
 
 wd <- getwd()
-setwd('../../../../results/R/OnePredOnePrey_figs/')
+setwd('../../../../results/R/OnePredOnePrey_tables/')
 
 latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings_top50.tex',label='table:AICc_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
