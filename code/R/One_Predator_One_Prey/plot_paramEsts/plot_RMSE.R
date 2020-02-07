@@ -33,9 +33,13 @@ RMSEs <- data.frame(RMSE.H1, RMSE.H2, RMSE.BD, RMSE.CM, RMSE.R, RMSE.AG, RMSE.HV
 colnames(RMSEs) <- sub('RMSE.', '', colnames(RMSEs))
 
 # Define color of each model
-CR<-brewer.pal(n = 8, name = 'RdBu')
-Mcols <- c(CR[5:8],CR[4:1])
+# CR<-brewer.pal(n = 8, name = 'RdBu')
+# Mcols <- c(CR[5:8],CR[4:1])
+# Mpch <- c(rep(21,4),rep(22,4))
+CR<-brewer.pal(3,'YlOrRd')
+Mcols <- c(CR[parm.k[1:4]],CR[parm.k[5:8]])
 Mpch <- c(rep(21,4),rep(22,4))
+Mpch2 <- c(NA,NA,NA,3,NA,NA,4,NA) # to overlay x's to differentiate models
   
 minRMSEs <- apply(RMSEs, 1, min)
 dRMSEs <- RMSEs - minRMSEs
@@ -79,12 +83,21 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_RMSE_ranks.pdf',he
              type='p', col='black', 
              bg=Mcols[m], pch=Mpch[m],
              cex=1, lwd=0.2)
+      # Overlay x's
+      points(rnkRMSEs[,m], 1:nrow(rnkRMSEs), 
+             type='p',  col='black', 
+             pch=Mpch2[m],
+             cex=1, lwd=0.2)
     }
     box(lwd=1)
   par(xpd=TRUE)
     legend(-4,nrow(rnkRMSEs)+6,legend=colnames(rnkRMSEs),
            pch=Mpch,pt.bg=Mcols, col='black', bg='white',
            horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
+    # overlay x's
+    legend(-4,nrow(rnkRMSEs)+6,legend=colnames(rnkRMSEs),
+           pch=Mpch2, pt.bg=NA, col='black', bg=NA,
+           horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='')
 dev.off()
 
 
