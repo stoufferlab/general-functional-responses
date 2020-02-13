@@ -1,3 +1,7 @@
+# Root mean square deviation (error)
+# Error technically refers to out-of-sample
+# Deviation technically refers to within-sample, hence use RMSD in manuscript
+
 source('../../lib/plot_coefs.R') # for order.of.fits()
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
@@ -33,6 +37,7 @@ RMSEs <- data.frame(RMSE.H1, RMSE.H2, RMSE.BD, RMSE.CM, RMSE.R, RMSE.AG, RMSE.HV
 colnames(RMSEs) <- sub('RMSE.', '', colnames(RMSEs))
 
 # Define color of each model
+parm.k<-c(1,2,3,3, 1,2,2,3)
 # CR<-brewer.pal(n = 8, name = 'RdBu')
 # Mcols <- c(CR[5:8],CR[4:1])
 # Mpch <- c(rep(21,4),rep(22,4))
@@ -47,9 +52,11 @@ rnkRMSEs <- t(apply(dRMSEs, 1, rank, ties.method='first'))
 colnames(rnkRMSEs) <- colnames(RMSEs)
 
 # Define delta RMSE cut-off for "well performing" models:
-# Which models have an RMSE that is less than 1% of the data average (repeat for raw and bootstrapped datasets and merge)
-delRMSEcutoff <- unlist(lapply(ffr.fits, function(x) 0.01*mean(x$study.info$data.Nconsumed)))
-delRMSEcutoff2 <- unlist(lapply(ffr.fits, function(x) 0.01*mean(x$study.info$data.Nconsumed.mean)))
+# Which models have an RMSE that is less than 1% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and merge)
+delRMSEcutoff <- unlist(lapply(ffr.fits, 
+                               function(x){0.01*mean(x$study.info$data.Nconsumed)}))
+delRMSEcutoff2 <- unlist(lapply(ffr.fits, 
+                                function(x){0.01*mean(x$study.info$data.Nconsumed.mean)}))
 delRMSEcutoff[which(is.na(delRMSEcutoff))] <- delRMSEcutoff2[which(!is.na(delRMSEcutoff2))]
 
 #~~~~~~~~~~~
