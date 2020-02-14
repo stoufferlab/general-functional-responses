@@ -16,7 +16,7 @@ source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/AA_method.R')
 source('../lib/set_params.R')
-source('../lib/RMSE.R')
+source('../lib/RMSD.R')
 source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
 source('../lib/ratio_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
@@ -153,10 +153,10 @@ for(i in 1:length(datasets)){
 		    	  # aicc.sn2 <- aicc.sn3 <- vector("list",boot.reps)
 		    	  aicc.ratio <- aicc.ag <- aicc.hv <- aicc.aa <- vector("numeric",boot.reps)
 		    	  
-		    	  # create containers for RMSE values of all fits
-		    	  rmse.hollingI <- rmse.hollingII <- rmse.bd <- rmse.cm <- rmse.sn1 <- vector("numeric",boot.reps)
-		    	  # rmse.sn2 <- rmse.sn3 <- vector("list",boot.reps)
-		    	  rmse.ratio <- rmse.ag <- rmse.hv <- rmse.aa <- vector("numeric",boot.reps)
+		    	  # create containers for RMSD values of all fits
+		    	  RMSD.hollingI <- RMSD.hollingII <- RMSD.bd <- RMSD.cm <- RMSD.sn1 <- vector("numeric",boot.reps)
+		    	  # RMSD.sn2 <- RMSD.sn3 <- vector("list",boot.reps)
+		    	  RMSD.ratio <- RMSD.ag <- RMSD.hv <- RMSD.aa <- vector("numeric",boot.reps)
 		    	  
 		    	  # create containers for parameter estimates using first bootstrap as a template
 		    		boots.hollingI <- boots.hollingII <- boots.bd <- array(NA, c(1,1,boot.reps))
@@ -203,13 +203,13 @@ for(i in 1:length(datasets)){
 	    	    # aicc.sn2[[b]] <- AICc(ffr.sn2)
 	    	    # aicc.sn3[[b]] <- AICc(ffr.sn3)
 	    	    
-	    	    rmse.hollingI[[b]] <- RMSE(d, ffr.hollingI, this.study,'Holling.I')
-	    	    rmse.hollingII[[b]] <- RMSE(d, ffr.hollingII, this.study, 'Holling.II')
-	    	    rmse.bd[[b]] <- RMSE(d, ffr.bd, this.study, 'Beddington.DeAngelis')
-	    	    rmse.cm[[b]] <- RMSE(d, ffr.cm, this.study, 'Crowley.Martin')
-	    	    rmse.sn1[[b]] <- RMSE(d, ffr.sn1, this.study, 'Stouffer.Novak.I')
-	    	    # rmse.sn2[[b]] <- RMSE(d, ffr.sn2, this.study, 'Stouffer.Novak.II')
-	    	    # rmse.sn3[[b]] <- RMSE(d, ffr.sn3, this.study, 'Stouffer.Novak.III')
+	    	    RMSD.hollingI[[b]] <- RMSD(d, ffr.hollingI, this.study,'Holling.I')
+	    	    RMSD.hollingII[[b]] <- RMSD(d, ffr.hollingII, this.study, 'Holling.II')
+	    	    RMSD.bd[[b]] <- RMSD(d, ffr.bd, this.study, 'Beddington.DeAngelis')
+	    	    RMSD.cm[[b]] <- RMSD(d, ffr.cm, this.study, 'Crowley.Martin')
+	    	    RMSD.sn1[[b]] <- RMSD(d, ffr.sn1, this.study, 'Stouffer.Novak.I')
+	    	    # RMSD.sn2[[b]] <- RMSD(d, ffr.sn2, this.study, 'Stouffer.Novak.II')
+	    	    # RMSD.sn3[[b]] <- RMSD(d, ffr.sn3, this.study, 'Stouffer.Novak.III')
 	    	  }
 	    	  if(grepl("R", this.study$runswith)){
 	    	    ll.ratio[[b]] <- logLik(ffr.ratio)
@@ -222,10 +222,10 @@ for(i in 1:length(datasets)){
 	    	    aicc.hv[[b]] <- AICc(ffr.hv)
 	    	    aicc.aa[[b]] <- AICc(ffr.aa)
 	    	    
-	    	    rmse.ratio[[b]] <- RMSE(d, ffr.ratio, this.study, 'Ratio')
-	    	    rmse.ag[[b]] <- RMSE(d, ffr.ag, this.study, 'Arditi.Ginzburg')
-	    	    rmse.hv[[b]] <- RMSE(d, ffr.hv, this.study, 'Hassell.Varley')
-	    	    rmse.aa[[b]] <- RMSE(d, ffr.aa, this.study, 'Arditi.Akcakaya')
+	    	    RMSD.ratio[[b]] <- RMSD(d, ffr.ratio, this.study, 'Ratio')
+	    	    RMSD.ag[[b]] <- RMSD(d, ffr.ag, this.study, 'Arditi.Ginzburg')
+	    	    RMSD.hv[[b]] <- RMSD(d, ffr.hv, this.study, 'Hassell.Varley')
+	    	    RMSD.aa[[b]] <- RMSD(d, ffr.aa, this.study, 'Arditi.Akcakaya')
 	    	  }
 	    	  
 	    	  
@@ -290,13 +290,13 @@ for(i in 1:length(datasets)){
 			# AICc.sn2 <- summarize.boots(aicc.sn2)
 			# AICc.sn3 <- summarize.boots(aicc.sn3)
 			
-			RMSE.hollingI <- summarize.boots(rmse.hollingI)
-			RMSE.hollingII <- summarize.boots(rmse.hollingII)
-			RMSE.bd <- summarize.boots(rmse.bd)
-			RMSE.cm <- summarize.boots(rmse.cm)
-			RMSE.sn1 <- summarize.boots(rmse.sn1)
-			# RMSE.sn2 <- summarize.boots(rmse.sn2)
-			# RMSE.sn3 <- summarize.boots(rmse.sn3)
+			RMSD.hollingI <- summarize.boots(RMSD.hollingI)
+			RMSD.hollingII <- summarize.boots(RMSD.hollingII)
+			RMSD.bd <- summarize.boots(RMSD.bd)
+			RMSD.cm <- summarize.boots(RMSD.cm)
+			RMSD.sn1 <- summarize.boots(RMSD.sn1)
+			# RMSD.sn2 <- summarize.boots(RMSD.sn2)
+			# RMSD.sn3 <- summarize.boots(RMSD.sn3)
 		}
 		
 	  ests.ratio <- ests.ag <- ests.hv <- ests.aa <- ests.aam <- NA
@@ -319,10 +319,10 @@ for(i in 1:length(datasets)){
 	  		AICc.hv <- summarize.boots(aicc.hv)
 	  		AICc.aa <- summarize.boots(aicc.aa)
 	  		
-	  		RMSE.ratio <- summarize.boots(rmse.ratio)
-	  		RMSE.ag <- summarize.boots(rmse.ag)
-	  		RMSE.hv <- summarize.boots(rmse.hv)
-	  		RMSE.aa <- summarize.boots(rmse.aa)
+	  		RMSD.ratio <- summarize.boots(RMSD.ratio)
+	  		RMSD.ag <- summarize.boots(RMSD.ag)
+	  		RMSD.hv <- summarize.boots(RMSD.hv)
+	  		RMSD.aa <- summarize.boots(RMSD.aa)
 		}
 		
 	  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -390,18 +390,18 @@ for(i in 1:length(datasets)){
             	  	  Hassell.Varley = AICc.hv,
             	  	  Arditi.Akcakaya = AICc.aa
 	  	          ),
-	  	RMSE = list(
-          	  	  Holling.I = RMSE.hollingI,
-          	  	  Holling.II = RMSE.hollingII,
-          	  	  Beddington.DeAngelis = RMSE.bd,
-          	  	  Crowley.Martin = RMSE.cm,
-          	  	  Stouffer.Novak.I = RMSE.sn1,
-          	  	  # Stouffer.Novak.II = RMSE.sn2,
-          	  	  # Stouffer.Novak.III = RMSE.sn3,
-          	  	  Ratio = RMSE.ratio,
-          	  	  Arditi.Ginzburg = RMSE.ag,
-          	  	  Hassell.Varley = RMSE.hv,
-          	  	  Arditi.Akcakaya = RMSE.aa
+	  	RMSD = list(
+          	  	  Holling.I = RMSD.hollingI,
+          	  	  Holling.II = RMSD.hollingII,
+          	  	  Beddington.DeAngelis = RMSD.bd,
+          	  	  Crowley.Martin = RMSD.cm,
+          	  	  Stouffer.Novak.I = RMSD.sn1,
+          	  	  # Stouffer.Novak.II = RMSD.sn2,
+          	  	  # Stouffer.Novak.III = RMSD.sn3,
+          	  	  Ratio = RMSD.ratio,
+          	  	  Arditi.Ginzburg = RMSD.ag,
+          	  	  Hassell.Varley = RMSD.hv,
+          	  	  Arditi.Akcakaya = RMSD.aa
 	  	),
 			estimates = list(
               			    Holling.I = ests.hollingI,
