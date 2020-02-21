@@ -55,15 +55,17 @@ delAICcutoff <- 2
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',height=6,width=2.25)
-  par(mar=c(3,7,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',
+    height=6.5,width=2)
+  par(mar=c(2,6.5,4,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
     plot(1:nrow(rnkAICcs), 1:nrow(rnkAICcs),
          type='n', yaxt='n',
          xlim=c(1,ncol(rnkAICcs)),
          ylim=c(0,nrow(rnkAICcs)+1),
-         xlab='Model rank by AICc',
+         xlab='',
          ylab='',
          axes=F)
+    title(xlab='Model rank by AICc',line=1)
     rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
     axis(2, at=1:nrow(rnkAICcs), labels=labels, cex.axis=0.5, las=2)
     axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
@@ -91,11 +93,11 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',he
     }  
     box(lwd=1)
   par(xpd=TRUE)
-    legend(-4,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
+    legend(-5.5,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
            pch=Mpch, pt.bg=Mcols, col='black', bg='white',
             horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, pt.lwd=0.8, title='Model')
     # overlay secondary symbols
-    legend(-4,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
+    legend(-5.5,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
            pch=Mpch2, pt.bg=NA, col='black', bg=NA,
            horiz=TRUE, pt.cex=0.3,cex=0.6, ncol=2, pt.lwd=0.3,title='')
 dev.off()
@@ -107,7 +109,6 @@ Cnt
 pCnt <- round(prop.table(Cnt,2)*100,1)
 pCnt
 # Concl:  AA is ranked 1st most frequently, followed by CM and BD.
-
 
 # ~~~~~~~~~
 # Either pass counts or combine counts and proportions before exporting table
