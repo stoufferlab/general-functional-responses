@@ -26,23 +26,23 @@ AICc.H2 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.II'][[1]][stat]}
 AICc.BD <- unlist(lapply(ffr.fits, function(x){ x$AICc['Beddington.DeAngelis'][[1]][stat]}))
 AICc.CM <- unlist(lapply(ffr.fits, function(x){ x$AICc['Crowley.Martin'][[1]][stat]}))
 AICc.R <- unlist(lapply(ffr.fits, function(x){ x$AICc['Ratio'][[1]][stat]}))
-AICc.AG <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Ginzburg'][[1]][stat]}))
 AICc.HV <- unlist(lapply(ffr.fits, function(x){ x$AICc['Hassell.Varley'][[1]][stat]}))
+AICc.AG <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Ginzburg'][[1]][stat]}))
 AICc.AA <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Akcakaya'][[1]][stat]}))
 
-AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.R, AICc.AG, AICc.HV, AICc.AA)
+AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.R, AICc.HV, AICc.AG, AICc.AA)
 colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
 
 # Define color of each model
 colnames(AICcs)
-parm.k<-c(1,2,3,3, 1,2,2,3)
-# CR<-brewer.pal(n = 8, name = 'RdBu')
-# Mcols <- c(CR[5:8],CR[4:1])
-# Mpch <- c(rep(21,4),rep(22,4))
-CR<-brewer.pal(3,'YlOrRd')
-Mcols <- c(CR[parm.k[1:4]],CR[parm.k[5:8]])
+parm.k.1<-c(1,2,3,3)
+parm.k.2<-c(1,2,2,3)
+CR1<-brewer.pal(n = 3, name = 'YlOrRd')
+CR2<-brewer.pal(n = 3, name = 'Blues')
+Mcols<-c(CR1[parm.k.1],CR2[parm.k.2])
+
 Mpch <- c(rep(21,4),rep(22,4))
-Mpch2 <- c(NA,NA,NA,3,NA,NA,4,NA) # to overlay x's to differentiate models
+Mpch2 <- c(NA,NA,NA,21,NA,NA,22,NA) # to overlay x's to differentiate models
 
 minAICcs <- apply(AICcs, 1, min)
 dAICcs <- AICcs - minAICcs
@@ -83,21 +83,21 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',he
              type='p',  col='black', 
              bg=Mcols[m], pch=Mpch[m],
              cex=1, lwd=0.2)
-      # Overlay x's
+      # Overlay secondary symbos
       points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
              type='p',  col='black', 
              pch=Mpch2[m],
-             cex=1, lwd=0.2)
+             cex=0.3, lwd=0.2)
     }  
     box(lwd=1)
   par(xpd=TRUE)
     legend(-4,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
            pch=Mpch, pt.bg=Mcols, col='black', bg='white',
-            horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='Model')
-    # overlay x's
+            horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, pt.lwd=0.8, title='Model')
+    # overlay secondary symbols
     legend(-4,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
            pch=Mpch2, pt.bg=NA, col='black', bg=NA,
-           horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, title='')
+           horiz=TRUE, pt.cex=0.3,cex=0.6, ncol=2, pt.lwd=0.3,title='')
 dev.off()
 
 # ~~~~~~~~~
