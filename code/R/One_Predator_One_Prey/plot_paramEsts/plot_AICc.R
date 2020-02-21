@@ -92,14 +92,45 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks.pdf',
              cex=0.3, lwd=0.2)
     }  
     box(lwd=1)
+    
   par(xpd=TRUE)
-    legend(-5.5,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
-           pch=Mpch, pt.bg=Mcols, col='black', bg='white',
-            horiz=TRUE, pt.cex=1.1,cex=0.6, ncol=2, pt.lwd=0.8, title='Model')
+  vadj <- 7.5
+  xadj <- 1.5
+  mods<-c(1,5)
+    legend(xadj,nrow(rnkAICcs)+vadj,legend=colnames(rnkAICcs)[mods],
+           pch=Mpch[mods], pt.bg=Mcols[mods], col='black', bg='white',
+            pt.cex=1.1,cex=0.6, ncol=1, pt.lwd=0.8, 
+           title=expression(italic(k)==1), bty='n')
     # overlay secondary symbols
-    legend(-5.5,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
-           pch=Mpch2, pt.bg=NA, col='black', bg=NA,
-           horiz=TRUE, pt.cex=0.3,cex=0.6, ncol=2, pt.lwd=0.3,title='')
+    legend(xadj,nrow(rnkAICcs)+vadj,legend=colnames(rnkAICcs)[mods],
+           pch=Mpch2[mods], pt.bg=NA, col='black', bg=NA,
+           pt.cex=0.3,cex=0.6, ncol=1, pt.lwd=0.3,
+           title=expression(italic(k)==1), bty='n')
+    
+    mods<-c(2,6,7)
+    legend(xadj+2,nrow(rnkAICcs)+vadj,legend=colnames(rnkAICcs)[mods],
+           pch=Mpch[mods], pt.bg=Mcols[mods], col='black', bg='white',
+           pt.cex=1.1,cex=0.6, ncol=1, pt.lwd=0.8,
+           title=expression(italic(k)==2), bty='n')
+    # overlay secondary symbols
+    legend(xadj+2,nrow(rnkAICcs)+vadj,legend=colnames(rnkAICcs)[mods],
+           pch=Mpch2[mods], pt.bg=NA, col='black', bg=NA,
+           pt.cex=0.3,cex=0.6, ncol=1, pt.lwd=0.3,
+           title=expression(italic(k)==2), bty='n')
+    
+    mods<-c(3,4,8)
+    legend(xadj+4,nrow(rnkAICcs)+vadj,legend=colnames(rnkAICcs)[mods],
+           pch=Mpch[mods], pt.bg=Mcols[mods], col='black', bg='white',
+           pt.cex=1.1,cex=0.6, ncol=1, pt.lwd=0.8,
+           title=expression(italic(k)==3), bty='n')
+    # overlay secondary symbols
+    legend(xadj+4,nrow(rnkAICcs)+vadj,legend=colnames(rnkAICcs)[mods],
+           pch=Mpch2[mods], pt.bg=NA, col='black', bg=NA,
+           pt.cex=0.3,cex=0.6, ncol=1, pt.lwd=0.3,
+           title=expression(italic(k)==3), bty='n')
+    
+    rect(1.5,nrow(rnkAICcs)+vadj+1.75,7.5,nrow(rnkAICcs)+vadj-6)
+    text(xadj+3,nrow(rnkAICcs)+vadj+0.75,'Models', adj=0.5, cex=0.8)
 dev.off()
 
 # ~~~~~~~~~
