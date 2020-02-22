@@ -24,14 +24,14 @@ labels <- paste0(labels, ' (',sample.sizes,')')
 # Grab summary of RMSD estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
 
-RMSD.H1 <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Holling.I'][[1]][stat]}))
-RMSD.H2 <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Holling.II'][[1]][stat]}))
-RMSD.BD <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Beddington.DeAngelis'][[1]][stat]}))
-RMSD.CM <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Crowley.Martin'][[1]][stat]}))
-RMSD.R <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Ratio'][[1]][stat]}))
-RMSD.AG <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Arditi.Ginzburg'][[1]][stat]}))
-RMSD.HV <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Hassell.Varley'][[1]][stat]}))
-RMSD.AA <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Arditi.Akcakaya'][[1]][stat]}))
+RMSD.H1 <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Holling.I'][[1]][stat]}))
+RMSD.H2 <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Holling.II'][[1]][stat]}))
+RMSD.BD <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Beddington.DeAngelis'][[1]][stat]}))
+RMSD.CM <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Crowley.Martin'][[1]][stat]}))
+RMSD.R <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Ratio'][[1]][stat]}))
+RMSD.AG <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Arditi.Ginzburg'][[1]][stat]}))
+RMSD.HV <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Hassell.Varley'][[1]][stat]}))
+RMSD.AA <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Arditi.Akcakaya'][[1]][stat]}))
 
 RMSDs <- data.frame(RMSD.H1, RMSD.H2, RMSD.BD, RMSD.CM, RMSD.R, RMSD.AG, RMSD.HV, RMSD.AA)
 colnames(RMSDs) <- sub('RMSD.', '', colnames(RMSDs))
@@ -161,7 +161,7 @@ tab_Cnt <- Cnt
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_tables/')
 
-latex(tab_Cnt,file='OnePredOnePrey_RMSD_rankings.tex',label='table:RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by RMSD.')
+latex(tab_Cnt,file='OnePredOnePrey_RMSD_rankings.tex',label='table:RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by the root mean square deviation (RMSD).')
 
 # latex(tab_Cnt,file='OnePredOnePrey_RMSD_rankings.tex',label='table:RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by RMSD.')
 
@@ -199,7 +199,7 @@ tab_Cnt <- Cnt
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_tables/')
 
-latex(tab_Cnt,file='OnePredOnePrey_RMSD_rankings_top50.tex',label='table:RMSD_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by RMSD.')
+latex(tab_Cnt,file='OnePredOnePrey_RMSD_rankings_top50.tex',label='table:RMSD_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by the root mean square deviation (RMSD).')
 
 # latex(tab_Cnt,file='OnePredOnePrey_RMSD_rankings_top50.tex',label='table:RMSD_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by RMSD.')
 
