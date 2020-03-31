@@ -16,28 +16,28 @@ source(sp)
 #############################################
 
 # For integration method, define the ode in C++ format
-# holling.like.1pred.1prey.sys = '
-#   // generalized functional response for one predator one prey
-#     dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
-#   
-#   // consumption rate cannot be positive
-#     if(dxdt[0] > 0) dxdt[0] = 0;
-# '
-# 
-# # compile the above C++ code into something we can run in R
-# odeintr::compile_sys(
-#   "hl_1pred_1prey",
-#   holling.like.1pred.1prey.sys,
-#   pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering") #,
-#   # method = "bsd"
-# )
+holling.like.1pred.1prey.sys = '
+	// generalized functional response for one predator one prey
+	dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
+
+	// consumption rate cannot be positive
+	if(dxdt[0] > 0) dxdt[0] = 0;
+'
+
+# compile the above C++ code into something we can run in R
+odeintr::compile_sys(
+	"hl_1pred_1prey",
+	holling.like.1pred.1prey.sys,
+	pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering")#,
+	# method = "bsd"
+)
 
 
 # predicted number of species consumed given parameters of a holling-like functional response
 holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, 
                                     replacement, 
                                     Pminus1=c(TRUE,FALSE),
-                                    integrate=FALSE,
+                                    integrate=TRUE,
                                     overrideTranscendental=FALSE){
 
 	# if only P-1 individuals interference with predators that are doing the feeding
@@ -60,28 +60,37 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 	if(!replacement){
 		if(h==0){ # For Type I things are simple:
 			N <- N0 * (1 - exp(-a * P * T))
-		}else{ # For all other models...
-  		  if(integrate){  # solve by direct integration
-  		    N <- numeric(length(N0))
-  		    for(i in seq.int(length(N0))){
-  
-  		      # set parameters within ode solver
-  		      hl_1pred_1prey_set_params(a=a, h=h, c=c, 
-  		                                phi_numer=phi_numer, 
-  		                                phi_denom=phi_denom, 
-  		                                P=P[i], 
-  		                                P_interfering=P_interfering[i])
-  		      
-  		      # calculate the final number of prey integrating the ode
-  		      Nfinal <- hl_1pred_1prey(N0[i], T[i], T[i]/1000.)
-  		      
-  		      # we only need the last row since this is the final "abundance"
-  		      Nfinal <- as.numeric(Nfinal[nrow(Nfinal),2])
+		} else { # For all other models...
+			if(integrate){  # solve by direct integration
+				N <- numeric(length(N0))
+				for(i in seq.int(length(N0))){
+					# workaround so that AA method won't throw an error
+					if(length(a)>1){
+						ai <- a[i]
+					}else{
+						ai <- a
+					}
+					# set parameters within ode solver
+					hl_1pred_1prey_set_params(
+						a=ai,
+						h=h,
+						c=c,
+						phi_numer=phi_numer,
+						phi_denom=phi_denom,
+						P=P[i],
+						P_interfering=P_interfering[i]
+					)
 
-  		      # the number consumed is the difference between what we started with and what is left
-  		      N[i] <- N0[i] - Nfinal
-  		    }
-  		  } else {	# solve using lambertsW (or trancendental equation)
+					# calculate the final number of prey integrating the ode
+					Nfinal <- hl_1pred_1prey(N0[i], T[i], T[i]/1000.)
+
+					# we only need the last row since this is the final "abundance"
+					Nfinal <- as.numeric(Nfinal[nrow(Nfinal),2])
+
+					# the number consumed is the difference between what we started with and what is left
+					N[i] <- N0[i] - Nfinal
+				}
+			} else {	# solve using lambertsW (or trancendental equation)
       			heff <- h * (1 + (1 - phi_numer * phi_denom) * c * P_interfering)
       			Q <- (1 + c * P_interfering)
       			X <- (1 + (1 - phi_numer) * c * P_interfering)
@@ -89,28 +98,28 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
       			
       			# sometimes the argument in the exponential passed to lambertW0 causes it to blow up
       			if(!overrideTranscendental){
-      			  if(any(is.infinite(N))){
-      				# the explicit result of the analytical integration without solving for N implictly
-      				ffff <- function(N, N0, P, T, a, heff, Q, X){
-      					dN <- Q * log((N0 - N)/N0) - a * heff * N
-      					dt <- - a * X * P * T
-      					dN - dt
-      				}
-      				# sometimes the time argument is a constant and not a vector
-      				if(length(T)==1){
-      					T <- rep(T, length(N0))
-      				}
-      				# check which predictions are non-sensical
-      				for(i in 1:length(N0)){
-      					if(is.infinite(N[i])){
-      						# we need to solve the transcendental equation directly
-      						nn <- uniroot(ffff, lower=0, upper=N0[i], N0=N0[i], P=P[i], T=T[i], a=a, heff=heff[i], Q=Q[i], X=X[i])
-      						N[i] <- nn$root
-      					}
-      				}
-      			  }
-      			}
-  		  }
+					if(any(is.infinite(N))){
+						# the explicit result of the analytical integration without solving for N implictly
+						ffff <- function(N, N0, P, T, a, heff, Q, X){
+							dN <- Q * log((N0 - N)/N0) - a * heff * N
+							dt <- - a * X * P * T
+							dN - dt
+						}
+						# sometimes the time argument is a constant and not a vector
+						if(length(T)==1){
+							T <- rep(T, length(N0))
+						}
+						# check which predictions are non-sensical
+						for(i in 1:length(N0)){
+							if(is.infinite(N[i])){
+								# we need to solve the transcendental equation directly
+								nn <- uniroot(ffff, lower=0, upper=N0[i], N0=N0[i], P=P[i], T=T[i], a=a, heff=heff[i], Q=Q[i], X=X[i])
+								N[i] <- nn$root
+							}
+						}
+					}
+				}
+			}
 		}
 		return(N)
 	}
@@ -127,7 +136,7 @@ holling.like.1pred.1prey.NLL = function(params,
                                         replacement, 
                                         Pminus1, 
                                         time=NULL){
-  set_params(params, modeltype)
+	set_params(params, modeltype)
 
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){
