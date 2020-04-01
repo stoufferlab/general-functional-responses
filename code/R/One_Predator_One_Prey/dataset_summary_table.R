@@ -100,3 +100,12 @@ setwd('../../../results/R/OnePredOnePrey_tables/')
         na.blank=TRUE, 
         caption="A summary of discovered datasets relevant to the study of consumer dependence.  ``Original data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets. ``Replacement'' refers to the whether consumed prey were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood. ")
 setwd(wd)
+
+
+# Table of data sets by confidence interval type
+load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
+labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
+method <- unlist(lapply(ffr.fits, function(x) x$profile$method))
+table(method)
+CI.method <- data.frame(DataSet=labels, Method=method)
+
