@@ -15,29 +15,28 @@ sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, in
 source(sp)
 #############################################
 
-# For integration method, define the ode in C++ format
-holling.like.1pred.1prey.sys = '
-	// generalized functional response for one predator one prey
-	dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
+# # For integration method, define the ode in C++ format
+# holling.like.1pred.1prey.sys = '
+# 	// generalized functional response for one predator one prey
+# 	dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
 
-	// consumption rate cannot be positive
-	if(dxdt[0] > 0) dxdt[0] = 0;
-'
+# 	// consumption rate cannot be positive
+# 	if(dxdt[0] > 0) dxdt[0] = 0;
+# '
 
-# compile the above C++ code into something we can run in R
-odeintr::compile_sys(
-	"hl_1pred_1prey",
-	holling.like.1pred.1prey.sys,
-	pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering")#,
-	# method = "bsd"
-)
-
+# # compile the above C++ code into something we can run in R
+# odeintr::compile_sys(
+# 	"hl_1pred_1prey",
+# 	holling.like.1pred.1prey.sys,
+# 	pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering"),
+# 	method = "rk78"
+# )
 
 # predicted number of species consumed given parameters of a holling-like functional response
 holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, 
                                     replacement, 
                                     Pminus1=c(TRUE,FALSE),
-                                    integrate=TRUE,
+                                    integrate=FALSE,
                                     overrideTranscendental=FALSE){
 
 	# if only P-1 individuals interference with predators that are doing the feeding
@@ -70,6 +69,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 					}else{
 						ai <- a
 					}
+
 					# set parameters within ode solver
 					hl_1pred_1prey_set_params(
 						a=ai,
@@ -82,7 +82,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 					)
 
 					# calculate the final number of prey integrating the ode
-					Nfinal <- hl_1pred_1prey(N0[i], T[i], T[i]/1000.)
+					Nfinal <- tail(hl_1pred_1prey(N0[i], T[i], T[i]/1E6),1)
 
 					# we only need the last row since this is the final "abundance"
 					Nfinal <- as.numeric(Nfinal[nrow(Nfinal),2])
@@ -206,16 +206,19 @@ parnames(holling.like.1pred.1prey.NLL) <- c(
 )
 
 # given data (d), study info (s), and modeltype (e.g., "Holling I"), fit functional response data
-fit.holling.like <- function(d, s, 
-                             modeltype, 
-                             nloptr.control=list(), 
-                             mle2.control=list(), 
-                             ...){
+fit.holling.like <- function(
+	d,
+	s,
+	modeltype,
+	nloptr.control=list(),
+	mle2.control=list(),
+	...
+){
 
 	# estimate starting value from the data using linear regression
-  start <- list(
-    attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
-  )
+	start <- list(
+		attack = log(coef(lm(d$Nconsumed~0+I(d$Npredator * d$Nprey))))
+	)
 
 	# fit Holling Type I via MLE with above starting parameter value
 	hollingI.via.sbplx <- nloptr::sbplx(
@@ -276,8 +279,6 @@ fit.holling.like <- function(d, s,
 			replacement = s$replacement,
 			Pminus1 = s$Pminus1,
 			control = nloptr.control
-			# ,
-			# ...
 		)
 
 		mle2.start <- as.list(hollingII.via.sbplx$par)
