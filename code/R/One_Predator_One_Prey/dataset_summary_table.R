@@ -40,6 +40,9 @@ for(i in 1:length(datasets)){
   # publication
   pub <- gsub('_',' ', this.study$dataname)
   
+  # citation
+  cite <- this.study$cite
+  
   # dataset
   datasetsName <- sub('*.R$','', sub('*./Dataset_Code/','', datasets[i]))
   datasetsName <- gsub('_',' ', datasetsName)
@@ -55,13 +58,13 @@ for(i in 1:length(datasets)){
   # replacement
   repl <- ifelse(this.study$replacement,'Yes','No')
   
-  # bootstrapped
-  boot <- ifelse(this.study$bootstrap,'No','Yes')
+  # original data, or means and intervals (i.e. bootstrapped)
+  orig <- ifelse(this.study$bootstrap,'No','Yes')
   
   # pred/parasite
   pred <- ifelse(this.study$predator,'Predator','Parasitoid')
   
-  # Sample size
+  # sample size
   if("Nconsumed.mean" %in% colnames(d)){
     SS <- sum(d$n)
   }else{
@@ -70,24 +73,39 @@ for(i in 1:length(datasets)){
   
   # wrap it all up
   out <- rbind(out, 
-         c(pub, datasetsName, used, repl, boot, pred, SS))
+         c(cite, datasetsName, used, orig, SS, repl, pred))
+  print(paste(i," of ",length(datasets)))
   
 }
 
 tab <- data.frame(out)
-colnames(tab) <- c('Publication','Dataset','Used','Replacement','Raw data','Consumer','Sample size')
+colnames(tab) <- c('Study',
+                   'Dataset',
+                   'Used',
+                   'Original data',
+                   'Sample size',
+                   'Replacement',
+                   'Consumer')
 
-# export to LaTeX
-# too long for single LaTeX table, so split up
-tab1 <- tab[1:30,]
-tab2 <- tab[31:60,]
-tab3 <- tab[61:nrow(tab),]
+# Place unused datasets at end of table
+unused <- which(tab$Used=='No')
+tab <- rbind(tab[-unused,], tab[unused,])
 
+# Export to LaTeX
 wd <- getwd()
-setwd('../../../results/R/OnePredOnePrey_figs/')
-
-  latex(tab1,file='OnePredOnePrey_datasets_1.tex',label='table:datasets', rowname=NULL, na.blank=TRUE, caption='Summary of considered datasets.')
-  latex(tab2,file='OnePredOnePrey_datasets_2.tex',label='table:datasets', rowname=NULL, na.blank=TRUE, caption='Summary of considered datasets continued.')
-  latex(tab3,file='OnePredOnePrey_datasets_3.tex',label='table:datasets', rowname=NULL, na.blank=TRUE, caption='Summary of considered datasets continued.')
-
+setwd('../../../results/R/OnePredOnePrey_tables/')
+  latex(tab,file='OnePredOnePrey_datasets.tex',
+        label='table:datasets', 
+        rowname=NULL, 
+        na.blank=TRUE, 
+        caption="A summary of discovered datasets relevant to the study of consumer dependence.  ``Original data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets. ``Replacement'' refers to the whether consumed prey were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood. ")
 setwd(wd)
+
+
+# Table of data sets by confidence interval type
+load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
+labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
+method <- unlist(lapply(ffr.fits, function(x) x$profile$method))
+table(method)
+CI.method <- data.frame(DataSet=labels, Method=method)
+

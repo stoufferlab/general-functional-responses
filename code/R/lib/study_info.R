@@ -68,7 +68,10 @@ study.info <- function(dataname){
 
 	# scrape the time units so that we can put everything on a common temporal scale
 	timeunits <- as.character(googledoc[1,"TimeUnits"])
-
+  
+  # scrape the bibtex citation for the study
+  cite <- as.character(googledoc[1,"CitationKey"])
+  
 	# put all the info we need into a list
 	rt <- list(
 	  dataname=dataname,
@@ -78,6 +81,7 @@ study.info <- function(dataname){
 		predator=predator,
 		replacement=replacement,
 		runswith=runswith,
-		timeunits=timeunits
+		timeunits=timeunits,
+		cite=cite
 	)
 }
