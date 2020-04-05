@@ -104,11 +104,12 @@ for(i in 1:length(datasets)){
 		# create a progress bar that shows how far along the bootstrapping is
 		pb <- progress_bar$new(
 			format = "  bootstrapping [:bar] :percent eta: :eta",
-			total = boot.reps,
+			total = boot.reps*10,
 			show_after = 0,
 			force = TRUE,
 			clear = FALSE
 		)
+		pb$tick(0)
 
 		# perform boot.reps fits depending on the nature of the data
 		b <- 1
@@ -120,44 +121,60 @@ for(i in 1:length(datasets)){
 
 			# fit a series of functional response models
 			# (sometimes the fits fail for bootstrapped data. we skip that replicate and continue on)
-			success <- ({
+			success <- try({
 				ffr.hollingI <- ffr.hollingII <- ffr.bd <- ffr.cm <- ffr.sn1 <- array(NA,c(1,1))
 				if(grepl("H", this.study$runswith)){
 					ffr.hollingI <- fit.holling.like(d, this.study, "Holling.I")
+					pb$tick()
 					ffr.hollingII <- fit.holling.like(d, this.study, "Holling.II")
+					pb$tick()
 					ffr.bd <- fit.holling.like(d, this.study, "Beddington.DeAngelis")
+					pb$tick()
 					ffr.cm <- fit.holling.like(d, this.study, "Crowley.Martin")
+					pb$tick()
 					ffr.sn1 <- fit.holling.like(d, this.study, "Stouffer.Novak.I")
+					pb$tick()
+				}else{
+					for(tick in 1:5) pb$tick()
 				}
 
 				ffr.ratio <- ffr.ag <- ffr.hv <- ffr.aa <- ffr.aam <- array(NA,c(1,1))
 				if(grepl("R", this.study$runswith)){
 					ffr.ratio <- fit.ratio.like(d, this.study, "Ratio")
+					pb$tick()
 					ffr.ag <- fit.ratio.like(d, this.study, "Arditi.Ginzburg")
+					pb$tick()
 					ffr.hv <- fit.ratio.like(d, this.study, "Hassell.Varley")
+					pb$tick()
 					ffr.aa <- fit.ratio.like(d, this.study, "Arditi.Akcakaya")
+					pb$tick()
 					if(okay4AAmethod(d)){
 						ffr.aam <- AAmethod(d,this.study$replacement)
 					}
+					pb$tick()
+				}else{
+					for(tick in 1:5) pb$tick()
 				}
 			})
 
-			if(!inherits(success, "try-error")){
+			if(inherits(success, "try-error")){
+				pb$update((b-1)/boot.reps)
+			} else {
 				if(b == 1){
 					# create containers for log likelihood values of all fits
-					ll.hollingI <- ll.hollingII <- ll.bd <- ll.cm <- ll.sn1 <- vector("numeric",boot.reps)
+					ll.hollingI <- ll.hollingII <- ll.bd <- ll.cm <- ll.sn1 <- rep(NA,boot.reps)
 					# ll.sn2 <- ll.sn3 <- vector("list",boot.reps)
-					ll.ratio <- ll.ag <- ll.hv <- ll.aa <- vector("numeric",boot.reps)
+					ll.ratio <- ll.ag <- ll.hv <- ll.aa <- rep(NA,boot.reps)
 
 					# create containers for AICc values of all fits
-					aicc.hollingI <- aicc.hollingII <- aicc.bd <- aicc.cm <- aicc.sn1 <- vector("numeric",boot.reps)
+					aicc.hollingI <- aicc.hollingII <- aicc.bd <- aicc.cm <- aicc.sn1 <- rep(NA,boot.reps)
 					# aicc.sn2 <- aicc.sn3 <- vector("list",boot.reps)
-					aicc.ratio <- aicc.ag <- aicc.hv <- aicc.aa <- vector("numeric",boot.reps)
+					aicc.ratio <- aicc.ag <- aicc.hv <- aicc.aa <- rep(NA,boot.reps)
 
 					# create containers for RMSE values of all fits
-					rmse.hollingI <- rmse.hollingII <- rmse.bd <- rmse.cm <- rmse.sn1 <- vector("numeric",boot.reps)
+					rmse.hollingI <- rmse.hollingII <- rmse.bd <- rmse.cm <- rmse.sn1 <- rep(NA,boot.reps)
 					# rmse.sn2 <- rmse.sn3 <- vector("list",boot.reps)
-					rmse.ratio <- rmse.ag <- rmse.hv <- rmse.aa <- vector("numeric",boot.reps)
+					rmse.ratio <- rmse.ag <- rmse.hv <- rmse.aa <- rep(NA,boot.reps)
 
 					# create containers for parameter estimates using first bootstrap as a template
 					boots.hollingI <- boots.hollingII <- boots.bd <- array(NA, c(1,1,boot.reps))
@@ -256,8 +273,7 @@ for(i in 1:length(datasets)){
 					}
 				}
 
-				# update the progress bar
-				pb$tick()
+				# update the bootstrap reps counter
 				b <- b + 1
 			}
 		}
