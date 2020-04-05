@@ -1,7 +1,7 @@
 
 # novak plots
 source('plot_AICc.R')
-source('plot_RMSE.R')
+source('plot_RMSD.R')
 
 source('plot_AA.R')
 source('plot_AA2.R')
