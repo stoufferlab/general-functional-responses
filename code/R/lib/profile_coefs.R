@@ -16,7 +16,7 @@ profile_coefs <- function(ffr.fits,
   
   model <- match.arg(model)
   point.est <- match.arg(point.est)
-    point.est <- ifelse(point.est=='median', '50%', point.est)
+  point.est <- ifelse(point.est=='median', '50%', point.est)
  
   require(progress)
   pb <- progress_bar$new(
@@ -24,7 +24,8 @@ profile_coefs <- function(ffr.fits,
     total = length(ffr.fits),
     show_after = 0,
     force = TRUE,
-    clear = FALSE)
+    clear = FALSE
+  )
   
   if(printWarnings){options(warn=1)}
     
