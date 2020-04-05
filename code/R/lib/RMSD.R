@@ -1,7 +1,7 @@
 # Root mean square deviation (error)
 # Error technically refers to out-of-sample
 # Deviation technically refers to within-sample, hence use RMSD in manuscript
-RMSE <- function(d,
+RMSD <- function(d,
                  ffr.fit,
                  study.info,
                  model=c('Holling.I',
