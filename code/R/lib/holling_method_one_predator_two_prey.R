@@ -5,11 +5,11 @@
 
 # libraries used below
 library(bbmle)
-# library(deSolve)
+library(nloptr)
 library(odeintr)
-library(doParallel); registerDoParallel(cores=1)
+# library(doParallel); registerDoParallel(cores=1)
 
-# define the ode in C++ format
+# define the ode in C++ format to use odeintr
 holling.like.1pred.2prey.sys = '
 	// hybrid functional response for one predator two prey
 	dxdt[0] = -P * (ai * x[0] * (1 + (1 - phi_ij) * aj * hj * x[1])) / ((1 + ai * hi * x[0]) * (1 + aj * hj * x[1]) - phi_ij * phi_ji * ai * hi * x[0] * aj * hj * x[1]);
@@ -84,6 +84,12 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 			# we technically only need the last row since this is the final "abundance"
 			Nfinal <- as.numeric(Nfinal[nrow(Nfinal),2:3])
 
+			# on rare occasions we dip into negative final abundances (that tend to be extremely small)
+			Nfinal <- pmax(0, Nfinal)
+
+			# let's also make sure no prey magically appear
+			Nfinal <- pmin(Nfinal, N0)
+
 			# the number consumed is the difference between what we started with and what is left
 			Neaten[i,] <- N0 - Nfinal
 		}
@@ -94,7 +100,7 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 	stop()
 }
 
-holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, time=rep(1,length(Ni))){
+holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time=NULL){
 	if(modeltype=="Holling I"){
 		attack_i <- exp(params[1])
 		attack_j <- exp(params[2])
@@ -146,7 +152,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		handling_i <- exp(params[3])
 		handling_j <- exp(params[4])
 		phi_ij <- 0
-		phi_ji <- params[5]
+		phi_ji <- phi.transform(params[5])
 	}
 
 	if(modeltype=="Holling II Generalist Hybrid"){
@@ -155,7 +161,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		handling_i <- exp(params[3])
 		handling_j <- exp(params[4])
 		phi_ij <- 1
-		phi_ji <- params[5]
+		phi_ji <- phi.transform(params[5])
 	}		
 
 	if(modeltype=="Holling II Hybrid Specialist"){
@@ -163,7 +169,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		attack_j <- exp(params[2])
 		handling_i <- exp(params[3])
 		handling_j <- exp(params[4])
-		phi_ij <- params[5]
+		phi_ij <- phi.transform(params[5])
 		phi_ji <- 0
 	}
 
@@ -172,7 +178,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		attack_j <- exp(params[2])
 		handling_i <- exp(params[3])
 		handling_j <- exp(params[4])
-		phi_ij <- params[5]
+		phi_ij <- phi.transform(params[5])
 		phi_ji <- 1
 	}
 	
@@ -181,11 +187,16 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		attack_j <- exp(params[2])
 		handling_i <- exp(params[3])
 		handling_j <- exp(params[4])
-		phi_ij <- params[5]
-		phi_ji <- params[6]
+		phi_ij <- phi.transform(params[5])
+		phi_ji <- phi.transform(params[6])
 	}
 
 	# DEBUG check whether the parameters give biological valid predictions
+
+	# if no times are specified then normalize to time=1
+	if(is.null(time)){
+		time <- rep(1,length(Ni))
+	}
 
 	# expected number consumed
 	Nconsumed <- holling.like.1pred.2prey(
@@ -240,7 +251,7 @@ parnames(holling.like.1pred.2prey.NLL) <- c(
 
 # DEBUG: should allow starting parameters to be specified since fitting is very slow for this approach
 # given data (d), study info (s), and modeltype (e.g., "Holling I"), fit functional response data
-fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.control=list(), ...){
+fit.holling.like <- function(d, s, modeltype, phi.transform=identity, nloptr.control=list(), mle2.control=list(), ...){
 	# estimate starting values from the data using linear regression
 	start <- c(
 		log(coef(lm(d$Nconsumed1~0+I(d$Npredator * d$Nprey1)))),
@@ -257,6 +268,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 		Ni_consumed = d$Nconsumed1,
 		Nj_consumed = d$Nconsumed2,
 		Npredators = d$Npredator,
+		time=d$Time,
 		replacement = s$replacement,
 		modeltype = "Holling I",
 		control = nloptr.control #,
@@ -278,6 +290,7 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 			Ni_consumed = d$Nconsumed1,
 			Nj_consumed = d$Nconsumed2,
 			Npredators = d$Npredator,
+			time=d$Time,
 			replacement = s$replacement,
 			modeltype = "Holling I"
 		),
@@ -351,10 +364,12 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 
 			if(modeltype == "Holling II Hybrid Specialist" | modeltype == "Holling II Hybrid Generalist" | modeltype == "Holling II Hybrid Hybrid"){
 				start$phi_ij <- 0.5
+				if(phi.transform(1)==exp(1)) start$phi_ij <- log(start$phi_ij)
 			}
 
 			if(modeltype == "Holling II Specialist Hybrid" | modeltype == "Holling II Generalist Hybrid" | modeltype == "Holling II Hybrid Hybrid"){
 				start$phi_ji <- 0.5
+				if(phi.transform(1)==exp(1)) start$phi_ji <- log(start$phi_ji)
 			}
 
 			# fit more complex Holling Type model with above Type II as starting parameter values
@@ -366,8 +381,10 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 				Ni_consumed = d$Nconsumed1,
 				Nj_consumed = d$Nconsumed2,
 				Npredators = d$Npredator,
+				time=d$Time,
 				replacement = s$replacement,
 				modeltype = modeltype,
+				phi.transform = phi.transform,
 				control = nloptr.control #,
 				# ...
 			)
@@ -385,8 +402,10 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					Ni_consumed = d$Nconsumed1,
 					Nj_consumed = d$Nconsumed2,
 					Npredators = d$Npredator,
+					time=d$Time,
 					replacement = s$replacement,
-					modeltype = modeltype
+					modeltype = modeltype,
+					phi.transform = phi.transform
 				),
 				vecpar = TRUE,
 				# eval.only = TRUE,
@@ -396,6 +415,8 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 
 			# print(fit.via.mle2@coef)
 			return(fit.via.mle2)
+
+			# DEBUG NONE OF THE BELOW IS CURRENTLY BEING RUN!
 
 			# convert mle2 estimation to list of starting values
 			mle2.start <- as.list(fit.via.mle2@coef)
@@ -414,8 +435,10 @@ fit.holling.like <- function(d, s, modeltype, nloptr.control=list(), mle2.contro
 					Ni_consumed = d$Nconsumed1,
 					Nj_consumed = d$Nconsumed2,
 					Npredators = d$Npredator,
+					time=d$Time,
 					replacement = s$replacement,
-					modeltype = modeltype
+					modeltype = modeltype,
+					phi.transform = phi.transform
 				),
 				vecpar = TRUE,
 				control = mle2.control				
