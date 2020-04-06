@@ -9,7 +9,6 @@
 library(bbmle)
 library(nloptr)
 library(lamW)
-library(odeintr)
 
 sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, include.dirs=TRUE)
 source(sp)
@@ -25,6 +24,7 @@ source(sp)
 # '
 
 # # compile the above C++ code into something we can run in R
+# library(odeintr)
 # odeintr::compile_sys(
 # 	"hl_1pred_1prey",
 # 	holling.like.1pred.1prey.sys,
@@ -243,13 +243,13 @@ fit.holling.like <- function(
 		minuslogl = holling.like.1pred.1prey.NLL,
 		start = mle2.start,
 		data = list(
-			modeltype="Holling.I",
 			initial=d$Nprey,
 			killed=d$Nconsumed,
 			predators=d$Npredator,
 			time=d$Time,
 			replacement=s$replacement,
-			Pminus1=s$Pminus1
+			Pminus1=s$Pminus1,
+			modeltype="Holling.I"
 		),
 		vecpar = TRUE,
 		control = mle2.control,
@@ -289,13 +289,13 @@ fit.holling.like <- function(
 			minuslogl = holling.like.1pred.1prey.NLL,
 			start = mle2.start,
 			data = list(
-				modeltype = "Holling.II",
 				initial = d$Nprey,
 				killed = d$Nconsumed,
 				predators = d$Npredator,
 				time = d$Time,
 				replacement = s$replacement,
-				Pminus1 = s$Pminus1
+				Pminus1 = s$Pminus1,
+				modeltype = "Holling.II"
 			),
 			vecpar = TRUE,
 			control = mle2.control
@@ -372,13 +372,13 @@ fit.holling.like <- function(
 				minuslogl = holling.like.1pred.1prey.NLL,
 				start = mle2.start,
 				data = list(
-					modeltype = modeltype,
 					initial = d$Nprey,
 					killed = d$Nconsumed,
 					predators = d$Npredator,
 					time = d$Time,
 					replacement = s$replacement,
-					Pminus1 = s$Pminus1
+					Pminus1 = s$Pminus1,
+					modeltype = modeltype
 				),
 				vecpar = TRUE,
 				control = mle2.control
@@ -411,13 +411,13 @@ fit.holling.like <- function(
 				minuslogl = holling.like.1pred.1prey.NLL,
 				start = mle2.start,
 				data = list(
-					modeltype = modeltype,
 					initial = d$Nprey,
 					killed = d$Nconsumed,
 					predators = d$Npredator,
 					time = d$Time,
 					replacement = s$replacement,
-					Pminus1 = s$Pminus1
+					Pminus1 = s$Pminus1,
+					modeltype = modeltype
 				),
 				vecpar = TRUE,
 				control = mle2.control				
