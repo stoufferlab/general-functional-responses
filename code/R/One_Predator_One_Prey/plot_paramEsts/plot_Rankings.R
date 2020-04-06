@@ -40,14 +40,14 @@ AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.R, AICc.HV, AICc.AG
 colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
 
 # Repeat for RMSD
-RMSD.H1 <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Holling.I'][[1]][stat]}))
-RMSD.H2 <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Holling.II'][[1]][stat]}))
-RMSD.BD <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Beddington.DeAngelis'][[1]][stat]}))
-RMSD.CM <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Crowley.Martin'][[1]][stat]}))
-RMSD.R <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Ratio'][[1]][stat]}))
-RMSD.AG <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Arditi.Ginzburg'][[1]][stat]}))
-RMSD.HV <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Hassell.Varley'][[1]][stat]}))
-RMSD.AA <- unlist(lapply(ffr.fits, function(x){ x$RMSE['Arditi.Akcakaya'][[1]][stat]}))
+RMSD.H1 <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Holling.I'][[1]][stat]}))
+RMSD.H2 <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Holling.II'][[1]][stat]}))
+RMSD.BD <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Beddington.DeAngelis'][[1]][stat]}))
+RMSD.CM <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Crowley.Martin'][[1]][stat]}))
+RMSD.R <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Ratio'][[1]][stat]}))
+RMSD.AG <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Arditi.Ginzburg'][[1]][stat]}))
+RMSD.HV <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Hassell.Varley'][[1]][stat]}))
+RMSD.AA <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Arditi.Akcakaya'][[1]][stat]}))
 
 RMSDs <- data.frame(RMSD.H1, RMSD.H2, RMSD.BD, RMSD.CM, RMSD.R, RMSD.AG, RMSD.HV, RMSD.AA)
 colnames(RMSDs) <- sub('RMSD.', '', colnames(RMSDs))

@@ -57,10 +57,10 @@ RMSD <- function(d,
     # Clean up
     rm(attack, handling, exponent, envir = .GlobalEnv)
     
-  } else {stop("Incorrect model specification in RMSE()")}
+  } else {stop("Incorrect model specification in RMSD()")}
 
-  # Root mean square error
-  RMSE <- sqrt(mean((d$Nconsumed-Nconsumed.predicted)^2))
+  # Root mean square deviation
+  RMSD <- sqrt(mean((d$Nconsumed-Nconsumed.predicted)^2))
 
-  return(RMSE)
+  return(RMSD)
 }
