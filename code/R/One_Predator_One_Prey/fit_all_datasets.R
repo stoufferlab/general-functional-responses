@@ -170,6 +170,7 @@ for(i in 1:length(datasets)){
 					aicc.hollingI <- aicc.hollingII <- aicc.bd <- aicc.cm <- aicc.sn1 <- rep(NA,boot.reps)
 					# aicc.sn2 <- aicc.sn3 <- vector("list",boot.reps)
 					aicc.ratio <- aicc.ag <- aicc.hv <- aicc.aa <- rep(NA,boot.reps)
+					AICc.H <- AICc.R <- array(NA, dim=c(boot.reps,1))
 
 					# create containers for RMSD values of all fits
 					RMSD.hollingI <- RMSD.hollingII <- RMSD.bd <- RMSD.cm <- RMSD.sn1 <- rep(NA,boot.reps)
@@ -281,10 +282,10 @@ for(i in 1:length(datasets)){
 		# ~~~~~~~~~~~~~~~~~~~~
 		# Summarize bootstraps
 		# ~~~~~~~~~~~~~~~~~~~~
-		ests.hollingI <- ests.hollingII <- ests.bd <- ests.cm <- ests.sn1 <- NA
-		LL.hollingI <- LL.hollingII <- LL.bd <- LL.cm <- LL.sn1 <- NA
-		AICc.hollingI <- AICc.hollingII <- AICc.bd <- AICc.cm <- AICc.sn1 <- NA
-		RMSD.hollingI <- RMSD.hollingII <- RMSD.bd <- RMSD.cm <- RMSD.sn1 <- NA
+		ests.hollingI <- ests.hollingII <- ests.bd <- ests.cm <- ests.sn1 <- ests.sn2 <- ests.sn3 <- NA
+		LL.hollingI <- LL.hollingII <- LL.bd <- LL.cm <- LL.sn1 <- LL.sn2 <- LL.sn3 <- NA
+		AICc.hollingI <- AICc.hollingII <- AICc.bd <- AICc.cm <- AICc.sn1 <- AICc.sn2 <- AICc.sn3 <- NA
+		RMSD.hollingI <- RMSD.hollingII <- RMSD.bd <- RMSD.cm <- RMSD.sn1 <- RMSD.sn2 <- RMSD.sn3 <- NA
 		if(grepl("H", this.study$runswith)){
 			ests.hollingI <- as.array(apply(boots.hollingI, c(1,2), summarize.boots))
 			ests.hollingII <- as.array(apply(boots.hollingII, c(1,2), summarize.boots))
@@ -309,6 +310,16 @@ for(i in 1:length(datasets)){
 			AICc.sn1 <- summarize.boots(aicc.sn1)
 			# AICc.sn2 <- summarize.boots(aicc.sn2)
 			# AICc.sn3 <- summarize.boots(aicc.sn3)
+			
+			# AICc at bootstrap level 
+			# (to calculate delta-AIC at bootstrap level, rather than fromaverages)
+			AICc.H <- data.frame(H1 = aicc.hollingI,
+			                     H2 = aicc.hollingII,
+			                     BD = aicc.bd,
+			                     CM = aicc.cm,
+			                    SN1 = aicc.sn1)
+			                  # SN2 = aicc.sn2,
+			                  # SN3 = aicc.sn3)
 
 			RMSD.hollingI <- summarize.boots(RMSD.hollingI)
 			RMSD.hollingII <- summarize.boots(RMSD.hollingII)
@@ -341,12 +352,23 @@ for(i in 1:length(datasets)){
 			AICc.ag <- summarize.boots(aicc.ag)
 			AICc.hv <- summarize.boots(aicc.hv)
 			AICc.aa <- summarize.boots(aicc.aa)
+			
+			# AICc at bootstrap level 
+			# (to calculate delta-AIC at bootstrap level, rather than fromaverages)
+			AICc.R <- data.frame(Ratio = aicc.hollingI,
+			                     AG = aicc.ag,
+			                     HV = aicc.hv,
+			                     AA = aicc.aa)
 
 			RMSD.ratio <- summarize.boots(RMSD.ratio)
 			RMSD.ag <- summarize.boots(RMSD.ag)
 			RMSD.hv <- summarize.boots(RMSD.hv)
 			RMSD.aa <- summarize.boots(RMSD.aa)
 		}
+		
+		# Delta-AICc at bootstrap level
+		dAICc <- cbind(AICc.H, AICc.R)
+		dAICc <- dAICc - apply(dAICc,1,min,na.rm=T)
 
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		# save study info, the (last) fits, bootstrap estimates and estimate summaries
