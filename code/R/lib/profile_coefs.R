@@ -48,11 +48,17 @@ profile_coefs <- function(ffr.fits,
         # (1) estimate the profile confidence interval
         # do so for all model parameters because doing so for focal parameter can cause errors
         if(model!='Arditi.Akcakaya.Method.2'){
-          cf <- try(confint(x$fits[[model]], 
-                            try_harder=TRUE, 
-                            level=0.68, 
-                            tol.newmin=Inf, 
-                            quietly=TRUE))
+          cf <- try(
+            confint(
+              profile(
+                x$fits[[model]],
+                trace=FALSE,
+                tol.newmin=Inf,
+                try_harder=TRUE
+              ),
+              level=0.68
+            )
+          )
         }else{ # if profiling failed in general
           cf <- TRUE
           class(cf) <- 'try-error'
