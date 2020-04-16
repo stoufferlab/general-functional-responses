@@ -2,6 +2,7 @@
 # novak plots
 source('plot_AICc.R')
 source('plot_RMSD.R')
+source('plot_Rankings.R')
 
 source('plot_AA.R')
 source('plot_AA2.R')
@@ -15,3 +16,4 @@ source('plot_HV.R')
 source('plot_SN1.R')
 source('plot_AICc_dbs.R')
 source('plot_RMSE_dbs.R')
+# source('plot_Rankings_dbs.R') # still needs to be created
