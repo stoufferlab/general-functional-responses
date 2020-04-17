@@ -33,6 +33,7 @@ dAICcs <- AICcs - minAICcs
 # only include "supported" model fits
 # ffr.fits <- ffr.fits[which(dAICcs$G <= 2)]
 
+# fits for which the SN1 model is not supported are colored red
 color.vector <- numeric(length(ffr.fits))
 for(i in 1:length(ffr.fits)){
   if(dAICcs$G[i] > 2){
@@ -43,13 +44,17 @@ for(i in 1:length(ffr.fits)){
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ffr.fits <- profile_coefs(ffr.fits, 
-#                           model='Stouffer.Novak.I',
-#                           point.est='median',
-#                           printWarnings = TRUE)
-
-# save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
-load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
+ffr.fits <- profile_coefs(
+  ffr.fits,
+  model='Stouffer.Novak.I',
+  point.est='median',
+  printWarnings = FALSE,
+  which.pars = "phi_denom"
+)
+save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # General data and plot preparations
