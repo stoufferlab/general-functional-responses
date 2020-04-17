@@ -69,7 +69,8 @@ plot.coefs <- function(
                 xlim=NULL,
                 labels=NULL,
                 vertLines=NULL,
-                ... ){
+                ...
+){
   
   if(plot.SEs & is.null(ffr.fits[[1]]$profile)){
       stop('Fits must be profiled first to plot SEs.')
@@ -101,7 +102,7 @@ plot.coefs <- function(
   )
   
   # tick marks and labels to indicate different data sets
-  axis(side=2, at=1:length(ffr.fits), labels=labels, cex.axis=0.5, las=1)
+  axis(side=2, at=1:length(ffr.fits), labels=labels, cex.axis=0.45, las=1)
   
   # mark where the existing models fall
   abline(v=vertLines, lty=2, col='grey')
@@ -283,6 +284,7 @@ plot.coefs <- function(
         }
       }
     }
+
       # plot the actual estimate
       points(y=i, x=mm.link,
              col=col, pch=pch, bg=bg)
