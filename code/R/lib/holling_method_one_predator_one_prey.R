@@ -423,6 +423,10 @@ fit.holling.like <- function(
 				control = mle2.control				
 			)
 
+			# add the first set of starting values as these can help when profiling
+			refit.via.mle2@call$data$sbplx.start <- unlist(start)
+			names(refit.via.mle2@call$data$sbplx.start) <- names(start)
+
 			return(refit.via.mle2)
 
 			# # DEBUG to solve some issues with the fitting
