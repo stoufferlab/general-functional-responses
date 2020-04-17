@@ -78,11 +78,11 @@ plot.coefs <- function(
   parameter <- match.arg(parameter)
   ilink <- match.fun(ilink)
   color.factor <- match.arg(color.factor)
-    color.vector <- color.vector
+  color.vector <- color.vector
   pch.factor <- match.arg(pch.factor)
-    pch.vector <- pch.vector
+  pch.vector <- pch.vector
   point.est <- match.arg(point.est)
-    point.est <- ifelse(point.est=='median', '50%', point.est)
+  point.est <- ifelse(point.est=='median', '50%', point.est)
 
   if(is.null(xlim)){
     ests <- unlist(lapply(ffr.fits, function(x) x$estimates[[model]][point.est, parameter, "estimate"]))
@@ -125,7 +125,7 @@ plot.coefs <- function(
     }
     
     # set pch of points depending on factor or vector of choice
-    pch <- 19
+    pch <- 21
     bg <- col
     if(!pch.factor=='None'){
       if(pch.factor=='Parasitoids' & !x$study.info$predator){
@@ -189,7 +189,7 @@ plot.coefs <- function(
           arr.width=0.075,
           arr.col=col,
           lcol=col,
-          lty=1
+          lty=lty
         )
         if(display.outlier.ests){
             text(xlim[2]-delta.arrow, i, format.number(mm.link), 
@@ -208,7 +208,7 @@ plot.coefs <- function(
           arr.width=0.075,
           arr.col=col,
           lcol=col,
-          lty=1
+          lty=lty
         )
         if(display.outlier.ests){
             text(xlim[1]+delta.arrow, i, format.number(mm.link), 
@@ -228,13 +228,11 @@ plot.coefs <- function(
         lty <- SE.lty[3]
       }
       
-      lb <- min(x$profile$cf[parameter,])
-      ub <- max(x$profile$cf[parameter,])
-      mm2 <- x$profile$cf[parameter,2]
+      lb <- x$profile$cf[parameter,"lb"]
+      ub <- x$profile$cf[parameter,"ub"]
       
       lb.link <- ilink(lb)
       ub.link <- ilink(ub)
-      mm2.link <- ilink(mm2)
       
       # sometimes se is NA or we profile things but still get NA intervals, so stretch interval(s) to extremes of plot
       lb.link <- ifelse(is.na(lb.link), xlim[1], lb.link)
@@ -243,7 +241,6 @@ plot.coefs <- function(
       # For any of the above, don't plot off the figure
       lb.link <- ifelse(lb.link < xlim[1], xlim[1], lb.link)
       ub.link <- ifelse(ub.link > xlim[2], xlim[2], ub.link)
-      
       
       if(mm.link > xlim[1] & mm.link < xlim[2]){
         # draw the error bars
