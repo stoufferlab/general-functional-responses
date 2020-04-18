@@ -5,6 +5,11 @@ https://cosine.oregonstate.edu/faqs/unix-hpc-cluster
 smb://pfs.cosine.oregonstate.edu/homes
 
 
+# To use browser "OnDemand" interface use Google Chrome:
+https://ondemand.science.oregonstate.edu/
+
+
+
 # In terminal:
 ssh novakm@submit.hpc.cosine.oregonstate.edu
 
