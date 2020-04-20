@@ -10,6 +10,8 @@ dropboxdir <- switch(
 # a few utility functions
 source('../lib/study_info.R')
 source('../lib/bootstrap_data.R')
+source('../lib/mytidySumm.R')
+source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_two_prey.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -17,37 +19,6 @@ source('../lib/holling_method_one_predator_two_prey.R')
 library(doParallel)
 registerDoParallel(cores=6)
 ####################################
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# DEBUG: we should probably move these functions elsewhere so this file only calls functions/runs analysis
-# library(devtools)
-# devtools::install_github("bbolker/broom")
-library(broom) # for tidy()
-
-mytidy <- function(fit){ 
-	tfit <- tidy(fit)
-	terms <- tfit$term
-	tfit$term <- NULL
-	out <- matrix(as.numeric(unlist(tfit)), nrow=nrow(tfit), ncol=ncol(tfit), byrow=FALSE)
-	rownames(out) <- terms
-	colnames(out) <- colnames(tfit)
-	#DEBUG
-	out <- rbind(out, c(AIC(fit),0,0,0))
-	rownames(out)[nrow(out)] <- "AIC"
-	#ENDDEBUG
-	out
-}
-
-make.array <- function(ffr.fit,boot.reps){
-	t.ffr.fit <- mytidy(ffr.fit)
-	out <- array(NA, dim=c(dim(t.ffr.fit), boot.reps))
-	dimnames(out) <- dimnames(t.ffr.fit)
-	out
-}
-
-summarize.boots <- function(x){
-	c(mean=mean(x, na.rm=TRUE), quantile(x,c(0.025,0.16,0.5,0.84,0.975), na.rm=TRUE), n=sum(!is.na(x)))
-}
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,9 +30,6 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
-
-# create a container for the things that get fit
-ffr.fits <- list()
 
 # define the models which are to be fit
 which.models <- c(
@@ -87,6 +55,8 @@ for(i in 1:length(datasets)){
 
 	# grab some info from the google doc
 	this.study <- study.info(datadir)
+
+	datasetsName <- sub('*.R$','', sub('*./Dataset_Code/','', datasets[i]))
 
 	# put all datasets into terms of hours
 	if(!is.null(d$Time)){
@@ -197,7 +167,7 @@ for(i in 1:length(datasets)){
 	  	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		# save the (last) fits, bootstraps summaries, and some data aspects
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		ffr.fits[[datasets[i]]] <- list(
+		ffr.fit <- list(
 	  		study.info = c(
 	  			datadir = datadir,
 	  			sample.size = nrow(d),
@@ -208,6 +178,14 @@ for(i in 1:length(datasets)){
 			estimates = lapply(locals, function(x) x$ests)
 		)
 
+		# Save the data set fit
+		saveRDS(
+			ffr.fit,
+			file=paste0('../../../results/R/OnePredTwoPrey_fits/', datasetsName,'.Rdata')
+		)
+
+		# ffr.fits[[i]] <- ffr.fit
+
 	}
 
 	# source('plot_phi_denom.R')
@@ -215,8 +193,12 @@ for(i in 1:length(datasets)){
 	# break
 }
 
-# save the mega container which includes all FR fits
-save(ffr.fits,file='../../../results/R/OnePredTwoPrey_ffr.fits.Rdata')
+# save a mega container
+ffr.fits <- bundle_fits('../../../results/R/OnePredTwoPrey_fits')
+save(
+	ffr.fits,
+	file='../../../results/R/OnePredTwoPrey_ffr.fits.Rdata'
+)
 
 # # generate a quick and dirty plot of the phi_denom parameters of the SNI model
 # source('plot_phi_denom.R')

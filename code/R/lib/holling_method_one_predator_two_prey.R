@@ -5,7 +5,7 @@
 
 # libraries used below
 library(bbmle)
-# library(deSolve)
+library(nloptr)
 library(odeintr)
 # library(doParallel); registerDoParallel(cores=1)
 
