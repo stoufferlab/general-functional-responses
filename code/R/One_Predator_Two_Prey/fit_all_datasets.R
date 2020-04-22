@@ -13,6 +13,7 @@ source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_two_prey.R')
+source('./RMSD.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ####################################
@@ -147,6 +148,12 @@ for(i in 1:length(datasets)){
 			# create container for the parameter estimates
 			local.boots <- make.array(local.fits[[1]], boot.reps)
 
+			# create container for the AICc of the fits
+			local.AICcs <- lapply(local.fits, AICc)
+
+			# create container for the RMSD of the fits
+			local.RMSDs <- lapply(local.fits, RMSD)
+
 			# scrape out the parameter estimates
 			for(b in 1:boot.reps){
 				local.boots[,,b] <- mytidy(local.fits[[b]])
@@ -160,7 +167,12 @@ for(i in 1:length(datasets)){
 			# pb$terminate()
 
 			# save the key stuff
-			locals[[paste(modeltype, lll)]] <- list(fit=local.fits[[1]], ests=local.ests)
+			locals[[paste(modeltype, lll)]] <- list(
+				fit=local.fits[[1]],
+				ests=local.ests,
+				AICcs=local.AICcs,
+				RMSDs=local.RMSDs
+			)
 		}
 		}
 
@@ -175,7 +187,9 @@ for(i in 1:length(datasets)){
 	  	        data=d
 	  	    ),
 			fits = lapply(locals, function(x) x$fit),
-			estimates = lapply(locals, function(x) x$ests)
+			estimates = lapply(locals, function(x) x$ests),
+			AICcs = lapply(locals, function(x) x$AICcs),
+			RMSDs = lapply(locals, function(x) x$RMSDs)
 		)
 
 		# Save the data set fit
@@ -195,10 +209,7 @@ for(i in 1:length(datasets)){
 
 # save a mega container
 ffr.fits <- bundle_fits('../../../results/R/OnePredTwoPrey_fits')
-save(
+saveRDS(
 	ffr.fits,
 	file='../../../results/R/OnePredTwoPrey_ffr.fits.Rdata'
 )
-
-# # generate a quick and dirty plot of the phi_denom parameters of the SNI model
-# source('plot_phi_denom.R')
