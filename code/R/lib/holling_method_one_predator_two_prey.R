@@ -100,7 +100,7 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 	stop()
 }
 
-holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time=NULL){
+holling.like.1pred.2prey.predict = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time){
 	if(modeltype=="Holling I"){
 		attack_i <- exp(params[1])
 		attack_j <- exp(params[2])
@@ -191,8 +191,6 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		phi_ji <- phi.transform(params[6])
 	}
 
-	# DEBUG check whether the parameters give biological valid predictions
-
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){
 		time <- rep(1,length(Ni))
@@ -213,6 +211,16 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		replacement=replacement
 	)
 
+	return(Nconsumed)
+}
+
+holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time=NULL){
+	# get the predictions
+	Nconsumed <- holling.like.1pred.2prey.predict(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time)
+
+	# DEBUG check whether the parameters give biological valid predictions
+	# should this occur here or above?
+
 	# disallow biologically implausible predictions
 	if(any(Nconsumed < 0) | any(is.nan(Nconsumed))){
 		return(Inf)
@@ -232,6 +240,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		return(nll)
 	}
 
+	# if we made it this far something is wrong
 	stop()
 }
 
