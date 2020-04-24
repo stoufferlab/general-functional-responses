@@ -11,8 +11,8 @@ AA = (a \[CapitalNu] P T)/(P^m + a h \[CapitalNu]);
 
 subs = {T -> 1};
 
-\[CapitalNu]vals = {10, 15};
-Pvals = {1, 2};
+\[CapitalNu]vals = {5, 10, 20, 40};
+Pvals = {1, 2, 3};
 
 \[CapitalNu]probs = 
   ConstantArray[1/Length[\[CapitalNu]vals], 
@@ -25,12 +25,12 @@ PDistE = EmpiricalDistribution[Pprobs -> Pvals];
 EFisher[FisherMatrix_, func_] :=
  Expectation[
   Expectation[
-   Expectation[
-    FisherMatrix,
-    x \[Distributed] PoissonDistribution[func]],
-   P \[Distributed] PDistE], 
-  \[CapitalNu] \[Distributed] \
-\[CapitalNu]DistE] 
+   FisherMatrix,
+   x \[Distributed] PoissonDistribution[func]],
+  {P \[Distributed] PDistE, 
+   \[CapitalNu] \[Distributed] \
+\[CapitalNu]DistE}]
+
 
 PoislL[func_] := -n func + Log[func] x /. {n -> 1}
 
@@ -146,13 +146,15 @@ Save["FisherMatrix-1_Output_k1k2k3", "`*"];
 P\[CapitalNu]rats = 
   Sort[DeleteDuplicates[
     Join @@ Outer[Divide, Pvals, \[CapitalNu]vals]]];
+minv = 1/Table[i, {i, 1, 50}];
 
 e = 10;
 ParmRangeA = {
    {a, 0, 10^e},
-   Flatten[{h, 0, P\[CapitalNu]rats, 10^e}],
-   Flatten[{\[Gamma], 0, 1/Pvals, 10^e}],
-   Flatten[{m, 0, P\[CapitalNu]rats, 10^e}]
+   Sort[DeleteDuplicates[Flatten[{h, 0, P\[CapitalNu]rats, 1, 10^e}]]],
+   Sort[DeleteDuplicates[Flatten[{\[Gamma], 0, 1/Pvals, 1, 10^e}]]],
+   Sort[DeleteDuplicates[
+     Flatten[{m, 0, P\[CapitalNu]rats, minv, 1, 10^e}]]]
    };
 precgoal = 2;
 

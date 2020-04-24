@@ -47,14 +47,7 @@ PDistE=EmpiricalDistribution[Pprobs->Pvals];
 
 
 (* ::Input::Initialization:: *)
-EFisher[FisherMatrix_,func_]:=
-Expectation[
-Expectation[
-Expectation[
-FisherMatrix,
-x\[Distributed] PoissonDistribution[func]],
-P\[Distributed]PDistE],
-\[CapitalNu]\[Distributed]\[CapitalNu]DistE]
+EFisher[FisherMatrix_,func_]:=Expectation[Expectation[FisherMatrix,x\[Distributed]PoissonDistribution[func]],{P\[Distributed]PDistE,\[CapitalNu]\[Distributed]\[CapitalNu]DistE}]
 
 
 (* ::Subsection:: *)
