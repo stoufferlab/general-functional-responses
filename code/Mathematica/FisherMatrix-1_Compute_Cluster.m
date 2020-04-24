@@ -33,8 +33,8 @@ AA=(a \[CapitalNu] P T)/(P^m+a h \[CapitalNu]);
 
 (* ::Input::Initialization:: *)
 subs={T-> 1};
-\[CapitalNu]vals={10,15,20,25,30};
-Pvals={1,2,5};
+\[CapitalNu]vals={10,15,25,45};
+Pvals={1,2,3};
 
 \[CapitalNu]probs=ConstantArray[1/Length[\[CapitalNu]vals],Length[\[CapitalNu]vals]];
 Pprobs=ConstantArray[1/Length[Pvals],Length[Pvals]];
@@ -88,14 +88,6 @@ EFisherRPoiss=EFisher[FisherRPoiss/.subs,R/.subs];
 DetR=Det[EFisherRPoiss]//FullSimplify;
 
 
-(* ::Subsubsection:: *)
-(*Save all results (for k=1 models)*)
-
-
-(* ::Input::Initialization:: *)
-Save["FisherMatrix-1_Output_k1","`*"];
-
-
 (* ::Section:: *)
 (*Two-parameter models*)
 
@@ -131,14 +123,6 @@ lLAGPoiss[a_,h_]:=PoislL[AG]
 FisherAGPoiss=fisher[lLAGPoiss,{a, h}]//FullSimplify;
 EFisherAGPoiss=EFisher[FisherAGPoiss/.subs,AG/.subs];
 DetAG=Det[EFisherAGPoiss];
-
-
-(* ::Subsubsection:: *)
-(*Save all results (for k=1 and k=2 models)*)
-
-
-(* ::Input::Initialization:: *)
-Save["FisherMatrix-1_Output_k1k2","`*"];
 
 
 (* ::Section:: *)
@@ -178,7 +162,7 @@ EFisherAAPoiss=EFisher[FisherAAPoiss/.subs,AA/.subs];
 DetAA=Det[EFisherAAPoiss];
 
 
-(* ::Subsubsection:: *)
+(* ::Text:: *)
 (*Override save all results (for all models)*)
 
 
@@ -199,7 +183,7 @@ P\[CapitalNu]rats=Sort[DeleteDuplicates[Join@@Outer[Divide,Pvals,\[CapitalNu]val
 
 e=10;
 ParmRangeA={
-{a,0,10^e},
+{a,0,1}, (* Note maximum!!!! *)
 Flatten[{h,0,P\[CapitalNu]rats,10^e}],
 Flatten[{\[Gamma],0,1/Pvals,10^e}],
 Flatten[{m,0,P\[CapitalNu]rats,10^e}]
@@ -229,20 +213,24 @@ PrecisionGoal->precgoal]];
 
 (* ::Input::Initialization:: *)
 NIntHV=Log[NIntegrate[Sqrt[DetHV],
-ParmRangeA[[1]],ParmRangeA[[4]],
+ParmRangeA[[1]],
+ParmRangeA[[4]],
 PrecisionGoal->precgoal]];
 
 
 (* ::Input::Initialization:: *)
 NIntH2=Log[NIntegrate[Sqrt[DetH2],
-ParmRangeA[[1]],ParmRangeA[[2]],
+ParmRangeA[[1]],
+ParmRangeA[[2]],
 PrecisionGoal->precgoal]];
 
 
 (* ::Input::Initialization:: *)
 NIntAG=Log[NIntegrate[Sqrt[DetAG],
-ParmRangeA[[1]],ParmRangeA[[2]],
-PrecisionGoal->precgoal]];
+ParmRangeA[[1]],
+ParmRangeA[[2]],
+PrecisionGoal->precgoal,Method->{"GlobalAdaptive","SingularityHandler"->"DuffyCoordinates"},
+MaxRecursion->500]];
 
 
 (* ::Subsubsection:: *)
@@ -251,24 +239,33 @@ PrecisionGoal->precgoal]];
 
 (* ::Input::Initialization:: *)
 NIntBD=Log[NIntegrate[Sqrt[DetBD],
-ParmRangeA[[1]],ParmRangeA[[2]],ParmRangeA[[3]],
-PrecisionGoal->precgoal]];
+ParmRangeA[[1]],
+ParmRangeA[[2]],
+ParmRangeA[[3]],
+PrecisionGoal->precgoal,Method->{"GlobalAdaptive","SingularityHandler"->"DuffyCoordinates"},
+MaxRecursion->500]];
 
 
 (* ::Input::Initialization:: *)
 NIntCM=Log[NIntegrate[Sqrt[DetCM],
-ParmRangeA[[1]],ParmRangeA[[2]],ParmRangeA[[3]],
-PrecisionGoal->3]];
+ParmRangeA[[1]],
+ParmRangeA[[2]],
+ParmRangeA[[3]],
+PrecisionGoal->3,Method->{"GlobalAdaptive","SingularityHandler"->"DuffyCoordinates"},
+MaxRecursion->500]];
 
 
 (* ::Input::Initialization:: *)
 NIntAA=Log[NIntegrate[Sqrt[DetAA],
-ParmRangeA[[1]],ParmRangeA[[2]],ParmRangeA[[4]],
-PrecisionGoal->precgoal]];
+ParmRangeA[[1]],
+ParmRangeA[[2]],
+ParmRangeA[[4]],
+PrecisionGoal->precgoal,Method->{"GlobalAdaptive","SingularityHandler"->"DuffyCoordinates"},
+MaxRecursion->500]];
 
 
-(* ::Subsubsection:: *)
-(*Override save all results (for all models)*)
+(* ::Text:: *)
+(*Save all results (for all models)*)
 
 
 (* ::Input::Initialization:: *)
@@ -307,9 +304,51 @@ ParmRangeB[[1]],ParmRangeB[[3]],
 PrecisionGoal->precgoal];
 
 
-(* ::Subsubsection:: *)
+(* ::Text:: *)
 (*Override save all results (for all models)*)
 
 
 (* ::Input::Initialization:: *)
 Save["FisherMatrix-1_Output_k1k2k3_aNInt","`*"];
+
+
+(* ::Subsection:: *)
+(*Investigate limits*)
+
+
+(* ::Input::Initialization:: *)
+LimsH1a={a,Limit[Sqrt[DetH1],{a->0}], Limit[Sqrt[DetH1],{a->\[Infinity]}]}
+LimsRa={a,Limit[Sqrt[DetR],{a->0}], Limit[Sqrt[DetR],{a->\[Infinity]}]}
+LimsHVa={a,Limit[Sqrt[DetHV],{a->0}], Limit[Sqrt[DetHV],{a->\[Infinity]}]}
+LimsH2a={a,Limit[Sqrt[DetH2],{a->0}], Limit[Sqrt[DetH2],{a->\[Infinity]}]}
+LimsAGa={a,Limit[Sqrt[DetAG],{a->0}],Limit[Sqrt[DetAG],{a->\[Infinity]}]}
+LimsBDa={a,Limit[Sqrt[DetBD],{a->0}], Limit[Sqrt[DetBD],{a->\[Infinity]}]}
+LimsCMa={a,Limit[Sqrt[DetCM],{a->0}],Limit[Sqrt[DetCM],{a->\[Infinity]}]}
+LimsAAa={a,Limit[Sqrt[DetAA],{a->0}], Limit[Sqrt[DetAA],{a->\[Infinity]}]}
+
+
+(* ::Input::Initialization:: *)
+LimsH2h={h,Limit[Sqrt[DetH2],{h->0}], Limit[Sqrt[DetH2],{h->\[Infinity]}]}
+LimsAGh={h,Limit[Sqrt[DetAG],{h->0}],Limit[Sqrt[DetAG],{h->\[Infinity]}]}
+LimsBDh={h,Limit[Sqrt[DetBD],{h->0}], Limit[Sqrt[DetBD],{h->\[Infinity]}]}
+LimsCMh={h,Limit[Sqrt[DetCM],{h->0}],Limit[Sqrt[DetCM],{h->\[Infinity]}]}
+LimsAAh={h,Limit[Sqrt[DetAA],{h-> 0}],Limit[Sqrt[DetAA],{h->\[Infinity]}]}
+
+
+(* ::Input::Initialization:: *)
+
+LimsBD\[Gamma]={\[Gamma],Limit[Sqrt[DetBD],{\[Gamma]->0}], Limit[Sqrt[DetBD],{\[Gamma]->\[Infinity]}]}
+LimsCM\[Gamma]={\[Gamma],Limit[Sqrt[DetCM],{\[Gamma]->0}],Limit[Sqrt[DetCM],{\[Gamma]->\[Infinity]}]}
+
+
+(* ::Input::Initialization:: *)
+LimsHVm={m,Limit[Sqrt[DetHV],{m->0}], Limit[Sqrt[DetHV],{m->\[Infinity]}]}
+LimsAAm={m,Limit[Sqrt[DetAA],{m->0}],Limit[Sqrt[DetAA],{m->\[Infinity]}]}
+
+
+(* ::Text:: *)
+(*Override save all results (for all models)*)
+
+
+(* ::Input::Initialization:: *)
+Save["FisherMatrix-1_Output_k1k2k3_limits","`*"];
