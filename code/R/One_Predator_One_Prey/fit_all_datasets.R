@@ -166,6 +166,10 @@ for(i in 1:length(datasets)){
 					# ll.sn2 <- ll.sn3 <- vector("list",boot.reps)
 					ll.ratio <- ll.ag <- ll.hv <- ll.aa <- rep(NA,boot.reps)
 
+					# create containers for AIC values of all fits
+					aic.hollingI <- aic.hollingII <- aic.bd <- aic.cm <- aic.sn1 <- rep(NA,boot.reps)
+					# aic.sn2 <- aic.sn3 <- vector("list",boot.reps)
+
 					# create containers for AICc values of all fits
 					aicc.hollingI <- aicc.hollingII <- aicc.bd <- aicc.cm <- aicc.sn1 <- rep(NA,boot.reps)
 					# aicc.sn2 <- aicc.sn3 <- vector("list",boot.reps)
@@ -212,6 +216,14 @@ for(i in 1:length(datasets)){
 					ll.sn1[[b]] <- logLik(ffr.sn1)
 					# ll.sn2[[b]] <- logLik(ffr.sn2)
 					# ll.sn3[[b]] <- logLik(ffr.sn3)
+
+					aic.hollingI[[b]] <- AIC(ffr.hollingI)
+					aic.hollingII[[b]] <- AIC(ffr.hollingII)
+					aic.bd[[b]] <- AIC(ffr.bd)
+					aic.cm[[b]] <- AIC(ffr.cm)
+					aic.sn1[[b]] <- AIC(ffr.sn1)
+					# aic.sn2[[b]] <- AIC(ffr.sn2)
+					# aic.sn3[[b]] <- AIC(ffr.sn3)
 
 					aicc.hollingI[[b]] <- AICc(ffr.hollingI)
 					aicc.hollingII[[b]] <- AICc(ffr.hollingII)
@@ -283,6 +295,7 @@ for(i in 1:length(datasets)){
 		# ~~~~~~~~~~~~~~~~~~~~
 		ests.hollingI <- ests.hollingII <- ests.bd <- ests.cm <- ests.sn1 <- NA
 		LL.hollingI <- LL.hollingII <- LL.bd <- LL.cm <- LL.sn1 <- NA
+		AIC.hollingI <- AIC.hollingII <- AIC.bd <- AIC.cm <- AIC.sn1 <- NA
 		AICc.hollingI <- AICc.hollingII <- AICc.bd <- AICc.cm <- AICc.sn1 <- NA
 		RMSD.hollingI <- RMSD.hollingII <- RMSD.bd <- RMSD.cm <- RMSD.sn1 <- NA
 		if(grepl("H", this.study$runswith)){
@@ -301,6 +314,14 @@ for(i in 1:length(datasets)){
 			LL.sn1 <- summarize.boots(ll.sn1)
 			# LL.sn2 <- summarize.boots(ll.sn2)
 			# LL.sn3 <- summarize.boots(ll.sn3)
+
+			AIC.hollingI <- summarize.boots(aic.hollingI)
+			AIC.hollingII <- summarize.boots(aic.hollingII)
+			AIC.bd <- summarize.boots(aic.bd)
+			AIC.cm <- summarize.boots(aic.cm)
+			AIC.sn1 <- summarize.boots(aic.sn1)
+			# AIC.sn2 <- summarize.boots(aic.sn2)
+			# AIC.sn3 <- summarize.boots(aic.sn3)
 
 			AICc.hollingI <- summarize.boots(aicc.hollingI)
 			AICc.hollingII <- summarize.boots(aicc.hollingII)
@@ -399,6 +420,19 @@ for(i in 1:length(datasets)){
 				Arditi.Ginzburg = LL.ag,
 				Hassell.Varley = LL.hv,
 				Arditi.Akcakaya = LL.aa
+			),
+			AIC = list(
+				Holling.I = AIC.hollingI,
+				Holling.II = AIC.hollingII,
+				Beddington.DeAngelis = AIC.bd,
+				Crowley.Martin = AIC.cm,
+				Stouffer.Novak.I = AIC.sn1
+				# Stouffer.Novak.II = AIC.sn2,
+				# Stouffer.Novak.III = AIC.sn3,
+				# Ratio = AIC.ratio,
+				# Arditi.Ginzburg = AIC.ag,
+				# Hassell.Varley = AIC.hv,
+				# Arditi.Akcakaya = AIC.aa
 			),
 			AICc = list(
 				Holling.I = AICc.hollingI,
