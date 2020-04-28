@@ -18,56 +18,53 @@ sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 labels <- paste0(labels, ' (',sample.sizes,')')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# Grab summary of AICc estimates across bootstrapped fits
+# Grab summary of AIC estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
 
-AICc.H1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.I'][[1]][stat]}))
-AICc.H2 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.II'][[1]][stat]}))
-AICc.BD <- unlist(lapply(ffr.fits, function(x){ x$AICc['Beddington.DeAngelis'][[1]][stat]}))
-AICc.CM <- unlist(lapply(ffr.fits, function(x){ x$AICc['Crowley.Martin'][[1]][stat]}))
-AICc.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Stouffer.Novak.I'][[1]][stat]}))
-# AICc.R <- unlist(lapply(ffr.fits, function(x){ x$AICc['Ratio'][[1]][stat]}))
-# AICc.AG <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Ginzburg'][[1]][stat]}))
-# AICc.HV <- unlist(lapply(ffr.fits, function(x){ x$AICc['Hassell.Varley'][[1]][stat]}))
-# AICc.AA <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Akcakaya'][[1]][stat]}))
+AIC.H1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.I'][[1]][stat]}))
+AIC.H2 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.II'][[1]][stat]}))
+AIC.BD <- unlist(lapply(ffr.fits, function(x){ x$AIC['Beddington.DeAngelis'][[1]][stat]}))
+AIC.CM <- unlist(lapply(ffr.fits, function(x){ x$AIC['Crowley.Martin'][[1]][stat]}))
+AIC.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Stouffer.Novak.I'][[1]][stat]}))
 
-AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.SN1)
-colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
-colnames(AICcs)[5] <- "G"
+AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.SN1)
+colnames(AICs) <- sub('AIC.', '', colnames(AICs))
+colnames(AICs)[5] <- "G"
 
 # Define color of each model
-colnames(AICcs)
+colnames(AICs)
 CR<-brewer.pal(n = 8, name = 'RdBu')
 Mcols <- c(CR[5:8],CR[4:1])
 Mpch <- c(rep(21,5),rep(22,4))
 
-minAICcs <- apply(AICcs, 1, min)
-dAICcs <- AICcs - minAICcs
-# dAICcs[dAICcs<2] <- 0
-rnkAICcs <- t(apply(dAICcs, 1, rank, ties.method='first'))
-colnames(rnkAICcs) <- colnames(AICcs)
+minAICs <- apply(AICs, 1, min)
+dAICs <- AICs - minAICs
+# dAICs[dAICs<2] <- 0
 
-# Define delta AICc cut-off for "indistinguishably well performing" models
+rnkAICs <- t(apply(dAICs, 1, rank, ties.method='first'))
+colnames(rnkAICs) <- colnames(AICs)
+
+# Define delta AIC cut-off for "indistinguishably well performing" models
 delAICcutoff <- 2
 
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks_dbs.pdf',height=6,width=2.25)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_ranks_dbs.pdf',height=6,width=2.25)
   par(mar=c(3,7,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
-    plot(1:nrow(rnkAICcs), 1:nrow(rnkAICcs),
+    plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
          type='n', yaxt='n',
-         xlim=c(0.5,ncol(rnkAICcs)+0.5),
-         ylim=c(0,nrow(rnkAICcs)+1),
-         xlab='Model rank by AICc',
+         xlim=c(0.5,ncol(rnkAICs)+0.5),
+         ylim=c(0,nrow(rnkAICs)+1),
+         xlab='Model rank by AIC',
          ylab='',
          axes=F)
     # rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
-    axis(2, at=1:nrow(rnkAICcs), labels=labels, cex.axis=0.5, las=2)
+    axis(2, at=1:nrow(rnkAICs), labels=labels, cex.axis=0.5, las=2)
     axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
 
-    # Which models have delta-AICc within X=2 of best-performing model?
-    xats <-table(which(dAICcs < delAICcutoff, arr.ind=T)[,1])+0.5
+    # Which models have delta-AIC within X=2 of best-performing model?
+    xats <-table(which(dAICs < delAICcutoff, arr.ind=T)[,1])+0.5
     yats <- 0:(length(xats))
 
     # segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
@@ -78,8 +75,8 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks_dbs.pdf
     pyats<-rep(0:(length(xats)),each=2)+0.4
     polygon(pxats,pyats,col=grey(0.666),border=NA)
     
-    for(m in 1:ncol(rnkAICcs)){
-      points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
+    for(m in 1:ncol(rnkAICs)){
+      points(rnkAICs[,m], 1:nrow(rnkAICs), 
              type='p',  col='black', 
              bg=Mcols[m], pch=Mpch[m],
              cex=1, lwd=0.2)
@@ -87,16 +84,32 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_ranks_dbs.pdf
     box(lwd=1)
     par(xpd=TRUE)
     legend(
-        0.425,nrow(rnkAICcs)+6,legend=colnames(rnkAICcs),
+        0.425,nrow(rnkAICs)+6,legend=colnames(rnkAICs),
         pch=Mpch, pt.bg=Mcols, col='black', bg='white',
         horiz=FALSE, pt.cex=1,cex=0.6, ncol=5, title='Model',
         bty='n'
     )
 dev.off()
 
+# collect some statistics
+dAICs[dAICs<=2] <- 0
+
+# find unambiguous support
+rnkAICs <- data.frame(t(apply(dAICs, 1, rank, ties.method="max")))
+unambiguous.support <- nrow(subset(rnkAICs, G==1))
+
+# find shared support
+rnkAICs <- data.frame(t(apply(dAICs, 1, rank, ties.method="min")))
+shared.support <- nrow(subset(rnkAICs, G==1))
+
+# remind ourselves about how many datasets
+total.datasets <- nrow(rnkAICs)
+
+break()
+
 # ~~~~~~~~~
 # Count times each model is in each rank
-Cnt<-apply(rnkAICcs,2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
+Cnt<-apply(rnkAICs,2,function(x){table(factor(x,levels=1:ncol(rnkAICs)))})
 Cnt
 pCnt <- round(prop.table(Cnt,2)*100,1)
 pCnt
@@ -114,9 +127,9 @@ tab_Cnt <- Cnt
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_figs/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings_dbs.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+latex(tab_Cnt,file='OnePredOnePrey_AIC_rankings_dbs.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
-# latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+# latex(tab_Cnt,file='OnePredOnePrey_AIC_rankings.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
 setwd(wd)
 
