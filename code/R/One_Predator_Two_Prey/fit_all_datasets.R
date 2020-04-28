@@ -13,7 +13,7 @@ source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_two_prey.R')
-source('./RMSD.R')
+source('../lib/RMSD.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ####################################
