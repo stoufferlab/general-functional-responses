@@ -1,0 +1,172 @@
+AA = (a*P*T*\[CapitalNu])/(P^m + a*h*\[CapitalNu])
+ 
+AG = (a*P*T*\[CapitalNu])/(P + a*h*\[CapitalNu])
+ 
+BD = (a*P*T*\[CapitalNu])/(1 + P*\[Gamma] + a*h*\[CapitalNu])
+ 
+CM = (a*P*T*\[CapitalNu])/((1 + P*\[Gamma])*(1 + a*h*\[CapitalNu]))
+ 
+DetAG = (256*a^2*(681851925 + 187546316220*a*h + 24487778113920*a^2*h^2 + 
+       2008837371663360*a^3*h^3 + 115602607499821056*a^4*h^4 + 
+       4942882666465984512*a^5*h^5 + 162511740764115959808*a^6*h^6 + 
+       4200020600916472233984*a^7*h^7 + 86582262259278950694912*a^8*h^8 + 
+       1437469368336893213671424*a^9*h^9 + 19334429252739811912974336*a^10*
+        h^10 + 211287131286109835092819968*a^11*h^11 + 
+       1876099793305291058103451648*a^12*h^12 + 13498167626278298768822501376*
+        a^13*h^13 + 78221923967070469101950337024*a^14*h^14 + 
+       361483301519223717523380764672*a^15*h^15 + 
+       1311874146515802483567460614144*a^16*h^16 + 
+       3652869710711588169183267913728*a^17*h^17 + 
+       7526462705689791759609088704512*a^18*h^18 + 
+       10805519211110630860508067004416*a^19*h^19 + 
+       9648968893704985880166861373440*a^20*h^20 + 
+       4035684528070339696171144970240*a^21*h^21))/
+     ((1 + 4*a*h)^3*(1 + 8*a*h)^3*(3 + 8*a*h)^3*(1 + 16*a*h)^3*(3 + 16*a*h)^3*
+      (1 + 32*a*h)^3*(3 + 32*a*h)^3*(1 + 64*a*h)^3*(3 + 64*a*h)^3)
+ 
+DetH1 = 60/a
+ 
+DetH2 = (2048*a^2*(775 + 64*a*h*(1395 + 
+         8*a*h*(8805 + 32*a*h*(7605 + 64*a*h*(1857 + 160*a*h*
+                (99 + 368*a*h)))))))/((1 + 8*a*h)^3*(1 + 16*a*h)^3*
+      (1 + 32*a*h)^3*(1 + 64*a*h)^3)
+ 
+DetHV = (5*2^(3 - m)*Log[2]^2)/3 + (5*2^(4 - m)*Log[2]^2)/3 + 
+     (5*2^(5 - m)*Log[2]^2)/3 + (5*2^(6 - m)*Log[2]^2)/3 + 
+     (5*2^(3 - m)*Log[2]^2)/3^m + (5*2^(4 - m)*Log[2]^2)/3^m + 
+     (5*2^(5 - m)*Log[2]^2)/3^m + (5*2^(6 - m)*Log[2]^2)/3^m - 
+     (5*2^(4 - m)*Log[2]*Log[3])/3^m - (5*2^(5 - m)*Log[2]*Log[3])/3^m - 
+     (5*2^(6 - m)*Log[2]*Log[3])/3^m - (5*2^(7 - m)*Log[2]*Log[3])/3^m + 
+     100*3^(1 - m)*Log[3]^2 + (5*2^(3 - m)*Log[3]^2)/3^m + 
+     (5*2^(4 - m)*Log[3]^2)/3^m + (5*2^(5 - m)*Log[3]^2)/3^m + 
+     (5*2^(6 - m)*Log[3]^2)/3^m
+ 
+DetR = 30/a
+ 
+EFisher[FisherMatrix_, func_] := Expectation[Expectation[FisherMatrix, 
+      Distributed[x, PoissonDistribution[func]]], {Distributed[P, PDistE], 
+      Distributed[\[CapitalNu], \[CapitalNu]DistE]}]
+ 
+PDistE = DataDistribution["Empirical", {{1/3, 1/3, 1/3}, {1, 2, 3}, False}, 
+     1, 3]
+ 
+\[CapitalNu]DistE = DataDistribution["Empirical", {{1/4, 1/4, 1/4, 1/4}, {8, 
+      16, 32, 64}, False}, 1, 4]
+ 
+EFisherAGPoiss = {{(2*((1 + 4*a*h)^(-3) + 3/(1 + 8*a*h)^3 + 
+         27/(3 + 8*a*h)^3 + 6/(1 + 16*a*h)^3 + 54/(3 + 16*a*h)^3 + 
+         12/(1 + 32*a*h)^3 + 108/(3 + 32*a*h)^3 + 8/(1 + 64*a*h)^3 + 
+         216/(3 + 64*a*h)^3))/(3*a), 
+      (16*a*(-3/(1 + 8*a*h)^3 - 4/(2 + 8*a*h)^3 - 9/(3 + 8*a*h)^3 - 
+         12/(1 + 16*a*h)^3 - 36/(3 + 16*a*h)^3 - 48/(1 + 32*a*h)^3 - 
+         144/(3 + 32*a*h)^3 - 64/(1 + 64*a*h)^3 - 576/(3 + 64*a*h)^3))/3}, 
+     {(16*a*(-3/(1 + 8*a*h)^3 - 4/(2 + 8*a*h)^3 - 9/(3 + 8*a*h)^3 - 
+         12/(1 + 16*a*h)^3 - 36/(3 + 16*a*h)^3 - 48/(1 + 32*a*h)^3 - 
+         144/(3 + 32*a*h)^3 - 64/(1 + 64*a*h)^3 - 576/(3 + 64*a*h)^3))/3, 
+      (128*a^3*(3/(1 + 8*a*h)^3 + 2/(2 + 8*a*h)^3 + 3/(3 + 8*a*h)^3 + 
+         24/(1 + 16*a*h)^3 + 24/(3 + 16*a*h)^3 + 192/(1 + 32*a*h)^3 + 
+         192/(3 + 32*a*h)^3 + 512/(1 + 64*a*h)^3 + 1536/(3 + 64*a*h)^3))/3}}
+ 
+EFisherH1Poiss = {{60/a}}
+ 
+EFisherH2Poiss = {{4/(a*(1 + 8*a*h)^3) + 8/(a*(1 + 16*a*h)^3) + 
+       16/(a*(1 + 32*a*h)^3) + 32/(a*(1 + 64*a*h)^3), 
+      (-32*a)/(1 + 8*a*h)^3 - (128*a)/(1 + 16*a*h)^3 - 
+       (512*a)/(1 + 32*a*h)^3 - (2048*a)/(1 + 64*a*h)^3}, 
+     {(-32*a)/(1 + 8*a*h)^3 - (128*a)/(1 + 16*a*h)^3 - 
+       (512*a)/(1 + 32*a*h)^3 - (2048*a)/(1 + 64*a*h)^3, 
+      (256*a^3)/(1 + 8*a*h)^3 + (2048*a^3)/(1 + 16*a*h)^3 + 
+       (16384*a^3)/(1 + 32*a*h)^3 + (131072*a^3)/(1 + 64*a*h)^3}}
+ 
+EFisherHVPoiss = {{10/a + 2^(2 - m)/(3*a) + 2^(3 - m)/(3*a) + 
+       2^(4 - m)/(3*a) + 2^(5 - m)/(3*a) + (10*3^(1 - m))/a, 
+      -(2^(2 - m)*Log[2])/3 - (2^(3 - m)*Log[2])/3 - (2^(4 - m)*Log[2])/3 - 
+       (2^(5 - m)*Log[2])/3 - 10*3^(1 - m)*Log[3]}, 
+     {-(2^(2 - m)*Log[2])/3 - (2^(3 - m)*Log[2])/3 - (2^(4 - m)*Log[2])/3 - 
+       (2^(5 - m)*Log[2])/3 - 10*3^(1 - m)*Log[3], (2^(2 - m)*a*Log[2]^2)/3 + 
+       (2^(3 - m)*a*Log[2]^2)/3 + (2^(4 - m)*a*Log[2]^2)/3 + 
+       (2^(5 - m)*a*Log[2]^2)/3 + 10*3^(1 - m)*a*Log[3]^2}}
+ 
+EFisherRPoiss = {{30/a}}
+ 
+f[x_, y_] := (x^2 - y)/(x^2 + y^2 + 1)
+ 
+fisher[fun_, pars_] := -D[fun @@ pars, {pars, 2}]
+ 
+fisher2[fun_, pars_] := KroneckerProduct[D[fun @@ pars, {pars, 1}], 
+     D[fun @@ pars, {pars, 1}]]
+ 
+FisherAGPoiss = {{(P*(P^2*x + 3*a*h*P*x*\[CapitalNu] + 2*a^2*h*(-(P*T) + h*x)*
+          \[CapitalNu]^2))/(a^2*(P + a*h*\[CapitalNu])^3), 
+      (P*\[CapitalNu]*(a*h*x*\[CapitalNu] + P*(x - 2*a*T*\[CapitalNu])))/
+       (P + a*h*\[CapitalNu])^3}, 
+     {(P*\[CapitalNu]*(a*h*x*\[CapitalNu] + P*(x - 2*a*T*\[CapitalNu])))/
+       (P + a*h*\[CapitalNu])^3, (a^2*\[CapitalNu]^2*
+        (-(P*x) + 2*a*P*T*\[CapitalNu] - a*h*x*\[CapitalNu]))/
+       (P + a*h*\[CapitalNu])^3}}
+ 
+FisherH1Poiss = {{x/a^2}}
+ 
+FisherH2Poiss = {{(2*a*h^2*P*T*\[CapitalNu]^3)/(1 + a*h*\[CapitalNu])^3 - 
+       (2*h*P*T*\[CapitalNu]^2)/(1 + a*h*\[CapitalNu])^2 - 
+       (x*(1 + a*h*\[CapitalNu])*((2*a*h^2*P*T*\[CapitalNu]^3)/
+           (1 + a*h*\[CapitalNu])^3 - (2*h*P*T*\[CapitalNu]^2)/
+           (1 + a*h*\[CapitalNu])^2))/(a*P*T*\[CapitalNu]) - 
+       (h*x*(-((a*h*P*T*\[CapitalNu]^2)/(1 + a*h*\[CapitalNu])^2) + 
+          (P*T*\[CapitalNu])/(1 + a*h*\[CapitalNu])))/(a*P*T) + 
+       (x*(1 + a*h*\[CapitalNu])*(-((a*h*P*T*\[CapitalNu]^2)/
+            (1 + a*h*\[CapitalNu])^2) + (P*T*\[CapitalNu])/
+           (1 + a*h*\[CapitalNu])))/(a^2*P*T*\[CapitalNu]), 
+      (2*a^2*h*P*T*\[CapitalNu]^3)/(1 + a*h*\[CapitalNu])^3 - 
+       (2*a*P*T*\[CapitalNu]^2)/(1 + a*h*\[CapitalNu])^2 - 
+       (x*(1 + a*h*\[CapitalNu])*((2*a^2*h*P*T*\[CapitalNu]^3)/
+           (1 + a*h*\[CapitalNu])^3 - (2*a*P*T*\[CapitalNu]^2)/
+           (1 + a*h*\[CapitalNu])^2))/(a*P*T*\[CapitalNu]) - 
+       (x*(-((a*h*P*T*\[CapitalNu]^2)/(1 + a*h*\[CapitalNu])^2) + 
+          (P*T*\[CapitalNu])/(1 + a*h*\[CapitalNu])))/(P*T)}, 
+     {(2*a^2*h*P*T*\[CapitalNu]^3)/(1 + a*h*\[CapitalNu])^3 - 
+       (2*a*P*T*\[CapitalNu]^2)/(1 + a*h*\[CapitalNu])^2 - 
+       (a*h*x*\[CapitalNu]^2)/(1 + a*h*\[CapitalNu])^2 + 
+       (x*\[CapitalNu])/(1 + a*h*\[CapitalNu]), 
+      (2*a^3*P*T*\[CapitalNu]^3)/(1 + a*h*\[CapitalNu])^3 - 
+       (a^2*x*\[CapitalNu]^2)/(1 + a*h*\[CapitalNu])^2}}
+ 
+FisherHVPoiss = {{x/a^2, -(P^(1 - m)*T*\[CapitalNu]*Log[P])}, 
+     {-(P^(1 - m)*T*\[CapitalNu]*Log[P]), a*P^(1 - m)*T*\[CapitalNu]*
+       Log[P]^2}}
+ 
+FisherRPoiss = {{x/a^2}}
+ 
+H1 = a*P*T*\[CapitalNu]
+ 
+H2 = (a*P*T*\[CapitalNu])/(1 + a*h*\[CapitalNu])
+ 
+HV = a*P^(1 - m)*T*\[CapitalNu]
+ 
+lLAGPoiss[a_, h_] := PoislL[AG]
+ 
+PoislL[func_] := (-n)*func + Log[func]*x /. {n -> 1}
+ 
+lLH1Poiss[a_] := PoislL[H1]
+ 
+lLH2Poiss[a_, h_] := PoislL[H2]
+ 
+lLHVPoiss[a_, m_] := PoislL[HV]
+ 
+lLRPoiss[a_] := PoislL[R]
+ 
+R = a*T*\[CapitalNu]
+ 
+PDist = UniformDistribution[{1, 5}]
+ 
+Pprobs = {1/3, 1/3, 1/3}
+ 
+Pvals = {1, 2, 3}
+ 
+subs = {T -> 1}
+ 
+\[CapitalNu]Dist = UniformDistribution[{5, 30}]
+ 
+\[CapitalNu]probs = {1/4, 1/4, 1/4, 1/4}
+ 
+\[CapitalNu]vals = {8, 16, 32, 64}

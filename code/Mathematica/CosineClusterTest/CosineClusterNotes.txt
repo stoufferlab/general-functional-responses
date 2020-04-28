@@ -1,0 +1,32 @@
+# Info from: 
+https://cosine.oregonstate.edu/faqs/unix-hpc-cluster
+
+# Connect to Z-drive:
+smb://pfs.cosine.oregonstate.edu/homes
+
+
+# To use browser "OnDemand" interface use Google Chrome:
+https://ondemand.science.oregonstate.edu/
+
+
+
+# In terminal:
+ssh novakm@submit.hpc.cosine.oregonstate.edu
+
+# To see what modules are available
+module list 
+
+# To load a particular module
+module load mathematica/12.0
+
+# To get status of job
+qstat -j <jobId>
+
+# To delete job
+qdel <job id of process>
+
+
+
+qsub submit.sh
+
+
