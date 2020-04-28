@@ -1,3 +1,8 @@
+# Identify the (number of) unique experimental designs.
+# Also calculate the maximum number (percent) of prey that are consumed
+# at the highest prey density treatment (distinguishing between
+# replacement and non-replacement studies).
+
 rm(list = ls())
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # specify where the data files are located
@@ -22,9 +27,13 @@ datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# compile the designs of all analysed datasets
+# Places to store the designs of all analysed datasets
 all.designs <- list(0)
 design.dims <- dim(0)
+
+# Place to store max number of prey eaten
+prey.eaten <- list(0)
+
 j<-1
 for(i in seq_len(length(datasets))){
   source(datasets[i])
@@ -44,12 +53,43 @@ for(i in seq_len(length(datasets))){
     design <- unique(design)
     design <- design[do.call(order, design), ]
     
-    all.designs[[j]] <- list(dataname=datasetsName, design=design)
+    all.designs[[j]] <- list(dataname = datasetsName, 
+                             design = design)
+    design.dims <- rbind(design.dims, dim(design))
+    
+    # maximum prey treatment and number of prey eaten at it
+    c.Nprey <- grep('Nprey',colnames(d))
+    c.Ncons <- grep('Nconsumed',colnames(d))
+    max.prey.trtmts <- which(d[,c.Nprey]==max(d[,c.Nprey]))
+    max.Nprey <- d[max.prey.trtmts[1],c.Nprey]
+    max.Ncons <- max(d[max.prey.trtmts, c.Ncons])
+    max.perCons <- ifelse(is.integer(max.Nprey), max.Ncons/max.Nprey, NA)
+    
+    prey.eaten[[j]] <- list(dataname = datasetsName,
+                            replacement = this.study$replacement,
+                            max.Nprey = max.Nprey,
+                            max.Ncons = max.Ncons,
+                            max.perCons = max.perCons)
     j <- j+1
-    design.dims <- rbind(design.dims,dim(design))
   }
 }
 
+#~~~~~~~~~~~~~~~~~~~~~~
+# Percent of prey eaten
+#~~~~~~~~~~~~~~~~~~~~~~
+prey.eaten = as.data.frame(t(sapply(prey.eaten, function(x) x[1:max(lengths(prey.eaten))])))
+
+par(mfrow=c(1,2), yaxs='i', xaxs='i')
+  hist(as.numeric(subset(prey.eaten, replacement==TRUE)$max.perCons), 
+       breaks=20, main='Repl = TRUE', col='grey',
+       xlab='Fraction of max(N) prey eaten in max(N) treatment')
+  hist(as.numeric(subset(prey.eaten, replacement==FALSE)$max.perCons), 
+       breaks=20, main='Repl = FALSE', col='grey',
+       xlab='Fraction of max(N) prey eaten in max(N) treatment')
+  
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Experimental treatment designs
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Minimum possible number of designs to deal with based on number of treatments alone
 nrow(design.dims)
 nrow(unique(design.dims))
@@ -87,6 +127,7 @@ length(unique.designs)
 # There are 68 unique designs (of 81) when considering NPred,NPrey,Time
 # There are 60 unique designs (of 81) when considering NPred,NPrey
 
+# Postscript:  Could have flattened all matrices into a single array and applied duplicated().
 
-# Postscript:  
-# Could have flattened all matrices into a single array and applied duplicated().
+
+
