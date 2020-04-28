@@ -176,9 +176,9 @@ for(i in 1:length(datasets)){
 					aicc.ratio <- aicc.ag <- aicc.hv <- aicc.aa <- rep(NA,boot.reps)
 
 					# create containers for RMSD values of all fits
-					RMSD.hollingI <- RMSD.hollingII <- RMSD.bd <- RMSD.cm <- RMSD.sn1 <- rep(NA,boot.reps)
+					rmsd.hollingI <- rmsd.hollingII <- rmsd.bd <- rmsd.cm <- rmsd.sn1 <- rep(NA,boot.reps)
 					# RMSD.sn2 <- RMSD.sn3 <- vector("list",boot.reps)
-					RMSD.ratio <- RMSD.ag <- RMSD.hv <- RMSD.aa <- rep(NA,boot.reps)
+					rmsd.ratio <- rmsd.ag <- rmsd.hv <- rmsd.aa <- rep(NA,boot.reps)
 
 					# create containers for parameter estimates using first bootstrap as a template
 					boots.hollingI <- boots.hollingII <- boots.bd <- array(NA, c(1,1,boot.reps))
@@ -233,11 +233,11 @@ for(i in 1:length(datasets)){
 					# aicc.sn2[[b]] <- AICc(ffr.sn2)
 					# aicc.sn3[[b]] <- AICc(ffr.sn3)
 
-					RMSD.hollingI[[b]] <- RMSD(d, ffr.hollingI, this.study,'Holling.I')
-					RMSD.hollingII[[b]] <- RMSD(d, ffr.hollingII, this.study, 'Holling.II')
-					RMSD.bd[[b]] <- RMSD(d, ffr.bd, this.study, 'Beddington.DeAngelis')
-					RMSD.cm[[b]] <- RMSD(d, ffr.cm, this.study, 'Crowley.Martin')
-					RMSD.sn1[[b]] <- RMSD(d, ffr.sn1, this.study, 'Stouffer.Novak.I')
+					rmsd.hollingI[[b]] <- RMSD(ffr.hollingI)
+					rmsd.hollingII[[b]] <- RMSD(ffr.hollingII)
+					rmsd.bd[[b]] <- RMSD(ffr.bd)
+					rmsd.cm[[b]] <- RMSD(ffr.cm)
+					rmsd.sn1[[b]] <- RMSD(ffr.sn1)
 					# RMSD.sn2[[b]] <- RMSD(d, ffr.sn2, this.study, 'Stouffer.Novak.II')
 					# RMSD.sn3[[b]] <- RMSD(d, ffr.sn3, this.study, 'Stouffer.Novak.III')
 				}
@@ -253,10 +253,10 @@ for(i in 1:length(datasets)){
 					aicc.hv[[b]] <- AICc(ffr.hv)
 					aicc.aa[[b]] <- AICc(ffr.aa)
 
-					RMSD.ratio[[b]] <- RMSD(d, ffr.ratio, this.study, 'Ratio')
-					RMSD.ag[[b]] <- RMSD(d, ffr.ag, this.study, 'Arditi.Ginzburg')
-					RMSD.hv[[b]] <- RMSD(d, ffr.hv, this.study, 'Hassell.Varley')
-					RMSD.aa[[b]] <- RMSD(d, ffr.aa, this.study, 'Arditi.Akcakaya')
+					rmsd.ratio[[b]] <- RMSD(ffr.ratio)
+					rmsd.ag[[b]] <- RMSD(ffr.ag)
+					rmsd.hv[[b]] <- RMSD(ffr.hv)
+					rmsd.aa[[b]] <- RMSD(ffr.aa)
 				}
 
 				# Save the estimates for this rep to the array of estimates
@@ -331,11 +331,11 @@ for(i in 1:length(datasets)){
 			# AICc.sn2 <- summarize.boots(aicc.sn2)
 			# AICc.sn3 <- summarize.boots(aicc.sn3)
 
-			RMSD.hollingI <- summarize.boots(RMSD.hollingI)
-			RMSD.hollingII <- summarize.boots(RMSD.hollingII)
-			RMSD.bd <- summarize.boots(RMSD.bd)
-			RMSD.cm <- summarize.boots(RMSD.cm)
-			RMSD.sn1 <- summarize.boots(RMSD.sn1)
+			RMSD.hollingI <- summarize.boots(rmsd.hollingI)
+			RMSD.hollingII <- summarize.boots(rmsd.hollingII)
+			RMSD.bd <- summarize.boots(rmsd.bd)
+			RMSD.cm <- summarize.boots(rmsd.cm)
+			RMSD.sn1 <- summarize.boots(rmsd.sn1)
 			# RMSD.sn2 <- summarize.boots(RMSD.sn2)
 			# RMSD.sn3 <- summarize.boots(RMSD.sn3)
 		}
@@ -363,10 +363,10 @@ for(i in 1:length(datasets)){
 			AICc.hv <- summarize.boots(aicc.hv)
 			AICc.aa <- summarize.boots(aicc.aa)
 
-			RMSD.ratio <- summarize.boots(RMSD.ratio)
-			RMSD.ag <- summarize.boots(RMSD.ag)
-			RMSD.hv <- summarize.boots(RMSD.hv)
-			RMSD.aa <- summarize.boots(RMSD.aa)
+			RMSD.ratio <- summarize.boots(rmsd.ratio)
+			RMSD.ag <- summarize.boots(rmsd.ag)
+			RMSD.hv <- summarize.boots(rmsd.hv)
+			RMSD.aa <- summarize.boots(rmsd.aa)
 		}
 
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
