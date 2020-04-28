@@ -87,7 +87,7 @@ for(i in 1:length(datasets)){
 				Minutes = d$Time / 60.,
 				Hours = d$Time,
 				Days = d$Time * 24,
-				Unavailable = rep(NA, nrow(d))
+				Unavailable = rep(1, nrow(d))
 			)
 		}
 
