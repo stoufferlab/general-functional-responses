@@ -17,21 +17,21 @@ source(sp)
 #############################################
 
 # For integration method, define the ode in C++ format
-# ratio.like.1pred.1prey.sys = '
-#   // ratio-dependent-family of functional responses for one predator one prey
-#   dxdt[0] = -P * (a * x[0]) / (pow(P , m) + a * h * x[0]);
-#   
-#   // consumption rate cannot be positive
-#   if(dxdt[0] > 0) dxdt[0] = 0;
-# '
-# 
-# # compile the above C++ code into something we can run in R
-# odeintr::compile_sys(
-#   "ratio_1pred_1prey",
-#   ratio.like.1pred.1prey.sys,
-#   pars = c("a", "h", "m", "P") #,
-#   # method = "bsd"
-# )
+ratio.like.1pred.1prey.sys = '
+  // ratio-dependent-family of functional responses for one predator one prey
+  dxdt[0] = -P * (a * x[0]) / (pow(P , m) + a * h * x[0]);
+  
+  // consumption rate cannot be positive
+  if(dxdt[0] > 0) dxdt[0] = 0;
+'
+
+# compile the above C++ code into something we can run in R
+odeintr::compile_sys(
+  "ratio_1pred_1prey",
+  ratio.like.1pred.1prey.sys,
+  pars = c("a", "h", "m", "P"),
+  method = "rk78"
+)
 
 # predicted number of species consumed given parameters of a ratio-dependent family functional response
 ratio.like.1pred.1prey = function(N0, a, h, m, P, T, 
@@ -104,17 +104,17 @@ ratio.like.1pred.1prey = function(N0, a, h, m, P, T,
 	stop()
 }
 
-# negative log likelihood for ratio-like models given parameters and requisite data
-ratio.like.1pred.1prey.NLL = function(params, 
-                                      modeltype, 
-                                      initial, 
-                                      killed, 
-                                      predators, 
-                                      replacement, 
-                                      time=NULL){
-  
+ratio.like.1pred.1prey.predict = function(
+	params,
+	modeltype,
+	initial,
+	killed,
+	predators,
+	replacement,
+	time=NULL
+){
+	# perform parameter transformations etc
 	set_params(params, modeltype)
-
 
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){
@@ -122,13 +122,37 @@ ratio.like.1pred.1prey.NLL = function(params,
 	}
 
 	# expected number consumed given data and parameters
-	Nconsumed <- ratio.like.1pred.1prey(N0=initial,
-	                                    a=attack,
-	                                    h=handling,
-	                                    m=exponent,
-	                                    P=predators,
-	                                    T=time,
-	                                    replacement=replacement)
+	Nconsumed <- ratio.like.1pred.1prey(
+		N0=initial,
+		a=attack,
+		h=handling,
+		m=exponent,
+		P=predators,
+		T=time,
+		replacement=replacement
+	)
+
+	return(Nconsumed)
+}
+
+# negative log likelihood for ratio-like models given parameters and requisite data
+ratio.like.1pred.1prey.NLL = function(params, 
+                                      modeltype, 
+                                      initial, 
+                                      killed, 
+                                      predators, 
+                                      replacement, 
+                                      time=NULL)
+{
+	# expected number consumed given data and parameters
+	Nconsumed <- ratio.like.1pred.1prey.predict(
+		params,
+		modeltype=modeltype,
+		initial=initial,
+		predators=predators,
+		time=time,
+		replacement=replacement
+	)
   
   # reduce to unique data rows to speed up. There's probably an even faster way, but...
   # d.ori <- data.frame(initial, predators, time)

@@ -13,7 +13,7 @@ source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_two_prey.R')
-source('./RMSD.R')
+source('../lib/RMSD.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ####################################
@@ -31,6 +31,9 @@ datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
 
 # remove zzz files which are placeholders while a dataset is being cleaned/incorporated
 datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
+
+# # test dataset
+# datasets <- "./Dataset_Code/Elliot_2006_Instar5Baet.R"
 
 # define the models which are to be fit
 which.models <- c(
@@ -66,7 +69,7 @@ for(i in 1:length(datasets)){
 			Minutes = d$Time / 60.,
 			Hours = d$Time,
 			Days = d$Time * 24,
-			Unavailable = rep(1, nrow(d))
+			Unavailable = rep(NA, nrow(d))
 		)
 	}
 
@@ -148,8 +151,8 @@ for(i in 1:length(datasets)){
 			# create container for the parameter estimates
 			local.boots <- make.array(local.fits[[1]], boot.reps)
 
-			# create container for the AICc of the fits
-			local.AICcs <- lapply(local.fits, AICc)
+			# create container for the AIC of the fits
+			local.AICs <- lapply(local.fits, AIC)
 
 			# create container for the RMSD of the fits
 			local.RMSDs <- lapply(local.fits, RMSD)
@@ -170,7 +173,7 @@ for(i in 1:length(datasets)){
 			locals[[paste(modeltype, lll)]] <- list(
 				fit=local.fits[[1]],
 				ests=local.ests,
-				AICcs=local.AICcs,
+				AICs=local.AICs,
 				RMSDs=local.RMSDs
 			)
 		}
@@ -188,7 +191,7 @@ for(i in 1:length(datasets)){
 	  	    ),
 			fits = lapply(locals, function(x) x$fit),
 			estimates = lapply(locals, function(x) x$ests),
-			AICcs = lapply(locals, function(x) x$AICcs),
+			AICs = lapply(locals, function(x) x$AICs),
 			RMSDs = lapply(locals, function(x) x$RMSDs)
 		)
 

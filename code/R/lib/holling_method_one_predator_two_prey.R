@@ -100,7 +100,7 @@ holling.like.1pred.2prey = function(ai, hi, aj, hj, phi_ij, phi_ji, Ni, Nj, P, T
 	stop()
 }
 
-holling.like.1pred.2prey.predict = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time){
+holling.like.1pred.2prey.predict = function(params, Ni, Nj, Npredators, replacement, modeltype, phi.transform, time){
 	if(modeltype=="Holling I"){
 		attack_i <- exp(params[1])
 		attack_j <- exp(params[2])
@@ -216,7 +216,7 @@ holling.like.1pred.2prey.predict = function(params, Ni, Nj, Ni_consumed, Nj_cons
 
 holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time=NULL){
 	# get the predictions
-	Nconsumed <- holling.like.1pred.2prey.predict(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time)
+	Nconsumed <- holling.like.1pred.2prey.predict(params, Ni, Nj, Npredators, replacement, modeltype, phi.transform, time)
 
 	# DEBUG check whether the parameters give biological valid predictions
 	# should this occur here or above?
@@ -421,6 +421,9 @@ fit.holling.like <- function(d, s, modeltype, phi.transform=identity, nloptr.con
 				control = mle2.control #,
 				# ...
 			)
+
+			fit.via.mle2@call$data$sbplx.start <- unlist(start)
+			names(fit.via.mle2@call$data$sbplx.start) <- names(start)
 
 			# print(fit.via.mle2@coef)
 			return(fit.via.mle2)

@@ -14,23 +14,23 @@ sp <- list.files("../../..", "set_params.R", recursive=TRUE, full.names=TRUE, in
 source(sp)
 #############################################
 
-# # For integration method, define the ode in C++ format
-# holling.like.1pred.1prey.sys = '
-# 	// generalized functional response for one predator one prey
-# 	dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
+# For integration method, define the ode in C++ format
+holling.like.1pred.1prey.sys = '
+	// generalized functional response for one predator one prey
+	dxdt[0] = -P * (a * x[0] * (1 + (1 - phi_numer) * c * P_interfering)) / (1 + a * h * x[0] + c * P_interfering + (1 - phi_numer * phi_denom) * c * P_interfering * a * h * x[0]);
 
-# 	// consumption rate cannot be positive
-# 	if(dxdt[0] > 0) dxdt[0] = 0;
-# '
+	// consumption rate cannot be positive
+	if(dxdt[0] > 0) dxdt[0] = 0;
+'
 
-# # compile the above C++ code into something we can run in R
-# library(odeintr)
-# odeintr::compile_sys(
-# 	"hl_1pred_1prey",
-# 	holling.like.1pred.1prey.sys,
-# 	pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering"),
-# 	method = "rk78"
-# )
+# compile the above C++ code into something we can run in R
+library(odeintr)
+odeintr::compile_sys(
+	"hl_1pred_1prey",
+	holling.like.1pred.1prey.sys,
+	pars = c("a", "h", "c", "phi_numer", "phi_denom", "P", "P_interfering"),
+	method = "rk78"
+)
 
 # predicted number of species consumed given parameters of a holling-like functional response
 holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T, 
@@ -127,15 +127,16 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 	stop()
 }
 
-# negative log likelihood for holling-like models given parameters and requisite data
-holling.like.1pred.1prey.NLL = function(params,
-                                        modeltype, 
-                                        initial, 
-                                        killed, 
-                                        predators, 
-                                        replacement, 
-                                        Pminus1, 
-                                        time=NULL){
+holling.like.1pred.1prey.predict = function(
+	params,
+	modeltype,
+	initial,
+	predators,
+	replacement,
+	Pminus1,
+	time=NULL
+){
+	# perform parameter transformations etc
 	set_params(params, modeltype)
 
 	# if no times are specified then normalize to time=1
@@ -143,33 +144,43 @@ holling.like.1pred.1prey.NLL = function(params,
 		time <- 1
 	}
 
-	# expected number consumed given data and parameters
-	Nconsumed <- holling.like.1pred.1prey(N0=initial,
-	                                      a=attack,
-	                                      h=handling,
-	                                      c=interference,
-	                                      phi_numer=phi_numer,
-	                                      phi_denom=phi_denom,
-	                                      P=predators,
-	                                      T=time,
-	                                      replacement=replacement,
-	                                      Pminus1=Pminus1)
-	
-	# reduce to unique data rows to speed up. There's probably an even faster way, but...
-	# d.ori <- data.frame(initial, predators, time)
-	# d.uniq <- unique(d.ori)
-	# Nconsumed.uniq <- holling.like.1pred.1prey(N0=d.uniq$initial,
-	#                                            a=attack, 
-	#                                            h=handling, 
-	#                                            c=interference, 
-	#                                            phi_numer=phi_numer, 
-	#                                            phi_denom=phi_denom, 
-	#                                            P=d.uniq$predators, 
-	#                                            T=d.uniq$time, 
-	#                                            replacement=replacement, 
-	#                                            Pminus1=Pminus1)
-	# Nconsumed <- merge(d.ori, cbind(d.uniq, Nconsumed.uniq))$Nconsumed.uniq
+	Nconsumed <- holling.like.1pred.1prey(
+		N0=initial,
+		a=attack,
+		h=handling,
+		c=interference,
+		phi_numer=phi_numer,
+		phi_denom=phi_denom,
+		P=predators,
+		T=time,
+		replacement=replacement,
+		Pminus1=Pminus1
+	)
 
+	return(Nconsumed)
+}
+
+# negative log likelihood for holling-like models given parameters and requisite data
+holling.like.1pred.1prey.NLL = function(params,
+                                        modeltype,
+                                        initial,
+                                        killed,
+                                        predators,
+                                        replacement,
+                                        Pminus1,
+                                        time=NULL){
+
+	# expected number consumed given data and parameters
+	Nconsumed <- holling.like.1pred.1prey.predict(
+		params,
+		modeltype=modeltype,
+		initial=initial,
+		predators=predators,
+		replacement=replacement,
+		Pminus1=Pminus1,
+		time=time
+	)
+	
 	# if the parameters are not biologically plausible, neither should be the likelihood
 	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
 		nll <- Inf
@@ -177,7 +188,7 @@ holling.like.1pred.1prey.NLL = function(params,
 	}else{
 		# negative log likelihood based on proportion consumed (no replacement)
 		if(!replacement){
-		  # warnings suppressed because direct integration can return prob = 0 or 1, which results in NaNs
+			# warnings suppressed because direct integration can return prob = 0 or 1, which results in NaNs
 			nll <- suppressWarnings( -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE)) )
 			if(is.nan(nll)){
 			  nll <- Inf
