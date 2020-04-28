@@ -14,29 +14,26 @@ load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 # to color models that are not supported by AICc differently
 stat <- '50%'
 # only include fits for which the SN1 model is at least tied based on AICc
-AICc.H1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.I'][[1]][stat]}))
-AICc.H2 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.II'][[1]][stat]}))
-AICc.BD <- unlist(lapply(ffr.fits, function(x){ x$AICc['Beddington.DeAngelis'][[1]][stat]}))
-AICc.CM <- unlist(lapply(ffr.fits, function(x){ x$AICc['Crowley.Martin'][[1]][stat]}))
-AICc.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Stouffer.Novak.I'][[1]][stat]}))
+AIC.H1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.I'][[1]][stat]}))
+AIC.H2 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.II'][[1]][stat]}))
+AIC.BD <- unlist(lapply(ffr.fits, function(x){ x$AIC['Beddington.DeAngelis'][[1]][stat]}))
+AIC.CM <- unlist(lapply(ffr.fits, function(x){ x$AIC['Crowley.Martin'][[1]][stat]}))
+AIC.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Stouffer.Novak.I'][[1]][stat]}))
 # AICc.R <- unlist(lapply(ffr.fits, function(x){ x$AICc['Ratio'][[1]][stat]}))
 # AICc.AG <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Ginzburg'][[1]][stat]}))
 # AICc.HV <- unlist(lapply(ffr.fits, function(x){ x$AICc['Hassell.Varley'][[1]][stat]}))
 # AICc.AA <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Akcakaya'][[1]][stat]}))
 
-AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.SN1)
-colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
-colnames(AICcs)[5] <- "G"
-minAICcs <- apply(AICcs, 1, min)
-dAICcs <- AICcs - minAICcs
-
-# only include "supported" model fits
-# ffr.fits <- ffr.fits[which(dAICcs$G <= 2)]
+AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.SN1)
+colnames(AICs) <- sub('AIC.', '', colnames(AICs))
+colnames(AICs)[5] <- "G"
+minAICs <- apply(AICs, 1, min)
+dAICs <- AICs - minAICs
 
 # fits for which the SN1 model is not supported are colored red
 color.vector <- numeric(length(ffr.fits))
 for(i in 1:length(ffr.fits)){
-  if(dAICcs$G[i] > 2){
+  if(dAICs$G[i] > 2){
     color.vector[i] <- "red"
   }else{
     color.vector[i] <- "black"
