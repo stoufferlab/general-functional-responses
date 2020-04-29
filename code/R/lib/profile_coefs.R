@@ -114,6 +114,11 @@ profile_coefs <- function(
               )
             )
           }
+          # if any are still NA treat as if we got an error
+          if(!all(is.finite(cf))){
+            cf <- TRUE
+            class(cf) <- 'try-error'
+          }
         }else{ # if AA method 2 model
           cf <- TRUE
           class(cf) <- 'try-error'
@@ -137,29 +142,25 @@ profile_coefs <- function(
           
           # get the SEs directly from the model output
           if(model=='Arditi.Akcakaya.Method.2'){
-            
             se <- x$estimates$Arditi.Akcakaya.Method.2[,,'std.error'][point.est,]
-            
           }else{
             se <- coef(summary(x$fits[[model]]))[pars,"Std. Error"]
           }
-          
+
           lb <- est - se
           ub <- est + se
-          
         }
       }else{# (3) if we bootstrapped then use the quantiles
         method <- 'bootstrap'
-    
+
         # use central interval equivalent to one SD as bounds
         lb <- x$estimates[[model]]["16%",pars,"estimate"]
         ub <- x$estimates[[model]]["84%",pars,"estimate"]
-        
       }
-      
+
       cf <- as.data.frame(cbind(lb,est,ub))
       rownames(cf) <- pars
-    
+
       profiles[[i]] <- list(
         study.info = x$study.info,
         model = model,
@@ -176,4 +177,3 @@ profile_coefs <- function(
   options(warn=0)
   return(profiles)
 }
-  
