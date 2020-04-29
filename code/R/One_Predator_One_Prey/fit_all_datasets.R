@@ -169,6 +169,7 @@ for(i in 1:length(datasets)){
 					# create containers for AIC values of all fits
 					aic.hollingI <- aic.hollingII <- aic.bd <- aic.cm <- aic.sn1 <- rep(NA,boot.reps)
 					# aic.sn2 <- aic.sn3 <- vector("list",boot.reps)
+					aic.ratio <- aic.ag <- aic.hv <- aic.aa <- rep(NA,boot.reps)
 
 					# create containers for AICc values of all fits
 					aicc.hollingI <- aicc.hollingII <- aicc.bd <- aicc.cm <- aicc.sn1 <- rep(NA,boot.reps)
@@ -437,7 +438,7 @@ for(i in 1:length(datasets)){
 				Holling.II = AIC.hollingII,
 				Beddington.DeAngelis = AIC.bd,
 				Crowley.Martin = AIC.cm,
-				Stouffer.Novak.I = AIC.sn1
+				Stouffer.Novak.I = AIC.sn1,
 				# Stouffer.Novak.II = AIC.sn2,
 				# Stouffer.Novak.III = AIC.sn3,
 				Ratio = AIC.ratio,
