@@ -248,6 +248,11 @@ for(i in 1:length(datasets)){
 					ll.hv[[b]] <- logLik(ffr.hv)
 					ll.aa[[b]] <- logLik(ffr.aa)
 
+					aic.ratio[[b]] <- AIC(ffr.ratio)
+					aic.ag[[b]] <- AIC(ffr.ag)
+					aic.hv[[b]] <- AIC(ffr.hv)
+					aic.aa[[b]] <- AIC(ffr.aa)
+
 					aicc.ratio[[b]] <- AICc(ffr.ratio)
 					aicc.ag[[b]] <- AICc(ffr.ag)
 					aicc.hv[[b]] <- AICc(ffr.hv)
@@ -342,6 +347,7 @@ for(i in 1:length(datasets)){
 
 		ests.ratio <- ests.ag <- ests.hv <- ests.aa <- ests.aam <- NA
 		LL.ratio <- LL.ag <- LL.hv <- LL.aa <- LL.aam <- NA
+		AIC.ratio <- AIC.ag <- AIC.hv <- AIC.aa <- AIC.aam <- NA
 		AICc.ratio <- AICc.ag <- AICc.hv <- AICc.aa <- AICc.aam <- NA
 		RMSD.ratio <- RMSD.ag <- RMSD.hv <- RMSD.aa <- RMSD.aam <- NA
 		if(grepl("R", this.study$runswith)){
@@ -357,6 +363,11 @@ for(i in 1:length(datasets)){
 			LL.ag <- summarize.boots(ll.ag)
 			LL.hv <- summarize.boots(ll.hv)
 			LL.aa <- summarize.boots(ll.aa)
+
+			AIC.ratio <- summarize.boots(aic.ratio)
+			AIC.ag <- summarize.boots(aic.ag)
+			AIC.hv <- summarize.boots(aic.hv)
+			AIC.aa <- summarize.boots(aic.aa)
 
 			AICc.ratio <- summarize.boots(aicc.ratio)
 			AICc.ag <- summarize.boots(aicc.ag)
@@ -429,10 +440,10 @@ for(i in 1:length(datasets)){
 				Stouffer.Novak.I = AIC.sn1
 				# Stouffer.Novak.II = AIC.sn2,
 				# Stouffer.Novak.III = AIC.sn3,
-				# Ratio = AIC.ratio,
-				# Arditi.Ginzburg = AIC.ag,
-				# Hassell.Varley = AIC.hv,
-				# Arditi.Akcakaya = AIC.aa
+				Ratio = AIC.ratio,
+				Arditi.Ginzburg = AIC.ag,
+				Hassell.Varley = AIC.hv,
+				Arditi.Akcakaya = AIC.aa
 			),
 			AICc = list(
 				Holling.I = AICc.hollingI,
