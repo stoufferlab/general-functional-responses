@@ -31,10 +31,17 @@ for(i in 1:length(ffr.fits)){
                     ~ "("*.(round(ffr.fits[[i]]$LL[[models[m]]]['16%'],1))
                     *","~.(round(ffr.fits[[i]]$LL[[models[m]]]['84%'],1))*")"),
           side=1,line=3,cex=0.5)
-    mtext(bquote(AIC==
+    mtext(bquote(AICc==
                    .(round(ffr.fits[[i]]$AICc[[models[m]]]['50%'],1))
                  ~ "("*.(round(ffr.fits[[i]]$AICc[[models[m]]]['16%'],1))
                  *","~.(round(ffr.fits[[i]]$AICc[[models[m]]]['84%'],1))*")"),
+          side=1,line=5,cex=0.5)
+    try(
+    mtext(bquote(AIC==
+                   .(round(ffr.fits[[i]]$AIC[[models[m]]]['50%'],1))
+                 ~ "("*.(round(ffr.fits[[i]]$AIC[[models[m]]]['16%'],1))
+                 *","~.(round(ffr.fits[[i]]$AIC[[models[m]]]['84%'],1))*")"),
           side=1,line=4,cex=0.5)
+    )
   }}
 dev.off()
