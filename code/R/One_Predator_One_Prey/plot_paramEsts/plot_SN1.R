@@ -36,7 +36,11 @@ for(i in 1:length(ffr.fits)){
   if(dAICs$G[i] > 2){
     color.vector[i] <- "red"
   }else{
-    color.vector[i] <- "black"
+    if(rowSums(dAICs[i,]<2)==1){
+      color.vector[i] <- "black"
+    }else{
+      color.vector[i] <- "black"
+    }
   }
 }
 
@@ -63,8 +67,8 @@ color.vector <- color.vector[fit.order]
 
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
 labels<-gsub('_',' ',labels)
-sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
-labels <- paste0(labels, ' (',sample.sizes,')')
+# sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
+labels <- paste0(labels, '  ') #(',sample.sizes,')')
 
 ###################################################
 # ~~~~~~~~~~~~~~~~~~ SN1 PhiDenom ~~~~~~~~~~~~~~~~~
@@ -83,7 +87,8 @@ plot.coefs(
   labels=labels,
   vertLines = c(0,1),
 	xlim=c(-3,3),
-  color.vector = color.vector
+  color.vector = color.vector,
+  SE.lty=c(1,6,3)
 )
 dev.off()
 
