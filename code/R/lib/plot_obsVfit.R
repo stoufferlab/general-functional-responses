@@ -71,7 +71,7 @@ plot_obsVfit <- function(ffr.fit,
                                                     Pminus1=Pminus1)
   }
   
-  rmse <- ffr.fit$RMSE[[model]]['mean']
+  rmsd <- ffr.fit$RMSD[[model]]['mean']
   
   # extract LL from (last) fit
   LL <- logLik(ffr.fit$fits[[model]])
@@ -85,12 +85,12 @@ plot_obsVfit <- function(ffr.fit,
        xlab='Observed',
        type='n')
   if(ffr.fit$study.info$bootstrap){
-    arrows(eaten-eaten.se, Nconsumed.predicted, 
-           eaten+eaten.se, Nconsumed.predicted, 
+    arrows(eaten-eaten.se, Nconsumed.predicted,
+           eaten+eaten.se, Nconsumed.predicted,
            angle=90, length=0.02, code=3)
   }
   abline(0,1)
   points(eaten, Nconsumed.predicted)
-  legend('bottomright', legend=bquote(RMSE==.(round(rmse,1))), bty='n',inset=0,cex=0.8)
+  legend('bottomright', legend=bquote(RMSD==.(round(rmsd,1))), bty='n',inset=0,cex=0.8)
   title(title,cex.main=1,line=1)
 }
