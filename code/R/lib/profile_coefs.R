@@ -1,3 +1,7 @@
+
+# useful for an implementation to get SEs from non-positive-definite Hessians
+library(HelpersMG)
+
 # Function to performing interval profiling on estimated model coefficients for subsequent plotting. Intervals are determined on estimated scale and must be backtransformed to plot on natural scale.  Script applying function it to all datasets follows.
 profile_coefs <- function(
   ffr.fits,
@@ -50,12 +54,22 @@ profile_coefs <- function(
       # cheeky lower and upper bounds to start
       lb <- est
       ub <- est
-      
+
+      # make sure we have a well-behaved Hessian to use to jumpstart profiling
+      helper <- try(HelpersMG::SEfromHessian(x$fits[[model]]@details$hessian, hessian=TRUE))
+      if(!inherits(helper, "try-error")){
+        std.err <- helper$SE
+        x$fits[[model]]@details$hessian <- helper$hessian
+        x$fits[[model]]@vcov <- solve(helper$hessian)
+      }else{
+        std.err <- summary(x$fits[[model]])@coef[pars,"Std. Error"]
+        std.err[is.na(std.err)] <- 0.01
+      }
+
       # if we did not bootstrap then try (1) profile or (2) approximate	
       if(x$estimates[[model]]["n",1,1][1] == 1){
         
         # (1) estimate the profile confidence interval
-        # do so for all model parameters because doing so for focal parameter can cause errors
         if(model!='Arditi.Akcakaya.Method.2'){
           # message('attempt 1')
           cf <- try(
@@ -65,37 +79,35 @@ profile_coefs <- function(
                 which=pars,
                 tol.newmin=Inf,
                 try_harder=TRUE,
+                std.err=std.err,
                 ...
               ),
               level=0.68
             )
           )
-          # sometimes profiling fails because it needs specification of the step sizes to use
-          if(inherits(cf, "try-error") || any(is.na(cf))){
-            # message('attempt 2')
-            std.err <- summary(x$fits[[model]])@coef[pars,"Std. Error"]
-            std.err[is.na(std.err)] <- 0.01
-            cf <- try(
-              confint(
-                profile(
-                  x$fits[[model]],
-                  which=pars,
-                  tol.newmin=Inf,
-                  try_harder=TRUE,
-                  std.err=std.err,
-                  # maxsteps=1E6,
-                  ...
-                ),
-                level=0.68
-              )
-            )
-          }
+          # # sometimes profiling fails because it needs specification of the step sizes to use
+          # if(inherits(cf, "try-error") || any(is.na(cf))){
+          #   # message('attempt 2')
+          #   std.err <- summary(x$fits[[model]])@coef[pars,"Std. Error"]
+          #   std.err[is.na(std.err)] <- 0.01
+          #   cf <- try(
+          #     confint(
+          #       profile(
+          #         x$fits[[model]],
+          #         which=pars,
+          #         tol.newmin=Inf,
+          #         try_harder=TRUE,
+          #         std.err=std.err,
+          #         # maxsteps=1E6,
+          #         ...
+          #       ),
+          #       level=0.68
+          #     )
+          #   )
+          # }
           # and one last hail mary
           if(inherits(cf, "try-error") || any(is.na(cf))){
-            # message('attempt 3')
-            std.err <- summary(x$fits[[model]])@coef[pars,"Std. Error"]
-            std.err[is.na(std.err)] <- 0.01
-
+            # I cannot for the life of me remember where I got this idea from, but sometimes it works...
             x$fits[[model]]@call$start <- x$fits[[model]]@call$data$sbplx.start
             x$fits[[model]]@call$control <- NULL
 
@@ -107,7 +119,6 @@ profile_coefs <- function(
                   tol.newmin=Inf,
                   try_harder=TRUE,
                   std.err=std.err,
-                  # maxsteps=1E6,
                   ...
                 ),
                 level=0.68
