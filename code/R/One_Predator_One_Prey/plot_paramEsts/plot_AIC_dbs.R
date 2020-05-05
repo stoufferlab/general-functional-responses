@@ -9,13 +9,13 @@ options(xdvicmd='open')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
-fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
+fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order.parm="phi_denom")
 ffr.fits <- ffr.fits[fit.order]
 
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
 labels<-gsub('_',' ',labels)
-sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
-labels <- paste0(labels, ' (',sample.sizes,')')
+# sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
+# labels <- paste0(labels, ' (',sample.sizes,')')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Grab summary of AIC estimates across bootstrapped fits
@@ -30,11 +30,13 @@ AIC.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Stouffer.Novak.I'][[1]][s
 AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.SN1)
 colnames(AICs) <- sub('AIC.', '', colnames(AICs))
 colnames(AICs)[5] <- "G"
+rownames(AICs) <- labels
 
 # Define color of each model
 colnames(AICs)
-CR<-brewer.pal(n = 8, name = 'RdBu')
-Mcols <- c(CR[5:8],CR[4:1])
+CR<-brewer.pal(n = 5, name = 'Blues')
+Mcols <- CR
+Mcols[length(Mcols)] <- brewer.pal(n = 9, name = 'Reds')[2]
 Mpch <- c(rep(21,5),rep(22,4))
 
 minAICs <- apply(AICs, 1, min)

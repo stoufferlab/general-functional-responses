@@ -148,7 +148,7 @@ plot.coefs <- function(
     
     # set SE line types
     if(is.null(SE.lty)){
-      SE.lty <- seq(1,3)
+      SE.lty <- rep(1,3)
     }
 
     # Function for number reformatting
@@ -183,7 +183,7 @@ plot.coefs <- function(
           i,
           xlim[2]+0.10,
           i,
-          segment=TRUE,
+          segment=FALSE,
           arr.type="triangle",
           arr.adj=1,
           arr.length=0.1,
@@ -192,6 +192,24 @@ plot.coefs <- function(
           lcol=col,
           lty=lty
         )
+        if(x$profile$method=='profile'){
+          lty <- SE.lty[1]
+        }
+        if(x$profile$method=='quadratic'){
+          lty <- SE.lty[2]
+        }
+        if(x$profile$method=='bootstrap'){
+          lty <- SE.lty[3]
+        }
+        segments(
+          xlim[2]-delta.arrow,
+          i,
+          xlim[2]+0.10,
+          i,
+          col=col,
+          lty=lty
+        )
+
         if(display.outlier.ests){
             text(xlim[2]-delta.arrow, i, format.number(mm.link), 
                  pos=2, cex=0.7*par()$cex)
@@ -202,13 +220,30 @@ plot.coefs <- function(
           i,
           xlim[1]-0.10,
           i,
-          segment=TRUE,
+          segment=FALSE,
           arr.type="triangle",
           arr.adj=1,
           arr.length=0.1,
           arr.width=0.075,
           arr.col=col,
           lcol=col,
+          lty=lty
+        )
+        if(x$profile$method=='profile'){
+          lty <- SE.lty[1]
+        }
+        if(x$profile$method=='quadratic'){
+          lty <- SE.lty[2]
+        }
+        if(x$profile$method=='bootstrap'){
+          lty <- SE.lty[3]
+        }
+        segments(
+          xlim[1]+delta.arrow,
+          i,
+          xlim[1]-0.10,
+          i,
+          col=col,
           lty=lty
         )
         if(display.outlier.ests){

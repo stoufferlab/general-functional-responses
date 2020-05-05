@@ -1,4 +1,4 @@
-  bootstrapping [----------------------------------------------]   0% eta:  ?s  bootstrapping [====>-----------------------------------------]  10% eta:  0s  bootstrapping [========>-------------------------------------]  20% eta:  0s  bootstrapping [=============>--------------------------------]  30% eta:  1s  bootstrapping [=================>----------------------------]  40% eta:  1sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  bootstrapping [----------------------------------------------]   0% eta:  ?s  bootstrapping [====>-----------------------------------------]  10% eta:  0s  bootstrapping [========>-------------------------------------]  20% eta:  0s  bootstrapping [=============>--------------------------------]  30% eta:  0s  bootstrapping [=================>----------------------------]  40% eta:  1sWarning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
