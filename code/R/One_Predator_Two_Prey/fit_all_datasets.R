@@ -184,6 +184,7 @@ for(i in 1:length(datasets)){
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		ffr.fit <- list(
 	  		study.info = c(
+	  			datasetName = datasetsName,
 	  			datadir = datadir,
 	  			sample.size = nrow(d),
 	  	        # this.study,
