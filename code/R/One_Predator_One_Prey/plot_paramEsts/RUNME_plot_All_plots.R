@@ -13,7 +13,6 @@ source('plot_H2.R')
 source('plot_HV.R')
 
 # stouffer plots
+source('plot_AIC_dbs.R')
 source('plot_SN1.R')
-source('plot_AICc_dbs.R')
-source('plot_RMSE_dbs.R')
-# source('plot_Rankings_dbs.R') # still needs to be created
+source('plot_AIC_SN1.R')
