@@ -165,20 +165,20 @@ labels <- rep("",length(labels))
 par(mar=c(3,0.25,2.5,0.5))
 
 plot.coefs(
-  ffr.fits,
+    ffr.fits,
     model="Stouffer.Novak.I",
     parameter="phi_denom",
-  ilink=identity,
-  point.est='median',
-  plot.SEs=TRUE,
-  display.outlier.ests=TRUE,
+    ilink=identity,
+    point.est='median',
+    plot.SEs=TRUE,
+    display.outlier.ests=TRUE,
     xlab="Effect of feeding on interfering",
-  labels=labels,
-  vertLines = c(0,1),
+    labels=labels,
+    vertLines = c(0,1),
     xlim=c(-3,3),
-  ylim=c(0,length(ffr.fits)+1),
-  color.vector = color.vector,
-  SE.lty=c(1,6,3)
+    ylim=c(0,length(ffr.fits)+1),
+    color.vector = color.vector,
+    SE.lty=c(1,6,3)
 )
 
 dev.off()
