@@ -53,7 +53,19 @@ delAICcutoff <- 2
 # Rank order
 #~~~~~~~~~~~
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_ranks_dbs.pdf',height=6,width=2.25)
-  par(mar=c(3,7,2.5,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
+
+par(
+    mar=c(3,5.75,2.5,0.5),
+    mgp=c(1.25,0.1,0.0),
+    tcl=-0.1,
+    las=1,
+    cex=0.7,
+    yaxs='i'
+)
+
+# labels <- str_pad(labels, side="right", width=max(str_length(labels))+2)
+labels <- paste0(labels,'  ')
+
     plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
          type='n', yaxt='n',
          xlim=c(0.5,ncol(rnkAICs)+0.5),
@@ -62,8 +74,18 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_ranks_dbs.pdf'
          ylab='',
          axes=F)
     # rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
-    axis(2, at=1:nrow(rnkAICs), labels=labels, cex.axis=0.5, las=2)
-    axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
+    axis(
+        2,
+        at=1:nrow(rnkAICs),
+        labels=labels,
+        cex.axis=0.5,
+        las=2,
+        lwd=0,
+        lwd.ticks=1
+        # hadj=0.5,
+        # mgp=c(0,3,0)
+    )
+    axis(1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
 
     # Which models have delta-AIC within X=2 of best-performing model?
     xats <-table(which(dAICs < delAICcutoff, arr.ind=T)[,1])+0.5
@@ -86,7 +108,7 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_ranks_dbs.pdf'
     box(lwd=1)
     par(xpd=TRUE)
     legend(
-        0.425,nrow(rnkAICs)+6,legend=colnames(rnkAICs),
+        0.425,nrow(rnkAICs)+5.1,legend=colnames(rnkAICs),
         pch=Mpch, pt.bg=Mcols, col='black', bg='white',
         horiz=FALSE, pt.cex=1,cex=0.6, ncol=5, title='Model',
         bty='n'
