@@ -11,6 +11,11 @@ source('../../lib/ratio_method_one_predator_one_prey.R')
 load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# order fits before doing anything else
+fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order.parm="phi_denom")
+ffr.fits <- ffr.fits[fit.order]
+
+
 # to color models that are not supported by AICc differently
 stat <- '50%'
 # only include fits for which the SN1 model is at least tied based on AICc
@@ -26,7 +31,7 @@ AIC.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Stouffer.Novak.I'][[1]][s
 
 AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.SN1)
 colnames(AICs) <- sub('AIC.', '', colnames(AICs))
-colnames(AICs)[5] <- "G"
+colnames(AICs)[5] <- "Gen"
 minAICs <- apply(AICs, 1, min)
 dAICs <- AICs - minAICs
 
@@ -34,7 +39,7 @@ dAICs <- AICs - minAICs
 color.vector <- numeric(length(ffr.fits))
 for(i in 1:length(ffr.fits)){
   if(dAICs$G[i] > 2){
-    color.vector[i] <- "red"
+    color.vector[i] <- "blue"
   }else{
     if(rowSums(dAICs[i,]<2)==1){
       color.vector[i] <- "black"
@@ -60,21 +65,27 @@ save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # General data and plot preparations
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order.parm="phi_denom")
-ffr.fits <- ffr.fits[fit.order]
-
-color.vector <- color.vector[fit.order]
 
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
 labels<-gsub('_',' ',labels)
-# sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
-labels <- paste0(labels, '  ') #(',sample.sizes,')')
+labels <- paste0(labels, '  ')
 
 ###################################################
 # ~~~~~~~~~~~~~~~~~~ SN1 PhiDenom ~~~~~~~~~~~~~~~~~
 ###################################################
-pdf(file="../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_SN1_PhiDenom.pdf",height=6,width=5)
-par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
+pdf(
+  file="../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_SN1_PhiDenom.pdf",
+  height=6,
+  width=3
+)
+par(
+  mar=c(3,5.75,2.5,0.5),
+  mgp=c(1.25,0.,0),
+  tcl=-0.1,
+  las=1,
+  cex=0.7,
+  yaxs='i'
+)
 plot.coefs(
   ffr.fits,
 	model="Stouffer.Novak.I",
@@ -87,6 +98,7 @@ plot.coefs(
   labels=labels,
   vertLines = c(0,1),
 	xlim=c(-3,3),
+  ylim=c(0,length(ffr.fits)+1),
   color.vector = color.vector,
   SE.lty=c(1,6,3)
 )
