@@ -115,105 +115,105 @@ labels <- paste0(labels,'  ')
     )
 dev.off()
 
-# collect some statistics
-dAICs[dAICs<=2] <- 0
+# # collect some statistics
+# dAICs[dAICs<=2] <- 0
 
-# find unambiguous support
-rnkAICs <- data.frame(t(apply(dAICs, 1, rank, ties.method="max")))
-unambiguous.support <- nrow(subset(rnkAICs, G==1))
+# # find unambiguous support
+# rnkAICs <- data.frame(t(apply(dAICs, 1, rank, ties.method="max")))
+# unambiguous.support <- nrow(subset(rnkAICs, G==1))
 
-# find shared support
-rnkAICs <- data.frame(t(apply(dAICs, 1, rank, ties.method="min")))
-shared.support <- nrow(subset(rnkAICs, G==1))
+# # find shared support
+# rnkAICs <- data.frame(t(apply(dAICs, 1, rank, ties.method="min")))
+# shared.support <- nrow(subset(rnkAICs, G==1))
 
-# remind ourselves about how many datasets
-total.datasets <- nrow(rnkAICs)
+# # remind ourselves about how many datasets
+# total.datasets <- nrow(rnkAICs)
 
-break()
+# break()
 
-# ~~~~~~~~~
-# Count times each model is in each rank
-Cnt<-apply(rnkAICs,2,function(x){table(factor(x,levels=1:ncol(rnkAICs)))})
-Cnt
-pCnt <- round(prop.table(Cnt,2)*100,1)
-pCnt
-# Concl:  SN is ranked 1st most frequently, followed by BD and CM.
+# # ~~~~~~~~~
+# # Count times each model is in each rank
+# Cnt<-apply(rnkAICs,2,function(x){table(factor(x,levels=1:ncol(rnkAICs)))})
+# Cnt
+# pCnt <- round(prop.table(Cnt,2)*100,1)
+# pCnt
+# # Concl:  SN is ranked 1st most frequently, followed by BD and CM.
 
 
-# ~~~~~~~~~
-# Either pass counts or combine counts and proportions before exporting table
-tab_Cnt <- Cnt
+# # ~~~~~~~~~
+# # Either pass counts or combine counts and proportions before exporting table
+# tab_Cnt <- Cnt
 
-# bCnt <- paste0(Cnt,' (',pCnt,')')
-# bCnt[Cnt==0] <- 0
-# tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
+# # bCnt <- paste0(Cnt,' (',pCnt,')')
+# # bCnt[Cnt==0] <- 0
+# # tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
 
-wd <- getwd()
-setwd('../../../../results/R/OnePredOnePrey_figs/')
+# wd <- getwd()
+# setwd('../../../../results/R/OnePredOnePrey_figs/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AIC_rankings_dbs.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+# latex(tab_Cnt,file='OnePredOnePrey_AIC_rankings_dbs.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
-# latex(tab_Cnt,file='OnePredOnePrey_AIC_rankings.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+# # latex(tab_Cnt,file='OnePredOnePrey_AIC_rankings.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency) for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
-setwd(wd)
+# setwd(wd)
 
-break()
-# ~~~~~~~~~
+# break()
+# # ~~~~~~~~~
 
-# Of the times that AA is ranked first, how often are BD and CM  within X AICc units?
-cnt<-apply(dAICcs[rnkAICcs[,ncol(rnkAICcs)]==1,3:4] < delAICcutoff, 2, sum)
-cnt
-Cnt[1,'AA']
-cnt/Cnt[1,'AA']
-# Concl: BD is within 2 dAICc units > 1/2 the time, and CM is > 1/4 of the time
+# # Of the times that AA is ranked first, how often are BD and CM  within X AICc units?
+# cnt<-apply(dAICcs[rnkAICcs[,ncol(rnkAICcs)]==1,3:4] < delAICcutoff, 2, sum)
+# cnt
+# Cnt[1,'AA']
+# cnt/Cnt[1,'AA']
+# # Concl: BD is within 2 dAICc units > 1/2 the time, and CM is > 1/4 of the time
 
-# Of times that AA is ranked first, how often are *either* BD and CM within X AICc units?
-cnt<-sum(apply(dAICcs[rnkAICcs[,ncol(rnkAICcs)]==1,3:4] < delAICcutoff, 1, sum)>0)
-cnt
-cnt/Cnt[1,'AA']
-# Concl: BD or CM are within 2 dAICc units ~60% of the time
+# # Of times that AA is ranked first, how often are *either* BD and CM within X AICc units?
+# cnt<-sum(apply(dAICcs[rnkAICcs[,ncol(rnkAICcs)]==1,3:4] < delAICcutoff, 1, sum)>0)
+# cnt
+# cnt/Cnt[1,'AA']
+# # Concl: BD or CM are within 2 dAICc units ~60% of the time
 
-# ~~~~~~~~~
-# What about for datasets that have a sample size of at least X?
-SScut <- 50
-Cnt<-apply(rnkAICcs[sample.sizes>=SScut,],2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
-Cnt
-pCnt <- round(prop.table(Cnt,2)*100,1)
-pCnt
+# # ~~~~~~~~~
+# # What about for datasets that have a sample size of at least X?
+# SScut <- 50
+# Cnt<-apply(rnkAICcs[sample.sizes>=SScut,],2,function(x){table(factor(x,levels=1:ncol(rnkAICcs)))})
+# Cnt
+# pCnt <- round(prop.table(Cnt,2)*100,1)
+# pCnt
 
-# Either pass counts or combine counts and proportions before exporting table
-tab_Cnt <- Cnt
+# # Either pass counts or combine counts and proportions before exporting table
+# tab_Cnt <- Cnt
 
-# bCnt <- paste0(Cnt,' (',pCnt,')')
-# bCnt[Cnt==0] <- 0
-# tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
+# # bCnt <- paste0(Cnt,' (',pCnt,')')
+# # bCnt[Cnt==0] <- 0
+# # tab_Cnt <- matrix(bCnt, nrow=nrow(Cnt), byrow=T, dimnames=dimnames(Cnt))
 
-wd <- getwd()
-setwd('../../../../results/R/OnePredOnePrey_figs/')
+# wd <- getwd()
+# setwd('../../../../results/R/OnePredOnePrey_figs/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings_top50.tex',label='table:AICc_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+# latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings_top50.tex',label='table:AICc_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
-# latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings_top50.tex',label='table:AICc_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency)  with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+# # latex(tab_Cnt,file='OnePredOnePrey_AICc_rankings_top50.tex',label='table:AICc_rankings_top50', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets (and percentage frequency)  with a sample size greater than 50 for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 
-setwd(wd)
-# ~~~~~~~~~
+# setwd(wd)
+# # ~~~~~~~~~
 
-#~~~~~~
-# dAICc
-#~~~~~~
-# plot(1:nrow(dAICcs), 1:nrow(dAICcs),
-#      type='n', yaxt='n',
-#      # xlim=c(0,max(dAICcs)),
-#      xlim=c(0,4),
-#      xlab='Model delta-AICc',
-#      ylab=''
-# )
-# axis(side=2, at=1:nrow(dAICcs), labels=labels, cex.axis=0.5, las=2)
-# 
-# Mcols <- rainbow(ncol(dAICcs))
-# for(m in 1:ncol(dAICcs)){
-#   points(dAICcs[,m], 1:nrow(dAICcs), pch=21, col=Mcols[m], bg=Mcols[m])
-# }  
-# 
-# legend('bottomright',legend=colnames(dAICcs),pch=21, pt.bg=Mcols, col=Mcols)
-# 
+# #~~~~~~
+# # dAICc
+# #~~~~~~
+# # plot(1:nrow(dAICcs), 1:nrow(dAICcs),
+# #      type='n', yaxt='n',
+# #      # xlim=c(0,max(dAICcs)),
+# #      xlim=c(0,4),
+# #      xlab='Model delta-AICc',
+# #      ylab=''
+# # )
+# # axis(side=2, at=1:nrow(dAICcs), labels=labels, cex.axis=0.5, las=2)
+# # 
+# # Mcols <- rainbow(ncol(dAICcs))
+# # for(m in 1:ncol(dAICcs)){
+# #   points(dAICcs[,m], 1:nrow(dAICcs), pch=21, col=Mcols[m], bg=Mcols[m])
+# # }  
+# # 
+# # legend('bottomright',legend=colnames(dAICcs),pch=21, pt.bg=Mcols, col=Mcols)
+# # 
