@@ -55,22 +55,22 @@ profile_coefs <- function(
       lb <- est
       ub <- est
 
-      # make sure we have a well-behaved Hessian to use to jumpstart profiling
-      helper <- try(HelpersMG::SEfromHessian(x$fits[[model]]@details$hessian, hessian=TRUE))
-      if(!inherits(helper, "try-error")){
-        std.err <- helper$SE
-        x$fits[[model]]@details$hessian <- helper$hessian
-        x$fits[[model]]@vcov <- solve(helper$hessian)
-      }else{
-        std.err <- summary(x$fits[[model]])@coef[pars,"Std. Error"]
-        std.err[is.na(std.err)] <- 0.01
-      }
-
       # if we did not bootstrap then try (1) profile or (2) approximate	
       if(x$estimates[[model]]["n",1,1][1] == 1){
         
         # (1) estimate the profile confidence interval
         if(model!='Arditi.Akcakaya.Method.2'){
+          # make sure we have a well-behaved Hessian to use to jumpstart profiling
+          helper <- try(HelpersMG::SEfromHessian(x$fits[[model]]@details$hessian, hessian=TRUE))
+          if(!inherits(helper, "try-error")){
+            std.err <- helper$SE
+            x$fits[[model]]@details$hessian <- helper$hessian
+            x$fits[[model]]@vcov <- solve(helper$hessian)
+          }else{
+            std.err <- summary(x$fits[[model]])@coef[pars,"Std. Error"]
+            std.err[is.na(std.err)] <- 0.01
+          }
+          
           # message('attempt 1')
           cf <- try(
             confint(
