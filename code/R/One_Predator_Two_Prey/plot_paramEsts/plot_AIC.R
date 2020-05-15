@@ -14,7 +14,7 @@ ffr.fits <- ffr.fits[rev(1:length(ffr.fits))]
 AICs <- t(sapply(
 	seq(1,length(ffr.fits)),
 	function(x,ffr.fits) {
-		unlist(lapply(ffr.fits[[x]]$fits, AIC))
+		unlist(lapply(ffr.fits[[x]]$AICs, function(x){mean(unlist(x))}))
 	},
 	ffr.fits=ffr.fits
 ))
