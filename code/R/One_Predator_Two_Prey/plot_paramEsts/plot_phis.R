@@ -58,9 +58,44 @@ dy <- 0.4
 
 # dataset labels
 labels <- unlist(lapply(ffr.cfs, function(x) x$study.info$datasetName))
-labels<-gsub('_',' ',labels)
-labels <- paste(labels,"  ")
 
+# cheatsheet for which model to plot
+# NOTE: this is done by hand and shameful
+which.model <- data.frame(rbind(
+	c("Chan_2017_c",1),
+	c("Chan_2017_l",2),
+	c("Colton_1987_1st24",1),
+	c("Colton_1987_2nd24",1),
+	c("Elliot_2006_Instar2",1),
+	c("Elliot_2006_Instar3",2),
+	c("Elliot_2006_Instar4",1),
+	c("Elliot_2006_Instar4Baet",1),
+	c("Elliot_2006_Instar5",1),
+	c("Elliot_2006_Instar5Baet",1),
+	c("Iyer_1996_Bc",1),
+	c("Iyer_1996_Bp",1),
+	c("Iyer_1996_Br",1),
+	c("Kalinkat_2011_Anch",1),
+	c("Kalinkat_2011_Cal",2),
+	c("Kalinkat_2011_Harp",1),
+	c("Kalinkat_2011_Pard",2),
+	c("Kalinkat_2011_Troch",2),
+	c("Krylov_1992ii",1),
+	c("Lester_2002_Af_duets",1),
+	c("Lester_2002_Af_eggs",1),
+	c("Lester_2002_Ty_duets",1),
+	c("Lester_2002_Ty_eggs",1),
+	c("Long_2012b",1),
+	c("Nachappa_2006",2),
+	c("Ranta_1985_10",1),
+	c("Ranta_1985_13",1),
+	c("Ranta_1985_18",1),
+	c("Ranta_1985_Ad",2),
+	c("Wong_2005_rc",1),
+	c("Wong_2005_ss",2)
+))
+rownames(which.model) <- which.model[,1]
+which.model[,1] <- NULL
 
 # plot.coefs <- function(ffr.fits, modeltype, parameters, plot.SEs=FALSE, ffr.cfs=NULL, ilink=identity, xlim=NULL, ... ){
 	# scaffold of a plot that doesn't actually show anything
@@ -80,6 +115,10 @@ labels <- paste(labels,"  ")
 	abline(v=c(0,1), lty=2, col="grey")
 	# abline(v=1, lty=2)
 
+	# tidy up the y axis labels
+	labels<-gsub('_',' ',labels)
+	labels <- paste(labels,"  ")
+
 	# tick marks to indicate different data sets
 	axis(side=2, at=1:length(ffr.cfs), labels=labels, cex.axis=0.5, las=1, lwd=0, lwd.ticks=1)
 	axis(side=1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
@@ -91,19 +130,21 @@ labels <- paste(labels,"  ")
 	# plot these bad boys
 	for(i in 1:length(ffr.cfs)){
 		x <- ffr.cfs[[i]]
+		dname <- x$study.info$datasetName
+
 		col <- ifelse(
 			any(rank(x$AICs)[c(6,7)]==1),
 			"black",
 			CR[7]
 		)
-		for(j in 1:nrow(x$profile)){
+		for(j in 1:nrow(x$profiles[[1]])){
 			# the median estimate is easy to determine regardless of the type of data
-			mm <- x$profile[j,"est"]
-			lb <- x$profile[j,"lb"]
-			ub <- x$profile[j,"ub"]
+			mm <- x$profiles[[which.model[dname,1]]][j,"est"]
+			lb <- x$profiles[[which.model[dname,1]]][j,"lb"]
+			ub <- x$profiles[[which.model[dname,1]]][j,"ub"]
 
 			# make all lines the equivalent for now
-			lty <- switch(x$profile[j,"method"],
+			lty <- switch(x$profiles[[which.model[dname,1]]][j,"method"],
 				profile = 1,
 				bootstrap = 3,
 				quadratic = 6
@@ -114,7 +155,6 @@ labels <- paste(labels,"  ")
 
 			lb <- ifelse(lb < xlim[1], xlim[1], lb)
 			ub <- ifelse(ub > xlim[2], xlim[2], ub)
-
 
 			if(mm < xlim[1]){
 				Arrows(
@@ -146,7 +186,7 @@ labels <- paste(labels,"  ")
 					i+dy*(j-1.5),
 					format.number(mm),
 					pos=4,
-					cex=0.33
+					cex=0.3
 				)
 			}else if(mm > xlim[2]){
 				Arrows(
@@ -177,7 +217,7 @@ labels <- paste(labels,"  ")
 					i+dy*(j-1.5),
 					format.number(mm),
 					pos=2,
-					cex=0.33
+					cex=0.3
 				)
 			}else{
 				# if(lb > xlim[1] & ub < xlim[2]){
