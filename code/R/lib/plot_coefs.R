@@ -177,11 +177,27 @@ plot.coefs <- function(
     
     # length of arrows to indicate values off the plot
     delta.arrow <- 0.04*diff(xlim)
+  
+    #extract the lower and upper bounds
+    lb <- x$profile$cf[parameter,"lb"]
+    ub <- x$profile$cf[parameter,"ub"]
     
-    # if the point estimate is out of bounds don't even bother with its uncertainty
+    # use a link function 
+    lb.link <- ilink(lb)
+    ub.link <- ilink(ub)
+    
+    # sometimes se is NA or we profile things but still get NA intervals, so stretch interval(s) to extremes of plot
+    lb.link <- ifelse(is.finite(lb.link), lb.link, xlim[1])
+    ub.link <- ifelse(is.finite(ub.link), ub.link, xlim[2])
+    
+    # # For any of the above, don't plot off the figure
+    # lb.link <- ifelse(lb.link < xlim[1], xlim[1], lb.link)
+    # ub.link <- ifelse(ub.link > xlim[2], xlim[2], ub.link)
+
+    # if the whole interval is out of bounds just add text
     lty <- SE.lty[1]
-    if(mm.link < xlim[1] | mm.link > xlim[2]){
-      if(mm.link > xlim[2]){
+    # if(mm.link < xlim[1] | mm.link > xlim[2]){
+      if(lb.link > xlim[2]){
         Arrows(
           xlim[2]-delta.arrow,
           i,
@@ -196,14 +212,16 @@ plot.coefs <- function(
           lcol=col,
           lty=lty
         )
-        if(x$profile$method=='profile'){
-          lty <- SE.lty[1]
-        }
-        if(x$profile$method=='quadratic'){
-          lty <- SE.lty[2]
-        }
-        if(x$profile$method=='bootstrap'){
-          lty <- SE.lty[3]
+        if(plot.SEs){
+          if(x$profile$method=='profile'){
+            lty <- SE.lty[1]
+          }
+          if(x$profile$method=='quadratic'){
+            lty <- SE.lty[2]
+          }
+          if(x$profile$method=='bootstrap'){
+            lty <- SE.lty[3]
+          }
         }
         segments(
           xlim[2]-delta.arrow,
@@ -218,7 +236,7 @@ plot.coefs <- function(
             text(xlim[2]-delta.arrow, i, format.number(mm.link), 
                  pos=2, cex=0.7*par()$cex)
         }
-      }else{
+      }else if(ub.link < xlim[1]){
         Arrows(
           xlim[1]+delta.arrow,
           i,
@@ -233,14 +251,16 @@ plot.coefs <- function(
           lcol=col,
           lty=lty
         )
-        if(x$profile$method=='profile'){
-          lty <- SE.lty[1]
-        }
-        if(x$profile$method=='quadratic'){
-          lty <- SE.lty[2]
-        }
-        if(x$profile$method=='bootstrap'){
-          lty <- SE.lty[3]
+        if(plot.SEs){
+          if(x$profile$method=='profile'){
+            lty <- SE.lty[1]
+          }
+          if(x$profile$method=='quadratic'){
+            lty <- SE.lty[2]
+          }
+          if(x$profile$method=='bootstrap'){
+            lty <- SE.lty[3]
+          }
         }
         segments(
           xlim[1]+delta.arrow,
@@ -254,8 +274,7 @@ plot.coefs <- function(
             text(xlim[1]+delta.arrow, i, format.number(mm.link), 
                  pos=4,cex=0.7*par()$cex)
         }
-      }
-    }else{
+      }else{
     
     if(plot.SEs){
       if(x$profile$method=='profile'){
@@ -267,24 +286,17 @@ plot.coefs <- function(
       if(x$profile$method=='bootstrap'){
         lty <- SE.lty[3]
       }
-      
-      lb <- x$profile$cf[parameter,"lb"]
-      ub <- x$profile$cf[parameter,"ub"]
-      
-      lb.link <- ilink(lb)
-      ub.link <- ilink(ub)
-      
-      # sometimes se is NA or we profile things but still get NA intervals, so stretch interval(s) to extremes of plot
-      lb.link <- ifelse(is.na(lb.link), xlim[1], lb.link)
-      ub.link <- ifelse(is.na(ub.link), xlim[2], ub.link)
-      
-      # For any of the above, don't plot off the figure
-      lb.link <- ifelse(lb.link < xlim[1], xlim[1], lb.link)
-      ub.link <- ifelse(ub.link > xlim[2], xlim[2], ub.link)
-      
-      if(mm.link > xlim[1] & mm.link < xlim[2]){
+
+      # if(mm.link > xlim[1] & mm.link < xlim[2]){
         # draw the error bars
-        segments(lb.link, i, ub.link, i, col=col, lty=lty)
+        segments(
+          max(lb.link,xlim[1]),
+          i,
+          min(ub.link,xlim[2]),
+          i,
+          col=col,
+          lty=lty
+        )
         
         # arrow up the limiting cases
         if(lb.link <= xlim[1] & parameter!='exponent'){
@@ -321,14 +333,41 @@ plot.coefs <- function(
             lty=1
           )
         }
-      }
+      # }
     }
+  }
 
-      # plot the actual estimate
-      points(y=i, x=mm.link,
-             col=col, pch=pch, bg=bg)
-    
+    # plot the actual estimate
+    par(xpd=TRUE)
+    # plot the actual mean estimate
+    if(mm > xlim[1] && mm < xlim[2]){
+      points(
+        y=i,
+        x=mm.link,
+        col=col,
+        pch=pch,
+        bg=bg
+      )
+    }else if(mm > xlim[2]){
+      points(
+        y=i,
+        x=par("usr")[2],
+        col=col,
+        pch=pch,
+        bg=bg
+      )
+    }else{
+      points(
+        y=i,
+        x=par("usr")[1],
+        col=col,
+        pch=pch,
+        bg=bg
+      )
     }
+    par(xpd=FALSE)
+    
+    
     
   }
 }

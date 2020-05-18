@@ -70,7 +70,7 @@ Mpch <- c(rep(21,7),rep(22,4))
 pdf(
     '../../../../results/R/OnePredTwoPrey_figs/OnePredTwoPrey_AIC_phi.pdf',
     height=2.875,
-    width=3.25
+    width=4.25
 )
 
 layout(mat = matrix(
@@ -79,7 +79,7 @@ layout(mat = matrix(
         ncol = 2
        ),
        heights = c(1),
-       widths = c(2.5, 2.0)
+       widths = c(2.75,3.25)
 )
 
 par(
@@ -265,13 +265,14 @@ par(mar=c(2.5,0.25,0.5,0.5))
         quadratic = 6
       )
 
+      # if we have NA bounds then just make them "maximal"
       lb <- ifelse(is.finite(lb), lb, xlim[1])
       ub <- ifelse(is.finite(ub), ub, xlim[2])
 
-      lb <- ifelse(lb < xlim[1], xlim[1], lb)
-      ub <- ifelse(ub > xlim[2], xlim[2], ub)
+      # lb <- ifelse(lb < xlim[1], xlim[1], lb)
+      # ub <- ifelse(ub > xlim[2], xlim[2], ub)
 
-      if(mm < xlim[1]){
+      if(ub < xlim[1]){
         Arrows(
               xlim[1]+delta.arrow,
               i+dy*(j-1.5),
@@ -303,7 +304,7 @@ par(mar=c(2.5,0.25,0.5,0.5))
           pos=4,
           cex=0.3
         )
-      }else if(mm > xlim[2]){
+      }else if(lb > xlim[2]){
         Arrows(
               xlim[2]-delta.arrow,
               i+dy*(j-1.5),
@@ -338,10 +339,18 @@ par(mar=c(2.5,0.25,0.5,0.5))
         # if(lb > xlim[1] & ub < xlim[2]){
         # draw the error bars
 
-        segments(lb, i+dy*(j-1.5), ub, i+dy*(j-1.5), col=col, lty=lty, lwd=0.5)
+        segments(
+          max(lb,xlim[1]),
+          i+dy*(j-1.5),
+          min(ub,xlim[2]),
+          i+dy*(j-1.5),
+          col=col,
+          lty=lty,
+          lwd=0.5
+        )
 
         # arrow up the limiting cases
-        if(lb==xlim[1]){
+        if(lb<=xlim[1]){
           Arrows(
                 xlim[1]+delta.arrow,
                 i+dy*(j-1.5),
@@ -358,7 +367,7 @@ par(mar=c(2.5,0.25,0.5,0.5))
               )
           # arrows(xlim[1], i, xlim[1]-delta.arrow, i, length=delta.arrow*0.66, col=col, lty=lty)
         }
-        if(ub==xlim[2]){
+        if(ub>=xlim[2]){
           Arrows(
                 xlim[2]-delta.arrow,
                 i+dy*(j-1.5),
@@ -375,8 +384,16 @@ par(mar=c(2.5,0.25,0.5,0.5))
               )
         }
         
+        par(xpd=TRUE)
         # plot the actual mean estimate
-        points(y=i+dy*(j-1.5),x=mm,col=col,bg=col,pch=21,cex=0.5)
+        if(mm > xlim[1] && mm < xlim[2]){
+          points(y=i+dy*(j-1.5),x=mm,col=col,bg=col,pch=21,cex=0.5)
+        }else if(mm > xlim[2]){
+          points(y=i+dy*(j-1.5),x=(0*xlim[2]+2*par("usr")[2])/2,col=col,bg=col,pch=21,cex=0.5)
+        }else{
+          points(y=i+dy*(j-1.5),x=(0*xlim[1]+2*par("usr")[1])/2,col=col,bg=col,pch=21,cex=0.5)
+        }
+        par(xpd=FALSE)
       }
       # }else{
         # if(mm[j] > xlim[2]){

@@ -176,7 +176,7 @@ plot.coefs(
     ilink=identity,
     point.est='median',
     plot.SEs=TRUE,
-    display.outlier.ests=TRUE,
+    display.outlier.ests=FALSE,
     xlab="Effect of feeding on interfering",
     labels=labels,
     vertLines = c(0,1),
@@ -188,3 +188,18 @@ plot.coefs(
 
 dev.off()
 
+# calculate some useful statistics
+
+# total datasets
+length(ffr.fits)
+
+# datasets with phi <= 1
+sum(unlist(lapply(ffr.fits, function(x) x$profile$cf["est"])) <= 1)
+
+# datasets with interval overlapping 1
+sum(unlist(lapply(
+  ffr.fits,
+  function(x){
+    x$profile$cf["lb"] <= 1 && x$profile$cf["ub"] >= 1
+  }
+)))
