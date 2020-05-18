@@ -48,7 +48,7 @@ par(
 )
 
 # x axis limits
-xlim <- c(-5,5)
+xlim <- c(-3,4.5)
 
 # some colors
 CR<-brewer.pal(n = 9, name = 'Blues')

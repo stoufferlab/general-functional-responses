@@ -33,6 +33,10 @@ AICs <- as.data.frame(AICs)
 AICs[,"H2.HH"] <- pmin(AICs[,"H2.HHI"],AICs[,"H2.HHE"])
 AICs[,"H2.HHI"] <- AICs[,"H2.HHE"] <- NULL
 
+# DEBUG
+# remove the SG and GS models?
+AICs <- AICs[,c("H1","H2.SS","H2.GG","H2.HH")]
+
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
 labels<-gsub('_',' ',labels)
 labels <- paste(labels,"  ")
@@ -52,9 +56,9 @@ delAICcutoff <- 2
 #~~~~~~~~~~~
 
 colnames(AICs)
-CR<-brewer.pal(n = 9, name = 'Blues')
-Mcols <- CR[c(2,4,6,8)]
-Mcols <- c("white",Mcols)
+CR<-brewer.pal(n = 7, name = 'Blues')
+Mcols <- CR[c(2,4,6)]
+# Mcols <- c("white",Mcols)
 Mcols <- c(Mcols, brewer.pal(n = 9, name = 'Reds')[7])
 Mpch <- c(rep(21,7),rep(22,4))
 
@@ -107,9 +111,9 @@ par(
     box(lwd=1)
     par(xpd=TRUE)
     legend(
-        0.65,nrow(rnkAICs)+6,legend=colnames(rnkAICs),
+        -0.5,nrow(rnkAICs)+6,legend=colnames(rnkAICs),
         pch=Mpch, pt.bg=Mcols, col='black', bg='white',
-        horiz=FALSE, pt.cex=1, cex=0.6, ncol=5, title='Model',
+        horiz=FALSE, pt.cex=1, cex=0.6, ncol=4, title='Model',
         # xjust=0.5,
         title.adj=0.29,
         bty='n'
