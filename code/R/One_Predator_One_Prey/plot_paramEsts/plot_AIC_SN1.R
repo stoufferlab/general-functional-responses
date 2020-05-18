@@ -38,7 +38,7 @@ rownames(AICs) <- labels
 # Define color of each model
 colnames(AICs)
 CR<-brewer.pal(n = 9, name = 'Blues')
-Mcols <- CR[c(3,5,7,9)]
+Mcols <- c('white',CR[c(3,6,9)])
 Mcols <- c(Mcols, brewer.pal(n = 9, name = 'Reds')[7])
 Mpch <- c(rep(21,5),rep(22,4))
 
@@ -70,7 +70,7 @@ layout(mat = matrix(
 )
 
 par(
-    mar=c(3,0.5,2.5,5.75),
+    mar=c(2.5,2.75,0.5,5.75),
     oma = c(0, 0, 0, 0),
     mgp=c(1.25,0.1,0.0),
     tcl=-0.1,
@@ -112,7 +112,11 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
   
     # shade behind ties
     pxats<-c(0,rep(xats,each=2),0)
-    pyats<-rep(0:(length(xats)),each=2)+0.4
+    pyats<-rep(0:(length(xats)),each=2)+0.50
+
+    pyats[1:2] <- pyats[1:2] - 0.5
+    pyats[(length(pyats)-1):length(pyats)] <- pyats[(length(pyats)-1):length(pyats)]+0.5
+
     polygon(pxats,pyats,col=grey(0.666),border=NA)
     
     for(m in 1:ncol(rnkAICs)){
@@ -124,10 +128,11 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
     box(lwd=1)
     par(xpd=TRUE)
     legend(
-        3,nrow(rnkAICs)+5.1,legend=colnames(rnkAICs),
+        -0.75,nrow(rnkAICs)/2,legend=c(colnames(rnkAICs)[1:4],expression(phi)),
         xjust=0.5,
         pch=Mpch, pt.bg=Mcols, col='black', bg='white',
-        horiz=FALSE, pt.cex=1,cex=0.6, ncol=5, title='Model',
+        horiz=FALSE, pt.cex=1,cex=0.6, ncol=1, title='Model',
+        yjust = 0.5,
         bty='n'
     )
     par(xpd=FALSE)
@@ -162,7 +167,7 @@ save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits
 # labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
 labels <- rep("",length(labels))
 
-par(mar=c(3,0.25,2.5,0.5))
+par(mar=c(2.5,0.25,0.5,0.5))
 
 plot.coefs(
     ffr.fits,
