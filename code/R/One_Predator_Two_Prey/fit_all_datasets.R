@@ -201,14 +201,7 @@ for(i in 1:length(datasets)){
 			ffr.fit,
 			file=paste0('../../../results/R/OnePredTwoPrey_fits/', datasetsName,'.Rdata')
 		)
-
-		# ffr.fits[[i]] <- ffr.fit
-
 	}
-
-	# source('plot_phi_denom.R')
-	# plot.AAmethod(fit.AAmethod)
-	# break
 }
 
 # save a mega container
