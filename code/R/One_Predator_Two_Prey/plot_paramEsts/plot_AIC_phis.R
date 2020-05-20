@@ -1,72 +1,65 @@
 
-library(bbmle)
+# libraries that may or may not be needed below
 library(RColorBrewer)
+library(shape)
 library(stringr)
 
-# read in the different fits
-ffr.fits <- readRDS(
-	file='../../../../results/R/OnePredTwoPrey_ffr.fits.Rdata'
-)
+# generate the AIC tables
+source('make_AIC_tables.R')
 
-# re order so the plot is alphabetical top to bottom
-ffr.fits <- ffr.fits[rev(1:length(ffr.fits))]
+# remove the SG and GS models
+dAICs <- dAICs[,c("H1","H2.SS","H2.GG","H2.HH")]
+rnkAICs <- rnkAICs[,c("H1","H2.SS","H2.GG","H2.HH")]
 
-# scrape out the AIC values for the different models
-AICs <- t(sapply(
-	seq(1,length(ffr.fits)),
-	function(x,ffr.fits) {
-		unlist(lapply(ffr.fits[[x]]$AICs, function(x){mean(unlist(x))}))
-	},
-	ffr.fits=ffr.fits
-))
-colnames(AICs) <- c(
-	"H1",
-	"H2.SS",
-	"H2.SG",
-	"H2.GS",
-	"H2.GG",
-	"H2.HHI",
-	"H2.HHE"
-)
-AICs <- as.data.frame(AICs)
+# recompute the delta AICs
+dAICs <- dAICs - apply(dAICs,1,min)
 
-# break a tie between the two hybrid-hybrid models
-AICs[,"H2.HH"] <- pmin(AICs[,"H2.HHI"],AICs[,"H2.HHE"])
-AICs[,"H2.HHI"] <- AICs[,"H2.HHE"] <- NULL
-
-# DEBUG
-# remove the SG and GS models?
-AICs <- AICs[,c("H1","H2.SS","H2.GG","H2.HH")]
-
-labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
-labels<-gsub('_',' ',labels)
-labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
-
-# labels <- paste(labels,"  ")
-
-# determine things based on deltaAIC
-minAICs <- apply(AICs, 1, min)
-dAICs <- AICs - minAICs
-dAICs[dAICs<2] <- 0
-rnkAICs <- t(apply(dAICs, 1, rank, ties.method='first'))
-colnames(rnkAICs) <- colnames(AICs)
+# rerank this subset of models
+rnkAICs <- t(apply(rnkAICs,1,rank))
 
 # Define delta AICc cut-off for "indistinguishably well performing" models
 delAICcutoff <- 2
 
-#~~~~~~~~~~~
-# Rank order
-#~~~~~~~~~~~
+# for the phi values
 
-colnames(AICs)
+# read in the profiled CIs
+load(
+  file='../../../../results/R/OnePredTwoPrey_fits_profiled/ffr.fits.prof.HH.Rdata'
+)
+
+# make sure things are named
+names(ffr.cfs) <- unlist(lapply(ffr.cfs, function(x) x$study.info$datasetName))
+
+# read in the cheat sheet to figure out which HH model
+source('which_model.R')
+
+# figure out the average phi value across datasets
+mean_phi <- sapply(
+  rownames(rnkAICs),
+  function(x,ffr.cfs,which.model){
+    mean(ffr.cfs[[x]]$profiles[[paste0("Holling II Hybrid Hybrid ",which.model[x])]]$est)
+  },
+  ffr.cfs=ffr.cfs,
+  which.model=which.model
+)
+
+# reorder the AIC tables and the profiled fits
+dAICs <- dAICs[order(mean_phi),]
+rnkAICs <- rnkAICs[order(mean_phi),]
+ffr.cfs <- ffr.cfs[order(mean_phi)]
+
+# colors and symbols for different models
 CR<-brewer.pal(n = 9, name = 'Blues')
 Mcols <- CR[c(6,8)]
 Mcols <- c("white",Mcols)
 Mcols <- c(Mcols, brewer.pal(n = 9, name = 'Reds')[7])
 Mpch <- c(rep(21,7),rep(22,4))
 
-# generate the figure
+# create the dataset labels for the figures
+labels<-gsub('_',' ',rownames(rnkAICs))
+labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
 
+# generate the figure
 pdf(
     '../../../../results/R/OnePredTwoPrey_figs/OnePredTwoPrey_AIC_phi.pdf',
     height=2.875,
@@ -91,156 +84,110 @@ par(
     cex=0.7,
     yaxs='i'
 )
-    plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
-         type='n', yaxt='n',
-         xlim=c(0.5,ncol(rnkAICs)+0.5),
-         ylim=c(0,nrow(rnkAICs)+1),
-         xlab='Model rank by AIC',
-         ylab='',
-         axes=F)
-    # rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
-    axis(
-      4,
-      at=1:nrow(rnkAICs),
-      labels=labels,
-      cex.axis=0.5,
-      las=2,
-      lwd=0,
-      lwd.ticks=1,
-      hadj=0.5,
-      mgp=c(0,2.5,0)
-    )
-    axis(1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
-
-    # Which models have delta-AIC within X=2 of best-performing model?
-    xats <-table(which(dAICs < delAICcutoff, arr.ind=T)[,1])+0.5
-    yats <- 0:(length(xats))
-
-    # segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
-    # segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black')
-  
-    # shade behind ties
-    pxats<-c(0,rep(xats,each=2),0)
-    pyats<-rep(0:(length(xats)),each=2)+0.5
-    pyats[1:2] <- pyats[1:2]-0.5
-    pyats[(length(pyats)-1):length(pyats)] <- pyats[(length(pyats)-1):length(pyats)]+0.5
-    polygon(pxats,pyats,col=grey(0.666),border=NA)
-    
-    for(m in 1:ncol(rnkAICs)){
-      points(rnkAICs[,m], 1:nrow(rnkAICs), 
-             type='p',  col='black', 
-             bg=Mcols[m], pch=Mpch[m],
-             cex=1, lwd=0.2)
-    }  
-    box(lwd=1)
-    par(xpd=TRUE)
-    legend(
-        -0.75,nrow(rnkAICs)/2,
-        legend=c(
-          'H1',
-          "H2 (S)",
-          "H2 (G)",
-          expression(paste("H2 (",phi,")"))
-        ),
-        pch=Mpch, pt.bg=Mcols, col='black', bg='white',
-        horiz=FALSE, pt.cex=1, cex=0.6, ncol=1, title='  Model',
-        xjust=0.5, yjust=0.5,
-        title.adj=0.29,
-        bty='n'
-    )
-    par(xpd=FALSE)
 
 #########################################################
+# AIC plot
+#########################################################
 
-# read in the profiled CIs
-load(
-  file='../../../../results/R/OnePredTwoPrey_fits_profiled/ffr.fits.prof.HH.Rdata'
+plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
+     type='n', yaxt='n',
+     xlim=c(0.5,ncol(rnkAICs)+0.5),
+     ylim=c(0,nrow(rnkAICs)+1),
+     xlab='Model rank by AIC',
+     ylab='',
+     axes=F
 )
+    # rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
+axis(
+  4,
+  at=1:nrow(rnkAICs),
+  labels=labels,
+  cex.axis=0.5,
+  las=2,
+  lwd=0,
+  lwd.ticks=1,
+  hadj=0.5,
+  mgp=c(0,2.5,0)
+)
+axis(1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
 
-# reverse order
-ffr.cfs <- ffr.cfs[rev(1:length(ffr.cfs))]
+# Which models have delta-AIC within X=2 of best-performing model?
+xats <-table(which(dAICs < delAICcutoff, arr.ind=T)[,1])+0.5
+yats <- 0:(length(xats))
+
+# segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
+# segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black')
+
+# shade behind ties
+pxats<-c(0,rep(xats,each=2),0)
+pyats<-rep(0:(length(xats)),each=2)+0.5
+pyats[1:2] <- pyats[1:2]-0.5
+pyats[(length(pyats)-1):length(pyats)] <- pyats[(length(pyats)-1):length(pyats)]+0.5
+polygon(pxats,pyats,col=grey(0.666),border=NA)
+
+for(m in 1:ncol(rnkAICs)){
+  points(rnkAICs[,m], 1:nrow(rnkAICs), 
+         type='p',  col='black', 
+         bg=Mcols[m], pch=Mpch[m],
+         cex=1, lwd=0.2
+  )
+}
+
+box(lwd=1)
+par(xpd=TRUE)
+legend(
+    -0.75,nrow(rnkAICs)/2,
+    legend=c(
+      'H1',
+      "H2 (S)",
+      "H2 (G)",
+      expression(paste("H2 (",phi,")"))
+    ),
+    pch=Mpch, pt.bg=Mcols, col='black', bg='white',
+    horiz=FALSE, pt.cex=1, cex=0.6, ncol=1, title='  Model',
+    xjust=0.5, yjust=0.5,
+    title.adj=0.29,
+    bty='n'
+)
+par(xpd=FALSE)
+
+#########################################################
+# phi plot
+#########################################################
 
 # x axis limits
 xlim <- c(-3,4.5)
 
-# some colors
-CR<-brewer.pal(n = 9, name = 'Blues')
-
 # jitter
 dy <- 0.4
 
-# dataset labels
-labels <- unlist(lapply(ffr.cfs, function(x) x$study.info$datasetName))
-
-# cheatsheet for which model to plot
-# NOTE: this is done by hand and shameful
-which.model <- data.frame(rbind(
-  c("Chan_2017_c",1),
-  c("Chan_2017_l",2),
-  c("Colton_1987_1st24",1),
-  c("Colton_1987_2nd24",1),
-  c("Elliot_2006_Instar2",1),
-  c("Elliot_2006_Instar3",2),
-  c("Elliot_2006_Instar4",1),
-  c("Elliot_2006_Instar4Baet",1),
-  c("Elliot_2006_Instar5",1),
-  c("Elliot_2006_Instar5Baet",1),
-  c("Iyer_1996_Bc",1),
-  c("Iyer_1996_Bp",1),
-  c("Iyer_1996_Br",1),
-  c("Kalinkat_2011_Anch",1),
-  c("Kalinkat_2011_Cal",2),
-  c("Kalinkat_2011_Harp",1),
-  c("Kalinkat_2011_Pard",2),
-  c("Kalinkat_2011_Troch",2),
-  c("Krylov_1992ii",1),
-  c("Lester_2002_Af_duets",1),
-  c("Lester_2002_Af_eggs",1),
-  c("Lester_2002_Ty_duets",1),
-  c("Lester_2002_Ty_eggs",1),
-  c("Long_2012b",1),
-  c("Nachappa_2006",2),
-  c("Ranta_1985_10",1),
-  c("Ranta_1985_13",1),
-  c("Ranta_1985_18",1),
-  c("Ranta_1985_Ad",2),
-  c("Wong_2005_rc",1),
-  c("Wong_2005_ss",2)
-))
-rownames(which.model) <- which.model[,1]
-which.model[,1] <- NULL
-
+# plot margins
 par(mar=c(2.5,0.25,0.5,0.5))
 
-# plot.coefs <- function(ffr.fits, modeltype, parameters, plot.SEs=FALSE, ffr.cfs=NULL, ilink=identity, xlim=NULL, ... ){
-  # scaffold of a plot that doesn't actually show anything
-  plot(
-    y = 1:31,
-    x = 1:31,
-    type='n',
-    yaxt='n',
-    xlim=xlim,
-        ylim=c(0,32),
-        xlab='Effect of feeding on feeding',
-        ylab='',
-        axes=FALSE
-  )
+# scaffold of a plot that doesn't actually show anything
+plot(
+  y = 1:31,
+  x = 1:31,
+  type='n',
+  yaxt='n',
+  xlim=xlim,
+      ylim=c(0,32),
+      xlab='Effect of feeding on feeding',
+      ylab='',
+      axes=FALSE
+)
 
-  # mark where the existing models fall
-  abline(v=c(0,1), lty=2, col="grey")
-  # abline(v=1, lty=2)
+# mark where the existing models fall
+abline(v=c(0,1), lty=2, col="grey")
+# abline(v=1, lty=2)
 
-  # tidy up the y axis labels
-  labels<-gsub('_',' ',labels)
-  labels <- paste(labels,"  ")
+# tick marks to indicate different data sets
+axis(side=2, at=1:length(ffr.cfs), labels=rep("",length(labels)), cex.axis=0.5, las=1, lwd=0, lwd.ticks=1)
+axis(side=1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
+box(lwd=1)
 
-  # tick marks to indicate different data sets
-  axis(side=2, at=1:length(ffr.cfs), labels=rep("",length(ffr.cfs)), cex.axis=0.5, las=1, lwd=0, lwd.ticks=1)
-  axis(side=1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
-  box(lwd=1)
-
-  # length of arrows to indicate values off the plot
-  delta.arrow <- 0.04*diff(xlim)
+# length of arrows to indicate values off the plot
+delta.arrow <- 0.04*diff(xlim)
 
   # plot these bad boys
   for(i in 1:length(ffr.cfs)){
@@ -253,13 +200,15 @@ par(mar=c(2.5,0.25,0.5,0.5))
       CR[7]
     )
     for(j in 1:nrow(x$profiles[[1]])){
+      model.name <- paste0("Holling II Hybrid Hybrid ",which.model[dname])
+
       # the median estimate is easy to determine regardless of the type of data
-      mm <- x$profiles[[which.model[dname,1]]][j,"est"]
-      lb <- x$profiles[[which.model[dname,1]]][j,"lb"]
-      ub <- x$profiles[[which.model[dname,1]]][j,"ub"]
+      mm <- x$profiles[[model.name]][j,"est"]
+      lb <- x$profiles[[model.name]][j,"lb"]
+      ub <- x$profiles[[model.name]][j,"ub"]
 
       # make all lines the equivalent for now
-      lty <- switch(x$profiles[[which.model[dname,1]]][j,"method"],
+      lty <- switch(x$profiles[[model.name]][j,"method"],
         profile = 1,
         bootstrap = 3,
         quadratic = 6
