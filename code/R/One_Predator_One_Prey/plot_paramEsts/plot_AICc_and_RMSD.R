@@ -234,13 +234,11 @@ Cnt_AICc<-apply(rnks.AICc,2,function(x){table(factor(x,levels=1:ncol(rnks.AICc))
 Cnt_AICc
 pCnt_AICc <- round(prop.table(Cnt_AICc,2)*100,1)
 pCnt_AICc
-# Concl:  AA is ranked 1st most frequently, followed by CM and BD.
 
 Cnt_RMSD<-apply(rnks.RMSD,2,function(x){table(factor(x,levels=1:ncol(rnks.RMSD)))})
 Cnt_RMSD
 pCnt_RMSD <- round(prop.table(Cnt_RMSD,2)*100,1)
 pCnt_RMSD
-# Concl:  AA is ranked 1st most frequently, followed by CM and BD.
 
 # Either pass counts or combine counts and proportions before exporting table
 tab_Cnt_RMSD <- Cnt_RMSD
@@ -262,38 +260,34 @@ setwd('../../../../results/R/OnePredOnePrey_tables/')
 
 latex(tab_Cnt,file='OnePredOnePrey_AICc_and_RMSD_rankings.tex',label='table:AICc_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$ or by RMSD.')
 
-latex(tab_Cnt_AICc,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
-
-latex(tab_Cnt_RMSD,file='OnePredOnePrey_RMSD_rankings.tex',label='table:RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by the root mean square deviation (RMSD).')
+# latex(tab_Cnt_AICc,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+# 
+# latex(tab_Cnt_RMSD,file='OnePredOnePrey_RMSD_rankings.tex',label='table:RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by the root mean square deviation (RMSD).')
 
 setwd(wd)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
-# Of the times that AA is ranked first, how often are BD and CM within X AICc units?
+# Of the times that AA is ranked first, how often are BD and CM within 2 AICc units?
 cnt_AICc<-apply(delV.AICc[rnks.AICc[,ncol(rnks.AICc)]==1,3:4] < cut.AIC, 2, sum)
 cnt_AICc
 Cnt_AICc[1,'AA']
 cnt_AICc/Cnt_AICc[1,'AA']
-# Concl: BD is within 2 dAICc units > 1/3 the time, and CM is > 1/4 of the time
 
 cnt_RMSD<-apply(delV.RMSD[rnks.RMSD[,ncol(rnks.RMSD)]==1,3:4] < cut.RMSD, 2, sum)
 cnt_RMSD
 Cnt_RMSD[1,'AA']
 cnt_RMSD/Cnt_RMSD[1,'AA']
-# Concl: BD and CM are within cutoff 60% of the time.
 
-# Of times that AA is ranked first, how often are *either* BD and CM within X AICc units?
+# Of times that AA is ranked first, how often are *either* BD and CM within 2 AICc units?
 cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,ncol(rnks.AICc)]==1,3:4] < cut.AIC, 1, sum)>0)
 cnt_AICc
 cnt_AICc/Cnt_AICc[1,'AA']
-# Concl: BD or CM are within 2 dAICc units ~60% of the time
 
 cnt_RMSD<-sum(apply(delV.RMSD[rnks.RMSD[,ncol(rnks.RMSD)]==1,3:4] < cut.RMSD, 1, sum)>0)
 cnt_RMSD
 cnt_RMSD/Cnt_RMSD[1,'AA']
-# Concl: BD or CM are within cutoff ~76% of the time
 
 # How many times is a single model the only best model?
 cnt_AICc<-sum(apply(delV.AICc < cut.AIC, 1, sum)==1)
@@ -313,10 +307,10 @@ for(SScut in SScuts){
                     table(factor(x,levels=1:ncol(rnks.RMSD)))})
   pCnt_RMSD <- prop.table(Cnt_RMSD,2)
   
-  fFirst.AICc <- rbind(fFirst.AICc,pCnt[1,])
-  fSecnd.AICc <- rbind(fSecnd.AICc,pCnt[2,])
-  fFirst.RMSD <- rbind(fFirst.RMSD,pCnt[1,])
-  fSecnd.RMSD <- rbind(fSecnd.RMSD,pCnt[2,])
+  fFirst.AICc <- rbind(fFirst.AICc,pCnt_AICc[1,])
+  fSecnd.AICc <- rbind(fSecnd.AICc,pCnt_AICc[2,])
+  fFirst.RMSD <- rbind(fFirst.RMSD,pCnt_RMSD[1,])
+  fSecnd.RMSD <- rbind(fSecnd.RMSD,pCnt_RMSD[2,])
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -326,7 +320,7 @@ for(SScut in SScuts){
 Mcols[c(1,5)]<-'grey40'
 ltys <- c(1,1,1,6,2,2,3,1)
 
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_and_RMSD_rankBySS.pdf',
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_and_RMSD_toprankBySS.pdf',
     height=4,width=5)
 par(mar=c(2,6.5,4,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.8)
 nf<-layout(matrix(c(1,1,2,4,3,5),ncol=2,byrow=T), heights=c(1.2,3,3)) 
@@ -365,25 +359,30 @@ text(xadj2+0.02, yadj+0.18, 'Models', adj=0,cex=1)
 
 par(mar=c(2.5,3,0.5,0))
 matplot(SScuts,fFirst.AICc,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.6),lwd=1.5,
+        ylim=c(0,0.7),lwd=1.5,
         ylab='Fraction in first rank',
         xlab='')
   mtext('A',side=3,line=-1.25,at=5,cex=0.9)
+  mtext('AICc',side=3,line=0.3,at=150,cex=1)
+  
 par(mar=c(3,3,0,0))
 matplot(SScuts,fSecnd.AICc,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.8),lwd=1.5,
+        ylim=c(0,0.7),lwd=1.5,
         ylab='Fraction in second rank',
         xlab='Sample size greater than...')
   mtext('B',side=3,line=-1.25,at=5,cex=0.9)
+  
 par(mar=c(2.5,2,0.5,1))
 matplot(SScuts,fFirst.RMSD,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.8),lwd=1.5,
+        ylim=c(0,0.7),lwd=1.5,
         ylab='',
         xlab='')
   mtext('C',side=3,line=-1.25,at=5,cex=0.9)
+  mtext('RMSD',side=3,line=0.3,at=150,cex=1)
+  
 par(mar=c(3,2,0,1))
 matplot(SScuts,fSecnd.RMSD,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.4),lwd=1.5,
+        ylim=c(0,0.7),lwd=1.5,
         ylab='',
         xlab='Sample size greater than...')
   mtext('D',side=3,line=-1.25,at=5,cex=0.9)
