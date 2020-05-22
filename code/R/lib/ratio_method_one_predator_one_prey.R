@@ -173,7 +173,8 @@ ratio.like.1pred.1prey.NLL = function(params,
 	}else{
 		# negative log likelihood based on proportion consumed (no replacement)
 		if(!replacement){
-			nll <- -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE))
+			# warnings suppressed because direct integration can return prob = 0 or 1, which results in NaNs
+			nll <- suppressWarnings( -sum(dbinom(killed, prob=Nconsumed/initial, size=initial, log=TRUE)) )
 			if(is.nan(nll)){
 			  nll <- Inf
 			}
@@ -232,12 +233,12 @@ fit.ratio.like <- function(d, s,
 		minuslogl = ratio.like.1pred.1prey.NLL,
 		start = mle2.start,
 		data = list(
-			modeltype="Ratio",
 			initial=d$Nprey,
 			killed=d$Nconsumed,
 			predators=d$Npredator,
 			time=d$Time,
-			replacement=s$replacement
+			replacement=s$replacement,
+			modeltype="Ratio"
 		),
 		vecpar = TRUE,
 		control = mle2.control,
@@ -277,12 +278,12 @@ fit.ratio.like <- function(d, s,
 	    minuslogl = ratio.like.1pred.1prey.NLL,
 	    start = mle2.start,
 	    data = list(
-	      modeltype = "Arditi.Ginzburg",
 	      initial = d$Nprey,
 	      killed = d$Nconsumed,
 	      predators = d$Npredator,
 	      time = d$Time,
-	      replacement = s$replacement
+	      replacement = s$replacement,
+	      modeltype = "Arditi.Ginzburg"
 	    ),
 	    vecpar = TRUE,
 	    control = mle2.control
@@ -331,12 +332,12 @@ fit.ratio.like <- function(d, s,
 	      minuslogl = ratio.like.1pred.1prey.NLL,
 	      start = mle2.start,
 	      data = list(
-	        modeltype = modeltype,
 	        initial = d$Nprey,
 	        killed = d$Nconsumed,
 	        predators = d$Npredator,
 	        time = d$Time,
-	        replacement = s$replacement
+	        replacement = s$replacement,
+			modeltype = modeltype
 	      ),
 	      vecpar = TRUE,
 	      control = mle2.control
@@ -355,17 +356,21 @@ fit.ratio.like <- function(d, s,
 	      minuslogl = ratio.like.1pred.1prey.NLL,
 	      start = mle2.start,
 	      data = list(
-	        modeltype = modeltype,
 	        initial = d$Nprey,
 	        killed = d$Nconsumed,
 	        predators = d$Npredator,
 	        time = d$Time,
-	        replacement = s$replacement
+	        replacement = s$replacement,
+			modeltype = modeltype
 	      ),
 	      vecpar = TRUE,
-	      control = mle2.control				
+	      control = mle2.control
 	    )
-	    
+
+	    # add the first set of starting values as these can help when profiling
+		refit.via.mle2@call$data$sbplx.start <- unlist(start)
+		names(refit.via.mle2@call$data$sbplx.start) <- names(start)
+
 	    return(refit.via.mle2)
 	    
 	    

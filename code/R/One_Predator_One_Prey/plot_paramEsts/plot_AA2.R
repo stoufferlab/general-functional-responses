@@ -1,4 +1,5 @@
 source('../../lib/plot_coefs.R')
+source('../../lib/profile_coefs.R')
 source('../../lib/depletion_check.R') 
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')

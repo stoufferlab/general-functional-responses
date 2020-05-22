@@ -9,7 +9,8 @@ load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 ffr.fits <- profile_coefs(ffr.fits, 
                           model='Holling.II',
                           point.est='median',
-                          printWarnings = TRUE)
+                          printWarnings = TRUE,
+                          which.pars = "attack")
 
 save(ffr.fits, file='../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.H2.Rdata')
 # load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.H2.Rdata')
