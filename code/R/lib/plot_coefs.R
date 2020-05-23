@@ -340,7 +340,7 @@ plot.coefs <- function(
     # plot the actual estimate
     par(xpd=TRUE)
     # plot the actual mean estimate
-    if(mm > xlim[1] && mm < xlim[2]){
+    if(mm.link > xlim[1] && mm.link < xlim[2]){
       points(
         y=i,
         x=mm.link,
@@ -348,7 +348,7 @@ plot.coefs <- function(
         pch=pch,
         bg=bg
       )
-    }else if(mm > xlim[2]){
+    }else if(mm.link > xlim[2]){
       points(
         y=i,
         x=par("usr")[2],
