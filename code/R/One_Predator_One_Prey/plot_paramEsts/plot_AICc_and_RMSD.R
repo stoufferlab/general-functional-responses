@@ -230,26 +230,32 @@ dev.off()
 # Overall summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Count times each model is in each rank
-Cnt_AICc<-apply(rnks.AICc,2,function(x){table(factor(x,levels=1:ncol(rnks.AICc)))})
+mod.order <- colnames(rnks.AICc)
+mods.n <- length(mod.order)
+Cnt_AICc <- apply(rnks.AICc,2,function(x){table(factor(x,levels=1:mods.n))})
+Cnt_AICc <- Cnt_AICc[,mod.order]
 Cnt_AICc
+sum(Cnt_AICc[1,c('BD','CM','AA')])
 pCnt_AICc <- round(prop.table(Cnt_AICc,2)*100,1)
 pCnt_AICc
 
-Cnt_RMSD<-apply(rnks.RMSD,2,function(x){table(factor(x,levels=1:ncol(rnks.RMSD)))})
+Cnt_RMSD <- apply(rnks.RMSD,2,function(x){table(factor(x,levels=1:mods.n))})
+Cnt_RMSD <- Cnt_RMSD[,mod.order]
 Cnt_RMSD
+sum(Cnt_RMSD[1,c('BD','CM','AA')])
 pCnt_RMSD <- round(prop.table(Cnt_RMSD,2)*100,1)
 pCnt_RMSD
 
 # Either pass counts or combine counts and proportions before exporting table
-tab_Cnt_RMSD <- Cnt_RMSD
-# bCnt_RMSD <- paste0(Cnt_RMSD,' (',pCnt_RMSD,')')
-# bCnt_RMSD[Cnt_RMSD==0] <- 0
-# tab_Cnt_RMSD <- matrix(bCnt_RMSD, nrow=nrow(Cnt_RMSD), byrow=T, dimnames=dimnames(Cnt_RMSD))
-
 tab_Cnt_AICc <- Cnt_AICc
 # bCnt_AICc <- paste0(Cnt_AICc,' (',pCnt_AICc,')')
 # bCnt_AICc[Cnt_AICc==0] <- 0
 # tab_Cnt_AICc <- matrix(bCnt_AICc, nrow=nrow(Cnt_AICc), byrow=T, dimnames=dimnames(Cnt_AICc))
+
+tab_Cnt_RMSD <- Cnt_RMSD
+# bCnt_RMSD <- paste0(Cnt_RMSD,' (',pCnt_RMSD,')')
+# bCnt_RMSD[Cnt_RMSD==0] <- 0
+# tab_Cnt_RMSD <- matrix(bCnt_RMSD, nrow=nrow(Cnt_RMSD), byrow=T, dimnames=dimnames(Cnt_RMSD))
 
 tab_Cnt <- rbind(tab_Cnt_AICc, rep('',ncol(tab_Cnt_AICc)), tab_Cnt_RMSD)
 
@@ -269,33 +275,55 @@ setwd(wd)
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
-# Of the times that AA is ranked first, how often are BD and CM within 2 AICc units?
-cnt_AICc<-apply(delV.AICc[rnks.AICc[,ncol(rnks.AICc)]==1,3:4] < cut.AIC, 2, sum)
-cnt_AICc
-Cnt_AICc[1,'AA']
-cnt_AICc/Cnt_AICc[1,'AA']
-
-cnt_RMSD<-apply(delV.RMSD[rnks.RMSD[,ncol(rnks.RMSD)]==1,3:4] < cut.RMSD, 2, sum)
-cnt_RMSD
-Cnt_RMSD[1,'AA']
-cnt_RMSD/Cnt_RMSD[1,'AA']
-
-# Of times that AA is ranked first, how often are *either* BD and CM within 2 AICc units?
-cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,ncol(rnks.AICc)]==1,3:4] < cut.AIC, 1, sum)>0)
-cnt_AICc
-cnt_AICc/Cnt_AICc[1,'AA']
-
-cnt_RMSD<-sum(apply(delV.RMSD[rnks.RMSD[,ncol(rnks.RMSD)]==1,3:4] < cut.RMSD, 1, sum)>0)
-cnt_RMSD
-cnt_RMSD/Cnt_RMSD[1,'AA']
-
 # How many times is a single model the only best model?
-cnt_AICc<-sum(apply(delV.AICc < cut.AIC, 1, sum)==1)
-cnt_AICc/nrow(delV.AICc)
+cnt_AICc_single<-sum(apply(delV.AICc < cut.AIC, 1, sum)==1)
+cnt_AICc_single
+cnt_AICc_single/nrow(delV.AICc)
+
+#~~~~~
+# How often are *each of* the other models within 2 AICc units of the top model?
+r1Mod.AICc <- which.max(Cnt_AICc[1,])
+cnt_AICc<-apply(delV.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cut.AIC, 2, sum)
+cnt_AICc
+
+# How often is any other model within 2 AICc units of the top model?
+cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cut.AIC, 1, sum)>0)
+cnt_AICc
+cnt_AICc/Cnt_AICc[1,r1Mod.AICc]
+
+#~~~~~
+# How often are other models within 2 AICc units of the 2nd-best model?
+r2Mod.AICc <- which(rank(-Cnt_AICc[1,])==2)
+cnt_AICc<-apply(delV.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cut.AIC, 2, sum)
+cnt_AICc
+
+# How often is any other model within 2 AICc units of the 2nd-best model?
+cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cut.AIC, 1, sum)>0)
+cnt_AICc
+cnt_AICc/Cnt_AICc[1,r2Mod.AICc]
+
+#~~~~~
+# How often are other models within 2 AICc units of the 3rd-best model?
+r3Mod.AICc <- which(rank(-Cnt_AICc[1,])==3)
+cnt_AICc<-apply(delV.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cut.AIC, 2, sum)
+cnt_AICc
+
+# How often is any other model within 2 AICc units of the 3rd-best model?
+cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cut.AIC, 1, sum)>0)
+cnt_AICc
+cnt_AICc/Cnt_AICc[1,r3Mod.AICc]
+
+#~~~~~
+# How often are other models within cut.RMSD (=10%) of the top model?
+r1Mod.RMSD <- which.max(Cnt_AICc[1,])
+cnt_RMSD<-apply(delV.RMSD[rnks.RMSD[,r1Mod.RMSD ]==1,] < cut.RMSD, 2, sum)
+cnt_RMSD
+
 
 # ~~~~~~~~~
 # What about for datasets that have a sample size of at least X?
-SScuts <- seq(5,300,by=1)
+mxSS <- 300
+SScuts <- seq(5,mxSS,by=1)
 fFirst.AICc<-fSecnd.AICc<-fFirst.RMSD<-fSecnd.RMSD<-dim(0)
 for(SScut in SScuts){
   Cnt_AICc<-apply(rnks.AICc[sample.sizes>=SScut,],2, 
@@ -312,6 +340,9 @@ for(SScut in SScuts){
   fFirst.RMSD <- rbind(fFirst.RMSD,pCnt_RMSD[1,])
   fSecnd.RMSD <- rbind(fSecnd.RMSD,pCnt_RMSD[2,])
 }
+
+# How many datasets are excluded by the mxSS=300 limit?
+sum(sample.sizes>=mxSS)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Figure of top two rankings as a function of sample size
@@ -354,7 +385,7 @@ legend(xadj3,yadj,legend=colnames(fFirst.AICc)[mods],
        pt.cex=1.1,cex=lcex, ncol=1, pt.lwd=0.8,
        title=expression(italic(k)==3), bty='n')
 
-rect(xadj2-0.2,vadj+0.25,xadj2+0.4,vadj-1.7)
+rect(xadj2-0.2,yadj+0.4,xadj2+0.4,yadj-1.5)
 text(xadj2+0.02, yadj+0.18, 'Models', adj=0,cex=1)
 
 par(mar=c(2.5,3,0.5,0))
@@ -363,7 +394,7 @@ matplot(SScuts,fFirst.AICc,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
         ylab='Fraction in first rank',
         xlab='')
   mtext('A',side=3,line=-1.25,at=5,cex=0.9)
-  mtext('AICc',side=3,line=0.3,at=150,cex=1)
+  mtext('AICc',side=3,line=0.3,at=mxSS/2,cex=1)
   
 par(mar=c(3,3,0,0))
 matplot(SScuts,fSecnd.AICc,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
@@ -378,7 +409,7 @@ matplot(SScuts,fFirst.RMSD,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
         ylab='',
         xlab='')
   mtext('C',side=3,line=-1.25,at=5,cex=0.9)
-  mtext('RMSD',side=3,line=0.3,at=150,cex=1)
+  mtext('RMSD',side=3,line=0.3,at=mxSS/2,cex=1)
   
 par(mar=c(3,2,0,1))
 matplot(SScuts,fSecnd.RMSD,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
