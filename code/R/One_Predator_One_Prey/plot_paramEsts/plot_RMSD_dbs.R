@@ -40,11 +40,16 @@ dRMSDs <- RMSDs - minRMSDs
 rnkRMSDs <- t(apply(dRMSDs, 1, rank, ties.method='first'))
 colnames(rnkRMSDs) <- colnames(RMSDs)
 
-# Define delta RMSD cut-off for "well performing" models:
-# Which models have an RMSD that is less than 1% of the data average (repeat for raw and bootstrapped datasets and merge)
-delRMSDcutoff <- unlist(lapply(ffr.fits, function(x) 0.01*mean(x$study.info$data.Nconsumed)))
-delRMSDcutoff2 <- unlist(lapply(ffr.fits, function(x) 0.01*mean(x$study.info$data.Nconsumed.mean)))
-delRMSDcutoff[which(is.na(delRMSDcutoff))] <- delRMSDcutoff2[which(!is.na(delRMSDcutoff2))]
+# Define RMSD cut-off for "well performing" models
+# Calcualte feeding count averaged across all treatment in order to later determine which models have an RMSD that is less than x% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and then merge)
+mean.Nconsumed <- unlist(lapply(ffr.fits, 
+                                function(x){mean(x$study.info$data.Nconsumed)}))
+mean.Nconsumed_boot <- unlist(lapply(ffr.fits, 
+                                     function(x){mean(x$study.info$data.Nconsumed.mean*x$study.info$data.n)}))
+mean.Nconsumed[which(is.na(mean.Nconsumed))] <- mean.Nconsumed_boot[which(!is.na(mean.Nconsumed_boot))]
+
+perc.cut <- 50
+RMSDcutoff <- perc.cut/100*mean.Nconsumed
 
 #~~~~~~~~~~~
 # Rank order
@@ -62,8 +67,9 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_RMSD_ranks_dbs.pdf
     axis(2, at=1:nrow(rnkRMSDs), labels=labels, cex.axis=0.5, las=2)
     axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
 
-    # Which models have "reasonable" delta-RMSD?
-    xats <-table(which(dRMSDs < delRMSDcutoff, arr.ind=T)[,1])+0.5
+    # Which models have a RMSD below the cut-off?
+    xats <-table(factor(which(RMSDs < RMSDcutoff, arr.ind=T)[,1]),
+                 levels=1:nrow(RMSDs))+0.5
     yats <- 0:(length(xats))
     # segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
     # segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black')
@@ -115,14 +121,14 @@ stop()
 # ~~~~~~~~~
 
 # Of the times that AA is ranked first, how often are BD and CM  within X RMSD units?
-cnt<-apply(dRMSDs[rnkRMSDs[,ncol(rnkRMSDs)]==1,3:4] < delRMSDcutoff, 2, sum)
+cnt<-apply(dRMSDs[rnkRMSDs[,ncol(rnkRMSDs)]==1,3:4] < RMSDcutoff, 2, sum)
 cnt
 Cnt[1,'AA']
 cnt/Cnt[1,'AA']
 # Concl: BD and CM are within cutoff 60% of the time.
 
 # Of times that AA is ranked first, how often are *either* BD and CM within X RMSD units?
-cnt<-sum(apply(dRMSDs[rnkRMSDs[,ncol(rnkRMSDs)]==1,3:4] < delRMSDcutoff, 1, sum)>0)
+cnt<-sum(apply(dRMSDs[rnkRMSDs[,ncol(rnkRMSDs)]==1,3:4] < RMSDcutoff, 1, sum)>0)
 cnt
 cnt/Cnt[1,'AA']
 # Concl: BD or CM are within cutoff ~76% of the time

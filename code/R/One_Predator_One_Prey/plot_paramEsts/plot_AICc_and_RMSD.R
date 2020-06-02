@@ -70,14 +70,18 @@ delV.RMSD <- RMSDs - minRMSDs
 rnks.RMSD <- t(apply(delV.RMSD, 1, rank, ties.method='first'))
 colnames(rnks.RMSD) <- colnames(RMSDs)
 
-# Define delta RMSD cut-off for "well performing" models
-# Which models have an RMSD that is less than 1% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and merge)
-cut.RMSD <- unlist(lapply(ffr.fits, 
-                          function(x){0.01*mean(x$study.info$data.Nconsumed)}))
-cut.RMSD2 <- unlist(lapply(ffr.fits, 
-                           function(x){0.01*mean(x$study.info$data.Nconsumed.mean)}))
-cut.RMSD[which(is.na(cut.RMSD))] <- cut.RMSD2[which(!is.na(cut.RMSD2))]
 
+# Define RMSD cut-off for "well performing" models
+# Calcualte feeding count averaged across all treatment in order to later determine which models have an RMSD that is less than x% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and then merge)
+mean.Nconsumed <- unlist(lapply(ffr.fits, 
+                          function(x){mean(x$study.info$data.Nconsumed)}))
+mean.Nconsumed_boot <- unlist(lapply(ffr.fits, 
+                           function(x){mean(x$study.info$data.Nconsumed.mean*x$study.info$data.n)}))
+mean.Nconsumed[which(is.na(mean.Nconsumed))] <- mean.Nconsumed_boot[which(!is.na(mean.Nconsumed_boot))]
+
+perc.cut <- 50
+RMSDcutoff <- perc.cut/100*mean.Nconsumed
+  
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~
 # Figure of Rank orders
@@ -162,10 +166,12 @@ plot(1:nrow(rnks.AICc), 1:nrow(rnks.AICc),
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
   
   # Which models have delta-AICc within X=2 of best-performing model?
-  xats <-table(which(delV.AICc < cut.AIC, arr.ind=T)[,1])+0.5
+  xats <-table(factor(which(delV.AICc < cut.AIC, arr.ind=T)[,1],
+                      levels=1:nrow(delV.AICc)))+0.5
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
-  segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black')
+  segments(c(0.5, xats[-length(xats)]), yats, 
+           c(0.5, xats[-1]), yats, col='black')
   
   pxats<-c(0,rep(xats,each=2),0)
   pyats<-rep(0:(length(xats)),each=2)+0.5
@@ -200,11 +206,13 @@ plot(1:nrow(rnks.RMSD), 1:nrow(rnks.RMSD),
   axis(2, at=1:nrow(rnks.RMSD), labels=NA, cex.axis=0.5, las=2)
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0),las=1)
   
-  # Which models have "reasonable" delta-RMSD?
-  xats <-table(which(delV.RMSD < cut.RMSD, arr.ind=T)[,1])+0.5
+  # Which models have a RMSD below the cut-off?
+  xats <-table(factor(which(RMSDs < RMSDcutoff, arr.ind=T)[,1],
+               levels=1:nrow(RMSDs)))+0.5
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
-  segments(xats[-length(xats)],yats+1,xats[-1],yats+1,col='black')
+  segments(c(0.5, xats[-length(xats)]), yats, 
+           c(0.5, xats[-1]), yats, col='black')
   
   pxats<-c(0,rep(xats,each=2),0)
   pyats<-rep(0:(length(xats)),each=2)+0.5
@@ -275,7 +283,7 @@ setwd(wd)
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
-# How many times is a single model the only best model?
+# How many times is a single model the only best model by AICc?
 cnt_AICc_single<-sum(apply(delV.AICc < cut.AIC, 1, sum)==1)
 cnt_AICc_single
 cnt_AICc_single/nrow(delV.AICc)
@@ -313,36 +321,71 @@ cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cut.AIC, 
 cnt_AICc
 cnt_AICc/Cnt_AICc[1,r3Mod.AICc]
 
-#~~~~~
-# How often are other models within cut.RMSD (=10%) of the top model?
-r1Mod.RMSD <- which.max(Cnt_AICc[1,])
-cnt_RMSD<-apply(delV.RMSD[rnks.RMSD[,r1Mod.RMSD ]==1,] < cut.RMSD, 2, sum)
+#~~~~~~~~~~~~~~~~~~~~~~
+# Normalized-RMSD statistics of best-performing model
+mean(RMSDs[rnks.RMSD==1])
+range(RMSDs[rnks.RMSD==1]))
+
+# How many times is a single model the only best model by AICc?
+cnt_RMSD_single<-sum(apply(RMSDs < RMSDcutoff, 1, sum)==1)
+cnt_RMSD_single
+cnt_RMSD_single/nrow(delV.RMSD)
+
+# How often are models other than the overall top-peforming model within the RMSDcutoff (=1%) performance criterion?
+r1Mod.RMSD <- which.max(Cnt_RMSD[1,])
+cnt_RMSD<-apply(delV.RMSD[rnks.RMSD[,r1Mod.RMSD ]==1,] < RMSDcutoff, 2, sum)
 cnt_RMSD
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# hist(sample.sizes,breaks=30)
+# hist(log(sample.sizes),breaks=30)
+mean(sample.sizes)
+median(sample.sizes)
 
-# ~~~~~~~~~
+# Excluding Creswell and Propopenko
+mean(sample.sizes[sample.sizes<600])
+median(sample.sizes[sample.sizes<600])
+
 # What about for datasets that have a sample size of at least X?
 mxSS <- 300
-SScuts <- seq(5,mxSS,by=1)
+mnSS <- min(sample.sizes)
+SScuts <- seq(mnSS,mxSS,by=1)
 fFirst.AICc<-fSecnd.AICc<-fFirst.RMSD<-fSecnd.RMSD<-dim(0)
+pfFirst.AICc<-pfSecnd.AICc<-pfFirst.RMSD<-pfSecnd.RMSD<-dim(0)
 for(SScut in SScuts){
   Cnt_AICc<-apply(rnks.AICc[sample.sizes>=SScut,],2, 
                   function(x){
-                    table(factor(x,levels=1:ncol(rnks.AICc)))})
+                    table(factor(x,levels=1:mods.n))})
+  Cnt_AICc <- Cnt_AICc[,mod.order]
   pCnt_AICc <- prop.table(Cnt_AICc,2)
   Cnt_RMSD<-apply(rnks.RMSD[sample.sizes>=SScut,],2, 
                   function(x){
-                    table(factor(x,levels=1:ncol(rnks.RMSD)))})
+                    table(factor(x,levels=1:mods.n))})
+  Cnt_RMSD <- Cnt_RMSD[,mod.order]
   pCnt_RMSD <- prop.table(Cnt_RMSD,2)
+
+  fFirst.AICc <- rbind(fFirst.AICc,Cnt_AICc[1,])
+  fSecnd.AICc <- rbind(fSecnd.AICc,Cnt_AICc[2,])
+  fFirst.RMSD <- rbind(fFirst.RMSD,Cnt_RMSD[1,])
+  fSecnd.RMSD <- rbind(fSecnd.RMSD,Cnt_RMSD[2,])
   
-  fFirst.AICc <- rbind(fFirst.AICc,pCnt_AICc[1,])
-  fSecnd.AICc <- rbind(fSecnd.AICc,pCnt_AICc[2,])
-  fFirst.RMSD <- rbind(fFirst.RMSD,pCnt_RMSD[1,])
-  fSecnd.RMSD <- rbind(fSecnd.RMSD,pCnt_RMSD[2,])
+  pfFirst.AICc <- rbind(pfFirst.AICc,pCnt_AICc[1,])
+  pfSecnd.AICc <- rbind(pfSecnd.AICc,pCnt_AICc[2,])
+  pfFirst.RMSD <- rbind(pfFirst.RMSD,pCnt_RMSD[1,])
+  pfSecnd.RMSD <- rbind(pfSecnd.RMSD,pCnt_RMSD[2,])
+
 }
 
-# How many datasets are excluded by the mxSS=300 limit?
+# How many datasets are included at the mxSS=300 limit of the plots?
 sum(sample.sizes>=mxSS)
+
+# What are stats at sample size of X?
+s=80
+length(sample.sizes[sample.sizes>=s])
+fFirst.AICc[which(SScuts==s),]
+round(pfFirst.AICc[which(SScuts==s),],3)*100
+fSecnd.AICc[which(SScuts==s),]
+round(pfSecnd.AICc[which(SScuts==s),],3)*100
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Figure of top two rankings as a function of sample size
@@ -368,19 +411,19 @@ yadj <- 0.5
 lcex <- 0.7
 
 mods<-c(1,5)
-legend(xadj1,yadj,legend=colnames(fFirst.AICc)[mods],
+legend(xadj1,yadj,legend=colnames(pfFirst.AICc)[mods],
        lty=ltys[mods], col=Mcols[mods],lwd=1.5,
        cex=lcex, ncol=1, pt.lwd=0.8, 
        title=expression(italic(k)==1), bty='n')
 
 mods<-c(2,6,7)
-legend(xadj2,yadj,legend=colnames(fFirst.AICc)[mods],
+legend(xadj2,yadj,legend=colnames(pfFirst.AICc)[mods],
        lty=ltys[mods], col=Mcols[mods],lwd=1.5,
        pt.cex=1.1,cex=lcex, ncol=1, pt.lwd=0.8,
        title=expression(italic(k)==2), bty='n')
 
 mods<-c(3,4,8)
-legend(xadj3,yadj,legend=colnames(fFirst.AICc)[mods],
+legend(xadj3,yadj,legend=colnames(pfFirst.AICc)[mods],
        lty=ltys[mods], col=Mcols[mods],lwd=1.5,
        pt.cex=1.1,cex=lcex, ncol=1, pt.lwd=0.8,
        title=expression(italic(k)==3), bty='n')
@@ -389,34 +432,38 @@ rect(xadj2-0.2,yadj+0.4,xadj2+0.4,yadj-1.5)
 text(xadj2+0.02, yadj+0.18, 'Models', adj=0,cex=1)
 
 par(mar=c(2.5,3,0.5,0))
-matplot(SScuts,fFirst.AICc,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,
+matplot(SScuts,pfFirst.AICc,las=1,type='l', 
+        col=Mcols,lty=ltys,cex=0.5,
+        ylim=c(0,0.7),lwd=1.5,log='x',
         ylab='Fraction in first rank',
         xlab='')
-  mtext('A',side=3,line=-1.25,at=5,cex=0.9)
-  mtext('AICc',side=3,line=0.3,at=mxSS/2,cex=1)
+  mtext('A',side=3,line=-1.25,at=mnSS,cex=0.9)
+  mtext('AICc',side=3,line=0.3,adj=0.5,cex=1)
   
 par(mar=c(3,3,0,0))
-matplot(SScuts,fSecnd.AICc,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,
+matplot(SScuts,pfSecnd.AICc,las=1,type='l', 
+        col=Mcols,lty=ltys,cex=0.5,
+        ylim=c(0,0.7),lwd=1.5,log='x',
         ylab='Fraction in second rank',
         xlab='Sample size greater than...')
-  mtext('B',side=3,line=-1.25,at=5,cex=0.9)
+  mtext('B',side=3,line=-1.25,at=mnSS,cex=0.9)
   
 par(mar=c(2.5,2,0.5,1))
-matplot(SScuts,fFirst.RMSD,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,
+matplot(SScuts,pfFirst.RMSD,las=1,type='l', 
+        col=Mcols,lty=ltys,cex=0.5,
+        ylim=c(0,0.7),lwd=1.5,log='x',
         ylab='',
         xlab='')
-  mtext('C',side=3,line=-1.25,at=5,cex=0.9)
-  mtext('RMSD',side=3,line=0.3,at=mxSS/2,cex=1)
+  mtext('C',side=3,line=-1.25,at=mnSS,cex=0.9)
+  mtext('RMSD',side=3,line=0.3,adj=0.5,cex=1)
   
 par(mar=c(3,2,0,1))
-matplot(SScuts,fSecnd.RMSD,las=1,type='l', col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,
+matplot(SScuts,pfSecnd.RMSD,las=1,type='l', 
+        col=Mcols,lty=ltys,cex=0.5,
+        ylim=c(0,0.7),lwd=1.5,log='x',
         ylab='',
         xlab='Sample size greater than...')
-  mtext('D',side=3,line=-1.25,at=5,cex=0.9)
+  mtext('D',side=3,line=-1.25,at=mnSS,cex=0.9)
 
 dev.off()
 
