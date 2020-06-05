@@ -53,31 +53,35 @@ colnames(RMSDs) <- sub('RMSD.', '', colnames(RMSDs))
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Delta-AIC and ranks
 minAICs <- apply(AICs, 1, min)
-delV.AIC <- AICs - minAICs
+delta.AIC <- AICs - minAICs
 rnks.AIC <- t(apply(AICs, 1, rank, ties.method='first'))
 colnames(rnks.AIC) <- colnames(AICs)
 
 # Define delta AIC cut-off for "indistinguishably well performing" models
-cut.AIC <- 2
+cutoff.AIC <- 2
 
 # "Delta-RMSD" and ranks
 minRMSDs <- apply(RMSDs, 1, min)
-delV.RMSD <- RMSDs - minRMSDs
+delta.RMSD <- RMSDs - minRMSDs
 rnks.RMSD <- t(apply(RMSDs, 1, rank, ties.method='first'))
 colnames(rnks.RMSD) <- colnames(RMSDs)
 
 
-# Define RMSD cut-off for "well performing" models
-# Calcualte feeding count averaged across all treatment in order to later determine which models have an RMSD that is less than x% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and then merge)
+# Define RMSD cut-off for "well performing" models ****relative on data****
+# Calculate feeding count averaged across all treatment in order to later determine which models have an RMSD that is less than x% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and then merge)
 mean.Nconsumed <- unlist(lapply(ffr.fits, 
                           function(x){mean(x$study.info$data.Nconsumed)}))
 mean.Nconsumed_boot <- unlist(lapply(ffr.fits, 
                            function(x){mean(x$study.info$data.Nconsumed.mean*x$study.info$data.n)}))
 mean.Nconsumed[which(is.na(mean.Nconsumed))] <- mean.Nconsumed_boot[which(!is.na(mean.Nconsumed_boot))]
 
-perc.cut <- 50
-RMSDcutoff <- perc.cut/100*mean.Nconsumed
-  
+perc.cut <- 10
+cutoff.RMSD <- (perc.cut/100)*mean.Nconsumed
+
+# Define delta-RMSD cut-off ****relative on best-performing model****
+perc.cut <- 1
+cutoff.delta.RMSD <- (perc.cut/100)*minRMSDs
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~
 # Figure of Rank orders
@@ -162,8 +166,8 @@ plot(1:nrow(rnks.AIC), 1:nrow(rnks.AIC),
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
   
   # Which models have delta-AIC within X=2 of best-performing model?
-  xats <-table(factor(which(delV.AIC < cut.AIC, arr.ind=T)[,1],
-                      levels=1:nrow(delV.AIC)))+0.5
+  xats <-table(factor(which(delta.AIC < cutoff.AIC, arr.ind=T)[,1],
+                      levels=1:nrow(delta.AIC)))+0.5
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
   segments(c(0.5, xats[-length(xats)]), yats, 
@@ -203,8 +207,13 @@ plot(1:nrow(rnks.RMSD), 1:nrow(rnks.RMSD),
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0),las=1)
   
   # Which models have a RMSD below the cut-off?
-  xats <-table(factor(which(RMSDs < RMSDcutoff, arr.ind=T)[,1],
-               levels=1:nrow(RMSDs)))+0.5
+  # xats <-table(factor(which(RMSDs < cutoff.RMSD, arr.ind=T)[,1],
+  #              levels=1:nrow(RMSDs)))+0.5
+  
+  # Which models have a delta-RMSD below the delta cut-off?
+  xats <-table(factor(which(delta.RMSD < cutoff.delta.RMSD, arr.ind=T)[,1],
+                      levels=1:nrow(RMSDs)))+0.5
+  
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
   segments(c(0.5, xats[-length(xats)]), yats, 
@@ -284,40 +293,40 @@ setwd(wd)
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # How many times is a single model the only best model by AIC?
-cnt_AIC_single<-sum(apply(delV.AIC < cut.AIC, 1, sum)==1)
+cnt_AIC_single<-sum(apply(delta.AIC < cutoff.AIC, 1, sum)==1)
 cnt_AIC_single
-cnt_AIC_single/nrow(delV.AIC)
+cnt_AIC_single/nrow(delta.AIC)
 
 #~~~~~
 # How often are *each of* the other models within 2 AIC units of the top model?
 r1Mod.AIC <- which.max(Cnt_AIC[1,])
-cnt_AIC<-apply(delV.AIC[rnks.AIC[,r1Mod.AIC]==1,-r1Mod.AIC] < cut.AIC, 2, sum)
+cnt_AIC<-apply(delta.AIC[rnks.AIC[,r1Mod.AIC]==1,-r1Mod.AIC] < cutoff.AIC, 2, sum)
 cnt_AIC
 
 # How often is any other model within 2 AIC units of the top model?
-cnt_AIC<-sum(apply(delV.AIC[rnks.AIC[,r1Mod.AIC]==1,-r1Mod.AIC] < cut.AIC, 1, sum)>0)
+cnt_AIC<-sum(apply(delta.AIC[rnks.AIC[,r1Mod.AIC]==1,-r1Mod.AIC] < cutoff.AIC, 1, sum)>0)
 cnt_AIC
 cnt_AIC/Cnt_AIC[1,r1Mod.AIC]
 
 #~~~~~
 # How often are other models within 2 AIC units of the 2nd-best model?
 r2Mod.AIC <- which(rank(-Cnt_AIC[1,])==2)
-cnt_AIC<-apply(delV.AIC[rnks.AIC[,r2Mod.AIC]==1,-r2Mod.AIC] < cut.AIC, 2, sum)
+cnt_AIC<-apply(delta.AIC[rnks.AIC[,r2Mod.AIC]==1,-r2Mod.AIC] < cutoff.AIC, 2, sum)
 cnt_AIC
 
 # How often is any other model within 2 AIC units of the 2nd-best model?
-cnt_AIC<-sum(apply(delV.AIC[rnks.AIC[,r2Mod.AIC]==1,-r2Mod.AIC] < cut.AIC, 1, sum)>0)
+cnt_AIC<-sum(apply(delta.AIC[rnks.AIC[,r2Mod.AIC]==1,-r2Mod.AIC] < cutoff.AIC, 1, sum)>0)
 cnt_AIC
 cnt_AIC/Cnt_AIC[1,r2Mod.AIC]
 
 #~~~~~
 # How often are other models within 2 AIC units of the 3rd-best model?
 r3Mod.AIC <- which(rank(-Cnt_AIC[1,])==3)
-cnt_AIC<-apply(delV.AIC[rnks.AIC[,r3Mod.AIC]==1,-r3Mod.AIC] < cut.AIC, 2, sum)
+cnt_AIC<-apply(delta.AIC[rnks.AIC[,r3Mod.AIC]==1,-r3Mod.AIC] < cutoff.AIC, 2, sum)
 cnt_AIC
 
 # How often is any other model within 2 AIC units of the 3rd-best model?
-cnt_AIC<-sum(apply(delV.AIC[rnks.AIC[,r3Mod.AIC]==1,-r3Mod.AIC] < cut.AIC, 1, sum)>0)
+cnt_AIC<-sum(apply(delta.AIC[rnks.AIC[,r3Mod.AIC]==1,-r3Mod.AIC] < cutoff.AIC, 1, sum)>0)
 cnt_AIC
 cnt_AIC/Cnt_AIC[1,r3Mod.AIC]
 
@@ -327,13 +336,13 @@ round(mean(minRMSDs/mean.Nconsumed)*100,2)
 round(range(minRMSDs/mean.Nconsumed)*100,2)
 
 # How many times is a single model the only best model by RMSD as judged by being below the performance criterion?
-cnt_RMSD_single<-sum(apply(RMSDs < RMSDcutoff, 1, sum)==1)
+cnt_RMSD_single<-sum(apply(RMSDs < cutoff.RMSD, 1, sum)==1)
 cnt_RMSD_single
-cnt_RMSD_single/nrow(delV.RMSD)
+cnt_RMSD_single/nrow(delta.RMSD)
 
-# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the RMSDcutoff performance criterion?
+# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.RMSD performance criterion?
 r1Mod.RMSD <- which.max(Cnt_RMSD[1,])
-cnt_RMSD <- apply(delV.RMSD[rnks.RMSD[,r1Mod.RMSD ]==1,] < RMSDcutoff, 2, sum)
+cnt_RMSD <- apply(delta.RMSD[rnks.RMSD[,r1Mod.RMSD ]==1,] < cutoff.RMSD, 2, sum)
 cnt_RMSD
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

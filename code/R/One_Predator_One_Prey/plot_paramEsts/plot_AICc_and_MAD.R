@@ -53,30 +53,34 @@ colnames(MADs) <- sub('MAD.', '', colnames(MADs))
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Delta-AICc and ranks
 minAICcs <- apply(AICcs, 1, min)
-delV.AICc <- AICcs - minAICcs
+delta.AICc <- AICcs - minAICcs
 rnks.AICc <- t(apply(AICcs, 1, rank, ties.method='first'))
 colnames(rnks.AICc) <- colnames(AICcs)
 
 # Define delta AICc cut-off for "indistinguishably well performing" models
-cut.AIC <- 2
+cutoff.AIC <- 2
 
 # "Delta-MAD" and ranks
 minMADs <- apply(MADs, 1, min)
-delV.MAD <- MADs - minMADs
+delta.MAD <- MADs - minMADs
 rnks.MAD <- t(apply(MADs, 1, rank, ties.method='first'))
 colnames(rnks.MAD) <- colnames(MADs)
 
 
 # Define MAD cut-off for "well performing" models
-# Calcualte feeding count averaged across all treatment in order to later determine which models have an MAD that is less than x% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and then merge)
+# Calculate feeding count averaged across all treatment in order to later determine which models have an MAD that is less than x% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and then merge)
 mean.Nconsumed <- unlist(lapply(ffr.fits, 
                           function(x){mean(x$study.info$data.Nconsumed)}))
 mean.Nconsumed_boot <- unlist(lapply(ffr.fits, 
                            function(x){mean(x$study.info$data.Nconsumed.mean*x$study.info$data.n)}))
 mean.Nconsumed[which(is.na(mean.Nconsumed))] <- mean.Nconsumed_boot[which(!is.na(mean.Nconsumed_boot))]
 
-perc.cut <- 50
-MADcutoff <- perc.cut/100*mean.Nconsumed
+perc.cut <- 10
+cutoff.MAD <- (perc.cut/100)*mean.Nconsumed
+
+# Define delta-MAD cut-off ****relative on best-performing model****
+perc.cut <- 1
+cutoff.delta.MAD <- (perc.cut/100)*minMADs
   
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~
@@ -162,8 +166,8 @@ plot(1:nrow(rnks.AICc), 1:nrow(rnks.AICc),
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
   
   # Which models have delta-AICc within X=2 of best-performing model?
-  xats <-table(factor(which(delV.AICc < cut.AIC, arr.ind=T)[,1],
-                      levels=1:nrow(delV.AICc)))+0.5
+  xats <-table(factor(which(delta.AICc < cutoff.AIC, arr.ind=T)[,1],
+                      levels=1:nrow(delta.AICc)))+0.5
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
   segments(c(0.5, xats[-length(xats)]), yats, 
@@ -203,8 +207,13 @@ plot(1:nrow(rnks.MAD), 1:nrow(rnks.MAD),
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0),las=1)
   
   # Which models have a MAD below the cut-off?
-  xats <-table(factor(which(MADs < MADcutoff, arr.ind=T)[,1],
-               levels=1:nrow(MADs)))+0.5
+  # xats <-table(factor(which(MADs < cutoff.MAD, arr.ind=T)[,1],
+  #              levels=1:nrow(MADs)))+0.5
+  
+  # Which models have a delta-MAD below the delta cut-off?
+  xats <-table(factor(which(delta.MAD < cutoff.delta.MAD, arr.ind=T)[,1],
+                      levels=1:nrow(MADs)))+0.5
+  
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
   segments(c(0.5, xats[-length(xats)]), yats, 
@@ -284,40 +293,40 @@ setwd(wd)
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # How many times is a single model the only best model by AICc?
-cnt_AICc_single<-sum(apply(delV.AICc < cut.AIC, 1, sum)==1)
+cnt_AICc_single<-sum(apply(delta.AICc < cutoff.AIC, 1, sum)==1)
 cnt_AICc_single
-cnt_AICc_single/nrow(delV.AICc)
+cnt_AICc_single/nrow(delta.AICc)
 
 #~~~~~
 # How often are *each of* the other models within 2 AICc units of the top model?
 r1Mod.AICc <- which.max(Cnt_AICc[1,])
-cnt_AICc<-apply(delV.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cut.AIC, 2, sum)
+cnt_AICc<-apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 2, sum)
 cnt_AICc
 
 # How often is any other model within 2 AICc units of the top model?
-cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cut.AIC, 1, sum)>0)
+cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 1, sum)>0)
 cnt_AICc
 cnt_AICc/Cnt_AICc[1,r1Mod.AICc]
 
 #~~~~~
 # How often are other models within 2 AICc units of the 2nd-best model?
 r2Mod.AICc <- which(rank(-Cnt_AICc[1,])==2)
-cnt_AICc<-apply(delV.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cut.AIC, 2, sum)
+cnt_AICc<-apply(delta.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cutoff.AIC, 2, sum)
 cnt_AICc
 
 # How often is any other model within 2 AICc units of the 2nd-best model?
-cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cut.AIC, 1, sum)>0)
+cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cutoff.AIC, 1, sum)>0)
 cnt_AICc
 cnt_AICc/Cnt_AICc[1,r2Mod.AICc]
 
 #~~~~~
 # How often are other models within 2 AICc units of the 3rd-best model?
 r3Mod.AICc <- which(rank(-Cnt_AICc[1,])==3)
-cnt_AICc<-apply(delV.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cut.AIC, 2, sum)
+cnt_AICc<-apply(delta.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cutoff.AIC, 2, sum)
 cnt_AICc
 
 # How often is any other model within 2 AICc units of the 3rd-best model?
-cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cut.AIC, 1, sum)>0)
+cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cutoff.AIC, 1, sum)>0)
 cnt_AICc
 cnt_AICc/Cnt_AICc[1,r3Mod.AICc]
 
@@ -327,13 +336,13 @@ round(mean(minMADs/mean.Nconsumed)*100,2)
 round(range(minMADs/mean.Nconsumed)*100,2)
 
 # How many times is a single model the only best model by MAD as judged by being below the performance criterion?
-cnt_MAD_single<-sum(apply(MADs < MADcutoff, 1, sum)==1)
+cnt_MAD_single<-sum(apply(MADs < cutoff.MAD, 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(delV.MAD)
+cnt_MAD_single/nrow(delta.MAD)
 
-# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the MADcutoff performance criterion?
+# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.MAD performance criterion?
 r1Mod.MAD <- which.max(Cnt_MAD[1,])
-cnt_MAD <- apply(delV.MAD[rnks.MAD[,r1Mod.MAD ]==1,] < MADcutoff, 2, sum)
+cnt_MAD <- apply(delta.MAD[rnks.MAD[,r1Mod.MAD ]==1,] < cutoff.MAD, 2, sum)
 cnt_MAD
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
