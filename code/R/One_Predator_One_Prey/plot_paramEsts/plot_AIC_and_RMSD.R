@@ -1,7 +1,3 @@
-# This script combines what used to be two seperate scripts
-# ("plot_AICc.R" and "plot_RMSD.R") into a single file in order to 
-# produce figures that contain both.
-
 source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
@@ -23,21 +19,21 @@ sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 labels <- paste0(labels, ' (',sample.sizes,')')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Grab summary of AICc and RMSE estimates across bootstrapped fits
+# Grab summary of AIC and RMSD estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
 
-# For AICc
-AICc.H1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.I'][[1]][stat]}))
-AICc.H2 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.II'][[1]][stat]}))
-AICc.BD <- unlist(lapply(ffr.fits, function(x){ x$AICc['Beddington.DeAngelis'][[1]][stat]}))
-AICc.CM <- unlist(lapply(ffr.fits, function(x){ x$AICc['Crowley.Martin'][[1]][stat]}))
-AICc.R <- unlist(lapply(ffr.fits, function(x){ x$AICc['Ratio'][[1]][stat]}))
-AICc.HV <- unlist(lapply(ffr.fits, function(x){ x$AICc['Hassell.Varley'][[1]][stat]}))
-AICc.AG <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Ginzburg'][[1]][stat]}))
-AICc.AA <- unlist(lapply(ffr.fits, function(x){ x$AICc['Arditi.Akcakaya'][[1]][stat]}))
+# For AIC
+AIC.H1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.I'][[1]][stat]}))
+AIC.H2 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.II'][[1]][stat]}))
+AIC.BD <- unlist(lapply(ffr.fits, function(x){ x$AIC['Beddington.DeAngelis'][[1]][stat]}))
+AIC.CM <- unlist(lapply(ffr.fits, function(x){ x$AIC['Crowley.Martin'][[1]][stat]}))
+AIC.R <- unlist(lapply(ffr.fits, function(x){ x$AIC['Ratio'][[1]][stat]}))
+AIC.HV <- unlist(lapply(ffr.fits, function(x){ x$AIC['Hassell.Varley'][[1]][stat]}))
+AIC.AG <- unlist(lapply(ffr.fits, function(x){ x$AIC['Arditi.Ginzburg'][[1]][stat]}))
+AIC.AA <- unlist(lapply(ffr.fits, function(x){ x$AIC['Arditi.Akcakaya'][[1]][stat]}))
 
-AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.R, AICc.HV, AICc.AG, AICc.AA)
-colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
+AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.R, AIC.HV, AIC.AG, AIC.AA)
+colnames(AICs) <- sub('AIC.', '', colnames(AICs))
 
 # Repeat for RMSD
 RMSD.H1 <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Holling.I'][[1]][stat]}))
@@ -55,13 +51,13 @@ colnames(RMSDs) <- sub('RMSD.', '', colnames(RMSDs))
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Calculations
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Delta-AICc and ranks
-minAICcs <- apply(AICcs, 1, min)
-delV.AICc <- AICcs - minAICcs
-rnks.AICc <- t(apply(AICcs, 1, rank, ties.method='first'))
-colnames(rnks.AICc) <- colnames(AICcs)
+# Delta-AIC and ranks
+minAICs <- apply(AICs, 1, min)
+delV.AIC <- AICs - minAICs
+rnks.AIC <- t(apply(AICs, 1, rank, ties.method='first'))
+colnames(rnks.AIC) <- colnames(AICs)
 
-# Define delta AICc cut-off for "indistinguishably well performing" models
+# Define delta AIC cut-off for "indistinguishably well performing" models
 cut.AIC <- 2
 
 # "Delta-RMSD" and ranks
@@ -95,7 +91,7 @@ Mcols<-c(CR1[parm.k.1],CR2[parm.k.2])
 Mpch <- c(rep(21,4),rep(22,4))
 Mpch2 <- c(NA,NA,NA,21,NA,NA,22,NA) # overlay symbols to differentiate equal k models
 
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_and_RMSD_ranks.pdf',
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_and_RMSD_ranks.pdf',
     height=6.5,width=3)
 nf<-layout(matrix(c(1,1,2,3),ncol=2,byrow=T), heights=c(0.7,6.3,6.3), widths=c(2,2,2))
 # layout.show(nf)
@@ -110,34 +106,34 @@ plot(0,0,ann=F,type='n',axes=F)
   xadj3 <- 0.1
   
   mods<-c(1,5)
-  legend(xadj1,vadj,legend=colnames(rnks.AICc)[mods],
+  legend(xadj1,vadj,legend=colnames(rnks.AIC)[mods],
          pch=Mpch[mods], pt.bg=Mcols[mods], col='black', bg='white',
          pt.cex=1.1,cex=0.6, ncol=1, pt.lwd=0.8, 
          title=expression(italic(k)==1), bty='n')
   # overlay secondary symbols
-  legend(xadj1,vadj,legend=colnames(rnks.AICc)[mods],
+  legend(xadj1,vadj,legend=colnames(rnks.AIC)[mods],
          pch=Mpch2[mods], pt.bg='white', col='black', bg=NA,
          pt.cex=0.3,cex=0.6, ncol=1, pt.lwd=0.3,
          title=expression(italic(k)==1), bty='n')
   
   mods<-c(2,6,7)
-  legend(xadj2,vadj,legend=colnames(rnks.AICc)[mods],
+  legend(xadj2,vadj,legend=colnames(rnks.AIC)[mods],
          pch=Mpch[mods], pt.bg=Mcols[mods], col='black', bg='white',
          pt.cex=1.1,cex=0.6, ncol=1, pt.lwd=0.8,
          title=expression(italic(k)==2), bty='n')
   # overlay secondary symbols
-  legend(xadj2,vadj,legend=colnames(rnks.AICc)[mods],
+  legend(xadj2,vadj,legend=colnames(rnks.AIC)[mods],
          pch=Mpch2[mods], pt.bg='white', col='black', bg=NA,
          pt.cex=0.3,cex=0.6, ncol=1, pt.lwd=0.3,
          title=expression(italic(k)==2), bty='n')
   
   mods<-c(3,4,8)
-  legend(xadj3,vadj,legend=colnames(rnks.AICc)[mods],
+  legend(xadj3,vadj,legend=colnames(rnks.AIC)[mods],
          pch=Mpch[mods], pt.bg=Mcols[mods], col='black', bg='white',
          pt.cex=1.1,cex=0.6, ncol=1, pt.lwd=0.8,
          title=expression(italic(k)==3), bty='n')
   # overlay secondary symbols
-  legend(xadj3,vadj,legend=colnames(rnks.AICc)[mods],
+  legend(xadj3,vadj,legend=colnames(rnks.AIC)[mods],
          pch=Mpch2[mods], pt.bg='white', col='black', bg=NA,
          pt.cex=0.3,cex=0.6, ncol=1, pt.lwd=0.3,
          title=expression(italic(k)==3), bty='n')
@@ -145,29 +141,29 @@ plot(0,0,ann=F,type='n',axes=F)
   rect(xadj2-0.23,vadj+0.3,xadj2+0.43,vadj-1.55)
   text(xadj2,vadj+0.1,'Models', adj=0, cex=0.8)
   
-  text(-0.7,-0.9,'(A) AICc',cex=0.75)
+  text(-0.7,-0.9,'(A) AIC',cex=0.75)
   text(0.7,-0.9,'(B) RMSD',cex=0.75)
 
 
-# AICc results ~~~~~~~~~~~~~~~~~~~~~~~~
+# AIC results ~~~~~~~~~~~~~~~~~~~~~~~~
 par(mar=c(2,0.1,0,3.2))
 par(mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i')
-plot(1:nrow(rnks.AICc), 1:nrow(rnks.AICc),
+plot(1:nrow(rnks.AIC), 1:nrow(rnks.AIC),
        type='n', yaxt='n',
-       xlim=c(1,ncol(rnks.AICc)),
-       ylim=c(0,nrow(rnks.AICc)+1),
+       xlim=c(1,ncol(rnks.AIC)),
+       ylim=c(0,nrow(rnks.AIC)+1),
        xlab='',
        ylab='',
        axes=F)
   title(xlab='Model rank',line=1)
   rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
-  axis(4, at=1:nrow(rnks.AICc), labels=labels, cex.axis=0.5, las=2, 
+  axis(4, at=1:nrow(rnks.AIC), labels=labels, cex.axis=0.5, las=2, 
        hadj=0.5, mgp=c(0,3.2,0))
   axis(1, cex.axis=0.7, mgp=c(1.25,0,0))
   
-  # Which models have delta-AICc within X=2 of best-performing model?
-  xats <-table(factor(which(delV.AICc < cut.AIC, arr.ind=T)[,1],
-                      levels=1:nrow(delV.AICc)))+0.5
+  # Which models have delta-AIC within X=2 of best-performing model?
+  xats <-table(factor(which(delV.AIC < cut.AIC, arr.ind=T)[,1],
+                      levels=1:nrow(delV.AIC)))+0.5
   yats <- 0:(length(xats))+0.5
   segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
   segments(c(0.5, xats[-length(xats)]), yats, 
@@ -177,13 +173,13 @@ plot(1:nrow(rnks.AICc), 1:nrow(rnks.AICc),
   pyats<-rep(0:(length(xats)),each=2)+0.5
   polygon(pxats,pyats,col='grey90',border=NA)
   
-  for(m in 1:ncol(rnks.AICc)){
-    points(rnks.AICc[,m], 1:nrow(rnks.AICc), 
+  for(m in 1:ncol(rnks.AIC)){
+    points(rnks.AIC[,m], 1:nrow(rnks.AIC), 
            type='p',  col='black', 
            bg=Mcols[m], pch=Mpch[m],
            cex=1, lwd=0.2)
     # Overlay secondary symbos
-    points(rnks.AICc[,m], 1:nrow(rnks.AICc), 
+    points(rnks.AIC[,m], 1:nrow(rnks.AIC), 
            type='p',  col='black', 
            bg='white',pch=Mpch2[m],
            cex=0.3, lwd=0.2)
@@ -238,14 +234,14 @@ dev.off()
 # Overall summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Count times each model is in each rank
-mod.order <- colnames(rnks.AICc)
+mod.order <- colnames(rnks.AIC)
 mods.n <- length(mod.order)
-Cnt_AICc <- apply(rnks.AICc,2,function(x){table(factor(x,levels=1:mods.n))})
-Cnt_AICc <- Cnt_AICc[,mod.order]
-Cnt_AICc
-sum(Cnt_AICc[1,c('BD','CM','AA')])
-pCnt_AICc <- round(prop.table(Cnt_AICc,2)*100,1)
-pCnt_AICc
+Cnt_AIC <- apply(rnks.AIC,2,function(x){table(factor(x,levels=1:mods.n))})
+Cnt_AIC <- Cnt_AIC[,mod.order]
+Cnt_AIC
+sum(Cnt_AIC[1,c('BD','CM','AA')])
+pCnt_AIC <- round(prop.table(Cnt_AIC,2)*100,1)
+pCnt_AIC
 
 Cnt_RMSD <- apply(rnks.RMSD,2,function(x){table(factor(x,levels=1:mods.n))})
 Cnt_RMSD <- Cnt_RMSD[,mod.order]
@@ -255,19 +251,19 @@ pCnt_RMSD <- round(prop.table(Cnt_RMSD,2)*100,1)
 pCnt_RMSD
 
 # Either pass counts or combine counts and proportions before exporting table
-tab_Cnt_AICc <- Cnt_AICc
-# bCnt_AICc <- paste0(Cnt_AICc,' (',pCnt_AICc,')')
-# bCnt_AICc[Cnt_AICc==0] <- 0
-# tab_Cnt_AICc <- matrix(bCnt_AICc, nrow=nrow(Cnt_AICc), byrow=T, dimnames=dimnames(Cnt_AICc))
+tab_Cnt_AIC <- Cnt_AIC
+# bCnt_AIC <- paste0(Cnt_AIC,' (',pCnt_AIC,')')
+# bCnt_AIC[Cnt_AIC==0] <- 0
+# tab_Cnt_AIC <- matrix(bCnt_AIC, nrow=nrow(Cnt_AIC), byrow=T, dimnames=dimnames(Cnt_AIC))
 
 tab_Cnt_RMSD <- Cnt_RMSD
 # bCnt_RMSD <- paste0(Cnt_RMSD,' (',pCnt_RMSD,')')
 # bCnt_RMSD[Cnt_RMSD==0] <- 0
 # tab_Cnt_RMSD <- matrix(bCnt_RMSD, nrow=nrow(Cnt_RMSD), byrow=T, dimnames=dimnames(Cnt_RMSD))
 
-tab_Cnt <- rbind(c(rep('',3),'AICc',rep('',4)),
-                 tab_Cnt_AICc, 
-                 rep('',ncol(tab_Cnt_AICc)), 
+tab_Cnt <- rbind(c(rep('',3),'AIC',rep('',4)),
+                 tab_Cnt_AIC, 
+                 rep('',ncol(tab_Cnt_AIC)), 
                  c(rep('',3),'RMSD',rep('',4)),
                  tab_Cnt_RMSD)
 
@@ -276,9 +272,9 @@ tab_Cnt <- rbind(c(rep('',3),'AICc',rep('',4)),
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_tables/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AICc_and_RMSD_rankings.tex',label='table:AICc_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$ or by RMSD.')
+latex(tab_Cnt,file='OnePredOnePrey_AIC_and_RMSD_rankings.tex',label='table:AIC_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC$ or by RMSD.')
 
-# latex(tab_Cnt_AICc,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
+# latex(tab_Cnt_AIC,file='OnePredOnePrey_AIC_rankings.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 # 
 # latex(tab_Cnt_RMSD,file='OnePredOnePrey_RMSD_rankings.tex',label='table:RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by the root mean square deviation (RMSD).')
 
@@ -287,43 +283,43 @@ setwd(wd)
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
-# How many times is a single model the only best model by AICc?
-cnt_AICc_single<-sum(apply(delV.AICc < cut.AIC, 1, sum)==1)
-cnt_AICc_single
-cnt_AICc_single/nrow(delV.AICc)
+# How many times is a single model the only best model by AIC?
+cnt_AIC_single<-sum(apply(delV.AIC < cut.AIC, 1, sum)==1)
+cnt_AIC_single
+cnt_AIC_single/nrow(delV.AIC)
 
 #~~~~~
-# How often are *each of* the other models within 2 AICc units of the top model?
-r1Mod.AICc <- which.max(Cnt_AICc[1,])
-cnt_AICc<-apply(delV.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cut.AIC, 2, sum)
-cnt_AICc
+# How often are *each of* the other models within 2 AIC units of the top model?
+r1Mod.AIC <- which.max(Cnt_AIC[1,])
+cnt_AIC<-apply(delV.AIC[rnks.AIC[,r1Mod.AIC]==1,-r1Mod.AIC] < cut.AIC, 2, sum)
+cnt_AIC
 
-# How often is any other model within 2 AICc units of the top model?
-cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cut.AIC, 1, sum)>0)
-cnt_AICc
-cnt_AICc/Cnt_AICc[1,r1Mod.AICc]
-
-#~~~~~
-# How often are other models within 2 AICc units of the 2nd-best model?
-r2Mod.AICc <- which(rank(-Cnt_AICc[1,])==2)
-cnt_AICc<-apply(delV.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cut.AIC, 2, sum)
-cnt_AICc
-
-# How often is any other model within 2 AICc units of the 2nd-best model?
-cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cut.AIC, 1, sum)>0)
-cnt_AICc
-cnt_AICc/Cnt_AICc[1,r2Mod.AICc]
+# How often is any other model within 2 AIC units of the top model?
+cnt_AIC<-sum(apply(delV.AIC[rnks.AIC[,r1Mod.AIC]==1,-r1Mod.AIC] < cut.AIC, 1, sum)>0)
+cnt_AIC
+cnt_AIC/Cnt_AIC[1,r1Mod.AIC]
 
 #~~~~~
-# How often are other models within 2 AICc units of the 3rd-best model?
-r3Mod.AICc <- which(rank(-Cnt_AICc[1,])==3)
-cnt_AICc<-apply(delV.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cut.AIC, 2, sum)
-cnt_AICc
+# How often are other models within 2 AIC units of the 2nd-best model?
+r2Mod.AIC <- which(rank(-Cnt_AIC[1,])==2)
+cnt_AIC<-apply(delV.AIC[rnks.AIC[,r2Mod.AIC]==1,-r2Mod.AIC] < cut.AIC, 2, sum)
+cnt_AIC
 
-# How often is any other model within 2 AICc units of the 3rd-best model?
-cnt_AICc<-sum(apply(delV.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cut.AIC, 1, sum)>0)
-cnt_AICc
-cnt_AICc/Cnt_AICc[1,r3Mod.AICc]
+# How often is any other model within 2 AIC units of the 2nd-best model?
+cnt_AIC<-sum(apply(delV.AIC[rnks.AIC[,r2Mod.AIC]==1,-r2Mod.AIC] < cut.AIC, 1, sum)>0)
+cnt_AIC
+cnt_AIC/Cnt_AIC[1,r2Mod.AIC]
+
+#~~~~~
+# How often are other models within 2 AIC units of the 3rd-best model?
+r3Mod.AIC <- which(rank(-Cnt_AIC[1,])==3)
+cnt_AIC<-apply(delV.AIC[rnks.AIC[,r3Mod.AIC]==1,-r3Mod.AIC] < cut.AIC, 2, sum)
+cnt_AIC
+
+# How often is any other model within 2 AIC units of the 3rd-best model?
+cnt_AIC<-sum(apply(delV.AIC[rnks.AIC[,r3Mod.AIC]==1,-r3Mod.AIC] < cut.AIC, 1, sum)>0)
+cnt_AIC
+cnt_AIC/Cnt_AIC[1,r3Mod.AIC]
 
 #~~~~~~~~~~~~~~~~~~~~~~
 # Normalized-RMSD statistics of best-performing model
@@ -354,27 +350,27 @@ median(sample.sizes[sample.sizes<600])
 mxSS <- 300
 mnSS <- min(sample.sizes)
 SScuts <- seq(mnSS,mxSS,by=1)
-fFirst.AICc<-fSecnd.AICc<-fFirst.RMSD<-fSecnd.RMSD<-dim(0)
-pfFirst.AICc<-pfSecnd.AICc<-pfFirst.RMSD<-pfSecnd.RMSD<-dim(0)
+fFirst.AIC<-fSecnd.AIC<-fFirst.RMSD<-fSecnd.RMSD<-dim(0)
+pfFirst.AIC<-pfSecnd.AIC<-pfFirst.RMSD<-pfSecnd.RMSD<-dim(0)
 for(SScut in SScuts){
-  Cnt_AICc<-apply(rnks.AICc[sample.sizes>=SScut,],2, 
+  Cnt_AIC<-apply(rnks.AIC[sample.sizes>=SScut,],2, 
                   function(x){
                     table(factor(x,levels=1:mods.n))})
-  Cnt_AICc <- Cnt_AICc[,mod.order]
-  pCnt_AICc <- prop.table(Cnt_AICc,2)
+  Cnt_AIC <- Cnt_AIC[,mod.order]
+  pCnt_AIC <- prop.table(Cnt_AIC,2)
   Cnt_RMSD<-apply(rnks.RMSD[sample.sizes>=SScut,],2, 
                   function(x){
                     table(factor(x,levels=1:mods.n))})
   Cnt_RMSD <- Cnt_RMSD[,mod.order]
   pCnt_RMSD <- prop.table(Cnt_RMSD,2)
 
-  fFirst.AICc <- rbind(fFirst.AICc,Cnt_AICc[1,])
-  fSecnd.AICc <- rbind(fSecnd.AICc,Cnt_AICc[2,])
+  fFirst.AIC <- rbind(fFirst.AIC,Cnt_AIC[1,])
+  fSecnd.AIC <- rbind(fSecnd.AIC,Cnt_AIC[2,])
   fFirst.RMSD <- rbind(fFirst.RMSD,Cnt_RMSD[1,])
   fSecnd.RMSD <- rbind(fSecnd.RMSD,Cnt_RMSD[2,])
   
-  pfFirst.AICc <- rbind(pfFirst.AICc,pCnt_AICc[1,])
-  pfSecnd.AICc <- rbind(pfSecnd.AICc,pCnt_AICc[2,])
+  pfFirst.AIC <- rbind(pfFirst.AIC,pCnt_AIC[1,])
+  pfSecnd.AIC <- rbind(pfSecnd.AIC,pCnt_AIC[2,])
   pfFirst.RMSD <- rbind(pfFirst.RMSD,pCnt_RMSD[1,])
   pfSecnd.RMSD <- rbind(pfSecnd.RMSD,pCnt_RMSD[2,])
 
@@ -386,10 +382,10 @@ sum(sample.sizes>=mxSS)
 # What are stats at sample size of X?
 s=80
 length(sample.sizes[sample.sizes>=s])
-fFirst.AICc[which(SScuts==s),]
-round(pfFirst.AICc[which(SScuts==s),],3)*100
-fSecnd.AICc[which(SScuts==s),]
-round(pfSecnd.AICc[which(SScuts==s),],3)*100
+fFirst.AIC[which(SScuts==s),]
+round(pfFirst.AIC[which(SScuts==s),],3)*100
+fSecnd.AIC[which(SScuts==s),]
+round(pfSecnd.AIC[which(SScuts==s),],3)*100
 
 fFirst.RMSD[which(SScuts==s),]
 round(pfFirst.RMSD[which(SScuts==s),],3)*100
@@ -403,7 +399,7 @@ round(pfSecnd.RMSD[which(SScuts==s),],3)*100
 Mcols[c(1,5)]<-'grey40'
 ltys <- c(1,1,1,6,2,2,3,1)
 
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_and_RMSD_toprankBySS.pdf',
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_and_RMSD_toprankBySS.pdf',
     height=4,width=5)
 par(mar=c(2,6.5,4,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.8)
 nf<-layout(matrix(c(1,1,2,4,3,5),ncol=2,byrow=T), heights=c(1.2,3,3)) 
@@ -420,19 +416,19 @@ yadj <- 0.5
 lcex <- 0.7
 
 mods<-c(1,5)
-legend(xadj1,yadj,legend=colnames(pfFirst.AICc)[mods],
+legend(xadj1,yadj,legend=colnames(pfFirst.AIC)[mods],
        lty=ltys[mods], col=Mcols[mods],lwd=1.5,
        cex=lcex, ncol=1, pt.lwd=0.8, 
        title=expression(italic(k)==1), bty='n')
 
 mods<-c(2,6,7)
-legend(xadj2,yadj,legend=colnames(pfFirst.AICc)[mods],
+legend(xadj2,yadj,legend=colnames(pfFirst.AIC)[mods],
        lty=ltys[mods], col=Mcols[mods],lwd=1.5,
        pt.cex=1.1,cex=lcex, ncol=1, pt.lwd=0.8,
        title=expression(italic(k)==2), bty='n')
 
 mods<-c(3,4,8)
-legend(xadj3,yadj,legend=colnames(pfFirst.AICc)[mods],
+legend(xadj3,yadj,legend=colnames(pfFirst.AIC)[mods],
        lty=ltys[mods], col=Mcols[mods],lwd=1.5,
        pt.cex=1.1,cex=lcex, ncol=1, pt.lwd=0.8,
        title=expression(italic(k)==3), bty='n')
@@ -441,16 +437,16 @@ rect(xadj2-0.2,yadj+0.4,xadj2+0.4,yadj-1.5)
 text(xadj2+0.02, yadj+0.18, 'Models', adj=0,cex=1)
 
 par(mar=c(2.5,3,0.5,0))
-matplot(SScuts,pfFirst.AICc,las=1,type='l', 
+matplot(SScuts,pfFirst.AIC,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
         ylim=c(0,0.7),lwd=1.5,log='x',
         ylab='Fraction in first rank',
         xlab='')
   mtext('A',side=3,line=-1.25,at=mnSS,cex=0.9)
-  mtext('AICc',side=3,line=0.3,adj=0.5,cex=1)
+  mtext('AIC',side=3,line=0.3,adj=0.5,cex=1)
   
 par(mar=c(3,3,0,0))
-matplot(SScuts,pfSecnd.AICc,las=1,type='l', 
+matplot(SScuts,pfSecnd.AIC,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
         ylim=c(0,0.7),lwd=1.5,log='x',
         ylab='Fraction in second rank',
