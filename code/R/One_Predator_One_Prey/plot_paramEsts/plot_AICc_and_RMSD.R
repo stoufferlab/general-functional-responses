@@ -58,7 +58,7 @@ colnames(RMSDs) <- sub('RMSD.', '', colnames(RMSDs))
 # Delta-AICc and ranks
 minAICcs <- apply(AICcs, 1, min)
 delV.AICc <- AICcs - minAICcs
-rnks.AICc <- t(apply(delV.AICc, 1, rank, ties.method='first'))
+rnks.AICc <- t(apply(AICcs, 1, rank, ties.method='first'))
 colnames(rnks.AICc) <- colnames(AICcs)
 
 # Define delta AICc cut-off for "indistinguishably well performing" models
@@ -67,7 +67,7 @@ cut.AIC <- 2
 # "Delta-RMSD" and ranks
 minRMSDs <- apply(RMSDs, 1, min)
 delV.RMSD <- RMSDs - minRMSDs
-rnks.RMSD <- t(apply(delV.RMSD, 1, rank, ties.method='first'))
+rnks.RMSD <- t(apply(RMSDs, 1, rank, ties.method='first'))
 colnames(rnks.RMSD) <- colnames(RMSDs)
 
 
@@ -265,7 +265,11 @@ tab_Cnt_RMSD <- Cnt_RMSD
 # bCnt_RMSD[Cnt_RMSD==0] <- 0
 # tab_Cnt_RMSD <- matrix(bCnt_RMSD, nrow=nrow(Cnt_RMSD), byrow=T, dimnames=dimnames(Cnt_RMSD))
 
-tab_Cnt <- rbind(tab_Cnt_AICc, rep('',ncol(tab_Cnt_AICc)), tab_Cnt_RMSD)
+tab_Cnt <- rbind(c(rep('',3),'AICc',rep('',4)),
+                 tab_Cnt_AICc, 
+                 rep('',ncol(tab_Cnt_AICc)), 
+                 c(rep('',3),'RMSD',rep('',4)),
+                 tab_Cnt_RMSD)
 
 # ~~~~~~~~~~~~~~~
 # Export to LaTeX
@@ -323,17 +327,17 @@ cnt_AICc/Cnt_AICc[1,r3Mod.AICc]
 
 #~~~~~~~~~~~~~~~~~~~~~~
 # Normalized-RMSD statistics of best-performing model
-mean(RMSDs[rnks.RMSD==1])
-range(RMSDs[rnks.RMSD==1]))
+round(mean(minRMSDs/mean.Nconsumed)*100,2)
+round(range(minRMSDs/mean.Nconsumed)*100,2)
 
-# How many times is a single model the only best model by AICc?
+# How many times is a single model the only best model by RMSD as judged by being below the performance criterion?
 cnt_RMSD_single<-sum(apply(RMSDs < RMSDcutoff, 1, sum)==1)
 cnt_RMSD_single
 cnt_RMSD_single/nrow(delV.RMSD)
 
-# How often are models other than the overall top-peforming model within the RMSDcutoff (=1%) performance criterion?
+# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the RMSDcutoff performance criterion?
 r1Mod.RMSD <- which.max(Cnt_RMSD[1,])
-cnt_RMSD<-apply(delV.RMSD[rnks.RMSD[,r1Mod.RMSD ]==1,] < RMSDcutoff, 2, sum)
+cnt_RMSD <- apply(delV.RMSD[rnks.RMSD[,r1Mod.RMSD ]==1,] < RMSDcutoff, 2, sum)
 cnt_RMSD
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -386,6 +390,11 @@ fFirst.AICc[which(SScuts==s),]
 round(pfFirst.AICc[which(SScuts==s),],3)*100
 fSecnd.AICc[which(SScuts==s),]
 round(pfSecnd.AICc[which(SScuts==s),],3)*100
+
+fFirst.RMSD[which(SScuts==s),]
+round(pfFirst.RMSD[which(SScuts==s),],3)*100
+fSecnd.RMSD[which(SScuts==s),]
+round(pfSecnd.RMSD[which(SScuts==s),],3)*100
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Figure of top two rankings as a function of sample size

@@ -103,9 +103,9 @@ setwd(wd)
 
 
 # Table of data sets by confidence interval type
-load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
-labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
-method <- unlist(lapply(ffr.fits, function(x) x$profile$method))
-table(method)
-CI.method <- data.frame(DataSet=labels, Method=method)
+# load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
+# labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
+# method <- unlist(lapply(ffr.fits, function(x) x$profile$method))
+# table(method)
+# CI.method <- data.frame(DataSet=labels, Method=method)
 
