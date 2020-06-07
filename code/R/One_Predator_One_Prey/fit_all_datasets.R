@@ -1,3 +1,6 @@
+# Much of this could be significantly cleaned up by using lapply statments
+# (see One_Predator_Two_Prey > fit_all_datasets.R).
+
 rm(list = ls())
 # set to FALSE if you want to watch messages in real time
 # or TRUE to have them silently saved to file instead.
@@ -16,10 +19,11 @@ source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/AA_method.R')
 source('../lib/set_params.R')
-source('../lib/RMSD.R')
+source('../lib/resid_metrics.R')
+# source('../lib/RMSD.R')
 source('../lib/plot_coefs.R')
-source('../lib/holling_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
-source('../lib/ratio_method_one_predator_one_prey.R') # takes a while to load because of C++ compiling
+source('../lib/holling_method_one_predator_one_prey.R') # may throw ignorable error and takes a while to load because of C++ compiling
+source('../lib/ratio_method_one_predator_one_prey.R') # may throw ignorable error and takes a while to load because of C++ compiling
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 library(progress)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -176,10 +180,15 @@ for(i in 1:length(datasets)){
 					# aicc.sn2 <- aicc.sn3 <- vector("list",boot.reps)
 					aicc.ratio <- aicc.ag <- aicc.hv <- aicc.aa <- rep(NA,boot.reps)
 
-					# create containers for RMSD values of all fits
+					# create containers for Root Mean Square Deviation (RMSD) values of all fits
 					rmsd.hollingI <- rmsd.hollingII <- rmsd.bd <- rmsd.cm <- rmsd.sn1 <- rep(NA,boot.reps)
 					# RMSD.sn2 <- RMSD.sn3 <- vector("list",boot.reps)
 					rmsd.ratio <- rmsd.ag <- rmsd.hv <- rmsd.aa <- rep(NA,boot.reps)
+					
+					# create containers for Mean Absolute Deviation (MAD) values of all fits
+					mad.hollingI <- mad.hollingII <- mad.bd <- mad.cm <- mad.sn1 <- rep(NA,boot.reps)
+					# mad.sn2 <- mad.sn3 <- vector("list",boot.reps)
+					mad.ratio <- mad.ag <- mad.hv <- mad.aa <- rep(NA,boot.reps)
 
 					# create containers for parameter estimates using first bootstrap as a template
 					boots.hollingI <- boots.hollingII <- boots.bd <- array(NA, c(1,1,boot.reps))
@@ -234,13 +243,21 @@ for(i in 1:length(datasets)){
 					# aicc.sn2[[b]] <- AICc(ffr.sn2)
 					# aicc.sn3[[b]] <- AICc(ffr.sn3)
 
-					rmsd.hollingI[[b]] <- RMSD(ffr.hollingI)
-					rmsd.hollingII[[b]] <- RMSD(ffr.hollingII)
-					rmsd.bd[[b]] <- RMSD(ffr.bd)
-					rmsd.cm[[b]] <- RMSD(ffr.cm)
-					rmsd.sn1[[b]] <- RMSD(ffr.sn1)
-					# RMSD.sn2[[b]] <- RMSD(d, ffr.sn2, this.study, 'Stouffer.Novak.II')
-					# RMSD.sn3[[b]] <- RMSD(d, ffr.sn3, this.study, 'Stouffer.Novak.III')
+					rmsd.hollingI[[b]] <- resid.metric(ffr.hollingI, metric='RMSD')
+					rmsd.hollingII[[b]] <- resid.metric(ffr.hollingII, metric='RMSD')
+					rmsd.bd[[b]] <- resid.metric(ffr.bd, metric='RMSD')
+					rmsd.cm[[b]] <- resid.metric(ffr.cm, metric='RMSD')
+					rmsd.sn1[[b]] <- resid.metric(ffr.sn1, metric='RMSD')
+					# rmsd.sn2[[b]] <- resid.metric(d, ffr.sn2, metric='RMSD')
+					# rmsd.sn3[[b]] <- resid.metric(d, ffr.sn3, metric='RMSD')
+					
+					mad.hollingI[[b]] <- resid.metric(ffr.hollingI, metric='MAD')
+					mad.hollingII[[b]] <- resid.metric(ffr.hollingII, metric='MAD')
+					mad.bd[[b]] <- resid.metric(ffr.bd, metric='MAD')
+					mad.cm[[b]] <- resid.metric(ffr.cm, metric='MAD')
+					mad.sn1[[b]] <- resid.metric(ffr.sn1, metric='MAD')
+					# mad.sn2[[b]] <- resid.metric(d, ffr.sn2, metric='MAD')
+					# mad.sn3[[b]] <- resid.metric(d, ffr.sn3, metric='MAD')
 				}
 
 				if(grepl("R", this.study$runswith)){
@@ -259,10 +276,15 @@ for(i in 1:length(datasets)){
 					aicc.hv[[b]] <- AICc(ffr.hv)
 					aicc.aa[[b]] <- AICc(ffr.aa)
 
-					rmsd.ratio[[b]] <- RMSD(ffr.ratio)
-					rmsd.ag[[b]] <- RMSD(ffr.ag)
-					rmsd.hv[[b]] <- RMSD(ffr.hv)
-					rmsd.aa[[b]] <- RMSD(ffr.aa)
+					rmsd.ratio[[b]] <- resid.metric(ffr.ratio, metric='RMSD')
+					rmsd.ag[[b]] <- resid.metric(ffr.ag, metric='RMSD')
+					rmsd.hv[[b]] <- resid.metric(ffr.hv, metric='RMSD')
+					rmsd.aa[[b]] <- resid.metric(ffr.aa, metric='RMSD')
+					
+					mad.ratio[[b]] <- resid.metric(ffr.ratio, metric='MAD')
+					mad.ag[[b]] <- resid.metric(ffr.ag, metric='MAD')
+					mad.hv[[b]] <- resid.metric(ffr.hv, metric='MAD')
+					mad.aa[[b]] <- resid.metric(ffr.aa, metric='MAD')
 				}
 
 				# Save the estimates for this rep to the array of estimates
@@ -344,6 +366,14 @@ for(i in 1:length(datasets)){
 			RMSD.sn1 <- summarize.boots(rmsd.sn1)
 			# RMSD.sn2 <- summarize.boots(RMSD.sn2)
 			# RMSD.sn3 <- summarize.boots(RMSD.sn3)
+			
+			MAD.hollingI <- summarize.boots(mad.hollingI)
+			MAD.hollingII <- summarize.boots(mad.hollingII)
+			MAD.bd <- summarize.boots(mad.bd)
+			MAD.cm <- summarize.boots(mad.cm)
+			MAD.sn1 <- summarize.boots(mad.sn1)
+			# MAD.sn2 <- summarize.boots(MAD.sn2)
+			# MAD.sn3 <- summarize.boots(MAD.sn3)
 		}
 
 		ests.ratio <- ests.ag <- ests.hv <- ests.aa <- ests.aam <- NA
@@ -351,6 +381,7 @@ for(i in 1:length(datasets)){
 		AIC.ratio <- AIC.ag <- AIC.hv <- AIC.aa <- AIC.aam <- NA
 		AICc.ratio <- AICc.ag <- AICc.hv <- AICc.aa <- AICc.aam <- NA
 		RMSD.ratio <- RMSD.ag <- RMSD.hv <- RMSD.aa <- RMSD.aam <- NA
+		MAD.ratio <- MAD.ag <- MAD.hv <- MAD.aa <- MAD.aam <- NA
 		if(grepl("R", this.study$runswith)){
 			ests.ratio <- as.array(apply(boots.ratio,c(1,2), summarize.boots))
 			ests.ag <- as.array(apply(boots.ag,c(1,2), summarize.boots))
@@ -379,6 +410,11 @@ for(i in 1:length(datasets)){
 			RMSD.ag <- summarize.boots(rmsd.ag)
 			RMSD.hv <- summarize.boots(rmsd.hv)
 			RMSD.aa <- summarize.boots(rmsd.aa)
+			
+			MAD.ratio <- summarize.boots(mad.ratio)
+			MAD.ag <- summarize.boots(mad.ag)
+			MAD.hv <- summarize.boots(mad.hv)
+			MAD.aa <- summarize.boots(mad.aa)
 		}
 
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -471,6 +507,19 @@ for(i in 1:length(datasets)){
 				Arditi.Ginzburg = RMSD.ag,
 				Hassell.Varley = RMSD.hv,
 				Arditi.Akcakaya = RMSD.aa
+			),
+			MAD = list(
+			  Holling.I = MAD.hollingI,
+			  Holling.II = MAD.hollingII,
+			  Beddington.DeAngelis = MAD.bd,
+			  Crowley.Martin = MAD.cm,
+			  Stouffer.Novak.I = MAD.sn1,
+			  # Stouffer.Novak.II = MAD.sn2,
+			  # Stouffer.Novak.III = MAD.sn3,
+			  Ratio = MAD.ratio,
+			  Arditi.Ginzburg = MAD.ag,
+			  Hassell.Varley = MAD.hv,
+			  Arditi.Akcakaya = MAD.aa
 			),
 			estimates = list(
 				Holling.I = ests.hollingI,

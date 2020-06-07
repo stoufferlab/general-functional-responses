@@ -1,3 +1,5 @@
+# Deprecated function.  Use resid.metric() in resid.metrics.R instead.
+
 # Root mean square deviation
 RMSD <- function(ffr.fit){
 

@@ -13,7 +13,8 @@ source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_two_prey.R')
-source('../lib/RMSD.R')
+source('../lib/resid_metrics.R')
+# source('../lib/RMSD.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ####################################
@@ -155,7 +156,10 @@ for(i in 1:length(datasets)){
 			local.AICs <- lapply(local.fits, AIC)
 
 			# create container for the RMSD of the fits
-			local.RMSDs <- lapply(local.fits, RMSD)
+			local.RMSDs <- lapply(local.fits, resid.metric, metric = 'RMSD')
+			
+			# create container for the MAD of the fits
+			local.MADs <- lapply(local.fits, resid.metric, metric = 'MAD')
 
 			# scrape out the parameter estimates
 			for(b in 1:boot.reps){
@@ -174,7 +178,8 @@ for(i in 1:length(datasets)){
 				fit=local.fits[[1]],
 				ests=local.ests,
 				AICs=local.AICs,
-				RMSDs=local.RMSDs
+				RMSDs=local.RMSDs,
+				MADs=local.MADs
 			)
 		}
 		}
@@ -193,7 +198,8 @@ for(i in 1:length(datasets)){
 			fits = lapply(locals, function(x) x$fit),
 			estimates = lapply(locals, function(x) x$ests),
 			AICs = lapply(locals, function(x) x$AICs),
-			RMSDs = lapply(locals, function(x) x$RMSDs)
+			RMSDs = lapply(locals, function(x) x$RMSDs),
+			MADs = lapply(locals, function(x) x$MADs)
 		)
 
 		# Save the data set fit

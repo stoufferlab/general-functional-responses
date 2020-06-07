@@ -1,0 +1,1058 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     39872,       1050]
+NotebookOptionsPosition[     39097,       1027]
+NotebookOutlinePosition[     39512,       1045]
+CellTagsIndexPosition[     39469,       1042]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"fisher", "[", 
+    RowBox[{"fun_", ",", "pars_"}], "]"}], ":=", 
+   RowBox[{"-", 
+    RowBox[{"D", "[", 
+     RowBox[{
+      RowBox[{"Apply", "[", 
+       RowBox[{"fun", ",", "pars"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"pars", ",", "2"}], "}"}]}], "]"}]}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"H1", " ", "=", " ", 
+   RowBox[{"a", " ", "\[CapitalNu]", " ", "P", " ", "T"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"R", " ", "=", " ", 
+   FractionBox[
+    RowBox[{"a", " ", "\[CapitalNu]", " ", "P", " ", "T"}], "P"]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"H2", " ", "=", " ", 
+   FractionBox[
+    RowBox[{"a", " ", "\[CapitalNu]", " ", "P", " ", "T"}], 
+    RowBox[{"1", "+", 
+     RowBox[{"a", " ", "h", " ", "\[CapitalNu]"}]}]]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"HV", " ", "=", " ", 
+   FractionBox[
+    RowBox[{"a", " ", "\[CapitalNu]", " ", "P", " ", "T"}], 
+    SuperscriptBox["P", "m"]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AG", " ", "=", " ", 
+   FractionBox[
+    RowBox[{"a", " ", "\[CapitalNu]", " ", "P", " ", "T"}], 
+    RowBox[{"P", "+", 
+     RowBox[{"a", " ", "h", " ", "\[CapitalNu]"}]}]]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"BD", " ", "=", " ", 
+   FractionBox[
+    RowBox[{"a", " ", "\[CapitalNu]", " ", "P", " ", "T"}], 
+    RowBox[{"1", "+", 
+     RowBox[{"a", " ", "h", " ", "\[CapitalNu]"}], " ", "+", " ", 
+     RowBox[{"\[Gamma]", " ", 
+      RowBox[{"(", 
+       RowBox[{"P", "-", "1"}], ")"}]}]}]]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CM", " ", "=", " ", 
+   FractionBox[
+    RowBox[{"a", " ", "\[CapitalNu]", " ", "P", " ", "T"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"1", "+", 
+       RowBox[{"a", " ", "h", " ", "\[CapitalNu]"}]}], ")"}], 
+     RowBox[{"(", 
+      RowBox[{"1", "+", 
+       RowBox[{"\[Gamma]", " ", 
+        RowBox[{"(", 
+         RowBox[{"P", "-", "1"}], ")"}]}]}], ")"}]}]]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AA", "=", 
+   FractionBox[
+    RowBox[{"a", " ", "\[CapitalNu]", " ", "P", " ", "T"}], 
+    RowBox[{
+     SuperscriptBox["P", "m"], "+", 
+     RowBox[{"a", " ", "h", " ", "\[CapitalNu]"}]}]]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalNu]vals", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "2", ",", "4", ",", "8", ",", "16", ",", "32", ",", "64", ",", "128", ",",
+      "256"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Pvals", "=", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "5"}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalNu]probs", "=", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{
+     RowBox[{"1", "/", 
+      RowBox[{"Length", "[", "\[CapitalNu]vals", "]"}]}], ",", 
+     RowBox[{"Length", "[", "\[CapitalNu]vals", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Pprobs", "=", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{
+     RowBox[{"1", "/", 
+      RowBox[{"Length", "[", "Pvals", "]"}]}], ",", 
+     RowBox[{"Length", "[", "Pvals", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalNu]DistE", "=", 
+   RowBox[{"EmpiricalDistribution", "[", 
+    RowBox[{"\[CapitalNu]probs", "\[Rule]", "\[CapitalNu]vals"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"PDistE", "=", 
+    RowBox[{"EmpiricalDistribution", "[", 
+     RowBox[{"Pprobs", "\[Rule]", "Pvals"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"subs", "=", 
+    RowBox[{"{", 
+     RowBox[{"T", "\[Rule]", " ", "1"}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisher", "[", 
+    RowBox[{"FisherMatrix_", ",", "func_"}], "]"}], ":=", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Expectation", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Expectation", "[", 
+      RowBox[{"FisherMatrix", ",", 
+       RowBox[{"x", "\[Distributed]", " ", 
+        RowBox[{"PoissonDistribution", "[", "func", "]"}]}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"P", "\[Distributed]", "PDistE"}], ",", " ", 
+       RowBox[{"\[CapitalNu]", "\[Distributed]", "\[CapitalNu]DistE"}]}], 
+      "}"}]}], "]"}]}], " ", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetEFisherTrunc", "[", 
+    RowBox[{
+    "FisherMatrix_", ",", "func_", ",", "\[Lambda]min_", ",", "\[Lambda]max_",
+      ",", "subs_"}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Det", "[", "\[IndentingNewLine]", 
+    RowBox[{"Expectation", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Expectation", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Boole", "[", 
+           RowBox[{
+           "\[Lambda]min", " ", "\[LessEqual]", " ", "func", "\[LessEqual]", 
+            "\[Lambda]max"}], "]"}], "FisherMatrix"}], ",", 
+         RowBox[{"x", "\[Distributed]", " ", 
+          RowBox[{"PoissonDistribution", "[", "func", "]"}]}]}], "]"}], "//.",
+        "subs"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"P", "\[Distributed]", "PDistE"}], ",", " ", 
+        RowBox[{"\[CapitalNu]", "\[Distributed]", "\[CapitalNu]DistE"}]}], 
+       "}"}]}], "]"}], " ", "\[IndentingNewLine]", "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PoislL", "[", "func_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "n"}], " ", "func"}], "+", 
+    RowBox[{
+     RowBox[{"Log", "[", "func", "]"}], " ", "x"}]}], "/.", 
+   RowBox[{"{", 
+    RowBox[{"n", "\[Rule]", "1"}], "}"}]}]}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.794074764249851*^9, 3.794074781434236*^9}, {
+   3.794074853871708*^9, 3.794074856502338*^9}, {3.794074892725622*^9, 
+   3.794074964170439*^9}, {3.794075048992728*^9, 3.794075056510936*^9}, {
+   3.794166308888492*^9, 3.794166313934968*^9}, {3.794166384662013*^9, 
+   3.794166384780198*^9}, {3.79416644501838*^9, 3.794166466057472*^9}, {
+   3.794166522665292*^9, 3.794166523495289*^9}, {3.7947834976698713`*^9, 
+   3.794783514347937*^9}, {3.79487827886385*^9, 3.79487827930225*^9}, {
+   3.795460077877589*^9, 3.79546008566753*^9}, 3.796152942384039*^9, {
+   3.797011072698031*^9, 3.7970110833153677`*^9}, {3.797013201964006*^9, 
+   3.797013202114635*^9}, {3.7970132404347258`*^9, 3.797013240521291*^9}, {
+   3.797013308640192*^9, 3.797013311982644*^9}, {3.797013841618478*^9, 
+   3.797013844128951*^9}, {3.79701394733313*^9, 3.797013948564982*^9}, {
+   3.7970160467723618`*^9, 3.797016049570848*^9}, {3.8004929540107527`*^9, 
+   3.8004929941121273`*^9}, {3.800493448854278*^9, 
+   3.800493449285356*^9}},ExpressionUUID->"96e97e53-593c-409b-9571-\
+e10339616062"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lLH1Poiss", "[", "a_", "]"}], ":=", 
+  RowBox[{"PoislL", "[", "H1", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FisherH1Poiss", "=", 
+    RowBox[{"fisher", "[", 
+     RowBox[{"lLH1Poiss", ",", 
+      RowBox[{"{", "a", "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisherH1Poiss", "=", 
+    RowBox[{
+     RowBox[{"EFisher", "[", 
+      RowBox[{"FisherH1Poiss", ",", "H1"}], "]"}], "/.", "subs"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DetH1", "=", 
+   RowBox[{"Det", "[", "EFisherH1Poiss", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetH1Trunc", "=", 
+    RowBox[{"DetEFisherTrunc", "[", 
+     RowBox[{"FisherH1Poiss", ",", "H1", ",", "0", ",", 
+      RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], ",", "subs"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lLRPoiss", "[", "a_", "]"}], ":=", 
+  RowBox[{"PoislL", "[", "R", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FisherRPoiss", "=", 
+    RowBox[{
+     RowBox[{"fisher", "[", 
+      RowBox[{"lLRPoiss", ",", 
+       RowBox[{"{", "a", "}"}]}], "]"}], "//", "FullSimplify"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisherRPoiss", "=", 
+    RowBox[{
+     RowBox[{"EFisher", "[", 
+      RowBox[{"FisherRPoiss", ",", "R"}], "]"}], "//.", "subs"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DetR", "=", 
+   RowBox[{
+    RowBox[{"Det", "[", "EFisherRPoiss", "]"}], "//", "FullSimplify"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetRTrunc", "=", 
+    RowBox[{"DetEFisherTrunc", "[", 
+     RowBox[{"FisherRPoiss", ",", "R", ",", "0", ",", 
+      RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], ",", "subs"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lLHVPoiss", "[", 
+   RowBox[{"a_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{"PoislL", "[", "HV", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FisherHVPoiss", "=", 
+    RowBox[{
+     RowBox[{"fisher", "[", 
+      RowBox[{"lLHVPoiss", ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "m"}], "}"}]}], "]"}], "//", "FullSimplify"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisherHVPoiss", "=", 
+    RowBox[{
+     RowBox[{"EFisher", "[", 
+      RowBox[{"FisherHVPoiss", ",", "HV"}], "]"}], "//.", "subs"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DetHV", "=", 
+   RowBox[{"Det", "[", "EFisherHVPoiss", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetHVTrunc", "=", 
+    RowBox[{"DetEFisherTrunc", "[", 
+     RowBox[{"FisherHVPoiss", ",", "HV", ",", "0", ",", 
+      RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], ",", "subs"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lLH2Poiss", "[", 
+   RowBox[{"a_", ",", "h_"}], "]"}], ":=", 
+  RowBox[{"PoislL", "[", "H2", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FisherH2Poiss", "=", 
+    RowBox[{"fisher", "[", 
+     RowBox[{"lLH2Poiss", ",", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", " ", "h"}], "}"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisherH2Poiss", "=", 
+    RowBox[{
+     RowBox[{"EFisher", "[", 
+      RowBox[{"FisherH2Poiss", ",", "H2"}], "]"}], "//.", "subs"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DetH2", "=", 
+   RowBox[{
+    RowBox[{"Det", "[", "EFisherH2Poiss", "]"}], "//", "FullSimplify"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetH2Trunc", "=", 
+    RowBox[{"DetEFisherTrunc", "[", 
+     RowBox[{"FisherH2Poiss", ",", "H2", ",", "0", ",", 
+      RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], ",", "subs"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lLAGPoiss", "[", 
+   RowBox[{"a_", ",", "h_"}], "]"}], ":=", 
+  RowBox[{"PoislL", "[", "AG", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FisherAGPoiss", "=", 
+    RowBox[{
+     RowBox[{"fisher", "[", 
+      RowBox[{"lLAGPoiss", ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "h"}], "}"}]}], "]"}], "//", 
+     "FullSimplify"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisherAGPoiss", "=", 
+    RowBox[{
+     RowBox[{"EFisher", "[", 
+      RowBox[{"FisherAGPoiss", ",", "AG"}], "]"}], "//.", "subs"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DetAG", "=", 
+   RowBox[{"Det", "[", "EFisherAGPoiss", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetAGTrunc", "=", 
+    RowBox[{"DetEFisherTrunc", "[", 
+     RowBox[{"FisherAGPoiss", ",", "AG", ",", "0", ",", 
+      RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], ",", "subs"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lLCMPoiss", "[", 
+   RowBox[{"a_", ",", "h_", ",", "\[Gamma]_"}], "]"}], ":=", 
+  RowBox[{"PoislL", "[", "CM", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FisherCMPoiss", "=", 
+    RowBox[{
+     RowBox[{"fisher", "[", 
+      RowBox[{"lLCMPoiss", ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "h", ",", "\[Gamma]"}], "}"}]}], "]"}], "//", 
+     "FullSimplify"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisherCMPoiss", "=", 
+    RowBox[{
+     RowBox[{"EFisher", "[", 
+      RowBox[{"FisherCMPoiss", ",", "CM"}], "]"}], "//.", "subs"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DetCM", "=", 
+   RowBox[{"Det", "[", "EFisherCMPoiss", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetCMTrunc", "=", 
+    RowBox[{"DetEFisherTrunc", "[", 
+     RowBox[{"FisherCMPoiss", ",", "CM", ",", "0", ",", 
+      RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], ",", "subs"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lLBDPoiss", "[", 
+   RowBox[{"a_", ",", "h_", ",", "\[Gamma]_"}], "]"}], ":=", 
+  RowBox[{"PoislL", "[", "BD", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FisherBDPoiss", "=", 
+    RowBox[{
+     RowBox[{"fisher", "[", 
+      RowBox[{"lLBDPoiss", ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "h", ",", "\[Gamma]"}], "}"}]}], "]"}], "//", 
+     "FullSimplify"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisherBDPoiss", "=", 
+    RowBox[{
+     RowBox[{"EFisher", "[", 
+      RowBox[{"FisherBDPoiss", ",", "BD"}], "]"}], "//.", "subs"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DetBD", "=", 
+   RowBox[{"Det", "[", "EFisherBDPoiss", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetBDTrunc", "=", 
+    RowBox[{"DetEFisherTrunc", "[", 
+     RowBox[{"FisherBDPoiss", ",", "BD", ",", "0", ",", 
+      RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], ",", "subs"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lLAAPoiss", "[", 
+   RowBox[{"a_", ",", "h_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{"PoislL", "[", "AA", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FisherAAPoiss", "=", 
+    RowBox[{
+     RowBox[{"fisher", "[", 
+      RowBox[{"lLAAPoiss", ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", " ", "h", ",", "m"}], "}"}]}], "]"}], "//", 
+     "FullSimplify"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"EFisherAAPoiss", "=", 
+    RowBox[{
+     RowBox[{"EFisher", "[", 
+      RowBox[{"FisherAAPoiss", ",", "AA"}], "]"}], "//.", "subs"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DetAA", "=", 
+   RowBox[{"Det", "[", "EFisherAAPoiss", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DetAATrunc", "=", 
+    RowBox[{"DetEFisherTrunc", "[", 
+     RowBox[{"FisherAAPoiss", ",", "AA", ",", "0", ",", 
+      RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], ",", "subs"}], "]"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Save", "[", 
+   RowBox[{"\"\<FisherMatrix-1_Output_k1k2k3\>\"", ",", "\"\<`*\>\""}], "]"}],
+   ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.793468403408154*^9, 3.793468410679329*^9}, {
+   3.793468453833345*^9, 3.7934685279957123`*^9}, {3.793468613919973*^9, 
+   3.793468720737849*^9}, {3.7934688435224648`*^9, 3.793468868544662*^9}, {
+   3.793470021800777*^9, 3.793470047198544*^9}, {3.79347027592621*^9, 
+   3.7934702761653423`*^9}, {3.7940620589975843`*^9, 3.794062072794828*^9}, {
+   3.794062321996887*^9, 3.7940623390179253`*^9}, {3.7940674750749207`*^9, 
+   3.7940675715566063`*^9}, {3.794067618404457*^9, 3.794067643537713*^9}, {
+   3.794067921080233*^9, 3.794067967589714*^9}, {3.794068119009162*^9, 
+   3.7940681264789333`*^9}, 3.794068162158977*^9, {3.7940682308377047`*^9, 
+   3.794068238219178*^9}, {3.7940683373448973`*^9, 3.794068415532219*^9}, 
+   3.794068769065151*^9, 3.794068802710436*^9, {3.7940750790958443`*^9, 
+   3.794075083205763*^9}, {3.794089264909218*^9, 3.7940892670907307`*^9}, {
+   3.794165270658142*^9, 3.794165281832642*^9}, 3.79416608592276*^9, {
+   3.79486221595895*^9, 3.794862219518083*^9}, {3.79486228397263*^9, 
+   3.794862284459414*^9}, {3.800493100236644*^9, 3.800493107219533*^9}, {
+   3.800493398943005*^9, 
+   3.800493439853598*^9}},ExpressionUUID->"3d0878cd-00dd-4a73-85cf-\
+eac97ce0555f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"accgoal", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"P\[CapitalNu]rats", "=", 
+   RowBox[{"Sort", "[", 
+    RowBox[{"DeleteDuplicates", "[", 
+     RowBox[{"Join", "@@", 
+      RowBox[{"Outer", "[", 
+       RowBox[{"Divide", ",", "Pvals", ",", "\[CapitalNu]vals"}], "]"}]}], 
+     "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"e", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ParmRangeA", "=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"a", ",", "0", ",", "1000"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "h", "}"}], ",", 
+          RowBox[{"Sort", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "P\[CapitalNu]rats", ",", "1", ",", 
+              SuperscriptBox["10", "e"]}], "}"}], ",", "Less"}], "]"}]}], 
+         "}"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "\[Gamma]", "}"}], ",", 
+          RowBox[{"Sort", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", 
+              RowBox[{"1", "/", "Pvals"}], ",", "1", ",", 
+              SuperscriptBox["10", "e"]}], "}"}], ",", "Less"}], "]"}]}], 
+         "}"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"DeleteDuplicates", "[", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", "m", "}"}], ",", 
+          RowBox[{"Sort", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "P\[CapitalNu]rats", ",", "1", ",", "5"}], 
+             "}"}], ",", "Less"}], "]"}]}], "}"}], "]"}], "]"}]}], 
+     "\[IndentingNewLine]", "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntH1", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetH1", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntH1Trunc", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetH1Trunc", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntR", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetR", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntRTrunc", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetRTrunc", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntHV", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetHV", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "4", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntHVTrunc", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetHVTrunc", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "4", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntH2", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetH2", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntH2Trunc", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetH2Trunc", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntAG", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetAG", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntAGTrunc", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetAGTrunc", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntBD", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetBD", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntBDTrunc", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetBDTrunc", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntCM", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetCM", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntCMTrunc", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetCMTrunc", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntAA", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetAA", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "4", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NIntAATrunc", "=", 
+   RowBox[{"Log", "[", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", "DetAATrunc", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeA", "[", 
+       RowBox[{"[", "4", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Method", "\[Rule]", 
+       RowBox[{"{", "\"\<LocalAdaptive\>\"", "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"MaxRecursion", "\[Rule]", "500"}]}], "]"}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Save", "[", 
+   RowBox[{"\"\<FisherMatrix-1_Output_k1k2k3_NInt\>\"", ",", "\"\<`*\>\""}], 
+   "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.79482909352766*^9, 3.794829117588732*^9}, 
+   3.7948426600323133`*^9, {3.7949305227000227`*^9, 3.7949305256513147`*^9}, 
+   3.794930569882441*^9, {3.7952815496038237`*^9, 3.795281561474011*^9}, 
+   3.7952817559473877`*^9, 3.795462274945174*^9, 3.796155409847486*^9, 
+   3.796608186969825*^9, {3.8004773621383467`*^9, 3.800477369025811*^9}, 
+   3.800477902213694*^9, {3.800493242015024*^9, 3.800493260949781*^9}, {
+   3.800493479718218*^9, 
+   3.8004935027967463`*^9}},ExpressionUUID->"f052ac7a-2f3d-4a4a-aabd-\
+bd5ec9ce11a3"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"ParmRangeB", "=", 
+    RowBox[{"Drop", "[", 
+     RowBox[{"ParmRangeA", ",", "1"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"aNIntH1", "=", 
+   RowBox[{"Sqrt", "[", "DetH1", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"aNIntH1Trunc", "=", 
+    RowBox[{"Sqrt", "[", "DetH1Trunc", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"aNIntR", "=", 
+   RowBox[{"Sqrt", "[", "DetR", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"aNIntRTrunc", "=", 
+    RowBox[{"Sqrt", "[", "DetRTrunc", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"aNIntHV", "=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", "DetHV", "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"aNIntHVTrunc", "[", 
+     RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"DetHVTrunc", "/.", 
+        RowBox[{"{", 
+         RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"aNIntH2", "[", 
+    RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"DetH2", "/.", 
+       RowBox[{"{", 
+        RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"aNIntH2Trunc", "[", 
+     RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"DetH2Trunc", "/.", 
+        RowBox[{"{", 
+         RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"aNIntAG", "[", 
+    RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"DetAG", "/.", 
+       RowBox[{"{", 
+        RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"aNIntAGTrunc", "[", 
+     RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"DetAGTrunc", "/.", 
+        RowBox[{"{", 
+         RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"aNIntBD", "[", 
+    RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"DetBD", "/.", 
+       RowBox[{"{", 
+        RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"aNIntBDTrunc", "[", 
+     RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"DetBDTrunc", "/.", 
+        RowBox[{"{", 
+         RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"aNIntCM", "[", 
+    RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"DetCM", "/.", 
+       RowBox[{"{", 
+        RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"aNIntCMTrunc", "[", 
+     RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"DetCMTrunc", "/.", 
+        RowBox[{"{", 
+         RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"aNIntAA", "[", 
+    RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"DetAA", "/.", 
+       RowBox[{"{", 
+        RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ParmRangeB", "[", 
+      RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"aNIntAATrunc", "[", 
+     RowBox[{"\[Alpha]_", "?", "NumericQ"}], "]"}], ":=", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"DetAATrunc", "/.", 
+        RowBox[{"{", 
+         RowBox[{"a", "\[Rule]", "\[Alpha]"}], "}"}]}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ParmRangeB", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"AccuracyGoal", "\[Rule]", "accgoal"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Save", "[", 
+   RowBox[{"\"\<FisherMatrix-1_Output_k1k2k3_aNInt\>\"", ",", "\"\<`*\>\""}], 
+   "]"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.795281611216325*^9, 3.7952816535106277`*^9}, {
+  3.796744627089274*^9, 3.7967446321993427`*^9}, {3.796744678837954*^9, 
+  3.796744688223138*^9}, {3.800483129199974*^9, 3.8004831327114697`*^9}, {
+  3.800493308259614*^9, 3.800493346001333*^9}, {3.800535130460671*^9, 
+  3.800535130472684*^9}},ExpressionUUID->"0ba04a6a-ed71-4a92-b8e3-\
+901f2f61bc9b"]
+},
+WindowSize->{1099, 1267},
+WindowMargins->{{Automatic, 298}, {Automatic, 37}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+Magnification->1.25,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 6947, 186, 1053, "Input",ExpressionUUID->"96e97e53-593c-409b-9571-e10339616062",
+ InitializationCell->True],
+Cell[7508, 208, 9899, 271, 1722, "Input",ExpressionUUID->"3d0878cd-00dd-4a73-85cf-eac97ce0555f",
+ InitializationCell->True],
+Cell[17410, 481, 13330, 317, 3008, "Input",ExpressionUUID->"f052ac7a-2f3d-4a4a-aabd-bd5ec9ce11a3",
+ InitializationCell->True],
+Cell[30743, 800, 8350, 225, 1514, "Input",ExpressionUUID->"0ba04a6a-ed71-4a92-b8e3-901f2f61bc9b",
+ InitializationCell->True]
+}
+]
+*)
+
