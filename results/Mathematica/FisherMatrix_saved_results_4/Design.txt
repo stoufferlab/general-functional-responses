@@ -1,5 +1,0 @@
-The results in this folder pertain to the following design:
-
-\[CapitalNu]vals = {8, 16, 32, 64, 128};
-Pvals = {1, 2, 5};
-

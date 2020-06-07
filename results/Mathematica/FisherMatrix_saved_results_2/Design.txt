@@ -1,5 +1,0 @@
-The results in this folder pertain to the following design:
-
-\[CapitalNu]vals = {10, 15, 25, 45};
-Pvals = {1, 2, 3};
-
