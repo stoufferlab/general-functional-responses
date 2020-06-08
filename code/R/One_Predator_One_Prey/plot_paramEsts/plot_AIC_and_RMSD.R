@@ -346,6 +346,9 @@ cnt_RMSD <- apply(delta.RMSD[rnks.RMSD[,r1Mod.RMSD ]==1,] < cutoff.RMSD, 2, sum)
 cnt_RMSD
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# What about for datasets that have a sample size of at least X?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # hist(sample.sizes,breaks=30)
 # hist(log(sample.sizes),breaks=30)
 mean(sample.sizes)
@@ -355,24 +358,39 @@ median(sample.sizes)
 mean(sample.sizes[sample.sizes<600])
 median(sample.sizes[sample.sizes<600])
 
-# What about for datasets that have a sample size of at least X?
+# ~~~~~~~~~~~~~~~~~~~
+
+# when excluding smaller than
 mxSS <- 300
 mnSS <- min(sample.sizes)
+
+# when excluding greater than
+mxSS <- max(sample.sizes)
+mnSS <- 20
+
 SScuts <- seq(mnSS,mxSS,by=1)
 fFirst.AIC<-fSecnd.AIC<-fFirst.RMSD<-fSecnd.RMSD<-dim(0)
 pfFirst.AIC<-pfSecnd.AIC<-pfFirst.RMSD<-pfSecnd.RMSD<-dim(0)
 for(SScut in SScuts){
-  Cnt_AIC<-apply(rnks.AIC[sample.sizes>=SScut,],2, 
+  
+  # Cnt_AIC<-apply(rnks.AIC[sample.sizes>=SScut,],2, # exclude smaller than
+  #                 function(x){
+  #                   table(factor(x,levels=1:mods.n))})
+  Cnt_AIC<-apply(rnks.AIC[sample.sizes<=SScut,],2, # exclude greater than
                   function(x){
                     table(factor(x,levels=1:mods.n))})
   Cnt_AIC <- Cnt_AIC[,mod.order]
   pCnt_AIC <- prop.table(Cnt_AIC,2)
-  Cnt_RMSD<-apply(rnks.RMSD[sample.sizes>=SScut,],2, 
-                  function(x){
-                    table(factor(x,levels=1:mods.n))})
+  
+  # Cnt_RMSD<-apply(rnks.RMSD[sample.sizes>=SScut,],2, # exclude smaller than
+  #                function(x){
+  #                  table(factor(x,levels=1:mods.n))})
+  Cnt_RMSD<-apply(rnks.RMSD[sample.sizes<=SScut,],2, # exclude greater than
+                 function(x){
+                   table(factor(x,levels=1:mods.n))})
   Cnt_RMSD <- Cnt_RMSD[,mod.order]
   pCnt_RMSD <- prop.table(Cnt_RMSD,2)
-
+  
   fFirst.AIC <- rbind(fFirst.AIC,Cnt_AIC[1,])
   fSecnd.AIC <- rbind(fSecnd.AIC,Cnt_AIC[2,])
   fFirst.RMSD <- rbind(fFirst.RMSD,Cnt_RMSD[1,])
@@ -382,7 +400,7 @@ for(SScut in SScuts){
   pfSecnd.AIC <- rbind(pfSecnd.AIC,pCnt_AIC[2,])
   pfFirst.RMSD <- rbind(pfFirst.RMSD,pCnt_RMSD[1,])
   pfSecnd.RMSD <- rbind(pfSecnd.RMSD,pCnt_RMSD[2,])
-
+  
 }
 
 # How many datasets are included at the mxSS=300 limit of the plots?
@@ -424,6 +442,8 @@ xadj3 <- 0.2
 yadj <- 0.5
 lcex <- 0.7
 
+ylims <- c(0,0.7)
+
 mods<-c(1,5)
 legend(xadj1,yadj,legend=colnames(pfFirst.AIC)[mods],
        lty=ltys[mods], col=Mcols[mods],lwd=1.5,
@@ -448,37 +468,38 @@ text(xadj2+0.02, yadj+0.18, 'Models', adj=0,cex=1)
 par(mar=c(2.5,3,0.5,0))
 matplot(SScuts,pfFirst.AIC,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in first rank',
         xlab='')
-  mtext('A',side=3,line=-1.25,at=mnSS,cex=0.9)
-  mtext('AIC',side=3,line=0.3,adj=0.5,cex=1)
-  
+mtext('A',side=3,line=-1.25,at=mnSS,cex=0.9)
+mtext('AIC',side=3,line=0.3,adj=0.5,cex=1)
+
 par(mar=c(3,3,0,0))
 matplot(SScuts,pfSecnd.AIC,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in second rank',
-        xlab='Sample size greater than...')
-  mtext('B',side=3,line=-1.25,at=mnSS,cex=0.9)
-  
+        # xlab='Sample size greater than...')
+        xlab='Sample size less than...')
+mtext('B',side=3,line=-1.25,at=mnSS,cex=0.9)
+
 par(mar=c(2.5,2,0.5,1))
 matplot(SScuts,pfFirst.RMSD,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='',
         xlab='')
-  mtext('C',side=3,line=-1.25,at=mnSS,cex=0.9)
-  mtext('RMSD',side=3,line=0.3,adj=0.5,cex=1)
-  
+mtext('C',side=3,line=-1.25,at=mnSS,cex=0.9)
+mtext('RMSD',side=3,line=0.3,adj=0.5,cex=1)
+
 par(mar=c(3,2,0,1))
 matplot(SScuts,pfSecnd.RMSD,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='',
-        xlab='Sample size greater than...')
-  mtext('D',side=3,line=-1.25,at=mnSS,cex=0.9)
+        # xlab='Sample size greater than...')
+        xlab='Sample size less than...')
+mtext('D',side=3,line=-1.25,at=mnSS,cex=0.9)
 
 dev.off()
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

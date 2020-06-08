@@ -346,6 +346,9 @@ cnt_MAD <- apply(delta.MAD[rnks.MAD[,r1Mod.MAD ]==1,] < cutoff.MAD, 2, sum)
 cnt_MAD
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# What about for datasets that have a sample size of at least X?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # hist(sample.sizes,breaks=30)
 # hist(log(sample.sizes),breaks=30)
 mean(sample.sizes)
@@ -355,19 +358,34 @@ median(sample.sizes)
 mean(sample.sizes[sample.sizes<600])
 median(sample.sizes[sample.sizes<600])
 
-# What about for datasets that have a sample size of at least X?
+# ~~~~~~~~~~~~~~~~~~~
+
+# when excluding smaller than
 mxSS <- 300
 mnSS <- min(sample.sizes)
+
+# when excluding greater than
+mxSS <- max(sample.sizes)
+mnSS <- 20
+
 SScuts <- seq(mnSS,mxSS,by=1)
 fFirst.AICc<-fSecnd.AICc<-fFirst.MAD<-fSecnd.MAD<-dim(0)
 pfFirst.AICc<-pfSecnd.AICc<-pfFirst.MAD<-pfSecnd.MAD<-dim(0)
 for(SScut in SScuts){
-  Cnt_AICc<-apply(rnks.AICc[sample.sizes>=SScut,],2, 
+  
+  # Cnt_AICc<-apply(rnks.AICc[sample.sizes>=SScut,],2, # exclude smaller than
+  #                 function(x){
+  #                   table(factor(x,levels=1:mods.n))})
+  Cnt_AICc<-apply(rnks.AICc[sample.sizes<=SScut,],2, # exclude greater than
                   function(x){
                     table(factor(x,levels=1:mods.n))})
   Cnt_AICc <- Cnt_AICc[,mod.order]
   pCnt_AICc <- prop.table(Cnt_AICc,2)
-  Cnt_MAD<-apply(rnks.MAD[sample.sizes>=SScut,],2, 
+  
+  # Cnt_MAD<-apply(rnks.MAD[sample.sizes>=SScut,],2, # exclude smaller than
+  #                function(x){
+  #                  table(factor(x,levels=1:mods.n))})
+  Cnt_MAD<-apply(rnks.MAD[sample.sizes<=SScut,],2, # exclude greater than
                   function(x){
                     table(factor(x,levels=1:mods.n))})
   Cnt_MAD <- Cnt_MAD[,mod.order]
@@ -424,6 +442,8 @@ xadj3 <- 0.2
 yadj <- 0.5
 lcex <- 0.7
 
+ylims <- c(0,0.5)
+
 mods<-c(1,5)
 legend(xadj1,yadj,legend=colnames(pfFirst.AICc)[mods],
        lty=ltys[mods], col=Mcols[mods],lwd=1.5,
@@ -448,7 +468,7 @@ text(xadj2+0.02, yadj+0.18, 'Models', adj=0,cex=1)
 par(mar=c(2.5,3,0.5,0))
 matplot(SScuts,pfFirst.AICc,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in first rank',
         xlab='')
   mtext('A',side=3,line=-1.25,at=mnSS,cex=0.9)
@@ -457,15 +477,16 @@ matplot(SScuts,pfFirst.AICc,las=1,type='l',
 par(mar=c(3,3,0,0))
 matplot(SScuts,pfSecnd.AICc,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in second rank',
-        xlab='Sample size greater than...')
+        # xlab='Sample size greater than...')
+        xlab='Sample size less than...')
   mtext('B',side=3,line=-1.25,at=mnSS,cex=0.9)
   
 par(mar=c(2.5,2,0.5,1))
 matplot(SScuts,pfFirst.MAD,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='',
         xlab='')
   mtext('C',side=3,line=-1.25,at=mnSS,cex=0.9)
@@ -474,11 +495,11 @@ matplot(SScuts,pfFirst.MAD,las=1,type='l',
 par(mar=c(3,2,0,1))
 matplot(SScuts,pfSecnd.MAD,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='',
-        xlab='Sample size greater than...')
+        # xlab='Sample size greater than...')
+        xlab='Sample size less than...')
   mtext('D',side=3,line=-1.25,at=mnSS,cex=0.9)
 
 dev.off()
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
