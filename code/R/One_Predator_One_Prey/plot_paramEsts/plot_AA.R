@@ -95,6 +95,8 @@ parm <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50
 
 parm <- exp(parm)
 
+range(parm)
+
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_xy.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
   ylim <- c(0,5)
@@ -153,6 +155,19 @@ dev.off()
 parm <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",'attack',"estimate"]))
 
 parm <- exp(parm)
+
+# Summary stats
+round(range(parm),2)
+round(median(parm),2)
+round(mean(parm),2)
+round(sd(parm),2)
+
+# Summary stats - for studies exceeding median sample size
+s <- median(sample.sizes)
+round(range(parm[sample.sizes>s]),2)
+round(median(parm[sample.sizes>s]),2)
+round(mean(parm[sample.sizes>s]),2)
+round(sd(parm[sample.sizes>s]),2)
 
 names(parm)<-sub('./Dataset_Code/','',names(parm))
 names(parm)<-sub('.{2}$','',names(parm))

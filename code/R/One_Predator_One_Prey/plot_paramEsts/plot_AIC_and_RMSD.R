@@ -293,7 +293,7 @@ setwd(wd)
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # How many times is a single model the only best model by AIC?
-cnt_AIC_single<-sum(apply(delta.AIC < cutoff.AIC, 1, sum)==1)
+cnt_AIC_single<-sum(apply(delta.AIC <= cutoff.AIC, 1, sum)==1)
 cnt_AIC_single
 cnt_AIC_single/nrow(delta.AIC)
 
@@ -351,12 +351,9 @@ cnt_RMSD
 
 # hist(sample.sizes,breaks=30)
 # hist(log(sample.sizes),breaks=30)
+range(sample.sizes)
 mean(sample.sizes)
 median(sample.sizes)
-
-# Excluding Creswell and Propopenko
-mean(sample.sizes[sample.sizes<600])
-median(sample.sizes[sample.sizes<600])
 
 # ~~~~~~~~~~~~~~~~~~~
 
@@ -406,8 +403,8 @@ for(SScut in SScuts){
 # How many datasets are included at the mxSS=300 limit of the plots?
 sum(sample.sizes>=mxSS)
 
-# What are stats at sample size of X?
-s=80
+# What are stats at the median sample size?
+s=median(sample.sizes)
 length(sample.sizes[sample.sizes>=s])
 fFirst.AIC[which(SScuts==s),]
 round(pfFirst.AIC[which(SScuts==s),],3)*100

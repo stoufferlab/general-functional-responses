@@ -242,6 +242,9 @@ dev.off()
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Overall summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Total number of datasets
+nrow(rnks.AICc)
+
 # Count times each model is in each rank
 mod.order <- colnames(rnks.AICc)
 mods.n <- length(mod.order)
@@ -249,6 +252,7 @@ Cnt_AICc <- apply(rnks.AICc,2,function(x){table(factor(x,levels=1:mods.n))})
 Cnt_AICc <- Cnt_AICc[,mod.order]
 Cnt_AICc
 sum(Cnt_AICc[1,c('BD','CM','AA')])
+nrow(rnks.AICc)-sum(Cnt_AICc[1,c('BD','CM','AA')])
 pCnt_AICc <- round(prop.table(Cnt_AICc,2)*100,1)
 pCnt_AICc
 
@@ -293,17 +297,21 @@ setwd(wd)
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # How many times is a single model the only best model by AICc?
-cnt_AICc_single<-sum(apply(delta.AICc < cutoff.AIC, 1, sum)==1)
+cnt_AICc_single<-sum(apply(delta.AICc <= cutoff.AIC, 1, sum)==1)
 cnt_AICc_single
 cnt_AICc_single/nrow(delta.AICc)
 
 #~~~~~
 # How often are *each of* the other models within 2 AICc units of the top model?
-r1Mod.AICc <- which.max(Cnt_AICc[1,])
+Cnt_AICc[1,which(Cnt_AICc[1,]==max(Cnt_AICc[1,]))]
+r1Mod.AICc <- 4 # for CM
+r1Mod.AICc <- 8 # for AA
 cnt_AICc<-apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 2, sum)
 cnt_AICc
 
 # How often is any other model within 2 AICc units of the top model?
+r1Mod.AICc <- 4 # for CM
+r1Mod.AICc <- 8 # for AA
 cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 1, sum)>0)
 cnt_AICc
 cnt_AICc/Cnt_AICc[1,r1Mod.AICc]
@@ -335,15 +343,23 @@ cnt_AICc/Cnt_AICc[1,r3Mod.AICc]
 round(mean(minMADs/mean.Nconsumed)*100,2)
 round(range(minMADs/mean.Nconsumed)*100,2)
 
-# How many times is a single model the only best model by MAD as judged by being below the performance criterion?
+# How many times is a single model the only best model by MAD as judged by being below the data-detependent performance criterion?
 cnt_MAD_single<-sum(apply(MADs < cutoff.MAD, 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(delta.MAD)
+cnt_MAD_single/nrow(MADs)
 
-# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.MAD performance criterion?
+# How many times is a single model the only best model by MAD as judged by being below the *relative* performance criterion?
+cnt_MAD_single<-sum(apply(delta.MAD < cutoff.delta.MAD, 1, sum)==1)
+cnt_MAD_single
+cnt_MAD_single/nrow(delta.MAD)
+nrow(delta.MAD)-cnt_MAD_single
+(nrow(delta.MAD)-cnt_MAD_single)/nrow(delta.MAD)
+
+# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.delta.MAD performance criterion?
 r1Mod.MAD <- which.max(Cnt_MAD[1,])
-cnt_MAD <- apply(delta.MAD[rnks.MAD[,r1Mod.MAD ]==1,] < cutoff.MAD, 2, sum)
+cnt_MAD <- apply(delta.MAD[rnks.MAD[,r1Mod.MAD ]==1,] < cutoff.delta.MAD, 2, sum)
 cnt_MAD
+round(100*cnt_MAD/max(cnt_MAD),1)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # What about for datasets that have a sample size of at least X?
@@ -351,12 +367,9 @@ cnt_MAD
 
 # hist(sample.sizes,breaks=30)
 # hist(log(sample.sizes),breaks=30)
+range(sample.sizes)
 mean(sample.sizes)
 median(sample.sizes)
-
-# Excluding Creswell and Propopenko
-mean(sample.sizes[sample.sizes<600])
-median(sample.sizes[sample.sizes<600])
 
 # ~~~~~~~~~~~~~~~~~~~
 
@@ -406,8 +419,8 @@ for(SScut in SScuts){
 # How many datasets are included at the mxSS=300 limit of the plots?
 sum(sample.sizes>=mxSS)
 
-# What are stats at sample size of X?
-s=80
+# What are stats at the median sample size?
+s=median(sample.sizes)
 length(sample.sizes[sample.sizes>=s])
 fFirst.AICc[which(SScuts==s),]
 round(pfFirst.AICc[which(SScuts==s),],3)*100
