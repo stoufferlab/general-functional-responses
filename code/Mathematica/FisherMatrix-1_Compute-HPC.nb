@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     43026,       1103]
-NotebookOptionsPosition[     42251,       1080]
-NotebookOutlinePosition[     42665,       1098]
-CellTagsIndexPosition[     42622,       1095]
+NotebookDataLength[     42181,       1084]
+NotebookOptionsPosition[     41406,       1061]
+NotebookOutlinePosition[     41820,       1079]
+CellTagsIndexPosition[     41777,       1076]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -490,20 +490,9 @@ Cell[BoxData[{
    RowBox[{"ParmRangeA", "=", 
     RowBox[{"{", "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"DeleteDuplicates", "[", 
-       RowBox[{"Flatten", "[", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"{", "a", "}"}], ",", 
-          RowBox[{"Sort", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"0", ",", "P\[CapitalNu]rats", ",", 
-              RowBox[{
-               RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], "/", 
-               "P\[CapitalNu]prods"}], ",", "1", ",", 
-              SuperscriptBox["10", "e"]}], "}"}], ",", "Less"}], "]"}]}], 
-         "}"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", "0", ",", "1000"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
       RowBox[{"DeleteDuplicates", "[", 
        RowBox[{"Flatten", "[", 
         RowBox[{"{", 
@@ -512,10 +501,7 @@ Cell[BoxData[{
           RowBox[{"Sort", "[", 
            RowBox[{
             RowBox[{"{", 
-             RowBox[{"0", ",", "P\[CapitalNu]rats", ",", 
-              RowBox[{
-               RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], "/", 
-               "P\[CapitalNu]prods"}], ",", "1", ",", 
+             RowBox[{"0", ",", "P\[CapitalNu]rats", ",", "1", ",", 
               SuperscriptBox["10", "e"]}], "}"}], ",", "Less"}], "]"}]}], 
          "}"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
       RowBox[{"DeleteDuplicates", "[", 
@@ -527,10 +513,7 @@ Cell[BoxData[{
            RowBox[{
             RowBox[{"{", 
              RowBox[{"0", ",", 
-              RowBox[{"1", "/", "Pvals"}], ",", 
-              RowBox[{
-               RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], "/", 
-               "P\[CapitalNu]prods"}], ",", "1", ",", 
+              RowBox[{"1", "/", "Pvals"}], ",", "1", ",", 
               SuperscriptBox["10", "e"]}], "}"}], ",", "Less"}], "]"}]}], 
          "}"}], "]"}], "]"}], ",", "\[IndentingNewLine]", 
       RowBox[{"DeleteDuplicates", "[", 
@@ -541,12 +524,9 @@ Cell[BoxData[{
           RowBox[{"Sort", "[", 
            RowBox[{
             RowBox[{"{", 
-             RowBox[{"0", ",", "P\[CapitalNu]rats", ",", 
-              RowBox[{
-               RowBox[{"Max", "[", "\[CapitalNu]vals", "]"}], "/", 
-               "P\[CapitalNu]prods"}], ",", "1", ",", 
-              SuperscriptBox["10", "e"]}], "}"}], ",", "Less"}], "]"}]}], 
-         "}"}], "]"}], "]"}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
+             RowBox[{"0", ",", "P\[CapitalNu]rats", ",", "1", ",", "10"}], 
+             "}"}], ",", "Less"}], "]"}]}], "}"}], "]"}], "]"}]}], 
+     "\[IndentingNewLine]", "}"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{"NIntH1", "=", 
   RowBox[{"Log", "[", 
@@ -805,7 +785,8 @@ Cell[BoxData[{
    3.800477902213694*^9, {3.800493242015024*^9, 3.800493260949781*^9}, {
    3.800493479718218*^9, 3.8004935027967463`*^9}, 3.800579783465047*^9, {
    3.8005798305816927`*^9, 3.800579848252048*^9}, {3.8009947551940327`*^9, 
-   3.800994957704988*^9}},ExpressionUUID->"f052ac7a-2f3d-4a4a-aabd-\
+   3.800994957704988*^9}, {3.801247596657008*^9, 
+   3.801247601686881*^9}},ExpressionUUID->"f052ac7a-2f3d-4a4a-aabd-\
 bd5ec9ce11a3"],
 
 Cell[BoxData[{
@@ -1101,9 +1082,9 @@ Cell[558, 20, 6947, 186, 1053, "Input",ExpressionUUID->"96e97e53-593c-409b-9571-
  InitializationCell->True],
 Cell[7508, 208, 9297, 251, 1332, "Input",ExpressionUUID->"3d0878cd-00dd-4a73-85cf-eac97ce0555f",
  InitializationCell->True],
-Cell[16808, 461, 14991, 347, 3170, "Input",ExpressionUUID->"f052ac7a-2f3d-4a4a-aabd-bd5ec9ce11a3",
+Cell[16808, 461, 14146, 328, 3164, "Input",ExpressionUUID->"f052ac7a-2f3d-4a4a-aabd-bd5ec9ce11a3",
  InitializationCell->True],
-Cell[31802, 810, 10445, 268, 2138, "Input",ExpressionUUID->"0ba04a6a-ed71-4a92-b8e3-901f2f61bc9b",
+Cell[30957, 791, 10445, 268, 2138, "Input",ExpressionUUID->"0ba04a6a-ed71-4a92-b8e3-901f2f61bc9b",
  InitializationCell->True]
 }
 ]
