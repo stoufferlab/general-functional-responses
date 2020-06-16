@@ -432,6 +432,33 @@ round(pfFirst.MAD[which(SScuts==s),],3)*100
 fSecnd.MAD[which(SScuts==s),]
 round(pfSecnd.MAD[which(SScuts==s),],3)*100
 
+# When comparing studies with sample-sizes above versus below the median sample size...
+# How many times is a single model the only best model by AICc or MAD as judged by being below the *relative* performance criterion?
+# AICc above median:
+length(sample.sizes[sample.sizes>s])
+cnt_AICc_single<-sum(apply(delta.AICc[sample.sizes>s,] <= cutoff.AIC, 1, sum)==1)
+cnt_AICc_single
+cnt_AICc_single/nrow(delta.AICc[sample.sizes>s,])
+
+# AICc at or below median:
+length(sample.sizes[sample.sizes<=s])
+cnt_AICc_single<-sum(apply(delta.AICc[sample.sizes<=s,] <= cutoff.AIC, 1, sum)==1)
+cnt_AICc_single
+cnt_AICc_single/nrow(delta.AICc[sample.sizes<=s,])
+
+# MAD above median:
+length(sample.sizes[sample.sizes>s])
+cnt_MAD_single<-sum(apply(delta.MAD[sample.sizes>s,] < cutoff.delta.MAD[sample.sizes>s], 1, sum)==1)
+cnt_MAD_single
+cnt_MAD_single/nrow(delta.MAD[sample.sizes>s,])
+
+# MAD at or below median:
+length(sample.sizes[sample.sizes<=s])
+cnt_MAD_single<-sum(apply(delta.MAD[sample.sizes<=s,] < cutoff.delta.MAD[sample.sizes<=s], 1, sum)==1)
+cnt_MAD_single
+cnt_MAD_single/nrow(delta.MAD[sample.sizes<=s,])
+
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Figure of top two rankings as a function of sample size
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
