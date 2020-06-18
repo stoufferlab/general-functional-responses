@@ -242,6 +242,9 @@ dev.off()
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Overall summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Total number of datasets
+nrow(rnks.AICc)
+
 # Count times each model is in each rank
 mod.order <- colnames(rnks.AICc)
 mods.n <- length(mod.order)
@@ -249,6 +252,7 @@ Cnt_AICc <- apply(rnks.AICc,2,function(x){table(factor(x,levels=1:mods.n))})
 Cnt_AICc <- Cnt_AICc[,mod.order]
 Cnt_AICc
 sum(Cnt_AICc[1,c('BD','CM','AA')])
+nrow(rnks.AICc)-sum(Cnt_AICc[1,c('BD','CM','AA')])
 pCnt_AICc <- round(prop.table(Cnt_AICc,2)*100,1)
 pCnt_AICc
 
@@ -293,17 +297,21 @@ setwd(wd)
 # More summary statistics
 # ~~~~~~~~~~~~~~~~~~~~~~~
 # How many times is a single model the only best model by AICc?
-cnt_AICc_single<-sum(apply(delta.AICc < cutoff.AIC, 1, sum)==1)
+cnt_AICc_single<-sum(apply(delta.AICc <= cutoff.AIC, 1, sum)==1)
 cnt_AICc_single
 cnt_AICc_single/nrow(delta.AICc)
 
 #~~~~~
 # How often are *each of* the other models within 2 AICc units of the top model?
-r1Mod.AICc <- which.max(Cnt_AICc[1,])
+Cnt_AICc[1,which(Cnt_AICc[1,]==max(Cnt_AICc[1,]))]
+r1Mod.AICc <- 4 # for CM
+r1Mod.AICc <- 8 # for AA
 cnt_AICc<-apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 2, sum)
 cnt_AICc
 
 # How often is any other model within 2 AICc units of the top model?
+r1Mod.AICc <- 4 # for CM
+r1Mod.AICc <- 8 # for AA
 cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 1, sum)>0)
 cnt_AICc
 cnt_AICc/Cnt_AICc[1,r1Mod.AICc]
@@ -335,39 +343,62 @@ cnt_AICc/Cnt_AICc[1,r3Mod.AICc]
 round(mean(minMADs/mean.Nconsumed)*100,2)
 round(range(minMADs/mean.Nconsumed)*100,2)
 
-# How many times is a single model the only best model by MAD as judged by being below the performance criterion?
+# How many times is a single model the only best model by MAD as judged by being below the data-detependent performance criterion?
 cnt_MAD_single<-sum(apply(MADs < cutoff.MAD, 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(delta.MAD)
+cnt_MAD_single/nrow(MADs)
 
-# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.MAD performance criterion?
+# How many times is a single model the only best model by MAD as judged by being below the *relative* performance criterion?
+cnt_MAD_single<-sum(apply(delta.MAD < cutoff.delta.MAD, 1, sum)==1)
+cnt_MAD_single
+cnt_MAD_single/nrow(delta.MAD)
+nrow(delta.MAD)-cnt_MAD_single
+(nrow(delta.MAD)-cnt_MAD_single)/nrow(delta.MAD)
+
+# When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.delta.MAD performance criterion?
 r1Mod.MAD <- which.max(Cnt_MAD[1,])
-cnt_MAD <- apply(delta.MAD[rnks.MAD[,r1Mod.MAD ]==1,] < cutoff.MAD, 2, sum)
+cnt_MAD <- apply(delta.MAD[rnks.MAD[,r1Mod.MAD ]==1,] < cutoff.delta.MAD, 2, sum)
 cnt_MAD
+round(100*cnt_MAD/max(cnt_MAD),1)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# What about for datasets that have a sample size of at least X?
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # hist(sample.sizes,breaks=30)
 # hist(log(sample.sizes),breaks=30)
+range(sample.sizes)
 mean(sample.sizes)
 median(sample.sizes)
 
-# Excluding Creswell and Propopenko
-mean(sample.sizes[sample.sizes<600])
-median(sample.sizes[sample.sizes<600])
+# ~~~~~~~~~~~~~~~~~~~
 
-# What about for datasets that have a sample size of at least X?
+# when excluding smaller than
 mxSS <- 300
 mnSS <- min(sample.sizes)
+
+# when excluding greater than
+mxSS <- max(sample.sizes)
+mnSS <- 20
+
 SScuts <- seq(mnSS,mxSS,by=1)
 fFirst.AICc<-fSecnd.AICc<-fFirst.MAD<-fSecnd.MAD<-dim(0)
 pfFirst.AICc<-pfSecnd.AICc<-pfFirst.MAD<-pfSecnd.MAD<-dim(0)
 for(SScut in SScuts){
-  Cnt_AICc<-apply(rnks.AICc[sample.sizes>=SScut,],2, 
+  
+  # Cnt_AICc<-apply(rnks.AICc[sample.sizes>=SScut,],2, # exclude smaller than
+  #                 function(x){
+  #                   table(factor(x,levels=1:mods.n))})
+  Cnt_AICc<-apply(rnks.AICc[sample.sizes<=SScut,],2, # exclude greater than
                   function(x){
                     table(factor(x,levels=1:mods.n))})
   Cnt_AICc <- Cnt_AICc[,mod.order]
   pCnt_AICc <- prop.table(Cnt_AICc,2)
-  Cnt_MAD<-apply(rnks.MAD[sample.sizes>=SScut,],2, 
+  
+  # Cnt_MAD<-apply(rnks.MAD[sample.sizes>=SScut,],2, # exclude smaller than
+  #                function(x){
+  #                  table(factor(x,levels=1:mods.n))})
+  Cnt_MAD<-apply(rnks.MAD[sample.sizes<=SScut,],2, # exclude greater than
                   function(x){
                     table(factor(x,levels=1:mods.n))})
   Cnt_MAD <- Cnt_MAD[,mod.order]
@@ -388,8 +419,8 @@ for(SScut in SScuts){
 # How many datasets are included at the mxSS=300 limit of the plots?
 sum(sample.sizes>=mxSS)
 
-# What are stats at sample size of X?
-s=80
+# What are stats at the median sample size?
+s=median(sample.sizes)
 length(sample.sizes[sample.sizes>=s])
 fFirst.AICc[which(SScuts==s),]
 round(pfFirst.AICc[which(SScuts==s),],3)*100
@@ -400,6 +431,33 @@ fFirst.MAD[which(SScuts==s),]
 round(pfFirst.MAD[which(SScuts==s),],3)*100
 fSecnd.MAD[which(SScuts==s),]
 round(pfSecnd.MAD[which(SScuts==s),],3)*100
+
+# When comparing studies with sample-sizes above versus below the median sample size...
+# How many times is a single model the only best model by AICc or MAD as judged by being below the *relative* performance criterion?
+# AICc above median:
+length(sample.sizes[sample.sizes>s])
+cnt_AICc_single<-sum(apply(delta.AICc[sample.sizes>s,] <= cutoff.AIC, 1, sum)==1)
+cnt_AICc_single
+cnt_AICc_single/nrow(delta.AICc[sample.sizes>s,])
+
+# AICc at or below median:
+length(sample.sizes[sample.sizes<=s])
+cnt_AICc_single<-sum(apply(delta.AICc[sample.sizes<=s,] <= cutoff.AIC, 1, sum)==1)
+cnt_AICc_single
+cnt_AICc_single/nrow(delta.AICc[sample.sizes<=s,])
+
+# MAD above median:
+length(sample.sizes[sample.sizes>s])
+cnt_MAD_single<-sum(apply(delta.MAD[sample.sizes>s,] < cutoff.delta.MAD[sample.sizes>s], 1, sum)==1)
+cnt_MAD_single
+cnt_MAD_single/nrow(delta.MAD[sample.sizes>s,])
+
+# MAD at or below median:
+length(sample.sizes[sample.sizes<=s])
+cnt_MAD_single<-sum(apply(delta.MAD[sample.sizes<=s,] < cutoff.delta.MAD[sample.sizes<=s], 1, sum)==1)
+cnt_MAD_single
+cnt_MAD_single/nrow(delta.MAD[sample.sizes<=s,])
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Figure of top two rankings as a function of sample size
@@ -423,6 +481,8 @@ xadj2 <- 0
 xadj3 <- 0.2
 yadj <- 0.5
 lcex <- 0.7
+
+ylims <- c(0,0.5)
 
 mods<-c(1,5)
 legend(xadj1,yadj,legend=colnames(pfFirst.AICc)[mods],
@@ -448,7 +508,7 @@ text(xadj2+0.02, yadj+0.18, 'Models', adj=0,cex=1)
 par(mar=c(2.5,3,0.5,0))
 matplot(SScuts,pfFirst.AICc,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in first rank',
         xlab='')
   mtext('A',side=3,line=-1.25,at=mnSS,cex=0.9)
@@ -457,15 +517,16 @@ matplot(SScuts,pfFirst.AICc,las=1,type='l',
 par(mar=c(3,3,0,0))
 matplot(SScuts,pfSecnd.AICc,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in second rank',
-        xlab='Sample size greater than...')
+        # xlab='Sample size greater than...')
+        xlab='Sample size less than...')
   mtext('B',side=3,line=-1.25,at=mnSS,cex=0.9)
   
 par(mar=c(2.5,2,0.5,1))
 matplot(SScuts,pfFirst.MAD,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='',
         xlab='')
   mtext('C',side=3,line=-1.25,at=mnSS,cex=0.9)
@@ -474,11 +535,11 @@ matplot(SScuts,pfFirst.MAD,las=1,type='l',
 par(mar=c(3,2,0,1))
 matplot(SScuts,pfSecnd.MAD,las=1,type='l', 
         col=Mcols,lty=ltys,cex=0.5,
-        ylim=c(0,0.7),lwd=1.5,log='x',
+        ylim=ylims,lwd=1.5,log='x',
         ylab='',
-        xlab='Sample size greater than...')
+        # xlab='Sample size greater than...')
+        xlab='Sample size less than...')
   mtext('D',side=3,line=-1.25,at=mnSS,cex=0.9)
 
 dev.off()
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
