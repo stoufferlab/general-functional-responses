@@ -97,8 +97,48 @@ setwd('../../../results/R/OnePredOnePrey_tables/')
   latex(tab,file='OnePredOnePrey_datasets.tex',
         label='table:datasets', 
         rowname=NULL, 
-        na.blank=TRUE, 
+        na.blank=TRUE,
         caption="A summary of discovered datasets relevant to the study of consumer dependence.  ``Original data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets. ``Replacement'' refers to the whether consumed prey were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood. ")
+setwd(wd)
+
+# tweak things for DBS' paper
+
+# Change a few column names
+colnames(tab) <- c('Study',
+                   'Dataset',
+                   'Used',
+                   'Raw data',
+                   'Nobs',
+                   'Replacement',
+                   'Consumer')
+
+# Remove unused datasets at end of table
+unused <- which(tab$Used=='No')
+tab <- tab[-unused,]
+tab$Used <- NULL
+
+# reorder columns
+tab <- tab[,c('Study','Dataset','Nobs','Replacement','Consumer','Raw data')]
+
+# Export to LaTeX
+wd <- getwd()
+setwd('../../../results/R/OnePredOnePrey_tables/')
+  latex(
+    tab,
+    file='OnePredOnePrey_datasets_DBS.tex',
+    label='table:datasets', 
+    rowname=NULL, 
+    na.blank=TRUE,
+    longtable=TRUE,
+    caption="
+      A summary of discovered datasets relevant to the study of consumer dependence.
+      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one experiment available.
+      ``Nobs'' indicates the sample size.
+      ``Replacement'' refers to the whether consumed prey were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.
+      ``Consumer'' refers to the whether the consumer was a predator or a parasitoid.
+      ``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets.
+    "
+  )
 setwd(wd)
 
 
