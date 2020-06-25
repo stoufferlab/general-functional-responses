@@ -101,7 +101,7 @@ setwd('../../../results/R/OnePredTwoPrey_tables/')
   latex(
     tab,
     file='OnePredTwoPrey_datasets.tex',
-    label='table:datasets', 
+    label='table:1pred2preydatasets', 
     rowname=NULL, 
     na.blank=TRUE, 
     caption="

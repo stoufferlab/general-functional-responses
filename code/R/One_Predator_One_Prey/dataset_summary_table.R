@@ -126,10 +126,11 @@ setwd('../../../results/R/OnePredOnePrey_tables/')
   latex(
     tab,
     file='OnePredOnePrey_datasets_DBS.tex',
-    label='table:datasets', 
+    label='table:1pred1preydatasets', 
     rowname=NULL, 
     na.blank=TRUE,
     longtable=TRUE,
+    lines.page=100,
     caption="
       A summary of discovered datasets relevant to the study of consumer dependence.
       ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one experiment available.
