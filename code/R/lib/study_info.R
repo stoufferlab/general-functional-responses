@@ -3,7 +3,10 @@ study.info <- function(dataname){
 	# grab some info from the google doc
 	require(RCurl)
 	googledoc<-read.csv(
-		text=getURL("https://docs.google.com/spreadsheets/d/e/2PACX-1vQcykYqM8Pkmgrlmp9S2jorZZEOlZ14a0AINRuDc2Y_29f6dTR9ojhOOBV2rcattJO5LXA5ATVn_nK6/pub?gid=0&single=true&output=csv"),
+		text=getURL(
+			"https://docs.google.com/spreadsheets/d/e/2PACX-1vQcykYqM8Pkmgrlmp9S2jorZZEOlZ14a0AINRuDc2Y_29f6dTR9ojhOOBV2rcattJO5LXA5ATVn_nK6/pub?gid=0&single=true&output=csv",
+			.opts = list(followlocation = TRUE)
+		),
 		header=T,
 		skip=1,
 		sep=",",
