@@ -29,6 +29,9 @@ sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 labels <- paste0(labels, ' (',sample.sizes,')')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+m2 <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya.Method.2']]["50%",'exponent',"estimate"]))
+parm <- m2 
+range(m2)
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m.pdf',height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
@@ -42,14 +45,12 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      display.outlier.ests=TRUE,
      xlab="Arditi-Akcakaya interference rate (m) (Method 2)",
      labels=labels,
-     xlim=c(-0.5,1.6)
+     xlim=c(-0.8,1.85)
   )
 dev.off()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Additional summary plots
-m2 <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya.Method.2']]["50%",'exponent',"estimate"]))
-parm <- m2 
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m_xy.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
