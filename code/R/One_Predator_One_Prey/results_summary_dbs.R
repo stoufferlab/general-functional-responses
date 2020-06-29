@@ -1,17 +1,7 @@
 rm(list = ls())
 
+# we may not need this but just in case...
 library(bbmle)
-# source('../lib/profile_coefs.R')
-# for 
-source('../lib/plot_coefs.R')
-# source('../lib/depletion_check.R') 
-# source('../lib/holling_method_one_predator_one_prey.R')
-# source('../lib/ratio_method_one_predator_one_prey.R')
-
-# library(RColorBrewer)
-# library(Hmisc) # for LaTeX table export
-# library(stringr)
-# options(xdvicmd='open')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 load('../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
