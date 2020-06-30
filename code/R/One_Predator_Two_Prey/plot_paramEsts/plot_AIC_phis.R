@@ -139,9 +139,9 @@ legend(
     -0.75,nrow(rnkAICs)/2,
     legend=c(
       'H1',
-      "H2 (S)",
-      "H2 (G)",
-      expression(paste("H2 (",phi,")"))
+      "Spec",
+      "Gen",
+      expression(phi)
     ),
     pch=Mpch, pt.bg=Mcols, col='black', bg='white',
     horiz=FALSE, pt.cex=1, cex=0.6, ncol=1, title='  Model',
