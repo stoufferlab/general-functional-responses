@@ -296,7 +296,7 @@ setwd(wd)
 # How many times is a single model the only best model by AIC?
 cnt_AIC_single<-sum(apply(delta.AIC <= cutoff.AIC, 1, sum)==1)
 cnt_AIC_single
-cnt_AIC_single/nrow(delta.AIC)
+cnt_AIC_single/nrow(delta.AIC)*100
 
 #~~~~~
 # How often are *each of* the other models within 2 AIC units of the top model?
@@ -307,7 +307,7 @@ cnt_AIC
 # How often is any other model within 2 AIC units of the top model?
 cnt_AIC<-sum(apply(delta.AIC[rnks.AIC[,r1Mod.AIC]==1,-r1Mod.AIC] < cutoff.AIC, 1, sum)>0)
 cnt_AIC
-cnt_AIC/Cnt_AIC[1,r1Mod.AIC]
+cnt_AIC/Cnt_AIC[1,r1Mod.AIC]*100
 
 #~~~~~
 # How often are other models within 2 AIC units of the 2nd-best model?
@@ -339,7 +339,7 @@ round(range(minRMSDs/mean.Nconsumed)*100,2)
 # How many times is a single model the only best model by RMSD as judged by being below the performance criterion?
 cnt_RMSD_single<-sum(apply(RMSDs < cutoff.RMSD, 1, sum)==1)
 cnt_RMSD_single
-cnt_RMSD_single/nrow(delta.RMSD)
+cnt_RMSD_single/nrow(delta.RMSD)*100
 
 # When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.RMSD performance criterion?
 r1Mod.RMSD <- which.max(Cnt_RMSD[1,])
@@ -406,7 +406,8 @@ sum(sample.sizes>=mxSS)
 
 # What are stats at the median sample size?
 s=median(sample.sizes)
-length(sample.sizes[sample.sizes>=s])
+length(sample.sizes[sample.sizes<=s])
+
 fFirst.AIC[which(SScuts==s),]
 round(pfFirst.AIC[which(SScuts==s),],3)*100
 fSecnd.AIC[which(SScuts==s),]
@@ -422,7 +423,7 @@ round(pfSecnd.RMSD[which(SScuts==s),],3)*100
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Darken colors of linear models relative to above
 Mcols[c(1,5)]<-'grey40'
-ltys <- c(1,1,1,6,2,2,3,1)
+ltys <- c(1,1,1,6,2,2,1,1)
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_and_RMSD_toprankBySS.pdf',
     height=4,width=5)
