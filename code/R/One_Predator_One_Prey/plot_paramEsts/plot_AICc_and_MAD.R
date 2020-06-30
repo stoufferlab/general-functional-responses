@@ -3,6 +3,7 @@ source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 
 library(RColorBrewer)
+library(stats) # for rug()
 library(Hmisc) # for LaTeX table export
 options(xdvicmd='open')
 
@@ -285,7 +286,7 @@ tab_Cnt <- rbind(c(rep('',3),'AICc',rep('',4)),
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_tables/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AICc_and_MAD_rankings.tex',label='table:AICc_and_MAD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$ or by MAD.')
+latex(tab_Cnt,file='OnePredOnePrey_AICc_and_MAD_rankings.tex',label='table:AICc_and_MAD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$ or by $MAD$.')
 
 # latex(tab_Cnt_AICc,file='OnePredOnePrey_AICc_rankings.tex',label='table:AICc_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 # 
@@ -374,8 +375,8 @@ median(sample.sizes)
 # ~~~~~~~~~~~~~~~~~~~
 
 # when excluding smaller than
-mxSS <- 300
-mnSS <- min(sample.sizes)
+# mxSS <- 300
+# mnSS <- min(sample.sizes)
 
 # when excluding greater than
 mxSS <- max(sample.sizes)
@@ -482,7 +483,7 @@ xadj3 <- 0.2
 yadj <- 0.5
 lcex <- 0.7
 
-ylims <- c(0,0.5)
+ylims <- c(0,0.58)
 
 mods<-c(1,5)
 legend(xadj1,yadj,legend=colnames(pfFirst.AICc)[mods],
@@ -511,7 +512,8 @@ matplot(SScuts,pfFirst.AICc,las=1,type='l',
         ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in first rank',
         xlab='')
-  mtext('A',side=3,line=-1.25,at=mnSS,cex=0.9)
+  rug(sample.sizes,side=3)
+  mtext('A',side=3,line=-1.5,at=mnSS,cex=0.9)
   mtext('AICc',side=3,line=0.3,adj=0.5,cex=1)
   
 par(mar=c(3,3,0,0))
@@ -521,7 +523,8 @@ matplot(SScuts,pfSecnd.AICc,las=1,type='l',
         ylab='Fraction in second rank',
         # xlab='Sample size greater than...')
         xlab='Sample size less than...')
-  mtext('B',side=3,line=-1.25,at=mnSS,cex=0.9)
+  rug(sample.sizes,side=3)
+  mtext('B',side=3,line=-1.5,at=mnSS,cex=0.9)
   
 par(mar=c(2.5,2,0.5,1))
 matplot(SScuts,pfFirst.MAD,las=1,type='l', 
@@ -529,7 +532,8 @@ matplot(SScuts,pfFirst.MAD,las=1,type='l',
         ylim=ylims,lwd=1.5,log='x',
         ylab='',
         xlab='')
-  mtext('C',side=3,line=-1.25,at=mnSS,cex=0.9)
+  rug(sample.sizes,side=3)
+  mtext('C',side=3,line=-1.5,at=mnSS,cex=0.9)
   mtext('MAD',side=3,line=0.3,adj=0.5,cex=1)
   
 par(mar=c(3,2,0,1))
@@ -539,7 +543,8 @@ matplot(SScuts,pfSecnd.MAD,las=1,type='l',
         ylab='',
         # xlab='Sample size greater than...')
         xlab='Sample size less than...')
-  mtext('D',side=3,line=-1.25,at=mnSS,cex=0.9)
+  rug(sample.sizes,side=3)
+  mtext('D',side=3,line=-1.5,at=mnSS,cex=0.9)
 
 dev.off()
 

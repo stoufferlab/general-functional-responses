@@ -3,6 +3,7 @@ source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 
 library(RColorBrewer)
+library(stats) # for rug()
 library(Hmisc) # for LaTeX table export
 options(xdvicmd='open')
 
@@ -281,7 +282,7 @@ tab_Cnt <- rbind(c(rep('',3),'AIC',rep('',4)),
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_tables/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AIC_and_RMSD_rankings.tex',label='table:AIC_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC$ or by RMSD.')
+latex(tab_Cnt,file='OnePredOnePrey_AIC_and_RMSD_rankings.tex',label='table:AIC_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC$ or by $RMSD$.')
 
 # latex(tab_Cnt_AIC,file='OnePredOnePrey_AIC_rankings.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 # 
@@ -358,8 +359,8 @@ median(sample.sizes)
 # ~~~~~~~~~~~~~~~~~~~
 
 # when excluding smaller than
-mxSS <- 300
-mnSS <- min(sample.sizes)
+# mxSS <- 300
+# mnSS <- min(sample.sizes)
 
 # when excluding greater than
 mxSS <- max(sample.sizes)
@@ -468,8 +469,9 @@ matplot(SScuts,pfFirst.AIC,las=1,type='l',
         ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in first rank',
         xlab='')
-mtext('A',side=3,line=-1.25,at=mnSS,cex=0.9)
-mtext('AIC',side=3,line=0.3,adj=0.5,cex=1)
+  rug(sample.sizes,side=3)
+  mtext('A',side=3,line=-1.5,at=mnSS,cex=0.9)
+  mtext('AIC',side=3,line=0.3,adj=0.5,cex=1)
 
 par(mar=c(3,3,0,0))
 matplot(SScuts,pfSecnd.AIC,las=1,type='l', 
@@ -478,7 +480,8 @@ matplot(SScuts,pfSecnd.AIC,las=1,type='l',
         ylab='Fraction in second rank',
         # xlab='Sample size greater than...')
         xlab='Sample size less than...')
-mtext('B',side=3,line=-1.25,at=mnSS,cex=0.9)
+  rug(sample.sizes,side=3)
+  mtext('B',side=3,line=-1.5,at=mnSS,cex=0.9)
 
 par(mar=c(2.5,2,0.5,1))
 matplot(SScuts,pfFirst.RMSD,las=1,type='l', 
@@ -486,8 +489,9 @@ matplot(SScuts,pfFirst.RMSD,las=1,type='l',
         ylim=ylims,lwd=1.5,log='x',
         ylab='',
         xlab='')
-mtext('C',side=3,line=-1.25,at=mnSS,cex=0.9)
-mtext('RMSD',side=3,line=0.3,adj=0.5,cex=1)
+  rug(sample.sizes,side=3)
+  mtext('C',side=3,line=-1.5,at=mnSS,cex=0.9)
+  mtext('RMSD',side=3,line=0.3,adj=0.5,cex=1)
 
 par(mar=c(3,2,0,1))
 matplot(SScuts,pfSecnd.RMSD,las=1,type='l', 
@@ -496,7 +500,8 @@ matplot(SScuts,pfSecnd.RMSD,las=1,type='l',
         ylab='',
         # xlab='Sample size greater than...')
         xlab='Sample size less than...')
-mtext('D',side=3,line=-1.25,at=mnSS,cex=0.9)
+  rug(sample.sizes,side=3)
+  mtext('D',side=3,line=-1.5,at=mnSS,cex=0.9)
 
 dev.off()
 
