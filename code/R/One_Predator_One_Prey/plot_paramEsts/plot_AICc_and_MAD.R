@@ -300,7 +300,7 @@ setwd(wd)
 # How many times is a single model the only best model by AICc?
 cnt_AICc_single<-sum(apply(delta.AICc <= cutoff.AIC, 1, sum)==1)
 cnt_AICc_single
-cnt_AICc_single/nrow(delta.AICc)
+cnt_AICc_single/nrow(delta.AICc)*100
 
 #~~~~~
 # How often are *each of* the other models within 2 AICc units of the top model?
@@ -315,7 +315,7 @@ r1Mod.AICc <- 4 # for CM
 r1Mod.AICc <- 8 # for AA
 cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 1, sum)>0)
 cnt_AICc
-cnt_AICc/Cnt_AICc[1,r1Mod.AICc]
+cnt_AICc/Cnt_AICc[1,r1Mod.AICc]*100
 
 #~~~~~
 # How often are other models within 2 AICc units of the 2nd-best model?
@@ -347,14 +347,14 @@ round(range(minMADs/mean.Nconsumed)*100,2)
 # How many times is a single model the only best model by MAD as judged by being below the data-detependent performance criterion?
 cnt_MAD_single<-sum(apply(MADs < cutoff.MAD, 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(MADs)
+cnt_MAD_single/nrow(MADs)*100
 
 # How many times is a single model the only best model by MAD as judged by being below the *relative* performance criterion?
 cnt_MAD_single<-sum(apply(delta.MAD < cutoff.delta.MAD, 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(delta.MAD)
+cnt_MAD_single/nrow(delta.MAD)*100
 nrow(delta.MAD)-cnt_MAD_single
-(nrow(delta.MAD)-cnt_MAD_single)/nrow(delta.MAD)
+(nrow(delta.MAD)-cnt_MAD_single)/nrow(delta.MAD)*100
 
 # When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.delta.MAD performance criterion?
 r1Mod.MAD <- which.max(Cnt_MAD[1,])
@@ -422,7 +422,8 @@ sum(sample.sizes>=mxSS)
 
 # What are stats at the median sample size?
 s=median(sample.sizes)
-length(sample.sizes[sample.sizes>=s])
+length(sample.sizes[sample.sizes<=s])
+
 fFirst.AICc[which(SScuts==s),]
 round(pfFirst.AICc[which(SScuts==s),],3)*100
 fSecnd.AICc[which(SScuts==s),]
@@ -439,25 +440,25 @@ round(pfSecnd.MAD[which(SScuts==s),],3)*100
 length(sample.sizes[sample.sizes>s])
 cnt_AICc_single<-sum(apply(delta.AICc[sample.sizes>s,] <= cutoff.AIC, 1, sum)==1)
 cnt_AICc_single
-cnt_AICc_single/nrow(delta.AICc[sample.sizes>s,])
+round(cnt_AICc_single/nrow(delta.AICc[sample.sizes>s,])*100,1)
 
 # AICc at or below median:
 length(sample.sizes[sample.sizes<=s])
 cnt_AICc_single<-sum(apply(delta.AICc[sample.sizes<=s,] <= cutoff.AIC, 1, sum)==1)
 cnt_AICc_single
-cnt_AICc_single/nrow(delta.AICc[sample.sizes<=s,])
+round(cnt_AICc_single/nrow(delta.AICc[sample.sizes<=s,])*100,1)
 
 # MAD above median:
 length(sample.sizes[sample.sizes>s])
 cnt_MAD_single<-sum(apply(delta.MAD[sample.sizes>s,] < cutoff.delta.MAD[sample.sizes>s], 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(delta.MAD[sample.sizes>s,])
+round(cnt_MAD_single/nrow(delta.MAD[sample.sizes>s,])*100,1)
 
 # MAD at or below median:
 length(sample.sizes[sample.sizes<=s])
 cnt_MAD_single<-sum(apply(delta.MAD[sample.sizes<=s,] < cutoff.delta.MAD[sample.sizes<=s], 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(delta.MAD[sample.sizes<=s,])
+round(cnt_MAD_single/nrow(delta.MAD[sample.sizes<=s,])*100,1)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -465,7 +466,7 @@ cnt_MAD_single/nrow(delta.MAD[sample.sizes<=s,])
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Darken colors of linear models relative to above
 Mcols[c(1,5)]<-'grey40'
-ltys <- c(1,1,1,6,2,2,3,1)
+ltys <- c(1,1,1,6,2,2,1,1)
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_and_MAD_toprankBySS.pdf',
     height=4,width=5)

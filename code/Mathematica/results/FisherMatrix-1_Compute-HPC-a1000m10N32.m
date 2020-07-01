@@ -11,7 +11,7 @@ AG = (a \[CapitalNu] P T)/(P+a h \[CapitalNu]);
 BD = (a \[CapitalNu] P T)/(1+a h \[CapitalNu] + \[Gamma] (P-1));
 CM = (a \[CapitalNu] P T)/((1+a h \[CapitalNu])(1+\[Gamma] (P-1)));
 AA=(a \[CapitalNu] P T)/(P^m+a h \[CapitalNu]);
-\[CapitalNu]vals={2,4,8,16,32,64,128,256};
+\[CapitalNu]vals={2,4,8,16,32};
 Pvals={1,2,5};
 
 \[CapitalNu]probs=ConstantArray[1/Length[\[CapitalNu]vals],Length[\[CapitalNu]vals]];
@@ -112,7 +112,7 @@ ParmRangeA={
 {a,0,1000},
 DeleteDuplicates[Flatten[{{h},Sort[{0,P\[CapitalNu]rats,1,10^e},Less]}]],
 DeleteDuplicates[Flatten[{{\[Gamma]},Sort[{0,1/Pvals,1,10^e},Less]}]],
-DeleteDuplicates[Flatten[{{m},Sort[{0,P\[CapitalNu]rats,1,5},Less]}]]
+DeleteDuplicates[Flatten[{{m},Sort[{0,P\[CapitalNu]rats,1,10},Less]}]]
 };
 
 NIntH1=Log[NIntegrate[Sqrt[DetH1],
