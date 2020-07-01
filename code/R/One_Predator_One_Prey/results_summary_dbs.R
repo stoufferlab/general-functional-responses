@@ -168,7 +168,7 @@ message(paste(
 
 # fully above one
 message(paste(
-  "phi totally above 1:",
+  "phi includes 0:",
   sum(unlist(lapply(
     ffr.fits,
     function(x){
