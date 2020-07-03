@@ -108,7 +108,7 @@ par(pty='s',mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i'
          m2,
          pch=21, 
          bg='grey')
-  arrows(m[m2>xylim[2]], 0.95*xylim[2], m[m2>xylim[2]], 0.99*xylim[2], length=0.02)
-  text(m[m2>xylim[2]], 0.93*xylim[2],round(m2[m2>xylim[2]],1),cex=0.7)
+  # arrows(m[m2>xylim[2]], 0.95*xylim[2], m[m2>xylim[2]], 0.99*xylim[2], length=0.02)
+  # text(m[m2>xylim[2]], 0.93*xylim[2],round(m2[m2>xylim[2]],1),cex=0.7)
 dev.off()     
 
