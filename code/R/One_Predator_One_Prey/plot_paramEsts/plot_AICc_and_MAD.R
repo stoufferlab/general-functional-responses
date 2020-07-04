@@ -300,44 +300,22 @@ setwd(wd)
 # How many times is a single model the only best model by AICc?
 cnt_AICc_single<-sum(apply(delta.AICc <= cutoff.AIC, 1, sum)==1)
 cnt_AICc_single
-cnt_AICc_single/nrow(delta.AICc)*100
+round(cnt_AICc_single/nrow(delta.AICc)*100,1)
 
 #~~~~~
 # How often are *each of* the other models within 2 AICc units of the top model?
 Cnt_AICc[1,which(Cnt_AICc[1,]==max(Cnt_AICc[1,]))]
 r1Mod.AICc <- 4 # for CM
-r1Mod.AICc <- 8 # for AA
+# r1Mod.AICc <- 8 # for AA
 cnt_AICc<-apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 2, sum)
 cnt_AICc
 
 # How often is any other model within 2 AICc units of the top model?
 r1Mod.AICc <- 4 # for CM
-r1Mod.AICc <- 8 # for AA
+# r1Mod.AICc <- 8 # for AA
 cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r1Mod.AICc]==1,-r1Mod.AICc] < cutoff.AIC, 1, sum)>0)
 cnt_AICc
-cnt_AICc/Cnt_AICc[1,r1Mod.AICc]*100
-
-#~~~~~
-# How often are other models within 2 AICc units of the 2nd-best model?
-r2Mod.AICc <- which(rank(-Cnt_AICc[1,])==2)
-cnt_AICc<-apply(delta.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cutoff.AIC, 2, sum)
-cnt_AICc
-
-# How often is any other model within 2 AICc units of the 2nd-best model?
-cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r2Mod.AICc]==1,-r2Mod.AICc] < cutoff.AIC, 1, sum)>0)
-cnt_AICc
-cnt_AICc/Cnt_AICc[1,r2Mod.AICc]
-
-#~~~~~
-# How often are other models within 2 AICc units of the 3rd-best model?
-r3Mod.AICc <- which(rank(-Cnt_AICc[1,])==3)
-cnt_AICc<-apply(delta.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cutoff.AIC, 2, sum)
-cnt_AICc
-
-# How often is any other model within 2 AICc units of the 3rd-best model?
-cnt_AICc<-sum(apply(delta.AICc[rnks.AICc[,r3Mod.AICc]==1,-r3Mod.AICc] < cutoff.AIC, 1, sum)>0)
-cnt_AICc
-cnt_AICc/Cnt_AICc[1,r3Mod.AICc]
+round(cnt_AICc/Cnt_AICc[1,r1Mod.AICc]*100,1)
 
 #~~~~~~~~~~~~~~~~~~~~~~
 # Normalized-MAD statistics of best-performing model
@@ -347,14 +325,14 @@ round(range(minMADs/mean.Nconsumed)*100,2)
 # How many times is a single model the only best model by MAD as judged by being below the data-detependent performance criterion?
 cnt_MAD_single<-sum(apply(MADs < cutoff.MAD, 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(MADs)*100
+round(cnt_MAD_single/nrow(MADs)*100,1)
 
 # How many times is a single model the only best model by MAD as judged by being below the *relative* performance criterion?
 cnt_MAD_single<-sum(apply(delta.MAD < cutoff.delta.MAD, 1, sum)==1)
 cnt_MAD_single
-cnt_MAD_single/nrow(delta.MAD)*100
+round(cnt_MAD_single/nrow(delta.MAD)*100,1)
 nrow(delta.MAD)-cnt_MAD_single
-(nrow(delta.MAD)-cnt_MAD_single)/nrow(delta.MAD)*100
+round((nrow(delta.MAD)-cnt_MAD_single)/nrow(delta.MAD)*100,1)
 
 # When the overall top-performing model is best, how often are models other than the overall top-peforming model within the cutoff.delta.MAD performance criterion?
 r1Mod.MAD <- which.max(Cnt_MAD[1,])
