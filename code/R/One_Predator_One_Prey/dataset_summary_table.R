@@ -132,10 +132,10 @@ setwd('../../../results/R/OnePredOnePrey_tables/')
     longtable=TRUE,
     lines.page=100,
     caption="
-      A summary of discovered datasets relevant to the study of consumer dependence.
+      A summary of discovered datasets relevant to the study of single-species consumer dependence.
       ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one experiment available.
       ``Nobs'' indicates the sample size.
-      ``Replacement'' refers to the whether consumed prey were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.
+      ``Replacement'' refers to whether the consumed resource was replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.
       ``Consumer'' refers to the whether the consumer was a predator or a parasitoid.
       ``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets.
     "
