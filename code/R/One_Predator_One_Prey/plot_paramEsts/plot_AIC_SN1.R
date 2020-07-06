@@ -34,7 +34,7 @@ AIC.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Stouffer.Novak.I'][[1]][s
 
 AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.SN1)
 colnames(AICs) <- sub('AIC.', '', colnames(AICs))
-colnames(AICs)[5] <- "Gen"
+colnames(AICs)[5] <- "G"
 rownames(AICs) <- labels
 
 # Define color of each model
@@ -143,7 +143,7 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
 # fits for which the SN1 model is not supported are colored red
 color.vector <- numeric(length(ffr.fits))
 for(i in 1:length(ffr.fits)){
-  if(dAICs$Gen[i] > 2){
+  if(dAICs$G[i] > 2){
     color.vector[i] <- CR[7]
   }else{
     if(rowSums(dAICs[i,]<2)==1){
