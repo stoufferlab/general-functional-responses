@@ -53,10 +53,14 @@ CR<-brewer.pal(n = 9, name = 'Blues')
 Mcols <- CR[c(6,8)]
 Mcols <- c("white",Mcols)
 Mcols <- c(Mcols, brewer.pal(n = 9, name = 'Reds')[7])
-Mpch <- c(rep(21,7),rep(22,4))
+Mpch <- c(rep(21,3),rep(22,4))
+
+# doctor one label so that it matches the table in the supps
+labels <- rownames(rnkAICs)
+labels[which(labels=="Long_2012_2p")] <- "Long_2012a"
 
 # create the dataset labels for the figures
-labels<-gsub('_',' ',rownames(rnkAICs))
+labels<-gsub('_',' ',labels)
 labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
 
 # generate the figure
@@ -139,8 +143,8 @@ legend(
     -0.75,nrow(rnkAICs)/2,
     legend=c(
       'H1',
-      "Spec",
-      "Gen",
+      "H2-s",
+      "H2-m",
       expression(phi)
     ),
     pch=Mpch, pt.bg=Mcols, col='black', bg='white',
@@ -166,12 +170,12 @@ par(mar=c(2.5,0.25,0.5,0.5))
 
 # scaffold of a plot that doesn't actually show anything
 plot(
-  y = 1:31,
-  x = 1:31,
+  y = 1:29,
+  x = 1:29,
   type='n',
   yaxt='n',
   xlim=xlim,
-      ylim=c(0,32),
+      ylim=c(0,30),
       xlab='Effect of feeding on feeding',
       ylab='',
       axes=FALSE
