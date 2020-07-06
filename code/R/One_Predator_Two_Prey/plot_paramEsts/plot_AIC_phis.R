@@ -145,7 +145,7 @@ legend(
       'H1',
       "H2-s",
       "H2-m",
-      expression(phi)
+      expression(paste("H2-",phi))
     ),
     pch=Mpch, pt.bg=Mcols, col='black', bg='white',
     horiz=FALSE, pt.cex=1, cex=0.6, ncol=1, title='  Model',
