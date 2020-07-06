@@ -16,10 +16,12 @@ fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order
 ffr.fits <- ffr.fits[fit.order]
 
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
+
+# need to doctor a label to match the supps
+labels[which(labels=="Long_2012")] <- "Long_2012b"
+
+# replace underscores
 labels<-gsub('_',' ',labels)
-# sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
-# labels <- paste0(labels, ' (',sample.sizes,')')
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Grab summary of AIC estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
@@ -40,7 +42,7 @@ colnames(AICs)
 CR<-brewer.pal(n = 9, name = 'Blues')
 Mcols <- c('white',CR[c(3,6,9)])
 Mcols <- c(Mcols, brewer.pal(n = 9, name = 'Reds')[7])
-Mpch <- c(rep(21,5),rep(22,4))
+Mpch <- c(rep(21,4),rep(22,4))
 
 minAICs <- apply(AICs, 1, min)
 dAICs <- AICs - minAICs
@@ -79,9 +81,6 @@ par(
     yaxs='i'
 )
 
-labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
-# labels <- paste0('  ', labels)
-
     plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
          type='n', yaxt='n',
          xlim=c(0.5,ncol(rnkAICs)+0.5),
@@ -90,6 +89,10 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
          ylab='',
          axes=F)
     # rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
+
+# add some padding to pretty everything up
+labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
+
     axis(
         4,
         at=1:nrow(rnkAICs),
@@ -128,7 +131,7 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
     box(lwd=1)
     par(xpd=TRUE)
     legend(
-        -0.75,nrow(rnkAICs)/2,legend=c(colnames(rnkAICs)[1:4],expression(phi)),
+        -0.75,nrow(rnkAICs)/2,legend=colnames(rnkAICs),
         xjust=0.5,
         pch=Mpch, pt.bg=Mcols, col='black', bg='white',
         horiz=FALSE, pt.cex=1,cex=0.6, ncol=1, title='Model',
@@ -177,7 +180,7 @@ plot.coefs(
     point.est='median',
     plot.SEs=TRUE,
     display.outlier.ests=FALSE,
-    xlab="Effect of feeding on interfering",
+    xlab="Effect of feeding on consumer interference",
     labels=labels,
     vertLines = c(0,1),
     xlim=c(-3,3),
