@@ -4,8 +4,11 @@ source('../../lib/depletion_check.R')
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# now profile the fits
 ffr.fits <- profile_coefs(ffr.fits, 
                           model='Hassell.Varley',
                           point.est='median',

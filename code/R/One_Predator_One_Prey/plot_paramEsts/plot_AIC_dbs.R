@@ -6,9 +6,11 @@ library(RColorBrewer)
 library(Hmisc) # for LaTeX table export
 options(xdvicmd='open')
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~
-load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order.parm="phi_denom")
 ffr.fits <- ffr.fits[fit.order]
 

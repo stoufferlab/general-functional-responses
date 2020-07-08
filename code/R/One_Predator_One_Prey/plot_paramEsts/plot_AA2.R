@@ -3,14 +3,18 @@ source('../../lib/profile_coefs.R')
 source('../../lib/depletion_check.R') 
 source('../../lib/holling_method_one_predator_one_prey.R')
 source('../../lib/ratio_method_one_predator_one_prey.R')
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Remove datasets where AA2 method was NOT successfully applied
 noAA2 <- unlist(lapply(ffr.fits, function(x) is.na(x$estimates['Arditi.Akcakaya.Method.2'])))
 ffr.fits[which(noAA2)] <- NULL
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Profile the fits
 ffr.fits <- profile_coefs(ffr.fits, 
                           model='Arditi.Akcakaya.Method.2',
                           point.est='median',

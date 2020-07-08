@@ -553,11 +553,3 @@ for(i in 1:length(datasets)){
 }
 # sink(type="message")
 # close(Mesgs)
-
-# save a mega container
-ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits')
-save(
-	ffr.fits,
-	file='../../../results/R/OnePredOnePrey_ffr.fits.Rdata'
-)
-
