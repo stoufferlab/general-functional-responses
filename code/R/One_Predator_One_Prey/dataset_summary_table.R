@@ -78,18 +78,24 @@ for(i in 1:length(datasets)){
   
 }
 
+
 tab <- data.frame(out)
 colnames(tab) <- c('Study',
                    'Dataset',
                    'Used',
-                   'Original data',
+                   'Raw data',
                    'Sample size',
                    'Replacement',
                    'Consumer')
 
-# Place unused datasets at end of table
+# Place unused datasets at end of table (if including, see next)
 unused <- which(tab$Used=='No')
 tab <- rbind(tab[-unused,], tab[unused,])
+
+# Remove unused datasets
+unused <- which(tab$Used=='No')
+tab <- tab[-unused,]
+tab$Used <- NULL
 
 # Export to LaTeX
 wd <- getwd()
@@ -98,15 +104,18 @@ setwd('../../../results/R/OnePredOnePrey_tables/')
         label='table:datasets', 
         rowname=NULL, 
         na.blank=TRUE,
-        caption="A summary of discovered datasets relevant to the study of consumer dependence.  ``Original data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets. ``Replacement'' refers to the whether consumed prey were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood. ")
+        longtable=TRUE,
+        lines.page=100,
+        caption="A summary of used datasets. ``Dataset'' refers to the specific experiment from the study, and ‘-’ implies there was only one experiment available.``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used means and associated uncertainty intervals to produce bootstrapped datasets. ``Replacement'' refers to the whether consumed prey were replaced during the study (or whether the parasitoid was considered discriminatory or not), which dictated our use of a binomial versus a Poisson likelihood. ")
 setwd(wd)
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # tweak things for DBS' paper
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Change a few column names
 colnames(tab) <- c('Study',
                    'Dataset',
-                   'Used',
                    'Raw data',
                    'Nobs',
                    'Replacement',
@@ -142,7 +151,7 @@ setwd('../../../results/R/OnePredOnePrey_tables/')
   )
 setwd(wd)
 
-
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Table of data sets by confidence interval type
 # load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
 # labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
