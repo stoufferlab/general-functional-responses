@@ -41,9 +41,9 @@ sample.sizes <- unlist(lapply(
   function(x){
     d <- x$study.info
     if("data.Nconsumed1.mean" %in% names(d)){
-      return(sum(d$data.n)*2)
+      return(sum(d$data.n))
     }else{
-      return(length(d$data.Nconsumed1)*2)
+      return(length(d$data.Nconsumed1))
     }
   }
 ))
