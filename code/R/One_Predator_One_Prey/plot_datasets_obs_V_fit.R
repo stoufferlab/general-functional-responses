@@ -4,7 +4,9 @@ source('../lib/holling_method_one_predator_one_prey.R')
 source('../lib/ratio_method_one_predator_one_prey.R')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-load('../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits')
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
 ffr.fits <- ffr.fits[rev(fit.order)]
