@@ -170,12 +170,12 @@ par(mar=c(2.5,0.25,0.5,0.5))
 
 # scaffold of a plot that doesn't actually show anything
 plot(
-  y = 1:29,
-  x = 1:29,
+  y = 1:length(ffr.cfs),
+  x = 1:length(ffr.cfs),
   type='n',
   yaxt='n',
   xlim=xlim,
-      ylim=c(0,30),
+      ylim=c(0,1+length(ffr.cfs)),
       xlab='Effect of feeding on feeding',
       ylab='',
       axes=FALSE
