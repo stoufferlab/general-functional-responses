@@ -209,10 +209,3 @@ for(i in 1:length(datasets)){
 		)
 	}
 }
-
-# save a mega container
-ffr.fits <- bundle_fits('../../../results/R/OnePredTwoPrey_fits')
-saveRDS(
-	ffr.fits,
-	file='../../../results/R/OnePredTwoPrey_ffr.fits.Rdata'
-)
