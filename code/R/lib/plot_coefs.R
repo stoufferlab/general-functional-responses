@@ -14,8 +14,6 @@ bundle_fits <- function(dir){
   }
   return(bundled)
 }
-# ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits/')
-
 
 # Function to sort fits by magnitude of focal parameter point estimates
 order.of.fits<-function(ffr.fits, 
