@@ -65,7 +65,7 @@ for(i in 1:length(datasets)){
   pred <- ifelse(this.study$predator,'Predator','Parasitoid')
   
   # sample size
-  if("Nconsumed.mean" %in% colnames(d)){
+  if("Nconsumed1.mean" %in% colnames(d)){
     SS <- sum(d$n)
   }else{
     SS <- nrow(d)
