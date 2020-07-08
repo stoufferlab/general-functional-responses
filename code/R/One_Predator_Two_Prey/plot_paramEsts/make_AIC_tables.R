@@ -2,10 +2,11 @@
 # we might need this here
 library(bbmle)
 
-# read in the different fits
-ffr.fits <- readRDS(
-	file='../../../../results/R/OnePredTwoPrey_ffr.fits.Rdata'
-)
+# we need the bundle_fits function
+source('../../lib/plot_coefs.R')
+
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredTwoPrey_fits')
 
 # scrape out the dataset names
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
@@ -46,3 +47,32 @@ dAICs <- AICs - minAICs
 # build a table of AIC ranks
 rnkAICs <- t(apply(dAICs, 1, rank, ties.method='first'))
 colnames(rnkAICs) <- colnames(AICs)
+
+# print out the AIC ranked info
+# remove the SG and GS models
+dAICs <- dAICs[,c("H1","H2.SS","H2.GG","H2.HH")]
+rnkAICs <- rnkAICs[,c("H1","H2.SS","H2.GG","H2.HH")]
+
+# recompute the delta AICs
+dAICs <- dAICs - apply(dAICs,1,min)
+
+# rerank this subset of models
+rnkAICs <- t(apply(rnkAICs,1,rank))
+
+# Define delta AICc cut-off for "indistinguishably well performing" models
+delAICcutoff <- 2
+
+# statistics about when the phi model ranks first or ties for first
+message("model ranks")
+message(paste(
+  "phi itself:",
+  sum(rnkAICs[,"H2.HH"]==1),
+  round(sum(rnkAICs[,"H2.HH"]==1)/nrow(rnkAICs)*100),
+  "%"
+))
+message(paste(
+  "phi tied:",
+  sum(dAICs[,"H2.HH"]<=2)-sum(rnkAICs[,"H2.HH"]==1),
+  round((sum(dAICs[,"H2.HH"]<=2)-sum(rnkAICs[,"H2.HH"]==1))/nrow(rnkAICs)*100),
+  "%"
+))
