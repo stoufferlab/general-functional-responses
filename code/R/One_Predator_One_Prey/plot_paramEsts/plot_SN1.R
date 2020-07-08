@@ -8,9 +8,10 @@ source('../../lib/ratio_method_one_predator_one_prey.R')
 # source('../../lib/Bhat/logit.hessian.R')
 # source('../../lib/Bhat/plkhci.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # order fits before doing anything else
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order.parm="phi_denom")
 ffr.fits <- ffr.fits[fit.order]
