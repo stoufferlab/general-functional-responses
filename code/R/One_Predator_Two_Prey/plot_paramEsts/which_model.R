@@ -26,6 +26,7 @@ which.model <- as.array(
   c("Lester_2002_Ty_d","identity"),
   c("Lester_2002_Ty_e","identity"),
   c("Long_2012_2p","identity"),
+  c("Mattila_1998","identity"),
   c("Nachappa_2006","exp"),
   c("Ranta_1985_10","identity"),
   c("Ranta_1985_13","identity"),
