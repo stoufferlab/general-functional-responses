@@ -2,10 +2,11 @@
 # we might need this here
 library(bbmle)
 
-# read in the different fits
-ffr.fits <- readRDS(
-	file='../../../../results/R/OnePredTwoPrey_ffr.fits.Rdata'
-)
+# we need the bundle_fits function
+source('../../lib/plot_coefs.R')
+
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredTwoPrey_fits')
 
 # scrape out the dataset names
 labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))

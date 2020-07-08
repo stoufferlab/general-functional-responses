@@ -1,11 +1,14 @@
 
+# we need these to do various things below
 library(bbmle)
 library(RColorBrewer)
 
-# read in the different fits
-ffr.fits <- readRDS(
-	file='../../../../results/R/OnePredTwoPrey_ffr.fits.Rdata'
-)
+# we need the bundle_fits function
+source('../../lib/plot_coefs.R')
+
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredTwoPrey_fits')
+
 
 # re order so the plot is alphabetical top to bottom
 ffr.fits <- ffr.fits[rev(1:length(ffr.fits))]

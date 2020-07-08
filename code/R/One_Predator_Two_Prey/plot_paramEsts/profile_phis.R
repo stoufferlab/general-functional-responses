@@ -5,6 +5,7 @@ library(HelpersMG)
 
 # make sure we have functions locally
 source('../../lib/holling_method_one_predator_two_prey.R')
+source('../../lib/plot_coefs.R')
 
 # only profile the hybrid model
 modeltypes <- c(
@@ -16,42 +17,8 @@ modeltypes <- c(
 # everything else takes way too long
 parameters <- c("phi_ij","phi_ji")
 
-# read in unprofiled fits
-ffr.fits <- readRDS(
-	file='../../../../results/R/OnePredTwoPrey_ffr.fits.Rdata'
-)
-
-# # scrape out the AIC values for the different models
-# AICs <- t(sapply(
-# 	seq(1,length(ffr.fits)),
-# 	function(x,ffr.fits) {
-# 		unlist(lapply(ffr.fits[[x]]$fits, AIC))
-# 	},
-# 	ffr.fits=ffr.fits
-# ))
-# colnames(AICs) <- c(
-# 	"H1",
-# 	"H2.SS",
-# 	"H2.SG",
-# 	"H2.GS",
-# 	"H2.GG",
-# 	"H2.HHI",
-# 	"H2.HHE"
-# )
-# AICs <- as.data.frame(AICs)
-
-# # figure out which version of the hybrid-hybrid model fit best
-# better.model <- apply(
-# 	AICs,
-# 	MAR=1,
-# 	function(x){
-# 		ifelse(
-# 			x["H2.HHI"]<x["H2.HHE"],
-# 			modeltypes[1],
-# 			modeltypes[2]
-# 		)
-# 	}
-# )
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredTwoPrey_fits')
 
 # container for profiled CIs of all datasets
 ffr.cfs <- list()
