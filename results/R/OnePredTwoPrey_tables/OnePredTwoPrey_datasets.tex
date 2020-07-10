@@ -1,47 +1,49 @@
-%latex.default(tab, file = "OnePredTwoPrey_datasets.tex", label = "table:1pred2preydatasets",     rowname = NULL, na.blank = TRUE, caption = "\n      A summary of discovered datasets relevant to the study of multi-species resource dependence.\n      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one experiment available.\n      ``Nobs'' indicates the sample size per resource consumed.\n      ``Replacement'' refers to whether the consumed resources were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.\n      ``Consumer'' refers to whether the consumer was a predator or a parasitoid.\n      ``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets.\n    ")%
+%latex.default(tab, file = "OnePredTwoPrey_datasets.tex", label = "table:1pred2preydatasets",     rowname = NULL, na.blank = TRUE, caption = "\n      A summary of multi-species resource dependence datasets.\n      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one dataset available.\n      ``Nobs'' indicates the sample size per resource consumed.\n      ``Replacement'' refers to whether the consumed resources were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.\n      ``Consumer'' refers to whether the consumer was a predator or a parasitoid.\n      ``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used means and associated uncertainty intervals to produce bootstrapped datasets.\n      ``Source'' refers to whether the data was provided to us by the author, was obtained from an online repository, or was extracted from the publication.\n    ")%
 \begin{table}[!tbp]
 \caption{
-      A summary of discovered datasets relevant to the study of multi-species resource dependence.
-      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one experiment available.
+      A summary of multi-species resource dependence datasets.
+      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one dataset available.
       ``Nobs'' indicates the sample size per resource consumed.
       ``Replacement'' refers to whether the consumed resources were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.
       ``Consumer'' refers to whether the consumer was a predator or a parasitoid.
-      ``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets.
+      ``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used means and associated uncertainty intervals to produce bootstrapped datasets.
+      ``Source'' refers to whether the data was provided to us by the author, was obtained from an online repository, or was extracted from the publication.
     \label{table:1pred2preydatasets}} 
 \begin{center}
-\begin{tabular}{llllll}
+\begin{tabular}{lllllll}
 \hline\hline
-\multicolumn{1}{c}{Study}&\multicolumn{1}{c}{Dataset}&\multicolumn{1}{c}{Nobs}&\multicolumn{1}{c}{Replacement}&\multicolumn{1}{c}{Consumer}&\multicolumn{1}{c}{Raw data}\tabularnewline
+\multicolumn{1}{c}{Study}&\multicolumn{1}{c}{Dataset}&\multicolumn{1}{c}{Nobs}&\multicolumn{1}{c}{Replacement}&\multicolumn{1}{c}{Consumer}&\multicolumn{1}{c}{Raw data}&\multicolumn{1}{c}{Source}\tabularnewline
 \hline
-\citet{Colton:1987aa}&1&108&No&Predator&Yes\tabularnewline
-\citet{Colton:1987aa}&2&108&No&Predator&Yes\tabularnewline
-\citet{Elliott:2006aa}&i2&209&Yes&Predator&Yes\tabularnewline
-\citet{Elliott:2006aa}&i3&209&Yes&Predator&Yes\tabularnewline
-\citet{Elliott:2006aa}&i4&209&Yes&Predator&Yes\tabularnewline
-\citet{Elliott:2006aa}&i4B&209&Yes&Predator&Yes\tabularnewline
-\citet{Elliott:2006aa}&i5&209&Yes&Predator&Yes\tabularnewline
-\citet{Elliott:2006aa}&i5B&209&Yes&Predator&Yes\tabularnewline
-\citet{Iyer:1996aa}&Bc&24&No&Predator&No\tabularnewline
-\citet{Iyer:1996aa}&Bp&24&No&Predator&No\tabularnewline
-\citet{Iyer:1996aa}&Br&24&No&Predator&No\tabularnewline
-\citet{Kalinkat:2011bd}&A&48&Yes&Predator&Yes\tabularnewline
-\citet{Kalinkat:2011bd}&C&49&Yes&Predator&Yes\tabularnewline
-\citet{Kalinkat:2011bd}&H&48&Yes&Predator&Yes\tabularnewline
-\citet{Kalinkat:2011bd}&P&70&Yes&Predator&Yes\tabularnewline
-\citet{Kalinkat:2011bd}&T&137&Yes&Predator&Yes\tabularnewline
-\citet{Krylov:1992aa}&ii&14&No&Predator&No\tabularnewline
-\citet{Lester:2002aa}&Af d&60&Yes&Predator&Yes\tabularnewline
-\citet{Lester:2002aa}&Af e&60&Yes&Predator&Yes\tabularnewline
-\citet{Lester:2002aa}&Ty d&60&Yes&Predator&Yes\tabularnewline
-\citet{Lester:2002aa}&Ty e&60&Yes&Predator&Yes\tabularnewline
-\citet{Long:2012ab}&-&94&No&Predator&Yes\tabularnewline
-\citet{Nachappa:2006aa}&-&158&No&Predator&Yes\tabularnewline
-\citet{Ranta:1985aa}&10&23&Yes&Predator&No\tabularnewline
-\citet{Ranta:1985aa}&13&23&Yes&Predator&No\tabularnewline
-\citet{Ranta:1985aa}&18&23&Yes&Predator&No\tabularnewline
-\citet{Ranta:1985aa}&Ad&23&Yes&Predator&No\tabularnewline
-\citet{Wong:2005aa}&rc&48&Yes&Predator&Yes\tabularnewline
-\citet{Wong:2005aa}&ss&48&Yes&Predator&Yes\tabularnewline
+\citet{Colton:1987aa}&1&108&No&Predator&Yes&Extracted\tabularnewline
+\citet{Colton:1987aa}&2&108&No&Predator&Yes&Extracted\tabularnewline
+\citet{Elliott:2006aa}&i2&209&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Elliott:2006aa}&i3&209&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Elliott:2006aa}&i4&209&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Elliott:2006aa}&i4B&209&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Elliott:2006aa}&i5&209&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Elliott:2006aa}&i5B&209&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Iyer:1996aa}&Bc&24&No&Predator&No&Extracted\tabularnewline
+\citet{Iyer:1996aa}&Bp&24&No&Predator&No&Extracted\tabularnewline
+\citet{Iyer:1996aa}&Br&24&No&Predator&No&Extracted\tabularnewline
+\citet{Kalinkat:2011bd}&A&48&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Kalinkat:2011bd}&C&49&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Kalinkat:2011bd}&H&48&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Kalinkat:2011bd}&P&70&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Kalinkat:2011bd}&T&137&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Krylov:1992aa}&ii&14&No&Predator&No&Extracted\tabularnewline
+\citet{Lester:2002aa}&Af d&60&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Lester:2002aa}&Af e&60&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Lester:2002aa}&Ty d&60&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Lester:2002aa}&Ty e&60&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Long:2012ab}&-&94&No&Predator&Yes&Provided\tabularnewline
+\citet{Mattila:1998aa}&-&7&No&Predator&No&Extracted\tabularnewline
+\citet{Nachappa:2006aa}&-&158&No&Predator&Yes&Provided\tabularnewline
+\citet{Ranta:1985aa}&10&23&Yes&Predator&No&Extracted\tabularnewline
+\citet{Ranta:1985aa}&13&23&Yes&Predator&No&Extracted\tabularnewline
+\citet{Ranta:1985aa}&18&23&Yes&Predator&No&Extracted\tabularnewline
+\citet{Ranta:1985aa}&Ad&23&Yes&Predator&No&Extracted\tabularnewline
+\citet{Wong:2005aa}&rc&48&Yes&Predator&Yes&Provided\tabularnewline
+\citet{Wong:2005aa}&ss&48&Yes&Predator&Yes&Provided\tabularnewline
 \hline
 \end{tabular}\end{center}
 \end{table}
