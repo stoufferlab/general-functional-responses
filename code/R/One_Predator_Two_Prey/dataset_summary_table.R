@@ -98,6 +98,8 @@ colnames(tab) <- c('Study',
                    'Replacement',
                    'Consumer')
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # Remove unused datasets at end of table
 unused <- which(tab$Used=='No')
 tab <- tab[-unused,]
@@ -117,7 +119,7 @@ setwd('../../../results/R/OnePredTwoPrey_tables/')
     na.blank=TRUE, 
     caption="
       A summary of multi-species resource dependence datasets.
-      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one experiment available.
+      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one dataset available.
       ``Nobs'' indicates the sample size per resource consumed.
       ``Replacement'' refers to whether the consumed resources were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.
       ``Consumer'' refers to whether the consumer was a predator or a parasitoid.
