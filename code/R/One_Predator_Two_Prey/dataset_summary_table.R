@@ -61,6 +61,9 @@ for(i in 1:length(datasets)){
   # original data, or means and intervals (i.e. bootstrapped)
   orig <- ifelse(this.study$bootstrap,'No','Yes')
   
+  # how we got the data
+  datasource <- this.study$datasource
+  
   # pred/parasite
   pred <- ifelse(this.study$predator,'Predator','Parasitoid')
   
@@ -73,7 +76,14 @@ for(i in 1:length(datasets)){
   
   # wrap it all up
   out <- rbind(out, 
-         c(cite, datasetsName, used, orig, SS, repl, pred))
+         c(cite, 
+           datasetsName, 
+           used, 
+           orig, 
+           datasource, 
+           SS, 
+           repl, 
+           pred))
   print(paste(i," of ",length(datasets)))
   
 }
@@ -83,9 +93,12 @@ colnames(tab) <- c('Study',
                    'Dataset',
                    'Used',
                    'Raw data',
+                   'Source',
                    'Nobs',
                    'Replacement',
                    'Consumer')
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Remove unused datasets at end of table
 unused <- which(tab$Used=='No')
@@ -93,7 +106,7 @@ tab <- tab[-unused,]
 tab$Used <- NULL
 
 # reorder columns
-tab <- tab[,c('Study','Dataset','Nobs','Replacement','Consumer','Raw data')]
+tab <- tab[,c('Study','Dataset','Nobs','Replacement','Consumer','Raw data','Source')]
 
 # Export to LaTeX
 wd <- getwd()
@@ -105,12 +118,13 @@ setwd('../../../results/R/OnePredTwoPrey_tables/')
     rowname=NULL, 
     na.blank=TRUE, 
     caption="
-      A summary of discovered datasets relevant to the study of multi-species resource dependence.
-      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one experiment available.
+      A summary of multi-species resource dependence datasets.
+      ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one dataset available.
       ``Nobs'' indicates the sample size per resource consumed.
       ``Replacement'' refers to whether the consumed resources were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.
       ``Consumer'' refers to whether the consumer was a predator or a parasitoid.
-      ``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets.
+      ``Raw data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used means and associated uncertainty intervals to produce bootstrapped datasets.
+      ``Source'' refers to whether the data was provided to us by the author, was obtained from an online repository, or was extracted from the publication.
     "
   )
 setwd(wd)
