@@ -63,16 +63,9 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 			if(integrate){  # solve by direct integration
 				N <- numeric(length(N0))
 				for(i in seq.int(length(N0))){
-					# workaround so that AA method won't throw an error
-					if(length(a)>1){
-						ai <- a[i]
-					}else{
-						ai <- a
-					}
-
 					# set parameters within ode solver
 					hl_1pred_1prey_set_params(
-						a=ai,
+						a=a,
 						h=h,
 						c=c,
 						phi_numer=phi_numer,
@@ -98,7 +91,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
       			
       			# sometimes the argument in the exponential passed to lambertW0 causes it to blow up
       			if(!overrideTranscendental){
-					if(any(is.infinite(N))){
+					if(any(!is.finite(N))){
 						# the explicit result of the analytical integration without solving for N implictly
 						ffff <- function(N, N0, P, T, a, heff, Q, X){
 							dN <- Q * log((N0 - N)/N0) - a * heff * N
@@ -111,7 +104,7 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 						}
 						# check which predictions are non-sensical
 						for(i in 1:length(N0)){
-							if(is.infinite(N[i])){
+							if(!is.finite(N[i])){
 								# we need to solve the transcendental equation directly
 								nn <- uniroot(ffff, lower=0, upper=N0[i], N0=N0[i], P=P[i], T=T[i], a=a, heff=heff[i], Q=Q[i], X=X[i])
 								N[i] <- nn$root
@@ -182,7 +175,7 @@ holling.like.1pred.1prey.NLL = function(params,
 	)
 	
 	# if the parameters are not biologically plausible, neither should be the likelihood
-	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
+	if(any(Nconsumed <= 0) | any(!is.finite(Nconsumed))){
 		nll <- Inf
 		return(nll)
 	}else{
