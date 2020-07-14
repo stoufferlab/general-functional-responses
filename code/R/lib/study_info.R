@@ -88,6 +88,11 @@ study.info <- function(dataname, useGoogle=TRUE){
   # scrape the way we obtained the data
   datasource <- as.character(masterlist[1,"DataSource"])
   
+  # scrape the source (Fig or table) of the data (for extracted datasets0
+  datafigtablesource <- ifelse(as.character(masterlist[1,"DataSource"])=='Extracted',
+                          as.character(masterlist[1,"FigTableSource"]),
+                         '-')
+  
 	# put all the info we need into a list
 	rt <- list(
 	  dataname=dataname,
@@ -99,6 +104,7 @@ study.info <- function(dataname, useGoogle=TRUE){
 		runswith=runswith,
 		timeunits=timeunits,
 		cite=cite,
-		datasource=datasource
+		datasource=datasource,
+		datafigtablesource=datafigtablesource
 	)
 }
