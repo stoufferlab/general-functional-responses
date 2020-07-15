@@ -93,6 +93,9 @@ study.info <- function(dataname, useGoogle=TRUE){
                           as.character(masterlist[1,"FigTableSource"]),
                          '-')
   
+  # has this dataset been deemed okay to post to the repo
+  ok2post <- as.character(masterlist[1,"PostToRepo"])
+  
 	# put all the info we need into a list
 	rt <- list(
 	  dataname=dataname,
@@ -105,6 +108,7 @@ study.info <- function(dataname, useGoogle=TRUE){
 		timeunits=timeunits,
 		cite=cite,
 		datasource=datasource,
-		datafigtablesource=datafigtablesource
+		datafigtablesource=datafigtablesource,
+		ok2post=ok2post
 	)
 }
