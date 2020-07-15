@@ -2,8 +2,10 @@
 # read in the raw data
 datadir <- 'Hossie_2016'
 filename <- 'Hossie_2016_even.csv'
-rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
+d <- read.data(datadir, filename, "One_Predator_One_Prey", dropboxdir)
 
 # rename to standard column names used in fitting code
-d <- rawdata[,c("Predators", "Prey", "Killed",'Time')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed",'Time')
+if(!is.null(d)){
+	d <- d[,c("Predators", "Prey", "Killed",'Time')]
+	colnames(d) <- c("Npredator", "Nprey", "Nconsumed",'Time')
+}
