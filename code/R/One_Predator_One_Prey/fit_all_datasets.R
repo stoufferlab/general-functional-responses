@@ -9,18 +9,18 @@ sinkMessages <- TRUE
 # specify where the data files are located
 dropboxdir <- switch(
 	Sys.getenv("LOGNAME"),
-	stouffer = '../../../dropbox_data/Data',
+	stouffer = '~/Dropbox/Projects/GenFuncResp/Data',
 	marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
 )
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # a few utility functions
 source('../lib/study_info.R')
+source('../lib/read_data.R')
 source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/AA_method.R')
 source('../lib/set_params.R')
 source('../lib/resid_metrics.R')
-# source('../lib/RMSD.R')
 source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_one_prey.R') # may throw ignorable error and takes a while to load because of C++ compiling
 source('../lib/ratio_method_one_predator_one_prey.R') # may throw ignorable error and takes a while to load because of C++ compiling
@@ -29,59 +29,34 @@ library(progress)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # master list of datasets
-datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
+datasets <- list.files('./Dataset_Code', pattern=".R$", full.names=TRUE, include.dirs=FALSE)
 
-# remove template files which don't actually read data
-datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
-
-# remove zzz files which are placeholders while a dataset is being cleaned/incorporated
-datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
-
-# check to see which datasets have been fit (and thus on't bother refitting them)
-# datasets.fitted <- list.files('../../../results/R/OnePredOnePrey_fits/', full.names=FALSE, include.dirs=FALSE)
-# datasets.fitted <- gsub('*data$','',datasets.fitted)
-# datasets <- datasets[!gsub('./Dataset_Code/','',datasets)%in%datasets.fitted]
-
-# select focal dataset for testing
-# datasets <- c("./Dataset_Code/Walde_1984.R")  # Occasional Hessian problem
-# datasets <- datasets[1]
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Let's start analyzing!
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # fit everything on a dataset by dataset basis
-for(i in 1:length(datasets)){
-
-	# loads the data into data frame 'd' and specifies data-specific parameters
-	source(datasets[i])
-
-	# grab info from the google doc
-	this.study <- study.info(datadir)
-
+for(i in seq_along(datasets)){
+	# create a short nickname for the dataset
 	datasetsName <- sub('*.R$','', sub('*./Dataset_Code/','', datasets[i]))
 
-	#############################################
-	# fit all the functional response models
-	# NOTE: optimization is on log-transformed values for some of the parameters
-	#############################################
+	# grab info about how to find a dataset and read it in to variable "d"
+	source(datasets[i])
 
-	# H: holling-like, R: ratio-like, T: test set (or combinations thereof)
-	# if(!grepl("R", this.study$runswith)){
-	if(!grepl("H|R", this.study$runswith)){
-		# print out which dataset is not being analyzed
-		message(paste0("No to ",datasetsName))
+	# check if data has actually be read in, only then should we fit the models
+	if(is.null(d)){
+		# print out which dataset WILL NOT be analyzed
+		message(paste0("Skipping ",datasetsName))
 	}else{
-		# print out which dataset is being analyzed
-		message(paste0("Yes to ",datasetsName))
+		# print out which dataset WILL be analyzed
+		message(paste0("Fitting ",datasetsName))
 
-		# start capturing the progress and warning messages
-		if(sinkMessages){
-			options(warn=1) # provide more than just the base info level
-			Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'), open='wt')
-			sink(Mesgs, type="message")
-		}
+		# grab info from the google doc
+		this.study <- study.info(datadir)
 
 		# tranform data into terms of hours
 		if(!is.null(d$Time)){
@@ -93,6 +68,18 @@ for(i in 1:length(datasets)){
 				Days = d$Time * 24,
 				Unavailable = rep(1, nrow(d))
 			)
+		}
+
+		#############################################
+		# fit all the functional response models
+		# NOTE: optimization is on log-transformed values for some of the parameters
+		#############################################
+
+		# start capturing the progress and warning messages
+		if(sinkMessages){
+			options(warn=1) # provide more than just the base info level
+			Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'), open='wt')
+			sink(Mesgs, type="message")
 		}
 
 		# save original data in case we need to bootstrap it
