@@ -75,7 +75,7 @@ ratio.like.1pred.1prey = function(N0, a, h, m, P, T,
     			
     			# sometimes the argument in the exponential passed to lambertW0 causes it to blow up
     		  if(!overrideTranscendental){
-				if(any(!is.finite(N))){
+				if(any(is.infinite(N))){
       				# the explicit result of the analytical integration without solving for N implictly
       				ffff <- function(N, N0, P, T, a, h, Q){
       					dN <- Q * log((N0 - N) / N0) - a * h * N
@@ -88,7 +88,7 @@ ratio.like.1pred.1prey = function(N0, a, h, m, P, T,
       				}
       				# check which predictions are non-sensical
       				for(i in 1:length(N0)){
-						if(!is.finite(N[i])){
+						if(is.infinite(N[i])){
       						# we need to solve the transcendental equation directly
       						nn <- uniroot(ffff, lower=0, upper=N0[i], N0=N0[i], P=P[i], T=T[i], a=a, h=h, Q=Q[i])
       						N[i] <- nn$root
