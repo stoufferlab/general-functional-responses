@@ -13,7 +13,7 @@ source('../lib/study_info.R')
 source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/plot_coefs.R')
-source('../lib/holling_method_one_predator_two_prey.R')
+source('../lib/holling_method_one_predator_two_prey.R') # may throw ignorable warning and takes a while to load because of C++ compiling
 source('../lib/resid_metrics.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

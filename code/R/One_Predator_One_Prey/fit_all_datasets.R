@@ -19,8 +19,8 @@ source('../lib/AA_method.R')
 source('../lib/set_params.R')
 source('../lib/resid_metrics.R')
 source('../lib/plot_coefs.R')
-source('../lib/holling_method_one_predator_one_prey.R') # may throw ignorable error and takes a while to load because of C++ compiling
-source('../lib/ratio_method_one_predator_one_prey.R') # may throw ignorable error and takes a while to load because of C++ compiling
+source('../lib/holling_method_one_predator_one_prey.R') # may throw ignorable warning and takes a while to load because of C++ compiling
+source('../lib/ratio_method_one_predator_one_prey.R') # may throw ignorable warning and takes a while to load because of C++ compiling
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 library(progress)
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
