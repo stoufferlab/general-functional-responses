@@ -1,6 +1,3 @@
-# Much of this could be significantly cleaned up by using lapply statments
-# (see One_Predator_Two_Prey > fit_all_datasets.R).
-
 rm(list = ls())
 # set to FALSE if you want to watch messages in real time
 # or TRUE to have them silently saved to file instead.
@@ -49,6 +46,11 @@ ratio.like.models <- c(
 	"Arditi.Akcakaya",
 	"Arditi.Akcakaya.Method.2"
 )
+
+# set the random seed so that bootstrapping is reliable
+# generated one integer between 1 and 100000 with Random Integer Generator at random.org
+# Timestamp: 2020-07-16 03:52:42 UTC
+set.seed(49801)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,7 +183,7 @@ for(i in seq_along(datasets)){
 					# create container for the MAD of the fits
 					local.MADs <- summarize.boots(sapply(local.fits, resid.metric, metric = 'MAD'))
 
-					# save the key stuff
+					# save the key stuff (including the first fit)
 					locals[[modeltype]] <- list(
 						fit=local.fits[[1]],
 						boots=local.boots,
@@ -209,7 +211,7 @@ for(i in seq_along(datasets)){
 		}
 
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		# save the (last) fits, bootstraps summaries, and some data aspects
+		# save the (first) fit, bootstraps summaries, and some data aspects
 		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		ffr.fit <- list(
 			study.info = c(
@@ -229,7 +231,7 @@ for(i in seq_along(datasets)){
 			MAD = lapply(locals, function(x) x$MADs)
 		)
 		
-		# Save the data set fit
+		# Save the data set fit monster object
 		saveRDS(
 			ffr.fit,
 			file=paste0('../../../results/R/OnePredOnePrey_fits/', datasetsName,'.Rdata')

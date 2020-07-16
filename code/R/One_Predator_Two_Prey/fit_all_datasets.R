@@ -15,7 +15,6 @@ source('../lib/mytidySumm.R')
 source('../lib/plot_coefs.R')
 source('../lib/holling_method_one_predator_two_prey.R')
 source('../lib/resid_metrics.R')
-# source('../lib/RMSD.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ####################################
@@ -41,6 +40,11 @@ which.models <- c(
 	# "Holling II Hybrid Generalist",
 	"Holling II Hybrid Hybrid"
 )
+
+# set the random seed so that bootstrapping is reliable
+# generated one integer between 1 and 100000 with Random Integer Generator at random.org
+# Timestamp: 2020-07-16 03:53:52 UTC
+set.seed(12114)
 
 # fit everything on a dataset by dataset basis
 for(i in seq_along(datasets)){
