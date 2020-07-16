@@ -133,13 +133,13 @@ for(i in seq_along(datasets)){
 		for(b in 1:boot.reps){
 			# some bootstrapped data fails for reasons hard to determine
 			bad.fit <- TRUE
-
 			while(bad.fit){
 				# generate bootstrapped data if necessary
 				if("Nconsumed.mean" %in% colnames(d.orig)){
 					d <- bootstrap.data(d.orig, this.study$replacement)
 				}
 
+				# attempt to fit all models and catch an error if any fit fails
 				success <- try({
 					for(modeltype in c(holling.like.models,ratio.like.models)){
 						if(modeltype != "Arditi.Akcakaya.Method.2" || okay4AAmethod(d)){
@@ -153,14 +153,18 @@ for(i in seq_along(datasets)){
 									bootstrap.fits[[modeltype]][[b]] <- AAmethod(d, this.study$replacement)
 								}
 							}
+							# advance the progress bar forward because we made a fit
+							pb$tick()
 						}
 					}
 				})
 
-				# the fit succeeded hence we can move the progress bar and continue to the next bootstrap
+				# the fit succeeded we can continue to the next bootstrap
 				if(!inherits(success, "try-error")){
 					bad.fit <- FALSE
-					pb$tick()
+				}else{
+					# put the progress bar back to where it was at the start of this rep
+					pb$update((b-1)/boot.reps)
 				}
 			}
 		}
