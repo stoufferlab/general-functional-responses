@@ -65,7 +65,7 @@ for(i in seq_along(datasets)){
 			message(paste0("Skipping ",datasetsName))
 		}else{
 			# print out which dataset WILL be analyzed
-			message(paste0("Fitting ",datasetsName))
+			message(paste0("Fitting ",datasetsName," "),appendLF=FALSE)
 
 			# grab some info from the google doc
 			this.study <- study.info(datadir)
@@ -96,64 +96,73 @@ for(i in seq_along(datasets)){
 				boot.reps <- 1
 			}
 
-			# fit all model formulations separately
+			# fit 1 to many bootstrapped datasets
+			bootstrap.fits <- foreach(b=1:boot.reps) %dopar% {
+				# some fits don't work due to wonkiness in the data so we'll just plow forward when that happens
+				bad.fit <- TRUE
+				while(bad.fit){
+					if(any(grepl("[.]mean$",colnames(d.orig)))){
+						d <- bootstrap.data(d.orig, this.study$replacement)
+					}
+
+					# fit all model formulations separately
+					local.fits <- list()
+					success <- try({
+						for(modeltype in which.models){
+							if(grepl("Hybrid",modeltype)){
+								link.funcs <- c("identity", "exp")
+							}else{
+								link.funcs <- c("identity")
+							}
+
+							for(lll in link.funcs){
+								if(lll=="identity"){
+									# attempt to fit the model and abort if the fit fails for some reason
+									local.fits[[paste(modeltype, lll)]] <- fit.holling.like(d, s=this.study, modeltype=modeltype)
+								}else{
+									local.fits[[paste(modeltype, lll)]] <- fit.holling.like(d, s=this.study, modeltype=modeltype, phi.transform=exp)
+								}
+								message(".",appendLF=FALSE)
+								flush.console()
+							}
+						}
+					})
+					if(!inherits(success, "try-error")){
+						bad.fit <- FALSE
+					}else{
+						message("X",appendLF=FALSE)
+					}
+				}
+				local.fits
+			}
+
+			# we made it out of the loop somewhat miraculously
+			message(paste0(" Finished"))
+
+			# bootstrap fits is organized by bootstrapped data
+			# reorganize to be based on models
 			locals <- list()
-			for(modeltype in which.models){
-				if(grepl("Hybrid",modeltype)){
-					link.funcs <- c("identity", "exp")
-				}else{
-					link.funcs <- c("identity")
+			for(modeltype in names(bootstrap.fits[[1]])){
+				model.fits <- list()
+				for(b in 1:boot.reps){
+					model.fits[[b]] <- bootstrap.fits[[b]][[modeltype]]
 				}
-
-				for(lll in link.funcs){
-
-
-				message(paste0(" ",modeltype," ",lll),appendLF=FALSE)
-				# we will perform all fits boot.reps different times
-				local.fits <- foreach(b=1:boot.reps) %dopar% {
-					# some fits don't work due to wonkiness in the data so we'll just plow forward when that happens
-					bad.fit <- TRUE
-			  		while(bad.fit){
-						if(any(grepl("[.]mean$",colnames(d.orig)))){
-							d <- bootstrap.data(d.orig, this.study$replacement)
-						}
-			    
-			    		if(lll=="identity"){
-							# attempt to fit the model and abort if the fit fails for some reason	    	
-				    		local.fit <- try(fit.holling.like(d, s=this.study, modeltype=modeltype))
-				    	}else{
-				    		local.fit <- try(fit.holling.like(d, s=this.study, modeltype=modeltype, phi.transform=exp))
-						}
-
-				    	if(!inherits(local.fit, "try-error")){
-				    		bad.fit <- FALSE
-				    	}
-				    }
-				    message(".",appendLF=FALSE)
-				    # pb$tick(tokens = list(modeltype = modeltype))
-
-				    local.fit
-				}
-
-				# pb$finished()
-				# we made it out of the loop somewhat miraculously
-				message(paste0(" Finished"))
 
 				# create container for the parameter estimates
-				local.boots <- make.array(local.fits[[1]], boot.reps)
+				local.boots <- make.array(model.fits[[1]], boot.reps)
 
 				# create container for the AIC of the fits
-				local.AICs <- lapply(local.fits, AIC)
+				local.AICs <- lapply(model.fits, AIC)
 
 				# create container for the RMSD of the fits
-				local.RMSDs <- lapply(local.fits, resid.metric, metric = 'RMSD')
+				local.RMSDs <- lapply(model.fits, resid.metric, metric = 'RMSD')
 				
 				# create container for the MAD of the fits
-				local.MADs <- lapply(local.fits, resid.metric, metric = 'MAD')
+				local.MADs <- lapply(model.fits, resid.metric, metric = 'MAD')
 
 				# scrape out the parameter estimates
 				for(b in 1:boot.reps){
-					local.boots[,,b] <- mytidy(local.fits[[b]])
+					local.boots[,,b] <- mytidy(model.fits[[b]])
 				}
 
 				# ~~~~~~~~~~~~~~~~~~~~
@@ -161,30 +170,27 @@ for(i in seq_along(datasets)){
 				# ~~~~~~~~~~~~~~~~~~~~
 				local.ests <- apply(local.boots, c(1,2), summarize.boots)
 
-				# pb$terminate()
-
 				# save the key stuff
-				locals[[paste(modeltype, lll)]] <- list(
-					fit=local.fits[[1]],
+				locals[[modeltype]] <- list(
+					fit=model.fits[[1]],
 					ests=local.ests,
 					AICs=local.AICs,
 					RMSDs=local.RMSDs,
 					MADs=local.MADs
 				)
 			}
-			}
 
-		  	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			# save the (last) fits, bootstraps summaries, and some data aspects
 			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 			ffr.fit <- list(
-		  		study.info = c(
-		  			datasetName = datasetsName,
-		  			datadir = datadir,
-		  			sample.size = nrow(d),
-		  	        # this.study,
-		  	        data=d
-		  	    ),
+				study.info = c(
+					datasetName = datasetsName,
+					datadir = datadir,
+					sample.size = nrow(d),
+					# this.study,
+					data=d
+				),
 				fits = lapply(locals, function(x) x$fit),
 				estimates = lapply(locals, function(x) x$ests),
 				AICs = lapply(locals, function(x) x$AICs),
