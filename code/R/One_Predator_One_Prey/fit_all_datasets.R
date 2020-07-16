@@ -121,71 +121,84 @@ for(i in seq_along(datasets)){
 		)
 		pb$tick(0)
 
-		# fit all model formulations separately
-		locals <- list()
+		# temporary storage of for model fits
+		bootstrap.fits <- list()
 		for(modeltype in c(holling.like.models,ratio.like.models)){
 			if(modeltype != "Arditi.Akcakaya.Method.2" || okay4AAmethod(d)){
-				local.fits <- list()
-				for(b in 1:boot.reps){
-					# some bootstrapped data fails for reasons had to determine
-					bad.fit <- TRUE
-					while(bad.fit){
-						# generate bootstrapped data if necessary
-						if("Nconsumed.mean" %in% colnames(d.orig)){
-							d <- bootstrap.data(d.orig, this.study$replacement)
-						}
+				bootstrap.fits[[modeltype]] <- list()
+			}
+		}
 
-						# attempt to fit the model; abort and re-bootstrap if the fit fails
-						if(modeltype %in% holling.like.models){
-							local.fits[[b]] <- try(fit.holling.like(d, this.study, modeltype))
-						}else{
-							if(modeltype != "Arditi.Akcakaya.Method.2"){
-								local.fits[[b]] <- try(fit.ratio.like(d, this.study, modeltype))
-							}else{
-								local.fits[[b]] <- try(AAmethod(d, this.study$replacement))
-							}
-						}
+		# perform 1 or many bootstrapped fits
+		for(b in 1:boot.reps){
+			# some bootstrapped data fails for reasons hard to determine
+			bad.fit <- TRUE
 
-						# the fit succeeded hence we can move the progress bar and continue to the next bootstrap
-						if(!inherits(local.fits[[b]], "try-error")){
-							bad.fit <- FALSE
-							pb$tick()
-						}
-					}
+			while(bad.fit){
+				# generate bootstrapped data if necessary
+				if("Nconsumed.mean" %in% colnames(d.orig)){
+					d <- bootstrap.data(d.orig, this.study$replacement)
 				}
 
+				success <- try({
+					for(modeltype in c(holling.like.models,ratio.like.models)){
+						if(modeltype != "Arditi.Akcakaya.Method.2" || okay4AAmethod(d)){
+							# attempt to fit the model; abort and re-bootstrap if the fit fails
+							if(modeltype %in% holling.like.models){
+								bootstrap.fits[[modeltype]][[b]] <- fit.holling.like(d, this.study, modeltype)
+							}else{
+								if(modeltype != "Arditi.Akcakaya.Method.2"){
+									bootstrap.fits[[modeltype]][[b]] <- fit.ratio.like(d, this.study, modeltype)
+								}else{
+									bootstrap.fits[[modeltype]][[b]] <- AAmethod(d, this.study$replacement)
+								}
+							}
+						}
+					}
+				})
+
+				# the fit succeeded hence we can move the progress bar and continue to the next bootstrap
+				if(!inherits(success, "try-error")){
+					bad.fit <- FALSE
+					pb$tick()
+				}
+			}
+		}
+
+		for(modeltype in c(holling.like.models,ratio.like.models)){
+			if(modeltype != "Arditi.Akcakaya.Method.2" || okay4AAmethod(d)){
 				# create container for the parameter estimates
 				if(modeltype!="Arditi.Akcakaya.Method.2"){
 					# ~~~~~~~~~~~~~~~~~~~~
 					# Summarize bootstraps
 					# ~~~~~~~~~~~~~~~~~~~~
 					# scrape out the parameter estimates					
-					local.boots <- make.array(local.fits[[1]], boot.reps)
+					local.boots <- make.array(bootstrap.fits[[modeltype]][[1]], boot.reps)
 					for(b in 1:boot.reps){
-						local.boots[,,b] <- mytidy(local.fits[[b]])
+						local.boots[,,b] <- mytidy(bootstrap.fits[[modeltype]][[b]])
 					}
 
 					# get out the estimates into their own object
 					local.ests <- as.array(apply(local.boots, c(1,2), summarize.boots))
 
 					# create container for the logLik of the fits
-					local.lls <- summarize.boots(sapply(local.fits, logLik))
+					local.lls <- summarize.boots(sapply(bootstrap.fits[[modeltype]], logLik))
 
 					# create container for the AIC of the fits
-					local.AICs <- summarize.boots(sapply(local.fits, AIC))
+					local.AICs <- summarize.boots(sapply(bootstrap.fits[[modeltype]], AIC))
 
 					# create container for the AICc of the fits
-					local.AICcs <- summarize.boots(sapply(local.fits, AICc))
+					local.AICcs <- summarize.boots(sapply(bootstrap.fits[[modeltype]], AICc))
 
 					# create container for the RMSD of the fits
-					local.RMSDs <- summarize.boots(sapply(local.fits, resid.metric, metric = 'RMSD'))
+					local.RMSDs <- summarize.boots(sapply(bootstrap.fits[[modeltype]], resid.metric, metric = 'RMSD'))
 
 					# create container for the MAD of the fits
-					local.MADs <- summarize.boots(sapply(local.fits, resid.metric, metric = 'MAD'))
+					local.MADs <- summarize.boots(sapply(bootstrap.fits[[modeltype]], resid.metric, metric = 'MAD'))
 
 					# save the key stuff (including the first fit)
-					locals[[modeltype]] <- list(
-						fit=local.fits[[1]],
+					bootstrap.fits[[modeltype]] <- list(
+						fit=bootstrap.fits[[modeltype]][[1]],
 						boots=local.boots,
 						ests=local.ests,
 						lls=local.lls,
@@ -196,13 +209,13 @@ for(i in seq_along(datasets)){
 					)
 				}else{
 					# scrape out the parameter estimates
-					local.boots <- make.array(local.fits[[1]]$estimates, boot.reps)
+					local.boots <- make.array(bootstrap.fits[[modeltype]][[1]]$estimates, boot.reps)
 					for(b in 1:boot.reps){
-						local.boots[,,b] <- local.fits[[b]]$estimates
+						local.boots[,,b] <- bootstrap.fits[[modeltype]][[b]]$estimates
 					}
 					# save the key stuff (which for this model is only a subset of the above)
-					locals[[modeltype]] <- list(
-						fit=local.fits[[1]],
+					bootstrap.fits[[modeltype]] <- list(
+						fit=bootstrap.fits[[modeltype]][[1]],
 						boots=local.boots,
 						ests=local.ests
 					)
@@ -221,14 +234,14 @@ for(i in seq_along(datasets)){
 				data=d.orig,
 				this.study
 			),
-			fits = lapply(locals, function(x) x$fit),
-			boots = lapply(locals, function(x) x$boots),
-			estimates = lapply(locals, function(x) x$ests),
-			LL = lapply(locals, function(x) x$lls),
-			AIC = lapply(locals, function(x) x$AICs),
-			AICc = lapply(locals, function(x) x$AICcs),
-			RMSD = lapply(locals, function(x) x$RMSDs),
-			MAD = lapply(locals, function(x) x$MADs)
+			fits = lapply(bootstrap.fits, function(x) x$fit),
+			boots = lapply(bootstrap.fits, function(x) x$boots),
+			estimates = lapply(bootstrap.fits, function(x) x$ests),
+			LL = lapply(bootstrap.fits, function(x) x$lls),
+			AIC = lapply(bootstrap.fits, function(x) x$AICs),
+			AICc = lapply(bootstrap.fits, function(x) x$AICcs),
+			RMSD = lapply(bootstrap.fits, function(x) x$RMSDs),
+			MAD = lapply(bootstrap.fits, function(x) x$MADs)
 		)
 		
 		# Save the data set fit monster object
