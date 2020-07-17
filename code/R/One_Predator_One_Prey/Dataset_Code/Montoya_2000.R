@@ -6,4 +6,4 @@ rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # turn into a standard dataframe with standard column names
 d <- rawdata[,c('Parasitoids','Hosts','Parasitized.Total.mean','Parasitized.Total.SE','n','Time')]
-	colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n",'Time')
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n",'Time')
