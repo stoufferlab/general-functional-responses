@@ -1,7 +1,7 @@
 
 # read in the raw data
 datadir <- 'Eveleigh_1982'
-filename <- 'Eveleigh_1982_Pper_adult_merged.csv'
+filename <- 'Eveleigh_1982_pa.csv'
 rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # turn into a standard dataframe with standard column names
