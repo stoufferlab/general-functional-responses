@@ -2,7 +2,7 @@
 # read in the raw data
 datadir <- 'Prokopenko_2017'
 filename <- 'Prokopenko_2017.csv'
-rawdata <- read.data(datadir, filename, "One_Predator_One_Prey", dropboxdir)
+rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
 
 # Prokopenko et al. fit continuous-time models to data recorded at ~3 min intervals over the course of ~1hr.  They did not replace prey.  
 # Since time-points are not independent, this script aggregates the interval observations to count the total number of prey eaten over the course of the hour.
