@@ -196,6 +196,12 @@ holling.like.1pred.2prey.predict = function(params, Ni, Nj, Npredators, replacem
 		time <- rep(1,length(Ni))
 	}
 
+	# we can speed up prediction by identifying equivalent treatments
+	d <- data.frame(Ni=Ni, Nj=Nj, Npredators=Npredators, time=time)
+
+	# find unique rows and extract their treatment levels
+	d.uniq <- unique(d)
+
 	# expected number consumed
 	Nconsumed <- holling.like.1pred.2prey(
 		ai=attack_i,
@@ -204,50 +210,27 @@ holling.like.1pred.2prey.predict = function(params, Ni, Nj, Npredators, replacem
 		hj=handling_j,
 		phi_ij=phi_ij,
 		phi_ji=phi_ji,
-		Ni=Ni,
-		Nj=Nj,
-		P=Npredators,
-		T=time,
+		Ni=d.uniq$Ni,
+		Nj=d.uniq$Nj,
+		P=d.uniq$Npredators,
+		T=d.uniq$time,
 		replacement=replacement
 	)
+
+	# re-expand out to the full dataset
+	d.uniq$Ni_consumed <- Nconsumed[,1]
+	d.uniq$Nj_consumed <- Nconsumed[,2]
+
+	# merge the predictions back into the full "data frame"
+	d <- merge(d, d.uniq, by=c("Ni","Nj","Npredators","time"), sort=FALSE)
+
+	# re-extract "full" version as Nconsumed
+	Nconsumed <- d[,c("Ni_consumed","Nj_consumed")]
 
 	return(Nconsumed)
 }
 
 holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed, Npredators, replacement, modeltype, phi.transform, time=NULL){
-	# # speed things up by identifying equivalent treatments
-	# d <- data.frame(Ni=Ni, Nj=Nj, Npredators=Npredators)
-
-	# # find unique rows and extract their treatment levels
-	# d.uniq <- unique(d)
-
-	# # get the predictions
-	# Nconsumed <- holling.like.1pred.2prey.predict(
-	# 	params,
-	# 	d.uniq$Ni,
-	# 	d.uniq$Nj,
-	# 	d.uniq$Npredators,
-	# 	replacement,
-	# 	modeltype,
-	# 	phi.transform,
-	# 	time
-	# )
-
-	# # re-expand out to the full dataset
-	# d.uniq$Ni_consumed <- Nconsumed[,1]
-	# d.uniq$Nj_consumed <- Nconsumed[,2]
-
-	# print(d.uniq)
-
-	# d <- merge(d, d.uniq, by=c("Ni","Nj","Npredators"))
-
-	# print(d)
-
-	# # re-extract "full" version as Nconsumed
-	# Nconsumed <- d[,c("Ni_consumed","Nj_consumed")]
-
-	# print(cbind(Nconsumed,Ni_consumed,Nj_consumed))
-
 	# get the predictions
 	Nconsumed <- holling.like.1pred.2prey.predict(
 		params,
@@ -260,11 +243,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 		time
 	)
 
-	# print(dim(Nconsumed))
-
-	# XXX
-
-	# DEBUG check whether the parameters give biological valid predictions
+	# check whether the parameters give biological valid predictions
 	# should this occur here or above?
 
 	# disallow biologically implausible predictions
