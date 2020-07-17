@@ -87,7 +87,7 @@ dev.off()
 ##################################################
 # Compare AA2 estimates to those of non-AA2 method
 ##################################################
-load('../../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
 
 # Remove datasets where AA2 method was NOT successfully applied
 noAA2 <- unlist(lapply(ffr.fits, function(x) is.na(x$estimates['Arditi.Akcakaya.Method.2'])))
