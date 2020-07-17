@@ -2,4 +2,8 @@
 # read in the raw data
 datadir <- 'Jones_1988'
 filename <- 'Jones_1988_e5.csv'
-d <- read.data(datadir, filename, "One_Predator_One_Prey", dropboxdir)
+rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
+
+# turn into a standard dataframe with standard column names
+d <- rawdata[,c('Parasitoids','Hosts','Attacked','Time')]
+colnames(d) <- c("Npredator", "Nprey", "Nconsumed",'Time')
