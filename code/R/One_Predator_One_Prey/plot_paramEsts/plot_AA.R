@@ -112,21 +112,12 @@ round(sd(parm[sample.sizes>s]),2)
 
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_xy.pdf',height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
-  ylim <- c(0,5)
   plot(parm~sample.sizes,
-       ylim=ylim,
        type='n',
        log='x', 
        xlab='Sample size (n)', 
        ylab='Arditi-Akcakaya interference rate (m)')
   abline(h=c(0,1),lty=2,col='grey')
-  arrows(sample.sizes[parm>ylim[2]], 1*ylim[2], 
-         sample.sizes[parm>ylim[2]], 1.03*ylim[2], 
-         length=0.02)
-  text(sample.sizes[parm>ylim[2]],
-       0.98*ylim[2],
-       round(parm[parm>ylim[2]],0),
-       cex=0.5)
   points(sample.sizes, parm,
          pch=21, bg='grey')
 dev.off()
@@ -136,9 +127,7 @@ par(mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i',xaxs='i
   hist(parm[parm<5],breaks=50,
        xlab='Arditi-Akcakaya interference rate (m)',
        main='',
-       col='grey',
-       ylim=c(0,12),
-       xlim=c(0,5.5))
+       col='grey')
   abline(v=1,lty=3,lwd=1,col='black')
   box(lwd=1,bty='l')
 dev.off()
