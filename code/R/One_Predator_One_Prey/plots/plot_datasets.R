@@ -1,35 +1,24 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Plots of the raw data
-# Future enhancement:  
-# Grab data and fits from 'meta_analyze.R' output instead 
-#      in order to add the fitted functions to the plots.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-rm(list = ls())
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# specify where the data files are located
-dropboxdir <- switch(
-  Sys.getenv("LOGNAME"),
-  stouffer = '../../../dropbox_data/Data',
-  marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
-)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# master list of datasets
-datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
-
-# remove template files which don't actually read data
-datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
-
-# remove zzz files which are placeholders while a dataset is being cleaned/incorporated
-datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
-
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-pdf('../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_DatasetPlots.pdf',height=10,width=6)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_DatasetPlots.pdf',height=10,width=6)
 par(mfrow=c(8,4), mar=c(3,3,1.5,0.5), cex=0.6, cex.axis=0.8, cex.main=0.8, las=1, mgp=c(1.5,0.1,0), tcl=-0.1, pch=21)
-for(i in 1:length(datasets)){
-  message(datasets[i])
-  source(datasets[i]) # loads the data into data frame 'd'
+for(i in 1:length(ffr.fits)){
+  message(ffr.fits[[i]]$study.info$datasetName)
+  
+  # figure out which columns pertain to data
+  cols <- names(ffr.fits[[i]]$study.info)
+  dcols <- cols[grepl("data[.]", cols)]
+  d <- as.data.frame(ffr.fits[[i]]$study.info[dcols])
+  colnames(d) <- gsub("data[.]","",colnames(d))
   
   #Create a function to generate a continuous color palette for predator densities
   rbPal <- colorRampPalette(c('red','blue'))
@@ -43,8 +32,7 @@ for(i in 1:length(datasets)){
     d$Nconsumed.pPred <- d$Nconsumed/d$Npredator
   }
   
-  title <- sub('./Dataset_Code/','',datasets[i])
-  title <- sub('.R','',title)
+  title <- ffr.fits[[i]]$study.info$datasetName
   
   if("Nconsumed.mean" %in% colnames(d)){
     # ~~~~~~ Total eaten
