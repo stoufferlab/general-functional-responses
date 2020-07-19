@@ -1,7 +1,4 @@
 
-# we might need this here
-library(bbmle)
-
 # we need the bundle_fits function
 source('../../lib/plot_coefs.R')
 
@@ -61,18 +58,3 @@ rnkAICs <- t(apply(rnkAICs,1,rank))
 
 # Define delta AICc cut-off for "indistinguishably well performing" models
 delAICcutoff <- 2
-
-# statistics about when the phi model ranks first or ties for first
-message("model ranks")
-message(paste(
-  "phi itself:",
-  sum(rnkAICs[,"H2.HH"]==1),
-  round(sum(rnkAICs[,"H2.HH"]==1)/nrow(rnkAICs)*100),
-  "%"
-))
-message(paste(
-  "phi tied:",
-  sum(dAICs[,"H2.HH"]<=2)-sum(rnkAICs[,"H2.HH"]==1),
-  round((sum(dAICs[,"H2.HH"]<=2)-sum(rnkAICs[,"H2.HH"]==1))/nrow(rnkAICs)*100),
-  "%"
-))
