@@ -114,7 +114,7 @@ for(i in seq_along(datasets)){
 		# the number of reps depends on whether or not we will fit with the AAMethod
 		pb <- progress_bar$new(
 			format = "  bootstrapping [:bar] :percent eta: :eta",
-			total = boot.reps*(length(c(holling.like.models, ratio.like.models)) - as.integer(!okay4AAmethod(d))),
+			total = boot.reps,
 			show_after = 0,
 			force = TRUE,
 			clear = FALSE
@@ -153,8 +153,6 @@ for(i in seq_along(datasets)){
 									bootstrap.fits[[modeltype]][[b]] <- AAmethod(d, this.study$replacement)
 								}
 							}
-							# advance the progress bar forward because we made a fit
-							pb$tick()
 						}
 					}
 				})
@@ -162,9 +160,7 @@ for(i in seq_along(datasets)){
 				# the fit succeeded we can continue to the next bootstrap
 				if(!inherits(success, "try-error")){
 					bad.fit <- FALSE
-				}else{
-					# put the progress bar back to where it was at the start of this rep
-					pb$update((b-1)/boot.reps)
+					pb$tick()
 				}
 			}
 		}
