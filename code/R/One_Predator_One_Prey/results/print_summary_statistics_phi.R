@@ -1,13 +1,14 @@
-rm(list = ls())
 
 # we may not need this but just in case...
-library(bbmle)
+# library(bbmle)
+
+# for the bundle_fits function
+source('../../lib/plot_coefs.R')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
-load('../../../results/R/OnePredOnePrey_ffr.fits.Rdata')
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
-# fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Stouffer.Novak.I", order.parm="phi_denom")
-# ffr.fits <- ffr.fits[fit.order]
 
 # which were bootstrapped?
 bootstrap <- unlist(lapply(
@@ -21,6 +22,7 @@ bootstrap <- unlist(lapply(
 message("bootstrapped")
 message(paste0("raw: ",sum(!bootstrap)))
 message(paste0("not: ",sum(bootstrap)))
+message()
 
 # what were the sample sizes?
 sample.sizes <- unlist(lapply(
@@ -38,6 +40,7 @@ sample.sizes <- unlist(lapply(
 # print out the sample size summary
 message("sample sizes")
 print(summary(sample.sizes))
+message()
 
 # Grab summary of AIC estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
@@ -75,9 +78,10 @@ message(paste(
   round((sum(dAICs[,"Gen"]<=2)-sum(rnkAICs[,"Gen"]==1))/nrow(rnkAICs)*100),
   "%"
 ))
+message()
 
 # load profiled fits to find numbers of datasets with overlap over predefined regions
-load('../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
+load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
 
 message("phi regions")
 
@@ -100,7 +104,17 @@ message(paste(
   sum(unlist(lapply(
     ffr.fits,
     function(x){
-      return(x$profile$cf$lb>0 && x$profile$cf$ub >= 1)
+      lb <- ifelse(
+        is.finite(x$profile$cf$lb),
+        x$profile$cf$lb,
+        -Inf
+      )
+      ub <- ifelse(
+        is.finite(x$profile$cf$ub),
+        x$profile$cf$ub,
+        Inf
+      )
+      return(0 < lb && 1 <= ub)
     }
   )),
   na.rm=TRUE)
@@ -112,7 +126,17 @@ message(paste(
   sum(unlist(lapply(
     ffr.fits,
     function(x){
-      return(x$profile$cf$lb<=0 && x$profile$cf$ub < 1)
+      lb <- ifelse(
+        is.finite(x$profile$cf$lb),
+        x$profile$cf$lb,
+        -Inf
+      )
+      ub <- ifelse(
+        is.finite(x$profile$cf$ub),
+        x$profile$cf$ub,
+        Inf
+      )
+      return(lb < 0 && ub < 1)
     }
   )),
   na.rm=TRUE)
@@ -124,19 +148,17 @@ message(paste(
   sum(unlist(lapply(
     ffr.fits,
     function(x){
-      return(x$profile$cf$lb<=0 && x$profile$cf$ub >= 1)
-    }
-  )),
-  na.rm=TRUE)
-))
-
-# CI fully between CM and BD models
-message(paste(
-  "between BD and CM:",
-  sum(unlist(lapply(
-    ffr.fits,
-    function(x){
-      return(x$profile$cf$lb > 0 && x$profile$cf$ub < 1)
+      lb <- ifelse(
+        is.finite(x$profile$cf$lb),
+        x$profile$cf$lb,
+        -Inf
+      )
+      ub <- ifelse(
+        is.finite(x$profile$cf$ub),
+        x$profile$cf$ub,
+        Inf
+      )
+      return(lb < 0 && 1 < ub)
     }
   )),
   na.rm=TRUE)
@@ -148,7 +170,39 @@ message(paste(
   sum(unlist(lapply(
     ffr.fits,
     function(x){
-      return(x$profile$cf$lb < 0 && x$profile$cf$ub < 0)
+      lb <- ifelse(
+        is.finite(x$profile$cf$lb),
+        x$profile$cf$lb,
+        -Inf
+      )
+      ub <- ifelse(
+        is.finite(x$profile$cf$ub),
+        x$profile$cf$ub,
+        Inf
+      )
+      return(lb < 0 && ub < 0)
+    }
+  )),
+  na.rm=TRUE)
+))
+
+# fully between CM and BD models
+message(paste(
+  "between BD and CM:",
+  sum(unlist(lapply(
+    ffr.fits,
+    function(x){
+      lb <- ifelse(
+        is.finite(x$profile$cf$lb),
+        x$profile$cf$lb,
+        -Inf
+      )
+      ub <- ifelse(
+        is.finite(x$profile$cf$ub),
+        x$profile$cf$ub,
+        Inf
+      )
+      return(0 < lb && ub < 1)
     }
   )),
   na.rm=TRUE)
@@ -160,19 +214,39 @@ message(paste(
   sum(unlist(lapply(
     ffr.fits,
     function(x){
-      return(x$profile$cf$lb > 1 && x$profile$cf$ub > 1)
+      lb <- ifelse(
+        is.finite(x$profile$cf$lb),
+        x$profile$cf$lb,
+        -Inf
+      )
+      ub <- ifelse(
+        is.finite(x$profile$cf$ub),
+        x$profile$cf$ub,
+        Inf
+      )
+      return(1 < lb && 1 < ub)
     }
   )),
   na.rm=TRUE)
 ))
 
-# fully above one
+# includes 0
 message(paste(
   "phi includes 0:",
   sum(unlist(lapply(
     ffr.fits,
     function(x){
-      return(x$profile$cf$lb < 0 && x$profile$cf$ub > 0)
+      lb <- ifelse(
+        is.finite(x$profile$cf$lb),
+        x$profile$cf$lb,
+        -Inf
+      )
+      ub <- ifelse(
+        is.finite(x$profile$cf$ub),
+        x$profile$cf$ub,
+        Inf
+      )
+      return(lb < 0 && 0 < ub)
     }
   )),
   na.rm=TRUE)

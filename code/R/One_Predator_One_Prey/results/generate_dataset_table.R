@@ -1,41 +1,25 @@
-rm(list = ls())
-# set to FALSE if you want to match messages in real time 
-# or TRUE to have them silently saved to file instead.
-sinkMessages <- TRUE
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# specify where the data files are located
-dropboxdir <- switch(
-  Sys.getenv("LOGNAME"),
-  stouffer = '../../../dropbox_data/Data',
-  marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
-)
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 library(Hmisc) # for LaTeX table export
 options(xdvicmd='open')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # utility functions
-source('../lib/study_info.R')
+source('../../lib/plot_coefs.R')
+source('../../lib/study_info.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# master list of datasets
-datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
-
-# remove template files which don't actually read data
-datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
-
-# remove zzz files which are placeholders while a dataset is being cleaned/incorporated
-datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
+# read in the dataset-specific fits into a mega container
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 out <- dim(0)
-for(i in 1:length(datasets)){
-  
-  # loads the data into data frame 'd' and specifies data-specific parameters
-  source(datasets[i])
+for(i in 1:length(ffr.fits)){
   
   # grab info from the google doc
-  this.study <- study.info(datadir)
+  this.study <- study.info(ffr.fits[[i]]$study.info$datadir)
   
   # publication
   pub <- gsub('_',' ', this.study$dataname)
@@ -44,16 +28,13 @@ for(i in 1:length(datasets)){
   cite <- this.study$cite
   
   # dataset
-  datasetsName <- sub('*.R$','', sub('*./Dataset_Code/','', datasets[i]))
+  datasetsName <- ffr.fits[[i]]$study.info$datasetName
   datasetsName <- gsub('_',' ', datasetsName)
   if(pub==datasetsName){
     datasetsName <- '-'
   }else{
     datasetsName <- gsub(paste0(pub,' '),'', datasetsName)
   }
-  
-  # used in analyses
-  used <- ifelse(grepl("H|R", this.study$runswith),'Yes','No')
   
   # replacement
   repl <- ifelse(this.study$replacement,'Yes','No')
@@ -71,24 +52,23 @@ for(i in 1:length(datasets)){
   pred <- ifelse(this.study$predator,'Predator','Parasitoid')
   
   # sample size
-  if("Nconsumed.mean" %in% colnames(d)){
-    SS <- sum(d$n)
+  if("data.Nconsumed.mean" %in% names(ffr.fits[[i]]$study.info)){
+    SS <- sum(ffr.fits[[i]]$study.info$data.n)
   }else{
-    SS <- nrow(d)
+    SS <- length(ffr.fits[[i]]$study.info$data.Nconsumed)
   }
   
   # wrap it all up
   out <- rbind(out, 
          c(cite, 
            datasetsName, 
-           used, 
            orig,
            datasource,
            datafigtablesource,
            SS, 
            repl, 
            pred))
-  print(paste(i," of ",length(datasets)))
+  print(paste(i," of ",length(ffr.fits)))
   
 }
 
@@ -96,7 +76,6 @@ for(i in 1:length(datasets)){
 tab <- data.frame(out)
 colnames(tab) <- c('Study',
                    'Dataset',
-                   'Used',
                    'Raw',
                    'Type',
                    'Source',
@@ -104,18 +83,13 @@ colnames(tab) <- c('Study',
                    'Replaced',
                    'Consumer')
 
-# Remove unused datasets
-unused <- which(tab$Used=='No')
-tab <- tab[-unused,]
-tab$Used <- NULL
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # For SampleSizeBias paper
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Export to LaTeX
 wd <- getwd()
-setwd('../../../results/R/OnePredOnePrey_tables/')
+setwd('../../../../results/R/OnePredOnePrey_tables/')
   latex(tab,file='OnePredOnePrey_datasets.tex',
         label='table:datasets', 
         rowname=NULL, 
@@ -132,8 +106,6 @@ setwd('../../../results/R/OnePredOnePrey_tables/')
         ")
 setwd(wd)
 
-
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # tweak things for HiddenLayers paper
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -144,7 +116,7 @@ tab <- tab[,c('Study','Dataset','Nobs','Replaced',
 
 # Export to LaTeX
 wd <- getwd()
-setwd('../../../results/R/OnePredOnePrey_tables/')
+setwd('../../../../results/R/OnePredOnePrey_tables/')
   latex(
     tab,
     file='OnePredOnePrey_datasets_DBS.tex',
@@ -165,12 +137,3 @@ setwd('../../../results/R/OnePredOnePrey_tables/')
     "
   )
 setwd(wd)
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Table of data sets by confidence interval type
-# load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.AA.Rdata')
-# labels <- unlist(lapply(ffr.fits, function(x) x$study.info$datasetName))
-# method <- unlist(lapply(ffr.fits, function(x) x$profile$method))
-# table(method)
-# CI.method <- data.frame(DataSet=labels, Method=method)
-
