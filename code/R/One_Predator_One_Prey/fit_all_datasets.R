@@ -217,6 +217,10 @@ for(i in seq_along(datasets)){
 					for(b in 1:boot.reps){
 						local.boots[,,b] <- bootstrap.fits[[modeltype]][[b]]$estimates
 					}
+
+					# get out the estimates into their own object
+					local.ests <- as.array(apply(local.boots, c(1,2), summarize.boots))
+
 					# save the key stuff (which for this model is only a subset of the above)
 					bootstrap.fits[[modeltype]] <- list(
 						fit=bootstrap.fits[[modeltype]][[1]],
