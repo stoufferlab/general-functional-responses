@@ -134,7 +134,7 @@ holling.like.1pred.1prey.predict = function(
 
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){
-		time <- 1
+		time <- rep(1,length(initial))
 	}
 
 	Nconsumed <- holling.like.1pred.1prey(
