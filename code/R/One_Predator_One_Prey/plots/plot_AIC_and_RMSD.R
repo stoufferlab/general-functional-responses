@@ -70,12 +70,13 @@ colnames(rnks.RMSD) <- colnames(RMSDs)
 
 
 # Define RMSD cut-off for "well performing" models ****relative on data****
-# Calculate feeding count averaged across all treatment in order to later determine which models have an RMSD that is less than x% of the data average (repeat for raw and bootstrapped datasets, which will each throw errors where the other does not apply, and then merge)
+# Calculate feeding count averaged across all treatment in order to later determine which models have an RMSD that is less than x% of the data average
 mean.Nconsumed <- unlist(lapply(ffr.fits, 
-                          function(x){mean(x$study.info$data.Nconsumed)}))
-mean.Nconsumed_boot <- unlist(lapply(ffr.fits, 
-                           function(x){mean(x$study.info$data.Nconsumed.mean*x$study.info$data.n)}))
-mean.Nconsumed[which(is.na(mean.Nconsumed))] <- mean.Nconsumed_boot[which(!is.na(mean.Nconsumed_boot))]
+                   function(x){
+                     if(any(grepl('data.Nconsumed.mean',names(x$study.info)))){
+                       mean(x$study.info$data.Nconsumed.mean*x$study.info$data.n)}else{
+                         mean(x$study.info$data.Nconsumed)}
+                     }))
 
 perc.cut <- 10
 cutoff.RMSD <- (perc.cut/100)*mean.Nconsumed
@@ -471,7 +472,7 @@ matplot(SScuts,pfFirst.AIC,las=1,type='l',
         ylim=ylims,lwd=1.5,log='x',
         ylab='Fraction in first rank',
         xlab='')
-  rug(sample.sizes,side=3)
+  rug(sample.sizes,side=3,quiet=TRUE)
   mtext('A',side=3,line=-1.5,at=mnSS,cex=0.9)
   mtext('AIC',side=3,line=0.3,adj=0.5,cex=1)
 
@@ -482,7 +483,7 @@ matplot(SScuts,pfSecnd.AIC,las=1,type='l',
         ylab='Fraction in second rank',
         # xlab='Sample size greater than...')
         xlab='Sample size less than...')
-  rug(sample.sizes,side=3)
+  rug(sample.sizes,side=3,quiet=TRUE)
   mtext('B',side=3,line=-1.5,at=mnSS,cex=0.9)
 
 par(mar=c(2.5,2,0.5,1))
@@ -491,7 +492,7 @@ matplot(SScuts,pfFirst.RMSD,las=1,type='l',
         ylim=ylims,lwd=1.5,log='x',
         ylab='',
         xlab='')
-  rug(sample.sizes,side=3)
+  rug(sample.sizes,side=3,quiet=TRUE)
   mtext('C',side=3,line=-1.5,at=mnSS,cex=0.9)
   mtext('RMSD',side=3,line=0.3,adj=0.5,cex=1)
 
@@ -502,7 +503,7 @@ matplot(SScuts,pfSecnd.RMSD,las=1,type='l',
         ylab='',
         # xlab='Sample size greater than...')
         xlab='Sample size less than...')
-  rug(sample.sizes,side=3)
+  rug(sample.sizes,side=3,quiet=TRUE)
   mtext('D',side=3,line=-1.5,at=mnSS,cex=0.9)
 
 dev.off()
