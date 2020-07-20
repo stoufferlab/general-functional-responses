@@ -1,94 +1,99 @@
-%latex.default(tab, file = "OnePredOnePrey_datasets.tex", label = "table:datasets",     rowname = NULL, na.blank = TRUE, caption = "A summary of discovered datasets relevant to the study of consumer dependence.  ``Original data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets. ``Replacement'' refers to the whether consumed prey were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood. ")%
-\begin{table}[!tbp]
-\caption{A summary of discovered datasets relevant to the study of consumer dependence.  ``Original data'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used extracted means and associated uncertainty intervals to produce bootstrapped datasets. ``Replacement'' refers to the whether consumed prey were replaced during the study, which dictated our use of a binomial versus a Poisson likelihood. \label{table:datasets}} 
-\begin{center}
-\begin{tabular}{lllllll}
+%latex.default(tab, file = "OnePredOnePrey_datasets.tex", label = "table:datasets",     rowname = NULL, na.blank = TRUE, longtable = TRUE, lines.page = 100,     caption = "A summary of used datasets. \n        ``Dataset'' refers to the specific experiment from the study, and ‘-’ implies there was only one dataset available.\n        ``Raw'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used means and associated uncertainty intervals to produce bootstrapped datasets. \n          ``Type'' refers to whether the data was provided to us by the author, was obtained from an online repository, or was extracted from the publication.\n          ``Source'' refers to the figures and tables from which the data where extracted.\n        ``Nobs'' indicates the sample size.\n        ``Replaced'' refers to the whether consumed prey were replaced during the study (or whether the parasitoid was considered discriminatory or not), which dictated our use of a binomial versus a Poisson likelihood. \n        ")%
+\setlongtables\begin{longtable}{llllllll}\caption{A summary of used datasets. 
+        ``Dataset'' refers to the specific experiment from the study, and ‘-’ implies there was only one dataset available.
+        ``Raw'' refers to whether we were able to use the raw data at the level of each treatment replicate, or whether we instead used means and associated uncertainty intervals to produce bootstrapped datasets. 
+          ``Type'' refers to whether the data was provided to us by the author, was obtained from an online repository, or was extracted from the publication.
+          ``Source'' refers to the figures and tables from which the data where extracted.
+        ``Nobs'' indicates the sample size.
+        ``Replaced'' refers to the whether consumed prey were replaced during the study (or whether the parasitoid was considered discriminatory or not), which dictated our use of a binomial versus a Poisson likelihood. 
+        } \tabularnewline
 \hline\hline
-\multicolumn{1}{c}{Study}&\multicolumn{1}{c}{Dataset}&\multicolumn{1}{c}{Used}&\multicolumn{1}{c}{Original data}&\multicolumn{1}{c}{Sample size}&\multicolumn{1}{c}{Replacement}&\multicolumn{1}{c}{Consumer}\tabularnewline
+\multicolumn{1}{c}{Study}&\multicolumn{1}{c}{Dataset}&\multicolumn{1}{c}{Raw}&\multicolumn{1}{c}{Type}&\multicolumn{1}{c}{Source}&\multicolumn{1}{c}{Nobs}&\multicolumn{1}{c}{Replaced}&\multicolumn{1}{c}{Consumer}\tabularnewline
 \hline
-\citet{Chan:2017aa}&ch&Yes&Yes&10&Yes&Predator\tabularnewline
-\citet{Chan:2017aa}&cs&Yes&Yes&10&Yes&Predator\tabularnewline
-\citet{Chan:2017aa}&lh&Yes&Yes&10&Yes&Predator\tabularnewline
-\citet{Chan:2017aa}&ls&Yes&Yes&10&Yes&Predator\tabularnewline
-\citet{Chant:1966aa}&-&Yes&Yes&15&No&Predator\tabularnewline
-\citet{Chong:2006aa}&-&Yes&Yes&126&Yes&Parasitoid\tabularnewline
-\citet{Crowley:1989aa}&-&Yes&No&60&Yes&Predator\tabularnewline
-\citet{Edwards:1961aa}&nm&Yes&Yes&97&Yes&Parasitoid\tabularnewline
-\citet{Edwards:1961aa}&ts1&Yes&Yes&75&Yes&Parasitoid\tabularnewline
-\citet{Edwards:1961aa}&ts2&Yes&Yes&17&Yes&Parasitoid\tabularnewline
-\citet{Elliott:2005aa}&i2&Yes&Yes&400&Yes&Predator\tabularnewline
-\citet{Elliott:2005aa}&i3&Yes&Yes&400&Yes&Predator\tabularnewline
-\citet{Elliott:2005aa}&i4&Yes&Yes&400&Yes&Predator\tabularnewline
-\citet{Elliott:2005aa}&i5&Yes&Yes&400&Yes&Predator\tabularnewline
-\citet{Eveleigh:1982aa}&aa&Yes&No&111&No&Predator\tabularnewline
-\citet{Eveleigh:1982aa}&ad&Yes&No&226&No&Predator\tabularnewline
-\citet{Eveleigh:1982aa}&ap&Yes&No&267&No&Predator\tabularnewline
-\citet{Eveleigh:1982aa}&pa&Yes&No&111&No&Predator\tabularnewline
-\citet{Eveleigh:1982aa}&pd&Yes&No&278&No&Predator\tabularnewline
-\citet{Eveleigh:1982aa}&pp&Yes&No&298&No&Predator\tabularnewline
-\citet{Fussmann:2005aa}&-&Yes&Yes&101&Yes&Predator\tabularnewline
-\citet{Griffen:2007aa}&f1a&Yes&No&108&No&Predator\tabularnewline
-\citet{Griffen:2007aa}&f1b&Yes&No&108&No&Predator\tabularnewline
-\citet{Griffen:2007aa}&fA1a&Yes&No&32&No&Predator\tabularnewline
-\citet{Griffen:2007aa}&fA1b&Yes&No&32&No&Predator\tabularnewline
-\citet{Hassan:1976aa}&Ag&Yes&No&100&Yes&Parasitoid\tabularnewline
-\citet{Hassan:1976aa}&Br&Yes&No&100&Yes&Parasitoid\tabularnewline
-\citet{Hassan:1976aa}&Pp&Yes&No&100&Yes&Parasitoid\tabularnewline
-\citet{Hossie:2016aa}&cl&Yes&Yes&42&No&Predator\tabularnewline
-\citet{Hossie:2016aa}&ev&Yes&Yes&42&No&Predator\tabularnewline
-\citet{Huffaker:1982aa}&-&Yes&No&40&Yes&Parasitoid\tabularnewline
-\citet{Johnson:2006aa}&-&Yes&No&45&No&Predator\tabularnewline
-\citet{Jones:1988aa}&e4&Yes&Yes&125&No&Parasitoid\tabularnewline
-\citet{Jones:1988aa}&e5&Yes&Yes&140&No&Parasitoid\tabularnewline
-\citet{Katz:1985ai}&-&Yes&No&112&No&Predator\tabularnewline
-\citet{Kfir:1983aa}&-&Yes&No&120&No&Parasitoid\tabularnewline
-\citet{Kratina:2009aa}&-&Yes&Yes&67&No&Predator\tabularnewline
-\citet{Krylov:1992aa}&i&Yes&No&28&No&Predator\tabularnewline
-\citet{Kumar:1985aa}&Cc&Yes&No&90&No&Parasitoid\tabularnewline
-\citet{Kumar:1985aa}&Dl&Yes&No&90&No&Parasitoid\tabularnewline
-\citet{Kumar:1985aa}&Sm&Yes&No&90&No&Parasitoid\tabularnewline
-\citet{Lang:2012aa}&Po 10&Yes&Yes&185&No&Predator\tabularnewline
-\citet{Lang:2012aa}&Po 20&Yes&Yes&181&No&Predator\tabularnewline
-\citet{Lang:2012aa}&Pt 10&Yes&Yes&184&No&Predator\tabularnewline
-\citet{Lang:2012aa}&Pt 20&Yes&Yes&186&No&Predator\tabularnewline
-\citet{Long:2012aa}&-&Yes&Yes&50&No&Predator\tabularnewline
-\citet{Mansour:1991aa}&-&Yes&No&36&No&Predator\tabularnewline
-\citet{Medoc:2013aa}&-&Yes&Yes&48&Yes&Predator\tabularnewline
-\citet{Medoc:2015aa}&be&Yes&Yes&76&Yes&Predator\tabularnewline
-\citet{Medoc:2015aa}&dv&Yes&Yes&76&Yes&Predator\tabularnewline
-\citet{Medoc:2015aa}&pu&Yes&Yes&76&Yes&Predator\tabularnewline
-\citet{Mertz:1968aa}&-&Yes&Yes&120&No&Predator\tabularnewline
-\citet{Mills:2004aa}&-&Yes&Yes&179&Yes&Parasitoid\tabularnewline
-\citet{Montoya:2000aa}&-&Yes&No&528&Yes&Parasitoid\tabularnewline
-\citet{Omkar:2004aa}&-&Yes&Yes&90&No&Predator\tabularnewline
-\citet{Prokopenko:2017aa}&-&Yes&Yes&80&Yes&Predator\tabularnewline
-\citet{Pusack:2018aa}&-&Yes&Yes&60&Yes&Predator\tabularnewline
-\citet{Reeve:1997aa}&-&Yes&Yes&26&No&Predator\tabularnewline
-\citet{Salt:1974aa}&-&Yes&No&50&Yes&Predator\tabularnewline
-\citet{Uttley:1980aa}&i1&Yes&No&168&No&Predator\tabularnewline
-\citet{Uttley:1980aa}&i2&Yes&No&204&No&Predator\tabularnewline
-\citet{Uttley:1980aa}&i3&Yes&No&224&No&Predator\tabularnewline
-\citet{Uttley:1980aa}&n1&Yes&No&266&No&Predator\tabularnewline
-\citet{Uttley:1980aa}&n2&Yes&No&312&No&Predator\tabularnewline
-\citet{Vahl:2005aa}&k&Yes&Yes&10&No&Predator\tabularnewline
-\citet{Vahl:2005aa}&t&Yes&Yes&10&No&Predator\tabularnewline
-\citet{Von-Westernhagen:1976aa}&2hr&Yes&No&80&No&Predator\tabularnewline
-\citet{Von-Westernhagen:1976aa}&4hr&Yes&No&120&No&Predator\tabularnewline
-\citet{Von-Westernhagen:1976aa}&8hr&Yes&No&100&No&Predator\tabularnewline
-\citet{Vucetich:2002aa}&m14&Yes&Yes&118&Yes&Predator\tabularnewline
-\citet{Vucetich:2002aa}&m98&Yes&Yes&77&Yes&Predator\tabularnewline
-\citet{Vucetich:2002aa}&w14&Yes&Yes&44&Yes&Predator\tabularnewline
-\citet{Vucetich:2002aa}&w98&Yes&Yes&28&Yes&Predator\tabularnewline
-\citet{Walde:1984aa}&-&Yes&No&60&Yes&Predator\tabularnewline
-\citet{Wasserman:2016aa}&bg&Yes&Yes&38&No&Predator\tabularnewline
-\citet{Wasserman:2016aa}&mb&Yes&Yes&37&No&Predator\tabularnewline
-\citet{Wasserman:2016aa}&ti&Yes&Yes&39&No&Predator\tabularnewline
-\citet{Elliott:2003aa}&d&No&No&300&Yes&Predator\tabularnewline
-\citet{Elliott:2003aa}&i&No&No&300&Yes&Predator\tabularnewline
-\citet{Elliott:2003aa}&pb&No&No&300&Yes&Predator\tabularnewline
-\citet{Elliott:2003aa}&pm&No&No&300&Yes&Predator\tabularnewline
-\citet{Hebblewhite:2013aa}&-&No&Yes&16&&Predator\tabularnewline
-\citet{Stier:2013aa}&-&No&Yes&24&No&Predator\tabularnewline
+\endfirsthead\caption[]{\em (continued)} \tabularnewline
 \hline
-\end{tabular}\end{center}
-\end{table}
+\multicolumn{1}{c}{Study}&\multicolumn{1}{c}{Dataset}&\multicolumn{1}{c}{Raw}&\multicolumn{1}{c}{Type}&\multicolumn{1}{c}{Source}&\multicolumn{1}{c}{Nobs}&\multicolumn{1}{c}{Replaced}&\multicolumn{1}{c}{Consumer}\tabularnewline
+\hline
+\endhead
+\hline
+\endfoot
+\label{table:datasets}
+\citet{Chan:2017aa}&ch&Yes&Provided&-&10&Yes&Predator\tabularnewline
+\citet{Chan:2017aa}&cs&Yes&Provided&-&10&Yes&Predator\tabularnewline
+\citet{Chan:2017aa}&lh&Yes&Provided&-&10&Yes&Predator\tabularnewline
+\citet{Chan:2017aa}&ls&Yes&Provided&-&10&Yes&Predator\tabularnewline
+\citet{Chant:1966aa}&-&Yes&Extracted&Table 2&15&No&Predator\tabularnewline
+\citet{Chong:2006aa}&-&Yes&Provided&-&126&Yes&Parasitoid\tabularnewline
+\citet{Crowley:1989aa}&-&No&Extracted&Fig. 2&60&Yes&Predator\tabularnewline
+\citet{Edwards:1961aa}&nm&Yes&Extracted&Tables 1, 2 \& 3&97&Yes&Parasitoid\tabularnewline
+\citet{Edwards:1961aa}&ts1&Yes&Extracted&Tables 1, 2 \& 3&75&Yes&Parasitoid\tabularnewline
+\citet{Edwards:1961aa}&ts2&Yes&Extracted&Tables 1, 2 \& 3&17&Yes&Parasitoid\tabularnewline
+\citet{Elliott:2005aa}&i2&Yes&Provided&-&400&Yes&Predator\tabularnewline
+\citet{Elliott:2005aa}&i3&Yes&Provided&-&400&Yes&Predator\tabularnewline
+\citet{Elliott:2005aa}&i4&Yes&Provided&-&400&Yes&Predator\tabularnewline
+\citet{Elliott:2005aa}&i5&Yes&Provided&-&400&Yes&Predator\tabularnewline
+\citet{Eveleigh:1982aa}&aa&No&Extracted&Tables 4, 5 \& 8&111&No&Predator\tabularnewline
+\citet{Eveleigh:1982aa}&ad&No&Extracted&Tables 4, 5 \& 8&226&No&Predator\tabularnewline
+\citet{Eveleigh:1982aa}&ap&No&Extracted&Tables 4, 5 \& 8&267&No&Predator\tabularnewline
+\citet{Eveleigh:1982aa}&pa&No&Extracted&Tables 4, 5 \& 8&111&No&Predator\tabularnewline
+\citet{Eveleigh:1982aa}&pd&No&Extracted&Tables 4, 5 \& 8&278&No&Predator\tabularnewline
+\citet{Eveleigh:1982aa}&pp&No&Extracted&Tables 4, 5 \& 8&298&No&Predator\tabularnewline
+\citet{Fussmann:2005aa}&-&Yes&Provided&-&101&Yes&Predator\tabularnewline
+\citet{Griffen:2007aa}&f1a&No&Extracted&Fig 1 \& Fig A1&108&No&Predator\tabularnewline
+\citet{Griffen:2007aa}&f1b&No&Extracted&Fig 1 \& Fig A1&108&No&Predator\tabularnewline
+\citet{Griffen:2007aa}&fA1a&No&Extracted&Fig 1 \& Fig A1&32&No&Predator\tabularnewline
+\citet{Griffen:2007aa}&fA1b&No&Extracted&Fig 1 \& Fig A1&32&No&Predator\tabularnewline
+\citet{Hassan:1976aa}&Ag&No&Extracted&Table 1&100&Yes&Parasitoid\tabularnewline
+\citet{Hassan:1976aa}&Br&No&Extracted&Table 1&100&Yes&Parasitoid\tabularnewline
+\citet{Hassan:1976aa}&Pp&No&Extracted&Table 1&100&Yes&Parasitoid\tabularnewline
+\citet{Hossie:2016aa}&cl&Yes&Provided&-&42&No&Predator\tabularnewline
+\citet{Hossie:2016aa}&ev&Yes&Provided&-&42&No&Predator\tabularnewline
+\citet{Huffaker:1982aa}&-&No&Extracted&Table 1&40&Yes&Parasitoid\tabularnewline
+\citet{Johnson:2006aa}&-&Yes&Extracted&Fig. 1&45&No&Predator\tabularnewline
+\citet{Jones:1988aa, Jones:1986aa}&e4&Yes&Extracted&Fig. 1a \& 3&125&No&Parasitoid\tabularnewline
+\citet{Jones:1988aa, Jones:1986aa}&e5&Yes&Extracted&Fig. 1a \& 3&140&No&Parasitoid\tabularnewline
+\citet{Katz:1985ai}&-&No&Extracted&Fig. 8&112&No&Predator\tabularnewline
+\citet{Kfir:1983aa}&-&No&Extracted&Table 1&120&No&Parasitoid\tabularnewline
+\citet{Kratina:2009aa}&-&Yes&Provided&-&67&No&Predator\tabularnewline
+\citet{Krylov:1992aa}&i&No&Extracted&Table 1 \& Fig. 1L&28&No&Predator\tabularnewline
+\citet{Kumar:1985aa}&Cc&No&Extracted&Tables 1 \& 2 \& Figs. 1 \& 2&90&No&Parasitoid\tabularnewline
+\citet{Kumar:1985aa}&Dl&No&Extracted&Tables 1 \& 2 \& Figs. 1 \& 2&90&No&Parasitoid\tabularnewline
+\citet{Kumar:1985aa}&Sm&No&Extracted&Tables 1 \& 2 \& Figs. 1 \& 2&90&No&Parasitoid\tabularnewline
+\citet{Lang:2012aa}&Po 10&Yes&Provided&-&185&No&Predator\tabularnewline
+\citet{Lang:2012aa}&Po 20&Yes&Provided&-&181&No&Predator\tabularnewline
+\citet{Lang:2012aa}&Pt 10&Yes&Provided&-&184&No&Predator\tabularnewline
+\citet{Lang:2012aa}&Pt 20&Yes&Provided&-&186&No&Predator\tabularnewline
+\citet{Long:2012aa}&-&Yes&Provided&-&50&No&Predator\tabularnewline
+\citet{Mansour:1991aa}&-&No&Extracted&Fig. 1a&36&No&Predator\tabularnewline
+\citet{Medoc:2013aa}&-&Yes&Provided&-&48&Yes&Predator\tabularnewline
+\citet{Medoc:2015aa}&be&Yes&Provided&-&76&Yes&Predator\tabularnewline
+\citet{Medoc:2015aa}&dv&Yes&Provided&-&76&Yes&Predator\tabularnewline
+\citet{Medoc:2015aa}&pu&Yes&Provided&-&76&Yes&Predator\tabularnewline
+\citet{Mertz:1968aa}&-&Yes&Extracted&Table 1&120&No&Predator\tabularnewline
+\citet{Mills:2004aa}&-&Yes&Extracted&Fig. 1a-c (not d)&179&Yes&Parasitoid\tabularnewline
+\citet{Montoya:2000aa}&-&No&Extracted&Table 1&528&Yes&Parasitoid\tabularnewline
+\citet{Omkar:2004aa}&-&Yes&Provided&-&90&No&Predator\tabularnewline
+\citet{Prokopenko:2017aa}&-&Yes&Provided&-&80&Yes&Predator\tabularnewline
+\citet{Pusack:2018aa}&-&Yes&Provided&-&60&Yes&Predator\tabularnewline
+\citet{Reeve:1997aa}&-&Yes&Provided&-&26&No&Predator\tabularnewline
+\citet{Salt:1974aa}&-&No&Extracted&Fig. 3 \& Table 1&50&Yes&Predator\tabularnewline
+\citet{Uttley:1980aa}&i1&No&Extracted&Figs. 4.3.1, 4.3.2, 4.3.3, 8.3.1 \& 8.3.2&168&No&Predator\tabularnewline
+\citet{Uttley:1980aa}&i2&No&Extracted&Figs. 4.3.1, 4.3.2, 4.3.3, 8.3.1 \& 8.3.2&204&No&Predator\tabularnewline
+\citet{Uttley:1980aa}&i3&No&Extracted&Figs. 4.3.1, 4.3.2, 4.3.3, 8.3.1 \& 8.3.2&224&No&Predator\tabularnewline
+\citet{Uttley:1980aa}&n1&No&Extracted&Figs. 4.3.1, 4.3.2, 4.3.3, 8.3.1 \& 8.3.2&266&No&Predator\tabularnewline
+\citet{Uttley:1980aa}&n2&No&Extracted&Figs. 4.3.1, 4.3.2, 4.3.3, 8.3.1 \& 8.3.2&312&No&Predator\tabularnewline
+\citet{Vahl:2005aa}&k&Yes&Extracted&Fig. 4&10&No&Predator\tabularnewline
+\citet{Vahl:2005aa}&t&Yes&Extracted&Fig. 4&10&No&Predator\tabularnewline
+\citet{Von-Westernhagen:1976aa}&2hr&No&Extracted&Fig. 3&80&No&Predator\tabularnewline
+\citet{Von-Westernhagen:1976aa}&4hr&No&Extracted&Fig. 3&120&No&Predator\tabularnewline
+\citet{Von-Westernhagen:1976aa}&8hr&No&Extracted&Fig. 3&100&No&Predator\tabularnewline
+\citet{Vucetich:2002aa}&m14&Yes&Provided&-&118&Yes&Predator\tabularnewline
+\citet{Vucetich:2002aa}&m98&Yes&Provided&-&77&Yes&Predator\tabularnewline
+\citet{Vucetich:2002aa}&w14&Yes&Provided&-&44&Yes&Predator\tabularnewline
+\citet{Vucetich:2002aa}&w98&Yes&Provided&-&28&Yes&Predator\tabularnewline
+\citet{Walde:1984aa}&-&No&Extracted&Fig 2 \& 4&60&Yes&Predator\tabularnewline
+\citet{Wasserman:2016aa,Wasserman:2016ab}&bg&Yes&Repository&-&38&No&Predator\tabularnewline
+\citet{Wasserman:2016aa,Wasserman:2016ab}&mb&Yes&Repository&-&37&No&Predator\tabularnewline
+\citet{Wasserman:2016aa,Wasserman:2016ab}&ti&Yes&Repository&-&39&No&Predator\tabularnewline
+\hline
+\end{longtable}
