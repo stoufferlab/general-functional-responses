@@ -1,4 +1,7 @@
 rm(list = ls())
+# set to FALSE if you want to watch messages in real time
+# or TRUE to have them silently saved to file instead.
+sinkMessages <- TRUE
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # specify where the data files are located
 dropboxdir <- switch(
@@ -8,13 +11,13 @@ dropboxdir <- switch(
 )
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # a few utility functions
-source('../lib/read_data.R')
-source('../lib/study_info.R')
 source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
 source('../lib/plot_coefs.R')
-source('../lib/holling_method_one_predator_two_prey.R') # may throw ignorable warning and takes a while to load because of C++ compiling
+source('../lib/read_data.R')
 source('../lib/resid_metrics.R')
+source('../lib/study_info.R')
+source('../lib/holling_method_one_predator_two_prey.R') # may throw ignorable warning and takes a while to load because of C++ compiling
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ####################################
@@ -31,14 +34,14 @@ datasets <- list.files('./Dataset_Code', pattern=".R$", full.names=TRUE, include
 which.models <- c(
 	"Holling I",
 	"Holling II Specialist Specialist",
-	# "Holling II Specialist Hybrid",
-	# "Holling II Hybrid Specialist",
 	"Holling II Specialist Generalist",
 	"Holling II Generalist Specialist",
 	"Holling II Generalist Generalist",
+	"Holling II Hybrid Hybrid"
+	# "Holling II Specialist Hybrid",
+	# "Holling II Hybrid Specialist",
 	# "Holling II Generalist Hybrid",
 	# "Holling II Hybrid Generalist",
-	"Holling II Hybrid Hybrid"
 )
 
 # set the random seed so that bootstrapping is reliable
@@ -62,10 +65,10 @@ for(i in seq_along(datasets)){
 		# check if data has actually be read in, only then should we fit the models
 		if(is.null(d)){
 			# print out which dataset WILL NOT be analyzed
-			message(paste0("Skipping ",datasetsName))
+			cat(paste0("Skipping ",datasetsName,"\n"))
 		}else{
 			# print out which dataset WILL be analyzed
-			message(paste0("Fitting ",datasetsName," "),appendLF=FALSE)
+			cat(paste0("Fitting ",datasetsName,"\n"))
 
 			# grab some info from the google doc
 			this.study <- study.info(datadir)
@@ -89,12 +92,25 @@ for(i in seq_along(datasets)){
 			# NOTE: optimization is on log-transformed values
 			#############################################	 
 
+			# start capturing the progress and warning messages
+			if(sinkMessages){
+				options(warn=1) # provide more than just the base info level
+				Mesgs <- file(paste0('../../../results/R/OnePredTwoPrey_ErrorLog/', datasetsName, '_ErrorLog.txt'), open='wt')
+				sink(Mesgs, type="message")
+			}
+
 			# Do data need to be bootstrapped?
 			if("Nconsumed1.mean" %in% colnames(d)){
 				boot.reps <- 250
 			}else{
 				boot.reps <- 1
 			}
+
+			# create a progress bar that shows how far along the fitting is
+			pb <- txtProgressBar(
+				min=0,
+				max=boot.reps
+			)
 
 			# fit 1 to many bootstrapped datasets
 			bootstrap.fits <- foreach(b=1:boot.reps) %dopar% {
@@ -122,22 +138,20 @@ for(i in seq_along(datasets)){
 								}else{
 									local.fits[[paste(modeltype, lll)]] <- fit.holling.like(d, s=this.study, modeltype=modeltype, phi.transform=exp)
 								}
-								message(".",appendLF=FALSE)
-								flush.console()
 							}
 						}
 					})
 					if(!inherits(success, "try-error")){
 						bad.fit <- FALSE
-					}else{
-						message("X",appendLF=FALSE)
+						setTxtProgressBar(pb, b)
 					}
 				}
 				local.fits
 			}
 
 			# we made it out of the loop somewhat miraculously
-			message(paste0(" Finished"))
+			close(pb)
+			# message(paste0(" Finished"))
 
 			# bootstrap fits is organized by bootstrapped data
 			# reorganize to be based on models
@@ -203,6 +217,14 @@ for(i in seq_along(datasets)){
 				ffr.fit,
 				file=paste0('../../../results/R/OnePredTwoPrey_fits/', datasetsName,'.Rdata')
 			)
+
+			# close open streams, etc
+			if(sinkMessages){
+				sink(type="message")
+				close(Mesgs)
+				options(warn=0)
+				readLines(paste0('../../../results/R/OnePredTwoPrey_ErrorLog/', datasetsName, '_ErrorLog.txt'))
+			}
 		}
 	}
 }
