@@ -11,20 +11,16 @@ dropboxdir <- switch(
 )
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # a few utility functions
-source('../lib/study_info.R')
-source('../lib/read_data.R')
+source('../lib/AA_method.R')
 source('../lib/bootstrap_data.R')
 source('../lib/mytidySumm.R')
-source('../lib/AA_method.R')
-source('../lib/set_params.R')
-source('../lib/resid_metrics.R')
 source('../lib/plot_coefs.R')
+source('../lib/read_data.R')
+source('../lib/resid_metrics.R')
+source('../lib/set_params.R')
+source('../lib/study_info.R')
 source('../lib/holling_method_one_predator_one_prey.R') # may throw ignorable warning and takes a while to load because of C++ compiling
 source('../lib/ratio_method_one_predator_one_prey.R') # may throw ignorable warning and takes a while to load because of C++ compiling
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-library(progress)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # master list of datasets
@@ -69,10 +65,10 @@ for(i in seq_along(datasets)){
 	# check if data has actually be read in, only then should we fit the models
 	if(is.null(d)){
 		# print out which dataset WILL NOT be analyzed
-		message(paste0("Skipping ",datasetsName))
+		cat(paste0("Skipping ",datasetsName,"\n"))
 	}else{
 		# print out which dataset WILL be analyzed
-		message(paste0("Fitting ",datasetsName))
+		cat(paste0("Fitting ",datasetsName,"\n"))
 
 		# grab info from the google doc
 		this.study <- study.info(datadir)
@@ -93,7 +89,7 @@ for(i in seq_along(datasets)){
 		# fit all the functional response models
 		#############################################
 
-		# start capturing the progress and warning messages
+		# start capturing the warning messages
 		if(sinkMessages){
 			options(warn=1) # provide more than just the base info level
 			Mesgs <- file(paste0('../../../results/R/OnePredOnePrey_ErrorLog/', datasetsName, '_ErrorLog.txt'), open='wt')
@@ -111,15 +107,10 @@ for(i in seq_along(datasets)){
 		}
 
 		# create a progress bar that shows how far along the fitting is
-		# the number of reps depends on whether or not we will fit with the AAMethod
-		pb <- progress_bar$new(
-			format = "  bootstrapping [:bar] :percent eta: :eta",
-			total = boot.reps,
-			show_after = 0,
-			force = TRUE,
-			clear = FALSE
+		pb <- txtProgressBar(
+			min=0,
+			max=boot.reps
 		)
-		pb$tick(0)
 
 		# temporary storage of for model fits
 		bootstrap.fits <- list()
@@ -160,10 +151,11 @@ for(i in seq_along(datasets)){
 				# the fit succeeded we can continue to the next bootstrap
 				if(!inherits(success, "try-error")){
 					bad.fit <- FALSE
-					pb$tick()
+					setTxtProgressBar(pb, b)
 				}
 			}
 		}
+		close(pb)
 
 		for(modeltype in c(holling.like.models,ratio.like.models)){
 			if(modeltype != "Arditi.Akcakaya.Method.2" || okay4AAmethod(d)){
