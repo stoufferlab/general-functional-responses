@@ -5,32 +5,17 @@ library(shape)
 library(stringr)
 
 # generate the AIC tables
-source('make_AIC_tables.R')
+source('../results/make_AIC_table.R')
 
-# remove the SG and GS models
-dAICs <- dAICs[,c("H1","H2.SS","H2.GG","H2.HH")]
-rnkAICs <- rnkAICs[,c("H1","H2.SS","H2.GG","H2.HH")]
-
-# recompute the delta AICs
-dAICs <- dAICs - apply(dAICs,1,min)
-
-# rerank this subset of models
-rnkAICs <- t(apply(rnkAICs,1,rank))
-
-# Define delta AICc cut-off for "indistinguishably well performing" models
-delAICcutoff <- 2
-
-# for the phi values
-
-# read in the profiled CIs
+# read in the profiled CIs for the phi values
 load(
   file='../../../../results/R/OnePredTwoPrey_fits_profiled/ffr.fits.prof.HH.Rdata'
 )
 
-# make sure things are named
+# make sure things are named correctly
 names(ffr.cfs) <- unlist(lapply(ffr.cfs, function(x) x$study.info$datasetName))
 
-# read in the cheat sheet to figure out which HH model
+# read in the cheat sheet to figure out which HH model between the two parameter transformations
 source('which_model.R')
 
 # figure out the average phi value across datasets

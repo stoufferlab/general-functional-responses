@@ -1,21 +1,32 @@
-source('../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
-source('../lib/plot_obsVfit.R')
-source('../lib/holling_method_one_predator_one_prey.R')
-source('../lib/ratio_method_one_predator_one_prey.R')
+
+source('../../lib/plot_coefs.R') # for plot_coefs() and order.of.fits()
+source('../../lib/plot_obsVfit.R')
+source('../../lib/holling_method_one_predator_one_prey.R')
+source('../../lib/ratio_method_one_predator_one_prey.R')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # read in the dataset-specific fits into a mega container
-ffr.fits <- bundle_fits('../../../results/R/OnePredOnePrey_fits')
+ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
 fit.order <- order.of.fits(ffr.fits, order=TRUE, model="Arditi.Akcakaya", order.parm="Sample size")
 ffr.fits <- ffr.fits[rev(fit.order)]
 
 n <- length(ffr.fits)
-models <- c('Holling.I','Holling.II','Ratio','Hassell.Varley','Arditi.Ginzburg','Arditi.Akcakaya','Beddington.DeAngelis','Crowley.Martin','Stouffer.Novak.I')
+models <- c(
+  'Holling.I',
+  'Holling.II',
+  'Ratio',
+  'Hassell.Varley',
+  'Arditi.Ginzburg',
+  'Arditi.Akcakaya',
+  'Beddington.DeAngelis',
+  'Crowley.Martin',
+  'Stouffer.Novak.I'
+)
 
 pdf(
-  file="../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_obsVfit.pdf",
+  file="../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_obsVfit.pdf",
   height=2.5,
   width=14,
   onefile=T
