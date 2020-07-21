@@ -222,7 +222,7 @@ holling.like.1pred.2prey.NLL = function(params, Ni, Nj, Ni_consumed, Nj_consumed
 	# should this occur here or above?
 
 	# disallow biologically implausible predictions
-	if(any(Nconsumed < 0) | any(!is.finite(as.matrix(Nconsumed)))){
+	if(any(Nconsumed < 0) || any(!is.finite(as.matrix(Nconsumed)))){
 		return(Inf)
 	}
 
