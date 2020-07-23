@@ -10,8 +10,8 @@ ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Remove datasets where AA2 method was NOT successfully applied
-noAA2 <- unlist(lapply(ffr.fits, function(x) is.na(x$estimates['Arditi.Akcakaya.Method.2'])))
-ffr.fits[which(noAA2)] <- NULL
+yesAA2 <- unlist(lapply(ffr.fits, function(x) 'Arditi.Akcakaya.Method.2' %in% names(x$fits)))
+ffr.fits <- ffr.fits[which(yesAA2)]
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Profile the fits
@@ -90,8 +90,8 @@ dev.off()
 ffr.fits <- bundle_fits('../../../../results/R/OnePredOnePrey_fits')
 
 # Remove datasets where AA2 method was NOT successfully applied
-noAA2 <- unlist(lapply(ffr.fits, function(x) is.na(x$estimates['Arditi.Akcakaya.Method.2'])))
-ffr.fits[which(noAA2)] <- NULL
+yesAA2 <- unlist(lapply(ffr.fits, function(x) 'Arditi.Akcakaya.Method.2' %in% names(x$fits)))
+ffr.fits <- ffr.fits[which(yesAA2)]
 
 m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",'exponent',"estimate"]))
 m <- exp(m)

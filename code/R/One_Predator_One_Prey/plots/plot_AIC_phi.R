@@ -59,7 +59,7 @@ delAICcutoff <- 2
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_SN1.pdf',
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_phi.pdf',
     height=6,
     width=4.5
 )
