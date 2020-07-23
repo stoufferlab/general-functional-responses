@@ -1,25 +1,27 @@
 
-study.info <- function(dataname){
+study.info <- function(dataname, useGoogle=TRUE){
   
-	# grab some info from the google doc
-	# require(RCurl)
-	# masterlist<-read.csv(
-#     text=getURL(
-#       "https://docs.google.com/spreadsheets/d/e/2PACX-1vQcykYqM8Pkmgrlmp9S2jorZZEOlZ14a0AINRuDc2Y_29f6dTR9ojhOOBV2rcattJO5LXA5ATVn_nK6/pub?gid=0&single=true&output=csv",
-#       .opts = list(followlocation = TRUE)
-#     ),
-#     header=T,
-#     skip=1,
-#     sep=",",
-# 		na.strings = c("*", "NA")
-# 	)
-	
-	masterlist <- read.csv(paste(dropboxdir,'GenFunResp-PotentialData.csv',sep="/"),
+# grab some info from the google doc
+  if(useGoogle){
+    require(RCurl)
+    masterlist<-read.csv(
+        text=getURL(
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vQcykYqM8Pkmgrlmp9S2jorZZEOlZ14a0AINRuDc2Y_29f6dTR9ojhOOBV2rcattJO5LXA5ATVn_nK6/pub?gid=0&single=true&output=csv",
+          .opts = list(followlocation = TRUE)
+        ),
+        header=T,
+        skip=1,
+        sep=",",
+    		na.strings = c("*", "NA")
+    	)
+  }else{
+  masterlist <- read.csv(paste(dropboxdir,'GenFunResp-PotentialData.csv',sep="/"),
 	                       header=T,
 	                       skip=1,
 	                       sep=",",
 	                       na.strings = c("*", "NA"))
-	
+  }
+  
 	masterlist <- masterlist[masterlist$Dataset_Folder == dataname & !is.na(masterlist$Dataset_Folder),]
 	
 	# determine whether or not there are P-1 "predators" interfering
@@ -83,6 +85,17 @@ study.info <- function(dataname){
   # scrape the bibtex citation for the study
   cite <- as.character(masterlist[1,"CitationKey"])
   
+  # scrape the way we obtained the data
+  datasource <- as.character(masterlist[1,"DataSource"])
+  
+  # scrape the source (Fig or table) of the data (for extracted datasets0
+  datafigtablesource <- ifelse(as.character(masterlist[1,"DataSource"])=='Extracted',
+                          as.character(masterlist[1,"FigTableSource"]),
+                         '-')
+  
+  # has this dataset been deemed okay to post to the repo
+  ok2post <- as.character(masterlist[1,"PostToRepo"])
+  
 	# put all the info we need into a list
 	rt <- list(
 	  dataname=dataname,
@@ -93,6 +106,9 @@ study.info <- function(dataname){
 		replacement=replacement,
 		runswith=runswith,
 		timeunits=timeunits,
-		cite=cite
+		cite=cite,
+		datasource=datasource,
+		datafigtablesource=datafigtablesource,
+		ok2post=ok2post
 	)
 }

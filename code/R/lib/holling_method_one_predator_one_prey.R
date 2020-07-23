@@ -63,16 +63,9 @@ holling.like.1pred.1prey = function(N0, a, h, c, phi_numer, phi_denom, P, T,
 			if(integrate){  # solve by direct integration
 				N <- numeric(length(N0))
 				for(i in seq.int(length(N0))){
-					# workaround so that AA method won't throw an error
-					if(length(a)>1){
-						ai <- a[i]
-					}else{
-						ai <- a
-					}
-
 					# set parameters within ode solver
 					hl_1pred_1prey_set_params(
-						a=ai,
+						a=a,
 						h=h,
 						c=c,
 						phi_numer=phi_numer,
@@ -141,7 +134,7 @@ holling.like.1pred.1prey.predict = function(
 
 	# if no times are specified then normalize to time=1
 	if(is.null(time)){
-		time <- 1
+		time <- rep(1,length(initial))
 	}
 
 	Nconsumed <- holling.like.1pred.1prey(
@@ -182,7 +175,7 @@ holling.like.1pred.1prey.NLL = function(params,
 	)
 	
 	# if the parameters are not biologically plausible, neither should be the likelihood
-	if(any(Nconsumed <= 0) | any(is.nan(Nconsumed))){
+	if(any(Nconsumed <= 0) | any(!is.finite(Nconsumed))){
 		nll <- Inf
 		return(nll)
 	}else{
