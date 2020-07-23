@@ -114,7 +114,7 @@ message(paste(
         x$profile$cf$ub,
         Inf
       )
-      return(0 < lb && 1 <= ub)
+      return(0 < lb && lb <= 1 && 1 <= ub)
     }
   )),
   na.rm=TRUE)
@@ -136,7 +136,7 @@ message(paste(
         x$profile$cf$ub,
         Inf
       )
-      return(lb < 0 && ub < 1)
+      return(lb < 0 && 0 < ub && ub < 1)
     }
   )),
   na.rm=TRUE)
