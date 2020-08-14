@@ -284,7 +284,7 @@ tab_Cnt <- rbind(c(rep('',3),'AIC',rep('',4)),
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_tables/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AIC_and_RMSD_rankings.tex',label='table:AIC_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC$ or by $RMSD$.')
+latex(tab_Cnt,file='OnePredOnePrey_AIC_and_RMSD_rankings.tex',label='table:AIC_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC$ or by $RMSD$.  Models having equivalent \emph{support} to the top-ranked model are indicated in Fig. XXX}.')
 
 # latex(tab_Cnt_AIC,file='OnePredOnePrey_AIC_rankings.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 # 
