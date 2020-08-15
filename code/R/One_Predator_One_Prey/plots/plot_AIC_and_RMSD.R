@@ -36,6 +36,8 @@ AIC.AA <- unlist(lapply(ffr.fits, function(x){ x$AIC['Arditi.Akcakaya'][[1]][sta
 
 AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.R, AIC.HV, AIC.AG, AIC.AA)
 colnames(AICs) <- sub('AIC.', '', colnames(AICs))
+# Hack to rename R -> LR (ratio -> linear ratio)
+colnames(AICs) <- sub('R','LR',colnames(AICs))
 
 # Repeat for RMSD
 RMSD.H1 <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Holling.I'][[1]][stat]}))
@@ -49,6 +51,8 @@ RMSD.AA <- unlist(lapply(ffr.fits, function(x){ x$RMSD['Arditi.Akcakaya'][[1]][s
 
 RMSDs <- data.frame(RMSD.H1, RMSD.H2, RMSD.BD, RMSD.CM, RMSD.R, RMSD.AG, RMSD.HV, RMSD.AA)
 colnames(RMSDs) <- sub('RMSD.', '', colnames(RMSDs))
+# Hack to rename R -> LR (ratio -> linear ratio)
+colnames(RMSDs) <- sub('R','LR',colnames(RMSDs))
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Calculations
@@ -273,10 +277,10 @@ tab_Cnt_RMSD <- Cnt_RMSD
 # bCnt_RMSD[Cnt_RMSD==0] <- 0
 # tab_Cnt_RMSD <- matrix(bCnt_RMSD, nrow=nrow(Cnt_RMSD), byrow=T, dimnames=dimnames(Cnt_RMSD))
 
-tab_Cnt <- rbind(c(rep('',3),'AIC',rep('',4)),
+tab_Cnt <- rbind(c(rep('',3),'$AIC$',rep('',4)),
                  tab_Cnt_AIC, 
                  rep('',ncol(tab_Cnt_AIC)), 
-                 c(rep('',3),'RMSD',rep('',4)),
+                 c(rep('',3),'$RMSD$',rep('',4)),
                  tab_Cnt_RMSD)
 
 # ~~~~~~~~~~~~~~~
@@ -284,7 +288,7 @@ tab_Cnt <- rbind(c(rep('',3),'AIC',rep('',4)),
 wd <- getwd()
 setwd('../../../../results/R/OnePredOnePrey_tables/')
 
-latex(tab_Cnt,file='OnePredOnePrey_AIC_and_RMSD_rankings.tex',label='table:AIC_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC$ or by $RMSD$.  Models having equivalent \emph{support} to the top-ranked model are indicated in Fig. XXX}.')
+latex(tab_Cnt,file='OnePredOnePrey_AIC_and_RMSD_rankings.tex',label='table:AIC_and_RMSD_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC$ or by $RMSD$.  Models having equivalent support to the top-ranked model are indicated in Fig. XXX}.')
 
 # latex(tab_Cnt_AIC,file='OnePredOnePrey_AIC_rankings.tex',label='table:AIC_rankings', rowlabel='Rank', na.blank=TRUE, caption='The number of datasets for which each functional response model achieved a given rank relative to all other models as judged by $AIC_c$.')
 # 
