@@ -182,13 +182,20 @@ plot.coefs(
     point.est='median',
     plot.SEs=TRUE,
     display.outlier.ests=FALSE,
-    xlab="Effect of feeding on consumer interference",
+    xlab="",
     labels=labels,
     vertLines = c(0,1),
     xlim=c(-3,3),
     ylim=c(0,length(ffr.fits)+1),
     color.vector = color.vector,
     SE.lty=c(1,6,3)
+)
+
+mtext(
+  expression(plain('Effect of feeding on interference, ')*italic(varphi[I[k]][F[ki]])),
+  1,
+  cex=0.7,
+  line=1.5
 )
 
 dev.off()
