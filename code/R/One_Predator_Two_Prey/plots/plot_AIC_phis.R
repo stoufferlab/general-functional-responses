@@ -128,7 +128,7 @@ legend(
     -0.75,nrow(rnkAICs)/2,
     legend=c(
       'H1',
-      "H2-s",
+      "H2",
       "H2-m",
       "H2-g" #expression(paste("H2-",phi))
     ),
@@ -161,9 +161,16 @@ plot(
   yaxt='n',
   xlim=xlim,
       ylim=c(0,1+length(ffr.cfs)),
-      xlab='Effect of feeding on feeding',
+      xlab="",
       ylab='',
       axes=FALSE
+)
+
+mtext(
+  expression(plain('Effects of feeding on feeding, ')*italic(varphi[F[ki]][F[kj]])*plain(' and ')*italic(varphi[F[kj]][F[ki]])),
+  1,
+  cex=0.7,
+  line=1.6
 )
 
 # mark where the existing models fall
