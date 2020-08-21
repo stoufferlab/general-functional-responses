@@ -126,7 +126,7 @@ setwd('../../../../results/R/OnePredOnePrey_tables/')
     longtable=TRUE,
     lines.page=100,
     caption="
-      A summary of single-species consumer dependence datasets.
+      A summary of single-resource consumer dependence datasets.
       ``Dataset'' refers to the specific experiment from the study, and `-' implies there was only one dataset available.
       ``Nobs'' indicates the sample size.
       ``Replaced'' refers to whether the consumed resource was replaced during the study, which dictated our use of a binomial versus a Poisson likelihood.
