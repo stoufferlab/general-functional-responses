@@ -88,6 +88,9 @@ study.info <- function(dataname, useGoogle=TRUE){
   # scrape the way we obtained the data
   datasource <- as.character(masterlist[1,"DataSource"])
   
+  # scrape the bibtex citation for the dataset
+  datacitation <- as.character(masterlist[1,"DataCitationKey"])
+  
   # scrape the source (Fig or table) of the data (for extracted datasets0
   datafigtablesource <- ifelse(as.character(masterlist[1,"DataSource"])=='Extracted',
                           as.character(masterlist[1,"FigTableSource"]),
@@ -109,6 +112,7 @@ study.info <- function(dataname, useGoogle=TRUE){
 		cite=cite,
 		datasource=datasource,
 		datafigtablesource=datafigtablesource,
+		datacitation=datacitation,
 		ok2post=ok2post
 	)
 }

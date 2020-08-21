@@ -46,6 +46,9 @@ for(i in 1:length(ffr.fits)){
   # where the data came from (for extracted data)
   datafigtablesource <- this.study$datafigtablesource
   
+  # how to cite the data
+  datacitation <- this.study$datacitation
+  
   # pred/parasite
   pred <- ifelse(this.study$predator,'Predator','Parasitoid')
   
@@ -63,6 +66,7 @@ for(i in 1:length(ffr.fits)){
            orig,
            datasource,
            datafigtablesource,
+           datacitation,
            SS,
            repl,
            pred))
@@ -76,6 +80,7 @@ colnames(tab) <- c('Study',
                    'Raw',
                    'Type',
                    'Source',
+                   'Citation',
                    'Nobs',
                    'Replaced',
                    'Consumer')
@@ -84,7 +89,7 @@ colnames(tab) <- c('Study',
 
 # reorder columns
 tab <- tab[,c('Study','Dataset','Nobs','Replaced','Consumer',
-              'Raw','Type','Source')]
+              'Raw','Type','Source','Citation')]
 
 # Export to LaTeX
 wd <- getwd()
