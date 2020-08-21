@@ -1,0 +1,392 @@
+\begin{thebibliography}{57}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Arditi \& Ak{\c c}akaya(1990)}]{Arditi:1990sp}
+Arditi, R. \& Ak{\c c}akaya, H.~R. (1990).
+\newblock Underestimation of mutual interference of predators.
+\newblock \emph{Oecologia}, 83, 358--361.
+
+\bibitem[{Chan \emph{et~al.}(2017)Chan, Boutin, Hossie, Krebs, O'Donoghue \&
+  Murray}]{Chan:2017aa}
+Chan, K., Boutin, S., Hossie, T.~J., Krebs, C., O'Donoghue, M. \& Murray, D.~L.
+  (2017).
+\newblock Improving the assessment of predator functional responses by
+  considering alternate prey and predator interactions.
+\newblock \emph{Ecology}, 98, 1787--1796.
+
+\bibitem[{Chant \& Turnbull(1966)}]{Chant:1966aa}
+Chant, D.~A. \& Turnbull, A.~L. (1966).
+\newblock Effects of predator and prey densities on interactions between
+  goldfish and \emph{{D}aphnia pulex} ({D}e {G}eer).
+\newblock \emph{Canadian Journal of Zoology}, 44, 285--289.
+
+\bibitem[{Chong(2020)}]{Chong:2020aa}
+Chong, J.-H. (2020).
+\newblock Data from: Functional response and progeny production of the
+  {M}adeira mealybug parasitoid, \emph{{A}nagyrus sp. nov. nr. sinope}: the
+  effects of host and parasitoid densities.
+\newblock \emph{Figshare:
+  \url{https://doi.org/10.6084/m9.figshare.12781250.v1}}.
+
+\bibitem[{Chong \& Oetting(2006)}]{Chong:2006aa}
+Chong, J.-H. \& Oetting, R.~D. (2006).
+\newblock Functional response and progeny production of the {M}adeira mealybug
+  parasitoid, \emph{{A}nagyrus sp. nov. nr. sinope}: the effects of host and
+  parasitoid densities.
+\newblock \emph{Biological Control}, 39, 320--328.
+
+\bibitem[{Colton(1983)}]{Colton:1983aa}
+Colton, T.~F. (1983).
+\newblock \emph{Predation by damselfly naiad on two species of zooplankton:
+  preference, switching, and the modelling of predation}.
+\newblock Ph.D. thesis, Duke University.
+
+\bibitem[{Colton(1987)}]{Colton:1987aa}
+Colton, T.~F. (1987).
+\newblock Extending functional response models to include a second prey type:
+  an experimental test.
+\newblock \emph{Ecology}, 68, 900--912.
+
+\bibitem[{Crowley \& Martin(1989)}]{Crowley:1989aa}
+Crowley, P.~H. \& Martin, E.~K. (1989).
+\newblock Functional responses and interference within and between year classes
+  of a dragonfly population.
+\newblock \emph{Journal of the North American Benthological Society}, 8,
+  211--221.
+
+\bibitem[{Edwards(1961)}]{Edwards:1961aa}
+Edwards, R.~L. (1961).
+\newblock The area of discovery of two insect parasites, \emph{{N}asonia
+  vitripennis} ({W}alker) and \emph{{T}richogramma evanescens} ({W}estwood), in
+  an artificial environment.
+\newblock \emph{The Canadian Entomologist}, 93, 475--481.
+
+\bibitem[{Elliott(2005)}]{Elliott:2005aa}
+Elliott, J.~M. (2005).
+\newblock Ontogenetic shifts in the functional response and interference
+  interactions of \emph{{R}hyacophila dorsalis} larvae ({T}richoptera).
+\newblock \emph{Freshwater Biology}, 50, 2021--2033.
+
+\bibitem[{Elliott(2006)}]{Elliott:2006aa}
+Elliott, J.~M. (2006).
+\newblock Prey switching in \emph{{R}hyacophila dorsalis} ({T}richoptera)
+  alters with larval instar.
+\newblock \emph{Freshwater Biology}, 51, 913--924.
+
+\bibitem[{Eveleigh \& Chant(1982)}]{Eveleigh:1982aa}
+Eveleigh, E.~S. \& Chant, D. (1982).
+\newblock Experimental studies on acarine predator--prey interactions: the
+  effects of predator density on prey consumption, predator searching
+  efficiency, and the functional response to prey density ({A}carina:
+  {P}hytoseiidae).
+\newblock \emph{Canadian Journal of Zoology}, 60, 611--629.
+
+\bibitem[{Fussmann(2020)}]{Fussmann:2020aa}
+Fussmann, G.~F. (2020).
+\newblock Data from: A direct, experimental test of resource vs. consumer
+  dependence.
+\newblock \emph{FigShare:
+  \url{https://doi.org/10.6084/m9.figshare.12782297.v1}}.
+
+\bibitem[{Fussmann \emph{et~al.}(2005)Fussmann, Weithoff \&
+  Yoshida}]{Fussmann:2005aa}
+Fussmann, G.~F., Weithoff, G. \& Yoshida, T. (2005).
+\newblock A direct, experimental test of resource vs. consumer dependence.
+\newblock \emph{Ecology}, 86, 2924--2930.
+
+\bibitem[{Griffen \& Delaney(2007)}]{Griffen:2007aa}
+Griffen, B.~D. \& Delaney, D.~G. (2007).
+\newblock Species invasion shifts the importance of predator dependence.
+\newblock \emph{Ecology}, 88, 3012--3021.
+
+\bibitem[{Hassan(1976)}]{Hassan:1976aa}
+Hassan, S.~T. (1976).
+\newblock The area of discovery of \emph{{A}panteles glomeratus}
+  ({H}ymenoptera: {B}raconidae), \emph{{P}teromalus puparum} ({P}teromalidae)
+  and \emph{{B}rachymeria regina} ({C}halcididae).
+\newblock \emph{Entomologia experimentalis et applicata}, 20, 199--205.
+
+\bibitem[{Hossie \& Murray(2016)}]{Hossie:2016aa}
+Hossie, T.~J. \& Murray, D.~L. (2016).
+\newblock Spatial arrangement of prey affects the shape of ratio-dependent
+  functional response in strongly antagonistic predators.
+\newblock \emph{Ecology}, 97, 834--841.
+
+\bibitem[{Hossie \& Murray(2020)}]{Hossie:2020aa}
+Hossie, T.~J. \& Murray, D.~L. (2020).
+\newblock Data from: Spatial arrangement of prey affects the shape of
+  ratio-dependent functional response in strongly antagonistic predators.
+\newblock \emph{Figshare:
+  \url{https://doi.org/10.6084/m9.figshare.12739181.v1}}.
+
+\bibitem[{Huffaker \& Matsumoto(1982)}]{Huffaker:1982aa}
+Huffaker, C.~B. \& Matsumoto, B.~M. (1982).
+\newblock Group versus individual functional responses of \emph{{V}enturia} [=
+  \emph{{N}emeritis}] \emph{canescens} ({G}rav.).
+\newblock \emph{Researches on Population Ecology}, 24, 250--269.
+
+\bibitem[{Iyer \& Rao(1996)}]{Iyer:1996aa}
+Iyer, N. \& Rao, T. (1996).
+\newblock Responses of the predatory rotifer \emph{{A}splanchna intermedia} to
+  prey species differing in vulnerability: laboratory and field studies.
+\newblock \emph{Freshwater Biology}, 36, 521--533.
+
+\bibitem[{Johnson(2006)}]{Johnson:2006aa}
+Johnson, D.~W. (2006).
+\newblock Predation, habitat complexity, and variation in density-dependent
+  mortality of temperate reef fishes.
+\newblock \emph{Ecology}, 87, 1179--1188.
+
+\bibitem[{Jones(1986)}]{Jones:1986aa}
+Jones, T.~H. (1986).
+\newblock \emph{Patterns of parasitism by \emph{{T}rybliographa rapae}
+  (Westw.), a cynipid parasitoid of the cabbage root fly}.
+\newblock Ph.D. thesis, University of London, Imperial College.
+
+\bibitem[{Jones \& Hassell(1988)}]{Jones:1988aa}
+Jones, T.~H. \& Hassell, M.~P. (1988).
+\newblock Patterns of parasitism by \emph{{T}rybliographa rapae}, a cynipid
+  parasitoid of the cabbage root fly, under laboratory and field conditions.
+\newblock \emph{Ecological entomology}, 13, 309--317.
+
+\bibitem[{Katz(1985)}]{Katz:1985ai}
+Katz, C.~H. (1985).
+\newblock A nonequilibrium marine predator-prey interaction.
+\newblock \emph{Ecology}, 66, 1426--1438.
+
+\bibitem[{Kfir(1983)}]{Kfir:1983aa}
+Kfir, R. (1983).
+\newblock Functional response to host density by the egg parasite
+  \emph{{T}richogramma pretiosum}.
+\newblock \emph{Entomophaga}, 28, 345--353.
+
+\bibitem[{Kratina(2020)}]{Kratina:2020aa}
+Kratina, P. (2020).
+\newblock Data from: Functional responses modified by predator density.
+\newblock \emph{Figshare:
+  \url{https://doi.org/10.6084/m9.figshare.12794816.v1}}.
+
+\bibitem[{Kratina \emph{et~al.}(2009)Kratina, Vos, Bateman \&
+  Anholt}]{Kratina:2009aa}
+Kratina, P., Vos, M., Bateman, A. \& Anholt, B.~R. (2009).
+\newblock Functional responses modified by predator density.
+\newblock \emph{Oecologia}, 159, 425--433.
+
+\bibitem[{Krylov(1992)}]{Krylov:1992aa}
+Krylov, P.~I. (1992).
+\newblock Density-dependent predation of \emph{{C}haoborus flavicans} on
+  \emph{{D}aphnia longispina} in a small lake: the effect of prey size.
+\newblock \emph{Hydrobiologia}, 239, 131--140.
+
+\bibitem[{Kumar \& Tripathi(1985)}]{Kumar:1985aa}
+Kumar, A. \& Tripathi, C. P.~M. (1985).
+\newblock Parasitoid--host relationship between \emph{{T}rioxys}
+  (\emph{{B}inodoxys}) \emph{indicus} {S}ubba {R}ao \& {S}harma ({H}ymenoptera:
+  {A}phidiidae) and \emph{{A}phis craccivora} {K}och ({H}emiptera:
+  {A}phididae): effect of host plants on the area of discovery of the
+  parasitoid.
+\newblock \emph{Canadian Journal of Zoology}, 63, 192--195.
+
+\bibitem[{Lang(2020)}]{Lang:2020aa}
+Lang, B. (2020).
+\newblock Data from: Warming effects on consumption and intraspecific
+  interference competition depend on predator metabolism.
+\newblock \emph{Figshare: \url{https://doi.org/10.6084/m9.figshare.12789986}}.
+
+\bibitem[{Lang \emph{et~al.}(2012)Lang, Rall \& Brose}]{Lang:2012aa}
+Lang, B., Rall, B.~C. \& Brose, U. (2012).
+\newblock Warming effects on consumption and intraspecific interference
+  competition depend on predator metabolism.
+\newblock \emph{Journal of Animal Ecology}, 81, 516--523.
+
+\bibitem[{Lester(2020)}]{Lester:2020aa}
+Lester, P.~J. (2020).
+\newblock Data from: Functional and numerical responses do not always indicate
+  the most effective predator for biological control: an analysis of two
+  predators in a two-prey system.
+\newblock \emph{Figshare: \url{https://doi.org/10.6084/m9.figshare.12838352}}.
+
+\bibitem[{Lester \& Harmsen(2002)}]{Lester:2002aa}
+Lester, P.~J. \& Harmsen, R. (2002).
+\newblock Functional and numerical responses do not always indicate the most
+  effective predator for biological control: an analysis of two predators in a
+  two-prey system.
+\newblock \emph{Journal of Applied Ecology}, 39, 455--468.
+
+\bibitem[{Long(2020{\natexlab{a}})}]{Long:2020aa}
+Long, W.~C. (2020{\natexlab{a}}).
+\newblock Data from: Cannibalism in red king crab, \emph{{P}aralithodes
+  camtschaticus} ({T}ilesius, 1815): Effects of habitat type and predator
+  density on predator functional response.
+\newblock \emph{FigShare: \url{https://doi.org/10.6084/m9.figshare.12780440}}.
+
+\bibitem[{Long(2020{\natexlab{b}})}]{Long:2020ab}
+Long, W.~C. (2020{\natexlab{b}}).
+\newblock Data from: Density-dependent indirect effects: apparent mutualism and
+  apparent competition coexist in a two-prey system.
+\newblock \emph{FigShare:
+  \url{https://doi.org/10.6084/m9.figshare.12780455.v1}}.
+
+\bibitem[{Long \emph{et~al.}(2012{\natexlab{a}})Long, Gamelin, Johnson \&
+  Hines}]{Long:2012ab}
+Long, W.~C., Gamelin, E.~F., Johnson, E.~G. \& Hines, A.~H.
+  (2012{\natexlab{a}}).
+\newblock Density-dependent indirect effects: apparent mutualism and apparent
+  competition coexist in a two-prey system.
+\newblock \emph{Marine Ecology Progress Series}, 456, 139--148.
+
+\bibitem[{Long \emph{et~al.}(2012{\natexlab{b}})Long, Popp, Swiney \&
+  Van~Sant}]{Long:2012aa}
+Long, W.~C., Popp, J., Swiney, K.~M. \& Van~Sant, S.~B. (2012{\natexlab{b}}).
+\newblock Cannibalism in red king crab, \emph{{P}aralithodes camtschaticus}
+  ({T}ilesius, 1815): Effects of habitat type and predator density on predator
+  functional response.
+\newblock \emph{Journal of Experimental Marine Biology and Ecology}, 422,
+  101--106.
+
+\bibitem[{Mansour \& Lipcius(1991)}]{Mansour:1991aa}
+Mansour, R.~A. \& Lipcius, R.~N. (1991).
+\newblock Density-dependent foraging and mutual interference in blue crabs
+  preying upon infaunal clams.
+\newblock \emph{Marine Ecology Progress Series}, 72, 239.
+
+\bibitem[{Mattila \& Bonsdorff(1998)}]{Mattila:1998aa}
+Mattila, J. \& Bonsdorff, E. (1998).
+\newblock Predation by juvenile flounder (\emph{{P}latichthys flesus} {L}.): a
+  test of prey vulnerability, predator preference, switching behaviour and
+  functional response.
+\newblock \emph{Journal of Experimental Marine Biology and Ecology}, 227,
+  221--236.
+
+\bibitem[{M{\'e}doc \emph{et~al.}(2015)M{\'e}doc, Albert \&
+  Spataro}]{Medoc:2015aa}
+M{\'e}doc, V., Albert, H. \& Spataro, T. (2015).
+\newblock Functional response comparisons among freshwater amphipods:
+  ratio-dependence and higher predation for \emph{{G}ammarus pulex} compared to
+  the non-natives \emph{{D}ikerogammarus villosus} and \emph{{E}chinogammarus
+  berilloni}.
+\newblock \emph{Biological Invasions}, 17, 3625--3637.
+
+\bibitem[{M{\'e}doc \emph{et~al.}(2013)M{\'e}doc, Spataro \&
+  Arditi}]{Medoc:2013aa}
+M{\'e}doc, V., Spataro, T. \& Arditi, R. (2013).
+\newblock Prey: predator ratio dependence in the functional response of a
+  freshwater amphipod.
+\newblock \emph{Freshwater Biology}, 58, 858--865.
+
+\bibitem[{Mertz \& Davies(1968)}]{Mertz:1968aa}
+Mertz, D.~B. \& Davies, R.~B. (1968).
+\newblock Cannibalism of the pupal stage by adult flour beetles: An experiment
+  and a stochastic model.
+\newblock \emph{Biometrics}, 247--275.
+
+\bibitem[{Mills \& Lacan(2004)}]{Mills:2004aa}
+Mills, N.~J. \& Lacan, I. (2004).
+\newblock Ratio dependence in the functional response of insect parasitoids:
+  evidence from \emph{{T}richogramma minutum} foraging for eggs in small host
+  patches.
+\newblock \emph{Ecological Entomology}, 29, 208--216.
+
+\bibitem[{Montoya \emph{et~al.}(2000)Montoya, Liedo, Benrey, Barrera, Cancino
+  \& Aluja}]{Montoya:2000aa}
+Montoya, P., Liedo, P., Benrey, B., Barrera, J.~F., Cancino, J. \& Aluja, M.
+  (2000).
+\newblock Functional response and superparasitism by \emph{{D}iachasmimorpha
+  longicaudata} ({H}ymenoptera: {B}raconidae), a parasitoid of fruit flies
+  ({D}iptera: {T}ephritidae).
+\newblock \emph{Annals of the Entomological Society of America}, 93, 47--54.
+
+\bibitem[{Prokopenko(2020)}]{Prokopenko:2020aa}
+Prokopenko, C.~M. (2020).
+\newblock Data from: Evaluation of alternative prey-, predator-, and
+  ratio-dependent functional response models in a zooplankton microcosm.
+\newblock \emph{Figshare:
+  \url{https://doi.org/10.6084/m9.figshare.12813209.v1}}.
+
+\bibitem[{Prokopenko \emph{et~al.}(2017)Prokopenko, Turgeon \&
+  Fryxell}]{Prokopenko:2017aa}
+Prokopenko, C.~M., Turgeon, K. \& Fryxell, J.~M. (2017).
+\newblock Evaluation of alternative prey-, predator-, and ratio-dependent
+  functional response models in a zooplankton microcosm.
+\newblock \emph{Canadian Journal of Zoology}, 95, 177--182.
+
+\bibitem[{Ranta \& Nuutinen(1985)}]{Ranta:1985aa}
+Ranta, E. \& Nuutinen, V. (1985).
+\newblock Foraging by the smooth newt (\emph{{T}riturus vulgaris}) on
+  zooplankton: functional responses and diet choice.
+\newblock \emph{The Journal of Animal Ecology}, 275--293.
+
+\bibitem[{Reeve(1997)}]{Reeve:1997aa}
+Reeve, J.~D. (1997).
+\newblock Predation and bark beetle dynamics.
+\newblock \emph{Oecologia}, 112, 48--54.
+
+\bibitem[{Reeve(2020)}]{Reeve:2020aa}
+Reeve, J.~D. (2020).
+\newblock Data from: Predation and bark beetle dynamics.
+\newblock \emph{Figshare:
+  \url{https://doi.org/10.6084/m9.figshare.12784175.v1}}.
+
+\bibitem[{Salt(1974)}]{Salt:1974aa}
+Salt, G.~W. (1974).
+\newblock Predator and prey densities as controls of the rate of capture by the
+  predator \emph{{D}idinium nasutum}.
+\newblock \emph{Ecology}, 55, 434--439.
+
+\bibitem[{Uttley(1980)}]{Uttley:1980aa}
+Uttley, M.~G. (1980).
+\newblock \emph{A laboratory study of mutual interference between freshwater
+  invertebrate predators}.
+\newblock Ph.D. thesis, University of York.
+
+\bibitem[{Vahl \emph{et~al.}(2005)Vahl, Van~der Meer, Weissing, Van~Dullemen \&
+  Piersma}]{Vahl:2005aa}
+Vahl, W.~K., Van~der Meer, J., Weissing, F.~J., Van~Dullemen, D. \& Piersma, T.
+  (2005).
+\newblock The mechanisms of interference competition: two experiments on
+  foraging waders.
+\newblock \emph{Behavioral Ecology}, 16, 845--855.
+
+\bibitem[{Von~Westernhagen \& Rosenthal(1976)}]{Von-Westernhagen:1976aa}
+Von~Westernhagen, H. \& Rosenthal, H. (1976).
+\newblock Predator-prey relationship between pacific herring, \emph{{C}lupea
+  harengus pallasi}, larvae and a predatory hyperiid amphipod,
+  \emph{{H}yperoche medusarum}.
+\newblock \emph{Fishery Bulletin}, 74.
+
+\bibitem[{Vucetich \emph{et~al.}(2002)Vucetich, Peterson \&
+  Schaefer}]{Vucetich:2002aa}
+Vucetich, J.~A., Peterson, R.~O. \& Schaefer, C.~L. (2002).
+\newblock The effect of prey and predator densities on wolf predation.
+\newblock \emph{Ecology}, 83, 3003--3013.
+
+\bibitem[{Walde \& Davies(1984)}]{Walde:1984aa}
+Walde, S.~J. \& Davies, R.~W. (1984).
+\newblock The effect of intraspecific interference on \emph{{K}ogotus nonus}
+  ({P}lecoptera) foraging behaviour.
+\newblock \emph{Canadian Journal of Zoology}, 62, 2221--2226.
+
+\bibitem[{Wong \& Barbeau(2005)}]{Wong:2005aa}
+Wong, M.~C. \& Barbeau, M.~A. (2005).
+\newblock Prey selection and the functional response of sea stars
+  (\emph{{A}sterias vulgaris} {V}errill) and rock crabs (\emph{{C}ancer
+  irroratus} {S}ay) preying on juvenile sea scallops (\emph{{P}lacopecten
+  magellanicus} ({G}melin)) and blue mussels (\emph{{M}ytilus edulis}
+  {L}innaeus).
+\newblock \emph{Journal of Experimental Marine Biology and Ecology}, 327,
+  1--21.
+
+\bibitem[{Wong \& Barbeau(2020)}]{Wong:2020ab}
+Wong, M.~C. \& Barbeau, M.~A. (2020).
+\newblock Data from: Prey selection and the functional response of sea stars
+  (\emph{{A}sterias vulgaris} {V}errill) and rock crabs (\emph{{C}ancer
+  irroratus} {S}ay) preying on juvenile sea scallops (\emph{{P}lacopecten
+  magellanicus} ({G}melin)) and blue mussels (\emph{{M}ytilus edulis}
+  {L}innaeus).
+\newblock \emph{FigShare:
+  \url{https://doi.org/10.6084/m9.figshare.12780191.v1}}.
+
+\end{thebibliography}

@@ -4,12 +4,14 @@ library(Hmisc) # for LaTeX table export
 options(xdvicmd='open')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # we need bundle_fits and study.info
-source('../../lib/plot_coefs.R')
-source('../../lib/study_info.R')
+source('lib/plot_coefs.R')
+source('lib/study_info.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# read in the dataset-specific fits into a mega container
-ffr.fits <- bundle_fits('../../../../results/R/OnePredTwoPrey_fits')
+# read in the dataset-specific fits and combine
+ffr.fits_OnePrey <- bundle_fits('../../results/R/OnePredOnePrey_fits')
+ffr.fits_TwoPrey <- bundle_fits('../../results/R/OnePredTwoPrey_fits')
+ffr.fits <- c(ffr.fits_OnePrey, ffr.fits_TwoPrey)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,8 +29,11 @@ for(i in 1:length(ffr.fits)){
     # publication
     pub <- gsub('_',' ', this.study$dataname)
     
-    # citation
+    # paper citation
     cite <- this.study$cite
+    
+    # how to cite the data
+    datacitation <- this.study$datacitation
     
     # dataset
     datasetsName <- ffr.fits[[i]]$study.info$datasetName
@@ -42,38 +47,35 @@ for(i in 1:length(ffr.fits)){
     # where the data came from (for extracted data)
     datafigtablesource <- this.study$datafigtablesource
     
-    # how to cite the data
-    datacitation <- this.study$datacitation
-  
     # wrap it all up
     out <- rbind(out, 
                  c(cite,
-                   datasetsName,
-                   datacitation,
-                   datafigtablesource))
+                   datacitation))
     }
   print(paste(i," of ",length(ffr.fits)))
   
 }
 
 tab <- data.frame(out)
-colnames(tab) <- c('Study',
-                   'Dataset',
-                   'Citation',
-                   'Source')
+colnames(tab) <- c('Study citation',
+                   'Data source (repository) citation')
+
+
+# Alphabetical order
+tab <- tab[order(tab$Study),]
+# Reduce down to unique studies (when datasetname isn't provided)
+tab <- unique(tab)
 
 # Export to LaTeX
 wd <- getwd()
-setwd('../../../../results/R/OnePredTwoPrey_tables/')
+setwd('../../data/readme_citations/')
 latex(
   tab,
-  file='OnePredTwoPrey_dataset_citations4README.tex',
+  file='readme_citations_tab.tex',
   rowname=NULL, 
   na.blank=TRUE, 
-  longtable=TRUE,
+  longtable=FALSE,
   lines.page=100,
-  caption="
-  Multi-resource datasets
-  "
+  caption="Please cite appropriately! "
 )
 setwd(wd)
