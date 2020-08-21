@@ -25,17 +25,8 @@ message(paste0("not: ",sum(bootstrap)))
 message()
 
 # what were the sample sizes?
-sample.sizes <- unlist(lapply(
-  ffr.fits,
-  function(x){
-    d <- x$study.info
-    if("data.Nconsumed.mean" %in% names(d)){
-      return(sum(d$data.n))
-    }else{
-      return(length(d$data.Nconsumed))
-    }
-  }
-))
+sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
+message()
 
 # print out the sample size summary
 message("sample sizes")
