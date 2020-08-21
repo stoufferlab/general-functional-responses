@@ -4,7 +4,7 @@ The datasets included in this folder are provided for the convenience of reprodu
 
 **PLEASE** obtain and cite each study and dataset appropriately for use in your own analyses.
 
-|-------------------------------------|-----------------------------------|
+
 | Study citation                      | Data source (repository) citation |
 |-------------------------------------|-----------------------------------|
 | Chanet al.(2017)                    | Chanet al.(2017)                  |
@@ -50,7 +50,6 @@ The datasets included in this folder are provided for the convenience of reprodu
 | Vucetichet al.(2002)                |                                   |
 | Walde & Davies (1984)               | Novak & Stouffer (2020)           |
 | Wong & Barbeau (2005)               | Wong & Barbeau (2020)             |
-|-------------------------------------|-----------------------------------|
 
 
 Arditi, R. & Akçakaya, H. R. (1990). Underestimation of mutual
