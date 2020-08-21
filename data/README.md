@@ -196,6 +196,10 @@ longicaudata* (Hymenoptera: Braconidae), a parasitoid of fruit flies
 (Diptera: Tephritidae). *Annals of the Entomological Society of
 America*, 93, 47–54.
 
+Novak, M. & Stouffer, D. B. (2020). Data extracted for “Hidden layers of
+density dependence in consumer feeding rates”. *Figshare:
+https://doi.org/10.6084/m9.figshare.12830792*.
+
 Prokopenko, C. M. (2020). Data from: Evaluation of alternative prey-,
 predator-, and ratio-dependent functional response models in a
 zooplankton microcosm. *Figshare:
