@@ -1,6 +1,8 @@
 # General Functional Responses
 Currently, this repo contains all code (and most data) for reproducing the analyses associated with two manuscripts:
+
 Stouffer & Novak (2020) *Hidden layers of density dependence in consumer feeding rates* (bioRxiv link)
+
 Novak & Stouffer (2020) *Systematic bias in studies of consumer functional responses* (bioRxiv link)
 
 ## Organization
