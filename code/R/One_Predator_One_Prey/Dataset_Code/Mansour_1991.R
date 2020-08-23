@@ -2,8 +2,11 @@
 # read in the raw data
 datadir <- 'Mansour_1991'
 filename <- 'Mansour_1991.csv'
-rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
-
-# turn into a standard dataframe with standard column names
-d <- rawdata[,c('Preds','Prey','TotalEaten.Mean','TotalEaten.SE','n','Time')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n",'Time')
+columns <- rbind(
+	c('Npredator',      'Preds'),
+	c('Nprey',          'Prey'),
+	c('Nconsumed.mean', 'TotalEaten.Mean'),
+	c('Nconsumed.se',   'TotalEaten.SE'),
+	c('n',              'n'),
+	c('Time',           'Time')
+)
