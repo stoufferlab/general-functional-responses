@@ -3,13 +3,6 @@ rm(list = ls())
 # or TRUE to have them silently saved to file instead.
 sinkMessages <- TRUE
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# specify where the data files are located
-dropboxdir <- switch(
-	Sys.getenv("LOGNAME"),
-	stouffer = '~/Dropbox/Projects/GenFuncResp/Data',
-	marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
-)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # a few utility functions
 source('../lib/AA_method.R')
 source('../lib/bootstrap_data.R')
@@ -59,8 +52,11 @@ for(i in seq_along(datasets)){
 	# create a short nickname for the dataset
 	datasetsName <- sub('*.R$','', sub('*./Dataset_Code/','', datasets[i]))
 
-	# grab info about how to find a dataset and read it in to variable "d"
+	# grab info about how to find a dataset
 	source(datasets[i])
+
+	# use the above information to read the data into a variable d
+	d <- read.data(datadir, filename, "One_Predator_One_Prey", columns)
 
 	# check if data has actually be read in, only then should we fit the models
 	if(is.null(d)){
