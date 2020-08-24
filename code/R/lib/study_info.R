@@ -1,11 +1,7 @@
 
 # convert the textual dataset details to a list of useful variables
-study.info <- function(datadir, datatype){
-	# read in the table of dataset details
-	details <- read.table(
-		'../../../data/dataset_details.csv'
-	)
-
+study.info <- function(details, datadir, datatype){
+	# select only the row of interest
 	if(datatype == "One_Predator_One_Prey"){
 		details <- subset(
 			details,
