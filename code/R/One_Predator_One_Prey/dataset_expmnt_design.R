@@ -8,7 +8,7 @@ rm(list = ls())
 # specify where the data files are located
 dropboxdir <- switch(
   Sys.getenv("LOGNAME"),
-  stouffer = '../../../dropbox_data/Data',
+  stouffer = '~/Dropbox/Projects/GenFuncResp/Data',
   marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
 )
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,14 +16,13 @@ dropboxdir <- switch(
 source('../lib/study_info.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# read in the table of dataset details
+dataset_details <- read.table(
+  '../../../data/dataset_details.csv'
+)
+
 # master list of datasets
-datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
-
-# remove template files which don't actually read data
-datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
-
-# remove zzz files which are placeholders while a dataset is being cleaned/incorporated
-datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
+datasets <- list.files('./Dataset_Code', pattern=".R$", full.names=TRUE, include.dirs=FALSE)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,40 +37,41 @@ j<-1
 for(i in seq_len(length(datasets))){
   source(datasets[i])
   
-  # grab info from the google doc
-  this.study <- study.info(datadir)
+  # grab info about experimental design, etc
+  this.study <- study.info(
+    dataset_details,
+    datadir,
+    "One_Predator_One_Prey"
+  )
   
   # dataset
   datasetsName <- sub('*.R$','', sub('*./Dataset_Code/','', datasets[i]))
   datasetsName <- gsub('_',' ', datasetsName)
   
-  # used in our analyses?
-  if(grepl("H|R", this.study$runswith)){
+  # study treatment design
+  design <- data.frame(Npredator=d$Npredator,Nprey=d$Nprey)#,Time=d$Time)
+  design <- unique(design)
+  design <- design[do.call(order, design), ]
+  
+  all.designs[[j]] <- list(dataname = datasetsName, 
+                           design = design)
+  design.dims <- rbind(design.dims, dim(design))
+  
+  # maximum prey treatment and number of prey eaten at it
+  c.Nprey <- grep('Nprey',colnames(d))
+  c.Ncons <- grep('Nconsumed',colnames(d))
+  max.prey.trtmts <- which(d[,c.Nprey]==max(d[,c.Nprey]))
+  max.Nprey <- d[max.prey.trtmts[1],c.Nprey]
+  max.Ncons <- max(d[max.prey.trtmts, c.Ncons])
+  max.perCons <- ifelse(is.integer(max.Nprey), max.Ncons/max.Nprey, NA)
+  
+  prey.eaten[[j]] <- list(dataname = datasetsName,
+                          replacement = this.study$replacement,
+                          max.Nprey = max.Nprey,
+                          max.Ncons = max.Ncons,
+                          max.perCons = max.perCons)
+  j <- j+1
 
-    # study treatment design
-    design <- data.frame(Npredator=d$Npredator,Nprey=d$Nprey)#,Time=d$Time)
-    design <- unique(design)
-    design <- design[do.call(order, design), ]
-    
-    all.designs[[j]] <- list(dataname = datasetsName, 
-                             design = design)
-    design.dims <- rbind(design.dims, dim(design))
-    
-    # maximum prey treatment and number of prey eaten at it
-    c.Nprey <- grep('Nprey',colnames(d))
-    c.Ncons <- grep('Nconsumed',colnames(d))
-    max.prey.trtmts <- which(d[,c.Nprey]==max(d[,c.Nprey]))
-    max.Nprey <- d[max.prey.trtmts[1],c.Nprey]
-    max.Ncons <- max(d[max.prey.trtmts, c.Ncons])
-    max.perCons <- ifelse(is.integer(max.Nprey), max.Ncons/max.Nprey, NA)
-    
-    prey.eaten[[j]] <- list(dataname = datasetsName,
-                            replacement = this.study$replacement,
-                            max.Nprey = max.Nprey,
-                            max.Ncons = max.Ncons,
-                            max.perCons = max.perCons)
-    j <- j+1
-  }
 }
 
 #~~~~~~~~~~~~~~~~~~~~~~
