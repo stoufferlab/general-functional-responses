@@ -25,8 +25,6 @@ library(doParallel)
 registerDoParallel(cores=6)
 ####################################
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # master list of datasets
 datasets <- list.files('./Dataset_Code', pattern=".R$", full.names=TRUE, include.dirs=FALSE)
 
@@ -70,8 +68,8 @@ for(i in seq_along(datasets)){
 			# print out which dataset WILL be analyzed
 			cat(paste0("Fitting ",datasetsName,"\n"))
 
-			# grab some info from the google doc
-			this.study <- study.info(datadir)
+			# grab info about experimental design, etc
+			this.study <- study.info(datadir, "One_Predator_Two_Prey")
 
 			# put all datasets into terms of hours
 			if(!is.null(d$Time)){

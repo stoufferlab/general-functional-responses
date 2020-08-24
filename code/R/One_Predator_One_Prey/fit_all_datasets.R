@@ -70,8 +70,8 @@ for(i in seq_along(datasets)){
 		# print out which dataset WILL be analyzed
 		cat(paste0("Fitting ",datasetsName,"\n"))
 
-		# grab info from the google doc
-		this.study <- study.info(datadir)
+		# grab info about experimental design, etc
+		this.study <- study.info(datadir, "One_Predator_One_Prey")
 
 		# tranform data into terms of hours
 		if(!is.null(d$Time)){
