@@ -27,7 +27,7 @@ ffr.datatypes <- c(
 out <- dim(0)
 for(i in 1:length(ffr.fits)){
   
-  # grab info from the google doc
+  # grab info about experimental design, etc
   this.study <- study.info(
     dataset_details,
     ffr.fits[[i]]$study.info$datadir,
