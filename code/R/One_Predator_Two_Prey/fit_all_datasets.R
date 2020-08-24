@@ -25,6 +25,11 @@ library(doParallel)
 registerDoParallel(cores=6)
 ####################################
 
+# read in the table of dataset details
+dataset_details <- read.table(
+	'../../../data/dataset_details.csv'
+)
+
 # master list of datasets
 datasets <- list.files('./Dataset_Code', pattern=".R$", full.names=TRUE, include.dirs=FALSE)
 
@@ -69,7 +74,11 @@ for(i in seq_along(datasets)){
 			cat(paste0("Fitting ",datasetsName,"\n"))
 
 			# grab info about experimental design, etc
-			this.study <- study.info(datadir, "One_Predator_Two_Prey")
+			this.study <- study.info(
+				dataset_details,
+				datadir,
+				"One_Predator_Two_Prey"
+			)
 
 			# put all datasets into terms of hours
 			if(!is.null(d$Time)){
