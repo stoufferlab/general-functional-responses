@@ -5,6 +5,8 @@ Stouffer & Novak (2020) *Hidden layers of density dependence in consumer feeding
 
 Novak & Stouffer (2020) *Systematic bias in studies of consumer functional responses* (bioRxiv link)
 
+Please email Daniel Stouffer (daniel.stouffer@canterbury.ac.nz) or Mark Novak (mark.novak@oregonstate.edu) with any questions.
+
 ## Organization
 The repo is mostly *not* split-up by manuscript because most code pertaining to *"Systematic bias..."* is also used in *"Hidden layers..."*.  Rather, it is primarily split-up by dataset type, distinguishing (1) functional-response datasets entailing variation in the abundance of both a (single) consumer species and its (single) resource species (*"One_Predator_One_Prey"*) from (2) functional-response datasets entailing variation in the abundance of two resources but no variation in the abundance of the consumer (*"One_Predator_Two_Prey"*).
 
