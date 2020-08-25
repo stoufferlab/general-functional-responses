@@ -24,7 +24,7 @@ source('../lib/ratio_method_one_predator_one_prey.R') # may throw ignorable warn
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # read in the table of dataset details
-dataset_details <- read.table(
+dataset_details <- read.csv(
 	'../../../data/dataset_details.csv'
 )
 
