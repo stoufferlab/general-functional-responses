@@ -39,5 +39,5 @@ strippedlist <- masterlist[,tokeep]
 rownames(strippedlist) <- 1:nrow(strippedlist)
 
 # write out a csv to be used from within the repo
-write.table(strippedlist,file="dataset_details.csv")
+write.csv(strippedlist,file="dataset_details.csv", row.names = FALSE)
 
