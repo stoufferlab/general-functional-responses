@@ -1,9 +1,10 @@
 
-# read in the simplify the raw data
+# read in the raw data
 datadir <- 'Edwards_1961'
 filename <- 'Edwards_1961_nm.csv'
-rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
-
-# rename to standard column names used in fitting code
-d <- rawdata[,c('Parasite','Host','Parasitized','Time')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed",'Time')
+columns <- rbind(
+	c('Npredator', 'Parasite'),
+	c('Nprey',     'Host'),
+	c('Nconsumed', 'Parasitized'),
+	c('Time',      'Time')
+)

@@ -1,9 +1,12 @@
 
-# read in the simplify the raw data
+# read in the raw data
 datadir <- 'Griffen_2007'
 filename <- 'Griffen_2007_fA1a.csv'
-rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
-
-# turn into a standard dataframe with standard column names
-d <- rawdata[,c('Preds','Prey','Total.Feeding.mean','Total.Feeding.se','n','Time')]
-colnames(d) <- c("Npredator", "Nprey", "Nconsumed.mean", "Nconsumed.se", "n",'Time')
+columns <- rbind(
+	c('Npredator',      'Preds'),
+	c('Nprey',          'Prey'),
+	c('Nconsumed.mean', 'Total.Feeding.mean'),
+	c('Nconsumed.se',   'Total.Feeding.se'),
+	c('n',              'n'),
+	c('Time',           'Time')
+)

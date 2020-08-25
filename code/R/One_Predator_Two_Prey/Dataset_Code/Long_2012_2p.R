@@ -2,8 +2,11 @@
 # read in the simplify the raw data
 datadir <- 'Long_2012_2p'
 filename <- 'Long_2012_2p.csv'
-rawdata <- read.csv(paste(dropboxdir,datadir,filename,sep="/"))
-
-# rename to standard column names used in fitting code
-d <- rawdata[,c('Pred','Prey1.Cr','Prey1.Eaten','Prey2.Cl','Prey2.Eaten','Time')]
-colnames(d) <- c("Npredator", "Nprey1", "Nconsumed1", "Nprey2", "Nconsumed2",'Time')
+columns <- rbind(
+	c('Npredator',  'Pred'),
+	c('Nprey1',     'Prey1.Cr'),
+	c('Nconsumed1', 'Prey1.Eaten'),
+	c('Nprey2',     'Prey2.Cl'),
+	c('Nconsumed2', 'Prey2.Eaten'),
+	c('Time',       'Time')
+)
