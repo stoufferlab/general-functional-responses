@@ -9,7 +9,7 @@ source('../../lib/study_info.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # read in the table of dataset details
-dataset_details <- read.table(
+dataset_details <- read.csv(
   '../../../../data/dataset_details.csv'
 )
 
