@@ -5,7 +5,7 @@ library(shape)
 library(stringr)
 
 # generate the AIC tables
-source('../results/make_AIC_table.R')
+source('../summaries/make_AIC_table.R')
 
 # read in the profiled CIs for the phi values
 load(
