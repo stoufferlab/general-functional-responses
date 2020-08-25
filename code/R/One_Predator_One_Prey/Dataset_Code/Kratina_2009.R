@@ -1,5 +1,5 @@
 
-# read in the simplify the raw data
+# read in the raw data
 datadir <- 'Kratina_2009'
 filename <- 'Kratina_2009.csv'
 columns <- rbind(

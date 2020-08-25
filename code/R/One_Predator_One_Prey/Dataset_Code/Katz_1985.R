@@ -1,5 +1,5 @@
 
-# read in the simplify the raw data
+# read in the raw data
 datadir <- 'Katz_1985'
 filename <- 'Katz_1985.csv'
 columns <- rbind(

@@ -1,5 +1,5 @@
 
-# read in the raw data
+# read in the data
 datadir <- 'vonWesternhagen_1976'
 filename <- 'vonWesternhagen_1976_8hr.csv'
 columns <- rbind(
