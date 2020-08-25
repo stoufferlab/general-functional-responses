@@ -6,7 +6,7 @@ sinkMessages <- TRUE
 # specify where the data files are located
 dropboxdir <- switch(
   Sys.getenv("LOGNAME"),
-  stouffer = '../../../dropbox_data/Data',
+  stouffer = '~/Dropbox/Projects/GenFuncResp/Data',
   marknovak = '~/Dropbox/Research/Projects/GenFuncResp/Data'
 )
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -19,13 +19,7 @@ mainDir <- '../../../data/One_Predator_Two_Prey/'
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # master list of datasets
-datasets <- list.files('./Dataset_Code', full.names=TRUE, include.dirs=FALSE)
-
-# remove template files which don't actually read data
-datasets <- grep("template",datasets,invert=TRUE,value=TRUE)
-
-# remove zzz files which are placeholders while a dataset is being cleaned/incorporated
-datasets <- grep("zzz",datasets,invert=TRUE,value=TRUE)
+datasets <- list.files('./Dataset_Code', pattern=".R$", full.names=TRUE, include.dirs=FALSE)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
