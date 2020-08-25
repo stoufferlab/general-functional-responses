@@ -8,6 +8,11 @@ source('../../lib/plot_coefs.R')
 source('../../lib/study_info.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# read in the table of dataset details
+dataset_details <- read.table(
+  '../../../../data/dataset_details.csv'
+)
+
 # read in the dataset-specific fits into a mega container
 ffr.fits <- bundle_fits('../../../../results/R/OnePredTwoPrey_fits')
 
@@ -16,9 +21,13 @@ ffr.fits <- bundle_fits('../../../../results/R/OnePredTwoPrey_fits')
 out <- dim(0)
 for(i in 1:length(ffr.fits)){
 
-  # grab info from the google doc
-  this.study <- study.info(ffr.fits[[i]]$study.info$datadir)
-  
+  # grab info about experimental design, etc
+  this.study <- study.info(
+    dataset_details,
+    ffr.fits[[i]]$study.info$datadir,
+    "One_Predator_Two_Prey"
+  )
+
   # publication
   pub <- gsub('_',' ', this.study$dataname)
   

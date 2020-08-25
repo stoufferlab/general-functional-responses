@@ -8,18 +8,31 @@ source('lib/plot_coefs.R')
 source('lib/study_info.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+# read in the table of dataset details
+dataset_details <- read.table(
+  '../../data/dataset_details.csv'
+)
+
 # read in the dataset-specific fits and combine
 ffr.fits_OnePrey <- bundle_fits('../../results/R/OnePredOnePrey_fits')
 ffr.fits_TwoPrey <- bundle_fits('../../results/R/OnePredTwoPrey_fits')
 ffr.fits <- c(ffr.fits_OnePrey, ffr.fits_TwoPrey)
+ffr.datatypes <- c(
+  rep("One_Predator_One_Prey", length(ffr.fits_OnePrey)),
+  rep("One_Predator_Two_Prey", length(ffr.fits_TwoPrey))
+)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 out <- dim(0)
 for(i in 1:length(ffr.fits)){
   
-  # grab info from the google doc
-  this.study <- study.info(ffr.fits[[i]]$study.info$datadir)
+  # grab info about experimental design, etc
+  this.study <- study.info(
+    dataset_details,
+    ffr.fits[[i]]$study.info$datadir,
+    ffr.datatypes[i]
+  )
   
   # has this dataset been okayed to post to the repo
   ok2post <- this.study$ok2post

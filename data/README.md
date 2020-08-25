@@ -7,7 +7,7 @@ The datasets included in this folder are provided for the convenience of reprodu
 
 | Study citation                      | Data source (repository) citation |
 |-------------------------------------|-----------------------------------|
-| Chanet al.(2017)                    | Chanet al.(2017)                  |
+| Chan *et al.*(2017)                 | Chan *et al.*(2017)               |
 | Chant & Turnbull (1966)             | Novak & Stouffer (2020)           |
 | Chong & Oetting (2006)              | Chong (2020)                      |
 | Colton (1983; 1987)                 | Novak & Stouffer (2020)           |
@@ -16,7 +16,7 @@ The datasets included in this folder are provided for the convenience of reprodu
 | Elliott (2005)                      |                                   |
 | Elliott (2006)                      |                                   |
 | Eveleigh & Chant (1982)             | Novak & Stouffer (2020)           |
-| Fussmannet al.(2005)                | Fussmann (2020)                   |
+| Fussmann *et al.*(2005)             | Fussmann (2020)                   |
 | Griffen & Delaney (2007)            | Novak & Stouffer (2020)           |
 | Hassan (1976)                       | Novak & Stouffer (2020)           |
 | Hossie & Murray (2016)              | Hossie & Murray (2020)            |
@@ -26,28 +26,28 @@ The datasets included in this folder are provided for the convenience of reprodu
 | Jones (1986) Jones & Hassell (1988) | Novak & Stouffer (2020)           |
 | Katz (1985)                         | Arditi & Akçakaya (1990)          |
 | Kfir (1983)                         | Novak & Stouffer (2020)           |
-| Kratinaet al.(2009)                 | Kratina (2020)                    |
+| Kratina *et al.*(2009)              | Kratina (2020)                    |
 | Krylov (1992)                       | Novak & Stouffer (2020)           |
 | Kumar & Tripathi (1985)             | Novak & Stouffer (2020)           |
-| Langet al.(2012)                    | Lang (2020)                       |
+| Lang *et al.*(2012)                 | Lang (2020)                       |
 | Lester & Harmsen (2002)             | Lester (2020)                     |
-| Longet al.(2012b)                   | Long (2020a)                      |
-| Longet al.(2012a)                   | Long (2020b)                      |
+| Long *et al.*(2012b)                | Long (2020a)                      |
+| Long *et al.*(2012a)                | Long (2020b)                      |
 | Mansour & Lipcius (1991)            | Novak & Stouffer (2020)           |
 | Mattila & Bonsdorff (1998)          | Novak & Stouffer (2020)           |
-| Médocet al.(2013)                   |                                   |
-| Médocet al.(2015)                   |                                   |
+| Médoc *et al.*(2013)                |                                   |
+| Médoc *et al.*(2015)                |                                   |
 | Mertz & Davies (1968)               | Novak & Stouffer (2020)           |
 | Mills & Lacan (2004)                | Novak & Stouffer (2020)           |
-| Montoyaet al.(2000)                 | Novak & Stouffer (2020)           |
-| Prokopenkoet al.(2017)              | Prokopenko (2020)                 |
+| Montoya *et al.*(2000)              | Novak & Stouffer (2020)           |
+| Prokopenko *et al.*(2017)           | Prokopenko (2020)                 |
 | Ranta & Nuutinen (1985)             | Novak & Stouffer (2020)           |
 | Reeve (1997)                        | Reeve (2020)                      |
 | Salt (1974)                         | Novak & Stouffer (2020)           |
 | Uttley (1980)                       | Novak & Stouffer (2020)           |
-| Vahlet al.(2005)                    | Novak & Stouffer (2020)           |
+| Vahl *et al.*(2005)                 | Novak & Stouffer (2020)           |
 | Von Westernhagen & Rosenthal (1976) | Novak & Stouffer (2020)           |
-| Vucetichet al.(2002)                |                                   |
+| Vucetich *et al.*(2002)             |                                   |
 | Walde & Davies (1984)               | Novak & Stouffer (2020)           |
 | Wong & Barbeau (2005)               | Wong & Barbeau (2020)             |
 
