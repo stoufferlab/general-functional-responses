@@ -17,11 +17,17 @@ source('../lib/study_info.R')
 # folder in which to place all datasets
 mainDir <- '../../../data/One_Predator_One_Prey/'
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# read in the table of dataset details
+dataset_details <- read.table(
+  '../../../data/dataset_details.csv'
+)
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 # master list of datasets
 datasets <- list.files('./Dataset_Code', pattern=".R$", full.names=TRUE, include.dirs=FALSE)
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 for(i in 1:length(datasets)){
@@ -29,17 +35,18 @@ for(i in 1:length(datasets)){
   # loads the data into data frame 'd' and specifies data-specific parameters
   source(datasets[i])
   
-  # grab info from the google doc
-  this.study <- study.info(datadir)
-  
+  # grab info about experimental design, etc
+  this.study <- study.info(
+    dataset_details,
+    datadir,
+    "One_Predator_One_Prey"
+  )
+
   # has this dataset been okayed to post to the repo
   ok2post <- this.study$ok2post
   if(is.na(ok2post)){ok2post<-FALSE}
   
-  # was the dataset used in the analyses
-  used <- grepl("H|R", this.study$runswith)
-  
-  if(ok2post==TRUE & used==TRUE){
+  if(ok2post==TRUE){
     
     # study folder
     subDir <- this.study$dataname
