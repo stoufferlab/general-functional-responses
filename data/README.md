@@ -35,8 +35,8 @@ The datasets included in this folder are provided for the convenience of reprodu
 | Long *et al.*(2012a)                | Long (2020b)                      |
 | Mansour & Lipcius (1991)            | Novak & Stouffer (2020)           |
 | Mattila & Bonsdorff (1998)          | Novak & Stouffer (2020)           |
-| Médoc *et al.*(2013)                |                                   |
-| Médoc *et al.*(2015)                |                                   |
+| Médoc *et al.*(2013)                | Médoc *et al.*(2020a)             |
+| Médoc *et al.*(2015)                | Médoc *et al.*(2020b)             |
 | Mertz & Davies (1968)               | Novak & Stouffer (2020)           |
 | Mills & Lacan (2004)                | Novak & Stouffer (2020)           |
 | Montoya *et al.*(2000)              | Novak & Stouffer (2020)           |
@@ -228,6 +228,14 @@ Invasions*, 17, 3625–3637.
 Médoc, V., Spataro, T. & Arditi, R. (2013). Prey: predator ratio
 dependence in the functional response of a freshwater amphipod.
 *Freshwater Biology*, 58, 858–865.
+
+Médoc, V., Albert, H. & Spataro, T. (2020b). Data from: Functional response
+comparisons among freshwater amphipods: ratio-dependence and higher
+predation for *Gammarus pulex* compared to the non-natives
+*Dikerogammarus villosus* and *Echinogammarus berilloni*. *Figshare: <https://doi.org/10.6084/m9.figshare.12937841.v1>*.
+
+Médoc, V., Spataro, T. & Arditi, R. (2020a). Data from "Prey: predator ratio
+dependence in the functional response of a freshwater amphipod." *Figshare: <https://doi.org/10.6084/m9.figshare.12937670.v1>*.
 
 Mertz, D. B. & Davies, R. B. (1968). Cannibalism of the pupal stage by
 adult flour beetles: An experiment and a stochastic model. *Biometrics*,
