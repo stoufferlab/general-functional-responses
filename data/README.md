@@ -13,8 +13,8 @@ The datasets included in this folder are provided for the convenience of reprodu
 | Colton (1983; 1987)                 | Novak & Stouffer (2020)           |
 | Crowley & Martin (1989)             | Novak & Stouffer (2020)           |
 | Edwards (1961)                      | Novak & Stouffer (2020)           |
-| Elliott (2005)                      |                                   |
-| Elliott (2006)                      |                                   |
+| Elliott (2005)                      | Elliot (2020a)                    |
+| Elliott (2006)                      | Elliot (2020b)                    |
 | Eveleigh & Chant (1982)             | Novak & Stouffer (2020)           |
 | Fussmann *et al.*(2005)             | Fussmann (2020)                   |
 | Griffen & Delaney (2007)            | Novak & Stouffer (2020)           |
@@ -93,10 +93,18 @@ Elliott, J. M. (2005). Ontogenetic shifts in the functional response and
 interference interactions of *Rhyacophila dorsalis* larvae
 (Trichoptera). *Freshwater Biology*, 50, 2021–2033.
 
-
 Elliott, J. M. (2006). Prey switching in *Rhyacophila dorsalis*
 (Trichoptera) alters with larval instar. *Freshwater Biology*, 51,
 913–924.
+
+Elliott, J. M. (2020a). Data from: Ontogenetic shifts in the functional response and
+interference interactions of *Rhyacophila dorsalis* larvae
+(Trichoptera). *FigShare:
+<https://doi.org/10.6084/m9.figshare.13028114.v1>*.
+
+Elliott, J. M. (2020b). Data from: Prey switching in *Rhyacophila dorsalis*
+(Trichoptera) alters with larval instar. *FigShare:
+<https://doi.org/10.6084/m9.figshare.13028129.v1>*.
 
 Eveleigh, E. S. & Chant, D. (1982). Experimental studies on acarine
 predator–prey interactions: the effects of predator density on prey
