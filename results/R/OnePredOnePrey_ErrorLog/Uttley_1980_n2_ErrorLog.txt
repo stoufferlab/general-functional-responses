@@ -6,4 +6,3 @@ Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Unweighted regression used..
-Warning in sqrt(diag(object@vcov)) : NaNs produced
