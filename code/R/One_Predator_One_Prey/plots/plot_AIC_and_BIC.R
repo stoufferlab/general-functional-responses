@@ -21,7 +21,7 @@ sample.sizes <- unlist(lapply(ffr.fits, function(x) x$study.info$sample.size))
 labels <- paste0(labels, ' (',sample.sizes,')')
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Grab summary of AIC and RMSD estimates across bootstrapped fits
+# Grab summary of AIC and BIC estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
 
 # For AIC
@@ -379,8 +379,8 @@ mxSS <- max(sample.sizes)
 mnSS <- 20
 
 SScuts <- seq(mnSS,mxSS,by=1)
-fFirst.AIC<-fSecnd.AIC<-fFirst.RMSD<-fSecnd.RMSD<-dim(0)
-pfFirst.AIC<-pfSecnd.AIC<-pfFirst.RMSD<-pfSecnd.RMSD<-dim(0)
+fFirst.AIC<-fSecnd.AIC<-fFirst.BIC<-fSecnd.BIC<-dim(0)
+pfFirst.AIC<-pfSecnd.AIC<-pfFirst.BIC<-pfSecnd.BIC<-dim(0)
 for(SScut in SScuts){
   
   # Cnt_AIC<-apply(rnks.AIC[sample.sizes>=SScut,],2, # exclude smaller than
