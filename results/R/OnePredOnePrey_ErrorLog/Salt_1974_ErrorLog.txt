@@ -135,6 +135,8 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -597,6 +599,8 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -683,6 +687,8 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -696,7 +702,6 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(attack = 4.529933425086, handling = 1.77214671811273,  : 
   non-finite finite-difference value [4]
-Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
