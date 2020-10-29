@@ -107,7 +107,7 @@ plot.coefs <- function(
   box(lwd=1)
 
   # mark where the existing models fall
-  abline(v=vertLines, lty=2, col='grey')
+  abline(v=vertLines, lty=3, col=grey(0.11))
 
   # plot these bad boys 
   for(i in 1:length(ffr.fits)){

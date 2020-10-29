@@ -122,7 +122,7 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
     pyats[1:2] <- pyats[1:2] - 0.5
     pyats[(length(pyats)-1):length(pyats)] <- pyats[(length(pyats)-1):length(pyats)]+0.5
 
-    polygon(pxats,pyats,col=grey(0.666),border=NA)
+    polygon(pxats,pyats,col=grey(0.825),border=NA)
     
     for(m in 1:ncol(rnkAICs)){
       points(rnkAICs[,m], 1:nrow(rnkAICs), 
@@ -142,19 +142,21 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
     )
     par(xpd=FALSE)
 
-# fits for which the SN1 model is not supported are colored red
-color.vector <- numeric(length(ffr.fits))
-for(i in 1:length(ffr.fits)){
-  if(dAICs$G[i] > 2){
-    color.vector[i] <- CR[7]
-  }else{
-    if(rowSums(dAICs[i,]<2)==1){
-      color.vector[i] <- "black"
-    }else{
-      color.vector[i] <- "black"
-    }
-  }
-}
+# # fits for which the SN1 model is not supported are colored red
+# color.vector <- numeric(length(ffr.fits))
+# for(i in 1:length(ffr.fits)){
+#   if(dAICs$G[i] > 2){
+#     color.vector[i] <- CR[7]
+#   }else{
+#     if(rowSums(dAICs[i,]<2)==1){
+#       color.vector[i] <- "black"
+#     }else{
+#       color.vector[i] <- "black"
+#     }
+#   }
+# }
+# color all fits black regardless of which model supports them best (or tied for best)
+color.vector <- rep("black", length(ffr.fits))
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ffr.fits <- profile_coefs(

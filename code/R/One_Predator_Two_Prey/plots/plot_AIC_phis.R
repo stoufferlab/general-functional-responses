@@ -112,7 +112,7 @@ pxats<-c(0,rep(xats,each=2),0)
 pyats<-rep(0:(length(xats)),each=2)+0.5
 pyats[1:2] <- pyats[1:2]-0.5
 pyats[(length(pyats)-1):length(pyats)] <- pyats[(length(pyats)-1):length(pyats)]+0.5
-polygon(pxats,pyats,col=grey(0.666),border=NA)
+polygon(pxats,pyats,col=grey(0.875),border=NA)
 
 for(m in 1:ncol(rnkAICs)){
   points(rnkAICs[,m], 1:nrow(rnkAICs), 
@@ -173,13 +173,21 @@ mtext(
   line=1.6
 )
 
-# mark where the existing models fall
-abline(v=c(0,1), lty=2, col="grey")
-# abline(v=1, lty=2)
-
 # tick marks to indicate different data sets
 axis(side=2, at=1:length(ffr.cfs), labels=rep("",length(labels)), cex.axis=0.5, las=1, lwd=0, lwd.ticks=1)
 axis(side=1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
+
+# alternating shade behind different studies
+for(i in 1:length(ffr.cfs)){
+  if(i %% 2 == 0){
+    polygon(c(-5,-5,5,5),c(i-0.5,i+0.5,i+0.5,i-0.5),col=grey(0.875),border=NA)
+  }
+}
+
+# mark where the existing models fall
+abline(v=c(0,1), lty=3, col=grey(0.11))
+
+# box around the figure
 box(lwd=1)
 
 # length of arrows to indicate values off the plot
@@ -190,11 +198,12 @@ delta.arrow <- 0.04*diff(xlim)
     x <- ffr.cfs[[i]]
     dname <- x$study.info$datasetName
 
-    col <- ifelse(
-      dAICs[i,"H2.HH"]<=2,
-      "black",
-      CR[7]
-    )
+    col <- "black"
+    # col <- ifelse(
+    #   dAICs[i,"H2.HH"]<=2,
+    #   "black",
+    #   CR[7]
+    # )
     for(j in 1:nrow(x$profiles[[1]])){
       model.name <- paste0("Holling II Hybrid Hybrid ",which.model[dname])
 
