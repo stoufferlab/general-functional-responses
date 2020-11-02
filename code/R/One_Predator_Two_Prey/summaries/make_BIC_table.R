@@ -1,4 +1,6 @@
 
+library(bbmle)
+
 # we need the bundle_fits function
 source('../../lib/plot_coefs.R')
 
