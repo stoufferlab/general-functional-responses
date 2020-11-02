@@ -187,6 +187,9 @@ for(i in seq_along(datasets)){
 					# create container for the AICc of the fits
 					local.AICcs <- summarize.boots(sapply(bootstrap.fits[[modeltype]], AICc))
 
+					# create container for the BIC of the fits
+					local.BICs <- summarize.boots(sapply(bootstrap.fits[[modeltype]], BIC))
+					
 					# create container for the RMSD of the fits
 					local.RMSDs <- summarize.boots(sapply(bootstrap.fits[[modeltype]], resid.metric, metric = 'RMSD'))
 
@@ -201,6 +204,7 @@ for(i in seq_along(datasets)){
 						lls=local.lls,
 						AICs=local.AICs,
 						AICcs=local.AICcs,
+						BICs=local.BICs,
 						RMSDs=local.RMSDs,
 						MADs=local.MADs
 					)
@@ -241,6 +245,7 @@ for(i in seq_along(datasets)){
 			LL = lapply(bootstrap.fits, function(x) x$lls),
 			AIC = lapply(bootstrap.fits, function(x) x$AICs),
 			AICc = lapply(bootstrap.fits, function(x) x$AICcs),
+			BIC = lapply(bootstrap.fits, function(x) x$BICs),
 			RMSD = lapply(bootstrap.fits, function(x) x$RMSDs),
 			MAD = lapply(bootstrap.fits, function(x) x$MADs)
 		)

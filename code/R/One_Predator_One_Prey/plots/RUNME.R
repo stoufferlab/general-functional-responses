@@ -6,6 +6,7 @@ source('plot_datasets.R')
 source('plot_datasets_obs_V_fit.R')
 
 source('plot_AICc_and_MAD.R')
+source('plot_AIC_and_BIC.R')
 source('plot_AIC_and_RMSD.R')
 
 source('plot_AA.R')

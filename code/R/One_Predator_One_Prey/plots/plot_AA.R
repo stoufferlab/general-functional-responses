@@ -95,6 +95,11 @@ dev.off()
 # Alternative / additional summary plots
 parm <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",'exponent',"estimate"]))
 
+out <- data.frame(dataset=labels,m=round(parm,3))
+write.csv(out,
+          '../../../../results/R/OnePredOnePrey_tables/OnePredOnePrey_AA-m_estimates.csv',
+          row.names=FALSE)
+
 parm <- exp(parm)
 
 # Summary stats

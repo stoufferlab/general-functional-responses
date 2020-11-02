@@ -20,7 +20,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.66485275518517, a2 = -3.15631105012975,  : 
+Error in optim(par = c(a1 = 1.66485275518587, a2 = -3.15631102571781,  : 
   non-finite finite-difference value [1]
 Error in optim(par = c(a1 = -2.84629392875814, a2 = 0.591450173723479,  : 
   non-finite finite-difference value [2]
@@ -56,7 +56,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.6041532211843, a2 = -4.1001916853809, a3 = -5.42150102241828,  : 
+Error in optim(par = c(a1 = 1.6041532212034, a2 = -4.10019165181617, a3 = -5.42150102120451,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -134,8 +134,10 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.47910057062578, a2 = -3.932293221593, a3 = -3.93661182813892,  : 
+Error in optim(par = c(a1 = 1.47910057062578, a2 = -3.932293221593, a3 = -3.93661184871927,  : 
   non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -156,8 +158,6 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.46291014196117, a2 = -1.54457061508858,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
@@ -272,7 +272,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.2718431767777, a2 = -0.122305553668021,  : 
+Error in optim(par = c(a1 = 1.27184317678431, a2 = -0.122305549584414,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -432,7 +432,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.34796312304155, a2 = -4.83789727804794,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -4.018386844303, a2 = 0.914822948634812, a3 = -6.42320236343786,  : 
+Error in optim(par = c(a1 = -4.01838688698141, a2 = 0.91482285146055,  : 
   non-finite finite-difference value [2]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -568,7 +568,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.87152864834435, a2 = -3.38272192744737,  : 
+Error in optim(par = c(a1 = 1.87152890578134, a2 = -3.38272232790098,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -670,7 +670,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.0536237415071, a2 = -3.01058719002763, a3 = -2.33870634426175,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.53394405413002, a2 = -2.55601940704024,  : 
+Error in optim(par = c(a1 = 1.53394405413002, a2 = -2.55601940658526,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -780,7 +780,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.61933778059518, a2 = -3.37167267204313,  : 
+Error in optim(par = c(a1 = 1.61933777945064, a2 = -3.37167266885357,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -798,7 +798,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.2568604481347, a2 = -3.39326773514005, a3 = -2.79249733311313,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 2.05200979487445, a2 = -4.10729852660478,  : 
+Error in optim(par = c(a1 = 2.0520094219036, a2 = -4.10729848806138, a3 = -5.00845180057714,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -936,13 +936,17 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
 Error in optim(par = c(a1 = 1.08628202483278, a2 = 0.233003937772615,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = -37.1983798980105, a2 = 0.722442585067473,  : 
+Error in optim(par = c(a1 = -37.1993788055184, a2 = 0.72244248700708,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -966,13 +970,13 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.24504984126563, a2 = -4.1951826560404, a3 = -3.46396786439355,  : 
+Error in optim(par = c(a1 = 1.24504983447722, a2 = -4.19518261454596,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
   couldn't invert Hessian
 Warning in AAmethod(d, this.study$replacement) :
   AAMethod2: Unweighted regression used..
-Error in optim(par = c(a1 = 1.60014371731908, a2 = -4.84210318824783,  : 
+Error in optim(par = c(a1 = 1.60014371731908, a2 = -4.84210318718787,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -1004,7 +1008,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.57630273295503, a2 = -2.78034648623832,  : 
+Error in optim(par = c(a1 = 1.57907693444478, a2 = -2.78034647445406,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -1210,7 +1214,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 2.00946050402467, a2 = -3.91476490529552,  : 
+Error in optim(par = c(a1 = 2.00946050402467, a2 = -3.91476492747662,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -1218,7 +1222,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.04756631915334, a2 = 0.0372228605351383,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = -38.2757282030986, a2 = -3.21080502648129,  : 
+Error in optim(par = c(a1 = -38.275727607278, a2 = -3.21080549316774,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -1230,13 +1234,13 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 0.898619864908452, a2 = -3.70409239314984,  : 
+Error in optim(par = c(a1 = 0.898619864908452, a2 = -3.70409241940494,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.58686639876897, a2 = -4.40236689807556,  : 
+Error in optim(par = c(a1 = 1.58686639876897, a2 = -4.40236679558281,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -1310,6 +1314,8 @@ Error in optim(par = c(a1 = 1.32138571847032, a2 = -3.23752300966714,  :
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  convergence failure: code=1 (iteration limit 'maxit' reached)
 Error in optim(par = c(a1 = 1.03789877820465, a2 = -4.4655930182165, a3 = -3.14057373649473,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -1368,7 +1374,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.42054412266761, a2 = -2.99229652121058,  : 
+Error in optim(par = c(a1 = 1.42054412266761, a2 = -2.99229650046107,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -1410,7 +1416,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.635435591763, a2 = -2.73715551074816, a3 = -4.88800840463229,  : 
+Error in optim(par = c(a1 = 1.635435591763, a2 = -2.73715556694599, a3 = -4.88800839201827,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
@@ -1606,7 +1612,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.49363206046584, a2 = -2.61057480593838,  : 
   non-finite finite-difference value [1]
-Error in optim(par = c(a1 = 1.53009717578284, a2 = -1.50206398720498,  : 
+Error in optim(par = c(a1 = 1.53009717578284, a2 = -1.5020639923164, a3 = -3.48096870551523,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -1634,10 +1640,8 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.23073884982219, a2 = -1.93046070135021,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(AAM.NLL, start = AAM.start, data = list(initial = d$Nprey,  :
-  couldn't invert Hessian
-Warning in AAmethod(d, this.study$replacement) :
-  AAMethod2: Unweighted regression used..
+Error in optim(par = c(a1 = -2.58135674689728, a2 = -37.5240300952282,  : 
+  non-finite finite-difference value [2]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -1664,12 +1668,8 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.55261093424652, a2 = -3.65507473212653,  : 
+Error in optim(par = c(a1 = 1.55261093424652, a2 = -3.65507474563383,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -1726,7 +1726,7 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
-Error in optim(par = c(a1 = 1.2392539463926, a2 = -2.99858877756639, a3 = -3.61179029769826,  : 
+Error in optim(par = c(a1 = 1.23925394648761, a2 = -2.99858865238965,  : 
   non-finite finite-difference value [1]
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   couldn't invert Hessian
@@ -1742,8 +1742,6 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.63100047166365, a2 = -3.88391532216489,  : 
   non-finite finite-difference value [1]
-Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
-  convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
   convergence failure: code=1 (iteration limit 'maxit' reached)
 Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
@@ -1776,6 +1774,13 @@ Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.st
   couldn't invert Hessian
 Error in optim(par = c(a1 = 1.32935408774337, a2 = 1.35105116010864, a3 = -2.33924504573503,  : 
   non-finite finite-difference value [1]
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Warning in bbmle::mle2(minuslogl = holling.like.1pred.1prey.NLL, start = mle2.start,  :
+  couldn't invert Hessian
+Error in optim(par = c(a1 = 1.56321347432119, a2 = -5.77357082551747,  : 
+  non-finite finite-difference value [1]
+Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
 Warning in sqrt(diag(object@vcov)) : NaNs produced
