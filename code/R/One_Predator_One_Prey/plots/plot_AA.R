@@ -58,7 +58,7 @@ plot.coefs(
   ilink=exp,
   plot.SEs=TRUE,
   display.outlier.ests=TRUE,
-  xlab=expression(paste("Interference rate ",(italic(m)))),
+  xlab=expression(paste("Interference strength ",(italic(m)))),
   labels=labels,
   xlim=c(0,5),
   vertLines=c(0,1)
@@ -76,7 +76,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      SE.lty=c(1,2,3),
      display.outlier.ests=TRUE,
      pch.vector=pch.vec,
-     xlab=expression(paste("Interference rate ",(italic(m)))),
+     xlab=expression(paste("Interference strength ",(italic(m)))),
      labels=labels,
      xlim=c(0,5),
      vertLines=c(0,1)
@@ -121,7 +121,7 @@ par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
        type='n',
        log='x', 
        xlab='Sample size (n)', 
-       ylab='Arditi-Akcakaya interference rate (m)')
+       ylab='Arditi-Akcakaya interference strength (m)')
   abline(h=c(0,1),lty=2,col='grey')
   points(sample.sizes, parm,
          pch=21, bg='grey')
@@ -130,7 +130,7 @@ dev.off()
 pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_hist.pdf',height=2.5,width=4)
 par(mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i',xaxs='i')
   hist(parm[parm<5],breaks=50,
-       xlab='Arditi-Akcakaya interference rate (m)',
+       xlab='Arditi-Akcakaya interference strength (m)',
        main='',
        col='grey')
   abline(v=1,lty=3,lwd=1,col='black')
