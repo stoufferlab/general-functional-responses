@@ -1,50 +1,50 @@
-"Dataset_Folder","Variable_Predator_Abundance","Prey_Richness","Predator_Density_or_Count","Original_Means_Compilation","PriorUse","Predator.Parasitoid","With_Prey_Replacement","Parasitoid_Type","TimeUnits","CitationKey","DataSource","DataCitationKey","FigTableSource","PostToRepo"
-"Chan_2017",TRUE,1,"Density","Original","Skalski & Gilliam","Predator",TRUE,NA,"Hours","\citet{Chan:2017aa}","Provided","\citet{Chan:2017aa}","Appendix of Chan et al. 2017",TRUE
-"Chant_1966",TRUE,1,"Count","Original","Skalski & Gilliam, Arditi & Ak√ßakaya, DeLong & Vasseur","Predator",FALSE,NA,"Minutes","\citet{Chant:1966aa}","Extracted","\citet{Novak:2020aa}","Table 2",TRUE
-"Chong_2006",TRUE,1,"Count","Original","DeLong & Vasseur","Parasitoid",FALSE,"Non-discriminating","Hours","\citet{Chong:2006aa}","Provided","\citet{Chong:2020aa}",NA,TRUE
-"Colton_1987",FALSE,2,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Colton:1983aa, Colton:1987aa}","Extracted","\citet{Novak:2020aa}","Table B3",TRUE
-"Crowley_1989",TRUE,1,"Count","Means","Skalski & Gilliam, DeLong & Vasseur","Predator",TRUE,NA,"Hours","\citet{Crowley:1989aa}","Extracted","\citet{Novak:2020aa}","Fig. 2",TRUE
-"Edwards_1961",TRUE,1,"Count","Original","Skalski & Gilliam, Arditi & Ak√ßakaya, DeLong & Vasseur","Parasitoid",FALSE,"Non-discriminating","Hours","\citet{Edwards:1961aa}","Extracted","\citet{Novak:2020aa}","Tables 1, 2 \& 3",TRUE
-"Elliot_2005",TRUE,1,"Count","Original",NA,"Predator",TRUE,NA,"Minutes","\citet{Elliott:2005aa}","Provided","",NA,TRUE
-"Elliot_2006",FALSE,2,"Count","Means",NA,"Predator",TRUE,NA,"Minutes","\citet{Elliott:2006aa}","Provided","",NA,TRUE
-"Eveleigh_1982",TRUE,1,"Count","Means","Skalski & Gilliam, Arditi & Ak√ßakaya, DeLong & Vasseur","Predator",FALSE,NA,"Days","\citet{Eveleigh:1982aa}","Extracted","\citet{Novak:2020aa}","Tables 4, 5 \& 8",TRUE
-"Fussmann_2005",TRUE,1,"Density","Original",NA,"Predator",TRUE,NA,"Minutes","\citet{Fussmann:2005aa}","Provided","\citet{Fussmann:2020aa}",NA,TRUE
-"Griffen_2007",TRUE,1,"Count","Means","DeLong & Vasseur","Predator",FALSE,NA,"Hours","\citet{Griffen:2007aa}","Extracted","\citet{Novak:2020aa}","Fig 1 \& Fig A1",TRUE
-"Hassan_1976",TRUE,1,"Count","Means","DeLong & Vasseur","Parasitoid",FALSE,"Non-discriminating","Hours","\citet{Hassan:1976aa}","Extracted","\citet{Novak:2020aa}","Table 1",TRUE
-"Hossie_2016",TRUE,1,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Hossie:2016aa}","Provided","\citet{Hossie:2020aa}",NA,TRUE
-"Huffaker_1982",TRUE,1,"Count","Means","Skalski & Gilliam","Parasitoid",FALSE,"Non-discriminating","Hours","\citet{Huffaker:1982aa}","Extracted","\citet{Novak:2020aa}","Table 1",TRUE
-"Iyer_1996",FALSE,2,"Count","Means",NA,"Predator",FALSE,NA,"Minutes","\citet{Iyer:1996aa}","Extracted","\citet{Novak:2020aa}","Fig. 1 \& 2",TRUE
-"Johnson_2006",TRUE,1,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Johnson:2006aa}","Extracted","\citet{Novak:2020aa}","Fig. 1",TRUE
-"Jones_1988",TRUE,1,"Count","Original","Arditi & Ak√ßakaya, DeLong & Vasseur","Parasitoid",FALSE,"Discriminating","Hours","\citet{Jones:1988aa, Jones:1986aa}","Extracted","\citet{Novak:2020aa}","Fig. 1a \& 3",TRUE
-"Kalinkat_2011",FALSE,2,"Count","Original",NA,"Predator",TRUE,NA,"Hours","\citet{Kalinkat:2011bd}","Provided","\citet{Kalinkat:2018aa}","https://doi.org/10.6084/m9.figshare.6360506.v1",FALSE
-"Katz_1985",TRUE,1,"Count","Means","Skalski & Gilliam, Arditi & Ak√ßakaya, DeLong & Vasseur","Predator",FALSE,NA,"Hours","\citet{Katz:1985ai}","Extracted","\citet{Arditi:1990sp}","Table 1",TRUE
-"Kfir_1983",TRUE,1,"Count","Means","Skalski & Gilliam, Arditi & Ak√ßakaya, DeLong & Vasseur","Parasitoid",FALSE,"Discriminating","Hours","\citet{Kfir:1983aa}","Extracted","\citet{Novak:2020aa}","Table 1",TRUE
-"Kratina_2009",TRUE,1,"Count","Original","DeLong & Vasseur","Predator",FALSE,NA,"Hours","\citet{Kratina:2009aa}","Provided","\citet{Kratina:2020aa}",NA,TRUE
-"Krylov_1992",TRUE,1,"Count","Means",NA,"Predator",FALSE,NA,"Hours","\citet{Krylov:1992aa}","Extracted","\citet{Novak:2020aa}","Table 1 \& Fig. 1L",TRUE
-"Krylov_1992",FALSE,2,"Count","Means",NA,"Predator",FALSE,NA,"Hours","\citet{Krylov:1992aa}","Extracted","\citet{Novak:2020aa}","Fig. 1 \& Fig. 2",TRUE
-"Kumar_1985",TRUE,1,"Count","Means","Skalski & Gilliam, Arditi & Ak√ßakaya, DeLong & Vasseur","Parasitoid",FALSE,"Discriminating","Minutes","\citet{Kumar:1985aa}","Extracted","\citet{Novak:2020aa}","Tables 1 \& 2 \& Figs. 1 \& 2",TRUE
-"Lang_2012",TRUE,1,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Lang:2012aa}","Provided","\citet{Lang:2020aa}",NA,TRUE
-"Lester_2002",FALSE,2,"Count","Original",NA,"Predator",TRUE,NA,"Days","\citet{Lester:2002aa}","Provided","\citet{Lester:2020aa}",NA,TRUE
-"Long_2012",TRUE,1,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Long:2012aa}","Provided","\citet{Long:2020aa}",NA,TRUE
-"Long_2012_2p",FALSE,2,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Long:2012ab}","Provided","\citet{Long:2020ab}",NA,TRUE
-"Mansour_1991",TRUE,1,"Count","Means","DeLong & Vasseur","Predator",FALSE,NA,"Hours","\citet{Mansour:1991aa}","Extracted","\citet{Novak:2020aa}","Fig. 1a",TRUE
-"Mattila_1998",FALSE,2,"Count","Means",NA,"Predator",FALSE,NA,"Hours","\citet{Mattila:1998aa}","Extracted","\citet{Novak:2020aa}","Fig. 3a \& 4",TRUE
-"Medoc_2013",TRUE,1,"Count","Original",NA,"Predator",TRUE,NA,"Hours","\citet{Medoc:2013aa}","Provided","",NA,TRUE
-"Medoc_2015",TRUE,1,"Count","Original",NA,"Predator",TRUE,NA,"Hours","\citet{Medoc:2015aa}","Provided","",NA,TRUE
-"Mertz_1968",TRUE,1,"Count","Original","Skalski & Gilliam, Arditi & Ak√ßakaya, DeLong & Vasseur","Predator",FALSE,NA,"Days","\citet{Mertz:1968aa}","Extracted","\citet{Novak:2020aa}","Table 1",TRUE
-"Mills_2004",TRUE,1,"Count","Original","DeLong & Vasseur","Parasitoid",FALSE,"Non-discriminating","Hours","\citet{Mills:2004aa}","Extracted","\citet{Novak:2020aa}","Fig. 1a-c",TRUE
-"Montoya_2000",TRUE,1,"Count","Means",NA,"Parasitoid",FALSE,"Non-discriminating","Hours","\citet{Montoya:2000aa}","Extracted","\citet{Novak:2020aa}","Table 1",TRUE
-"Nachappa_2006",FALSE,2,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Nachappa:2006aa}","Provided","",NA,NA
-"Omkar_2004",TRUE,1,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Omkar:2004aa}","Provided","",NA,NA
-"Prokopenko_2017",TRUE,1,"Count","Original",NA,"Predator",TRUE,NA,"Minutes","\citet{Prokopenko:2017aa}","Provided","\citet{Prokopenko:2020aa}",NA,TRUE
-"Pusack_2018",TRUE,1,"Count","Original",NA,"Predator",TRUE,NA,"Days","\citet{Pusack:2018aa}","Provided","\citet{Pusack:2020aa}",NA,FALSE
-"Ranta_1985",FALSE,2,"Count","Means",NA,"Predator",TRUE,NA,"Minutes","\citet{Ranta:1985aa}","Extracted","\citet{Novak:2020aa}","Fig. 2 \& 3 \& Tables 2 \& 5",TRUE
-"Reeve_1997",TRUE,1,"Count","Original","DeLong & Vasseur","Predator",FALSE,NA,"Days","\citet{Reeve:1997aa}","Provided","\citet{Reeve:2020aa}",NA,TRUE
-"Salt_1974",TRUE,1,"Count","Means","Skalski & Gilliam, DeLong & Vasseur","Predator",TRUE,NA,"Hours","\citet{Salt:1974aa}","Extracted","\citet{Novak:2020aa}","Fig. 3 \& Table 1",TRUE
-"Uttley_1980",TRUE,1,"Count","Means","Skalski & Gilliam, DeLong & Vasseur","Predator",FALSE,NA,"Hours","\citet{Uttley:1980aa}","Extracted","\citet{Novak:2020aa}","Figs. 4.3.1, 4.3.2, 4.3.3, 8.3.1 \& 8.3.2",TRUE
-"Vahl_2005",TRUE,1,"Count","Original","DeLong & Vasseur","Predator",FALSE,NA,"Seconds","\citet{Vahl:2005aa}","Extracted","\citet{Novak:2020aa}","Fig. 4",TRUE
-"vonWesternhagen_1976",TRUE,1,"Count","Means","Skalski & Gilliam, Arditi & Ak√ßakaya, DeLong & Vasseur","Predator",FALSE,NA,"Hours","\citet{Von-Westernhagen:1976aa}","Extracted","\citet{Novak:2020aa}","Fig. 3",TRUE
-"Vucetich_2002",TRUE,1,"Count","Original","DeLong & Vasseur","Predator",TRUE,NA,"Days","\citet{Vucetich:2002aa}","Provided","",NA,TRUE
-"Walde_1984",TRUE,1,"Count","Means","Skalski & Gilliam","Predator",TRUE,NA,"Hours","\citet{Walde:1984aa}","Extracted","\citet{Novak:2020aa}","Fig 2 \& 4",TRUE
-"Wasserman_2016",TRUE,1,"Count","Original",NA,"Predator",FALSE,NA,"Hours","\citet{Wasserman:2016aa}","Repository","\citet{Wasserman:2016ab}","https://datadryad.org/resource/doi:10.5061/dryad.4v2s0",FALSE
-"Wong_2005",FALSE,2,"Count","Original",NA,"Predator",TRUE,NA,"Days","\citet{Wong:2005aa}","Provided","\citet{Wong:2020ab}",NA,TRUE
+Dataset_Folder,Variable_Predator_Abundance,Prey_Richness,Predator_Density_or_Count,Original_Means_Compilation,PriorUse,Predator.Parasitoid,With_Prey_Replacement,Parasitoid_Type,TimeUnits,CitationKey,DataSource,DataCitationKey,FigTableSource,PostToRepo
+Chan_2017,TRUE,1,Density,Original,Skalski & Gilliam,Predator,TRUE,NA,Hours,\citet{Chan:2017aa},Provided,\citet{Chan:2017aa},Appendix of Chan et al. 2017,TRUE
+Chant_1966,TRUE,1,Count,Original,"Skalski & Gilliam, Arditi & AkÕ_akaya, DeLong & Vasseur",Predator,FALSE,NA,Minutes,\citet{Chant:1966aa},Extracted,\citet{Novak:2020aa},Table 2,TRUE
+Chong_2006,TRUE,1,Count,Original,DeLong & Vasseur,Parasitoid,FALSE,Non-discriminating,Hours,\citet{Chong:2006aa},Provided,\citet{Chong:2020aa},NA,TRUE
+Colton_1987,FALSE,2,Count,Original,NA,Predator,FALSE,NA,Hours,"\citet{Colton:1983aa, Colton:1987aa}",Extracted,\citet{Novak:2020aa},Table B3,TRUE
+Crowley_1989,TRUE,1,Count,Means,"Skalski & Gilliam, DeLong & Vasseur",Predator,TRUE,NA,Hours,\citet{Crowley:1989aa},Extracted,\citet{Novak:2020aa},Fig. 2,TRUE
+Edwards_1961,TRUE,1,Count,Original,"Skalski & Gilliam, Arditi & AkÕ_akaya, DeLong & Vasseur",Parasitoid,FALSE,Non-discriminating,Hours,\citet{Edwards:1961aa},Extracted,\citet{Novak:2020aa},"Tables 1, 2 \& 3",TRUE
+Elliot_2005,TRUE,1,Count,Original,NA,Predator,TRUE,NA,Minutes,\citet{Elliott:2005aa},Provided,\citet{Elliott:2020aa},NA,TRUE
+Elliot_2006,FALSE,2,Count,Means,NA,Predator,TRUE,NA,Minutes,\citet{Elliott:2006aa},Provided,\citet{Elliott:2020ab},NA,TRUE
+Eveleigh_1982,TRUE,1,Count,Means,"Skalski & Gilliam, Arditi & AkÕ_akaya, DeLong & Vasseur",Predator,FALSE,NA,Days,\citet{Eveleigh:1982aa},Extracted,\citet{Novak:2020aa},"Tables 4, 5 \& 8",TRUE
+Fussmann_2005,TRUE,1,Density,Original,NA,Predator,TRUE,NA,Minutes,\citet{Fussmann:2005aa},Provided,\citet{Fussmann:2020aa},NA,TRUE
+Griffen_2007,TRUE,1,Count,Means,DeLong & Vasseur,Predator,FALSE,NA,Hours,\citet{Griffen:2007aa},Extracted,\citet{Novak:2020aa},Fig 1 \& Fig A1,TRUE
+Hassan_1976,TRUE,1,Count,Means,DeLong & Vasseur,Parasitoid,FALSE,Non-discriminating,Hours,\citet{Hassan:1976aa},Extracted,\citet{Novak:2020aa},Table 1,TRUE
+Hossie_2016,TRUE,1,Count,Original,NA,Predator,FALSE,NA,Hours,\citet{Hossie:2016aa},Provided,\citet{Hossie:2020aa},NA,TRUE
+Huffaker_1982,TRUE,1,Count,Means,Skalski & Gilliam,Parasitoid,FALSE,Non-discriminating,Hours,\citet{Huffaker:1982aa},Extracted,\citet{Novak:2020aa},Table 1,TRUE
+Iyer_1996,FALSE,2,Count,Means,NA,Predator,FALSE,NA,Minutes,\citet{Iyer:1996aa},Extracted,\citet{Novak:2020aa},Fig. 1 \& 2,TRUE
+Johnson_2006,TRUE,1,Count,Original,NA,Predator,FALSE,NA,Hours,\citet{Johnson:2006aa},Extracted,\citet{Novak:2020aa},Fig. 1,TRUE
+Jones_1988,TRUE,1,Count,Original,"Arditi & AkÕ_akaya, DeLong & Vasseur",Parasitoid,FALSE,Discriminating,Hours,"\citet{Jones:1988aa, Jones:1986aa}",Extracted,\citet{Novak:2020aa},Fig. 1a \& 3,TRUE
+Kalinkat_2011,FALSE,2,Count,Original,NA,Predator,TRUE,NA,Hours,\citet{Kalinkat:2011bd},Provided,\citet{Kalinkat:2018aa},https://doi.org/10.6084/m9.figshare.6360506.v1,FALSE
+Katz_1985,TRUE,1,Count,Means,"Skalski & Gilliam, Arditi & AkÕ_akaya, DeLong & Vasseur",Predator,FALSE,NA,Hours,\citet{Katz:1985ai},Extracted,\citet{Arditi:1990sp},Table 1,TRUE
+Kfir_1983,TRUE,1,Count,Means,"Skalski & Gilliam, Arditi & AkÕ_akaya, DeLong & Vasseur",Parasitoid,FALSE,Discriminating,Hours,\citet{Kfir:1983aa},Extracted,\citet{Novak:2020aa},Table 1,TRUE
+Kratina_2009,TRUE,1,Count,Original,DeLong & Vasseur,Predator,FALSE,NA,Hours,\citet{Kratina:2009aa},Provided,\citet{Kratina:2020aa},NA,TRUE
+Krylov_1992,TRUE,1,Count,Means,NA,Predator,FALSE,NA,Hours,\citet{Krylov:1992aa},Extracted,\citet{Novak:2020aa},Table 1 \& Fig. 1L,TRUE
+Krylov_1992,FALSE,2,Count,Means,NA,Predator,FALSE,NA,Hours,\citet{Krylov:1992aa},Extracted,\citet{Novak:2020aa},Fig. 1 \& Fig. 2,TRUE
+Kumar_1985,TRUE,1,Count,Means,"Skalski & Gilliam, Arditi & AkÕ_akaya, DeLong & Vasseur",Parasitoid,FALSE,Discriminating,Minutes,\citet{Kumar:1985aa},Extracted,\citet{Novak:2020aa},Tables 1 \& 2 \& Figs. 1 \& 2,TRUE
+Lang_2012,TRUE,1,Count,Original,NA,Predator,FALSE,NA,Hours,\citet{Lang:2012aa},Provided,\citet{Lang:2020aa},NA,TRUE
+Lester_2002,FALSE,2,Count,Original,NA,Predator,TRUE,NA,Days,\citet{Lester:2002aa},Provided,\citet{Lester:2020aa},NA,TRUE
+Long_2012,TRUE,1,Count,Original,NA,Predator,FALSE,NA,Hours,\citet{Long:2012aa},Provided,\citet{Long:2020aa},NA,TRUE
+Long_2012_2p,FALSE,2,Count,Original,NA,Predator,FALSE,NA,Hours,\citet{Long:2012ab},Provided,\citet{Long:2020ab},NA,TRUE
+Mansour_1991,TRUE,1,Count,Means,DeLong & Vasseur,Predator,FALSE,NA,Hours,\citet{Mansour:1991aa},Extracted,\citet{Novak:2020aa},Fig. 1a,TRUE
+Mattila_1998,FALSE,2,Count,Means,NA,Predator,FALSE,NA,Hours,\citet{Mattila:1998aa},Extracted,\citet{Novak:2020aa},Fig. 3a \& 4,TRUE
+Medoc_2013,TRUE,1,Count,Original,NA,Predator,TRUE,NA,Hours,\citet{Medoc:2013aa},Provided,\citet{Medoc:2020aa},NA,TRUE
+Medoc_2015,TRUE,1,Count,Original,NA,Predator,TRUE,NA,Hours,\citet{Medoc:2015aa},Provided,\citet{Medoc:2020ab},NA,TRUE
+Mertz_1968,TRUE,1,Count,Original,"Skalski & Gilliam, Arditi & AkÕ_akaya, DeLong & Vasseur",Predator,FALSE,NA,Days,\citet{Mertz:1968aa},Extracted,\citet{Novak:2020aa},Table 1,TRUE
+Mills_2004,TRUE,1,Count,Original,DeLong & Vasseur,Parasitoid,FALSE,Non-discriminating,Hours,\citet{Mills:2004aa},Extracted,\citet{Novak:2020aa},Fig. 1a-c,TRUE
+Montoya_2000,TRUE,1,Count,Means,NA,Parasitoid,FALSE,Non-discriminating,Hours,\citet{Montoya:2000aa},Extracted,\citet{Novak:2020aa},Table 1,TRUE
+Nachappa_2006,FALSE,2,Count,Original,NA,Predator,FALSE,NA,Hours,\citet{Nachappa:2006aa},Provided,\citet{Nachappa:2006aa},NA,FALSE
+Omkar_2004,TRUE,1,Count,Original,NA,Predator,FALSE,NA,Hours,\citet{Omkar:2004aa},Provided,\citet{Omkar:2004aa},NA,FALSE
+Prokopenko_2017,TRUE,1,Count,Original,NA,Predator,TRUE,NA,Minutes,\citet{Prokopenko:2017aa},Provided,\citet{Prokopenko:2020aa},NA,TRUE
+Pusack_2018,TRUE,1,Count,Original,NA,Predator,TRUE,NA,Days,\citet{Pusack:2018aa},Provided,\citet{Pusack:2020aa},NA,FALSE
+Ranta_1985,FALSE,2,Count,Means,NA,Predator,TRUE,NA,Minutes,\citet{Ranta:1985aa},Extracted,\citet{Novak:2020aa},Fig. 2 \& 3 \& Tables 2 \& 5,TRUE
+Reeve_1997,TRUE,1,Count,Original,DeLong & Vasseur,Predator,FALSE,NA,Days,\citet{Reeve:1997aa},Provided,\citet{Reeve:2020aa},NA,TRUE
+Salt_1974,TRUE,1,Count,Means,"Skalski & Gilliam, DeLong & Vasseur",Predator,TRUE,NA,Hours,\citet{Salt:1974aa},Extracted,\citet{Novak:2020aa},Fig. 3 \& Table 1,TRUE
+Uttley_1980,TRUE,1,Count,Means,"Skalski & Gilliam, DeLong & Vasseur",Predator,FALSE,NA,Hours,\citet{Uttley:1980aa},Extracted,\citet{Novak:2020aa},"Figs. 4.3.1, 4.3.2, 4.3.3, 8.3.1 \& 8.3.2",TRUE
+Vahl_2005,TRUE,1,Count,Original,DeLong & Vasseur,Predator,FALSE,NA,Seconds,\citet{Vahl:2005aa},Extracted,\citet{Novak:2020aa},Fig. 4,TRUE
+vonWesternhagen_1976,TRUE,1,Count,Means,"Skalski & Gilliam, Arditi & AkÕ_akaya, DeLong & Vasseur",Predator,FALSE,NA,Hours,\citet{Von-Westernhagen:1976aa},Extracted,\citet{Novak:2020aa},Fig. 3,TRUE
+Vucetich_2002,TRUE,1,Count,Original,DeLong & Vasseur,Predator,TRUE,NA,Days,\citet{Vucetich:2002aa},Provided,"\citet{Vucetich:2002aa, Jost:2005aa}",NA,TRUE
+Walde_1984,TRUE,1,Count,Means,Skalski & Gilliam,Predator,TRUE,NA,Hours,\citet{Walde:1984aa},Extracted,\citet{Novak:2020aa},Fig 2 \& 4,TRUE
+Wasserman_2016,TRUE,1,Count,Original,NA,Predator,FALSE,NA,Hours,\citet{Wasserman:2016aa},Repository,\citet{Wasserman:2016ab},https://datadryad.org/resource/doi:10.5061/dryad.4v2s0,FALSE
+Wong_2005,FALSE,2,Count,Original,NA,Predator,TRUE,NA,Days,\citet{Wong:2005aa},Provided,\citet{Wong:2020ab},NA,TRUE

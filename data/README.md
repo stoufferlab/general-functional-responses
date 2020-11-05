@@ -47,7 +47,7 @@ The datasets included in this folder are provided for the convenience of reprodu
 | Uttley (1980)                       | Novak & Stouffer (2020)           |
 | Vahl *et al.*(2005)                 | Novak & Stouffer (2020)           |
 | Von Westernhagen & Rosenthal (1976) | Novak & Stouffer (2020)           |
-| Vucetich *et al.*(2002)             |                                   |
+| Vucetich *et al.*(2002)             | Vucetich *et al.*(2002) & Jost et al. (2005)                                  |
 | Walde & Davies (1984)               | Novak & Stouffer (2020)           |
 | Wong & Barbeau (2005)               | Wong & Barbeau (2020)             |
 
@@ -157,6 +157,11 @@ Jones, T. H. & Hassell, M. P. (1988). Patterns of parasitism by
 *Trybliographa rapae*, a cynipid parasitoid of the cabbage root fly,
 under laboratory and field conditions. *Ecological entomology*, 13,
 309–317.
+
+Jost, C., G. Devulder, J. A. Vucetich, R. O. Peterson & R. Arditi.
+The wolves of isle royale display scale-invariant satiation
+and ratio-dependent predation on moose. *Journal of Animal Ecology*,
+809–816.
 
 Katz, C. H. (1985). A nonequilibrium marine predator-prey interaction.
 *Ecology*, 66, 1426–1438.
