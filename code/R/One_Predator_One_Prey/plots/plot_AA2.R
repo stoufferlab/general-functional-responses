@@ -47,7 +47,7 @@ par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
      plot.SEs=TRUE,
      point.est='median',
      display.outlier.ests=TRUE,
-     xlab="Arditi-Akcakaya interference rate (m) (Method 2)",
+     xlab="Arditi-Akcakaya interference strength (m) (Method 2)",
      labels=labels,
      xlim=c(-0.8,1.85)
   )
@@ -64,7 +64,7 @@ par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
        type='n',
        log='x', 
        xlab='Sample size (n)', 
-       ylab='Arditi-Akcakaya interference rate (m) (AA2)')
+       ylab='Arditi-Akcakaya interference strength (m) (AA2)')
   abline(h=c(0,1),lty=2,col='grey')
   points(sample.sizes, parm,
          pch=21, bg='grey')
@@ -75,7 +75,7 @@ pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m_hist.pdf',he
 par(mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i',xaxs='i')
   hist(parm[parm<2],
        breaks=50,
-       xlab='Arditi-Akcakaya interference rate (m) (AA2)',
+       xlab='Arditi-Akcakaya interference strength (m) (AA2)',
        main='',
        col='grey',
        ylim=c(0,3.5),
