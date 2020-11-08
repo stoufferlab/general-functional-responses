@@ -25,35 +25,34 @@ labels[which(labels=="Long_2012")] <- "Long_2012b"
 # replace underscores
 labels<-gsub('_',' ',labels)
 
-# Grab summary of AIC estimates across bootstrapped fits
+# Grab summary of IC estimates across bootstrapped fits
 stat <- '50%' # use "50%" or "mean"
 
-# scrape out the relevant AIC values
-AIC.H1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.I'][[1]][stat]}))
-AIC.H2 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.II'][[1]][stat]}))
-AIC.BD <- unlist(lapply(ffr.fits, function(x){ x$AIC['Beddington.DeAngelis'][[1]][stat]}))
-AIC.CM <- unlist(lapply(ffr.fits, function(x){ x$AIC['Crowley.Martin'][[1]][stat]}))
-AIC.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Stouffer.Novak.I'][[1]][stat]}))
+# scrape out the relevant AICc values
+AICc.H1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.I'][[1]][stat]}))
+AICc.H2 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Holling.II'][[1]][stat]}))
+AICc.BD <- unlist(lapply(ffr.fits, function(x){ x$AICc['Beddington.DeAngelis'][[1]][stat]}))
+AICc.CM <- unlist(lapply(ffr.fits, function(x){ x$AICc['Crowley.Martin'][[1]][stat]}))
+AICc.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AICc['Stouffer.Novak.I'][[1]][stat]}))
 
 # build everything into a data frame
-AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.SN1)
-colnames(AICs) <- sub('AIC.', '', colnames(AICs))
-colnames(AICs)[5] <- "G"
-rownames(AICs) <- labels
+AICcs <- data.frame(AICc.H1, AICc.H2, AICc.BD, AICc.CM, AICc.SN1)
+colnames(AICcs) <- sub('AICc.', '', colnames(AICcs))
+colnames(AICcs)[5] <- "G"
+rownames(AICcs) <- labels
 
-# deal with delta AIC calcs
-minAICs <- apply(AICs, 1, min)
-dAICs <- AICs - minAICs
-# dAICs[dAICs<2] <- 0
+# deal with delta AICc calcs
+minAICcs <- apply(AICcs, 1, min)
+dAICcs <- AICcs - minAICcs
 
 # calculate the ranked lists
-rnkAICs <- t(apply(dAICs, 1, rank, ties.method='first'))
-colnames(rnkAICs) <- colnames(AICs)
+rnkAICcs <- t(apply(dAICcs, 1, rank, ties.method='first'))
+colnames(rnkAICcs) <- colnames(AICcs)
 
-# Define delta AIC cut-off for "indistinguishably well performing" models
-delAICcutoff <- 2
+# Define delta AICc cut-off for "indistinguishably well performing" models
+delAICccutoff <- 2
 
-# scrape out the relevant BIC values
+# repeat to scrape out the relevant BIC values
 BIC.H1 <- unlist(lapply(ffr.fits, function(x){ x$BIC['Holling.I'][[1]][stat]}))
 BIC.H2 <- unlist(lapply(ffr.fits, function(x){ x$BIC['Holling.II'][[1]][stat]}))
 BIC.BD <- unlist(lapply(ffr.fits, function(x){ x$BIC['Beddington.DeAngelis'][[1]][stat]}))
@@ -69,7 +68,6 @@ rownames(BICs) <- labels
 # deal with delta BIC calcs
 minBICs <- apply(BICs, 1, min)
 dBICs <- BICs - minBICs
-# dAICs[dAICs<2] <- 0
 
 # calculate the ranked lists
 rnkBICs <- t(apply(dBICs, 1, rank, ties.method='first'))
@@ -88,7 +86,7 @@ Mpch <- c(rep(21,4),rep(22,4))
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_and_BIC_ranks_phi.pdf',
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_and_BIC_ranks_phi.pdf',
     height=6,
     width=4.5
 )
@@ -113,14 +111,14 @@ par(
 )
 
 #########################################################
-# AIC plot
+# AICc plot
 #########################################################
 
-plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
+plot(1:nrow(rnkAICcs), 1:nrow(rnkAICcs),
      type='n', yaxt='n',
-     xlim=c(0.5,ncol(rnkAICs)+0.5),
-     ylim=c(0,nrow(rnkAICs)+1),
-     xlab='Model rank by AIC',
+     xlim=c(0.5,ncol(rnkAICcs)+0.5),
+     ylim=c(0,nrow(rnkAICcs)+1),
+     xlab='Model rank by AICc',
      ylab='',
      axes=F)
 # rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
@@ -130,7 +128,7 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
 
     axis(
         4,
-        at=1:nrow(rnkAICs),
+        at=1:nrow(rnkAICcs),
         labels=labels,
         cex.axis=0.5,
         las=2,
@@ -141,8 +139,8 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
     )
     axis(1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
 
-    # Which models have delta-AIC within X=2 of best-performing model?
-    xats <-table(which(dAICs < delAICcutoff, arr.ind=T)[,1])+0.5
+    # Which models have delta-AICc within X=2 of best-performing model?
+    xats <-table(which(dAICcs < delAICccutoff, arr.ind=T)[,1])+0.5
     yats <- 0:(length(xats))
 
     # segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
@@ -157,8 +155,8 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
 
     polygon(pxats,pyats,col=grey(0.825),border=NA)
     
-    for(m in 1:ncol(rnkAICs)){
-      points(rnkAICs[,m], 1:nrow(rnkAICs), 
+    for(m in 1:ncol(rnkAICcs)){
+      points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
              type='p',  col='black', 
              bg=Mcols[m], pch=Mpch[m],
              cex=1, lwd=0.2)
@@ -166,7 +164,7 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
     box(lwd=1)
     par(xpd=TRUE)
     legend(
-        -0.75,nrow(rnkAICs)/2,legend=colnames(rnkAICs),
+        -0.75,nrow(rnkAICcs)/2,legend=colnames(rnkAICcs),
         xjust=0.5,
         pch=Mpch, pt.bg=Mcols, col='black', bg='white',
         horiz=FALSE, pt.cex=1,cex=0.6, ncol=1, title='Model',

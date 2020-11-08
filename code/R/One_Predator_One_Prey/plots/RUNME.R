@@ -20,4 +20,4 @@ source('plot_AA_m_DeLong.R')
 
 # plots for HiddenLayers
 source('plot_AIC_phi.R')
-source('plot_AIC_and_BIC_phi.R')
+source('plot_AICc_and_BIC_phi.R')
