@@ -6,4 +6,4 @@ source('profile_phis.R')
 source('plot_AIC_phis.R')
 
 # generate the supplementary 1pred2prey plot
-source('plot_AIC_and_BIC.R')
+source('plot_AICc_and_BIC.R')

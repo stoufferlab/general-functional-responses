@@ -5,7 +5,7 @@ library(shape)
 library(stringr)
 
 # generate the AIC table
-source('../summaries/make_AIC_table.R')
+source('../summaries/make_AICc_table.R')
 
 # generate the BIC table
 source('../summaries/make_BIC_table.R')
@@ -23,7 +23,7 @@ source('which_model.R')
 
 # figure out the average phi value across datasets
 mean_phi <- sapply(
-  rownames(rnkAICs),
+  rownames(rnkAICcs),
   function(x,ffr.cfs,which.model){
     mean(ffr.cfs[[x]]$profiles[[paste0("Holling II Hybrid Hybrid ",which.model[x])]]$est)
   },
@@ -31,9 +31,9 @@ mean_phi <- sapply(
   which.model=which.model
 )
 
-# reorder the AIC tables and the profiled fits
-dAICs <- dAICs[order(mean_phi),]
-rnkAICs <- rnkAICs[order(mean_phi),]
+# reorder the AICc and BIC tables and the profiled fits
+dAICcs <- dAICcs[order(mean_phi),]
+rnkAICcs <- rnkAICcs[order(mean_phi),]
 dBICs <- dBICs[order(mean_phi),]
 rnkBICs <- rnkBICs[order(mean_phi),]
 ffr.cfs <- ffr.cfs[order(mean_phi)]
@@ -46,7 +46,7 @@ Mcols <- c(Mcols, brewer.pal(n = 9, name = 'Reds')[7])
 Mpch <- c(rep(21,3),rep(22,4))
 
 # doctor one label so that it matches the table in the supps
-labels <- rownames(rnkAICs)
+labels <- rownames(rnkAICcs)
 labels[which(labels=="Long_2012_2p")] <- "Long_2012a"
 
 # create the dataset labels for the figures
@@ -55,7 +55,7 @@ labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
 
 # generate the figure
 pdf(
-    '../../../../results/R/OnePredTwoPrey_figs/OnePredTwoPrey_AIC_and_BIC_ranks.pdf',
+    '../../../../results/R/OnePredTwoPrey_figs/OnePredTwoPrey_AICc_and_BIC_ranks.pdf',
     height=2.875,
     width=4.25
 )
@@ -80,21 +80,21 @@ par(
 )
 
 #########################################################
-# AIC plot
+# AICc plot
 #########################################################
 
-plot(1:nrow(rnkAICs), 1:nrow(rnkAICs),
+plot(1:nrow(rnkAICcs), 1:nrow(rnkAICcs),
      type='n', yaxt='n',
-     xlim=c(0.5,ncol(rnkAICs)+0.5),
-     ylim=c(0,nrow(rnkAICs)+1),
-     xlab='Model rank by AIC',
+     xlim=c(0.5,ncol(rnkAICcs)+0.5),
+     ylim=c(0,nrow(rnkAICcs)+1),
+     xlab='Model rank by AICc',
      ylab='',
      axes=F
 )
     # rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col = "white") # grey30
 axis(
   4,
-  at=1:nrow(rnkAICs),
+  at=1:nrow(rnkAICcs),
   labels=labels,
   cex.axis=0.5,
   las=2,
@@ -105,8 +105,8 @@ axis(
 )
 axis(1, cex.axis=0.7, mgp=c(1.25,0,0), lwd=0, lwd.ticks=1)
 
-# Which models have delta-AIC within X=2 of best-performing model?
-xats <-table(which(dAICs < delAICcutoff, arr.ind=T)[,1])+0.5
+# Which models have delta-AICc within X=2 of best-performing model?
+xats <-table(which(dAICcs < delAICccutoff, arr.ind=T)[,1])+0.5
 yats <- 0:(length(xats))
 
 # segments(xats,yats[-length(yats)],xats,yats[-1],col='black')
@@ -119,8 +119,8 @@ pyats[1:2] <- pyats[1:2]-0.5
 pyats[(length(pyats)-1):length(pyats)] <- pyats[(length(pyats)-1):length(pyats)]+0.5
 polygon(pxats,pyats,col=grey(0.875),border=NA)
 
-for(m in 1:ncol(rnkAICs)){
-  points(rnkAICs[,m], 1:nrow(rnkAICs), 
+for(m in 1:ncol(rnkAICcs)){
+  points(rnkAICcs[,m], 1:nrow(rnkAICcs), 
          type='p',  col='black', 
          bg=Mcols[m], pch=Mpch[m],
          cex=1, lwd=0.2
@@ -130,7 +130,7 @@ for(m in 1:ncol(rnkAICs)){
 box(lwd=1)
 par(xpd=TRUE)
 legend(
-    -0.75,nrow(rnkAICs)/2,
+    -0.75,nrow(rnkAICcs)/2,
     legend=c(
       'H1',
       "H2",
