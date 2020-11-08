@@ -33,43 +33,67 @@ message("sample sizes")
 print(summary(sample.sizes))
 message()
 
-# Grab summary of AIC estimates across bootstrapped fits
+# Read in the AIC summary table
 stat <- '50%' # use "50%" or "mean"
-AIC.H1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.I'][[1]][stat]}))
-AIC.H2 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Holling.II'][[1]][stat]}))
-AIC.BD <- unlist(lapply(ffr.fits, function(x){ x$AIC['Beddington.DeAngelis'][[1]][stat]}))
-AIC.CM <- unlist(lapply(ffr.fits, function(x){ x$AIC['Crowley.Martin'][[1]][stat]}))
-AIC.SN1 <- unlist(lapply(ffr.fits, function(x){ x$AIC['Stouffer.Novak.I'][[1]][stat]}))
 
-AICs <- data.frame(AIC.H1, AIC.H2, AIC.BD, AIC.CM, AIC.SN1)
-colnames(AICs) <- sub('AIC.', '', colnames(AICs))
-colnames(AICs)[5] <- "Gen"
-# rownames(AICs) <- labels
+# generate a table of AIC model ranks
+source('make_AIC_table_phi.R')
 
-# make things relative
-minAICs <- apply(AICs, 1, min)
-dAICs <- AICs - minAICs
-# dAICs[dAICs<2] <- 0
-
-# get model ranks
-rnkAICs <- t(apply(dAICs, 1, rank, ties.method='first'))
-colnames(rnkAICs) <- colnames(AICs)
-
-# statistics about when the phi model ranks first or ties for first
-message("model ranks")
+# statistics about when the phi model ranks first or ties for first based on AIC
+message("AIC model ranks")
 message(paste(
   "phi itself:",
-  sum(rnkAICs[,"Gen"]==1),
-  round(sum(rnkAICs[,"Gen"]==1)/nrow(rnkAICs)*100),
+  sum(rnkAICs[,"G"]==1),
+  round(sum(rnkAICs[,"G"]==1)/nrow(rnkAICs)*100),
   "%"
 ))
 message(paste(
   "phi tied:",
-  sum(dAICs[,"Gen"]<=2)-sum(rnkAICs[,"Gen"]==1),
-  round((sum(dAICs[,"Gen"]<=2)-sum(rnkAICs[,"Gen"]==1))/nrow(rnkAICs)*100),
+  sum(dAICs[,"G"]<=2)-sum(rnkAICs[,"G"]==1),
+  round((sum(dAICs[,"G"]<=2)-sum(rnkAICs[,"G"]==1))/nrow(rnkAICs)*100),
   "%"
 ))
 message()
+
+# generate a table of AICc model ranks
+source('make_AICc_table_phi.R')
+
+# statistics about when the phi model ranks first or ties for first based on AICc
+message("AICc model ranks")
+message(paste(
+  "phi itself:",
+  sum(rnkAICcs[,"G"]==1),
+  round(sum(rnkAICcs[,"G"]==1)/nrow(rnkAICcs)*100),
+  "%"
+))
+message(paste(
+  "phi tied:",
+  sum(dAICcs[,"G"]<=2)-sum(rnkAICcs[,"G"]==1),
+  round((sum(dAICcs[,"G"]<=2)-sum(rnkAICcs[,"G"]==1))/nrow(rnkAICcs)*100),
+  "%"
+))
+message()
+
+# generate a table of BIC model ranks
+source('make_BIC_table_phi.R')
+
+# statistics about when the phi model ranks first or ties for first based on BIC
+message("BIC model ranks")
+message(paste(
+  "phi itself:",
+  sum(rnkBICs[,"G"]==1),
+  round(sum(rnkBICs[,"G"]==1)/nrow(rnkBICs)*100),
+  "%"
+))
+message(paste(
+  "phi tied:",
+  sum(dBICs[,"G"]<=2)-sum(rnkBICs[,"G"]==1),
+  round((sum(dBICs[,"G"]<=2)-sum(rnkBICs[,"G"]==1))/nrow(rnkBICs)*100),
+  "%"
+))
+message()
+
+
 
 # load profiled fits to find numbers of datasets with overlap over predefined regions
 load('../../../../results/R/OnePredOnePrey_fits_profiled/ffr.fits.prof.SN1.Rdata')
