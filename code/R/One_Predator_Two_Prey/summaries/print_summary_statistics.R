@@ -32,7 +32,7 @@ message()
 source('make_AIC_table.R')
 
 # statistics about when the phi model ranks first or ties for first based on AIC
-message("model ranks")
+message("AIC model ranks")
 message(paste(
   "phi itself:",
   sum(rnkAICs[,"H2.HH"]==1),
@@ -43,6 +43,44 @@ message(paste(
   "phi tied:",
   sum(dAICs[,"H2.HH"]<=2)-sum(rnkAICs[,"H2.HH"]==1),
   round((sum(dAICs[,"H2.HH"]<=2)-sum(rnkAICs[,"H2.HH"]==1))/nrow(rnkAICs)*100),
+  "%"
+))
+message()
+
+# generate the AICc table
+source('make_AICc_table.R')
+
+# statistics about when the phi model ranks first or ties for first based on AIC
+message("AICc model ranks")
+message(paste(
+  "phi itself:",
+  sum(rnkAICcs[,"H2.HH"]==1),
+  round(sum(rnkAICcs[,"H2.HH"]==1)/nrow(rnkAICcs)*100),
+  "%"
+))
+message(paste(
+  "phi tied:",
+  sum(dAICcs[,"H2.HH"]<=2)-sum(rnkAICcs[,"H2.HH"]==1),
+  round((sum(dAICcs[,"H2.HH"]<=2)-sum(rnkAICcs[,"H2.HH"]==1))/nrow(rnkAICcs)*100),
+  "%"
+))
+message()
+
+# generate the BIC table
+source('make_BIC_table.R')
+
+# statistics about when the phi model ranks first or ties for first based on BIC
+message("BIC model ranks")
+message(paste(
+  "phi itself:",
+  sum(rnkBICs[,"H2.HH"]==1),
+  round(sum(rnkBICs[,"H2.HH"]==1)/nrow(rnkBICs)*100),
+  "%"
+))
+message(paste(
+  "phi tied:",
+  sum(dBICs[,"H2.HH"]<=2)-sum(rnkBICs[,"H2.HH"]==1),
+  round((sum(dBICs[,"H2.HH"]<=2)-sum(rnkBICs[,"H2.HH"]==1))/nrow(rnkBICs)*100),
   "%"
 ))
 message()
