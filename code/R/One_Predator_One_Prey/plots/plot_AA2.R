@@ -37,7 +37,12 @@ m2 <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya.Method.2
 parm <- m2 
 range(m2)
 
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m.pdf',height=6,width=5)
+filename <- '../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m'
+# pdf(paste0(filename,'.pdf'),
+#     height=6,width=5)
+setEPS()
+postscript(paste0(filename,'.eps'),
+           height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
   plot.coefs(
      ffr.fits,
@@ -97,7 +102,12 @@ m <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya']]["50%",
 m <- exp(m)
 m2 <- unlist(lapply(ffr.fits, function(x) x$estimates[['Arditi.Akcakaya.Method.2']]["50%",'exponent',"estimate"]))
 
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m_vs_AA_m.pdf',height=3,width=3)
+filename <- '../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA2_m_vs_AA_m'
+# pdf(paste0(filename,'.pdf'),
+#     height=3,width=3)
+setEPS()
+postscript(paste0(filename,'.eps'),
+           height=3,width=3)
 par(pty='s',mar=c(3,3,1,1), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.7, yaxs='i', xaxs='i')
   xylim<-c(-0.5,1.5)
   plot(m,m2,

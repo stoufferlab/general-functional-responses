@@ -49,7 +49,12 @@ labels <- paste0(labels, ' (',sample.sizes,')')
 ###################################################
 # ~~~~~~~~~~~~~~~~~~ AA exponent ~~~~~~~~~~~~~~~~~~
 ###################################################
-cairo_pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m.pdf',height=6,width=5)
+filename <- '../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m'
+# cairo_pdf(paste0(filename,'.pdf'),
+#           height=6,width=5)
+setEPS()
+postscript(paste0(filename,'.eps'),
+           height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
 plot.coefs(
   ffr.fits,
@@ -65,7 +70,12 @@ plot.coefs(
 )
 dev.off()
 
-cairo_pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_v2.pdf',height=6,width=5)
+filename <- '../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_v2'
+# cairo_pdf(paste0(filename,'.pdf'),
+#                 height=6,width=5)
+setEPS()
+postscript(paste0(filename,'.eps'),
+           height=6,width=5)
 par(mar=c(3,10,1,1), mgp=c(1.5,0.1,0), tcl=-0.1, las=1, cex=0.7)
   plot.coefs(
      ffr.fits,
@@ -115,7 +125,8 @@ round(median(parm[sample.sizes>s]),2)
 round(mean(parm[sample.sizes>s]),2)
 round(sd(parm[sample.sizes>s]),2)
 
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_xy.pdf',height=3,width=4)
+pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AA_m_xy.pdf',
+    height=3,width=4)
 par(cex=0.7,  mgp=c(1.5,0.1,0), tcl=-0.1)
   plot(parm~sample.sizes,
        type='n',

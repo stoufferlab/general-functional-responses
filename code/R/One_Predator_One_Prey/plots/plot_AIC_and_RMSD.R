@@ -102,8 +102,12 @@ Mcols<-c(CR1[parm.k.1],CR2[parm.k.2])
 Mpch <- c(rep(21,4),rep(22,4))
 Mpch2 <- c(NA,NA,NA,21,NA,NA,22,NA) # overlay symbols to differentiate equal k models
 
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_and_RMSD_ranks.pdf',
-    height=6.5,width=3)
+filename <- '../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_and_RMSD_ranks'
+setEPS()
+postscript(paste0(filename,'.eps'),
+           height=6.5,width=3)
+# pdf(paste0(filename,'.pdf'), 
+#     height=6.5,width=3)
 nf<-layout(matrix(c(1,1,2,3),ncol=2,byrow=T), heights=c(0.7,6.3,6.3), widths=c(2,2,2))
 # layout.show(nf)
 
@@ -431,8 +435,12 @@ round(pfSecnd.RMSD[which(SScuts==s),],3)*100
 Mcols[c(1,5)]<-'grey40'
 ltys <- c(1,1,1,6,2,2,1,1)
 
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_and_RMSD_toprankBySS.pdf',
-    height=4,width=5)
+filename <- '../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_and_RMSD_toprankBySS'
+# pdf(paste0(filename,'.pdf'),
+#     height=4,width=5)
+setEPS()
+postscript(paste0(filename,'.eps'),
+           height=4,width=5)
 par(mar=c(2,6.5,4,0.5), mgp=c(1.5,0.2,0), tcl=-0.1, las=1, cex=0.8)
 nf<-layout(matrix(c(1,1,2,4,3,5),ncol=2,byrow=T), heights=c(1.2,3,3)) 
 # layout.show(nf)
