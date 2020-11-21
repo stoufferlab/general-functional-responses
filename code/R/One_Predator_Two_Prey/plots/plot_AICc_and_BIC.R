@@ -54,10 +54,16 @@ labels<-gsub('_',' ',labels)
 labels <- str_pad(labels, side="both", width=max(str_length(labels))+2)
 
 # generate the figure
-pdf(
-    '../../../../results/R/OnePredTwoPrey_figs/OnePredTwoPrey_AICc_and_BIC_ranks.pdf',
-    height=2.875,
-    width=4.25
+filename <- '../../../../results/R/OnePredTwoPrey_figs/OnePredTwoPrey_AICc_and_BIC_ranks'
+# pdf(
+#     paste0(filename,'.pdf'),
+#     height=2.875,
+#     width=4.25
+# )
+setEPS()
+postscript(paste0(filename,'.eps'),
+           height=2.875,
+           width=4.25
 )
 
 layout(mat = matrix(

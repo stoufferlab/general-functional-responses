@@ -59,10 +59,14 @@ delAICcutoff <- 2
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_phi.pdf',
-    height=6,
-    width=4.5
-)
+filename <- '../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AIC_phi'
+
+# pdf(paste0(filename,'.pdf'),
+#     height=6,
+#     width=4.5)
+setEPS()
+postscript(paste0(filename,'.eps'),
+           height=6,width=4.5)
 
 layout(mat = matrix(
         c(1, 2), 
