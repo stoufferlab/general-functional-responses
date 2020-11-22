@@ -86,7 +86,8 @@ Mpch <- c(rep(21,4),rep(22,4))
 #~~~~~~~~~~~
 # Rank order
 #~~~~~~~~~~~
-pdf('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_and_BIC_ranks_phi.pdf',
+setEPS()
+postscript('../../../../results/R/OnePredOnePrey_figs/OnePredOnePrey_AICc_and_BIC_ranks_phi.eps',
     height=6,
     width=4.5
 )
