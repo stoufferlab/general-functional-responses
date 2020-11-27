@@ -14,15 +14,20 @@ dropboxdir <- switch(
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # utility functions
 source('../lib/study_info.R')
+source('../lib/read_data.R')
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # read in the table of dataset details
-dataset_details <- read.table(
+dataset_details <- read.csv(
   '../../../data/dataset_details.csv'
 )
 
 # master list of datasets
-datasets <- list.files('./Dataset_Code', pattern=".R$", full.names=TRUE, include.dirs=FALSE)
+datasets <- list.files('./Dataset_Code', 
+                       pattern=".R$", 
+                       full.names=TRUE, 
+                       include.dirs=FALSE
+                       )
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -36,6 +41,9 @@ prey.eaten <- list(0)
 j<-1
 for(i in seq_len(length(datasets))){
   source(datasets[i])
+  
+  # read the data
+  d <- read.data(datadir, filename, "One_Predator_One_Prey", columns)
   
   # grab info about experimental design, etc
   this.study <- study.info(
@@ -53,8 +61,11 @@ for(i in seq_len(length(datasets))){
   design <- unique(design)
   design <- design[do.call(order, design), ]
   
+  replacement <- this.study$replacement
+  
   all.designs[[j]] <- list(dataname = datasetsName, 
-                           design = design)
+                           design = design,
+                           replacement = this.study$replacement)
   design.dims <- rbind(design.dims, dim(design))
   
   # maximum prey treatment and number of prey eaten at it
@@ -77,7 +88,8 @@ for(i in seq_len(length(datasets))){
 #~~~~~~~~~~~~~~~~~~~~~~
 # Percent of prey eaten
 #~~~~~~~~~~~~~~~~~~~~~~
-prey.eaten = as.data.frame(t(sapply(prey.eaten, function(x) x[1:max(lengths(prey.eaten))])))
+prey.eaten = as.data.frame(t(sapply(prey.eaten, 
+                                    function(x) x[1:max(lengths(prey.eaten))])))
 
 par(mfrow=c(1,2), yaxs='i', xaxs='i')
   hist(as.numeric(subset(prey.eaten, replacement==TRUE)$max.perCons), 
@@ -86,7 +98,8 @@ par(mfrow=c(1,2), yaxs='i', xaxs='i')
   hist(as.numeric(subset(prey.eaten, replacement==FALSE)$max.perCons), 
        breaks=20, main='Repl = FALSE', col='grey',
        xlab='Fraction of max(N) prey eaten in max(N) treatment')
-  
+dev.off()
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Experimental treatment designs
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,5 +142,56 @@ length(unique.designs)
 
 # Postscript:  Could have flattened all matrices into a single array and applied duplicated().
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+# Plot experimental designs
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+library(sfsmisc) # for eaxis()
 
+alpha<-function(col,alpha){
+  col<-as.vector(col2rgb(col)/255)
+  rgb(col[1],col[2],col[3], alpha )
+}
 
+# Restrict to replacement studies
+repl <- sapply(all.designs, function(x){x$replacement == TRUE})
+focal.designs <- all.designs[repl]
+
+maxAbunds <- data.frame(t(sapply(focal.designs, function(x){ 
+  c(Prey = max(x$design$Nprey),
+    Pred = max(x$design$Npredator),
+    Ratio = max(x$design$Nprey / x$design$Npredator) ) 
+  })))
+
+plot(1,1,
+     xlim = c(1, max(maxAbunds$Prey)),
+     ylim = c(1, max(maxAbunds$Pred)),
+     xlab = 'Prey', ylab='Predators',
+     log = 'xy',
+     type = 'n',
+     axes = FALSE)
+eaxis(1)
+axis(2, las=2)
+box(lwd = 1)
+
+lapply(focal.designs, function(x){
+  hpts <- chull(x$design$Nprey, 
+                x$design$Npredator)
+  polygon(x$design$Nprey[hpts],
+          x$design$Npredator[hpts],
+          border=NA,
+          col=alpha('black',0.1))
+})
+lapply(focal.designs, function(x){
+  points(x$design$Nprey, 
+         x$design$Npredator,
+         pch=21,
+         col='black',
+         bg='white',
+         cex=0.4)
+})
+dev.off()
+
+  
+  
+  
+  
