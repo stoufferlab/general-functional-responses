@@ -1,5 +1,5 @@
 
-# read in the simplify the raw data
+# read in the data
 datadir <- 'Elliot_2006'
 filename <- 'Elliot_2006_Instar2.csv'
 columns <- rbind(
@@ -10,6 +10,6 @@ columns <- rbind(
 	c('Nprey2',          'Prey2.L'),
 	c('Nconsumed2.mean', 'Prey2.Eaten.Mean'),
 	c('Nconsumed2.se',   'Prey2.Eaten.SE'),
-	c('n',               'n',),
+	c('n',               'n'),
 	c('Time',            'Time')
 )
