@@ -1,9 +1,14 @@
 # General Functional Responses
-This repository contains all code (and most data) for reproducing the analyses associated with two publications:
+This repository (tag [ELE.2021.a.b](https://github.com/stoufferlab/general-functional-responses/tree/ELE.2021.a.b)) contains all code and most data for reproducing the analyses associated with two publications:
 
 Stouffer & Novak (2021) *Hidden layers of density dependence in consumer feeding rates.* [Ecology Letters](https://doi.org/10.1111/ele.13670) ([bioRxiv](https://doi.org/10.1101/2020.08.25.263806))
 
 Novak & Stouffer (2021) *Systematic bias in studies of consumer functional responses.* [Ecology Letters](https://doi.org/10.1111/ele.13660) ([bioRxiv](https://doi.org/10.1101/2020.08.25.263814))
+
+Of direct relevance to the latter paper is
+Novak & Stouffer (2022) *Geometric complexity and the information-theoretic comparison of functional-response models.* [Frontiers in Ecology & Evolution](https://www.frontiersin.org/articles/10.3389/fevo.2021.740362/full) ([bioRxiv](https://www.biorxiv.org/content/10.1101/2021.07.31.454600v1)), the code for which is on this [Geometric Complexity](https://github.com/marknovak/GeometricComplexity) repository.
+
+Code committed subsequent to [ELE.2021.a.b](https://github.com/stoufferlab/general-functional-responses/tree/ELE.2021.a.b) is work in progress.
 
 Please email Daniel Stouffer (daniel.stouffer@canterbury.ac.nz) or Mark Novak (mark.novak@oregonstate.edu) with any questions.
 
