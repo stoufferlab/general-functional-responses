@@ -18,7 +18,11 @@ dat2 <- subset(dat, MainPrey=='Prey2')
 # a few require maxit = 35, and one (Elliot_2006_i5) requires 100,
 # so just let them all have up to 100 iterations!
 maxit <- 100 
-  
+
+#~~~~~~~~~~~~~~~~~
+# Power-law models
+ #~~~~~~~~~~~~~~~~~
+
 # linear models
 fit.lm.1 <- lm(log.Nconsumed.MainPrey.var ~
                  log.Nconsumed.MainPrey.mean,
@@ -96,6 +100,29 @@ fit.lm.int.2 <- lm(log.Nconsumed.MainPrey.var ~
                        data = dat2,
                        weights = dat2$weights)
 
+#~~~~~~~~~~~~~~~~~~
+# Polynomial models
+#~~~~~~~~~~~~~~~~~~
+
+fit.mean.1 <- lm(Nconsumed.MainPrey.var ~ 1,
+               data = dat1,
+               weights = dat1$weights)
+fit.mean.2 <- lm(Nconsumed.MainPrey.var ~ 1,
+               data = dat2,
+               weights = dat2$weights)
+
+fit.quad.1 <- lm(Nconsumed.MainPrey.var ~
+                 -1 +
+                 poly(Nconsumed.MainPrey.mean, 2),
+               data = dat1,
+               weights = dat1$weights)
+fit.quad.2 <- lm(Nconsumed.MainPrey.var ~
+                 -1 +
+                 poly(Nconsumed.MainPrey.mean, 2),
+               data = dat2,
+               weights = dat2$weights)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Rename the coefficients (causes problems for glm.confint() )
 names(fit.lm.1$coefficients)[1] <-
   names(fit.lm.2$coefficients)[1] <-
@@ -135,6 +162,13 @@ names(fit.lm.int.1$coefficients)[3] <-
   names(fit.glm.int.2$coefficients)[3] <-
   'd'
 
+names(fit.mean.1$coefficients) <- 
+  names(fit.mean.2$coefficients) <- 
+  'b0'
+names(fit.quad.1$coefficients) <- 
+  names(fit.quad.2$coefficients) <-
+  c('b1', 'b2')
+
 
 # aggregate the fits
 fits <- list(lm = list(prey1 = fit.lm.1,
@@ -148,7 +182,11 @@ fits <- list(lm = list(prey1 = fit.lm.1,
              glm.main = list(prey1 = fit.glm.main.1,
                              prey2 = fit.glm.main.2),
              glm.int = list(prey1 = fit.glm.int.1,
-                            prey2 = fit.glm.int.2)
+                            prey2 = fit.glm.int.2),
+             mean = list(prey1 = fit.mean.1,
+                         prey2 = fit.mean.2),
+             quad = list(prey1 = fit.quad.1,
+                         prey2 = fit.quad.2)
              )
 
 

@@ -12,6 +12,7 @@ dataset_details <- read.csv(
 
 # Run on both types of datasets?
 types <- c("One_Predator_One_Prey", "One_Predator_Two_Prey")
+# types <- c("One_Predator_One_Prey")
 
 # Initiate counts of datasets that were fit
 cnts <- cntsof <- c(0, 0)
@@ -43,6 +44,8 @@ for(tp in seq_along(types)){
   if(length(rem) > 0){  datasets <- datasets[-rem] }
   
   cntsof[tp] <- length(datasets)
+  
+  # datasets <- datasets[35]
   
   # Fit everything on a dataset by dataset basis
   for(i in seq_along(datasets)){

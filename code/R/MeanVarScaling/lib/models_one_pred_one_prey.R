@@ -16,7 +16,11 @@ weights <- if(weightbyrepl){ dat$n }else{ rep(1, length(dat$n)) }
 # Almost all datasets converge with default maxit = 25,
 # a few require maxit = 35, and some require 100,
 # so just let them all have up to 100 iterations!
-maxit <- 200 
+maxit <- 200
+
+#~~~~~~~~~~~~~~~~~
+# Power-law models
+#~~~~~~~~~~~~~~~~~
 
 # linear model
 fit.lm <- lm(log.Nconsumed.var ~
@@ -120,11 +124,22 @@ fit.lm.int <- lm(log.Nconsumed.var ~
                      weights = weights)
 
 
+#~~~~~~~~~~~~~~~~~~
+# Polynomial models
+#~~~~~~~~~~~~~~~~~~
+
+fit.mean <- lm(Nconsumed.var ~ 1,
+               data = dat,
+               weights = weights)
+
+fit.quad <- lm(Nconsumed.var ~
+                 -1 +
+                 poly(Nconsumed.mean, 2),
+               data = dat,
+               weights = weights)
 
 
-
-
-
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Rename the coefficients (causes problems for glm.confint() )
 names(fit.lm$coefficients)[1] <-
   names(fit.lm.q$coefficients)[1] <-
@@ -150,6 +165,8 @@ names(fit.lm.int$coefficients)[3] <-
   names(fit.glm.int$coefficients)[3] <-
   'd'
 
+names(fit.mean$coefficients) <- 'b0'
+names(fit.quad$coefficients) <- c('b1', 'b2')
 
 # aggregate the fits
 fits <- list(lm = fit.lm,
@@ -158,7 +175,9 @@ fits <- list(lm = fit.lm,
              lm.int = fit.lm.int,
              glm = fit.glm,
              glm.main = fit.glm.main,
-             glm.int = fit.glm.int)
+             glm.int = fit.glm.int,
+             mean = fit.mean,
+             quad = fit.quad)
 
 # test null hypothesis of slope b (2nd parameter) being equal to 1 (function default)
 ttest <- list(lm = ttest(fit.lm, 2),
