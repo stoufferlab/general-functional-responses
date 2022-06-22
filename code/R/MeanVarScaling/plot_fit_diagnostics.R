@@ -9,7 +9,7 @@ ffr.fits <- bundle_fits(dir)
 
 
 pdf(paste0('../../../results/R/MeanVarScaling/Residual-vs-Predicted_', type, '.pdf'), 
-    height = 10, width = 12)
+    height = 8, width = 12)
 nModels <- length(ffr.fits[[1]]$fits)
 par(mfrow = c(5, nModels), mgp = c(1, 0.2, 0), 
     mar = c(3, 3, 1.5, 0.5), pty = 's',
@@ -29,7 +29,9 @@ for(i in seq_along(ffr.fits)){
                        names(fits)[m]))
     abline(h = 0, lty = 2)
     r <- lm(resids~pred, weights = wts)
-    lines(range(pred), predict(r, data.frame(pred=range(pred))))
+    if(length(coef(r)) == r$rank){ # to avoid warning for mean-only model
+      lines(range(pred), predict(r, data.frame(pred=range(pred))))
+    }
   }
 }
 dev.off()
@@ -42,7 +44,7 @@ ffr.fits <- bundle_fits(dir)
 
 
 pdf(paste0('../../../results/R/MeanVarScaling/Residual-vs-Predicted_', type, '.pdf'), 
-    height = 10, width = 12)
+    height = 8, width = 12)
 nModels <- length(ffr.fits[[1]]$fits)
 par(mfrow = c(5, nModels), mgp = c(1, 0.2, 0), 
     mar = c(3, 3, 1.5, 0.5), pty = 's',
@@ -65,7 +67,9 @@ for(i in seq_along(ffr.fits)){
                          names(fits)[m]))
       abline(h = 0, lty = 2)
       r <- lm(resids~pred, weights = wts)
-      lines(range(pred), predict(r, data.frame(pred=range(pred))))
+      if(length(coef(r)) == r$rank){ # to avoid warning for mean-only model
+        lines(range(pred), predict(r, data.frame(pred=range(pred))))
+      }
     }
   }
 }

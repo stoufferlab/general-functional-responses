@@ -134,7 +134,7 @@ fit.mean <- lm(Nconsumed.var ~ 1,
 
 fit.quad <- lm(Nconsumed.var ~
                  -1 +
-                 poly(Nconsumed.mean, 2),
+                 poly(Nconsumed.mean, 2, raw = TRUE),
                data = dat,
                weights = weights)
 

@@ -113,12 +113,12 @@ fit.mean.2 <- lm(Nconsumed.MainPrey.var ~ 1,
 
 fit.quad.1 <- lm(Nconsumed.MainPrey.var ~
                  -1 +
-                 poly(Nconsumed.MainPrey.mean, 2),
+                 poly(Nconsumed.MainPrey.mean, 2, raw = TRUE),
                data = dat1,
                weights = dat1$weights)
 fit.quad.2 <- lm(Nconsumed.MainPrey.var ~
                  -1 +
-                 poly(Nconsumed.MainPrey.mean, 2),
+                 poly(Nconsumed.MainPrey.mean, 2, raw = TRUE),
                data = dat2,
                weights = dat2$weights)
 
