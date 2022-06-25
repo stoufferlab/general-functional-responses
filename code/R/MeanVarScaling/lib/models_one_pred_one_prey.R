@@ -44,12 +44,6 @@ fit.glm <- glm(Nconsumed.var ~
 #                             b = coef(fit.glm)[2]),
 #                control = list(maxiter = maxit))
 
-# quadratic model
-fit.lm.q <- lm(log.Nconsumed.var ~
-                 log.Nconsumed.mean + I(log.Nconsumed.mean^2),
-               data = dat,
-               weights = weights)
-
 # w/ Predator effect
 # linear model
 fit.lm.main <- lm(log.Nconsumed.var ~
@@ -134,6 +128,12 @@ fit.mean <- lm(Nconsumed.var ~ 1,
 
 fit.quad <- lm(Nconsumed.var ~
                  -1 +
+                 poly(Nconsumed.mean, 2),
+               data = dat,
+               weights = weights)
+
+fit.quad.raw <- lm(Nconsumed.var ~
+                 -1 +
                  poly(Nconsumed.mean, 2, raw = TRUE),
                data = dat,
                weights = weights)
@@ -142,7 +142,6 @@ fit.quad <- lm(Nconsumed.var ~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Rename the coefficients (causes problems for glm.confint() )
 names(fit.lm$coefficients)[1] <-
-  names(fit.lm.q$coefficients)[1] <-
   names(fit.lm.main$coefficients)[1] <-
   names(fit.lm.int$coefficients)[1] <-
   'log.a'
@@ -151,7 +150,6 @@ names(fit.glm$coefficients)[1] <-
   names(fit.glm.int$coefficients)[1] <-
   'a'
 names(fit.lm$coefficients)[2] <-
-  names(fit.lm.q$coefficients)[2] <-
   names(fit.lm.main$coefficients)[2] <-
   names(fit.lm.int$coefficients)[2] <-
   names(fit.glm$coefficients)[2] <-
@@ -166,22 +164,23 @@ names(fit.lm.int$coefficients)[3] <-
   'd'
 
 names(fit.mean$coefficients) <- 'b0'
-names(fit.quad$coefficients) <- c('b1', 'b2')
+names(fit.quad$coefficients) <- 
+  names(fit.quad.raw$coefficients) <-
+  c('b1', 'b2')
 
 # aggregate the fits
 fits <- list(lm = fit.lm,
-             lm.q = fit.lm.q,
              lm.main = fit.lm.main,
              lm.int = fit.lm.int,
              glm = fit.glm,
              glm.main = fit.glm.main,
              glm.int = fit.glm.int,
              mean = fit.mean,
-             quad = fit.quad)
+             quad = fit.quad,
+             quad.raw = fit.quad.raw)
 
 # test null hypothesis of slope b (2nd parameter) being equal to 1 (function default)
 ttest <- list(lm = ttest(fit.lm, 2),
-              lm.q = ttest(fit.lm.q, 2),
               lm.main = ttest(fit.lm.main, 2),
               lm.int = ttest(fit.lm.int, 2),
               glm = ttest(fit.glm, 2),

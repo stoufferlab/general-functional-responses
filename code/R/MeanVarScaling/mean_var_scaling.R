@@ -12,7 +12,7 @@ dataset_details <- read.csv(
 
 # Run on both types of datasets?
 types <- c("One_Predator_One_Prey", "One_Predator_Two_Prey")
-# types <- c("One_Predator_One_Prey")
+types <- c("One_Predator_One_Prey")
 
 # Initiate counts of datasets that were fit
 cnts <- cntsof <- c(0, 0)

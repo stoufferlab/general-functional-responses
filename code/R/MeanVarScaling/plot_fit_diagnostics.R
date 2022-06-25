@@ -18,12 +18,12 @@ for(i in seq_along(ffr.fits)){
   fits <- ffr.fits[[i]]$fits
   for(m in seq_along(fits)){
     resids <- residuals(fits[[m]])
-    pred <- predict(fits[[m]])
+    pred <- fitted(fits[[m]])
     # obs <- fits[[m]]$model[, grep('.var$', names(fits[[m]]$model))]
     wts <- fits[[m]]$model[, grep('weights', names(fits[[m]]$model))]
     plot(pred,
          resids,
-         xlab = 'Predicted',
+         xlab = 'Fitted',
          ylab = 'Residuals', 
          main = paste0(ffr.fits[[i]]$study.info$datasetName, '\n',
                        names(fits)[m]))
@@ -54,12 +54,12 @@ for(i in seq_along(ffr.fits)){
   for(p in c(1,2)){
     for(m in seq_along(fits)){
       resids <- residuals(fits[[m]][[p]])
-      pred <- predict(fits[[m]][[p]], type = 'response')
+      pred <- fitted(fits[[m]][[p]])
       # obs <- fits[[m]][[p]]$model[, grep('.var$', names(fits[[m]][[p]]$model))]
       wts <- fits[[m]][[p]]$model[, grep('weights', names(fits[[m]][[p]]$model))]
       plot(pred,
            resids,
-           xlab = 'Predicted', 
+           xlab = 'Fitted', 
            ylab = 'Residuals',
            main = paste0(ffr.fits[[i]]$study.info$datasetName, 
                          ' Prey ', p,

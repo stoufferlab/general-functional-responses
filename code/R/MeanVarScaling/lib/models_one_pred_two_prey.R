@@ -113,14 +113,25 @@ fit.mean.2 <- lm(Nconsumed.MainPrey.var ~ 1,
 
 fit.quad.1 <- lm(Nconsumed.MainPrey.var ~
                  -1 +
-                 poly(Nconsumed.MainPrey.mean, 2, raw = TRUE),
+                 poly(Nconsumed.MainPrey.mean, 2),
                data = dat1,
                weights = dat1$weights)
 fit.quad.2 <- lm(Nconsumed.MainPrey.var ~
                  -1 +
-                 poly(Nconsumed.MainPrey.mean, 2, raw = TRUE),
+                 poly(Nconsumed.MainPrey.mean, 2),
                data = dat2,
                weights = dat2$weights)
+
+fit.quad.raw.1 <- lm(Nconsumed.MainPrey.var ~
+                   -1 +
+                   poly(Nconsumed.MainPrey.mean, 2, raw = TRUE),
+                 data = dat1,
+                 weights = dat1$weights)
+fit.quad.raw.2 <- lm(Nconsumed.MainPrey.var ~
+                   -1 +
+                   poly(Nconsumed.MainPrey.mean, 2, raw = TRUE),
+                 data = dat2,
+                 weights = dat2$weights)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Rename the coefficients (causes problems for glm.confint() )
@@ -167,6 +178,8 @@ names(fit.mean.1$coefficients) <-
   'b0'
 names(fit.quad.1$coefficients) <- 
   names(fit.quad.2$coefficients) <-
+  names(fit.quad.raw.1$coefficients) <- 
+  names(fit.quad.raw.2$coefficients) <-
   c('b1', 'b2')
 
 
@@ -186,7 +199,9 @@ fits <- list(lm = list(prey1 = fit.lm.1,
              mean = list(prey1 = fit.mean.1,
                          prey2 = fit.mean.2),
              quad = list(prey1 = fit.quad.1,
-                         prey2 = fit.quad.2)
+                         prey2 = fit.quad.2),
+             quad.raw = list(prey1 = fit.quad.raw.1,
+                             prey2 = fit.quad.raw.2)
              )
 
 
